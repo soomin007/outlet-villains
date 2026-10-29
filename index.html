@@ -556,20 +556,57 @@
       flex: none;
     }
 
-    /* 장면 아래 빈자리에 늘 보이는 되돌리기, 처음부터, 설정 키 안내. 키보드가 있는 화면에서만 보인다. */
-    .key-legend {
-      display: none;
-      flex: none;
-      justify-content: center;
-      gap: 22px;
-      margin-top: 10px;
-      font-size: 14px;
-      color: #c8c4bf;
-    }
-
     @media (hover: hover) and (pointer: fine) {
       .pad { display: none; }
-      .key-legend { display: flex; }
+    }
+
+    /* 조작법 안내. 판 오른쪽 옆벽(장면 x 774~960)은 어느 배경에서나 늘 비는 자리라 거기에 둔다(2026-10-29 사용자 요청).
+       Baba Is You처럼 글자마다 0.2초씩 세 모양을 오가며 꼬물거린다. 키보드가 없는 화면에서는 방향 버튼이 대신하므로 숨긴다. */
+    .side-keys {
+      position: absolute;
+      left: 782px;
+      top: 150px;
+      width: 172px;
+      z-index: 225;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      pointer-events: none;
+      color: #f6efe2;
+      font-size: 17px;
+      font-weight: 900;
+      text-shadow: 0 2px 0 #111, 2px 0 0 #111, -2px 0 0 #111, 0 -2px 0 #111;
+    }
+
+    .side-keys .key {
+      display: inline-block;
+      min-width: 30px;
+      margin-right: 8px;
+      padding-left: 6px;
+      padding-right: 6px;
+      border: 2px solid #f6efe2;
+      border-bottom-width: 4px;
+      border-radius: 6px;
+      background: rgba(17, 17, 17, 0.6);
+      box-shadow: 0 0 0 2px #111;
+      font-size: 14px;
+      line-height: 22px;
+      text-align: center;
+    }
+
+    .wob {
+      display: inline-block;
+      animation: wobble 0.6s steps(1) infinite;
+    }
+
+    @keyframes wobble {
+      0% { transform: translate(0, 0) rotate(0); }
+      33% { transform: translate(0.6px, -0.8px) rotate(-3deg); }
+      66% { transform: translate(-0.6px, 0.5px) rotate(2.5deg); }
+    }
+
+    @media (hover: none), (pointer: coarse) {
+      .side-keys { display: none; }
     }
 
     .pad .btn {
@@ -955,13 +992,9 @@
           <div id="flash" class="flash"></div>
           <div id="portrait" class="portrait"></div>
           <div id="next-cue" class="next-cue" hidden>▶</div>
+          <div id="side-keys" class="side-keys" aria-hidden="true"></div>
         </div>
       </div>
-    </div>
-    <div class="key-legend" aria-hidden="true">
-      <span class="nw"><kbd>Z</kbd> 되돌리기</span>
-      <span class="nw"><kbd>R</kbd> 처음부터</span>
-      <span class="nw"><kbd>Esc</kbd> 설정</span>
     </div>
     <div id="pad" class="pad">
       <button class="btn" type="button" data-dir="up" aria-label="위">▲</button>
@@ -1476,7 +1509,7 @@
         // 손님은 이웃한 테이블 쪽을 본다(그림 key: customer-up/down/left/right). 그림이 오기 전에는 상자로 보인다.
         level.map.forEach((line, y) => [...line].forEach((char, x) => {
           if (char === 'o') {
-            const table = addSprite('cafe-table', TILE, TILE * 1.1, colors.table);
+            const table = addSprite(variantKey('cafe-table', '', x, y), TILE, TILE * 1.1, colors.table);
             table.classList.add('kind-table');
             placeOnTile(table, x, y, TILE, TILE * 1.1);
           } else if (char === 'q') {
@@ -1895,6 +1928,18 @@
         Sound.setVolumes();
       }
 
+      // 오른쪽 옆벽의 조작법 안내. 글자를 하나씩 감싸고 시작 시점을 엇갈려, 글자마다 따로 꼬물거리게 한다.
+      function buildSideKeys() {
+        const lines = [['↑↓←→', '이동'], ['Z', '되돌리기'], ['R', '처음부터'], ['Esc', '설정']];
+        let order = 0;
+        const wobbly = (text) => [...text].map((char) => {
+          order += 1;
+          return `<span class="wob" style="animation-delay:-${(order * 0.13) % 0.6}s">${char}</span>`;
+        }).join('');
+        document.getElementById('side-keys').innerHTML = lines
+          .map(([key, word]) => `<div><span class="key">${wobbly(key)}</span>${wobbly(word)}</div>`).join('');
+      }
+
       // 설정창. 연출 중에는 그림체를 바꾸거나 프롤로그를 다시 볼 수 없다(연출이 그리던 그림이 섞인다).
       function openSettings() {
         ui.settings.hidden = false;
@@ -2018,6 +2063,7 @@
 
       applySettings();
       preloadTheme();
+      buildSideKeys();
       startLevel(0);
       fitScene();
     })();

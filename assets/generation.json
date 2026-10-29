@@ -5598,6 +5598,766 @@
         ],
         "note": "Other work changed source during generation. Codex preserved source and did not edit or roll it back."
       }
+    },
+    {
+      "id": "cafe-table-variants-and-floor-decor-2026-10-29",
+      "date": "2026-10-29",
+      "tool": "built-in image_gen",
+      "request": "Three direction-independent tabletop arrangements and three noninteractive floor decor groups per theme. Replace existing cafe-table; add five keys per theme.",
+      "assets": [
+        {
+          "theme": "a",
+          "key": "cafe-table",
+          "file": "assets/a/cafe-table.png",
+          "prompt": "Use case: stylized-concept. ONE separate transparent noninteractive Korean cafe background game prop, not a sheet.\nImage1 is existing theme A cafe-table reference for sparse thick black contours, flat gray materials and RPG Maker slightly overhead camera. Do NOT copy laptop or text. Strict black/white/neutral-gray only, NO red or green, plant leaves gray too. Few bold lines and large readable shapes, no texture/hatching/clutter. No white sticker border, glow, cast/floor shadow, people, words, digits, logos or symbols. Genuine RGBA transparent background including open leg gaps. Slightly overhead orthographic RPG Maker view, horizontal objects parallel to screen, no isometric diamond.\nDraw a square cafe table carrying ONLY TWO small round handleless ceramic coffee cups, spaced apart on top. No laptop, books, menus, handles, saucer lettering or steam symbols. Cup openings circular/oval and neutral orientation, so any of four seated sides is equally valid.\nThis is a horizontally REPEATABLE table segment: tabletop extends ALL THE WAY through BOTH canvas sides, leftx0 to rightx192, so adjacent192px sprites join into ONE LONG continuous tabletop. No side margins, no tapered/trapezoid ends, no vertical black endcaps at left/right seam. Full-width RECTANGULAR top plane with straight horizontal back and front edges, visible shallow front apron, side edges parallel to screen. Four legs only at the four CORNERS, no middle supports or stretchers. No overhang pieces extending outside canvas except tabletop continuation.\nExact intended192x212 transparent canvas ratio. Put tabletop backedge at approximatelyy62 and frontedge at y122, front apron to y136. Four gray leg posts at corners span to ground y212. Keep table geometry clean, symmetric and simple. Only small cups rise above surface, lowest cup near y70. ALL four table leg tips at bottom y212. The width of tabletop is the ENTIRE192px, not160px. Do not leave transparent side gutters along tabletop.",
+          "references": [
+            "assets/a/cafe-table.png"
+          ],
+          "referenceVersionNotes": "Existing cafe-table reference is the old laptop/table image BEFORE replacement.",
+          "output": {
+            "file": "assets/a/cafe-table.png",
+            "nativeSize": [
+              1194,
+              1317
+            ],
+            "sourceAlphaBox": [
+              0,
+              402,
+              1194,
+              1303
+            ],
+            "canvas": [
+              192,
+              212
+            ],
+            "objectSize": [
+              192,
+              145
+            ],
+            "placement": [
+              0,
+              67
+            ],
+            "visibleBox": [
+              0,
+              67,
+              192,
+              212
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 211,
+            "nonGrayChannelMaxRange": 6,
+            "fractionChannelRangeOver15": 0.0,
+            "bothTableSideEdgesOpaqueYRuns": [
+              [
+                67,
+                117
+              ]
+            ],
+            "PNGTextMetadata": [],
+            "processing": "Preserved native alpha. Trim transparent margins and uniformly scale table to192px width, decor to about134px width/maxheight228px. Center horizontally and align lowest edge to canvas floor. No code changes to lines/colors/shapes."
+          },
+          "outputSha256": "ec74f080b09c349b2041e129f5109b1a08bfb53aef943b53cbb961af0e19c4bf",
+          "replacedFileSha256": "7f0eb1c502632e42c2cc507dd9e402cd500821b9dbcfae84f8e7c9bd0c7191e1"
+        },
+        {
+          "theme": "a",
+          "key": "decor",
+          "file": "assets/a/decor.png",
+          "prompt": "Use case: stylized-concept. ONE separate transparent noninteractive Korean cafe background game prop, not a sheet.\nImage1 is existing theme A cafe-table reference for sparse thick black contours, flat gray materials and RPG Maker slightly overhead camera. Do NOT copy laptop or text. Strict black/white/neutral-gray only, NO red or green, plant leaves gray too. Few bold lines and large readable shapes, no texture/hatching/clutter. No white sticker border, glow, cast/floor shadow, people, words, digits, logos or symbols. Genuine RGBA transparent background including open leg gaps. Slightly overhead orthographic RPG Maker view, horizontal objects parallel to screen, no isometric diamond.\nDraw ONE tall potted cafe floor plant: a plain round tapered pot and few broad oval leaves arranged in large readable masses, simple central stems, no tiny veins, no flowers. All leaves light/medium NEUTRAL GRAY, not green. Pot mediumgray. Natural tall silhouette, clearly a floor houseplant, not a tree or Christmas tree. Canvas192x240 ratio4:5; plant+pot maximum width about134px (70%), combined heightabout220px, centered with side margins29px; pot bottom touches groundy240. No tabletop or additional pot, no person, no ground shadow.",
+          "references": [
+            "assets/a/cafe-table.png"
+          ],
+          "referenceVersionNotes": "Existing cafe-table reference is the old laptop/table image BEFORE replacement.",
+          "output": {
+            "file": "assets/a/decor.png",
+            "nativeSize": [
+              1122,
+              1402
+            ],
+            "sourceAlphaBox": [
+              172,
+              51,
+              952,
+              1369
+            ],
+            "canvas": [
+              192,
+              240
+            ],
+            "objectSize": [
+              134,
+              226
+            ],
+            "placement": [
+              29,
+              14
+            ],
+            "visibleBox": [
+              29,
+              14,
+              163,
+              240
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 239,
+            "nonGrayChannelMaxRange": 3,
+            "fractionChannelRangeOver15": 0.0,
+            "bothTableSideEdgesOpaqueYRuns": [],
+            "PNGTextMetadata": [],
+            "processing": "Preserved native alpha. Trim transparent margins and uniformly scale table to192px width, decor to about134px width/maxheight228px. Center horizontally and align lowest edge to canvas floor. No code changes to lines/colors/shapes."
+          },
+          "outputSha256": "1090f5bf7e0c85eb49fb572465ca599881b3171d84a298aec6ce20fab55003c2"
+        },
+        {
+          "theme": "a",
+          "key": "decor3",
+          "file": "assets/a/decor3.png",
+          "prompt": "Use case: precise-object-edit. Edit Image1 gray coat-rack prop, same coat and rack identity/style. Image2 grayscale cafe game line style only.\nMain correction: current silhouette is MUCH TOO TALL AND NARROW. Redesign its proportions to a BROADER, COMPACT coat rack with a broad plain outercoat, wider hook span and wider-spread three-foot base. Reduce excessively long empty pole sections. Required object bounding box width134px and height220px on192x240 canvas; width/height ratio0.61, NOT the current ratio0.39. Therefore at220px height it must visibly span134px. Side margins29px and top20px, base touchesy240. Do not merely shrink the same thin shape or use different x/y scale.\nONE empty coat hangs from a hook. Clearly coat on rack, NOT a person/mannequin, no head/hands/shoes. Stable compact three-foot floor stand. Same sparse thick black contours, mediumgray coat and darkgray rack. No red/green or colored pixels, logo/text/numbers/symbols. No glow, floor/cast shadow or white sticker border. Genuine transparent RGBA. One completeprop, slightly overhead RPG Maker camera.",
+          "references": [
+            "generated-intermediate/initial-narrow-decor3 (not committed)",
+            "assets/a/cafe-table.png"
+          ],
+          "referenceVersionNotes": "Selected new table source is used; decor3 also uses its narrow first attempt for shape editing.",
+          "priorInstructions": {
+            "prompt": "Use case: stylized-concept. ONE separate transparent noninteractive Korean cafe background game prop, not a sheet.\nImage1 is existing theme A cafe-table reference for sparse thick black contours, flat gray materials and RPG Maker slightly overhead camera. Do NOT copy laptop or text. Strict black/white/neutral-gray only, NO red or green, plant leaves gray too. Few bold lines and large readable shapes, no texture/hatching/clutter. No white sticker border, glow, cast/floor shadow, people, words, digits, logos or symbols. Genuine RGBA transparent background including open leg gaps. Slightly overhead orthographic RPG Maker view, horizontal objects parallel to screen, no isometric diamond.\nDraw ONE freestanding cafe COAT RACK with a simple upright pole, a few rounded hooks and stable compact three-foot base, ONE plain knee-length coat hanging naturally from a hook or single hanger. Empty coat has relaxed sleeves and collar, not a person or mannequin. Coat mediumgray, rack darkgray, no patterned fabric or buttons with marks. Simple readable coat-and-stand silhouette, no shoes, hands, head or other props. Canvas192x240 ratio4:5; coat+rack maximumwidth about134px (70%) centered with29px side margins; combinedheight about220px, rack feet reach groundy240. Slightly overhead view and sparse thick contours like reference. No tabletop or ground shadow.",
+            "references": [
+              "assets/a/cafe-table.png"
+            ],
+            "note": "First coat rack was too thin:90px wide at228px high. Rejected and regenerated with broader coat/hooks/base."
+          },
+          "output": {
+            "file": "assets/a/decor3.png",
+            "nativeSize": [
+              1122,
+              1402
+            ],
+            "sourceAlphaBox": [
+              294,
+              253,
+              905,
+              1292
+            ],
+            "canvas": [
+              192,
+              240
+            ],
+            "objectSize": [
+              134,
+              228
+            ],
+            "placement": [
+              29,
+              12
+            ],
+            "visibleBox": [
+              29,
+              12,
+              163,
+              240
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 239,
+            "nonGrayChannelMaxRange": 5,
+            "fractionChannelRangeOver15": 0.0,
+            "bothTableSideEdgesOpaqueYRuns": [],
+            "PNGTextMetadata": [],
+            "processing": "Preserved native alpha. Trim transparent margins and uniformly scale table to192px width, decor to about134px width/maxheight228px. Center horizontally and align lowest edge to canvas floor. No code changes to lines/colors/shapes."
+          },
+          "outputSha256": "17fa0cf75e9d5b538a7532f4914f44312333624cb932a486fce92c570351e373"
+        },
+        {
+          "theme": "a",
+          "key": "decor2",
+          "file": "assets/a/decor2.png",
+          "prompt": "Use case: stylized-concept. ONE separate transparent noninteractive Korean cafe background game prop, not a sheet.\nImage1 is existing theme A cafe-table reference for sparse thick black contours, flat gray materials and RPG Maker slightly overhead camera. Do NOT copy laptop or text. Strict black/white/neutral-gray only, NO red or green, plant leaves gray too. Few bold lines and large readable shapes, no texture/hatching/clutter. No white sticker border, glow, cast/floor shadow, people, words, digits, logos or symbols. Genuine RGBA transparent background including open leg gaps. Slightly overhead orthographic RPG Maker view, horizontal objects parallel to screen, no isometric diamond.\nDraw ONE grouped cafe floor prop: an upright small hard-shell TRAVEL SUITCASE with a raised telescopic handle and small wheels, plus ONE plain shopping bag with simple loop handles standing directly beside it. No printed details, straps in clutter, travel stickers, logos, letters or tag numbers. Suitcase medium/dark gray, bag light gray. Readable stepped silhouette of wheeled luggage and bag at a glance, no people or chair. Canvas192x240 ratio4:5, grouped maximumwidth about134px (70%), centered with29pxside margins, luggage+handle about210px tall; wheels and bag base contact groundy240. Match reference lineweight and sparse style, no tabletop or floor shadow.",
+          "references": [
+            "assets/a/cafe-table.png"
+          ],
+          "referenceVersionNotes": "Existing cafe-table reference is the old laptop/table image BEFORE replacement.",
+          "output": {
+            "file": "assets/a/decor2.png",
+            "nativeSize": [
+              1122,
+              1402
+            ],
+            "sourceAlphaBox": [
+              150,
+              124,
+              1000,
+              1295
+            ],
+            "canvas": [
+              192,
+              240
+            ],
+            "objectSize": [
+              134,
+              185
+            ],
+            "placement": [
+              29,
+              55
+            ],
+            "visibleBox": [
+              29,
+              55,
+              163,
+              240
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 239,
+            "nonGrayChannelMaxRange": 5,
+            "fractionChannelRangeOver15": 0.0,
+            "bothTableSideEdgesOpaqueYRuns": [],
+            "PNGTextMetadata": [],
+            "processing": "Preserved native alpha. Trim transparent margins and uniformly scale table to192px width, decor to about134px width/maxheight228px. Center horizontally and align lowest edge to canvas floor. No code changes to lines/colors/shapes."
+          },
+          "outputSha256": "d5bb0ebe50e12a6ff28f4cb6d1fa88c38d0516283cd756ac0bedb7a3af50a3cb"
+        },
+        {
+          "theme": "a",
+          "key": "cafe-table2",
+          "file": "assets/a/cafe-table2.png",
+          "prompt": "Edit this original HIGH RESOLUTION image. Output same1194x1317 portrait dimensions and transparent background. Use the existing table pixels as fixed. Preserve the exact table as drawn: horizontal rear tabletop line at native y402, apron bottom near y713, tabletop extends x0 to x1194, all leg feet near y1303. Do not move, resize, shorten, deepen, reframe or redraw the table. Do not change lineweight, perspective, gray fills, canvas or crop. Only remove the two coffee cups and add a small ROUND individual serving of layered cake on a round plate in the left cup area, plus one plain handleless round coffee cup in the right cup area. Keep the exact table edges unchanged behind the new small objects. No laptop/books or directional reading objects. Strict neutral grayscale only. No letters/numbers/logos, people, shadow on floor, white outline or glow. This is a precise object replacement on the original table, NOT a new table illustration.",
+          "references": [
+            "assets/a/cafe-table.png (full-resolution generated source before canvas fit)"
+          ],
+          "referenceVersionNotes": "Selected new table source is used; decor3 also uses its narrow first attempt for shape editing.",
+          "discardedAttempts": [
+            {
+              "prompt": "Use case: precise-object-edit. Image1 is the EDIT TARGET: new horizontally repeatable cafe table. Keep EXACT same table camera/geometry, FOUR CORNER legs, transparent margins, full-width tabletop through both edges, black lines and grayscale colors. Change ONLY objects on top as described below. No laptop/book/text/object requiring a seated user's direction. All top items are round and have no handle or facing-side dependence.\n192x212 ratio transparent PNG, exact same positions/proportions as image1. Table top goes full leftx0 to rightx192 with NO side gutters or vertical endcap seams. Four feet stay at ground y212. Backedge, frontedge and apron heights must stay EXACTLY aligned to Image1 for seamless side-by-side table segments. No new middle legs or stretcher. No floor/cast shadow, white sticker outline, glow, background, words/digits/logo/symbols or people. Sparse thick black lines like image1, black white neutralgray only.\nReplace the TWO cups with ONE small round serving of layer cake on a ROUND plate, plus ONE handleless round coffee cup. Cake is a modest single serving, cylindrical/round, not a full birthday cake; flat top and simple layer bands, no candle, fork, letters or garnish clutter. All objects read equally well for a customer seated on any of four sides. Keep plenty of tabletop visible. Plate left of center, cup right of center, both modest size and within original cups' area. Keep table itself unchanged.",
+              "references": [
+                "assets/a/cafe-table.png"
+              ],
+              "note": "Initial tabletop rear edges did not align to first table."
+            },
+            {
+              "prompt": "Use case: precise-object-edit. Image1 is the EDIT TARGET and REQUIRED TABLE GEOMETRY. Image2 provides ONLY the small objects to put on its top. ONE transparent grayscale table game sprite.\nStart from Image1 exactly. Its tabletop fills full width. Keep ALL TABLE PIXELS/geometry: backedge y67, front-apron bottom y117, legs and floor y212 on logical192x212 canvas. Preserve top-plane DEPTH50px. DO NOT shift table, lower rear edge, shorten tabletop depth, or resize chair legs to fit props. Table backedge must remain at y67, not image2's lower rear edge. Side-by-side tables must have a SINGLE STRAIGHT REAR HORIZONTAL LINE and straight front edge, without steps.\nRemove ONLY Image1's two cups and place ONLY Image2's round single-serving cake on round plate plus ONE handleless coffee cup onto it. Use exactly the same sparse black lines and neutral grays, props small. Flowers may extend upward into transparent space ABOVE y67, but the tabletop backedge UNDER them stays at y67.\n192x212 aspect, genuine transparency, tabletop width192 touching both sides, FOUR corner legs reaching floor y212, no endcap seams or gutters. Keep Image1 table geometry unchanged. No laptop/book/people, no text/numbers/logos, no sticker border/glow/cast-floor shadow. One sprite only.",
+              "references": [
+                "assets/a/cafe-table.png",
+                "assets/a/cafe-table2.png"
+              ],
+              "note": "Logical-size reference edit worsened tabletop alignment. Not selected. Full-resolution original source edit selected instead."
+            }
+          ],
+          "output": {
+            "file": "assets/a/cafe-table2.png",
+            "nativeSize": [
+              1194,
+              1317
+            ],
+            "sourceAlphaBox": [
+              0,
+              401,
+              1194,
+              1304
+            ],
+            "canvas": [
+              192,
+              212
+            ],
+            "objectSize": [
+              192,
+              145
+            ],
+            "placement": [
+              0,
+              67
+            ],
+            "visibleBox": [
+              0,
+              67,
+              192,
+              212
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 211,
+            "nonGrayChannelMaxRange": 4,
+            "fractionChannelRangeOver15": 0.0,
+            "bothTableSideEdgesOpaqueYRuns": [
+              [
+                67,
+                117
+              ]
+            ],
+            "PNGTextMetadata": [],
+            "processing": "Preserved native alpha. Trim transparent margins and uniformly scale table to192px width, decor to about134px width/maxheight228px. Center horizontally and align lowest edge to canvas floor. No code changes to lines/colors/shapes."
+          },
+          "outputSha256": "b3f7e3faffd27ccb8707c800a46027fb6ba839eaa29564f28eb8a4d2e06e1216"
+        },
+        {
+          "theme": "a",
+          "key": "cafe-table3",
+          "file": "assets/a/cafe-table3.png",
+          "prompt": "Edit this original HIGH RESOLUTION image. Output same1194x1317 portrait dimensions and transparent background. Use the existing table pixels as fixed. Preserve the exact table as drawn: horizontal rear tabletop line at native y402, apron bottom near y713, tabletop extends x0 to x1194, all leg feet near y1303. Do not move, resize, shorten, deepen, reframe or redraw the table. Do not change lineweight, perspective, gray fills, canvas or crop. Only remove the two coffee cups and add a small ROUND cylindrical napkin holder with blank napkins in the left cup area, plus a small round vase with three simple gray flowers in the right cup area. Keep the exact table edges unchanged behind the new small objects. No laptop/books or directional reading objects. Strict neutral grayscale only. No letters/numbers/logos, people, shadow on floor, white outline or glow. This is a precise object replacement on the original table, NOT a new table illustration.",
+          "references": [
+            "assets/a/cafe-table.png (full-resolution generated source before canvas fit)"
+          ],
+          "referenceVersionNotes": "Selected new table source is used; decor3 also uses its narrow first attempt for shape editing.",
+          "discardedAttempts": [
+            {
+              "prompt": "Use case: precise-object-edit. Image1 is the EDIT TARGET: new horizontally repeatable cafe table. Keep EXACT same table camera/geometry, FOUR CORNER legs, transparent margins, full-width tabletop through both edges, black lines and grayscale colors. Change ONLY objects on top as described below. No laptop/book/text/object requiring a seated user's direction. All top items are round and have no handle or facing-side dependence.\n192x212 ratio transparent PNG, exact same positions/proportions as image1. Table top goes full leftx0 to rightx192 with NO side gutters or vertical endcap seams. Four feet stay at ground y212. Backedge, frontedge and apron heights must stay EXACTLY aligned to Image1 for seamless side-by-side table segments. No new middle legs or stretcher. No floor/cast shadow, white sticker outline, glow, background, words/digits/logo/symbols or people. Sparse thick black lines like image1, black white neutralgray only.\nReplace the TWO cups with ONE small ROUND CYLINDRICAL napkin dispenser and ONE small ROUND vase carrying two or three simple small flowers. Napkin holder is low round unmarked cylinder with a tiny central opening and a few folded blank napkins emerging, no rectangular menu-like panel or slot facing one customer. Vase plain rounded shape, flowers simple round petals/gray leaves, no detailed botanical lines. Holder left of center, vase right of center, only modest height above tabletop. Keep table itself unchanged.",
+              "references": [
+                "assets/a/cafe-table.png"
+              ],
+              "note": "Initial tabletop rear edges did not align to first table."
+            },
+            {
+              "prompt": "Use case: precise-object-edit. Image1 is the EDIT TARGET and REQUIRED TABLE GEOMETRY. Image2 provides ONLY the small objects to put on its top. ONE transparent grayscale table game sprite.\nStart from Image1 exactly. Its tabletop fills full width. Keep ALL TABLE PIXELS/geometry: backedge y67, front-apron bottom y117, legs and floor y212 on logical192x212 canvas. Preserve top-plane DEPTH50px. DO NOT shift table, lower rear edge, shorten tabletop depth, or resize chair legs to fit props. Table backedge must remain at y67, not image2's lower rear edge. Side-by-side tables must have a SINGLE STRAIGHT REAR HORIZONTAL LINE and straight front edge, without steps.\nRemove ONLY Image1's two cups and place ONLY Image2's round napkin cylinder with blank folded napkins plus small round vase with simple flowers onto it. Use exactly the same sparse black lines and neutral grays, props small. Flowers may extend upward into transparent space ABOVE y67, but the tabletop backedge UNDER them stays at y67.\n192x212 aspect, genuine transparency, tabletop width192 touching both sides, FOUR corner legs reaching floor y212, no endcap seams or gutters. Keep Image1 table geometry unchanged. No laptop/book/people, no text/numbers/logos, no sticker border/glow/cast-floor shadow. One sprite only.",
+              "references": [
+                "assets/a/cafe-table.png",
+                "assets/a/cafe-table3.png"
+              ],
+              "note": "Logical-size reference edit worsened tabletop alignment. Not selected. Full-resolution original source edit selected instead."
+            }
+          ],
+          "output": {
+            "file": "assets/a/cafe-table3.png",
+            "nativeSize": [
+              1194,
+              1317
+            ],
+            "sourceAlphaBox": [
+              0,
+              317,
+              1194,
+              1302
+            ],
+            "canvas": [
+              192,
+              212
+            ],
+            "objectSize": [
+              192,
+              158
+            ],
+            "placement": [
+              0,
+              54
+            ],
+            "visibleBox": [
+              0,
+              54,
+              192,
+              212
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 211,
+            "nonGrayChannelMaxRange": 5,
+            "fractionChannelRangeOver15": 0.0,
+            "bothTableSideEdgesOpaqueYRuns": [
+              [
+                68,
+                117
+              ]
+            ],
+            "PNGTextMetadata": [],
+            "processing": "Preserved native alpha. Trim transparent margins and uniformly scale table to192px width, decor to about134px width/maxheight228px. Center horizontally and align lowest edge to canvas floor. No code changes to lines/colors/shapes."
+          },
+          "outputSha256": "002a1d90d97cc1d3008bf9883e6bf1b7b5de509c1d41389c4a6b92e6814d1cf3"
+        },
+        {
+          "theme": "b",
+          "key": "cafe-table",
+          "file": "assets/b/cafe-table.png",
+          "prompt": "Style-transfer ONLY. Image1 is the full-resolution EDIT TARGET cafe-table, keep exact same canvas dimensions, object geometry, contours, silhouette, framing and transparency. Image2 is OLD B cafe table for muted warm palette and line style ONLY, DO NOT copy its laptop or table geometry.\nChange ONLY gray fills to subdued theme B colors. Tabletop muted beige around#b7a58f, apron/legs muted brown around#8b7661. Plain round cups/plates/napkin holder/vase cream or warmgray. Cake pale cream and gray-brown layer bands. Flower petals cream, leaves gray-taupe. Keep the exact objects/count and round shapes of Image1; NO laptop/books. Critical: preserve full-width tabletop left/right boundary and rear line near native y402, apron bottom near y713, leg feet near y1303. Do not alter table DEPTH or move rear/front lines. Adjacent table segments must join with one horizontal edge.\nNO mint, orange, or dark green anywhere; those are interaction/character colors. Quiet background object, sparse bold black contours, no extra lines/texture/pattern. Preserve original alpha and transparent gaps. No background/floor, cast/floor shadow, sticker outline, glow, person, text/digits/logo/symbols. ONE asset, not a sheet.\nSame portrait1194x1317-ish canvas and full-width table geometry as Image1. Final export192x212, table width192 and chair-free feet at y212.",
+          "references": [
+            "assets/a/cafe-table.png (full-resolution generated source before canvas fit)",
+            "assets/b/cafe-table.png"
+          ],
+          "referenceVersionNotes": "Theme B cafe-table reference is the old laptop/table image BEFORE replacement. Full-resolution theme A target is the selected new image.",
+          "output": {
+            "file": "assets/b/cafe-table.png",
+            "nativeSize": [
+              1194,
+              1317
+            ],
+            "sourceAlphaBox": [
+              0,
+              402,
+              1194,
+              1301
+            ],
+            "canvas": [
+              192,
+              212
+            ],
+            "objectSize": [
+              192,
+              145
+            ],
+            "placement": [
+              0,
+              67
+            ],
+            "visibleBox": [
+              0,
+              67,
+              192,
+              212
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 211,
+            "nonGrayChannelMaxRange": 63,
+            "fractionChannelRangeOver15": 0.9896839332748024,
+            "bothTableSideEdgesOpaqueYRuns": [
+              [
+                67,
+                117
+              ]
+            ],
+            "PNGTextMetadata": [],
+            "processing": "Preserved native alpha. Trim transparent margins and uniformly scale table to192px width, decor to about134px width/maxheight228px. Center horizontally and align lowest edge to canvas floor. No code changes to lines/colors/shapes."
+          },
+          "outputSha256": "df0d9c6d86e72c37074a69b5c798e6b92b54885a28e65157aed9fc74097390f8",
+          "replacedFileSha256": "f99e3bb94c54532d4e16ef1f493cd2d6b5058b9243a4a15ae4d624c74b36eb07"
+        },
+        {
+          "theme": "b",
+          "key": "decor",
+          "file": "assets/b/decor.png",
+          "prompt": "Style-transfer ONLY. Image1 is the full-resolution EDIT TARGET decor, keep exact same canvas dimensions, object geometry, contours, silhouette, framing and transparency. Image2 is OLD B cafe table for muted warm palette and line style ONLY, DO NOT copy its laptop or table geometry.\nChange ONLY gray fills to subdued theme B colors. Plant leaves warmgray/taupe, NEVER green. Pot muted beige/graybrown. Keep exactly same few broad leaves and plain pot silhouette.\nNO mint, orange, or dark green anywhere; those are interaction/character colors. Quiet background object, sparse bold black contours, no extra lines/texture/pattern. Preserve original alpha and transparent gaps. No background/floor, cast/floor shadow, sticker outline, glow, person, text/digits/logo/symbols. ONE asset, not a sheet.\nSame full-resolution portrait canvas and bounding shape as Image1. Final export192x240, about134px wide, floor contacty240. Do not make prop thinner or taller.",
+          "references": [
+            "assets/a/decor.png (full-resolution generated source before canvas fit)",
+            "assets/b/cafe-table.png"
+          ],
+          "referenceVersionNotes": "Theme B cafe-table reference is the old laptop/table image BEFORE replacement. Full-resolution theme A target is the selected new image.",
+          "output": {
+            "file": "assets/b/decor.png",
+            "nativeSize": [
+              1122,
+              1402
+            ],
+            "sourceAlphaBox": [
+              172,
+              51,
+              949,
+              1369
+            ],
+            "canvas": [
+              192,
+              240
+            ],
+            "objectSize": [
+              134,
+              227
+            ],
+            "placement": [
+              29,
+              13
+            ],
+            "visibleBox": [
+              29,
+              13,
+              163,
+              240
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 239,
+            "nonGrayChannelMaxRange": 87,
+            "fractionChannelRangeOver15": 0.8483072414590884,
+            "bothTableSideEdgesOpaqueYRuns": [],
+            "PNGTextMetadata": [],
+            "processing": "Preserved native alpha. Trim transparent margins and uniformly scale table to192px width, decor to about134px width/maxheight228px. Center horizontally and align lowest edge to canvas floor. No code changes to lines/colors/shapes."
+          },
+          "outputSha256": "63b043f7f7facbb86097d18ac3fd5288daf009829d1413f64ba169eb6d452ba0"
+        },
+        {
+          "theme": "b",
+          "key": "decor3",
+          "file": "assets/b/decor3.png",
+          "prompt": "Style-transfer ONLY. Image1 is the full-resolution EDIT TARGET decor3, keep exact same canvas dimensions, object geometry, contours, silhouette, framing and transparency. Image2 is OLD B cafe table for muted warm palette and line style ONLY, DO NOT copy its laptop or table geometry.\nChange ONLY gray fills to subdued theme B colors. Coat muted pale navy/slategray, rack muted brown. Keep same broad compact coat-rack silhouette and wide-spread three-foot base.\nNO mint, orange, or dark green anywhere; those are interaction/character colors. Quiet background object, sparse bold black contours, no extra lines/texture/pattern. Preserve original alpha and transparent gaps. No background/floor, cast/floor shadow, sticker outline, glow, person, text/digits/logo/symbols. ONE asset, not a sheet.\nSame full-resolution portrait canvas and bounding shape as Image1. Final export192x240, about134px wide, floor contacty240. Do not make prop thinner or taller.",
+          "references": [
+            "assets/a/decor3.png (full-resolution generated source before canvas fit)",
+            "assets/b/cafe-table.png"
+          ],
+          "referenceVersionNotes": "Theme B cafe-table reference is the old laptop/table image BEFORE replacement. Full-resolution theme A target is the selected new image.",
+          "output": {
+            "file": "assets/b/decor3.png",
+            "nativeSize": [
+              1122,
+              1402
+            ],
+            "sourceAlphaBox": [
+              292,
+              248,
+              910,
+              1292
+            ],
+            "canvas": [
+              192,
+              240
+            ],
+            "objectSize": [
+              134,
+              226
+            ],
+            "placement": [
+              29,
+              14
+            ],
+            "visibleBox": [
+              29,
+              14,
+              163,
+              240
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 239,
+            "nonGrayChannelMaxRange": 93,
+            "fractionChannelRangeOver15": 0.7458705572337554,
+            "bothTableSideEdgesOpaqueYRuns": [],
+            "PNGTextMetadata": [],
+            "processing": "Preserved native alpha. Trim transparent margins and uniformly scale table to192px width, decor to about134px width/maxheight228px. Center horizontally and align lowest edge to canvas floor. No code changes to lines/colors/shapes."
+          },
+          "outputSha256": "ba6e0062035101bce8e651d90d50a8dbdaf4e86b8dcb72f0f6f80ab4b42c4cab"
+        },
+        {
+          "theme": "b",
+          "key": "decor2",
+          "file": "assets/b/decor2.png",
+          "prompt": "Style-transfer ONLY. Image1 is the full-resolution EDIT TARGET decor2, keep exact same canvas dimensions, object geometry, contours, silhouette, framing and transparency. Image2 is OLD B cafe table for muted warm palette and line style ONLY, DO NOT copy its laptop or table geometry.\nChange ONLY gray fills to subdued theme B colors. Suitcase muted pale navy/slategray, shopping bag muted beige. Keep exact case handle, wheels and bag shapes.\nNO mint, orange, or dark green anywhere; those are interaction/character colors. Quiet background object, sparse bold black contours, no extra lines/texture/pattern. Preserve original alpha and transparent gaps. No background/floor, cast/floor shadow, sticker outline, glow, person, text/digits/logo/symbols. ONE asset, not a sheet.\nSame full-resolution portrait canvas and bounding shape as Image1. Final export192x240, about134px wide, floor contacty240. Do not make prop thinner or taller.",
+          "references": [
+            "assets/a/decor2.png (full-resolution generated source before canvas fit)",
+            "assets/b/cafe-table.png"
+          ],
+          "referenceVersionNotes": "Theme B cafe-table reference is the old laptop/table image BEFORE replacement. Full-resolution theme A target is the selected new image.",
+          "output": {
+            "file": "assets/b/decor2.png",
+            "nativeSize": [
+              1122,
+              1402
+            ],
+            "sourceAlphaBox": [
+              148,
+              123,
+              1000,
+              1296
+            ],
+            "canvas": [
+              192,
+              240
+            ],
+            "objectSize": [
+              134,
+              184
+            ],
+            "placement": [
+              29,
+              56
+            ],
+            "visibleBox": [
+              29,
+              56,
+              163,
+              240
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 239,
+            "nonGrayChannelMaxRange": 64,
+            "fractionChannelRangeOver15": 0.8840405185237656,
+            "bothTableSideEdgesOpaqueYRuns": [],
+            "PNGTextMetadata": [],
+            "processing": "Preserved native alpha. Trim transparent margins and uniformly scale table to192px width, decor to about134px width/maxheight228px. Center horizontally and align lowest edge to canvas floor. No code changes to lines/colors/shapes."
+          },
+          "outputSha256": "ce183551f17db83e1a925b895bd3173d1d9a5debc4b015954f5e8b872d414f10"
+        },
+        {
+          "theme": "b",
+          "key": "cafe-table2",
+          "file": "assets/b/cafe-table2.png",
+          "prompt": "Style-transfer ONLY. Image1 is the full-resolution EDIT TARGET cafe-table2, keep exact same canvas dimensions, object geometry, contours, silhouette, framing and transparency. Image2 is OLD B cafe table for muted warm palette and line style ONLY, DO NOT copy its laptop or table geometry.\nChange ONLY gray fills to subdued theme B colors. Tabletop muted beige around#b7a58f, apron/legs muted brown around#8b7661. Plain round cups/plates/napkin holder/vase cream or warmgray. Cake pale cream and gray-brown layer bands. Flower petals cream, leaves gray-taupe. Keep the exact objects/count and round shapes of Image1; NO laptop/books. Critical: preserve full-width tabletop left/right boundary and rear line near native y402, apron bottom near y713, leg feet near y1303. Do not alter table DEPTH or move rear/front lines. Adjacent table segments must join with one horizontal edge.\nNO mint, orange, or dark green anywhere; those are interaction/character colors. Quiet background object, sparse bold black contours, no extra lines/texture/pattern. Preserve original alpha and transparent gaps. No background/floor, cast/floor shadow, sticker outline, glow, person, text/digits/logo/symbols. ONE asset, not a sheet.\nSame portrait1194x1317-ish canvas and full-width table geometry as Image1. Final export192x212, table width192 and chair-free feet at y212.",
+          "references": [
+            "assets/a/cafe-table2.png (full-resolution generated source before canvas fit)",
+            "assets/b/cafe-table.png"
+          ],
+          "referenceVersionNotes": "Theme B cafe-table reference is the old laptop/table image BEFORE replacement. Full-resolution theme A target is the selected new image.",
+          "output": {
+            "file": "assets/b/cafe-table2.png",
+            "nativeSize": [
+              1194,
+              1317
+            ],
+            "sourceAlphaBox": [
+              0,
+              402,
+              1194,
+              1308
+            ],
+            "canvas": [
+              192,
+              212
+            ],
+            "objectSize": [
+              192,
+              146
+            ],
+            "placement": [
+              0,
+              66
+            ],
+            "visibleBox": [
+              0,
+              66,
+              192,
+              212
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 211,
+            "nonGrayChannelMaxRange": 74,
+            "fractionChannelRangeOver15": 0.8976550515012054,
+            "bothTableSideEdgesOpaqueYRuns": [
+              [
+                66,
+                116
+              ]
+            ],
+            "PNGTextMetadata": [],
+            "processing": "Preserved native alpha. Trim transparent margins and uniformly scale table to192px width, decor to about134px width/maxheight228px. Center horizontally and align lowest edge to canvas floor. No code changes to lines/colors/shapes."
+          },
+          "outputSha256": "10c7f6b56f34c669b3c0b29b9989ad0b8e6985b8a86098b0288452f9be98c92e"
+        },
+        {
+          "theme": "b",
+          "key": "cafe-table3",
+          "file": "assets/b/cafe-table3.png",
+          "prompt": "Style-transfer ONLY. Image1 is the full-resolution EDIT TARGET cafe-table3, keep exact same canvas dimensions, object geometry, contours, silhouette, framing and transparency. Image2 is OLD B cafe table for muted warm palette and line style ONLY, DO NOT copy its laptop or table geometry.\nChange ONLY gray fills to subdued theme B colors. Tabletop muted beige around#b7a58f, apron/legs muted brown around#8b7661. Plain round cups/plates/napkin holder/vase cream or warmgray. Cake pale cream and gray-brown layer bands. Flower petals cream, leaves gray-taupe. Keep the exact objects/count and round shapes of Image1; NO laptop/books. Critical: preserve full-width tabletop left/right boundary and rear line near native y402, apron bottom near y713, leg feet near y1303. Do not alter table DEPTH or move rear/front lines. Adjacent table segments must join with one horizontal edge.\nNO mint, orange, or dark green anywhere; those are interaction/character colors. Quiet background object, sparse bold black contours, no extra lines/texture/pattern. Preserve original alpha and transparent gaps. No background/floor, cast/floor shadow, sticker outline, glow, person, text/digits/logo/symbols. ONE asset, not a sheet.\nSame portrait1194x1317-ish canvas and full-width table geometry as Image1. Final export192x212, table width192 and chair-free feet at y212.",
+          "references": [
+            "assets/a/cafe-table3.png (full-resolution generated source before canvas fit)",
+            "assets/b/cafe-table.png"
+          ],
+          "referenceVersionNotes": "Theme B cafe-table reference is the old laptop/table image BEFORE replacement. Full-resolution theme A target is the selected new image.",
+          "output": {
+            "file": "assets/b/cafe-table3.png",
+            "nativeSize": [
+              1194,
+              1317
+            ],
+            "sourceAlphaBox": [
+              0,
+              317,
+              1194,
+              1301
+            ],
+            "canvas": [
+              192,
+              212
+            ],
+            "objectSize": [
+              192,
+              158
+            ],
+            "placement": [
+              0,
+              54
+            ],
+            "visibleBox": [
+              0,
+              54,
+              192,
+              212
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 211,
+            "nonGrayChannelMaxRange": 87,
+            "fractionChannelRangeOver15": 0.9286283025696707,
+            "bothTableSideEdgesOpaqueYRuns": [
+              [
+                68,
+                117
+              ]
+            ],
+            "PNGTextMetadata": [],
+            "processing": "Preserved native alpha. Trim transparent margins and uniformly scale table to192px width, decor to about134px width/maxheight228px. Center horizontally and align lowest edge to canvas floor. No code changes to lines/colors/shapes."
+          },
+          "outputSha256": "f0a03a8933797f44cd4b50c185ec4cd84f126860726f8253a86ead26a2353615"
+        }
+      ],
+      "qa": {
+        "desktop": [
+          1920,
+          1080
+        ],
+        "mobile": [
+          375,
+          812
+        ],
+        "game": "index.html levels1-2 and1-5, both themes; level1-3 also inspected in A.",
+        "observed": "Base table joins horizontally, no laptop/book/text remains on new table assets. Floor plant, luggage/shopping bag and coat rack load in game in both themes. No missing-image, horizontal overflow or console warning/error. All three table variants inspected as individual assets and side-by-side row in each theme.",
+        "tableSeams": {
+          "a": {
+            "rearEdgeRows": [
+              67,
+              67,
+              68
+            ],
+            "frontApronEndRowsExclusive": [
+              117,
+              117,
+              117
+            ]
+          },
+          "b": {
+            "rearEdgeRows": [
+              67,
+              66,
+              68
+            ],
+            "frontApronEndRowsExclusive": [
+              117,
+              116,
+              117
+            ]
+          },
+          "note": "Back edge residual step1px in A,2px in B. Front edge1px residual in B. Kept generated pixels, no code repainting/shape corrections."
+        },
+        "pendingIntegration": "Renderer currently calls addSprite(cafe-table) for every o tile. cafe-table2 and cafe-table3 are registered and saved but are NOT yet selected in game. Claude Code must connect table variants. Game code untouched.",
+        "limits": [
+          "Small mobile scene cannot show cup/napkin/flower details clearly. This is a visual asset check, not a novice playtest.",
+          "Rear furniture legs use the slightly overhead projection and may end above front feet. Lowest feet align to canvas floor.",
+          "A edge pixels are visually neutralgray with small RGB-channel variation up to6/255; no code recoloring."
+        ],
+        "scope": "Only twelve target PNGs, manifest, generation record and Codex session log edited. Prior pending customer variants preserved."
+      },
+      "commit": "No staging, commit or push. Claude Code reviews and commits.",
+      "externalSourceChangesDuringTask": []
     }
   ]
 }
