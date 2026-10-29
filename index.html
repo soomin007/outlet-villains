@@ -219,16 +219,36 @@
     }
 
     /* 판을 깨면 빌런 반응 일러스트가 크게 뜬다 */
+    /* 반응 일러스트는 빌런 반대쪽에 뜬다(빌런과 콘센트가 바뀌는 모습을 가리지 않게). 뜨는 동안 장면은 살짝 어두워진다. */
     .portrait {
       position: absolute;
       right: 40px;
       bottom: 0;
-      width: 420px;
-      height: 420px;
+      z-index: 240;
+      width: 400px;
+      height: 400px;
       transform: translateY(110%);
       transition: transform 0.45s cubic-bezier(0.2, 1.4, 0.4, 1);
       pointer-events: none;
     }
+
+    .portrait.left {
+      right: auto;
+      left: 40px;
+    }
+
+    .scene::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 235;
+      background: rgba(0, 0, 0, 0.35);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .scene.cut-in::after { opacity: 1; }
 
     .portrait.show { transform: translateY(0); }
 
@@ -955,6 +975,10 @@
       };
 
       const settings = loadSettings();
+      if (settings.music === 80 && settings.sfx === 80) {
+        settings.music = 60;
+        settings.sfx = 50;
+      }
       const game = {
         index: 0, level: null, state: null, history: [], busy: false, won: false, sprites: {}, cleared: new Set(),
         skip: false, steps: 0, lastStarted: -1, closeCard: null,
@@ -962,7 +986,7 @@
 
       // 밝기는 %, 음악과 효과음은 0~100이다.
       function loadSettings() {
-        const defaults = { theme: 'a', brightness: 100, music: 80, sfx: 80, keysSeen: false, demosSeen: [], prologueSeen: false };
+        const defaults = { theme: 'a', brightness: 100, music: 60, sfx: 50, keysSeen: false, demosSeen: [], prologueSeen: false };
         try {
           return { ...defaults, ...JSON.parse(localStorage.getItem(STORAGE_KEY)) };
         } catch (error) {
@@ -1044,7 +1068,10 @@
         const colors = THEMES[settings.theme];
         const path = assetPath(`bg-${levelDef().bg}`);
         if (path) {
-          ui.backdrop.innerHTML = `<img src="${path}" alt="" draggable="false">`;
+          const current = ui.backdrop.querySelector('img');
+          if (!current || current.getAttribute('src') !== path) {
+            ui.backdrop.innerHTML = `<img src="${path}" alt="" draggable="false">`;
+          }
           return;
         }
         const boxes = [];
@@ -1089,8 +1116,28 @@
         return [TILE, TILE];
       }
 
+      // 이미 그림이 있으면 src만 바꾼다. <img>를 새로 만들면 디코딩되는 동안 한 프레임 비어 보여 걸을 때 깜빡였다.
       function setArt(element, key, color, round) {
+        const path = assetPath(key);
+        const current = element.querySelector('img.art');
+        if (path && current) {
+          if (current.getAttribute('src') !== path) current.setAttribute('src', path);
+          return;
+        }
         element.innerHTML = art(key, color, round);
+      }
+
+      // 고른 테마의 그림을 모두 미리 받아 디코딩해 둔다. 처음 방향을 바꿀 때나 카드가 뜰 때 그림이 늦게 뜨지 않게 한다.
+      const preloaded = new Set();
+      function preloadTheme() {
+        const themeAssets = (window.VILLAIN_ASSETS || {})[settings.theme] || {};
+        Object.values(themeAssets).forEach((path) => {
+          if (preloaded.has(path)) return;
+          preloaded.add(path);
+          const image = new Image();
+          image.src = path;
+          if (image.decode) image.decode().catch(() => {});
+        });
       }
 
       function startLevel(index = game.index) {
@@ -1522,9 +1569,12 @@
         void ui.flash.offsetWidth;
         ui.flash.classList.add('go');
         Sound.jingle();
+        ui.portrait.classList.toggle('left', game.level.villain.x >= LAYOUT.art.columns / 2);
+        ui.scene.classList.add('cut-in');
         ui.portrait.classList.add('show');
         await wait(1800);
         ui.portrait.classList.remove('show');
+        ui.scene.classList.remove('cut-in');
         game.sprites.villain.classList.add('gone');
         game.sprites.cord.classList.add('gone');
         await wait(500);
@@ -1545,9 +1595,17 @@
 
       function undo() {
         if (game.busy || game.history.length === 0) return;
+        const wasWon = game.won;
         game.state = game.history.pop();
         game.won = false;
-        draw();
+        if (wasWon) {
+          draw();
+          return;
+        }
+        setArt(game.sprites.player, `player-${game.state.facing}`, THEMES[settings.theme].player, true);
+        placeAll();
+        drawView();
+        ui.undo.disabled = game.history.length === 0;
       }
 
       // 소리. 배경 음악은 MP3 앞뒤의 짧은 무음을 잘라 내고 그 구간만 끊김 없이 반복한다(MP3를 그냥 반복하면 이음매에서 끊긴다).
@@ -1558,6 +1616,8 @@
         let jingleBuffer = null;
         let bgmGain = null;
         let sfxGain = null;
+        const MUSIC_MAX = 0.3;
+        const SFX_MAX = 0.35;
         let starting = false;
 
         async function load(url) {
@@ -1601,6 +1661,7 @@
           }
         }
 
+        // 클리어 음악이 나오는 동안 배경 음악을 20%로 줄였다가 끝나면 되돌린다. 두 곡이 겹쳐 따로 노는 소리가 났다.
         function jingle() {
           if (!context || !jingleBuffer) return;
           const source = context.createBufferSource();
@@ -1608,12 +1669,22 @@
           const range = audibleRange(jingleBuffer);
           source.connect(sfxGain);
           source.start(0, range.start);
+          const now = context.currentTime;
+          const full = musicLevel();
+          bgmGain.gain.cancelScheduledValues(now);
+          bgmGain.gain.setTargetAtTime(full * 0.2, now, 0.08);
+          bgmGain.gain.setTargetAtTime(full, now + (range.end - range.start) - 0.5, 0.6);
         }
 
-        // 음악은 원래 크기의 55%를 최대로 쓴다(효과음보다 뒤에 깔리게).
+        function musicLevel() {
+          return MUSIC_MAX * (settings.music / 100);
+        }
+
+        // 설정 100%일 때의 크기. 배경 음악은 원래의 30%(약 -10dB), 효과음은 원래의 35%(약 -9dB)다.
+        // 기본값(음악 60, 효과음 50)에서 배경 음악은 RMS 약 -31dB, 클리어 음악은 약 -33dB로 뒤에 깔린다.
         function setVolumes() {
-          if (bgmGain) bgmGain.gain.value = 0.55 * (settings.music / 100);
-          if (sfxGain) sfxGain.gain.value = settings.sfx / 100;
+          if (bgmGain) bgmGain.gain.value = musicLevel();
+          if (sfxGain) sfxGain.gain.value = SFX_MAX * (settings.sfx / 100);
         }
 
         return { start, jingle, setVolumes };
@@ -1715,6 +1786,7 @@
         settings.theme = button.dataset.theme;
         saveSettings();
         applySettings();
+        preloadTheme();
         draw();
         if (game.won) {
           game.sprites.villain.classList.add('gone');
@@ -1742,6 +1814,7 @@
       new ResizeObserver(fitScene).observe(ui.stage);
 
       applySettings();
+      preloadTheme();
       startLevel(0);
       fitScene();
     })();
