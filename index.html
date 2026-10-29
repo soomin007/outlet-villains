@@ -171,6 +171,42 @@
     .kind-customer[data-facing="left"] .gbox::after { left: 22%; }
     .kind-customer[data-facing="right"] .gbox::after { left: 78%; }
 
+    /* 손님, 테이블, 소품은 배경이라 채도와 대비를 낮춰 뒤로 물린다. 움직일 수 있는 것과 주인공이 앞으로 나온다. */
+    .kind-customer .art,
+    .kind-table .art,
+    .kind-decor .art {
+      filter: saturate(0.75) contrast(0.82) brightness(1.04);
+    }
+
+    /* 주인공 발밑의 둥근 표시. 주인공 색으로 천천히 숨 쉬듯 커졌다 작아진다. */
+    .sprite.is-player::before {
+      content: "";
+      position: absolute;
+      left: 6%;
+      right: 6%;
+      bottom: -6%;
+      height: 26%;
+      border: 3px solid var(--player-color);
+      border-radius: 50%;
+      background: color-mix(in srgb, var(--player-color) 22%, transparent);
+      z-index: -1;
+      animation: player-ring 1.6s ease-in-out infinite alternate;
+    }
+
+    @keyframes player-ring {
+      from { transform: scale(0.88); opacity: 0.65; }
+      to { transform: scale(1.06); opacity: 1; }
+    }
+
+    .kind-decor .gbox {
+      border-width: 2px;
+      border-radius: 40% 40% 12px 12px;
+      width: 70%;
+      height: 80%;
+      margin-left: 15%;
+      margin-top: 20%;
+    }
+
     .kind-table .gbox {
       border-width: 2px;
       border-radius: 6px;
@@ -1162,9 +1198,23 @@
       // 손님 그림 key. 같은 사람이 줄지어 앉으면 복제 인간처럼 보여서, 그려 둔 손님 종류(customer, customer2, customer3...)를
       // 칸마다 번갈아 쓴다. (x + 2y)로 고르면 종류가 세 개 이상일 때 상하좌우로 붙은 손님끼리 겹치지 않는다.
       function customerKey(facing, x, y) {
-        const variants = ['', '2', '3', '4'].filter((variant) => assetPath(`customer${variant}-${facing}`));
-        if (variants.length === 0) return `customer-${facing}`;
-        return `customer${variants[(x + 2 * y) % variants.length]}-${facing}`;
+        return variantKey('customer', `-${facing}`, x, y);
+      }
+
+      // 같은 종류의 그림 여러 장(name, name2, name3...) 가운데 칸마다 하나를 고른다. 그림이 하나도 없으면 첫 이름을 돌려준다.
+      function variantKey(name, suffix, x, y) {
+        const variants = ['', '2', '3', '4'].filter((variant) => assetPath(`${name}${variant}${suffix}`));
+        if (variants.length === 0) return `${name}${suffix}`;
+        return `${name}${variants[(x + 2 * y) % variants.length]}${suffix}`;
+      }
+
+      // 주인공 그림 크기. 앉은 손님과 키가 비슷해 묻혀서 1.2배로 그린다(2026-10-29 사용자 피드백).
+      function playerWidth() {
+        return TILE * 1.2;
+      }
+
+      function playerHeight() {
+        return TILE * 1.8;
       }
 
       // 손님이 보는 방향. 이웃한 카페 테이블(o)을 먼저, 없으면 배경 테이블(T)을 본다. 둘 다 없으면 아래를 본다.
@@ -1340,9 +1390,9 @@
       async function runDemo(demo) {
         const colors = THEMES[settings.theme];
         const d = Engine.DIRECTIONS[demo.dir];
-        const ghost = addSprite(`player-${demo.dir}`, TILE, TILE * 1.5, colors.player, { round: true });
+        const ghost = addSprite(`player-${demo.dir}`, playerWidth(), playerHeight(), colors.player, { round: true });
         ghost.classList.add('ghost');
-        placeOnTile(ghost, demo.from.x, demo.from.y, TILE, TILE * 1.5);
+        placeOnTile(ghost, demo.from.x, demo.from.y, playerWidth(), playerHeight());
         await pause(500);
         if (demo.kind === 'push') {
           const target = { x: demo.from.x + d.dx, y: demo.from.y + d.dy };
@@ -1355,7 +1405,7 @@
           placeOnTile(ghostItem, target.x, target.y, width, height);
           real.style.opacity = '0';
           await pause(300);
-          placeOnTile(ghost, target.x, target.y, TILE, TILE * 1.5);
+          placeOnTile(ghost, target.x, target.y, playerWidth(), playerHeight());
           placeOnTile(ghostItem, target.x + d.dx, target.y + d.dy, width, height);
           await pause(900);
           ghostItem.style.opacity = '0';
@@ -1365,13 +1415,13 @@
           real.style.opacity = '';
         } else {
           const into = { x: demo.from.x + d.dx, y: demo.from.y + d.dy };
-          placeOnTile(ghost, into.x, into.y, TILE, TILE * 1.5);
+          placeOnTile(ghost, into.x, into.y, playerWidth(), playerHeight());
           ghost.style.zIndex = '220';
           await pause(350);
           ui.scene.classList.add('seen');
           await pause(450);
           ui.scene.classList.remove('seen');
-          placeOnTile(ghost, demo.from.x, demo.from.y, TILE, TILE * 1.5);
+          placeOnTile(ghost, demo.from.x, demo.from.y, playerWidth(), playerHeight());
           ghost.style.zIndex = '220';
           await pause(600);
           ghost.style.opacity = '0';
@@ -1429,6 +1479,10 @@
             const table = addSprite('cafe-table', TILE, TILE * 1.1, colors.table);
             table.classList.add('kind-table');
             placeOnTile(table, x, y, TILE, TILE * 1.1);
+          } else if (char === 'q') {
+            const prop = addSprite(variantKey('decor', '', x, y), TILE, TILE * 1.25, colors.table);
+            prop.classList.add('kind-decor');
+            placeOnTile(prop, x, y, TILE, TILE * 1.25);
           } else if (char === 'N') {
             const facing = customerFacing(level.map, x, y);
             const customer = addSprite(customerKey(facing, x, y), TILE, TILE * 1.5, colors.customer);
@@ -1444,7 +1498,9 @@
           element.classList.add('kind-' + item.kind);
           return element;
         });
-        game.sprites.player = addSprite(`player-${state.facing}`, TILE, TILE * 1.5, colors.player, { sticker: true, round: true });
+        game.sprites.player = addSprite(`player-${state.facing}`, playerWidth(), playerHeight(), colors.player, { sticker: true, round: true });
+        game.sprites.player.classList.add('is-player');
+        game.sprites.player.style.setProperty('--player-color', colors.player);
         drawGoal();
         drawStream();
         placeAll();
@@ -1577,7 +1633,7 @@
           const [width, height] = itemSize(element.dataset.kind);
           placeOnTile(element, item.x, item.y, width, height);
         });
-        placeOnTile(game.sprites.player, state.player.x, state.player.y, TILE, TILE * 1.5);
+        placeOnTile(game.sprites.player, state.player.x, state.player.y, playerWidth(), playerHeight());
         game.sprites.player.style.zIndex = String(15 + state.player.y * 10);
       }
 
