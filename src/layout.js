@@ -14,6 +14,8 @@
 // 콘센트는 판 밖 -1번 줄의 벽에 붙는다. 열은 빌런과 같고, villain.outletX가 있으면 그 열이다(유튜버는 테이블 위 폰과 링 조명을 가리지 않게 옆으로 뺐다).
 // 레벨의 bg는 배경 그림 이름(bg-이름)이다. 배경에는 테이블과 화분이 그려져 있으므로, 같은 배경을 쓰는 레벨은 T, L, V, * 자리가 같아야 한다(tools/verify.html이 확인한다).
 // view가 있는 레벨은 카메라 화각 규칙을 쓴다(engine.js 머리말). chairNeeded가 true인 레벨은 의자를 밀지 않으면 풀리지 않아야 한다(검증한다).
+// kind는 tutorial(새 요소를 안전하게 보여 줌, 망치는 첫 수가 없어야 함) 또는 puzzle(함정이 있어야 함, 걸을 수 있는 칸 35칸 이하)이다(docs/level-design.md).
+// N은 손님 자리다. 판을 좁히고 카페가 붐비는 것을 보여 준다. 그림이 오기 전에는 회색 상자로 보인다.
 // demo는 그 레벨에서 처음 나오는 기믹을 반투명한 주인공이 한 번 시연할 자리다(kind: push는 물건 밀기, view는 화각에 들어갔다 되돌아오기).
 window.VILLAIN_LAYOUT = {
   "art": { "width": 1920, "height": 1080, "tile": 96, "originX": 384, "originY": 240, "columns": 12, "rows": 7, "uiTop": 912, "viewBottom": 880 },
@@ -27,8 +29,8 @@ window.VILLAIN_LAYOUT = {
     },
     {
       "id": "streamer",
-      "name": "라이브 방송 유튜버",
-      "lines": ["폰과 조명을 콘센트에 꽂고 몇 시간째 라이브 방송 중이다.", "방송 화면에 지저분한 게 잡히면 방송을 접을 텐데."],
+      "name": "공부 영상 촬영자",
+      "lines": ["폰을 세워 두고 몇 시간째 스터디 윗 미 영상을 찍는 중이다. 폰과 조명은 벽 콘센트에 꽂혀 있다.", "화면에 지저분한 게 잡히면 촬영을 접을 텐데."],
       "villain": { "idle": "streamer-idle", "react": "streamer-react", "portrait": "streamer-portrait", "heightTiles": 1.5, "anchorRow": 0, "outletX": 7 }
     }
   ],
@@ -37,51 +39,86 @@ window.VILLAIN_LAYOUT = {
       "id": "sleeper-1",
       "chapter": "sleeper",
       "bg": "sleeper",
-      "optimal": 17,
-      "pushes": 7,
-      "demo": { "kind": "push", "from": { "x": 4, "y": 4 }, "dir": "right" },
+      "kind": "tutorial",
+      "optimal": 7,
+      "pushes": 5,
+      "demo": { "kind": "push", "from": { "x": 4, "y": 2 }, "dir": "right" },
       "map": [
-        "......LL.LV.",
-        "........L*T.",
-        "............",
-        ".TT.........",
-        ".TT..b......",
-        ".......LL...",
-        "P..........."
+        "NNNNNNLLNLVN",
+        "NNNNNNNNL*TN",
+        "NNNNPb....NN",
+        "NTTNNNNN..NN",
+        "NTTNNNNNNNNN",
+        "NNNNNNNLLNNN",
+        "NNNNNNNNNNNN"
       ]
     },
     {
       "id": "sleeper-2",
       "chapter": "sleeper",
       "bg": "sleeper",
-      "optimal": 14,
-      "pushes": 5,
-      "chairNeeded": true,
+      "kind": "tutorial",
+      "optimal": 7,
+      "pushes": 6,
       "map": [
-        "......LL.LV.",
-        "........L*T.",
-        ".........c..",
-        ".TT.........",
-        ".TT.........",
-        ".......LLb..",
-        "...........P"
+        "NNNNNNLLNLVN",
+        "NNNNNNNNL*TN",
+        "NNNNPb....NN",
+        "NTTNNNNNc.NN",
+        "NTTNNNNN.NNN",
+        "NNNNNNNLLNNN",
+        "NNNNNNNNNNNN"
       ]
     },
     {
       "id": "sleeper-3",
       "chapter": "sleeper",
       "bg": "sleeper",
-      "optimal": 17,
-      "pushes": 8,
-      "chairNeeded": true,
+      "kind": "puzzle",
+      "optimal": 19,
+      "pushes": 6,
       "map": [
-        "......LL.LV.",
-        "........L*T.",
-        "..........c.",
-        ".TT......c..",
-        ".TT..b.c....",
-        ".......LL...",
-        "P..........."
+        "NNNNNNLLNLVN",
+        "NNNNNNNNL*TN",
+        "NNNN......NN",
+        "NTTN....bcNN",
+        "NTTNP.....NN",
+        "NNNNNNNLLNNN",
+        "NNNNNNNNNNNN"
+      ]
+    },
+    {
+      "id": "sleeper-4",
+      "chapter": "sleeper",
+      "bg": "sleeper",
+      "kind": "puzzle",
+      "optimal": 28,
+      "pushes": 11,
+      "map": [
+        "NNNNNNLLNLVN",
+        "NNNNNNNNL*TN",
+        "NNN..c.c..NN",
+        "NTTN.b.N..NN",
+        "NTTN.P....NN",
+        "NNNN..NLLNNN",
+        "NNNN..NNNNNN"
+      ]
+    },
+    {
+      "id": "sleeper-5",
+      "chapter": "sleeper",
+      "bg": "sleeper",
+      "kind": "puzzle",
+      "optimal": 35,
+      "pushes": 15,
+      "map": [
+        "NNNNNNLLNLV.",
+        "NNNNNNNNL*T.",
+        "NN..c.P.....",
+        "NTTN..N...N.",
+        "NTTN..c.b.NN",
+        "NNNN..NLL.NN",
+        "NNNN....NNNN"
       ]
     },
     {

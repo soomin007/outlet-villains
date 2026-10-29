@@ -147,6 +147,13 @@
       border-radius: 40% 40% 8px 8px;
     }
 
+    /* 손님 자리 상자(그림이 오기 전). 위가 둥근 사람 모양으로 테이블, 화분과 구분한다. */
+    .kind-customer .gbox {
+      border-width: 2px;
+      border-radius: 45% 45% 8px 8px;
+      opacity: 0.9;
+    }
+
     .sprite.hop .art {
       animation: hop 130ms ease;
     }
@@ -847,7 +854,7 @@
 <body>
   <main class="wrap">
     <div class="bar">
-      <div id="battery" class="battery" aria-label="내 폰 배터리"><span class="battery-fill"></span><span class="battery-bolt">⚡</span></div>
+      <div id="battery" class="battery" aria-label="로봇 배터리"><span class="battery-fill"></span><span class="battery-bolt">⚡</span></div>
       <nav id="dots" class="dots" aria-label="레벨 고르기"></nav>
       <button id="undo" class="btn" type="button" aria-label="되돌리기">↶</button>
       <button id="restart" class="btn" type="button" aria-label="처음부터">↻</button>
@@ -940,9 +947,9 @@
       // 그림이 없을 때 상자에 칠하는 테마별 색. 색 규칙은 docs/concept.md "그림체 시험 결과와 결정" 절과 같다.
       const THEMES = {
         a: { floor: '#e6e6e2', grid: '#b8b8b4', wall: '#3a3a3a', side: '#5a5a5a', table: '#9a9a9a', plant: '#6f6f6f',
-          player: '#c8302a', item: '#2f7a54', villain: '#cfcfcf', outletTheirs: '#9a9a9a', outletMine: '#c8302a' },
+          player: '#c8302a', item: '#2f7a54', villain: '#cfcfcf', outletTheirs: '#9a9a9a', outletMine: '#c8302a', customer: '#b8b8b4' },
         b: { floor: '#e8d6b4', grid: '#d2bd96', wall: '#c99a6b', side: '#b98f68', table: '#a9805c', plant: '#7f9a72',
-          player: '#7fd3b8', item: '#e8833a', villain: '#2f5e4a', outletTheirs: '#2f5e4a', outletMine: '#7fd3b8' },
+          player: '#7fd3b8', item: '#e8833a', villain: '#2f5e4a', outletTheirs: '#2f5e4a', outletMine: '#7fd3b8', customer: '#c9b79c' },
       };
 
       const ui = {
@@ -1194,18 +1201,18 @@
       // 프롤로그. 처음 한 번만 보이고, 설정창에서 다시 볼 수 있다. 목표 문장(CLAUDE.md)과 콘셉트만 옮겼다.
       async function playPrologue() {
         await showCard({
-          kicker: '프롤로그', title: '폰 배터리 1%',
-          lines: ['카공하러 온 카페에서 폰이 꺼지기 직전이다.'],
+          kicker: '프롤로그', title: '배터리 1%',
+          lines: ['카페에서 일하는 로봇의 배터리가 다 떨어져 간다.'],
           art: '<div class="big-battery"><span></span></div>',
         });
         await showCard({
           kicker: '프롤로그', title: '콘센트는 이미 주인이 있다',
-          lines: ['벽 콘센트마다 누군가 플러그를 꽂고 버티고 있다.'],
+          lines: ['벽 콘센트마다 손님이 플러그를 꽂고 버티고 있다.'],
           art: LAYOUT.chapters.map((chapter) => imageTag(chapter.villain.idle, 'small')).join(''),
         });
         await showCard({
           kicker: '프롤로그', title: '스스로 뽑게 만들자',
-          lines: ['비켜 달라고 말하는 대신, 약점을 건드려 스스로 플러그를 뽑고 떠나게 만든다.', '빈 콘센트에 내 충전기가 꽂히면 성공이다.'],
+          lines: ['로봇이 손님에게 비켜 달라고 할 수는 없다. 약점을 건드려 스스로 플러그를 뽑고 떠나게 만든다.', '빈 콘센트에 내 충전기가 꽂히면 성공이다.'],
           art: imageTag('plug-mine', 'small'),
         });
         settings.prologueSeen = true;
@@ -1354,6 +1361,13 @@
         game.sprites.cord = drawCord(look, villain, colors);
         ui.battery.classList.remove('full');
 
+        // 손님 자리(N). 움직이지 않는 칸이고, 그림이 오기 전에는 회색 상자로 보인다. 상호작용하지 않으므로 스티커 테두리가 없다.
+        level.map.forEach((line, y) => [...line].forEach((char, x) => {
+          if (char !== 'N') return;
+          const seat = addSprite('customer', TILE, TILE * 1.25, colors.customer);
+          seat.classList.add('kind-customer');
+          placeOnTile(seat, x, y, TILE, TILE * 1.25);
+        }));
         game.sprites.items = state.items.map((item) => {
           const size = itemSize(item.kind);
           const element = addSprite(item.kind, size[0], size[1], colors.item, { sticker: true, round: item.kind === 'buzzer' });
