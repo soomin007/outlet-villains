@@ -1511,6 +1511,7 @@
           setArt(game.sprites.player, `player-${result.state.facing}`, colors.player, true);
         }
         if (result.seen) {
+          Sound.play('shutter');
           // 화각에 들어가는 걸음: 내디딘 모습을 잠깐 보여 주고 화각이 붉어진 뒤 제자리로 돌아온다. 기록은 남기지 않는다.
           game.busy = true;
           placeAll(result.attempted);
@@ -1525,11 +1526,16 @@
           return;
         }
         if (!result.moved) {
+          Sound.play('bump');
           game.state = result.state;
           ui.scene.classList.remove('bump');
           void ui.scene.offsetWidth;
           ui.scene.classList.add('bump');
           return;
+        }
+        if (result.pushed !== null) {
+          const pushSound = PUSH_SOUNDS[result.state.items[result.pushed].kind] || PUSH_SOUNDS.chair;
+          Sound.play('chair', pushSound);
         }
         game.history.push(game.state);
         game.state = result.state;
@@ -1562,13 +1568,14 @@
           ui.scene.classList.remove('seen');
         }
         trigger.classList.add('ringing');
+        Sound.play(game.level.view ? 'shutter' : 'buzzer');
         await wait(800);
         drawView();
         setArt(game.sprites.villain, look.react, colors.villain, true);
         ui.flash.classList.remove('go');
         void ui.flash.offsetWidth;
         ui.flash.classList.add('go');
-        Sound.jingle();
+        Sound.chime();
         ui.portrait.classList.toggle('left', game.level.villain.x >= LAYOUT.art.columns / 2);
         ui.scene.classList.add('cut-in');
         ui.portrait.classList.add('show');
@@ -1579,6 +1586,7 @@
         game.sprites.cord.classList.add('gone');
         await wait(500);
         setArt(game.sprites.outlet, 'outlet-mine', colors.outletMine, true);
+        Sound.play('plug');
         ui.battery.classList.add('full');
         game.cleared.add(game.level.id);
         drawDots();
@@ -1613,18 +1621,30 @@
       const Sound = (function () {
         let context = null;
         let master = null;
-        let jingleBuffer = null;
         let bgmGain = null;
         let sfxGain = null;
-        const MUSIC_MAX = 0.3;
-        const SFX_MAX = 0.35;
         let starting = false;
+        const buffers = {};
+        // 설정 100%일 때의 크기. 배경 음악은 원래의 30%(약 -10dB)다. 기본값(음악 60)에서 가장 큰 0.1초 구간이 약 -24dB다.
+        const MUSIC_MAX = 0.3;
+        // 효과음은 아래 SFX 표에서 파일마다 크기를 맞춘 뒤 이 값을 곱한다. 기본값(효과음 50)에서 약 -26dB로 음악보다 조금 낮다.
+        const SFX_MAX = 1;
+        // 효과음 파일(ElevenLabs, 2026-10-29 사용자 제작)과 파일마다 곱할 크기.
+        // 가장 큰 0.1초 구간의 크기를 -20dB에 맞췄고, 피크가 -0.5dB를 넘지 않게 묶었다. 잰 값은 주석에 적는다(known-issues 19번).
+        const SFX = {
+          bump: { file: 'assets/sfx/bump.mp3', gain: 3.5 }, // 원래 -30.9dB, 피크 -18.5dB
+          buzzer: { file: 'assets/sfx/buzzer.mp3', gain: 0.52 }, // 원래 -16.3dB. 1초 동안 울려서 다른 것보다 2dB 낮게 둔다
+          chair: { file: 'assets/sfx/chair.mp3', gain: 16 }, // 원래 -44.3dB, 피크 -34.6dB
+          plug: { file: 'assets/sfx/plug.mp3', gain: 1.09 }, // 원래 -22.5dB, 피크 -1.2dB라 피크에 맞춰 묶었다
+          shutter: { file: 'assets/sfx/shutter.mp3', gain: 1 }, // 원래 -20.1dB
+        };
 
         async function load(url) {
           const response = await fetch(url);
           return context.decodeAudioData(await response.arrayBuffer());
         }
 
+        // 소리가 시작되고 끝나는 때(초). 효과음 앞의 무음(최대 0.18초)을 건너뛰어야 동작과 소리가 맞는다.
         function audibleRange(buffer) {
           const data = buffer.getChannelData(0);
           const threshold = 0.003;
@@ -1644,50 +1664,87 @@
             master.connect(context.destination);
             sfxGain = context.createGain();
             sfxGain.connect(master);
+            bgmGain = context.createGain();
+            bgmGain.connect(master);
+            setVolumes();
+            await Promise.all(Object.entries(SFX).map(async ([name, sound]) => {
+              buffers[name] = await load(sound.file);
+              sound.range = audibleRange(buffers[name]);
+            }));
             const bgm = await load('assets/audio/bgm-cafe.mp3');
             const range = audibleRange(bgm);
             const source = context.createBufferSource();
-            bgmGain = context.createGain();
-            setVolumes();
             source.buffer = bgm;
             source.loop = true;
             source.loopStart = range.start;
             source.loopEnd = range.end;
-            source.connect(bgmGain).connect(master);
+            source.connect(bgmGain);
             source.start(0, range.start);
-            jingleBuffer = await load('assets/audio/jingle-clear.mp3');
           } catch (error) {
             // 파일을 직접 연 경우처럼 소리를 불러올 수 없으면 소리 없이 진행한다.
           }
         }
 
-        // 클리어 음악이 나오는 동안 배경 음악을 20%로 줄였다가 끝나면 되돌린다. 두 곡이 겹쳐 따로 노는 소리가 났다.
-        function jingle() {
-          if (!context || !jingleBuffer) return;
+        // 효과음 하나. rate는 재생 속도(높을수록 가볍고 높은 소리), volume은 표의 크기에 한 번 더 곱하는 값이다.
+        function play(name, { rate = 1, volume = 1 } = {}) {
+          const buffer = buffers[name];
+          if (!context || !buffer) return;
           const source = context.createBufferSource();
-          source.buffer = jingleBuffer;
-          const range = audibleRange(jingleBuffer);
-          source.connect(sfxGain);
-          source.start(0, range.start);
-          const now = context.currentTime;
+          const gain = context.createGain();
+          source.buffer = buffer;
+          source.playbackRate.value = rate;
+          gain.gain.value = SFX[name].gain * volume;
+          source.connect(gain).connect(sfxGain);
+          source.start(0, SFX[name].range.start);
+        }
+
+        // 클리어 화음. 배경 음악이 D단조라서(크로마 분석, 일치도 0.88) 나란한조 F장조의 Fmaj7을 아래에서 위로 펼친다.
+        // 음색은 배경 음악의 Rhodes에 맞춰 FM 합성으로 만든 전자 피아노 소리다. 길이는 약 1.8초다.
+        function chime() {
+          if (!context) return;
+          const now = context.currentTime + 0.02;
+          const notes = [349.23, 440, 523.25, 659.26, 698.46];
+          notes.forEach((frequency, index) => {
+            const last = index === notes.length - 1;
+            rhodes(frequency, now + index * 0.075, last ? 1.6 : 1.2, last ? 0.2 : 0.14);
+          });
+          // 화음이 나오는 동안 배경 음악을 35%로 줄였다가 되돌린다.
           const full = musicLevel();
           bgmGain.gain.cancelScheduledValues(now);
-          bgmGain.gain.setTargetAtTime(full * 0.2, now, 0.08);
-          bgmGain.gain.setTargetAtTime(full, now + (range.end - range.start) - 0.5, 0.6);
+          bgmGain.gain.setTargetAtTime(full * 0.35, now, 0.05);
+          bgmGain.gain.setTargetAtTime(full, now + 1.4, 0.4);
+        }
+
+        function rhodes(frequency, when, length, level) {
+          const carrier = context.createOscillator();
+          const modulator = context.createOscillator();
+          const depth = context.createGain();
+          const amp = context.createGain();
+          carrier.frequency.value = frequency;
+          modulator.frequency.value = frequency;
+          depth.gain.setValueAtTime(frequency * 2.2, when);
+          depth.gain.exponentialRampToValueAtTime(frequency * 0.2, when + 0.45);
+          amp.gain.setValueAtTime(0.0001, when);
+          amp.gain.exponentialRampToValueAtTime(level, when + 0.006);
+          amp.gain.exponentialRampToValueAtTime(0.0001, when + length);
+          modulator.connect(depth).connect(carrier.frequency);
+          carrier.connect(amp).connect(sfxGain);
+          modulator.start(when);
+          carrier.start(when);
+          modulator.stop(when + length);
+          carrier.stop(when + length);
         }
 
         function musicLevel() {
           return MUSIC_MAX * (settings.music / 100);
         }
 
-        // 설정 100%일 때의 크기. 배경 음악은 원래의 30%(약 -10dB), 효과음은 원래의 35%(약 -9dB)다.
-        // 기본값(음악 60, 효과음 50)에서 배경 음악은 RMS 약 -31dB, 클리어 음악은 약 -33dB로 뒤에 깔린다.
         function setVolumes() {
           if (bgmGain) bgmGain.gain.value = musicLevel();
           if (sfxGain) sfxGain.gain.value = SFX_MAX * (settings.sfx / 100);
         }
 
-        return { start, jingle, setVolumes };
+        return { start, play, chime, setVolumes };
       })();
 
       function applySettings() {
@@ -1711,6 +1768,13 @@
         ui.settings.hidden = true;
         ui.openSettings.focus();
       }
+
+      // 밀 때 나는 소리. 녹음은 의자 끄는 소리 하나라서, 가벼운 물건일수록 높고 작게 튼다.
+      const PUSH_SOUNDS = {
+        chair: { rate: 1, volume: 1 },
+        trash: { rate: 1.2, volume: 0.8 },
+        buzzer: { rate: 1.45, volume: 0.6 },
+      };
 
       const MODIFIER_KEYS = ['shift', 'control', 'alt', 'meta', 'tab', 'capslock'];
 
