@@ -12,5 +12,6 @@ window.VILLAIN_BG_GRID = {
   b: {
     'bg-sleeper': { left: 371, top: 178, right: 1547, bottom: 875 },
     'bg-streamer': { left: 372, top: 177.5, right: 1547, bottom: 875 },
+    'bg-encore': { left: 372, top: 177.5, right: 1547, bottom: 875 },
   },
 };

@@ -2979,6 +2979,140 @@
           "reason": "Smaller camera unit still failed requested y244..292 clear gap; no verified overlap improvement. Not selected."
         }
       ]
+    },
+    {
+      "id": "b-encore-regular-grid-2026-10-29",
+      "date": "2026-10-29",
+      "tool": "built-in image_gen",
+      "scope": "Only B stage3 background replaced; measured grid registered and manifest entry restored.",
+      "sourceOfTruth": [
+        "AGENTS.md",
+        "docs/concept.md",
+        "docs/layout-guide/encore.png",
+        "assets/b/bg-streamer.png",
+        "assets/bg-grid.js"
+      ],
+      "assets": [
+        {
+          "key": "bg-encore",
+          "theme": "b",
+          "file": "assets/b/bg-encore.png",
+          "width": 1920,
+          "height": 1080,
+          "prompt": "Use case: precise-object-edit. Image1 is the APPROVED B-theme cafe background bg-streamer with a REGULAR floor grid. Edit this image to the stage3 layout in image2. MOST IMPORTANT: preserve image1's ENTIRE floor grid EXACTLY: 12 columns ALL IDENTICAL WIDTH from left to right, 7 rows, straight horizontal/vertical seams. Do NOT widen any middle column for furniture. Do NOT introduce/erase/move any floor seam. Keep all room proportions, both sidewalls, topcounter, two pendantlamps, table, phone/ringlight, EMPTY chair, lineweight, muted beige/brown palette and every tile boundary from image1 unchanged. Absolute pixel coordinates may drift slightly but ALL12 COLUMN WIDTHS must remain equal so a linear game grid fits it.\nChange ONLY POTTED PLANT placement, using ZERO-BASED column,row from the top-left floor cell: KEEP the two plants at(4,0) and(6,0). REMOVE the far-left plant at(0,1) and far-right plant at(10,1), filling only the plant silhouettes with the same tile surface and retaining existing seams. ADD four matching small pottedplants, centred in cells(4,1),(6,1),(3,2),(7,2). The finished scene has exactly SIX plants, at(4,0),(6,0),(4,1),(6,1),(3,2),(7,2), same pot and leaf design as image1. Crucial right lower plant MUST be in column7,row2, not column8; do not push it away to make space. Each plant fits its own tile and does not need a larger tile. Table remains exactly ONE tile at(5,0), emptychair at(5,1), as image1, no widening. Image2 guide COLORS ARE PLACEHOLDERS ONLY: pink/striped cells become empty floor; redcell is the same mutedbrown EMPTY chair; cyanoutlet area stays empty wall. NO people, movablechairs, trash, chargingoutlets, overlays or other new objects. Image3 is the original thick sparse black cartoon line/style reference only, do not copy lamb. No text, letters,numbers,logos,texture,hatching or white stickerborder. RPG Maker orthographic square-grid view, no vanishingpoint or triangular floor tiles. Output1920x1080 opaque PNG, same full canvas as image1. This edit should feel like the same cafe with four plant additions and two plant removals, not a recomposed room.",
+          "references": [
+            "assets/b/bg-streamer.png",
+            "docs/layout-guide/encore.png",
+            "references/character-cultofthelamb-1.jpg"
+          ],
+          "processing": {
+            "nativeSize": [
+              1672,
+              941
+            ],
+            "exportSize": [
+              1920,
+              1080
+            ],
+            "operation": "Whole-canvas output sizing and PNG text metadata omission only; no local warping, grid redrawing or recoloring.",
+            "pngTextMetadata": []
+          }
+        }
+      ],
+      "gridMeasurement": {
+        "grid": {
+          "left": 372,
+          "top": 177.5,
+          "right": 1547,
+          "bottom": 875
+        },
+        "registeredCellWidth": 97.91666666666667,
+        "registeredCellHeight": 99.64285714285714,
+        "verticalLineCentres": [
+          371.78,
+          472.51,
+          569.42,
+          667.22,
+          765.38,
+          863.0,
+          961.22,
+          1058.33,
+          1155.41,
+          1252.89,
+          1350.22,
+          1448.15,
+          1547.26
+        ],
+        "horizontalLineCentres": [
+          173.51,
+          276.85,
+          377.24,
+          477.17,
+          576.61,
+          676.47,
+          777.25,
+          878.82
+        ],
+        "interiorColumnWidths": [
+          96.91,
+          97.8,
+          98.16,
+          97.62,
+          98.22,
+          97.11,
+          97.08,
+          97.48,
+          97.33,
+          97.93
+        ],
+        "interiorColumnRange": [
+          96.91,
+          98.22
+        ],
+        "interiorRowRange": [
+          99.44,
+          100.78
+        ],
+        "maxInteriorAffineResidual": 0.879,
+        "maxCandidateVsApprovedSeamDifference": {
+          "x": 0.28,
+          "y": 0.61
+        },
+        "threeBandMaxSeamShift": 0.11,
+        "rightLowerPlant": {
+          "cell": [
+            7,
+            2
+          ],
+          "greenPixelCount": 1975,
+          "leafCentre": [
+            1107.57,
+            414.14
+          ],
+          "observedColumn": 7.508,
+          "bounds": [
+            1077,
+            378,
+            1141,
+            466
+          ],
+          "logicalColumnFromRegisteredGrid": 7.512
+        },
+        "measurementMethod": "Median brightness profiles across clear floor bands; dark seam weighted centres. Decorative thick outer frame shifts full-width edge centres, so calibrate using the approved bg-streamer bounds after verifying all13 vertical and8 horizontal seam centres agree within1px. Interior seams are checked separately for uniform spacing. No image warping or floor redraw.",
+        "pass": true
+      },
+      "runtimeValidation": {
+        "desktopWidth": 1280,
+        "mobile": [
+          375,
+          812
+        ],
+        "backgroundLoaded": true,
+        "horizontalOverflow": false,
+        "consoleErrorsOrWarnings": 0,
+        "rightPlantCheck": "Player walked to open cell(8,2). Attempted left move into plant cell(7,2) left rendered transform unchanged: translate(577.667px,164.777px). Plant aligns with blocked cell7, not open cell8."
+      },
+      "commit": "No staging, commit or push; review and commit by Claude Code."
     }
   ]
 }
