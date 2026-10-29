@@ -32,14 +32,16 @@
 
     [hidden] { display: none !important; }
 
+    /* 화면 전체를 쓴다. 장면은 남는 자리(.stage)의 가로와 세로 가운데 좁은 쪽에 맞춰 키운다. */
     .wrap {
-      max-width: 1000px;
-      margin-left: auto;
-      margin-right: auto;
+      height: 100vh;
+      height: 100dvh;
+      display: flex;
+      flex-direction: column;
       padding-left: 20px;
       padding-right: 20px;
       padding-top: 12px;
-      padding-bottom: 32px;
+      padding-bottom: 16px;
     }
 
     .bar {
@@ -47,6 +49,15 @@
       justify-content: flex-end;
       gap: 6px;
       margin-bottom: 10px;
+      flex: none;
+    }
+
+    .stage {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .btn {
@@ -62,10 +73,10 @@
     .btn:disabled { opacity: 0.35; cursor: default; }
     .btn.off { opacity: 0.45; }
 
-    /* 장면은 960 x 540 좌표로 그리고 화면 폭에 맞춰 줄인다. 숫자는 layout.js가 기준이다. */
+    /* 장면은 960 x 540 좌표로 그리고 화면에 맞춰 키우거나 줄인다. 그림 아래쪽의 빈 띠는 잘라 낸다(layout.js의 viewBottom). */
     .viewport {
       position: relative;
-      width: 100%;
+      flex: none;
       overflow: hidden;
       border-radius: 10px;
     }
@@ -218,6 +229,34 @@
     @keyframes flash {
       0% { opacity: 0.7; }
       100% { opacity: 0; }
+    }
+
+    /* 판을 깬 뒤: 아무 키나 누르거나 화면을 누르면 다음 판으로 간다는 표시. 판 가운데 오른쪽에서 깜박인다. */
+    .next-cue {
+      position: absolute;
+      right: 36px;
+      top: 50%;
+      width: 64px;
+      height: 64px;
+      margin-top: -32px;
+      z-index: 260;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 4px solid #111;
+      border-radius: 50%;
+      background: #fff;
+      color: #111;
+      font-size: 28px;
+      font-weight: 900;
+      padding-left: 5px;
+      animation: cue 0.9s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+
+    @keyframes cue {
+      from { transform: translateX(0); }
+      to { transform: translateX(8px); }
     }
 
     /* 판을 시작할 때 목표를 짚는다: 빌런 자리 콘센트에 고리가 퍼지고, 주인공 머리 위에 뽑힌 내 충전기가 잠깐 뜬다. */
@@ -401,6 +440,7 @@
       75% { transform: translate(3px, -2px) rotate(2deg); }
     }
 
+    /* 방향 버튼은 터치 화면에서만 보인다. 키보드와 마우스가 있는 화면에서는 세로 자리만 차지했다. */
     .pad {
       display: grid;
       grid-template-columns: repeat(3, 56px);
@@ -408,6 +448,11 @@
       gap: 6px;
       justify-content: center;
       margin-top: 14px;
+      flex: none;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .pad { display: none; }
     }
 
     .pad .btn {
@@ -425,19 +470,21 @@
   <main class="wrap">
     <div class="bar">
       <nav id="dots" class="dots" aria-label="판 고르기"></nav>
-      <button id="next" class="btn" type="button" aria-label="다음 판" hidden>▶</button>
       <button id="theme" class="btn" type="button" aria-label="그림체 바꾸기">◐</button>
       <button id="sound" class="btn" type="button" aria-label="소리 켜고 끄기">♪</button>
       <button id="undo" class="btn" type="button" aria-label="되돌리기">↶</button>
       <button id="restart" class="btn" type="button" aria-label="처음부터">↻</button>
     </div>
-    <div id="viewport" class="viewport">
-      <div id="scene" class="scene">
-        <div id="backdrop" class="layer backdrop"></div>
-        <div id="view" class="layer"></div>
-        <div id="actors" class="layer"></div>
-        <div id="flash" class="flash"></div>
-        <div id="portrait" class="portrait"></div>
+    <div id="stage" class="stage">
+      <div id="viewport" class="viewport">
+        <div id="scene" class="scene">
+          <div id="backdrop" class="layer backdrop"></div>
+          <div id="view" class="layer"></div>
+          <div id="actors" class="layer"></div>
+          <div id="flash" class="flash"></div>
+          <div id="portrait" class="portrait"></div>
+          <div id="next-cue" class="next-cue" hidden>▶</div>
+        </div>
       </div>
     </div>
     <div id="pad" class="pad">
@@ -467,6 +514,8 @@
       let TILE_H = TILE;
       let ORIGIN_X = LAYOUT.art.originX * SCALE;
       let ORIGIN_Y = LAYOUT.art.originY * SCALE;
+      // 장면에서 보여 주는 높이. 그림 아래쪽의 어두운 띠를 잘라 낸다.
+      const SCENE_H = LAYOUT.art.viewBottom * SCALE;
       const STORAGE_KEY = 'villain-settings';
 
       // 그림이 없을 때 상자에 칠하는 테마별 색. 색 규칙은 docs/concept.md "그림체 시험 결과와 결정" 절과 같다.
@@ -478,13 +527,14 @@
       };
 
       const ui = {
+        stage: document.getElementById('stage'),
         viewport: document.getElementById('viewport'),
+        nextCue: document.getElementById('next-cue'),
         scene: document.getElementById('scene'),
         backdrop: document.getElementById('backdrop'),
         actors: document.getElementById('actors'),
         view: document.getElementById('view'),
         dots: document.getElementById('dots'),
-        next: document.getElementById('next'),
         flash: document.getElementById('flash'),
         portrait: document.getElementById('portrait'),
         theme: document.getElementById('theme'),
@@ -527,11 +577,12 @@
         return `<div class="art"><div class="gbox${round ? ' round' : ''}" style="background:${color}"></div></div>`;
       }
 
-      // 장면 크기를 화면 폭에 맞춘다. clientWidth는 내용이 넘쳐도 커지지 않는다.
+      // 장면을 남는 자리의 가로와 세로 가운데 좁은 쪽에 맞춘다. 장면 아래쪽 빈 띠(viewBottom 아래)는 보여 주지 않는다.
       function fitScene() {
-        const width = ui.viewport.clientWidth;
-        const scale = width / 960;
-        ui.viewport.style.height = `${540 * scale}px`;
+        const scale = Math.min(ui.stage.clientWidth / 960, ui.stage.clientHeight / SCENE_H);
+        ui.viewport.style.width = `${960 * scale}px`;
+        ui.viewport.style.height = `${SCENE_H * scale}px`;
+        ui.scene.style.height = `${SCENE_H}px`;
         ui.scene.style.setProperty('--fit', `scale(${scale})`);
         ui.scene.style.transform = `scale(${scale})`;
       }
@@ -751,7 +802,7 @@
         drawView();
         drawDots();
         ui.undo.disabled = game.history.length === 0;
-        ui.next.hidden = true;
+        ui.nextCue.hidden = true;
       }
 
       // 1번 판처럼 진동벨을 놓을 칸이 있는 판은 그 칸에 점선 윤곽을 그린다.
@@ -930,8 +981,14 @@
         setArt(game.sprites.outlet, 'outlet-mine', colors.outletMine, true);
         game.cleared.add(game.level.id);
         drawDots();
-        ui.next.hidden = game.index >= LAYOUT.levels.length - 1;
+        ui.nextCue.hidden = false;
         game.busy = false;
+      }
+
+      // 판을 깬 뒤에는 아무 키나 누르거나 화면을 누르면 다음 판으로 간다. 마지막 판 다음은 첫 판이다.
+      function goNext() {
+        if (game.busy || !game.won) return;
+        startLevel((game.index + 1) % LAYOUT.levels.length);
       }
 
       function undo() {
@@ -1022,7 +1079,7 @@
           if (KEY_DIRECTIONS[key]) event.preventDefault();
           return;
         }
-        if (KEY_DIRECTIONS[key]) {
+        if (KEY_DIRECTIONS[key] && !game.won) {
           event.preventDefault();
           move(KEY_DIRECTIONS[key]);
         } else if (key === 'z' || key === 'backspace') {
@@ -1030,9 +1087,9 @@
           undo();
         } else if (key === 'r') {
           if (!game.busy) startLevel();
-        } else if ((key === 'enter' || key === ' ') && !ui.next.hidden) {
+        } else if (game.won && !['shift', 'control', 'alt', 'meta', 'tab'].includes(key)) {
           event.preventDefault();
-          ui.next.click();
+          goNext();
         }
       });
       document.querySelectorAll('#pad [data-dir]').forEach((button) => {
@@ -1041,13 +1098,12 @@
             game.skip = true;
             return;
           }
-          move(button.dataset.dir);
+          if (game.won) goNext();
+          else move(button.dataset.dir);
         });
       });
       ui.undo.addEventListener('click', undo);
-      ui.next.addEventListener('click', () => {
-        if (!game.busy && game.index < LAYOUT.levels.length - 1) startLevel(game.index + 1);
-      });
+      ui.viewport.addEventListener('click', goNext);
       ui.restart.addEventListener('click', () => {
         if (!game.busy) startLevel();
       });
@@ -1065,7 +1121,7 @@
         Sound.start();
         Sound.setOn(settings.sound);
       });
-      new ResizeObserver(fitScene).observe(ui.viewport);
+      new ResizeObserver(fitScene).observe(ui.stage);
 
       applyButtons();
       startLevel(0);
