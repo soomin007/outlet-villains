@@ -38,5 +38,14 @@ window.VILLAIN_ASSETS = {
     'player-left': 'assets/b/player-left.png',
     'player-right': 'assets/b/player-right.png',
     'outlet-mine': 'assets/b/outlet-mine.png',
+    'bg-streamer': 'assets/b/bg-streamer.png',
+    // 'bg-encore'는 가운데 네 줄이 다른 줄보다 넓게 그려져 칸과 맞출 수 없어서 등록을 뺐다(2026-10-29 Claude Code 검토). 다시 그리면 등록한다.
+    'streamer-idle': 'assets/b/streamer-idle.png',
+    'streamer-react': 'assets/b/streamer-react.png',
+    'streamer-portrait': 'assets/b/streamer-portrait.png',
+    'trash': 'assets/b/trash.png',
+    'plug-mine': 'assets/b/plug-mine.png',
+    'stream-frame': 'assets/b/stream-frame.png',
+    'streamer-face': 'assets/b/streamer-face.png',
   },
 };
