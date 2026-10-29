@@ -4541,6 +4541,1063 @@
         "code": "Only manifest changed. Game rules, maps, layout and renderer preserved."
       },
       "commit": "Unstaged. No commit or push. Claude Code reviews and commits."
+    },
+    {
+      "id": "cafe-customer-variants2-and3-2026-10-29",
+      "date": "2026-10-29",
+      "tool": "built-in image_gen",
+      "request": "Two additional gender-unspecified seated cafe customers, four separate orientations each, in themes A and B; 16 transparent sprites.",
+      "identities": {
+        "customer2": "Plain baseball cap, broader rounded light sweatshirt, dark trousers. B cap muted slategray, sweatshirt light warm beige.",
+        "customer3": "Short light neatly cropped hair, narrower straight dark collared shirt, medium-gray trousers. B light greige hair and muted dark slate/navy shirt."
+      },
+      "assets": [
+        {
+          "theme": "a",
+          "key": "customer2-down",
+          "file": "assets/a/customer2-down.png",
+          "prompt": "Use case: stylized-concept. ONE static background seated cafe customer sprite, genuine transparent RGBA, not a sprite sheet.\nImage1 is the existing customer-down: use ONLY its camera, sitting pose, included fixed chair, sparse thick black line style and scale. This must be a DIFFERENT customer with a different head silhouette, not that messy black-haired person. Image2 is same-theme seated streamer for line and gray fixed-chair reference only, do not borrow headset/headband/vest.\nFace screen DOWN toward viewer and adjacent table below. Hips rest on chair seat, normal knees forward, arms slightly extended forward holding a simple gray coffee cup in both hands. No table or laptop in this sprite. Include full gray chair back/seat/legs. Chair feet define the floor baseline; human shoe soles should stay visibly ABOVE chair feet. No crouch.\nSame RPG Maker slightly overhead view as image1, no isometric angle. 192x288 canvas ratio, combined person+chair250px tall with top y38 and CHAIR feet touching y288, centered. Fit full composite within180px width. Make neutral gender-unspecified person, no gender-coded accessories or body emphasis. STRICT grayscale only, black white neutral grays, no colored pixels, no red or green. Plain cup and plain clothing without marks. Sparse even black contours, large readable shapes, no texture, hatching or fine detail. Background patron, visually quiet.\nNo white sticker outline, no glow, no floor/cast shadow, no text/digits/logos/emojis/symbols, transparent gaps between chair legs.\nCustomer2 identity: soft rounded plain medium-gray baseball cap with a clearly projecting brim and no logo, hair almost entirely concealed and neat, never black messy hair. Slightly broader rounded silhouette in an unadorned LIGHT-GRAY loose sweatshirt with rounded sleeves, dark-gray trousers. Plain neutral face. Cap brim and broad light sweater must distinguish this patron even at small game size. This is not a hoodie and not a villain.",
+          "references": [
+            "assets/a/customer-down.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "output": {
+            "file": "assets/a/customer2-down.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              245,
+              205,
+              780,
+              1505
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              103,
+              250
+            ],
+            "placement": [
+              44,
+              38
+            ],
+            "visibleBox": [
+              44,
+              38,
+              147,
+              288
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 287,
+            "bottomTipGroups": [
+              [
+                48,
+                59
+              ],
+              [
+                132,
+                143
+              ]
+            ],
+            "maxRGBChannelRange": 5,
+            "fractionRGBChannelRangeOver15": 0.0,
+            "PNGTextMetadata": [],
+            "processing": "Preserved generated alpha. Trimmed transparent margin, uniformly resized composite to250px height (maxwidth180px), centered horizontally on192x288 canvas, bottom edge at y288. No code modification of line/color/face/anatomy/shape."
+          },
+          "outputSha256": "28b3432b4184605070f35a0ef75208c4ac29db4b4d18fab2e4f06d7e23534ced"
+        },
+        {
+          "theme": "a",
+          "key": "customer3-down",
+          "file": "assets/a/customer3-down.png",
+          "prompt": "Use case: stylized-concept. ONE static background seated cafe customer sprite, genuine transparent RGBA, not a sprite sheet.\nImage1 is the existing customer-down: use ONLY its camera, sitting pose, included fixed chair, sparse thick black line style and scale. This must be a DIFFERENT customer with a different head silhouette, not that messy black-haired person. Image2 is same-theme seated streamer for line and gray fixed-chair reference only, do not borrow headset/headband/vest.\nFace screen DOWN toward viewer and adjacent table below. Hips rest on chair seat, normal knees forward, arms slightly extended forward holding a simple gray coffee cup in both hands. No table or laptop in this sprite. Include full gray chair back/seat/legs. Chair feet define the floor baseline; human shoe soles should stay visibly ABOVE chair feet. No crouch.\nSame RPG Maker slightly overhead view as image1, no isometric angle. 192x288 canvas ratio, combined person+chair250px tall with top y38 and CHAIR feet touching y288, centered. Fit full composite within180px width. Make neutral gender-unspecified person, no gender-coded accessories or body emphasis. STRICT grayscale only, black white neutral grays, no colored pixels, no red or green. Plain cup and plain clothing without marks. Sparse even black contours, large readable shapes, no texture, hatching or fine detail. Background patron, visually quiet.\nNo white sticker outline, no glow, no floor/cast shadow, no text/digits/logos/emojis/symbols, transparent gaps between chair legs.\nCustomer3 identity: SHORT LIGHT-GRAY neatly cropped smooth hair, compact even head silhouette with a flat tidy fringe, NO spikes, NO black hair, NO cap or hood. Narrower straight upright silhouette in a plain DARK-CHARCOAL collared long-sleeve shirt, medium-gray trousers. Neutral face. Light compact hair and dark straight shirt must clearly differ from the cap-wearing broad light-sweater customer2 and old messy-haired customer. Do not add jewelry, tie or glasses.",
+          "references": [
+            "assets/a/customer-down.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "output": {
+            "file": "assets/a/customer3-down.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              265,
+              250,
+              759,
+              1486
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              100,
+              250
+            ],
+            "placement": [
+              46,
+              38
+            ],
+            "visibleBox": [
+              46,
+              38,
+              146,
+              288
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 287,
+            "bottomTipGroups": [
+              [
+                50,
+                60
+              ],
+              [
+                132,
+                142
+              ]
+            ],
+            "maxRGBChannelRange": 5,
+            "fractionRGBChannelRangeOver15": 0.0,
+            "PNGTextMetadata": [],
+            "processing": "Preserved generated alpha. Trimmed transparent margin, uniformly resized composite to250px height (maxwidth180px), centered horizontally on192x288 canvas, bottom edge at y288. No code modification of line/color/face/anatomy/shape."
+          },
+          "outputSha256": "a0ea121c53389de96d7591b6a346b9ab571db5702515a07427de454340ad62bd"
+        },
+        {
+          "theme": "a",
+          "key": "customer2-up",
+          "file": "assets/a/customer2-up.png",
+          "prompt": "Use case: identity-preserve. ONE isolated transparent static cafe customer sprite, not a sheet.\nImage1 defines the new SAME CUSTOMER identity and outfit. Image2 defines the desired seated up pose/camera/gray fixed-chair orientation, NEVER copy its messy dark hair or sweater identity. Image3 same-theme sparse line/chair style only, no streamer headset.\nCustomer2 is the same person wearing plain medium-gray BASEBALL CAP with projecting curved brim, no logo, neat almost-concealed hair. Broad round light-gray loose sweatshirt, dark-gray trousers. Preserve broad soft silhouette and LIGHT top. Gender unspecified, do not add gender-coded body shapes or accessories. Must be clearly different from original black messy-haired customer/player in image2.\nUP: true back view, face invisible, whole body AND chair face screenTOP. Gray backrest covers lower back, cup/hands extend toward table above, knees point screenTOP and are hidden behind chair, no splayed legs. Cap brim (if worn) points away screenTOP, back of cap visible.\nProper seated posture: hips supported on seat, backrest/seat/legs included. Chair feet define bottom baseline, never human soles. Hands hold plain gray cup toward faced table; NO table, laptop, other people or props.\nSTRICT pure monochrome black white neutralgray ONLY. No red or green or color tint. Chair gray like images2/3. Sparse thick black contours and large forms, no texture, hatching or clothing clutter, quiet background patron.\n192x288 ratio transparent RGBA, entire person+chair250px high, top y38 and chair leg tips at y288, horizontally centered. Keep same head and body proportions as image1 in matching pose of image2. All silhouette inside width180px, no clipping. Slightly overhead RPG Maker view, not isometric. No sticker border, no glow, no floor/cast shadow, no text/numbers/logos/symbols.",
+          "references": [
+            "assets/a/customer2-down.png (generated full-resolution source before canvas fit)",
+            "assets/a/customer-up.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "output": {
+            "file": "assets/a/customer2-up.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              257,
+              200,
+              800,
+              1413
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              112,
+              250
+            ],
+            "placement": [
+              40,
+              38
+            ],
+            "visibleBox": [
+              40,
+              38,
+              152,
+              288
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 287,
+            "bottomTipGroups": [
+              [
+                50,
+                61
+              ],
+              [
+                125,
+                136
+              ]
+            ],
+            "maxRGBChannelRange": 7,
+            "fractionRGBChannelRangeOver15": 0.0,
+            "PNGTextMetadata": [],
+            "processing": "Preserved generated alpha. Trimmed transparent margin, uniformly resized composite to250px height (maxwidth180px), centered horizontally on192x288 canvas, bottom edge at y288. No code modification of line/color/face/anatomy/shape."
+          },
+          "outputSha256": "5b1b6ce450131724f5c6721da6ee545438fdd5b589dfb1bb27fb8ca5d5aff8a2"
+        },
+        {
+          "theme": "a",
+          "key": "customer2-left",
+          "file": "assets/a/customer2-left.png",
+          "prompt": "Use case: identity-preserve. ONE isolated transparent static cafe customer sprite, not a sheet.\nImage1 defines the new SAME CUSTOMER identity and outfit. Image2 defines the desired seated left pose/camera/gray fixed-chair orientation, NEVER copy its messy dark hair or sweater identity. Image3 same-theme sparse line/chair style only, no streamer headset.\nCustomer2 is the same person wearing plain medium-gray BASEBALL CAP with projecting curved brim, no logo, neat almost-concealed hair. Broad round light-gray loose sweatshirt, dark-gray trousers. Preserve broad soft silhouette and LIGHT top. Gender unspecified, do not add gender-coded body shapes or accessories. Must be clearly different from original black messy-haired customer/player in image2.\nLEFT: true side view with nose and cup pointing screenLEFT. Whole body AND chair faceLEFT, backrest on screenRIGHT behind torso. Forearms extend toward screenLEFT table, holding cup. Thighs forwardLEFT from seat and lower legs bend down; human shoes above chair tips. Cap brim (if worn) projectsLEFT.\nProper seated posture: hips supported on seat, backrest/seat/legs included. Chair feet define bottom baseline, never human soles. Hands hold plain gray cup toward faced table; NO table, laptop, other people or props.\nSTRICT pure monochrome black white neutralgray ONLY. No red or green or color tint. Chair gray like images2/3. Sparse thick black contours and large forms, no texture, hatching or clothing clutter, quiet background patron.\n192x288 ratio transparent RGBA, entire person+chair250px high, top y38 and chair leg tips at y288, horizontally centered. Keep same head and body proportions as image1 in matching pose of image2. All silhouette inside width180px, no clipping. Slightly overhead RPG Maker view, not isometric. No sticker border, no glow, no floor/cast shadow, no text/numbers/logos/symbols.",
+          "references": [
+            "assets/a/customer2-down.png (generated full-resolution source before canvas fit)",
+            "assets/a/customer-left.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "output": {
+            "file": "assets/a/customer2-left.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              201,
+              210,
+              809,
+              1402
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              128,
+              250
+            ],
+            "placement": [
+              32,
+              38
+            ],
+            "visibleBox": [
+              32,
+              38,
+              160,
+              288
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 287,
+            "bottomTipGroups": [
+              [
+                37,
+                61
+              ],
+              [
+                82,
+                92
+              ],
+              [
+                146,
+                157
+              ]
+            ],
+            "maxRGBChannelRange": 5,
+            "fractionRGBChannelRangeOver15": 0.0,
+            "PNGTextMetadata": [],
+            "processing": "Preserved generated alpha. Trimmed transparent margin, uniformly resized composite to250px height (maxwidth180px), centered horizontally on192x288 canvas, bottom edge at y288. No code modification of line/color/face/anatomy/shape."
+          },
+          "outputSha256": "69c2b9ac949c118580676aa7285e34210883a0c76bed9a4a4cf881836e8f10af"
+        },
+        {
+          "theme": "a",
+          "key": "customer2-right",
+          "file": "assets/a/customer2-right.png",
+          "prompt": "Use case: identity-preserve. ONE isolated transparent static cafe customer sprite, not a sheet.\nImage1 defines the new SAME CUSTOMER identity and outfit. Image2 defines the desired seated right pose/camera/gray fixed-chair orientation, NEVER copy its messy dark hair or sweater identity. Image3 same-theme sparse line/chair style only, no streamer headset.\nCustomer2 is the same person wearing plain medium-gray BASEBALL CAP with projecting curved brim, no logo, neat almost-concealed hair. Broad round light-gray loose sweatshirt, dark-gray trousers. Preserve broad soft silhouette and LIGHT top. Gender unspecified, do not add gender-coded body shapes or accessories. Must be clearly different from original black messy-haired customer/player in image2.\nRIGHT: true side view with nose and cup pointing screenRIGHT. Whole body AND chair faceRIGHT, backrest on screenLEFT behind torso. Forearms extend toward screenRIGHT table, holding cup. Thighs forwardRIGHT from seat and lower legs bend down; human shoes above chair tips. Cap brim (if worn) projectsRIGHT.\nProper seated posture: hips supported on seat, backrest/seat/legs included. Chair feet define bottom baseline, never human soles. Hands hold plain gray cup toward faced table; NO table, laptop, other people or props.\nSTRICT pure monochrome black white neutralgray ONLY. No red or green or color tint. Chair gray like images2/3. Sparse thick black contours and large forms, no texture, hatching or clothing clutter, quiet background patron.\n192x288 ratio transparent RGBA, entire person+chair250px high, top y38 and chair leg tips at y288, horizontally centered. Keep same head and body proportions as image1 in matching pose of image2. All silhouette inside width180px, no clipping. Slightly overhead RPG Maker view, not isometric. No sticker border, no glow, no floor/cast shadow, no text/numbers/logos/symbols.",
+          "references": [
+            "assets/a/customer2-down.png (generated full-resolution source before canvas fit)",
+            "assets/a/customer-right.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "output": {
+            "file": "assets/a/customer2-right.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              230,
+              215,
+              882,
+              1400
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              138,
+              250
+            ],
+            "placement": [
+              27,
+              38
+            ],
+            "visibleBox": [
+              27,
+              38,
+              165,
+              288
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 287,
+            "bottomTipGroups": [
+              [
+                36,
+                47
+              ],
+              [
+                101,
+                113
+              ],
+              [
+                143,
+                157
+              ]
+            ],
+            "maxRGBChannelRange": 5,
+            "fractionRGBChannelRangeOver15": 0.0,
+            "PNGTextMetadata": [],
+            "processing": "Preserved generated alpha. Trimmed transparent margin, uniformly resized composite to250px height (maxwidth180px), centered horizontally on192x288 canvas, bottom edge at y288. No code modification of line/color/face/anatomy/shape."
+          },
+          "outputSha256": "0a68b735bdc4f7b29d58302e20136d54d42a0fab00ece9d5ac6a3c9731256031"
+        },
+        {
+          "theme": "a",
+          "key": "customer3-up",
+          "file": "assets/a/customer3-up.png",
+          "prompt": "Use case: identity-preserve. ONE isolated transparent static cafe customer sprite, not a sheet.\nImage1 defines the new SAME CUSTOMER identity and outfit. Image2 defines the desired seated up pose/camera/gray fixed-chair orientation, NEVER copy its messy dark hair or sweater identity. Image3 same-theme sparse line/chair style only, no streamer headset.\nCustomer3 is same person with SHORT LIGHT-GRAY neatly cropped hair, compact smooth silhouette, no cap/hood, no spikes. Narrower straight DARK CHARCOAL collared shirt, medium-gray trousers. Preserve LIGHT hair and DARK top. Gender unspecified, do not add gender-coded body shapes or accessories. Must be clearly different from original black messy-haired customer/player in image2.\nUP: true back view, face invisible, whole body AND chair face screenTOP. Gray backrest covers lower back, cup/hands extend toward table above, knees point screenTOP and are hidden behind chair, no splayed legs. Cap brim (if worn) points away screenTOP, back of cap visible.\nProper seated posture: hips supported on seat, backrest/seat/legs included. Chair feet define bottom baseline, never human soles. Hands hold plain gray cup toward faced table; NO table, laptop, other people or props.\nSTRICT pure monochrome black white neutralgray ONLY. No red or green or color tint. Chair gray like images2/3. Sparse thick black contours and large forms, no texture, hatching or clothing clutter, quiet background patron.\n192x288 ratio transparent RGBA, entire person+chair250px high, top y38 and chair leg tips at y288, horizontally centered. Keep same head and body proportions as image1 in matching pose of image2. All silhouette inside width180px, no clipping. Slightly overhead RPG Maker view, not isometric. No sticker border, no glow, no floor/cast shadow, no text/numbers/logos/symbols.",
+          "references": [
+            "assets/a/customer3-down.png (generated full-resolution source before canvas fit)",
+            "assets/a/customer-up.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "output": {
+            "file": "assets/a/customer3-up.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              268,
+              186,
+              784,
+              1431
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              104,
+              250
+            ],
+            "placement": [
+              44,
+              38
+            ],
+            "visibleBox": [
+              44,
+              38,
+              148,
+              288
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 287,
+            "bottomTipGroups": [
+              [
+                51,
+                61
+              ],
+              [
+                125,
+                135
+              ]
+            ],
+            "maxRGBChannelRange": 6,
+            "fractionRGBChannelRangeOver15": 0.0,
+            "PNGTextMetadata": [],
+            "processing": "Preserved generated alpha. Trimmed transparent margin, uniformly resized composite to250px height (maxwidth180px), centered horizontally on192x288 canvas, bottom edge at y288. No code modification of line/color/face/anatomy/shape."
+          },
+          "outputSha256": "e57d5b2d37f07dff448354644a96089bca10d1086338d972005bcfee785091ac"
+        },
+        {
+          "theme": "a",
+          "key": "customer3-left",
+          "file": "assets/a/customer3-left.png",
+          "prompt": "Use case: identity-preserve. ONE isolated transparent static cafe customer sprite, not a sheet.\nImage1 defines the new SAME CUSTOMER identity and outfit. Image2 defines the desired seated left pose/camera/gray fixed-chair orientation, NEVER copy its messy dark hair or sweater identity. Image3 same-theme sparse line/chair style only, no streamer headset.\nCustomer3 is same person with SHORT LIGHT-GRAY neatly cropped hair, compact smooth silhouette, no cap/hood, no spikes. Narrower straight DARK CHARCOAL collared shirt, medium-gray trousers. Preserve LIGHT hair and DARK top. Gender unspecified, do not add gender-coded body shapes or accessories. Must be clearly different from original black messy-haired customer/player in image2.\nLEFT: true side view with nose and cup pointing screenLEFT. Whole body AND chair faceLEFT, backrest on screenRIGHT behind torso. Forearms extend toward screenLEFT table, holding cup. Thighs forwardLEFT from seat and lower legs bend down; human shoes above chair tips. Cap brim (if worn) projectsLEFT.\nProper seated posture: hips supported on seat, backrest/seat/legs included. Chair feet define bottom baseline, never human soles. Hands hold plain gray cup toward faced table; NO table, laptop, other people or props.\nSTRICT pure monochrome black white neutralgray ONLY. No red or green or color tint. Chair gray like images2/3. Sparse thick black contours and large forms, no texture, hatching or clothing clutter, quiet background patron.\n192x288 ratio transparent RGBA, entire person+chair250px high, top y38 and chair leg tips at y288, horizontally centered. Keep same head and body proportions as image1 in matching pose of image2. All silhouette inside width180px, no clipping. Slightly overhead RPG Maker view, not isometric. No sticker border, no glow, no floor/cast shadow, no text/numbers/logos/symbols.",
+          "references": [
+            "assets/a/customer3-down.png (generated full-resolution source before canvas fit)",
+            "assets/a/customer-left.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "output": {
+            "file": "assets/a/customer3-left.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              218,
+              232,
+              814,
+              1448
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              123,
+              250
+            ],
+            "placement": [
+              34,
+              38
+            ],
+            "visibleBox": [
+              34,
+              38,
+              157,
+              288
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 287,
+            "bottomTipGroups": [
+              [
+                40,
+                62
+              ],
+              [
+                80,
+                91
+              ],
+              [
+                142,
+                153
+              ]
+            ],
+            "maxRGBChannelRange": 5,
+            "fractionRGBChannelRangeOver15": 0.0,
+            "PNGTextMetadata": [],
+            "processing": "Preserved generated alpha. Trimmed transparent margin, uniformly resized composite to250px height (maxwidth180px), centered horizontally on192x288 canvas, bottom edge at y288. No code modification of line/color/face/anatomy/shape."
+          },
+          "outputSha256": "4840a9b1f5007eb8ebd5cb53ae8447c54db2a72867d0634c4d1f6828afa247c0"
+        },
+        {
+          "theme": "a",
+          "key": "customer3-right",
+          "file": "assets/a/customer3-right.png",
+          "prompt": "Use case: identity-preserve. ONE isolated transparent static cafe customer sprite, not a sheet.\nImage1 defines the new SAME CUSTOMER identity and outfit. Image2 defines the desired seated right pose/camera/gray fixed-chair orientation, NEVER copy its messy dark hair or sweater identity. Image3 same-theme sparse line/chair style only, no streamer headset.\nCustomer3 is same person with SHORT LIGHT-GRAY neatly cropped hair, compact smooth silhouette, no cap/hood, no spikes. Narrower straight DARK CHARCOAL collared shirt, medium-gray trousers. Preserve LIGHT hair and DARK top. Gender unspecified, do not add gender-coded body shapes or accessories. Must be clearly different from original black messy-haired customer/player in image2.\nRIGHT: true side view with nose and cup pointing screenRIGHT. Whole body AND chair faceRIGHT, backrest on screenLEFT behind torso. Forearms extend toward screenRIGHT table, holding cup. Thighs forwardRIGHT from seat and lower legs bend down; human shoes above chair tips. Cap brim (if worn) projectsRIGHT.\nProper seated posture: hips supported on seat, backrest/seat/legs included. Chair feet define bottom baseline, never human soles. Hands hold plain gray cup toward faced table; NO table, laptop, other people or props.\nSTRICT pure monochrome black white neutralgray ONLY. No red or green or color tint. Chair gray like images2/3. Sparse thick black contours and large forms, no texture, hatching or clothing clutter, quiet background patron.\n192x288 ratio transparent RGBA, entire person+chair250px high, top y38 and chair leg tips at y288, horizontally centered. Keep same head and body proportions as image1 in matching pose of image2. All silhouette inside width180px, no clipping. Slightly overhead RPG Maker view, not isometric. No sticker border, no glow, no floor/cast shadow, no text/numbers/logos/symbols.",
+          "references": [
+            "assets/a/customer3-down.png (generated full-resolution source before canvas fit)",
+            "assets/a/customer-right.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "output": {
+            "file": "assets/a/customer3-right.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              193,
+              205,
+              894,
+              1430
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              143,
+              250
+            ],
+            "placement": [
+              24,
+              38
+            ],
+            "visibleBox": [
+              24,
+              38,
+              167,
+              288
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 287,
+            "bottomTipGroups": [
+              [
+                33,
+                44
+              ],
+              [
+                99,
+                110
+              ]
+            ],
+            "maxRGBChannelRange": 9,
+            "fractionRGBChannelRangeOver15": 0.0,
+            "PNGTextMetadata": [],
+            "processing": "Preserved generated alpha. Trimmed transparent margin, uniformly resized composite to250px height (maxwidth180px), centered horizontally on192x288 canvas, bottom edge at y288. No code modification of line/color/face/anatomy/shape."
+          },
+          "outputSha256": "1f47057dff3f5ba587ae132f04f5b56d257ae7f33ef99fcd45ae233592d720e4"
+        },
+        {
+          "theme": "b",
+          "key": "customer2-down",
+          "file": "assets/b/customer2-down.png",
+          "prompt": "Use case: style-transfer. ONE isolated transparent static cafe customer game sprite.\nImage1 is the exact new theme A customer, edit target. Preserve SAME person, face, head silhouette, body proportions, clothing shape, seated direction, cup/arms pose, gray cafe chair structure, exact silhouette, camera, scale and placement. Image2 is existing B customer in same direction for line/palette/chair reference only, DO NOT copy its messy black hair. Image3 is existing B streamer for line style and muted brown stationarychair, not its headset/vest/identity.\nChange only palette/style to subdued warm cartoon: customer2 cap muted slategray around #7b8189, visible hair quiet pale greige, plain LIGHT warm-beige sweatshirt around #c5b8a5 and charcoal-gray trousers, light warm skin. Chair muted BROWN around #8b6c51, coffee cup neutral cream-gray. Keep customer2 light clothing and cap, customer3 dark clothing and short light hair, clearly distinguishable from each other and old customer.\nLow saturation quiet BACKGROUND patron. NO mint, NO orange, NO dark green; these are reserved player/pushable/villain colors. Sparse thick black contours, large readable shapes, no extra texture/hatching/detail. No gender-specific styling added.\nPreserve properly seated hips on seat, legs directed toward adjacent table, cup held toward faced direction. Human shoes stay slightly ABOVE chair-foot baseline. Entire CHAIR included. No table or laptop.\n192x288 transparent PNG ratio, combined person+chair250px tall, top y38, chair leg tips at y288; same composite anchor and proportions as image1. Genuine RGBA including leg gaps, no background/floor, no floor/cast shadow, glow or white sticker border. No text/digits/logos/emojis/symbols. ONE sprite, not sheet.",
+          "references": [
+            "assets/a/customer2-down.png",
+            "assets/b/customer-down.png",
+            "assets/b/streamer-idle.png"
+          ],
+          "output": {
+            "file": "assets/b/customer2-down.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              240,
+              202,
+              781,
+              1517
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              103,
+              250
+            ],
+            "placement": [
+              44,
+              38
+            ],
+            "visibleBox": [
+              44,
+              38,
+              147,
+              288
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 287,
+            "bottomTipGroups": [
+              [
+                48,
+                58
+              ],
+              [
+                133,
+                143
+              ]
+            ],
+            "maxRGBChannelRange": 97,
+            "fractionRGBChannelRangeOver15": 0.4438363304665103,
+            "PNGTextMetadata": [],
+            "processing": "Preserved generated alpha. Trimmed transparent margin, uniformly resized composite to250px height (maxwidth180px), centered horizontally on192x288 canvas, bottom edge at y288. No code modification of line/color/face/anatomy/shape."
+          },
+          "outputSha256": "7766712d19136247f2d4d5e4950b56c835d7628cae3b89a9290f571af9373f5b"
+        },
+        {
+          "theme": "b",
+          "key": "customer3-down",
+          "file": "assets/b/customer3-down.png",
+          "prompt": "Use case: style-transfer. ONE isolated transparent static cafe customer game sprite.\nImage1 is the exact new theme A customer, edit target. Preserve SAME person, face, head silhouette, body proportions, clothing shape, seated direction, cup/arms pose, gray cafe chair structure, exact silhouette, camera, scale and placement. Image2 is existing B customer in same direction for line/palette/chair reference only, DO NOT copy its messy black hair. Image3 is existing B streamer for line style and muted brown stationarychair, not its headset/vest/identity.\nChange only palette/style to subdued warm cartoon: customer3 SHORT LIGHT greige hair around #c7bdae, DARK muted slate/navy collared shirt around #505968, medium gray-brown trousers, light warm skin. Chair muted BROWN around #8b6c51, coffee cup neutral cream-gray. Keep customer2 light clothing and cap, customer3 dark clothing and short light hair, clearly distinguishable from each other and old customer.\nLow saturation quiet BACKGROUND patron. NO mint, NO orange, NO dark green; these are reserved player/pushable/villain colors. Sparse thick black contours, large readable shapes, no extra texture/hatching/detail. No gender-specific styling added.\nPreserve properly seated hips on seat, legs directed toward adjacent table, cup held toward faced direction. Human shoes stay slightly ABOVE chair-foot baseline. Entire CHAIR included. No table or laptop.\n192x288 transparent PNG ratio, combined person+chair250px tall, top y38, chair leg tips at y288; same composite anchor and proportions as image1. Genuine RGBA including leg gaps, no background/floor, no floor/cast shadow, glow or white sticker border. No text/digits/logos/emojis/symbols. ONE sprite, not sheet.",
+          "references": [
+            "assets/a/customer3-down.png",
+            "assets/b/customer-down.png",
+            "assets/b/streamer-idle.png"
+          ],
+          "output": {
+            "file": "assets/b/customer3-down.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              244,
+              199,
+              780,
+              1515
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              102,
+              250
+            ],
+            "placement": [
+              45,
+              38
+            ],
+            "visibleBox": [
+              45,
+              38,
+              147,
+              288
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 287,
+            "bottomTipGroups": [
+              [
+                49,
+                59
+              ],
+              [
+                133,
+                143
+              ]
+            ],
+            "maxRGBChannelRange": 98,
+            "fractionRGBChannelRangeOver15": 0.7113877118644067,
+            "PNGTextMetadata": [],
+            "processing": "Preserved generated alpha. Trimmed transparent margin, uniformly resized composite to250px height (maxwidth180px), centered horizontally on192x288 canvas, bottom edge at y288. No code modification of line/color/face/anatomy/shape."
+          },
+          "outputSha256": "fc92b125f9df043e58ef43f4d92950e39d0f88d0ee4c36e2baec0437758e7b50"
+        },
+        {
+          "theme": "b",
+          "key": "customer2-up",
+          "file": "assets/b/customer2-up.png",
+          "prompt": "Use case: style-transfer. ONE isolated transparent static cafe customer game sprite.\nImage1 is the exact new theme A customer, edit target. Preserve SAME person, face, head silhouette, body proportions, clothing shape, seated direction, cup/arms pose, gray cafe chair structure, exact silhouette, camera, scale and placement. Image2 is existing B customer in same direction for line/palette/chair reference only, DO NOT copy its messy black hair. Image3 is existing B streamer for line style and muted brown stationarychair, not its headset/vest/identity.\nChange only palette/style to subdued warm cartoon: customer2 cap muted slategray around #7b8189, visible hair quiet pale greige, plain LIGHT warm-beige sweatshirt around #c5b8a5 and charcoal-gray trousers, light warm skin. Chair muted BROWN around #8b6c51, coffee cup neutral cream-gray. Keep customer2 light clothing and cap, customer3 dark clothing and short light hair, clearly distinguishable from each other and old customer.\nLow saturation quiet BACKGROUND patron. NO mint, NO orange, NO dark green; these are reserved player/pushable/villain colors. Sparse thick black contours, large readable shapes, no extra texture/hatching/detail. No gender-specific styling added.\nPreserve properly seated hips on seat, legs directed toward adjacent table, cup held toward faced direction. Human shoes stay slightly ABOVE chair-foot baseline. Entire CHAIR included. No table or laptop.\n192x288 transparent PNG ratio, combined person+chair250px tall, top y38, chair leg tips at y288; same composite anchor and proportions as image1. Genuine RGBA including leg gaps, no background/floor, no floor/cast shadow, glow or white sticker border. No text/digits/logos/emojis/symbols. ONE sprite, not sheet.",
+          "references": [
+            "assets/a/customer2-up.png",
+            "assets/b/customer-up.png",
+            "assets/b/streamer-idle.png"
+          ],
+          "output": {
+            "file": "assets/b/customer2-up.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              222,
+              199,
+              823,
+              1530
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              113,
+              250
+            ],
+            "placement": [
+              39,
+              38
+            ],
+            "visibleBox": [
+              39,
+              38,
+              152,
+              288
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 287,
+            "bottomTipGroups": [
+              [
+                50,
+                60
+              ],
+              [
+                124,
+                135
+              ]
+            ],
+            "maxRGBChannelRange": 96,
+            "fractionRGBChannelRangeOver15": 0.590189701897019,
+            "PNGTextMetadata": [],
+            "processing": "Preserved generated alpha. Trimmed transparent margin, uniformly resized composite to250px height (maxwidth180px), centered horizontally on192x288 canvas, bottom edge at y288. No code modification of line/color/face/anatomy/shape."
+          },
+          "outputSha256": "7f8707bf6d31b51e65a2e2ba66ebac6a6fed25fe1e79ed8882fdb8ed6c347cb0"
+        },
+        {
+          "theme": "b",
+          "key": "customer2-left",
+          "file": "assets/b/customer2-left.png",
+          "prompt": "Use case: style-transfer. ONE isolated transparent static cafe customer game sprite.\nImage1 is the exact new theme A customer, edit target. Preserve SAME person, face, head silhouette, body proportions, clothing shape, seated direction, cup/arms pose, gray cafe chair structure, exact silhouette, camera, scale and placement. Image2 is existing B customer in same direction for line/palette/chair reference only, DO NOT copy its messy black hair. Image3 is existing B streamer for line style and muted brown stationarychair, not its headset/vest/identity.\nChange only palette/style to subdued warm cartoon: customer2 cap muted slategray around #7b8189, visible hair quiet pale greige, plain LIGHT warm-beige sweatshirt around #c5b8a5 and charcoal-gray trousers, light warm skin. Chair muted BROWN around #8b6c51, coffee cup neutral cream-gray. Keep customer2 light clothing and cap, customer3 dark clothing and short light hair, clearly distinguishable from each other and old customer.\nLow saturation quiet BACKGROUND patron. NO mint, NO orange, NO dark green; these are reserved player/pushable/villain colors. Sparse thick black contours, large readable shapes, no extra texture/hatching/detail. No gender-specific styling added.\nPreserve properly seated hips on seat, legs directed toward adjacent table, cup held toward faced direction. Human shoes stay slightly ABOVE chair-foot baseline. Entire CHAIR included. No table or laptop.\n192x288 transparent PNG ratio, combined person+chair250px tall, top y38, chair leg tips at y288; same composite anchor and proportions as image1. Genuine RGBA including leg gaps, no background/floor, no floor/cast shadow, glow or white sticker border. No text/digits/logos/emojis/symbols. ONE sprite, not sheet.",
+          "references": [
+            "assets/a/customer2-left.png",
+            "assets/b/customer-left.png",
+            "assets/b/streamer-idle.png"
+          ],
+          "output": {
+            "file": "assets/b/customer2-left.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              183,
+              203,
+              849,
+              1523
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              126,
+              250
+            ],
+            "placement": [
+              33,
+              38
+            ],
+            "visibleBox": [
+              33,
+              38,
+              159,
+              288
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 287,
+            "bottomTipGroups": [
+              [
+                38,
+                60
+              ],
+              [
+                81,
+                92
+              ],
+              [
+                145,
+                156
+              ]
+            ],
+            "maxRGBChannelRange": 96,
+            "fractionRGBChannelRangeOver15": 0.4973264949803579,
+            "PNGTextMetadata": [],
+            "processing": "Preserved generated alpha. Trimmed transparent margin, uniformly resized composite to250px height (maxwidth180px), centered horizontally on192x288 canvas, bottom edge at y288. No code modification of line/color/face/anatomy/shape."
+          },
+          "outputSha256": "5bdbda8b787210673304b8b94f7cbfeb4ead0b1bbc5c12810601003ffe9f0f86"
+        },
+        {
+          "theme": "b",
+          "key": "customer2-right",
+          "file": "assets/b/customer2-right.png",
+          "prompt": "Use case: style-transfer. ONE isolated transparent static cafe customer game sprite.\nImage1 is the exact new theme A customer, edit target. Preserve SAME person, face, head silhouette, body proportions, clothing shape, seated direction, cup/arms pose, gray cafe chair structure, exact silhouette, camera, scale and placement. Image2 is existing B customer in same direction for line/palette/chair reference only, DO NOT copy its messy black hair. Image3 is existing B streamer for line style and muted brown stationarychair, not its headset/vest/identity.\nChange only palette/style to subdued warm cartoon: customer2 cap muted slategray around #7b8189, visible hair quiet pale greige, plain LIGHT warm-beige sweatshirt around #c5b8a5 and charcoal-gray trousers, light warm skin. Chair muted BROWN around #8b6c51, coffee cup neutral cream-gray. Keep customer2 light clothing and cap, customer3 dark clothing and short light hair, clearly distinguishable from each other and old customer.\nLow saturation quiet BACKGROUND patron. NO mint, NO orange, NO dark green; these are reserved player/pushable/villain colors. Sparse thick black contours, large readable shapes, no extra texture/hatching/detail. No gender-specific styling added.\nPreserve properly seated hips on seat, legs directed toward adjacent table, cup held toward faced direction. Human shoes stay slightly ABOVE chair-foot baseline. Entire CHAIR included. No table or laptop.\n192x288 transparent PNG ratio, combined person+chair250px tall, top y38, chair leg tips at y288; same composite anchor and proportions as image1. Genuine RGBA including leg gaps, no background/floor, no floor/cast shadow, glow or white sticker border. No text/digits/logos/emojis/symbols. ONE sprite, not sheet.",
+          "references": [
+            "assets/a/customer2-right.png",
+            "assets/b/customer-right.png",
+            "assets/b/streamer-idle.png"
+          ],
+          "output": {
+            "file": "assets/b/customer2-right.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              147,
+              187,
+              888,
+              1494
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              142,
+              250
+            ],
+            "placement": [
+              25,
+              38
+            ],
+            "visibleBox": [
+              25,
+              38,
+              167,
+              288
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 287,
+            "bottomTipGroups": [
+              [
+                35,
+                45
+              ],
+              [
+                100,
+                112
+              ],
+              [
+                132,
+                136
+              ],
+              [
+                143,
+                159
+              ]
+            ],
+            "maxRGBChannelRange": 97,
+            "fractionRGBChannelRangeOver15": 0.4907693894389439,
+            "PNGTextMetadata": [],
+            "processing": "Preserved generated alpha. Trimmed transparent margin, uniformly resized composite to250px height (maxwidth180px), centered horizontally on192x288 canvas, bottom edge at y288. No code modification of line/color/face/anatomy/shape."
+          },
+          "outputSha256": "79adfbbb3c11cdb048daf5e7c8bd2672e002cebb62c118e8ccd210a7a2dbdeab"
+        },
+        {
+          "theme": "b",
+          "key": "customer3-up",
+          "file": "assets/b/customer3-up.png",
+          "prompt": "Use case: style-transfer. ONE isolated transparent static cafe customer game sprite.\nImage1 is the exact new theme A customer, edit target. Preserve SAME person, face, head silhouette, body proportions, clothing shape, seated direction, cup/arms pose, gray cafe chair structure, exact silhouette, camera, scale and placement. Image2 is existing B customer in same direction for line/palette/chair reference only, DO NOT copy its messy black hair. Image3 is existing B streamer for line style and muted brown stationarychair, not its headset/vest/identity.\nChange only palette/style to subdued warm cartoon: customer3 SHORT LIGHT greige hair around #c7bdae, DARK muted slate/navy collared shirt around #505968, medium gray-brown trousers, light warm skin. Chair muted BROWN around #8b6c51, coffee cup neutral cream-gray. Keep customer2 light clothing and cap, customer3 dark clothing and short light hair, clearly distinguishable from each other and old customer.\nLow saturation quiet BACKGROUND patron. NO mint, NO orange, NO dark green; these are reserved player/pushable/villain colors. Sparse thick black contours, large readable shapes, no extra texture/hatching/detail. No gender-specific styling added.\nPreserve properly seated hips on seat, legs directed toward adjacent table, cup held toward faced direction. Human shoes stay slightly ABOVE chair-foot baseline. Entire CHAIR included. No table or laptop.\n192x288 transparent PNG ratio, combined person+chair250px tall, top y38, chair leg tips at y288; same composite anchor and proportions as image1. Genuine RGBA including leg gaps, no background/floor, no floor/cast shadow, glow or white sticker border. No text/digits/logos/emojis/symbols. ONE sprite, not sheet.",
+          "references": [
+            "assets/a/customer3-up.png",
+            "assets/b/customer-up.png",
+            "assets/b/streamer-idle.png"
+          ],
+          "output": {
+            "file": "assets/b/customer3-up.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              241,
+              205,
+              794,
+              1513
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              106,
+              250
+            ],
+            "placement": [
+              43,
+              38
+            ],
+            "visibleBox": [
+              43,
+              38,
+              149,
+              288
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 287,
+            "bottomTipGroups": [
+              [
+                49,
+                59
+              ],
+              [
+                124,
+                135
+              ]
+            ],
+            "maxRGBChannelRange": 113,
+            "fractionRGBChannelRangeOver15": 0.6072176028055886,
+            "PNGTextMetadata": [],
+            "processing": "Preserved generated alpha. Trimmed transparent margin, uniformly resized composite to250px height (maxwidth180px), centered horizontally on192x288 canvas, bottom edge at y288. No code modification of line/color/face/anatomy/shape."
+          },
+          "outputSha256": "049ad8d7b4af2fba857c9700ae56af75cb423aa0bd5b189ef508329614a292c6"
+        },
+        {
+          "theme": "b",
+          "key": "customer3-left",
+          "file": "assets/b/customer3-left.png",
+          "prompt": "Use case: style-transfer. ONE isolated transparent static cafe customer game sprite.\nImage1 is the exact new theme A customer, edit target. Preserve SAME person, face, head silhouette, body proportions, clothing shape, seated direction, cup/arms pose, gray cafe chair structure, exact silhouette, camera, scale and placement. Image2 is existing B customer in same direction for line/palette/chair reference only, DO NOT copy its messy black hair. Image3 is existing B streamer for line style and muted brown stationarychair, not its headset/vest/identity.\nChange only palette/style to subdued warm cartoon: customer3 SHORT LIGHT greige hair around #c7bdae, DARK muted slate/navy collared shirt around #505968, medium gray-brown trousers, light warm skin. Chair muted BROWN around #8b6c51, coffee cup neutral cream-gray. Keep customer2 light clothing and cap, customer3 dark clothing and short light hair, clearly distinguishable from each other and old customer.\nLow saturation quiet BACKGROUND patron. NO mint, NO orange, NO dark green; these are reserved player/pushable/villain colors. Sparse thick black contours, large readable shapes, no extra texture/hatching/detail. No gender-specific styling added.\nPreserve properly seated hips on seat, legs directed toward adjacent table, cup held toward faced direction. Human shoes stay slightly ABOVE chair-foot baseline. Entire CHAIR included. No table or laptop.\n192x288 transparent PNG ratio, combined person+chair250px tall, top y38, chair leg tips at y288; same composite anchor and proportions as image1. Genuine RGBA including leg gaps, no background/floor, no floor/cast shadow, glow or white sticker border. No text/digits/logos/emojis/symbols. ONE sprite, not sheet.",
+          "references": [
+            "assets/a/customer3-left.png",
+            "assets/b/customer-left.png",
+            "assets/b/streamer-idle.png"
+          ],
+          "output": {
+            "file": "assets/b/customer3-left.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              188,
+              200,
+              836,
+              1529
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              122,
+              250
+            ],
+            "placement": [
+              35,
+              38
+            ],
+            "visibleBox": [
+              35,
+              38,
+              157,
+              288
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 287,
+            "bottomTipGroups": [
+              [
+                41,
+                62
+              ],
+              [
+                80,
+                91
+              ],
+              [
+                143,
+                154
+              ]
+            ],
+            "maxRGBChannelRange": 95,
+            "fractionRGBChannelRangeOver15": 0.47871259175607,
+            "PNGTextMetadata": [],
+            "processing": "Preserved generated alpha. Trimmed transparent margin, uniformly resized composite to250px height (maxwidth180px), centered horizontally on192x288 canvas, bottom edge at y288. No code modification of line/color/face/anatomy/shape."
+          },
+          "outputSha256": "60eb1e22873256eacbb561b03bf754b4b67a76acaa6b558648ce2e446e27603d"
+        },
+        {
+          "theme": "b",
+          "key": "customer3-right",
+          "file": "assets/b/customer3-right.png",
+          "prompt": "Use case: style-transfer. ONE isolated transparent static cafe customer game sprite.\nImage1 is the exact new theme A customer, edit target. Preserve SAME person, face, head silhouette, body proportions, clothing shape, seated direction, cup/arms pose, gray cafe chair structure, exact silhouette, camera, scale and placement. Image2 is existing B customer in same direction for line/palette/chair reference only, DO NOT copy its messy black hair. Image3 is existing B streamer for line style and muted brown stationarychair, not its headset/vest/identity.\nChange only palette/style to subdued warm cartoon: customer3 SHORT LIGHT greige hair around #c7bdae, DARK muted slate/navy collared shirt around #505968, medium gray-brown trousers, light warm skin. Chair muted BROWN around #8b6c51, coffee cup neutral cream-gray. Keep customer2 light clothing and cap, customer3 dark clothing and short light hair, clearly distinguishable from each other and old customer.\nLow saturation quiet BACKGROUND patron. NO mint, NO orange, NO dark green; these are reserved player/pushable/villain colors. Sparse thick black contours, large readable shapes, no extra texture/hatching/detail. No gender-specific styling added.\nPreserve properly seated hips on seat, legs directed toward adjacent table, cup held toward faced direction. Human shoes stay slightly ABOVE chair-foot baseline. Entire CHAIR included. No table or laptop.\n192x288 transparent PNG ratio, combined person+chair250px tall, top y38, chair leg tips at y288; same composite anchor and proportions as image1. Genuine RGBA including leg gaps, no background/floor, no floor/cast shadow, glow or white sticker border. No text/digits/logos/emojis/symbols. ONE sprite, not sheet.",
+          "references": [
+            "assets/a/customer3-right.png",
+            "assets/b/customer-right.png",
+            "assets/b/streamer-idle.png"
+          ],
+          "output": {
+            "file": "assets/b/customer3-right.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              144,
+              217,
+              895,
+              1508
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              145,
+              250
+            ],
+            "placement": [
+              23,
+              38
+            ],
+            "visibleBox": [
+              23,
+              38,
+              168,
+              288
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 287,
+            "bottomTipGroups": [
+              [
+                31,
+                42
+              ],
+              [
+                99,
+                110
+              ]
+            ],
+            "maxRGBChannelRange": 107,
+            "fractionRGBChannelRangeOver15": 0.5655073082257548,
+            "PNGTextMetadata": [],
+            "processing": "Preserved generated alpha. Trimmed transparent margin, uniformly resized composite to250px height (maxwidth180px), centered horizontally on192x288 canvas, bottom edge at y288. No code modification of line/color/face/anatomy/shape."
+          },
+          "outputSha256": "352f2f817f6edee5b319a834177c11f7421c5a58b050191d45d420ba16b576fb"
+        }
+      ],
+      "qa": {
+        "desktop": [
+          1920,
+          1080
+        ],
+        "mobile": [
+          375,
+          812
+        ],
+        "game": "index.html, levels1-2 and1-4, both themes",
+        "result": "All eight new directional files loaded across the two levels for each theme. No missing image, console warning/error or horizontal overflow. Existing game alternates three customer families. Cap/light top and light hair/dark top remain distinguishable from existing black messy-haired customer and colored player. New sprites include stationary gray/brown chairs and no sticker border, floor shadow or text.",
+        "limitations": [
+          "Mobile scene renders customers small; head silhouette and outfit value are more readable than hands, cup or individual legs. This visual inspection is not a novice recognition playtest.",
+          "Back chair legs may end above front chair legs due the retained slight-overhead projection. Lowest chair edge aligns to y288.",
+          "A is visually grayscale; generated antialiasing edge pixels have RGB-channel differences up to9/255. No code recoloring performed."
+        ],
+        "scope": "Only new sixteen PNGs, manifest, generation record and Codex session log edited."
+      },
+      "commit": "No staging, commit or push. Claude Code reviews and commits.",
+      "externalChangesDuringTask": {
+        "files": [
+          "src/engine.js",
+          "src/layout.js",
+          "index.html"
+        ],
+        "note": "Other work changed source during generation. Codex preserved source and did not edit or roll it back."
+      }
     }
   ]
 }
