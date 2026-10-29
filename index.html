@@ -1159,6 +1159,14 @@
         element.style.zIndex = String(10 + y * 10);
       }
 
+      // 손님 그림 key. 같은 사람이 줄지어 앉으면 복제 인간처럼 보여서, 그려 둔 손님 종류(customer, customer2, customer3...)를
+      // 칸마다 번갈아 쓴다. (x + 2y)로 고르면 종류가 세 개 이상일 때 상하좌우로 붙은 손님끼리 겹치지 않는다.
+      function customerKey(facing, x, y) {
+        const variants = ['', '2', '3', '4'].filter((variant) => assetPath(`customer${variant}-${facing}`));
+        if (variants.length === 0) return `customer-${facing}`;
+        return `customer${variants[(x + 2 * y) % variants.length]}-${facing}`;
+      }
+
       // 손님이 보는 방향. 이웃한 카페 테이블(o)을 먼저, 없으면 배경 테이블(T)을 본다. 둘 다 없으면 아래를 본다.
       function customerFacing(map, x, y) {
         const around = [['up', 0, -1], ['down', 0, 1], ['left', -1, 0], ['right', 1, 0]];
@@ -1423,7 +1431,7 @@
             placeOnTile(table, x, y, TILE, TILE * 1.1);
           } else if (char === 'N') {
             const facing = customerFacing(level.map, x, y);
-            const customer = addSprite(`customer-${facing}`, TILE, TILE * 1.5, colors.customer);
+            const customer = addSprite(customerKey(facing, x, y), TILE, TILE * 1.5, colors.customer);
             customer.classList.add('kind-customer');
             customer.dataset.facing = facing;
             placeOnTile(customer, x, y, TILE, TILE * 1.5);
