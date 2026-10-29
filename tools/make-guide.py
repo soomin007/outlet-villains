@@ -99,8 +99,13 @@ def main():
     layout = read_layout(root)
     out = root / 'docs' / 'layout-guide'
     out.mkdir(parents=True, exist_ok=True)
+    # 배경 그림 하나에 안내 그림 하나. 같은 배경을 쓰는 레벨은 테이블과 화분 자리가 같으므로 그 배경의 첫 레벨로 그린다.
+    drawn = set()
     for level in layout['levels']:
-        path = out / f"{level['id']}.png"
+        if level['bg'] in drawn:
+            continue
+        drawn.add(level['bg'])
+        path = out / f"{level['bg']}.png"
         write_png(path, draw_level(layout['art'], level))
         print('saved', path)
 

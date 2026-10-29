@@ -22,11 +22,26 @@
       lines.push(`${condition ? 'PASS' : 'FAIL'}  ${message}`);
       if (!condition) failures += 1;
     }
+    // 배경에 그려진 것(테이블, 화분, 빌런, 진동벨 자리)만 남긴 지도. 같은 배경을 쓰는 레벨은 이것이 같아야 그림과 막히는 칸이 맞는다.
+    const fixedOf = (map) => map.map((line) => line.replace(/[^TLV*#]/g, '.')).join('\n');
+    const firstOfBg = {};
+    const chapterIds = window.VILLAIN_LAYOUT.chapters.map((chapter) => chapter.id);
     for (const definition of window.VILLAIN_LAYOUT.levels) {
       const level = VillainEngine.parseLevel(definition);
       const result = VillainEngine.solve(level);
       expect(result.moves === definition.optimal && result.pushes === definition.pushes,
         `${definition.id}: 최소 ${result.moves}걸음, 밀기 ${result.pushes}번 (기록된 값 ${definition.optimal}걸음, ${definition.pushes}번) [${(result.path || []).join(' ')}]`);
+      expect(chapterIds.includes(definition.chapter), `${definition.id}: 챕터 ${definition.chapter}가 chapters에 있음`);
+      if (firstOfBg[definition.bg]) {
+        expect(fixedOf(definition.map) === fixedOf(firstOfBg[definition.bg].map),
+          `${definition.id}: 배경 bg-${definition.bg}의 테이블, 화분, 빌런 자리가 ${firstOfBg[definition.bg].id}와 같음`);
+      } else {
+        firstOfBg[definition.bg] = definition;
+      }
+      if (definition.chairNeeded) {
+        const fixedChairs = VillainEngine.parseLevel({ ...definition, map: definition.map.map((line) => line.replace(/c/g, '#')) });
+        expect(VillainEngine.solve(fixedChairs).moves === null, `${definition.id}: 의자를 밀지 않으면 풀리지 않음`);
+      }
       if (level.view) {
         expect(!VillainEngine.viewOf(level, level.start).hits.includes('player'), definition.id + ': 시작하자마자 화각에 잡히지 않음');
       }
