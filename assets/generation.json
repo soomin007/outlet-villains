@@ -3113,6 +3113,885 @@
         "rightPlantCheck": "Player walked to open cell(8,2). Attempted left move into plant cell(7,2) left rendered transform unchanged: translate(577.667px,164.777px). Plant aligns with blocked cell7, not open cell8."
       },
       "commit": "No staging, commit or push; review and commit by Claude Code."
+    },
+    {
+      "id": "buzzer-led-pager-2026-10-29",
+      "date": "2026-10-29",
+      "tool": "built-in image_gen",
+      "scope": "Replace ONLY A/B buzzer PNGs; manifest and game code unchanged.",
+      "rationale": "User play feedback: generic colored button shape did not read as a cafe pager beside same-color chairs. Add low flat pager silhouette, rim LEDs and empty number display.",
+      "assets": [
+        {
+          "key": "buzzer",
+          "theme": "a",
+          "file": "assets/a/buzzer.png",
+          "width": 192,
+          "height": 192,
+          "transparent": true,
+          "prompt": "Use case: stylized-concept. ONE recognizable KOREAN CAFE VIBRATING CUSTOMER PAGER, isolated transparent PNG, finalcanvas192x192. People receive this palm-sized pager when ordering drinks. It must read as a cafe order pager immediately, not a vague gamebutton, chair, stool, footswitch, speaker or arcadecontrol. A LOW FLAT rounded-square disk lying FLAT on the floor, seen from slightly ABOVE with a little frontedge thickness visible, matching RPG Maker gameview. Front/left/right edges not rotated into a diamond. Width154px(~80%canvas), topface heightabout108px and shallow frontside12..16px; centered x96,y96 with transparentmargin. No tall parts or legs.\nDistinctive realpager details: a rim of TEN small WHITE LED lenses/dots evenly spaced around the top-face PERIMETER, each about7..9px diameter at192pxcanvas. The LEDs are embedded physical lights, no bloom/glow or halos outsideobject. In the CENTER a small WIDE RECTANGULAR DARK BLANK NUMBER-DISPLAY WINDOW, recessed and flush, about54x28px. Keep the display completely empty. NO digits, letters, batterybars, icons, pictograms or brandlabel. NO big raised round centerbutton. One flat surface, shallow thickedge, perimeter LEDs and blank screen give an unmistakeable restaurant/cafe pager silhouette.\nTHEME A: body GREEN near#2f7a54, blackthick outline, oneflatdarkgreen shadowplane. LED dots WHITE. Screen BLACK/neutraldarkgray, no other colors. Match lineweight and fewlarge flatshapes of image1 GREENCHAIR, images2/3 Helltaker rawink references for STYLE ONLY. Do not copy chairshape, demons,people,costumes or reference colors. Bold simple cartoon shapes, fewlines, no texture,hatching,grain,3Dshine or realism. No white stickeroutline, groundshadow, shadowellipse, vibrationlines, motionmarks or extraobjects. Entire external blackcontour fitsinside alpha, no cropping. True TRANSPARENT background, not black/white backdrop or checkerboard drawn into art.",
+          "references": [
+            "assets/a/chair.png",
+            "references/portrait-helltaker-1.jpg",
+            "references/portrait-helltaker-2.jpg"
+          ],
+          "processing": {
+            "theme": "a",
+            "file": "assets/a/buzzer.png",
+            "nativeSize": [
+              1254,
+              1254
+            ],
+            "sourceAlphaBox": [
+              156,
+              293,
+              1098,
+              962
+            ],
+            "size": [
+              192,
+              192
+            ],
+            "bodyWidth": 154,
+            "bodyHeight": 109,
+            "bodyWidthFraction": 0.8020833333333334,
+            "placement": [
+              19,
+              41
+            ],
+            "alphaBox": [
+              19,
+              41,
+              173,
+              150
+            ],
+            "opaqueBodyBox": [
+              19,
+              41,
+              173,
+              150
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "pngTextMetadata": [],
+            "processing": "Trim alpha margin, proportional resize to154px width and centre in192x192 transparentcanvas. No redrawing, recoloring, outline reinforcement or shadow creation."
+          },
+          "ledValidation": {
+            "theme": "a",
+            "size": [
+              192,
+              192
+            ],
+            "alphaBox": [
+              19,
+              41,
+              173,
+              150
+            ],
+            "bodyWidth": 154,
+            "bodyHeight": 109,
+            "bodyCentre": [
+              96.0,
+              95.5
+            ],
+            "bodyCanvasWidthPercent": 80.20833333333334,
+            "effectiveTileWidthRatio": 0.9625,
+            "ledCount": 10,
+            "lamps": [
+              {
+                "centre": [
+                  95.22,
+                  51.15
+                ],
+                "pixels": 27,
+                "medianRGB": [
+                  252.0,
+                  252.0,
+                  252.0
+                ]
+              },
+              {
+                "centre": [
+                  55.6,
+                  58.76
+                ],
+                "pixels": 25,
+                "medianRGB": [
+                  252.0,
+                  252.0,
+                  252.0
+                ]
+              },
+              {
+                "centre": [
+                  135.0,
+                  58.6
+                ],
+                "pixels": 25,
+                "medianRGB": [
+                  252.0,
+                  252.0,
+                  252.0
+                ]
+              },
+              {
+                "centre": [
+                  40.11,
+                  79.18
+                ],
+                "pixels": 28,
+                "medianRGB": [
+                  251.5,
+                  251.0,
+                  251.5
+                ]
+              },
+              {
+                "centre": [
+                  150.29,
+                  79.07
+                ],
+                "pixels": 28,
+                "medianRGB": [
+                  252.0,
+                  251.5,
+                  252.0
+                ]
+              },
+              {
+                "centre": [
+                  37.77,
+                  102.42
+                ],
+                "pixels": 31,
+                "medianRGB": [
+                  252.0,
+                  251.0,
+                  252.0
+                ]
+              },
+              {
+                "centre": [
+                  152.77,
+                  102.42
+                ],
+                "pixels": 31,
+                "medianRGB": [
+                  252.0,
+                  252.0,
+                  252.0
+                ]
+              },
+              {
+                "centre": [
+                  52.5,
+                  120.35
+                ],
+                "pixels": 34,
+                "medianRGB": [
+                  252.0,
+                  251.5,
+                  252.0
+                ]
+              },
+              {
+                "centre": [
+                  138.12,
+                  120.24
+                ],
+                "pixels": 34,
+                "medianRGB": [
+                  252.0,
+                  252.0,
+                  252.0
+                ]
+              },
+              {
+                "centre": [
+                  95.32,
+                  126.91
+                ],
+                "pixels": 34,
+                "medianRGB": [
+                  252.0,
+                  251.0,
+                  252.0
+                ]
+              }
+            ],
+            "pngTextMetadata": []
+          }
+        },
+        {
+          "key": "buzzer",
+          "theme": "b",
+          "file": "assets/b/buzzer.png",
+          "width": 192,
+          "height": 192,
+          "transparent": true,
+          "prompt": "Use case: style-transfer / precise-object-edit. Image1 is the new approved-shape KOREAN CAFE VIBRATING CUSTOMER PAGER. Keep the EXACT same low flat rounded-square silhouette, slightly-above floorview, shallow frontedge thickness, ten evenly spaced rimLEDs, central dark EMPTY rectangular number-display window, body proportions and orientation. This is a cafe order pager, not a chair or generic big pushbutton. No raised central button. Only translate to THEME B: the body must be the SAME vivid ORANGE as image2 existing BCHAIR, near#e8833a with oneflatdarkorange shadowplane and thick even BLACK contours. LED lenses must be small PALE CREAM dots, not green/red/blue or white glows. The central recessed blank display stays darkwarmgray/black, absolutely no text,numbers,digits,pictograms,batterybars or logos. Image3 original Cult of the Lamb style reference only: use fewboldlines and simpleflat cartoonplanes, do not copy the lamb/characters, redoutfit or other objects. Keep alltenLED positions and screen identical to image1. Same transparent192x192 finalcanvas, body width154px(~80%) centred at96,96; lowheight~108px with frontthickness12..16px. No white stickerborder, groundshadow, externalglow, vibrationmarks, motionlines, extraobjects, grain,hatching or photoreal/3Dshine. True transparentbackground. The game adds its own outline and motion, so draw ONLY the pager.",
+          "references": [
+            "assets/a/buzzer.png",
+            "assets/b/chair.png",
+            "references/character-cultofthelamb-1.jpg"
+          ],
+          "processing": {
+            "theme": "b",
+            "file": "assets/b/buzzer.png",
+            "nativeSize": [
+              1254,
+              1254
+            ],
+            "sourceAlphaBox": [
+              153,
+              293,
+              1101,
+              962
+            ],
+            "size": [
+              192,
+              192
+            ],
+            "bodyWidth": 154,
+            "bodyHeight": 109,
+            "bodyWidthFraction": 0.8020833333333334,
+            "placement": [
+              19,
+              41
+            ],
+            "alphaBox": [
+              19,
+              41,
+              173,
+              150
+            ],
+            "opaqueBodyBox": [
+              19,
+              41,
+              173,
+              150
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "pngTextMetadata": [],
+            "processing": "Trim alpha margin, proportional resize to154px width and centre in192x192 transparentcanvas. No redrawing, recoloring, outline reinforcement or shadow creation."
+          },
+          "ledValidation": {
+            "theme": "b",
+            "size": [
+              192,
+              192
+            ],
+            "alphaBox": [
+              19,
+              41,
+              173,
+              150
+            ],
+            "bodyWidth": 154,
+            "bodyHeight": 109,
+            "bodyCentre": [
+              96.0,
+              95.5
+            ],
+            "bodyCanvasWidthPercent": 80.20833333333334,
+            "effectiveTileWidthRatio": 0.9625,
+            "ledCount": 10,
+            "lamps": [
+              {
+                "centre": [
+                  95.22,
+                  51.15
+                ],
+                "pixels": 27,
+                "medianRGB": [
+                  251.0,
+                  242.0,
+                  210.0
+                ]
+              },
+              {
+                "centre": [
+                  55.96,
+                  58.69
+                ],
+                "pixels": 26,
+                "medianRGB": [
+                  253.5,
+                  244.0,
+                  211.0
+                ]
+              },
+              {
+                "centre": [
+                  134.96,
+                  58.69
+                ],
+                "pixels": 26,
+                "medianRGB": [
+                  251.5,
+                  243.5,
+                  213.5
+                ]
+              },
+              {
+                "centre": [
+                  40.71,
+                  79.07
+                ],
+                "pixels": 28,
+                "medianRGB": [
+                  250.5,
+                  243.5,
+                  210.5
+                ]
+              },
+              {
+                "centre": [
+                  149.93,
+                  79.07
+                ],
+                "pixels": 30,
+                "medianRGB": [
+                  252.0,
+                  242.0,
+                  212.0
+                ]
+              },
+              {
+                "centre": [
+                  38.15,
+                  102.38
+                ],
+                "pixels": 34,
+                "medianRGB": [
+                  251.0,
+                  242.0,
+                  209.5
+                ]
+              },
+              {
+                "centre": [
+                  152.5,
+                  102.35
+                ],
+                "pixels": 34,
+                "medianRGB": [
+                  252.0,
+                  242.5,
+                  211.0
+                ]
+              },
+              {
+                "centre": [
+                  52.77,
+                  120.23
+                ],
+                "pixels": 35,
+                "medianRGB": [
+                  251.0,
+                  243.0,
+                  211.0
+                ]
+              },
+              {
+                "centre": [
+                  137.91,
+                  120.15
+                ],
+                "pixels": 33,
+                "medianRGB": [
+                  252.0,
+                  245.0,
+                  213.0
+                ]
+              },
+              {
+                "centre": [
+                  95.46,
+                  126.57
+                ],
+                "pixels": 35,
+                "medianRGB": [
+                  251.0,
+                  242.0,
+                  209.0
+                ]
+              }
+            ],
+            "pngTextMetadata": []
+          }
+        }
+      ],
+      "runtimeValidation": {
+        "desktop": [
+          1920,
+          1080
+        ],
+        "mobile": [
+          375,
+          812
+        ],
+        "levels": [
+          "sleeper-1",
+          "sleeper-2"
+        ],
+        "themes": [
+          "a",
+          "b"
+        ],
+        "imageLoads": true,
+        "horizontalOverflow": false,
+        "consoleErrorsOrWarnings": 0,
+        "desktopCanvasCssWidth": 115.236,
+        "mobileCanvasCssWidth": 20.518,
+        "mobileBodyCssWidth": 16.457,
+        "review": "At desktop size rimLEDs and blankdisplay are visible and lowflat shape differs from chair. Mobile body is small and individual LEDs are tiny. Novice recognition is not established by agent visual review."
+      },
+      "commit": "No staging, commit or push. Claude Code reviews and commits.",
+      "externalChangesDuringTask": {
+        "files": [
+          "index.html"
+        ],
+        "note": "Other work changed source during this asset task. Codex did not edit these files and preserved them. No confirmation or source rollback."
+      }
+    },
+    {
+      "id": "streamer-seated-chair-2026-10-29",
+      "date": "2026-10-29",
+      "tool": "built-in image_gen",
+      "request": "Replace only four streamer sprites with person and stationary chair composite. Keep manifest and game code unchanged.",
+      "assets": [
+        {
+          "file": "assets/a/streamer-idle.png",
+          "prompt": "Use case: precise-object-edit. Edit IMAGE1, the SAME waving rearview streamer SEATED ON GRAYCHAIR. Preserve absolutely everything about the person's identity, hair, stripedheadband, headset, vest, backview, handwave, chairback/seat, linework and grayscale palette. ONLY FIX TWO INNER CHAIR LEGS: they currently end HIGHER than the two outer legs. EXTEND the INNER LEFT and INNER RIGHT graylegs STRAIGHT DOWN so ALL FOUR chairleg TIPS end on ONE SAME HORIZONTAL FLOOR BASELINE with the existing OUTER LEFT/RIGHT tips. Four separate leg tips must all reach the very bottom of the combined silhouette. Do not shorten/raise outerlegs or movechair/person; do not add shoes, knees, groundline or floor. Exactlyfourlegs, straight, equal baseline, visible transparent gaps between them. Keep the complete fullchair/person visible, transparent canvas, target192x288,270px combinedheight with allfourchairleg ends at y288 after output scaling. Crispalpha only; no rimlight, glow, shadows or white stickerborder. No text/numbers/symbols or colors. This is a single minor chairleg-length correction. Images2/3 original inkstyle, image4 samegame cafe only.",
+          "references": [
+            "generated-intermediate/a-streamer-idle-seated-before-leg-alignment",
+            "references/portrait-helltaker-1.jpg",
+            "references/portrait-helltaker-2.jpg",
+            "assets/a/bg-sleeper.png"
+          ],
+          "priorInstructions": {
+            "prompt": "Use case: identity-preserve / precise-object-edit. EDIT IMAGE1 existing human streamer-idle sprite. KEEP the SAME person's short lightgray hair, stripedheadband, largeheadset, blackshirt, grayscale vest and raised RIGHT HAND WAVING. Keep thick sparseblack cartoonline style. Images2/3 are the SAME original Helltaker inkstyle references; image4 is samegame cafe style;image5 is samegame reactionstyle ONLY, do notcopyhood or character. Do not add gendered traits, changehair, hat,clothes or identity.\nCRITICAL POSE CORRECTION: this person is SEATED ON A NORMAL CAFE CHAIR, facing screenTOP toward a phone on an offscreen table, BACK toward viewer. ADD THE WHOLE CHAIR INSIDE THE SPRITE. Chair is GRAY, blackoutlined, stationary furniture; absolutely NO green/red/orange on chair. Show a solid chair BACKREST directly in front of viewer covering the LOWER BACK and hips. Buttocks REST ON SEAT at ordinary sittingheight. Human THIGHS/KNEES POINT FORWARD TOWARD TABLE, screenTOP, so they are HIDDEN behind backrest/body from this rearview. REMOVE the old wide crouching legs, knee lumps, cross-legged pose and shoes at bottom. No person crouching/squatting, kneeling or sitting onfloor. No dangling long thighs pointingdown toward viewer.\nFour distinct slim GRAY chairlegs descend from four seatcorners belowseat, ALL FOUR LEG TIPS clearly visible near the SAME bottom baseline. ONLY CHAIR LEGS touch canvas BOTTOM y288, NOT human knees or shoes. Lower~80px of silhouette should be the CHAIR LEGS with clear transparent gaps, not human calves. Person and chair visibly form one supported sittingpose. A straight backrest and four floor legs must make the posture unmistakable.\nTarget192x288 TRANSPARENT PNG: combined top-to-bottom height270px, top of hair abouty18, chairleg tips at y288. Combined width<=180px centeredx96. Suggested zones: head/headset y18..100; shoulders/raisedwavinghand y75..160; chairback y130..200, hidinglowerback; seat y180..207; fourchairlegs y202..288. Stylized RPG Maker slightlyabove/frontvisible objects, rearview person. Keep chairbody roughlyx35..157 so fourlegs visible, e.g outerlegsx37/155 and innerlegsx57/135 endingat288. No chair beyond canvas, nofootbaseline for person. One asset, no table,phone,floor/background. Entire picture neutralBLACK/WHITE/GRAY, no color. NO text,numbers,labels,logos,comicmarks, white stickerborder, groundshadow, shadowellipse, texture,hatching or extraobjects. Match the current character, change only seatedposture/supportingchair.",
+            "references": [
+              "assets/a/streamer-idle.png",
+              "references/portrait-helltaker-1.jpg",
+              "references/portrait-helltaker-2.jpg",
+              "assets/a/bg-sleeper.png",
+              "assets/a/villain-portrait.png"
+            ],
+            "note": "Initial generation had shorter inner legs. Selected generation corrected only their length."
+          },
+          "output": {
+            "theme": "a",
+            "key": "streamer-idle",
+            "file": "assets/a/streamer-idle.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              207,
+              81,
+              936,
+              1494
+            ],
+            "size": [
+              192,
+              288
+            ],
+            "combinedSize": [
+              139,
+              270
+            ],
+            "placement": [
+              26,
+              18
+            ],
+            "visibleBox": [
+              26,
+              18,
+              165,
+              288
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "bottomTipGroups": [
+              [
+                37,
+                47
+              ],
+              [
+                51,
+                60
+              ],
+              [
+                107,
+                116
+              ],
+              [
+                121,
+                131
+              ]
+            ],
+            "lowerLegTips": [
+              {
+                "xRange": [
+                  37,
+                  48
+                ],
+                "lowestVisibleRow": 287
+              },
+              {
+                "xRange": [
+                  51,
+                  60
+                ],
+                "lowestVisibleRow": 287
+              },
+              {
+                "xRange": [
+                  107,
+                  116
+                ],
+                "lowestVisibleRow": 287
+              },
+              {
+                "xRange": [
+                  120,
+                  131
+                ],
+                "lowestVisibleRow": 287
+              }
+            ],
+            "pngTextMetadata": [],
+            "processing": "Alpha-margin trim, uniform resize to270px combined height, align chair lower-tip midpoint at x84 and floor baseline at y288. No line/color/shape edits."
+          },
+          "sourceBeforeSha256": "82694c8e282bbd27e90eb5919e4d27309552668e04ea49de73faf53b416b4c66",
+          "outputSha256": "91641830f6fdaae0720647d3a6a837f81ae08c9bd9180ee33155a251881fb4bc"
+        },
+        {
+          "file": "assets/a/streamer-react.png",
+          "prompt": "Use case: identity-preserve / precise-object-edit. Image1 NEW correctly seated streamer and GRAYchair is the BASE. Keep the SAME CHAIR EXACTLY: same backrest, seat, FOUR straight legs, same fourtip positions and SAME HORIZONTAL FLOOR BASELINE. Keep lowerbody and hips seatedfacing the offscreen table at screenTOP; backrest covers lowerback/hips. NO knees/shoes facingviewer or touchingfloor. No squatting/crosslegs.\nONLY TURN THE UPPER BODY AND HEAD BACK over LEFT shoulder toward viewer, with the SAME startled eyes/openmouth and liftedpalms as OLD REACTION IMAGE2. Preserve SAME lightgrayhair, stripedheadband, headset, grayvest/blackshirt and gender-neutral human identity. Oldimage2 provides only face/headturn/upperarm expression, NEVER copy its crouchinglegs or bottomshoes. Head is3/4 over shoulder, chair remains backview, seat/hips do notrotate. A reaction while still sitting on SAME supportivechair, not jumpingup or standing. Keep persona and chair at same scale as image1 so swapping sprites doesn't movechair.\nTarget192x288 genuineTRANSPARENT: wholeperson+chair height270, hair topy18, ALLFOURchairleg tips at y288. Chair fourtips must end at same baseline, not two shorterinnerlegs. Keep similar width and canvasplacement as image1. Neutral BLACK WHITE GRAY ONLY, includingchair; no green/red/orange. Images3/4 SAME original Helltaker line references, image5 samegame cafe; do not copy any demonface/hood/bodytype. Fewboldline shapes, no text,numbers,labels,comicmarks,glow,shadows,floorline or white stickerborder. No table/phone/background. Only upperbodyreaction changes; chairgeometry and baseline stay locked.",
+          "references": [
+            "assets/a/streamer-idle.png (new seated version)",
+            "assets/a/streamer-react.png",
+            "references/portrait-helltaker-1.jpg",
+            "references/portrait-helltaker-2.jpg",
+            "assets/a/bg-sleeper.png"
+          ],
+          "output": {
+            "theme": "a",
+            "key": "streamer-react",
+            "file": "assets/a/streamer-react.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              123,
+              86,
+              917,
+              1496
+            ],
+            "size": [
+              192,
+              288
+            ],
+            "combinedSize": [
+              152,
+              270
+            ],
+            "placement": [
+              10,
+              18
+            ],
+            "visibleBox": [
+              10,
+              18,
+              162,
+              288
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "bottomTipGroups": [
+              [
+                37,
+                47
+              ],
+              [
+                52,
+                61
+              ],
+              [
+                108,
+                117
+              ],
+              [
+                121,
+                132
+              ]
+            ],
+            "lowerLegTips": [
+              {
+                "xRange": [
+                  37,
+                  48
+                ],
+                "lowestVisibleRow": 287
+              },
+              {
+                "xRange": [
+                  51,
+                  61
+                ],
+                "lowestVisibleRow": 286
+              },
+              {
+                "xRange": [
+                  107,
+                  117
+                ],
+                "lowestVisibleRow": 286
+              },
+              {
+                "xRange": [
+                  121,
+                  132
+                ],
+                "lowestVisibleRow": 287
+              }
+            ],
+            "pngTextMetadata": [],
+            "processing": "Alpha-margin trim, uniform resize to270px combined height, align chair lower-tip midpoint at x84 and floor baseline at y288. No line/color/shape edits."
+          },
+          "sourceBeforeSha256": "e848c10c32056a3f93d22ffd2915153082c2c8492d9a8b10c1b9e24adab51d1a",
+          "outputSha256": "8055b72980445709073ace7edf6e501cbb976eb1c2eec3ad7e9c6848cefee58f"
+        },
+        {
+          "file": "assets/b/streamer-idle.png",
+          "prompt": "Use case: style-transfer. Deliver ONE transparent game character sprite, not a sheet.\nImage 1 is the EDIT TARGET: newly seated streamer with a complete fixed cafe chair. Preserve its exact pose, body/chair proportions, chair geometry, four legs, headband, headset, vest and silhouette. Image 2 is the OLD B streamer: use only the same person's warm palette and facial identity, NEVER its crouching lower body. Image 3 is B cafe palette/line style. Image 4 is original cartoon line/flat-shape reference only, DO NOT draw a lamb or borrow its anatomy.\nChange only image 1 to theme B colors: pale ivory short hair and light warm skin, gray headband/headset, dark green vest, black sleeves and pants. The stationary chair is muted BROWN around #8b6c51 with one dark brown shadow plane. Chair is NEVER orange or green. Thick sparse even black lines, flat fills and one shadow level, no texture or hatching.\nTrue rear view, face invisible, right hand waves toward the table/camera above the canvas.\nThe backrest visibly covers the lower back and hips. Hips rest on seat. Knees point forward toward the table/screen TOP, hidden in rear view; no splayed knees or shoes on the floor. All FOUR chair legs must be separately visible, all four tips on the SAME bottom baseline. Do not shorten either inner leg. Feet of the PERSON are not the baseline.\nRPG Maker slight overhead/front-objects view, not isometric. Canvas ratio192:288, person+chair combined height270px, hair top y18, all chair tips touch y288. Keep framing and same chair anchor as Image 1. Centered isolated RGBA cutout. No floor/background/table/phone, no cast shadow, no white sticker outline, no glow, no text/digits/symbols/watermark. Transparent outside the silhouette and between chair legs.",
+          "references": [
+            "assets/a/streamer-idle.png (new seated version)",
+            "assets/b/streamer-idle.png",
+            "assets/b/bg-sleeper.png",
+            "references/character-cultofthelamb-1.jpg"
+          ],
+          "output": {
+            "theme": "b",
+            "key": "streamer-idle",
+            "file": "assets/b/streamer-idle.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              203,
+              78,
+              939,
+              1496
+            ],
+            "size": [
+              192,
+              288
+            ],
+            "combinedSize": [
+              140,
+              270
+            ],
+            "placement": [
+              26,
+              18
+            ],
+            "visibleBox": [
+              26,
+              18,
+              166,
+              288
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "bottomTipGroups": [
+              [
+                38,
+                48
+              ],
+              [
+                52,
+                61
+              ],
+              [
+                108,
+                117
+              ],
+              [
+                121,
+                132
+              ]
+            ],
+            "lowerLegTips": [
+              {
+                "xRange": [
+                  37,
+                  48
+                ],
+                "lowestVisibleRow": 287
+              },
+              {
+                "xRange": [
+                  52,
+                  61
+                ],
+                "lowestVisibleRow": 287
+              },
+              {
+                "xRange": [
+                  108,
+                  117
+                ],
+                "lowestVisibleRow": 287
+              },
+              {
+                "xRange": [
+                  121,
+                  132
+                ],
+                "lowestVisibleRow": 287
+              }
+            ],
+            "pngTextMetadata": [],
+            "processing": "Alpha-margin trim, uniform resize to270px combined height, align chair lower-tip midpoint at x84 and floor baseline at y288. No line/color/shape edits."
+          },
+          "sourceBeforeSha256": "78bc9255e32e1230c67b1c2146fca683c49e653f241e6c24c23648c3713ff079",
+          "outputSha256": "1788e4159c7ea4077ed995b5ecca8d4bdcdfa38f2d550b1863cc262d4acc82e6"
+        },
+        {
+          "file": "assets/b/streamer-react.png",
+          "prompt": "Use case: style-transfer. Deliver ONE transparent game character sprite, not a sheet.\nImage 1 is the EDIT TARGET: newly seated streamer with a complete fixed cafe chair. Preserve its exact pose, body/chair proportions, chair geometry, four legs, headband, headset, vest and silhouette. Image 2 is the OLD B streamer: use only the same person's warm palette and facial identity, NEVER its crouching lower body. Image 3 is B cafe palette/line style. Image 4 is original cartoon line/flat-shape reference only, DO NOT draw a lamb or borrow its anatomy.\nChange only image 1 to theme B colors: pale ivory short hair and light warm skin, gray headband/headset, dark green vest, black sleeves and pants. The stationary chair is muted BROWN around #8b6c51 with one dark brown shadow plane. Chair is NEVER orange or green. Thick sparse even black lines, flat fills and one shadow level, no texture or hatching.\nSame chair and seated lower body facing screenTOP/table. Only upper body and head twist back over LEFT shoulder in a startled reaction, eyes wide and mouth open, both hands raised, as in Image 1.\nThe backrest visibly covers the lower back and hips. Hips rest on seat. Knees point forward toward the table/screen TOP, hidden in rear view; no splayed knees or shoes on the floor. All FOUR chair legs must be separately visible, all four tips on the SAME bottom baseline. Do not shorten either inner leg. Feet of the PERSON are not the baseline.\nRPG Maker slight overhead/front-objects view, not isometric. Canvas ratio192:288, person+chair combined height270px, hair top y18, all chair tips touch y288. Keep framing and same chair anchor as Image 1. Centered isolated RGBA cutout. No floor/background/table/phone, no cast shadow, no white sticker outline, no glow, no text/digits/symbols/watermark. Transparent outside the silhouette and between chair legs.",
+          "references": [
+            "assets/a/streamer-react.png (new seated version)",
+            "assets/b/streamer-react.png",
+            "assets/b/bg-sleeper.png",
+            "references/character-cultofthelamb-1.jpg"
+          ],
+          "output": {
+            "theme": "b",
+            "key": "streamer-react",
+            "file": "assets/b/streamer-react.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              118,
+              83,
+              928,
+              1498
+            ],
+            "size": [
+              192,
+              288
+            ],
+            "combinedSize": [
+              155,
+              270
+            ],
+            "placement": [
+              10,
+              18
+            ],
+            "visibleBox": [
+              10,
+              18,
+              165,
+              288
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "bottomTipGroups": [
+              [
+                38,
+                48
+              ],
+              [
+                53,
+                62
+              ],
+              [
+                109,
+                118
+              ],
+              [
+                123,
+                132
+              ]
+            ],
+            "lowerLegTips": [
+              {
+                "xRange": [
+                  38,
+                  49
+                ],
+                "lowestVisibleRow": 286
+              },
+              {
+                "xRange": [
+                  52,
+                  62
+                ],
+                "lowestVisibleRow": 286
+              },
+              {
+                "xRange": [
+                  108,
+                  118
+                ],
+                "lowestVisibleRow": 287
+              },
+              {
+                "xRange": [
+                  122,
+                  133
+                ],
+                "lowestVisibleRow": 286
+              }
+            ],
+            "pngTextMetadata": [],
+            "processing": "Alpha-margin trim, uniform resize to270px combined height, align chair lower-tip midpoint at x84 and floor baseline at y288. No line/color/shape edits."
+          },
+          "sourceBeforeSha256": "90eef4de252ec463714e051742be4b68f5712f4fe5f795a1d8fcb6338d14b0b4",
+          "outputSha256": "8ad4f67fac3164db0a77c38a553ce79b1d55b243e61cb91b98564d90c27b8953"
+        }
+      ],
+      "qa": {
+        "desktop": [
+          1920,
+          1080
+        ],
+        "mobile": [
+          375,
+          812
+        ],
+        "game": "index.html, level2-1, both themes; idle and win reactions",
+        "result": "Both themes show rear-facing seated body supported by chair back and seat, no splayed knees or shoes. React turns upper body while retaining seated lower body. A chair gray, B chair muted brown. No authored text, sticker border or floor shadow in new sprites.",
+        "limitations": [
+          "Existing background already contains a chair silhouette behind the new composite. Its right edge and legs still show. Background was outside this four-sprite request and preserved.",
+          "At mobile width the entire scene is small, so individual chair legs are not readily distinguishable. Four legs are confirmed in PNG pixels.",
+          "Antialiasing leaves some chair tips one pixel above the last opaque row. No shape correction was done in code."
+        ]
+      },
+      "commit": "No staging, commit or push. Claude Code reviews and commits."
     }
   ]
 }
