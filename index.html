@@ -147,11 +147,37 @@
       border-radius: 40% 40% 8px 8px;
     }
 
-    /* 손님 자리 상자(그림이 오기 전). 위가 둥근 사람 모양으로 테이블, 화분과 구분한다. */
+    /* 손님과 카페 테이블 상자(그림이 오기 전). 손님은 위가 둥근 사람 모양이고, 보는 쪽에 진한 점(얼굴)이 있다. */
     .kind-customer .gbox {
+      position: relative;
       border-width: 2px;
       border-radius: 45% 45% 8px 8px;
-      opacity: 0.9;
+    }
+
+    .kind-customer .gbox::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 30%;
+      width: 26%;
+      height: 17%;
+      margin-left: -13%;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.45);
+    }
+
+    .kind-customer[data-facing="up"] .gbox::after { top: 6%; }
+    .kind-customer[data-facing="down"] .gbox::after { top: 40%; }
+    .kind-customer[data-facing="left"] .gbox::after { left: 22%; }
+    .kind-customer[data-facing="right"] .gbox::after { left: 78%; }
+
+    .kind-table .gbox {
+      border-width: 2px;
+      border-radius: 6px;
+      width: 84%;
+      height: 70%;
+      margin-left: 8%;
+      margin-top: 18%;
     }
 
     .sprite.hop .art {
@@ -494,8 +520,20 @@
       flex: none;
     }
 
+    /* 장면 아래 빈자리에 늘 보이는 되돌리기, 처음부터, 설정 키 안내. 키보드가 있는 화면에서만 보인다. */
+    .key-legend {
+      display: none;
+      flex: none;
+      justify-content: center;
+      gap: 22px;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #c8c4bf;
+    }
+
     @media (hover: hover) and (pointer: fine) {
       .pad { display: none; }
+      .key-legend { display: flex; }
     }
 
     .pad .btn {
@@ -884,6 +922,11 @@
         </div>
       </div>
     </div>
+    <div class="key-legend" aria-hidden="true">
+      <span class="nw"><kbd>Z</kbd> 되돌리기</span>
+      <span class="nw"><kbd>R</kbd> 처음부터</span>
+      <span class="nw"><kbd>Esc</kbd> 설정</span>
+    </div>
     <div id="pad" class="pad">
       <button class="btn" type="button" data-dir="up" aria-label="위">▲</button>
       <button class="btn" type="button" data-dir="left" aria-label="왼쪽">◀</button>
@@ -1114,6 +1157,16 @@
         const top = tileTop(y) + TILE_H - height;
         element.style.transform = `translate(${left}px, ${top}px)`;
         element.style.zIndex = String(10 + y * 10);
+      }
+
+      // 손님이 보는 방향. 이웃한 카페 테이블(o)을 먼저, 없으면 배경 테이블(T)을 본다. 둘 다 없으면 아래를 본다.
+      function customerFacing(map, x, y) {
+        const around = [['up', 0, -1], ['down', 0, 1], ['left', -1, 0], ['right', 1, 0]];
+        for (const table of ['o', 'T']) {
+          const found = around.find(([, dx, dy]) => (map[y + dy] || '')[x + dx] === table);
+          if (found) return found[0];
+        }
+        return 'down';
       }
 
       // 물건 그림의 크기. 의자는 등받이가 위로 솟고, 진동벨은 의자와 같은 색이라 눈에 띄게 조금 크게 그린다.
@@ -1361,12 +1414,20 @@
         game.sprites.cord = drawCord(look, villain, colors);
         ui.battery.classList.remove('full');
 
-        // 손님 자리(N). 움직이지 않는 칸이고, 그림이 오기 전에는 회색 상자로 보인다. 상호작용하지 않으므로 스티커 테두리가 없다.
+        // 카페 테이블(o)과 앉은 손님(N). 움직이지 않는 칸이고, 상호작용하지 않으므로 스티커 테두리가 없다.
+        // 손님은 이웃한 테이블 쪽을 본다(그림 key: customer-up/down/left/right). 그림이 오기 전에는 상자로 보인다.
         level.map.forEach((line, y) => [...line].forEach((char, x) => {
-          if (char !== 'N') return;
-          const seat = addSprite('customer', TILE, TILE * 1.25, colors.customer);
-          seat.classList.add('kind-customer');
-          placeOnTile(seat, x, y, TILE, TILE * 1.25);
+          if (char === 'o') {
+            const table = addSprite('cafe-table', TILE, TILE * 1.1, colors.table);
+            table.classList.add('kind-table');
+            placeOnTile(table, x, y, TILE, TILE * 1.1);
+          } else if (char === 'N') {
+            const facing = customerFacing(level.map, x, y);
+            const customer = addSprite(`customer-${facing}`, TILE, TILE * 1.5, colors.customer);
+            customer.classList.add('kind-customer');
+            customer.dataset.facing = facing;
+            placeOnTile(customer, x, y, TILE, TILE * 1.5);
+          }
         }));
         game.sprites.items = state.items.map((item) => {
           const size = itemSize(item.kind);

@@ -15,7 +15,8 @@
 // 레벨의 bg는 배경 그림 이름(bg-이름)이다. 배경에는 테이블과 화분이 그려져 있으므로, 같은 배경을 쓰는 레벨은 T, L, V, * 자리가 같아야 한다(tools/verify.html이 확인한다).
 // view가 있는 레벨은 카메라 화각 규칙을 쓴다(engine.js 머리말). chairNeeded가 true인 레벨은 의자를 밀지 않으면 풀리지 않아야 한다(검증한다).
 // kind는 tutorial(새 요소를 안전하게 보여 줌, 망치는 첫 수가 없어야 함) 또는 puzzle(함정이 있어야 함, 걸을 수 있는 칸 35칸 이하)이다(docs/level-design.md).
-// N은 손님 자리다. 판을 좁히고 카페가 붐비는 것을 보여 준다. 그림이 오기 전에는 회색 상자로 보인다.
+// N은 앉아 있는 손님, o는 카페 테이블이다. 둘 다 움직이지 않는 칸이고 판을 좁히며 카페가 붐비는 것을 보여 준다. 손님은 이웃한 테이블(o, T) 쪽을 본다.
+// 플레이 영역 둘레만 손님과 테이블로 막고, 닿을 수 없는 나머지는 바닥으로 둔다(2026-10-29 사용자 요청). 그림이 오기 전에는 상자로 보인다.
 // demo는 그 레벨에서 처음 나오는 기믹을 반투명한 주인공이 한 번 시연할 자리다(kind: push는 물건 밀기, view는 화각에 들어갔다 되돌아오기).
 window.VILLAIN_LAYOUT = {
   "art": { "width": 1920, "height": 1080, "tile": 96, "originX": 384, "originY": 240, "columns": 12, "rows": 7, "uiTop": 912, "viewBottom": 880 },
@@ -44,13 +45,13 @@ window.VILLAIN_LAYOUT = {
       "pushes": 5,
       "demo": { "kind": "push", "from": { "x": 4, "y": 2 }, "dir": "right" },
       "map": [
-        "NNNNNNLLNLVN",
-        "NNNNNNNNL*TN",
-        "NNNNPb....NN",
-        "NTTNNNNN..NN",
-        "NTTNNNNNNNNN",
-        "NNNNNNNLLNNN",
-        "NNNNNNNNNNNN"
+        ".....oLL.LV.",
+        "...oNNNoL*T.",
+        "...NPb....N.",
+        ".TT.NNNN..N.",
+        ".TT.ooooNNo.",
+        ".......LL...",
+        "............"
       ]
     },
     {
@@ -61,13 +62,13 @@ window.VILLAIN_LAYOUT = {
       "optimal": 7,
       "pushes": 6,
       "map": [
-        "NNNNNNLLNLVN",
-        "NNNNNNNNL*TN",
-        "NNNNPb....NN",
-        "NTTNNNNNc.NN",
-        "NTTNNNNN.NNN",
-        "NNNNNNNLLNNN",
-        "NNNNNNNNNNNN"
+        ".....oLL.LV.",
+        "...oNNNoL*T.",
+        "...NPb....N.",
+        ".TT.NNoNc.N.",
+        ".TT.oooN.No.",
+        ".......LL...",
+        "............"
       ]
     },
     {
@@ -78,13 +79,13 @@ window.VILLAIN_LAYOUT = {
       "optimal": 19,
       "pushes": 6,
       "map": [
-        "NNNNNNLLNLVN",
-        "NNNNNNNNL*TN",
-        "NNNN......NN",
-        "NTTN....bcNN",
-        "NTTNP.....NN",
-        "NNNNNNNLLNNN",
-        "NNNNNNNNNNNN"
+        ".....oLL.LV.",
+        "...oNNNoL*T.",
+        "...N......N.",
+        ".TTN....bcNo",
+        ".TTNP.....N.",
+        "....NNNLLNo.",
+        "....ooo....."
       ]
     },
     {
@@ -95,13 +96,13 @@ window.VILLAIN_LAYOUT = {
       "optimal": 28,
       "pushes": 11,
       "map": [
-        "NNNNNNLLNLVN",
-        "NNNNNNNNL*TN",
-        "NNN..c.c..NN",
-        "NTTN.b.N..NN",
-        "NTTN.P....NN",
-        "NNNN..NLLNNN",
-        "NNNN..NNNNNN"
+        "...oooLL.LV.",
+        "...NNNNoL*T.",
+        "..N..c.c..N.",
+        ".TTN.b.o..No",
+        ".TTN.P....N.",
+        "..oN..NLLNo.",
+        "..oN..o....."
       ]
     },
     {
@@ -112,13 +113,13 @@ window.VILLAIN_LAYOUT = {
       "optimal": 35,
       "pushes": 15,
       "map": [
-        "NNNNNNLLNLV.",
-        "NNNNNNNNL*T.",
-        "NN..c.P.....",
-        "NTTN..N...N.",
-        "NTTN..c.b.NN",
-        "NNNN..NLL.NN",
-        "NNNN....NNNN"
+        "..ooooLL.LV.",
+        "..NNNNNoL*T.",
+        ".N..c.P.....",
+        ".TTN..o...N.",
+        ".TTN..c.b.oN",
+        "..oN..oLL.N.",
+        "..oN....Noo."
       ]
     },
     {

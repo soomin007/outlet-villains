@@ -22,6 +22,25 @@
       lines.push(`${condition ? 'PASS' : 'FAIL'}  ${message}`);
       if (!condition) failures += 1;
     }
+    // 물건을 바닥으로 보고 시작 자리에서 닿을 수 있는 칸 수. 둘레 밖의 막힌 바닥은 세지 않는다.
+    function reachableCells(level) {
+      const seen = new Set([`${level.start.player.x},${level.start.player.y}`]);
+      const queue = [level.start.player];
+      while (queue.length > 0) {
+        const { x, y } = queue.shift();
+        for (const { dx, dy } of Object.values(VillainEngine.DIRECTIONS)) {
+          const nx = x + dx;
+          const ny = y + dy;
+          const key = `${nx},${ny}`;
+          if (seen.has(key) || nx < 0 || ny < 0 || nx >= level.width || ny >= level.height) continue;
+          if (level.walls.has(key) || (level.villain.x === nx && level.villain.y === ny)) continue;
+          seen.add(key);
+          queue.push({ x: nx, y: ny });
+        }
+      }
+      return seen.size;
+    }
+
     function chairCells(definition) {
       const cells = [];
       definition.map.forEach((line, y) => [...line].forEach((char, x) => {
@@ -90,7 +109,7 @@
         if (definition.kind === 'tutorial') {
           expect(firsts.dead === 0, `${definition.id}: 튜토리얼이라 처음 미는 수 ${firsts.total}개 가운데 망치는 수가 없음 (${firsts.dead}개)`);
         } else {
-          const walkable = definition.map.join('').split('').filter((char) => '.Pbct*'.includes(char)).length;
+          const walkable = reachableCells(level);
           expect(firsts.dead >= 1, `${definition.id}: 퍼즐이라 처음 미는 수 ${firsts.total}개 가운데 망치는 수가 있음 (${firsts.dead}개)`);
           expect(walkable <= 35, `${definition.id}: 걸을 수 있는 칸 ${walkable}칸이 35칸 이하`);
         }
