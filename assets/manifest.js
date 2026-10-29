@@ -24,6 +24,11 @@ window.VILLAIN_ASSETS = {
     'streamer-face': 'assets/a/streamer-face.png',
     'stream-frame': 'assets/a/stream-frame.png',
     'plug-mine': 'assets/a/plug-mine.png',
+    'customer-up': 'assets/a/customer-up.png',
+    'customer-down': 'assets/a/customer-down.png',
+    'customer-left': 'assets/a/customer-left.png',
+    'customer-right': 'assets/a/customer-right.png',
+    'cafe-table': 'assets/a/cafe-table.png',
   },
   b: {
     'bg-sleeper': 'assets/b/bg-sleeper.png',
@@ -47,5 +52,10 @@ window.VILLAIN_ASSETS = {
     'plug-mine': 'assets/b/plug-mine.png',
     'stream-frame': 'assets/b/stream-frame.png',
     'streamer-face': 'assets/b/streamer-face.png',
+    'customer-up': 'assets/b/customer-up.png',
+    'customer-down': 'assets/b/customer-down.png',
+    'customer-left': 'assets/b/customer-left.png',
+    'customer-right': 'assets/b/customer-right.png',
+    'cafe-table': 'assets/b/cafe-table.png',
   },
 };

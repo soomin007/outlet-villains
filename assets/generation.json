@@ -3992,6 +3992,555 @@
         ]
       },
       "commit": "No staging, commit or push. Claude Code reviews and commits."
+    },
+    {
+      "id": "cafe-customers-and-tables-2026-10-29",
+      "date": "2026-10-29",
+      "tool": "built-in image_gen",
+      "request": "Five static background props per theme: same seated customer in four directions and small square cafe table with blank laptop and coffee cup.",
+      "assets": [
+        {
+          "key": "customer-down",
+          "theme": "a",
+          "file": "assets/a/customer-down.png",
+          "prompt": "Use case: precise-object-edit. Edit Image1, keep EXACTLY same front-facing seated customer, hair, face, cup-holding hands, sweater, chairback/seat, grayscale line style and proportions. Image2 is stationarychair construction reference. Make ONE small correction to lower legs: raise both human shoes a little so their soles are visibly ABOVE all four chair leg tips. Extend/align the chair leg tips so the chair feet form the lowest floor baseline, all four chair legs visible. Do NOT let the person's shoes be the lowest part. Keep entire upper body and chair silhouette unchanged. Genuine transparent background, no white halo or glow, no floor shadow, no sticker border, no text. Output one composite,192:288 aspect, combined height250px, hair y38, chair feet y288.",
+          "references": [
+            "generated-intermediate/customer-down-initial-seated (not committed)",
+            "assets/a/streamer-idle.png"
+          ],
+          "priorInstructions": {
+            "prompt": "Use case: stylized-concept. Asset: ONE noninteractive cafe customer sprite on genuine transparent RGBA, no sheet.\nImage1 is the exact game line style, proportions, slight-overhead RPG Maker camera and fixed cafe chair reference. Image2 and image3 are individual line/style references ONLY: do NOT copy their women, demon features, anatomy or clothing.\nDraw one gender-unspecified ordinary adult cafe customer seated properly on a gray cafe chair, facing screen DOWN toward the viewer and the adjacent table below the sprite. This is a quiet background patron, not the streamer, player or villain. Simple short dark hair, unadorned medium-gray sweater and gray trousers, neutral focused face, no headset/headband, no gender-coded styling. Keep large readable forms and few thick black lines like image1; fewer face/clothing details than the main characters.\nForearms extend slightly forward toward the table below, gently holding a simple gray coffee cup with both hands. DO NOT draw the table or a laptop: adjacent table will be a separate asset. Hips must rest on chair seat, knees naturally bend forward; not squat. Chair is included in sprite: backrest behind torso partly visible at sides, seat supporting thighs, four chair legs. Human shoes if visible remain above the chair-foot baseline; the CHAIR feet are at bottom.\nStrict grayscale black/white/gray palette only, NO red, green or other hues. Chair medium neutral gray, low visual emphasis. Match image1's sparse thick black contours, no tiny lines, texture or hatching. No white sticker border, no cast shadow, no glow. No text, numbers, logos or symbols.\nFraming: 192x288 aspect2:3 canvas, combined person+chair silhouette250px tall with hair top y38 and chair feet touching y288, chair center x96. Entire composite fits within width180px, keep transparent margins on sides. Slightly viewed from above like image1, not isometric. One front-facing seated customer only.",
+            "references": [
+              "assets/a/streamer-idle.png",
+              "references/portrait-helltaker-1.jpg",
+              "references/portrait-helltaker-2.jpg"
+            ],
+            "reason": "Selected edit raises human shoes above chair-foot floor baseline."
+          },
+          "output": {
+            "file": "assets/a/customer-down.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              240,
+              92,
+              785,
+              1455
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              100,
+              250
+            ],
+            "placement": [
+              46,
+              38
+            ],
+            "visibleBox": [
+              46,
+              38,
+              146,
+              288
+            ],
+            "lowestOpaquePixelRow": 287,
+            "alphaRange": [
+              0,
+              255
+            ],
+            "nonGrayOpaquePixelCount": 108,
+            "PNGTextMetadata": [],
+            "processing": "Preserved generated alpha. Trimmed transparent margins, uniformly scaled composite to250px height (or180px max width); table width160px. Centered composite horizontally, floor baseline at canvas bottom. No code changes to line, color, anatomy, pose or shape."
+          },
+          "outputSha256": "719b6c772ac47b1a1958f1479041087a96cbe6252eadaeca4ef230bd7bf7d50c"
+        },
+        {
+          "key": "customer-up",
+          "theme": "a",
+          "file": "assets/a/customer-up.png",
+          "prompt": "Use case: identity-preserve. ONE transparent seated background cafe customer sprite, no sheet.\nImage1 defines the SAME CUSTOMER: short dark tousled hair, plain medium-gray rib-neck sweater, gray trousers, holding a plain gray coffee cup with both hands. Do not turn this person into streamer, no headband or headset. Image2 defines the game's sparse black line style and chair. Images3 and4 are individual line/style references ONLY, never copy the demon people or gender/body type.\nSame proportions, scale and cafe chair as Image1, only change the whole seated person AND chair orientation to the direction below. Strictly grayscale black/white/gray only. Quieter than main character, few thick black contours, no texture/hatching or tiny clothing lines. Cup held slightly forward in the direction faced, as if beside a table. Do not draw table or laptop.\nSeated hips rest on seat, normal bent knees pointing toward the faced direction, chair supports body, not squat. Include entire gray backrest, seat and four legs. Every chair foot remains visible and reaches floor baseline. If shoes visible, keep them slightly ABOVE the chair-foot baseline, never let human shoes define canvas bottom.\n192x288 aspect2:3, total customer+chair height250px, top y38, chair floor y288; chair center x96. Full silhouette fits width180px, no cropping. RPG Maker slight overhead, orthographic front-visible props, NOT isometric. Genuine transparent RGBA. No floor shadow, sticker border, glow, text, digits, logos or symbols.\nDirection UP: customer faces screenTOP away from viewer; true back view, face invisible, backrest covers lower back, thighs and knees extend toward screenTOP and are concealed. Cup/hands extend toward screenTOP, may partly disappear behind shoulders. No legs splayed sideways.",
+          "references": [
+            "generated-intermediate/customer-down-initial-seated (not committed)",
+            "assets/a/streamer-idle.png",
+            "references/portrait-helltaker-1.jpg",
+            "references/portrait-helltaker-2.jpg"
+          ],
+          "output": {
+            "file": "assets/a/customer-up.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              290,
+              208,
+              790,
+              1372
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              107,
+              250
+            ],
+            "placement": [
+              42,
+              38
+            ],
+            "visibleBox": [
+              42,
+              38,
+              149,
+              288
+            ],
+            "lowestOpaquePixelRow": 287,
+            "alphaRange": [
+              0,
+              255
+            ],
+            "nonGrayOpaquePixelCount": 154,
+            "PNGTextMetadata": [],
+            "processing": "Preserved generated alpha. Trimmed transparent margins, uniformly scaled composite to250px height (or180px max width); table width160px. Centered composite horizontally, floor baseline at canvas bottom. No code changes to line, color, anatomy, pose or shape."
+          },
+          "outputSha256": "3ff50a3c1b1aa6a249c7067506d8a06580ff0a59cd3e26832fac7782d998b041"
+        },
+        {
+          "key": "customer-left",
+          "theme": "a",
+          "file": "assets/a/customer-left.png",
+          "prompt": "Use case: identity-preserve. ONE transparent seated background cafe customer sprite, no sheet.\nImage1 defines the SAME CUSTOMER: short dark tousled hair, plain medium-gray rib-neck sweater, gray trousers, holding a plain gray coffee cup with both hands. Do not turn this person into streamer, no headband or headset. Image2 defines the game's sparse black line style and chair. Images3 and4 are individual line/style references ONLY, never copy the demon people or gender/body type.\nSame proportions, scale and cafe chair as Image1, only change the whole seated person AND chair orientation to the direction below. Strictly grayscale black/white/gray only. Quieter than main character, few thick black contours, no texture/hatching or tiny clothing lines. Cup held slightly forward in the direction faced, as if beside a table. Do not draw table or laptop.\nSeated hips rest on seat, normal bent knees pointing toward the faced direction, chair supports body, not squat. Include entire gray backrest, seat and four legs. Every chair foot remains visible and reaches floor baseline. If shoes visible, keep them slightly ABOVE the chair-foot baseline, never let human shoes define canvas bottom.\n192x288 aspect2:3, total customer+chair height250px, top y38, chair floor y288; chair center x96. Full silhouette fits width180px, no cropping. RPG Maker slight overhead, orthographic front-visible props, NOT isometric. Genuine transparent RGBA. No floor shadow, sticker border, glow, text, digits, logos or symbols.\nDirection LEFT: full side view facing screenLEFT, face/nose and cup point LEFT. Body and chair both face LEFT, backrest on screenRIGHT behind torso. Arms extend LEFT holding cup. Thighs horizontal from seat toward LEFT, lower legs bend downward, keep shoes slightly raised above chair feet. Head must be side profile, not front three-quarter.",
+          "references": [
+            "generated-intermediate/customer-down-initial-seated (not committed)",
+            "assets/a/streamer-idle.png",
+            "references/portrait-helltaker-1.jpg",
+            "references/portrait-helltaker-2.jpg"
+          ],
+          "output": {
+            "file": "assets/a/customer-left.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              221,
+              231,
+              791,
+              1394
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              123,
+              250
+            ],
+            "placement": [
+              34,
+              38
+            ],
+            "visibleBox": [
+              34,
+              38,
+              157,
+              288
+            ],
+            "lowestOpaquePixelRow": 287,
+            "alphaRange": [
+              0,
+              255
+            ],
+            "nonGrayOpaquePixelCount": 2,
+            "PNGTextMetadata": [],
+            "processing": "Preserved generated alpha. Trimmed transparent margins, uniformly scaled composite to250px height (or180px max width); table width160px. Centered composite horizontally, floor baseline at canvas bottom. No code changes to line, color, anatomy, pose or shape."
+          },
+          "outputSha256": "34fe3d8983f6a219a34be89a9ac34d3a141e4ea3a65c985d897b748df8aa6478"
+        },
+        {
+          "key": "customer-right",
+          "theme": "a",
+          "file": "assets/a/customer-right.png",
+          "prompt": "Use case: identity-preserve. ONE transparent seated background cafe customer sprite, no sheet.\nImage1 defines the SAME CUSTOMER: short dark tousled hair, plain medium-gray rib-neck sweater, gray trousers, holding a plain gray coffee cup with both hands. Do not turn this person into streamer, no headband or headset. Image2 defines the game's sparse black line style and chair. Images3 and4 are individual line/style references ONLY, never copy the demon people or gender/body type.\nSame proportions, scale and cafe chair as Image1, only change the whole seated person AND chair orientation to the direction below. Strictly grayscale black/white/gray only. Quieter than main character, few thick black contours, no texture/hatching or tiny clothing lines. Cup held slightly forward in the direction faced, as if beside a table. Do not draw table or laptop.\nSeated hips rest on seat, normal bent knees pointing toward the faced direction, chair supports body, not squat. Include entire gray backrest, seat and four legs. Every chair foot remains visible and reaches floor baseline. If shoes visible, keep them slightly ABOVE the chair-foot baseline, never let human shoes define canvas bottom.\n192x288 aspect2:3, total customer+chair height250px, top y38, chair floor y288; chair center x96. Full silhouette fits width180px, no cropping. RPG Maker slight overhead, orthographic front-visible props, NOT isometric. Genuine transparent RGBA. No floor shadow, sticker border, glow, text, digits, logos or symbols.\nDirection RIGHT: full side view facing screenRIGHT, face/nose and cup point RIGHT. Body and chair both face RIGHT, backrest on screenLEFT behind torso. Arms extend RIGHT holding cup. Thighs horizontal from seat toward RIGHT, lower legs bend downward, keep shoes slightly raised above chair feet. Head must be side profile, not front three-quarter.",
+          "references": [
+            "generated-intermediate/customer-down-initial-seated (not committed)",
+            "assets/a/streamer-idle.png",
+            "references/portrait-helltaker-1.jpg",
+            "references/portrait-helltaker-2.jpg"
+          ],
+          "output": {
+            "file": "assets/a/customer-right.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              193,
+              210,
+              862,
+              1425
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              138,
+              250
+            ],
+            "placement": [
+              27,
+              38
+            ],
+            "visibleBox": [
+              27,
+              38,
+              165,
+              288
+            ],
+            "lowestOpaquePixelRow": 287,
+            "alphaRange": [
+              0,
+              255
+            ],
+            "nonGrayOpaquePixelCount": 4,
+            "PNGTextMetadata": [],
+            "processing": "Preserved generated alpha. Trimmed transparent margins, uniformly scaled composite to250px height (or180px max width); table width160px. Centered composite horizontally, floor baseline at canvas bottom. No code changes to line, color, anatomy, pose or shape."
+          },
+          "outputSha256": "699d5073fd1efff805ade8a2244bd27174ffa797cdac2c5c5143514fa81bc8ea"
+        },
+        {
+          "key": "cafe-table",
+          "theme": "a",
+          "file": "assets/a/cafe-table.png",
+          "prompt": "Use case: stylized-concept. ONE separate noninteractive small Korean cafe square table game prop, genuinely transparent RGBA. Image1 is exact game's sparse thick black contours and gray chair style. Images2 and3 are individual line style references only, not subject references.\nSmall SQUARE cafe table with a simple open laptop and a plain coffee cup on its top. NO person, chair or other object. Laptop screen blank neutralgray, keyboard reduced to large simple shapes with NO letters or symbols, no logo. Cup no lettering, no steam lines. Four sturdy table legs.\nRPG Maker slightly overhead view, front of furniture visible, no isometric angle: tabletop horizontal edge parallel to screen, symmetrical straight left/right edges, no diagonal diamond. Strict grayscale only: subdued gray tabletop and gray legs, charcoal and light-gray laptop/cup. No red, green or other color. Match reference1 sparse lineweight, large simple forms, no woodgrain, texture, hatching or detail clutter. No sticker border, no glow or floor shadow.\nCanvas192x212 aspect ratio, top surface width about160px centered x96, all four legs end at floor y212. Entire table+laptop/cup fits canvas with transparent margins, laptop only modest height above tabletop. No words, digits, symbols or background.",
+          "references": [
+            "assets/a/streamer-idle.png",
+            "references/portrait-helltaker-1.jpg",
+            "references/portrait-helltaker-2.jpg"
+          ],
+          "output": {
+            "file": "assets/a/cafe-table.png",
+            "nativeSize": [
+              1193,
+              1318
+            ],
+            "sourceAlphaBox": [
+              196,
+              258,
+              1005,
+              1219
+            ],
+            "canvas": [
+              192,
+              212
+            ],
+            "objectSize": [
+              160,
+              190
+            ],
+            "placement": [
+              16,
+              22
+            ],
+            "visibleBox": [
+              16,
+              22,
+              176,
+              212
+            ],
+            "lowestOpaquePixelRow": 210,
+            "alphaRange": [
+              0,
+              255
+            ],
+            "nonGrayOpaquePixelCount": 0,
+            "PNGTextMetadata": [],
+            "processing": "Preserved generated alpha. Trimmed transparent margins, uniformly scaled composite to250px height (or180px max width); table width160px. Centered composite horizontally, floor baseline at canvas bottom. No code changes to line, color, anatomy, pose or shape."
+          },
+          "outputSha256": "7f0eb1c502632e42c2cc507dd9e402cd500821b9dbcfae84f8e7c9bd0c7191e1"
+        },
+        {
+          "key": "customer-down",
+          "theme": "b",
+          "file": "assets/b/customer-down.png",
+          "prompt": "Use case: style-transfer. ONE transparent game sprite.\nImage1 is the edit target, theme A customer-down. Keep EXACTLY the same subject, customer identity, short tousled hair, neutral face, cup-holding pose, seated anatomy and entire stationary chair, camera direction, scale, silhouette and framing. Do not rotate or redesign. Image2 is B game's existing line style and muted brown fixed chair, NOT the streamer subject. Image3 is original individual cartoon style reference only: do not draw a lamb, horns, clothing or its anatomy.\nChange only theme palette/style to subdued warm cartoon. Customer plain sweater muted pale navy around #68717f, trousers gray-brown, short dark charcoal-brown hair, warm light skin, cup warm light gray. Stationary chair muted brown around #8b6c51 like image2. Do not add accessories, headset or headband.\nLow saturation background object. NO mint, NO orange, NO darkgreen anywhere: those are reserved player/pushable/villain cues. No bright emphasis color. Keep sparse thick even black contours and large flat shapes with one shadow plane, no tiny lines, hatching or texture. Match image2 style but quieter, no decorative details.\n192x288 transparent PNG ratio, combined person+chair250px high, top y38 and chair leg tips floor at y288; human shoes slightly above chair feet. Keep same facing direction as image1.\nGenuine RGBA transparency, including gaps between legs. No floor/cast shadow, glow, white sticker outline, background, text, numbers, symbols or logo. One asset only.",
+          "references": [
+            "assets/a/customer-down.png",
+            "assets/b/streamer-idle.png",
+            "references/character-cultofthelamb-1.jpg"
+          ],
+          "output": {
+            "file": "assets/b/customer-down.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              242,
+              111,
+              783,
+              1444
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              101,
+              250
+            ],
+            "placement": [
+              45,
+              38
+            ],
+            "visibleBox": [
+              45,
+              38,
+              146,
+              288
+            ],
+            "lowestOpaquePixelRow": 287,
+            "alphaRange": [
+              0,
+              255
+            ],
+            "nonGrayOpaquePixelCount": 15050,
+            "PNGTextMetadata": [],
+            "processing": "Preserved generated alpha. Trimmed transparent margins, uniformly scaled composite to250px height (or180px max width); table width160px. Centered composite horizontally, floor baseline at canvas bottom. No code changes to line, color, anatomy, pose or shape."
+          },
+          "outputSha256": "c7dacc2d108480b3eb367488dae50a6c5b4138396a129a3e97cb610e8b4e8444"
+        },
+        {
+          "key": "customer-up",
+          "theme": "b",
+          "file": "assets/b/customer-up.png",
+          "prompt": "Use case: style-transfer. ONE transparent game sprite.\nImage1 is the edit target, theme A customer-up. Keep EXACTLY the same subject, customer identity, short tousled hair, neutral face, cup-holding pose, seated anatomy and entire stationary chair, camera direction, scale, silhouette and framing. Do not rotate or redesign. Image2 is B game's existing line style and muted brown fixed chair, NOT the streamer subject. Image3 is original individual cartoon style reference only: do not draw a lamb, horns, clothing or its anatomy.\nChange only theme palette/style to subdued warm cartoon. Customer plain sweater muted pale navy around #68717f, trousers gray-brown, short dark charcoal-brown hair, warm light skin, cup warm light gray. Stationary chair muted brown around #8b6c51 like image2. Do not add accessories, headset or headband.\nLow saturation background object. NO mint, NO orange, NO darkgreen anywhere: those are reserved player/pushable/villain cues. No bright emphasis color. Keep sparse thick even black contours and large flat shapes with one shadow plane, no tiny lines, hatching or texture. Match image2 style but quieter, no decorative details.\n192x288 transparent PNG ratio, combined person+chair250px high, top y38 and chair leg tips floor at y288; human shoes slightly above chair feet. Keep same facing direction as image1.\nGenuine RGBA transparency, including gaps between legs. No floor/cast shadow, glow, white sticker outline, background, text, numbers, symbols or logo. One asset only.",
+          "references": [
+            "assets/a/customer-up.png",
+            "assets/b/streamer-idle.png",
+            "references/character-cultofthelamb-1.jpg"
+          ],
+          "output": {
+            "file": "assets/b/customer-up.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              234,
+              163,
+              804,
+              1458
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              110,
+              250
+            ],
+            "placement": [
+              41,
+              38
+            ],
+            "visibleBox": [
+              41,
+              38,
+              151,
+              288
+            ],
+            "lowestOpaquePixelRow": 287,
+            "alphaRange": [
+              0,
+              255
+            ],
+            "nonGrayOpaquePixelCount": 14320,
+            "PNGTextMetadata": [],
+            "processing": "Preserved generated alpha. Trimmed transparent margins, uniformly scaled composite to250px height (or180px max width); table width160px. Centered composite horizontally, floor baseline at canvas bottom. No code changes to line, color, anatomy, pose or shape."
+          },
+          "outputSha256": "5e673f3210097630a66a4279fa3d5041ef8ce1ac5cc487114db581e9b782c7a2"
+        },
+        {
+          "key": "customer-left",
+          "theme": "b",
+          "file": "assets/b/customer-left.png",
+          "prompt": "Use case: style-transfer. ONE transparent game sprite.\nImage1 is the edit target, theme A customer-left. Keep EXACTLY the same subject, customer identity, short tousled hair, neutral face, cup-holding pose, seated anatomy and entire stationary chair, camera direction, scale, silhouette and framing. Do not rotate or redesign. Image2 is B game's existing line style and muted brown fixed chair, NOT the streamer subject. Image3 is original individual cartoon style reference only: do not draw a lamb, horns, clothing or its anatomy.\nChange only theme palette/style to subdued warm cartoon. Customer plain sweater muted pale navy around #68717f, trousers gray-brown, short dark charcoal-brown hair, warm light skin, cup warm light gray. Stationary chair muted brown around #8b6c51 like image2. Do not add accessories, headset or headband.\nLow saturation background object. NO mint, NO orange, NO darkgreen anywhere: those are reserved player/pushable/villain cues. No bright emphasis color. Keep sparse thick even black contours and large flat shapes with one shadow plane, no tiny lines, hatching or texture. Match image2 style but quieter, no decorative details.\n192x288 transparent PNG ratio, combined person+chair250px high, top y38 and chair leg tips floor at y288; human shoes slightly above chair feet. Keep same facing direction as image1.\nGenuine RGBA transparency, including gaps between legs. No floor/cast shadow, glow, white sticker outline, background, text, numbers, symbols or logo. One asset only.",
+          "references": [
+            "assets/a/customer-left.png",
+            "assets/b/streamer-idle.png",
+            "references/character-cultofthelamb-1.jpg"
+          ],
+          "output": {
+            "file": "assets/b/customer-left.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              197,
+              182,
+              833,
+              1496
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              121,
+              250
+            ],
+            "placement": [
+              35,
+              38
+            ],
+            "visibleBox": [
+              35,
+              38,
+              156,
+              288
+            ],
+            "lowestOpaquePixelRow": 287,
+            "alphaRange": [
+              0,
+              255
+            ],
+            "nonGrayOpaquePixelCount": 15241,
+            "PNGTextMetadata": [],
+            "processing": "Preserved generated alpha. Trimmed transparent margins, uniformly scaled composite to250px height (or180px max width); table width160px. Centered composite horizontally, floor baseline at canvas bottom. No code changes to line, color, anatomy, pose or shape."
+          },
+          "outputSha256": "8aad70ae523666780ba6ca8d71b5c40b0171053a48ddd038c5894527efe52b77"
+        },
+        {
+          "key": "customer-right",
+          "theme": "b",
+          "file": "assets/b/customer-right.png",
+          "prompt": "Use case: style-transfer. ONE transparent game sprite.\nImage1 is the edit target, theme A customer-right. Keep EXACTLY the same subject, customer identity, short tousled hair, neutral face, cup-holding pose, seated anatomy and entire stationary chair, camera direction, scale, silhouette and framing. Do not rotate or redesign. Image2 is B game's existing line style and muted brown fixed chair, NOT the streamer subject. Image3 is original individual cartoon style reference only: do not draw a lamb, horns, clothing or its anatomy.\nChange only theme palette/style to subdued warm cartoon. Customer plain sweater muted pale navy around #68717f, trousers gray-brown, short dark charcoal-brown hair, warm light skin, cup warm light gray. Stationary chair muted brown around #8b6c51 like image2. Do not add accessories, headset or headband.\nLow saturation background object. NO mint, NO orange, NO darkgreen anywhere: those are reserved player/pushable/villain cues. No bright emphasis color. Keep sparse thick even black contours and large flat shapes with one shadow plane, no tiny lines, hatching or texture. Match image2 style but quieter, no decorative details.\n192x288 transparent PNG ratio, combined person+chair250px high, top y38 and chair leg tips floor at y288; human shoes slightly above chair feet. Keep same facing direction as image1.\nGenuine RGBA transparency, including gaps between legs. No floor/cast shadow, glow, white sticker outline, background, text, numbers, symbols or logo. One asset only.",
+          "references": [
+            "assets/a/customer-right.png",
+            "assets/b/streamer-idle.png",
+            "references/character-cultofthelamb-1.jpg"
+          ],
+          "output": {
+            "file": "assets/b/customer-right.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              150,
+              163,
+              904,
+              1488
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              142,
+              250
+            ],
+            "placement": [
+              25,
+              38
+            ],
+            "visibleBox": [
+              25,
+              38,
+              167,
+              288
+            ],
+            "lowestOpaquePixelRow": 287,
+            "alphaRange": [
+              0,
+              255
+            ],
+            "nonGrayOpaquePixelCount": 16646,
+            "PNGTextMetadata": [],
+            "processing": "Preserved generated alpha. Trimmed transparent margins, uniformly scaled composite to250px height (or180px max width); table width160px. Centered composite horizontally, floor baseline at canvas bottom. No code changes to line, color, anatomy, pose or shape."
+          },
+          "outputSha256": "940bb18d196af351cd3e4c4e9e68257f673cce514ae96486cb7e5b5299ee2af6"
+        },
+        {
+          "key": "cafe-table",
+          "theme": "b",
+          "file": "assets/b/cafe-table.png",
+          "prompt": "Use case: style-transfer. ONE transparent game sprite.\nImage1 is the edit target, theme A cafe-table. Keep EXACTLY the same subject, square cafe table, blank-screen laptop, coffee cup, four table legs, tabletop shape and width, camera direction, scale, silhouette and framing. Do not rotate or redesign. Image2 is B game's existing line style and muted brown fixed chair, NOT the streamer subject. Image3 is original individual cartoon style reference only: do not draw a lamb, horns, clothing or its anatomy.\nChange only theme palette/style to subdued warm cartoon. Tabletop and legs muted beige/brown, laptop warm gray with blank screen and simple unlettered keyboard, cream coffee cup.\nLow saturation background object. NO mint, NO orange, NO darkgreen anywhere: those are reserved player/pushable/villain cues. No bright emphasis color. Keep sparse thick even black contours and large flat shapes with one shadow plane, no tiny lines, hatching or texture. Match image2 style but quieter, no decorative details.\n192x212 transparent PNG ratio, tabletop160px wide centered, chair-free people-free table. Table leg tips floor at y212.\nGenuine RGBA transparency, including gaps between legs. No floor/cast shadow, glow, white sticker outline, background, text, numbers, symbols or logo. One asset only.",
+          "references": [
+            "assets/a/cafe-table.png",
+            "assets/b/streamer-idle.png",
+            "references/character-cultofthelamb-1.jpg"
+          ],
+          "output": {
+            "file": "assets/b/cafe-table.png",
+            "nativeSize": [
+              1193,
+              1318
+            ],
+            "sourceAlphaBox": [
+              108,
+              117,
+              1127,
+              1255
+            ],
+            "canvas": [
+              192,
+              212
+            ],
+            "objectSize": [
+              160,
+              179
+            ],
+            "placement": [
+              16,
+              33
+            ],
+            "visibleBox": [
+              16,
+              33,
+              176,
+              212
+            ],
+            "lowestOpaquePixelRow": 211,
+            "alphaRange": [
+              0,
+              255
+            ],
+            "nonGrayOpaquePixelCount": 14852,
+            "PNGTextMetadata": [],
+            "processing": "Preserved generated alpha. Trimmed transparent margins, uniformly scaled composite to250px height (or180px max width); table width160px. Centered composite horizontally, floor baseline at canvas bottom. No code changes to line, color, anatomy, pose or shape."
+          },
+          "outputSha256": "f99e3bb94c54532d4e16ef1f493cd2d6b5058b9243a4a15ae4d624c74b36eb07"
+        }
+      ],
+      "qa": {
+        "game": "index.html, chapter1 levels1-1 and1-2",
+        "desktop": [
+          1920,
+          1080
+        ],
+        "mobile": [
+          375,
+          812
+        ],
+        "observed": "Four customer orientations and table load in both themes without missing images, horizontal overflow or console errors. Bodies rest on chairs. Low-saturation customer and furniture stay quieter than pushable green/orange objects. All artwork uses sparse black contours and includes no authored text, sticker border or floor shadow.",
+        "limits": [
+          "Mobile sprites are small, cup/keyboard/individual legs cannot be clearly separated at that scale. This is a visual asset check, not novice playtest.",
+          "Some back chair legs are one flat-fill pixel shorter than front legs due generated perspective/antialiasing. Transparent geometry baseline is canvas bottom.",
+          "A table last fully opaque row is y210; anti-aliased edge extends to final row y211.",
+          "A images are visually grayscale, but some generated edge pixels have small RGB channel differences. No code recoloring performed."
+        ],
+        "code": "Only manifest changed. Game rules, maps, layout and renderer preserved."
+      },
+      "commit": "Unstaged. No commit or push. Claude Code reviews and commits."
     }
   ]
 }
