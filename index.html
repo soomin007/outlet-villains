@@ -327,12 +327,13 @@
     }
 
     /* 2, 3번 판: 유튜버의 방송 화면 창. 카메라가 지금 비추는 것(빌런 얼굴과 등 뒤 세 줄에서 처음 닿는 것)이 그대로 보인다. */
+    /* 판 오른쪽 옆벽 자리(장면 x 774~960)에 둔다. 왼쪽 위에 두면 판의 첫 칸을 덮었다. */
     .stream {
       position: absolute;
-      left: 14px;
-      top: 10px;
-      width: 190px;
-      height: 104px;
+      right: 12px;
+      top: 12px;
+      width: 164px;
+      height: 92px;
       z-index: 230;
       border: 3px solid #111;
       border-radius: 10px;
@@ -362,10 +363,10 @@
 
     .stream .slots {
       position: absolute;
-      left: 28px;
-      right: 28px;
-      top: 14px;
-      height: 44px;
+      left: 24px;
+      right: 24px;
+      top: 12px;
+      height: 38px;
       display: flex;
       gap: 6px;
     }
@@ -379,14 +380,14 @@
       justify-content: center;
     }
 
-    .stream .slot .art { width: 34px; height: 34px; }
+    .stream .slot .art { width: 30px; height: 30px; }
 
     .stream .face {
       position: absolute;
       left: 50%;
-      bottom: -14px;
-      width: 64px;
-      height: 64px;
+      bottom: -12px;
+      width: 54px;
+      height: 54px;
       transform: translateX(-50%);
     }
 
@@ -728,9 +729,9 @@
         const look = LAYOUT.levels[game.index].villain;
         ui.portrait.innerHTML = art(look.portrait, colors.villain, true);
 
-        // 콘센트는 빌런과 같은 열, 판 밖 -1번 줄의 벽에 붙는다.
+        // 콘센트는 판 밖 -1번 줄의 벽에 붙는다. 열은 빌런과 같거나, 판에 따로 정한 열(outletX)이다.
         game.sprites.outlet = addSprite('outlet-theirs', TILE, TILE, colors.outletTheirs, { round: true });
-        placeOnTile(game.sprites.outlet, villain.x, -1, TILE, TILE);
+        placeOnTile(game.sprites.outlet, look.outletX !== undefined ? look.outletX : villain.x, -1, TILE, TILE);
 
         // 빌런 그림의 크기와 아래쪽이 닿는 칸은 판마다 다르다(잠든 빌런은 테이블 칸까지 엎드려 있다). layout.js가 기준이다.
         game.sprites.villain = addSprite(look.idle, TILE, TILE * look.heightTiles, colors.villain, { round: true });
