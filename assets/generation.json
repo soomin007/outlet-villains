@@ -8537,6 +8537,263 @@
         ]
       },
       "commit": "No staging, commit or push. Claude Code connects fiveframes into playPrologue and preload, reviews and commits."
+    },
+    {
+      "date": "2026-10-30",
+      "name": "title-logo-and-robot-two-themes",
+      "tool": "built-in image_gen, separate logo and robot calls",
+      "scope": "Four transparent WebPs, four manifest lines, generation record and Codex log only. Game code unchanged.",
+      "rationale": "User renamed game 충전이 필요해! and requested strong first-impression title art: robotleft, two-rowtitle/rightbuttons overdimmedstory1cafe.",
+      "assets": [
+        {
+          "theme": "a",
+          "key": "title-logo",
+          "file": "assets/a/title-logo.webp",
+          "refs": [
+            "logo-layout-guide.png (scratch text layout reference, not shipped)"
+          ],
+          "prompt": "Use case: precise-object-edit. The supplied image is the EXACT LAYOUT EDIT TARGET for final Korean game titlewordmark. Keep EACH LETTER IN EXACT SAME PLACE AND SAME SIZE as supplied. IMPORTANT doNOT re-typeset or centerrows: '필' IS directlyUNDER '전' atsamexcenter; '요' IS directlyUNDER '이'. Preserve this spatialrelationship exactly. Only stylingchanges: roundthelettercorners, slightlysoftenstrokeshapeinto chunky friendly hand-lettering, make BLACK outeroutlines thickerfor darkbackgroundlegibility. Whitefill onallHangul. EXACTvisibletextis \"충전이\" top and \"필요해!\" bottom, no othertext. Same verticalREDbatteryexclamationwithtopterminalandONEredbottomsegment plus roundwhitedot. NO graybackground: removegray into REAL TRANSPARENCY includingtheholesintheletters; opaquewhiteglyphs andblackoutline. DoNOTmovelowerrowleft. Keeplettercenters fixed, no trackingcompression. One titlelogo only, 1120x640 layout (~90%wide), no shadow/glow/grain/banner/decorations.",
+          "lineage": [
+            {
+              "prompt": "Use case: logo-brand. Create ONE production title wordmark for Korean cozy cartoon puzzle game, on TRUE TRANSPARENT background. Rasterillustration, bold rounded hand-lettered Korean game-logo letters, thick BLACK contour for legibility on darkcafe backdrop. Clean chunky few shapes, no texture/hatching/gradient/glow/drop shadow. No frame/banner/box behindwordmark. Intendedcanvas1120wide640high, wholelogooccupiesabout90%widthandheight with generouscleanmargin.\nEXACT TEXT ONLY: \"충전이 필요해!\" Korean. MUST be TWO ROWS. Row1 exactly \"충전이\" (3 Hangulsyllables). Row2 exactly \"필요해!\" (3 Hangulsyllables and exclamation).\nCRITICAL USER-CHOSEN STAGGERED GRID: secondrow starts ONE FULL HANGUL CHARACTER to the RIGHT of firstrowstart. '필' is directly UNDER '전', NOT UNDER '충'. '요' directly UNDER '이'. '해' extends farther right. DO NOT center the rows! DO NOT left-align rows!\nLayout:\n충 전 이\n   필 요 해 !\nFor1120x640 referencecoordinates, approximately: row1 '충' x56..286, '전' x286..516, '이' x516..746, y32..292; row2 '필' x286..516, '요' x516..746, '해' x746..976, batteryexclamation x976..1064,y348..608. These are glyphcolumns, not text boxes to draw. Koreanletterscorrectcompleteglyphs, no deformation ormissingstrokes. Rounded sturdybrush-likeletterforms, readable, friendly energetic, nolatinletters/subtitle/extraKorean.\nEXCLAMATION SPECIAL: the '!' ONLY at endofrow2. Its VERTICAL STEM is an UPRIGHT LOW BATTERY: rounded narrow verticalbatterybody, smallterminalonTOP, darkemptyinterior, RED #c8302a frameand ONLY ONE solidREDsmallsegmentatVERYBOTTOM, restemptydark. Do NOT draw ordinaryrectangularrod orlightningbolt instead; unmistakableverticalbatterywithterminal. Separate normal ROUND WHITE DOT with blackoutline directlyUNDERbatterybody completes'!'. No additional ordinaryexclamation, NO otherbattery anywhere.\nTHEME A: all6 Hangulsyllables WHITE fill with verythick BLACK outlines. Batteryonlyred #c8302a withblackoutercontour; dotwhitewithblackoutline. Onlywhite/black/red, no green/cream/grayhaze. Transparentinbetweenletters and outsideimage, opaqueletterinteriors. No robot/objects, wordmarkonly. Referenceimage supplied ONLY for game's thickoutline visualfamily, don'taddrobot or copyitsface.",
+              "refs": [
+                "assets/style-test/robot-8-a.png"
+              ]
+            },
+            {
+              "prompt": "Use case: precise-object-edit. Exactsame Korean titlewordmark, TWO rows \"충전이\" then \"필요해!\" only, same roundedhandletterform, whitefill thickblackoutline, batteryexclamationwithredframe/singlebottomredsegment/separatewhitedot. Correct ONLY stagger alignment: currently lower '필' is too far LEFT. Shift secondrow about60pxRIGHT on this1672pxwideimage, so the CENTER of '필' aligns verticallywith CENTERof '전', CENTERof '요' alignswithCENTERof '이'. Keep equal Hangulcharactercolumnpitch. Firstrow '충' hasNO syllableunderit; lowerrowstart exactlyonefullcharactercolumnright. The lowerrowshouldnotbecenteredundertoprow. Ensure fullrightmostbattery/dot notcropped; slightlyscaleentirelogo down andaddtransparentmargins ifneeded. No distortion of glyphs, no added/missingstrokes. Preserve exactspelling 충전이 필요해! andONLYONE batteryexclamation. Backgroundactualtransparentzeroalpha, no textureshadowglow. ONE logo notvariants.",
+              "refs": [
+                "assets/a/title-logo.webp (initial generated logo before export)"
+              ]
+            },
+            {
+              "prompt": "Use case: precise-object-edit. Make FINAL Korean titlelogo by combining Image1 LETTERINGSTYLE and Image2 EXACTSPATIALPOSITION. Image2 is a NEW layoutblueprint, notfinalart. Each Hangulsyllablecenter must followImage2: row1 \"충전이\", row2 \"필요해!\" shiftedright EXACTLYONECHARACTER. '필' center directlyunder '전' center; '요' center directlyunder '이' center. DO NOT useImage1 inaccurateplacement. Copy Image2 glyphCENTERPOSITIONS as if tracinglayout, while redrawglyphs in Image1's heavyroundedfriendlyhandletteredstyle. Keep the six characters same CELL WIDTH, no compressedbottomrow. Batteryexclamationatfar right withtopterminal, REDframe #c8302a, blackemptyinterior and ONEredbottomsegment, separatetrulyroundWHITEdot. Only exacttext충전이 필요해!, nootherletters. Whiteglyphfill withthickBLACKoutline, no textures/shadows/3D. OUTPUT TRUE TRANSPARENTBACKGOUND, doNOTkeepguidegraybackground. ONE cleanwordmark, intended1120x640 ~90%occupied, allglyphsunclipped.",
+              "refs": [
+                "assets/a/title-logo.webp (prior generated lettering style before export)",
+                "logo-layout-guide.png (scratch text layout reference, not shipped)"
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "a",
+          "key": "title-robot",
+          "file": "assets/a/title-robot.webp",
+          "refs": [
+            "assets/style-test/robot-8-a.png"
+          ],
+          "prompt": "Use case: precise-object-edit. ONE isolated large title-screen illustration of EXACT selected robot8 in referenceimage, not gameplay spritesheet, TRUEtransparentbackground. Preserve lowroundvacuumdiscwithblackbumperandsmallwheels, lowCYLINDRICALtorso, shortneck, redframedrectangularblackfacescreen; thickcharcoal#3a3a3aarms withoneWHITEshoulderpivoteach attachedtoUPPER CYLINDER SIDES, roundedCgripperhands. Same proportions, same sparse boldblacklinework andlargecartoonshapes. No thinmechanicalrods/fingerparts/apron/person. \nPOSE: faceFRONT towardviewer, sturdyconfidentdeterminedstance, bodyupright. ONE arm extendsFORWARDtowardviewer in a pushinggesture withroundedCgripper, theOTHER arm restsDOWNatbodySIDE (notbotharmsup, no humanfist). GrippersABOVEfloor; wheelsarelowestpoints. FaceSCREEN displays ONLY a RED EMPTY BATTERY pictogram: horizontal redoutlinedbatterywithsmallterminal, onlytinyoneREDremainingsegmentatthebottom/nearoneend, restblackempty. NO EYES inthisbatterywarningframe, no text/digits/percent/lightning. Determinationcomesfromuprightpose/forwardarm only.\nThemeA body/base/cylinder/screenframe RED #c8302a, armsandotherpartsneutraldarkgray/black/white. No greenyellowblue, no cordsorplugs attachedtobody.\nFinalcanvas720x900 transparentWebP, visibleheightabout820px, bottomofwheelssitsaty900; keep fullrobotwidthunder700px withoutcropping/stretching. COMPACTfullbodyverticalsilhouette, don'tspreadarmstoo wide. Waist-high cleaningrobot, no humanlegs. No floorground/castshadow/glow/halo/white-stickeroutline, no background, no otherobjects, no lettering or decorativeiconsoutsideface. Same robotidentity asreference, no redesign."
+        },
+        {
+          "theme": "b",
+          "key": "title-logo",
+          "file": "assets/b/title-logo.webp",
+          "refs": [
+            "assets/a/title-logo.webp (selected full-resolution generated source)",
+            "assets/style-test/robot-8-b.png"
+          ],
+          "prompt": "Use case: style-transfer. Exactsame Korean titlewordmark as Image1. PALETTE CHANGE ONLY, no geometry, letteringlayout or stroke/posechanges. Keepexact2rows \"충전이\" / \"필요해!\" and samefixedstagger: '필' center directlyunder '전', '요' center directlyunder '이'. AllsixHangulsyllables CREAM #fff0d0 (insteadwhite), verythick DARK BROWN #3b251e outlines (insteadblack). Batteryexclamationstem remainsVERTICALwithtopterminal and separateROUND CREAMDOT. BatteryFRAME MINT #7fd3b8 withdarkbrownoutercontour, emptyinsideverydarkbrown, ONLYONEtinybottomsegmentRED #c8302a. DoNOTmaketheentirebatteryred, doNOTturnredsegmentmint. Sameletterforms/dimensions/margins, no addedwords/letters. Reference2 robot8-b is palettefamilyreferenceONLY, no robotinlogo. RealTRANSPARENT background includingletterholes, NO backdrop, shadows/glow/extraembellishment. One1120x640intendedlogo."
+        },
+        {
+          "theme": "b",
+          "key": "title-robot",
+          "file": "assets/b/title-robot.webp",
+          "refs": [
+            "assets/a/title-robot.webp (selected full-resolution generated source)",
+            "assets/style-test/robot-8-b.png"
+          ],
+          "prompt": "Use case: style-transfer. Image1 exactselectedA title-robot structure/pose, Image2 chosenrobot8-b identityandmintpalette. ChangeONLY RED BODY PARTS ofimage1 to MINT #7fd3b8: vacuumdisc,cylindertorso,neckpanel,screenframe,sideheadpieces. KeepentirePOSE/forms/proportionsunchanged: fullfrontview, ONE chunkycharcoalarm extendsFORWARDtowardviewerwithCgripper, otherarm DOWNatbodyside, whitecylindershoulderpivot each, lowroundvacuumdisc/wheels, lowcylinder, shortneck, screen. Facewarningbattery staysRED #c8302a, horizontaloutlinewithtinyremainingsegmentandterminal, blackemptyinterior, NOeyes/noletters/numbers/percent/lightning. DoNOTturnbatteryiconmint. Sparseboldblacklines sameimage1. ONE large fullbody transparentPNG for720x900canvas, visibleheightabout820, wheelbottomat900. No floor/castshadow/halo/glow/whiteborder, no cord/plug/humanparts/apron/otherobjects. Actualzeroalphaemptybackground, opaquecharactercleanantialias."
+        }
+      ],
+      "layoutGuide": {
+        "file": "logo-layout-guide.png (scratch reference only, not shipped)",
+        "purpose": "Pure new text-spacing blueprint, not editing generated logo or shipping font rendering. Image_gen drew every final asset.",
+        "construction": "Pillow drew six complete Hangul syllables with malgunbd.ttf and simple battery diagram on1120x640 neutralgrayguide. Fixed230pxcharactercolumns: firstrow충56,전286,이516; secondrow필286,요516,해746. Guide only supplied to generator, no generatedglyph crop/rearrangement/code repaint.",
+        "rows": [
+          "충전이",
+          "필요해!"
+        ]
+      },
+      "processing": "Only alpha-core(>128) rectangle crop, uniformresize and center/bottom canvasalignment inPillow, source retained alpha preserved. TransparentWebP quality85/method6/exactTrue. No code drawing/recoloring/reshaping/rowshifting of finalart. Logo fit1008x576maximum on1120x640; robot fit700wide820highmaximum on720x900.",
+      "outputMetrics": [
+        {
+          "theme": "a",
+          "key": "title-logo",
+          "sourceSize": [
+            1659,
+            948
+          ],
+          "cropBox": [
+            65,
+            73,
+            1577,
+            892
+          ],
+          "canvas": [
+            1120,
+            640
+          ],
+          "visibleSize": [
+            1008,
+            546
+          ],
+          "placement": [
+            56,
+            47
+          ],
+          "quality": 85,
+          "bytes": 53020,
+          "lastOpaqueRow": 592,
+          "alphaZeroPixels": 464075,
+          "sha256": "c441fbbbd751e8fe790492507d5216296b99cbfa8903f1b45d6dd0c9f088ef48",
+          "brightGlyphColumnCenters": [
+            [
+              167.0,
+              397.0,
+              631.0
+            ],
+            [
+              404.5,
+              629.5,
+              851.5
+            ]
+          ],
+          "lowerFirstVsUpperSecondDeltaPx": 7.5,
+          "lowerSecondVsUpperThirdDeltaPx": -1.5
+        },
+        {
+          "theme": "a",
+          "key": "title-robot",
+          "sourceSize": [
+            1122,
+            1402
+          ],
+          "cropBox": [
+            108,
+            104,
+            1044,
+            1310
+          ],
+          "canvas": [
+            720,
+            900
+          ],
+          "visibleSize": [
+            636,
+            820
+          ],
+          "placement": [
+            42,
+            80
+          ],
+          "quality": 85,
+          "bytes": 65830,
+          "lastOpaqueRow": 899,
+          "alphaZeroPixels": 294671,
+          "sha256": "ee2a37d4fc0102cef466d13739d8b9915f5673a9027af4a2952d6ef2bcb63ed8"
+        },
+        {
+          "theme": "b",
+          "key": "title-logo",
+          "sourceSize": [
+            1659,
+            948
+          ],
+          "cropBox": [
+            43,
+            58,
+            1592,
+            899
+          ],
+          "canvas": [
+            1120,
+            640
+          ],
+          "visibleSize": [
+            1008,
+            547
+          ],
+          "placement": [
+            56,
+            46
+          ],
+          "quality": 85,
+          "bytes": 64002,
+          "lastOpaqueRow": 592,
+          "alphaZeroPixels": 427053,
+          "sha256": "40a90294a84b34a319ff22cc8bea72eacdaaecf513fdc1c2bafaeb064111100a",
+          "brightGlyphColumnCenters": [
+            [
+              174.0,
+              408.5,
+              638.0
+            ],
+            [
+              410.0,
+              634.0,
+              851.0
+            ]
+          ],
+          "lowerFirstVsUpperSecondDeltaPx": 1.5,
+          "lowerSecondVsUpperThirdDeltaPx": -4.0
+        },
+        {
+          "theme": "b",
+          "key": "title-robot",
+          "sourceSize": [
+            1122,
+            1402
+          ],
+          "cropBox": [
+            98,
+            98,
+            1058,
+            1314
+          ],
+          "canvas": [
+            720,
+            900
+          ],
+          "visibleSize": [
+            647,
+            820
+          ],
+          "placement": [
+            36,
+            80
+          ],
+          "quality": 85,
+          "bytes": 71160,
+          "lastOpaqueRow": 899,
+          "alphaZeroPixels": 288221,
+          "sha256": "d8ca8b0227509c64018e077cdda37ba5f0ec62c50a7ed3cea67bb614ed07d0f5"
+        }
+      ],
+      "totalBytes": 254012,
+      "visualReview": "ExactHangul 충전이 / 필요해! only. Lower필 alignedunderupper전, 요under이, notcenteredrows. Roundedheavylettering, thickblackAoutline or darkbrownBoutline. Batteryexclamationverticalterminaltop, emptydarkinterior, singleredbottomsegment, roundnormaldot. Awhiteletters/redbattery; Bcreamletters/mintbatteryframe/redbottomsegment. Robot8disc/lowcylinder/neck/screen, thickcharcoalwhitepivotarms, oneforwardonebybody, REDemptybattery onscreen without eyes/text/percent. No cord/plug/floorshadow/stickerborder.",
+      "iterations": [
+        "InitialAlogo and two corrections stillplaced필too farleft; finalA regeneratedusingonlyfixedlayoutguide with roundedlettering edits. No failedgeneratedlogo shipped.",
+        "B based on selectedA art plusrobot8-b palette/identity, geometryandpose retained."
+      ],
+      "qa": {
+        "fileCheck": "All4 RGBA WebPs fully decode, transparentcorners/background, exactcanvas sizes, no EXIF/XMP/ICC, each53020-71160bytes<200000. Robotsvisibleheight820 andopaque lastrow899.",
+        "logoBounds": "Both1008wide=90%canvaswidth; heights546/547=about85.3/85.5%canvasheight, preservingletterproportions.",
+        "alignmentMeasurement": "Brightletterfillbounds measured perwholeHangulsyllable, separatedjamo merged for이/해. A필center7.5pxrightof전, B1.5px; A요1.5pxleftof이,B4pxleft. Handletteredalignmentverified, no forcedindividualrowcorrectionwithcode.",
+        "registration": "Exactlytitle-logo,title-robot pertheme. Previousmanifestentries unchanged. Node syntaxcheckpassed.",
+        "runtime": "index.html existingtitlecode automaticallyuseskeys. BothA/Bloaded natural1120x640logo and720x900robot, complete true on1920x1080desktop and375x812mobile. Mobile scrollWidth375, no horizontaloverflow. No capturedconsolewarning/error.",
+        "screenshots": [
+          "title-a-desktop.png (scratch QA)",
+          "title-b-desktop.png (scratch QA)",
+          "title-a-mobile.png (scratch QA)",
+          "title-b-mobile.png (scratch QA)"
+        ],
+        "limits": [
+          "Smallhandletteringcenter deviations1.5-7.5px remain, under10px on1120pxcanvas.",
+          "Robotforwardarmhasforeshortening andproportionsvaryslightlyA/B; no nonuniformdistortion.",
+          "No gameplay/code change, menu button flows beyondassetloadingnotretested."
+        ]
+      },
+      "commit": "No staging, commit or push. Claude Code reviews and commits."
     }
   ]
 }

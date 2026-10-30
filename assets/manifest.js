@@ -3,6 +3,8 @@
 // Codex가 그림을 저장하면 그 테마에 한 줄씩 적는다. 예: 'bg-sleeper': 'assets/a/bg-sleeper.png',
 window.VILLAIN_ASSETS = {
   a: {
+    'title-logo': 'assets/a/title-logo.webp',
+    'title-robot': 'assets/a/title-robot.webp',
     'story-1': 'assets/a/story-1.webp',
     'story-2': 'assets/a/story-2.webp',
     'story-3': 'assets/a/story-3.webp',
@@ -50,6 +52,8 @@ window.VILLAIN_ASSETS = {
     'customer3-right': 'assets/a/customer3-right.png',
   },
   b: {
+    'title-logo': 'assets/b/title-logo.webp',
+    'title-robot': 'assets/b/title-robot.webp',
     'story-1': 'assets/b/story-1.webp',
     'story-2': 'assets/b/story-2.webp',
     'story-3': 'assets/b/story-3.webp',
