@@ -8794,6 +8794,107 @@
         ]
       },
       "commit": "No staging, commit or push. Claude Code reviews and commits."
+    },
+    {
+      "date": "2026-10-30",
+      "name": "restore-first-puffy-title-logo",
+      "tool": "Reuse first built-in image_gen A output; built-in image_gen palette-only edit for B",
+      "scope": "Overwrite only two title-logo.webp files and append generation/session records. Manifest, title-robot, game code and other artwork unchanged.",
+      "rationale": "User prefers ORIGINAL FIRST GENERATED chubby closely packed lettering before alignment edits; approximate필under전 is enough. Do not use glyphgridguide or adjust positions.",
+      "assets": [
+        {
+          "theme": "a",
+          "file": "assets/a/title-logo.webp",
+          "method": "reuse-approved-original",
+          "prompt": "Reuse the exact first generated puffy tightly-packed A logo, already true RGBA transparency. No new generation, glyph/spacing/alignment/color edits. Only uniform fit and canvas export to requested1120x640 transparentWebP.",
+          "refs": [
+            "exec-3dba7cec-8b96-4489-8da0-7c142d4fd1b3.png (user-approved first generated A logo)"
+          ],
+          "originalGeneration": {
+            "prompt": "Use case: logo-brand. Create ONE production title wordmark for Korean cozy cartoon puzzle game, on TRUE TRANSPARENT background. Rasterillustration, bold rounded hand-lettered Korean game-logo letters, thick BLACK contour for legibility on darkcafe backdrop. Clean chunky few shapes, no texture/hatching/gradient/glow/drop shadow. No frame/banner/box behindwordmark. Intendedcanvas1120wide640high, wholelogooccupiesabout90%widthandheight with generouscleanmargin.\nEXACT TEXT ONLY: \"충전이 필요해!\" Korean. MUST be TWO ROWS. Row1 exactly \"충전이\" (3 Hangulsyllables). Row2 exactly \"필요해!\" (3 Hangulsyllables and exclamation).\nCRITICAL USER-CHOSEN STAGGERED GRID: secondrow starts ONE FULL HANGUL CHARACTER to the RIGHT of firstrowstart. '필' is directly UNDER '전', NOT UNDER '충'. '요' directly UNDER '이'. '해' extends farther right. DO NOT center the rows! DO NOT left-align rows!\nLayout:\n충 전 이\n   필 요 해 !\nFor1120x640 referencecoordinates, approximately: row1 '충' x56..286, '전' x286..516, '이' x516..746, y32..292; row2 '필' x286..516, '요' x516..746, '해' x746..976, batteryexclamation x976..1064,y348..608. These are glyphcolumns, not text boxes to draw. Koreanletterscorrectcompleteglyphs, no deformation ormissingstrokes. Rounded sturdybrush-likeletterforms, readable, friendly energetic, nolatinletters/subtitle/extraKorean.\nEXCLAMATION SPECIAL: the '!' ONLY at endofrow2. Its VERTICAL STEM is an UPRIGHT LOW BATTERY: rounded narrow verticalbatterybody, smallterminalonTOP, darkemptyinterior, RED #c8302a frameand ONLY ONE solidREDsmallsegmentatVERYBOTTOM, restemptydark. Do NOT draw ordinaryrectangularrod orlightningbolt instead; unmistakableverticalbatterywithterminal. Separate normal ROUND WHITE DOT with blackoutline directlyUNDERbatterybody completes'!'. No additional ordinaryexclamation, NO otherbattery anywhere.\nTHEME A: all6 Hangulsyllables WHITE fill with verythick BLACK outlines. Batteryonlyred #c8302a withblackoutercontour; dotwhitewithblackoutline. Onlywhite/black/red, no green/cream/grayhaze. Transparentinbetweenletters and outsideimage, opaqueletterinteriors. No robot/objects, wordmarkonly. Referenceimage supplied ONLY for game's thickoutline visualfamily, don'taddrobot or copyitsface.",
+            "refs": [
+              "assets/style-test/robot-8-a.png"
+            ]
+          }
+        },
+        {
+          "theme": "b",
+          "file": "assets/b/title-logo.webp",
+          "prompt": "Use case: style-transfer. This input is the USER-APPROVED ORIGINAL FIRST GENERATED Korean titlelogo. It is deliberately PUFFY/CHUBBY, densely packed, with letters very close and almost touching. PRESERVE EXACT LETTER SHAPES, STROKE THICKNESS, SPACING/KERNING, sizes and relativepositions fromthisinput. ONLY recolor into themeB and preserve transparentbackground. DO NOT align,re-typeset, rearrange, thin, simplify or addspacebetweenletters. Do not improve or correctstaggeralignment; userlikes thisapproximatealignment.\nExacttextunchanged: row1 \"충전이\", row2 \"필요해!\" withtheexistingbatteryexclamationandrounddot. No othertext.\nCOLOR-ONLY EDIT: whiteHangulfill -> CREAM #fff0d0; BLACKoutlines -> DARKBROWN #3b251e with EXACTSAMEthickoutlinewidth; REDBATTERYFRAME -> MINT #7fd3b8. Keep ONE last batterysegmentatbottom RED #c8302a, batteryinsideEMPTYVERYDARKBROWN, topterminalMINT; separateexclamationdotCREAMwithdarkbrownoutline. Nevermakethewholebatteryred or addmoresegments.\nKeep ALL outlines and white/creamletterfills SOLIDOPAQUE. Outsideandbetweenandletterholes must beTRUE TRANSPARENTzeroalpha. No opaquegray/blackbackgroundrectangle, no shadow/glow/texture/banner, noextraicons. No layoutguide isused. ONE wordmarkonly, samecompactdensecompositionasinput.",
+          "refs": [
+            "exec-3dba7cec-8b96-4489-8da0-7c142d4fd1b3.png (user-approved first generated A logo)"
+          ]
+        }
+      ],
+      "originalSource": "exec-3dba7cec-8b96-4489-8da0-7c142d4fd1b3.png, first A logo from title-logo-and-robot-two-themes initial generation",
+      "processing": "OriginalA alreadyRGBA with677600zeroalphapixels andtransparentcorners; no regeneration/background repaintneeded. Only alpha-core (>128) rectangle crop, uniformscale to1008x534 and placement(56,53) on1120x640, WebP quality85/method6/exactTrue. Same processing B. No glyph/row crop,movement, spacing,stroke,shape/color code edits; no layoutguide supplied. B uses ONLY originalA input, palette change instructed.",
+      "outputMetrics": [
+        {
+          "theme": "a",
+          "sourceSize": [
+            1659,
+            948
+          ],
+          "cropBox": [
+            27,
+            47,
+            1629,
+            895
+          ],
+          "visibleSize": [
+            1008,
+            534
+          ],
+          "placement": [
+            56,
+            53
+          ],
+          "size": [
+            1120,
+            640
+          ],
+          "quality": 85,
+          "bytes": 50806,
+          "alphaZeroPixels": 361011,
+          "sha256": "a5a587bb74b69d4ea46de0b3fd868084378d2f6d25bf291dffc1e35d82e88a97"
+        },
+        {
+          "theme": "b",
+          "sourceSize": [
+            1659,
+            948
+          ],
+          "cropBox": [
+            29,
+            48,
+            1628,
+            895
+          ],
+          "visibleSize": [
+            1008,
+            534
+          ],
+          "placement": [
+            56,
+            53
+          ],
+          "size": [
+            1120,
+            640
+          ],
+          "quality": 85,
+          "bytes": 63538,
+          "alphaZeroPixels": 364516,
+          "sha256": "1718b49d77ba027bd4d6d8a077f331b4fb238d67c4a566e9de64db1737a34553"
+        }
+      ],
+      "visualReview": "Originalpuffyconnected/closelypackedlettering restored, exact충전이 / 필요해! andoriginalapproximateoffset preserved. Awhitewithblackoutline/redbattery; Bcream/darkbrownoutline/mintbatteryframe/redbottomsegment, separate rounddot. Transparentemptybackground, no extraobjects/text.",
+      "qa": {
+        "fileCheck": "Both1120x640RGBAWebPs fullydecode, transparentcorners, bytes50806/63538<200000. Existingmanifest andallotherartworkunchanged byhash.",
+        "review": "OriginalgeneratedA inspected andfinalA/B previewoncharcoalbackground reviewed. A directlyderivedfromoriginalpixels, no newgeneration shapechanges.",
+        "runtimeLimit": "Triedreload and reacquireexistingtitlepage; browser tool twice returned browser.user is unavailable. Stopped browserattempts; no fresh main-screencheck claimed. Existingassetpaths unchanged."
+      },
+      "commit": "No staging, commit or push. Claude Code reviews and commits."
     }
   ]
 }
