@@ -1499,6 +1499,7 @@
         applyGrid();
         drawBackdrop();
         ui.actors.innerHTML = '';
+        game.sprites.filmer = null;
         ui.portrait.classList.remove('show');
         const villain = level.villain;
         const look = chapterOf().villain;
@@ -1525,6 +1526,11 @@
             const prop = addSprite(variantKey('decor', '', x, y), TILE, TILE * 1.25, colors.table);
             prop.classList.add('kind-decor');
             placeOnTile(prop, x, y, TILE, TILE * 1.25);
+          } else if (char === 'F') {
+            // 셋째 챕터의 촬영자. 테이블 위 폰을 보고 앉은 뒷모습이고, 화각은 촬영자 뒤(아래)로 뻗는다.
+            const filmerLook = chapterOf().filmer;
+            game.sprites.filmer = addSprite(filmerLook.idle, TILE, TILE * filmerLook.heightTiles, colors.villain, { round: true });
+            placeOnTile(game.sprites.filmer, x, y, TILE, TILE * filmerLook.heightTiles);
           } else if (char === 'N') {
             const facing = customerFacing(level.map, x, y);
             const customer = addSprite(customerKey(facing, x, y), TILE, TILE * 1.5, colors.customer);
@@ -1545,6 +1551,7 @@
         game.sprites.player.style.setProperty('--player-color', colors.player);
         drawGoal();
         drawStream();
+        syncFilmer();
         placeAll();
         drawView();
         drawDots();
@@ -1608,10 +1615,35 @@
         element.id = 'stream';
         element.innerHTML = `<div class="frame-art">${assetPath('stream-frame') ? art('stream-frame', '#2b2b2b') : ''}</div>`
           + '<div class="slots"></div>'
-          + `<div class="face">${art(`${look.idle.split('-')[0]}-face`, colors.villain, true)}</div>`
+          + `<div class="face">${art(chapterOf().filmer ? chapterOf().filmer.face : `${look.idle.split('-')[0]}-face`, colors.villain, true)}</div>`
           + '<div class="live"></div>';
         ui.scene.appendChild(element);
         game.sprites.stream = element;
+      }
+
+      // 셋째 챕터: 촬영자가 떠났으면 촬영자와 촬영 화면 창을 숨기고, 되돌리기로 돌아왔으면 다시 보인다.
+      function syncFilmer(state = game.state) {
+        if (!game.sprites.filmer) return;
+        const look = chapterOf().filmer;
+        game.sprites.filmer.classList.toggle('gone', Boolean(state.gone));
+        if (!state.gone) setArt(game.sprites.filmer, look.idle, THEMES[settings.theme].villain, true);
+        if (game.sprites.stream) game.sprites.stream.hidden = Boolean(state.gone);
+      }
+
+      // 쓰레기통이 촬영 화면에 잡힌 순간: 화면 창이 요동치고, 촬영자가 놀라 돌아본 뒤 촬영을 접고 떠난다. 판은 계속된다.
+      async function filmerLeaves() {
+        game.busy = true;
+        const look = chapterOf().filmer;
+        if (game.sprites.stream) game.sprites.stream.classList.add('chaos');
+        ui.scene.classList.add('seen');
+        Sound.play('shutter');
+        await wait(250);
+        ui.scene.classList.remove('seen');
+        setArt(game.sprites.filmer, look.react, THEMES[settings.theme].villain, true);
+        await wait(900);
+        if (game.sprites.stream) game.sprites.stream.classList.remove('chaos');
+        syncFilmer();
+        game.busy = false;
       }
 
       // 방송 화면 창의 세 칸에 카메라가 줄마다 처음 비추는 것을 그린다.
@@ -1728,6 +1760,7 @@
         placeAll();
         drawView();
         ui.undo.disabled = false;
+        if (result.filmerLeft) await filmerLeaves();
         if (result.won) await win();
       }
 
@@ -1738,10 +1771,10 @@
         game.busy = true;
         const colors = THEMES[settings.theme];
         const look = chapterOf().villain;
-        const triggerKind = game.level.view ? 'trash' : 'buzzer';
+        const triggerKind = game.level.goal ? 'buzzer' : 'trash';
         const trigger = game.sprites.items[game.state.items.findIndex((item) => item.kind === triggerKind)];
         await wait(180);
-        if (game.level.view) {
+        if (!game.level.goal) {
           // 방송 화면에 쓰레기통이 비친 순간: 방송 화면 창이 요동치고 화각이 한 번 깜빡인다.
           if (game.sprites.stream) game.sprites.stream.classList.add('chaos');
           ui.scene.classList.add('seen');
@@ -1749,7 +1782,7 @@
           ui.scene.classList.remove('seen');
         }
         trigger.classList.add('ringing');
-        Sound.play(game.level.view ? 'shutter' : 'buzzer');
+        Sound.play(game.level.goal ? 'buzzer' : 'shutter');
         await wait(800);
         drawView();
         setArt(game.sprites.villain, look.react, colors.villain, true);
@@ -1794,6 +1827,7 @@
         setArt(game.sprites.player, `player-${game.state.facing}`, THEMES[settings.theme].player, true);
         placeAll();
         drawView();
+        syncFilmer();
         ui.undo.disabled = game.history.length === 0;
       }
 

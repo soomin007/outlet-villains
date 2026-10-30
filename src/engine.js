@@ -12,8 +12,12 @@
 //   5. 내가 화각에 들어가면 방송에 잡힐 뻔한 것이라, 벌칙 없이 그 걸음이 없던 일이 된다.
 //   6. 쓰레기통이 화각에 비치면 유튜버가 방송을 접고 충전기를 챙겨 자리를 옮긴다. 판을 깬다.
 //
+// 셋째 판 "합석"의 규칙(2026-10-30). 판에 F(촬영자)가 있으면 화각은 빌런이 아니라 촬영자 뒤로 뻗는다.
+//   7. 목표는 1장처럼 진동벨을 잠든 빌런의 귀 옆 칸(*)에 놓는 것이다. 촬영자의 화각은 들어갈 수 없는 장애물이다.
+//   8. 쓰레기통이 촬영자의 화각에 비치면 촬영자가 촬영을 접고 떠나서 화각이 사라진다(state.gone). 판은 끝나지 않는다.
+//
 // 지도 글자: 배경(움직이지 않음)은 T 테이블, L 화분, # 그 밖의 벽. N 앉은 손님, o 카페 테이블, q 소품(모두 움직이지 않고, 배경이 아니라 따로 그린 그림을 게임이 얹는다).
-// . 바닥, P 나, V 빌런, b 진동벨, c 의자, t 쓰레기통, * 진동벨을 놓을 칸
+// . 바닥, P 나, V 빌런, F 촬영자(셋째 판, 움직이지 않음), b 진동벨, c 의자, t 쓰레기통, * 진동벨을 놓을 칸
 // 배경 글자를 나눠 둔 것은 배치 안내 그림(make-guide.py)이 그 칸에 무엇을 그릴지 알게 하려는 것이다. 규칙에서는 셋 다 벽이다.
 (function (root) {
   'use strict';
@@ -30,12 +34,14 @@
     let player = null;
     let villain = null;
     let goal = null;
+    let filmer = null;
     const items = [];
     definition.map.forEach((line, y) => {
       [...line].forEach((char, x) => {
         if (char === '#' || char === 'T' || char === 'L' || char === 'N' || char === 'o' || char === 'q') walls.add(`${x},${y}`);
         else if (char === 'P') player = { x, y };
         else if (char === 'V') villain = { x, y };
+        else if (char === 'F') filmer = { x, y };
         else if (char === '*') goal = { x, y };
         else if (char === 'b') items.push({ kind: 'buzzer', x, y });
         else if (char === 'c') items.push({ kind: 'chair', x, y });
@@ -52,31 +58,34 @@
       walls,
       villain,
       goal,
-      start: { player, items, facing: 'down' },
+      filmer,
+      start: filmer ? { player, items, facing: 'down', gone: false } : { player, items, facing: 'down' },
     };
   }
 
   function blocked(level, x, y) {
     return level.walls.has(`${x},${y}`) || x < 0 || y < 0 || x >= level.width || y >= level.height
-      || (level.villain.x === x && level.villain.y === y);
+      || (level.villain.x === x && level.villain.y === y)
+      || (level.filmer !== null && level.filmer !== undefined && level.filmer.x === x && level.filmer.y === y);
   }
 
   function itemIndexAt(items, x, y) {
     return items.findIndex((item) => item.x === x && item.y === y);
   }
 
-  // 카메라 화각. 빌런 뒤로 view.dir 방향을 따라 view.width 줄이 뻗고, 줄마다 처음 닿는 것에서 멈춘다.
-  // cells는 화면에 비치는 칸들이고, hits는 줄마다 처음 닿은 것('player', 'trash', 'chair' 등)이다.
+  // 카메라 화각. 빌런(촬영자가 있으면 촬영자) 뒤로 view.dir 방향을 따라 view.width 줄이 뻗고, 줄마다 처음 닿는 것에서 멈춘다.
+  // cells는 화면에 비치는 칸들이고, hits는 줄마다 처음 닿은 것('player', 'trash', 'chair' 등)이다. 촬영자가 떠났으면 화각이 없다.
   function viewOf(level, state) {
-    if (!level.view) return { cells: [], hits: [] };
+    if (!level.view || state.gone) return { cells: [], hits: [] };
+    const origin = level.filmer || level.villain;
     const d = DIRECTIONS[level.view.dir];
     const side = { dx: d.dy, dy: d.dx };
     const half = Math.floor(level.view.width / 2);
     const cells = [];
     const hits = [];
     for (let offset = -half; offset <= half; offset++) {
-      let x = level.villain.x + d.dx + side.dx * offset;
-      let y = level.villain.y + d.dy + side.dy * offset;
+      let x = origin.x + d.dx + side.dx * offset;
+      let y = origin.y + d.dy + side.dy * offset;
       let hit = null;
       while (!blocked(level, x, y)) {
         cells.push({ x, y });
@@ -114,36 +123,58 @@
       items = state.items.map((item, i) => (i === index ? { ...item, x: px, y: py } : item));
     }
     const next = { player: { x: tx, y: ty }, items, facing: direction };
-    if (viewOf(level, next).hits.includes('player')) return { moved: false, seen: true, state: turned, attempted: next, won: false };
-    return { moved: true, pushed: index >= 0 ? index : null, state: next, won: won(level, next) };
+    if (level.filmer) next.gone = state.gone;
+    const view = viewOf(level, next);
+    if (view.hits.includes('player')) return { moved: false, seen: true, state: turned, attempted: next, won: false };
+    // 셋째 판: 쓰레기통이 촬영자의 화각에 비치면 촬영자가 떠난다. 판은 계속된다.
+    let filmerLeft = false;
+    if (level.filmer && !next.gone && view.hits.includes('trash')) {
+      next.gone = true;
+      filmerLeft = true;
+    }
+    return { moved: true, pushed: index >= 0 ? index : null, state: next, won: won(level, next), filmerLeft };
   }
 
+  // 진동벨 자리(*)가 있는 판은 진동벨을 그 자리에 놓으면 이긴다. 없으면(둘째 판) 쓰레기통이 화각에 비치면 이긴다.
   function won(level, state) {
-    if (level.view) return viewOf(level, state).hits.includes('trash');
-    return state.items.some((item) => item.kind === 'buzzer' && item.x === level.goal.x && item.y === level.goal.y);
+    if (level.goal) return state.items.some((item) => item.kind === 'buzzer' && item.x === level.goal.x && item.y === level.goal.y);
+    return viewOf(level, state).hits.includes('trash');
   }
 
   function stateKey(state) {
     const items = state.items.map((item) => `${item.kind}${item.x},${item.y}`).sort().join(';');
-    return `${state.player.x},${state.player.y}|${items}`;
+    return `${state.player.x},${state.player.y}|${items}|${state.gone ? 1 : 0}`;
   }
 
   // 너비 우선 탐색으로 최소 걸음 수를 찾는다. pushes는 그 해법에서 민 횟수다. 해법이 없으면 moves가 null이다.
   function solve(level, limit = 400000) {
-    const queue = [{ state: level.start, path: [], pushes: 0 }];
+    // 걸음 목록을 상태마다 복사하지 않고, 앞 상태 번호와 마지막 방향만 적어 두었다가 풀리면 거꾸로 따라가 해법을 만든다(긴 판의 메모리 절약).
+    const states = [level.start];
+    const parents = [-1];
+    const directions = [null];
+    const pushCounts = [0];
     const seen = new Set([stateKey(level.start)]);
-    for (let head = 0; head < queue.length && seen.size < limit; head++) {
-      const node = queue[head];
+    const pathTo = (index, last) => {
+      const path = [last];
+      for (let at = index; parents[at] !== -1; at = parents[at]) path.push(directions[at]);
+      return path.reverse();
+    };
+    for (let head = 0; head < states.length && seen.size < limit; head++) {
       for (const direction of Object.keys(DIRECTIONS)) {
-        const result = step(level, node.state, direction);
+        const result = step(level, states[head], direction);
         if (!result.moved) continue;
-        const path = [...node.path, direction];
-        const pushes = node.pushes + (result.pushed !== null ? 1 : 0);
-        if (result.won) return { moves: path.length, pushes, path };
+        const pushes = pushCounts[head] + (result.pushed !== null ? 1 : 0);
+        if (result.won) {
+          const path = pathTo(head, direction);
+          return { moves: path.length, pushes, path };
+        }
         const key = stateKey(result.state);
         if (seen.has(key)) continue;
         seen.add(key);
-        queue.push({ state: result.state, path, pushes });
+        states.push(result.state);
+        parents.push(head);
+        directions.push(direction);
+        pushCounts.push(pushes);
       }
     }
     return { moves: null, pushes: null, path: null };

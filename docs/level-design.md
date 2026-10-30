@@ -82,3 +82,10 @@ Stephen's Sausage Roll은 거의 모든 동작 규칙을 처음에 다 보여 �
 - [Tutorial Design of Patrick's Parabox](https://siddarthrg.substack.com/p/tutorial-design-of-patricks-parabox)
 - [Review: Stephen's Sausage Roll (Destructoid)](https://destructoid.com/reviews/review-stephens-sausage-roll)
 - [Sokoban deadlocks (JSoko)](https://jsokoapplet.sourceforge.io/sokoban/deadlocks.html)
+
+## 실제로 만든 레벨 (2026-10-30)
+
+1장은 이 계획대로 다섯 레벨을 만들었다. 2장도 다섯 레벨로 다시 만들었고, 사용자 요청으로 두 챕터를 응용하는 3장 세 레벨을 더했다. 걸음 수와 핵심은 `docs/concept.md`의 해당 절에 있다.
+화각이 있는 레벨은 무작위 배치로 함정을 찾기 어려워서, 카메라 열을 가로질러야만 목표에 닿도록 방의 모양을 먼저 정하고 물건이 놓일 구역만 정해 탐색했다.
+검증 기준 두 가지를 바꿨다. 화각이 있는 레벨의 의자는 밀지 않고 그늘만 만들어도 쓰인 것이라, 벽으로 바꿔 보기와 치워 보기 가운데 하나라도 풀이가 달라지면 쓰인 것으로 본다.
+퍼즐은 망치는 첫 수가 있거나 30걸음 이상이면 된다(3-2처럼 길이와 깨달음으로 어려운 레벨이 있다). 넓은 레벨은 maxWalk로 걸을 수 있는 칸 상한을 늘린다(2-5는 40칸, 3장은 45칸).

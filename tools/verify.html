@@ -34,6 +34,7 @@
           const key = `${nx},${ny}`;
           if (seen.has(key) || nx < 0 || ny < 0 || nx >= level.width || ny >= level.height) continue;
           if (level.walls.has(key) || (level.villain.x === nx && level.villain.y === ny)) continue;
+          if (level.filmer && level.filmer.x === nx && level.filmer.y === ny) continue;
           seen.add(key);
           queue.push({ x: nx, y: ny });
         }
@@ -51,7 +52,7 @@
 
     // 시작에서 물건을 밀지 않고 걸어서 갈 수 있는 모든 자리에서, 처음 미는 수를 모두 찾아 그 뒤에 풀리는지 본다.
     function firstPushOutcomes(level) {
-      const keyOf = (state) => `${state.player.x},${state.player.y}|${state.items.map((item) => `${item.kind}${item.x},${item.y}`).sort().join(';')}`;
+      const keyOf = (state) => `${state.player.x},${state.player.y}|${state.items.map((item) => `${item.kind}${item.x},${item.y}`).sort().join(';')}|${state.gone ? 1 : 0}`;
       const seen = new Set([keyOf(level.start)]);
       const queue = [level.start];
       const firsts = new Map();
@@ -98,10 +99,13 @@
       }
       // 판에 놓은 의자는 하나씩 벽으로 바꿔 봤을 때 풀리지 않거나 최소 걸음이 달라져야 한다(known-issues 17번).
       // 2장의 예전 레벨은 의자를 밀지 않고 그늘로만 쓰므로, 새 계획으로 만든 레벨(kind가 있는 레벨)만 본다.
+      // 화각이 있는 레벨의 의자는 밀지 않고 그늘만 만들어도 쓰인 것이라, 벽으로 바꿔 보기와 치워 보기 가운데 하나라도 풀이가 달라지면 쓰인 것으로 본다.
       if (definition.kind) chairCells(definition).forEach(([x, y]) => {
-        const map = definition.map.map((line, row) => (row === y ? line.slice(0, x) + '#' + line.slice(x + 1) : line));
-        const moves = VillainEngine.solve(VillainEngine.parseLevel({ ...definition, map })).moves;
-        expect(moves !== result.moves, `${definition.id}: (${x}, ${y}) 의자가 풀이에 쓰임`);
+        const changed = ['#', '.'].some((replacement) => {
+          const map = definition.map.map((line, row) => (row === y ? line.slice(0, x) + replacement + line.slice(x + 1) : line));
+          return VillainEngine.solve(VillainEngine.parseLevel({ ...definition, map })).moves !== result.moves;
+        });
+        expect(changed, `${definition.id}: (${x}, ${y}) 의자가 풀이에 쓰임`);
       });
       // 튜토리얼은 망치는 첫 수가 없어야 하고, 퍼즐은 있어야 한다. 퍼즐은 걸을 수 있는 칸이 35칸 이하다(docs/level-design.md).
       if (definition.kind) {
@@ -110,8 +114,11 @@
           expect(firsts.dead === 0, `${definition.id}: 튜토리얼이라 처음 미는 수 ${firsts.total}개 가운데 망치는 수가 없음 (${firsts.dead}개)`);
         } else {
           const walkable = reachableCells(level);
-          expect(firsts.dead >= 1, `${definition.id}: 퍼즐이라 처음 미는 수 ${firsts.total}개 가운데 망치는 수가 있음 (${firsts.dead}개)`);
-          expect(walkable <= 35, `${definition.id}: 걸을 수 있는 칸 ${walkable}칸이 35칸 이하`);
+          // 퍼즐은 망치는 첫 수가 있거나, 30걸음 이상 긴 레벨이어야 한다.
+          expect(firsts.dead >= 1 || result.moves >= 30,
+            `${definition.id}: 퍼즐이라 망치는 첫 수가 있거나 30걸음 이상 (첫 수 ${firsts.total}개 가운데 ${firsts.dead}개, ${result.moves}걸음)`);
+          const maxWalk = definition.maxWalk || 35;
+          expect(walkable <= maxWalk, `${definition.id}: 걸을 수 있는 칸 ${walkable}칸이 ${maxWalk}칸 이하`);
         }
       }
       if (level.view) {

@@ -13,7 +13,8 @@
 // name과 lines는 챕터를 시작할 때 뜨는 빌런 소개 글이다. lines의 첫 줄은 콘센트를 놓지 않는 이유, 둘째 줄은 약점이다(docs/concept.md의 빌런 후보 표).
 // 콘센트는 판 밖 -1번 줄의 벽에 붙는다. 열은 빌런과 같고, villain.outletX가 있으면 그 열이다(유튜버는 테이블 위 폰과 링 조명을 가리지 않게 옆으로 뺐다).
 // 레벨의 bg는 배경 그림 이름(bg-이름)이다. 배경에는 테이블과 화분이 그려져 있으므로, 같은 배경을 쓰는 레벨은 T, L, V, * 자리가 같아야 한다(tools/verify.html이 확인한다).
-// view가 있는 레벨은 카메라 화각 규칙을 쓴다(engine.js 머리말). chairNeeded가 true인 레벨은 의자를 밀지 않으면 풀리지 않아야 한다(검증한다).
+// view가 있는 레벨은 카메라 화각 규칙을 쓴다(engine.js 머리말). F(촬영자)가 있는 레벨은 화각이 촬영자 뒤로 뻗고, 쓰레기통이 비치면 촬영자가 떠난다(셋째 챕터).
+// 챕터의 filmer는 F에 그릴 촬영자 그림이다. maxWalk는 퍼즐 레벨의 걸을 수 있는 칸 상한(기본 35)을 넓은 레벨에서 바꾼다. chairNeeded가 true인 레벨은 의자를 밀지 않으면 풀리지 않아야 한다(검증한다).
 // kind는 tutorial(새 요소를 안전하게 보여 줌, 망치는 첫 수가 없어야 함) 또는 puzzle(함정이 있어야 함, 걸을 수 있는 칸 35칸 이하)이다(docs/level-design.md).
 // N은 앉아 있는 손님, o는 카페 테이블, q는 화분이나 짐 같은 소품이다. 모두 움직이지 않는 칸이고 판을 좁히며 카페가 붐비는 것을 보여 준다.
 // 손님은 이웃한 테이블(o를 먼저, 없으면 T) 쪽을 본다. 손님은 함께 쓰는 테이블에 둘러앉히고, 한 칸짜리 테이블에 한 명씩 붙이지 않는다(2026-10-29 사용자 피드백).
@@ -34,6 +35,13 @@ window.VILLAIN_LAYOUT = {
       "name": "공부 영상 촬영자",
       "lines": ["폰을 세워 두고 몇 시간째 스터디 윗 미 영상을 찍는 중이다. 폰과 조명은 벽 콘센트에 꽂혀 있다.", "화면에 지저분한 게 잡히면 촬영을 접을 텐데."],
       "villain": { "idle": "streamer-idle", "react": "streamer-react", "portrait": "streamer-portrait", "heightTiles": 1.5, "anchorRow": 0, "outletX": 7 }
+    },
+    {
+      "id": "together",
+      "name": "합석",
+      "lines": ["잠든 카공족 옆 테이블에 공부 영상 촬영자가 앉았다. 촬영 화면에 잡히면 안 된다.", "촬영자를 먼저 보내야 진동벨을 가져다줄 수 있을 텐데."],
+      "villain": { "idle": "villain-sleep", "react": "villain-wake", "portrait": "villain-portrait", "heightTiles": 2.5, "anchorRow": 1 },
+      "filmer": { "idle": "streamer-idle", "react": "streamer-react", "face": "streamer-face", "heightTiles": 1.5 }
     }
   ],
   "levels": [
@@ -127,53 +135,149 @@ window.VILLAIN_LAYOUT = {
       "id": "streamer-1",
       "chapter": "streamer",
       "bg": "streamer",
-      "optimal": 6,
-      "pushes": 2,
+      "kind": "tutorial",
+      "optimal": 5,
+      "pushes": 1,
       "view": { "dir": "down", "width": 3 },
       "map": [
         "....LTL.....",
-        "L....V....L.",
-        "............",
-        "..t.........",
-        "............",
-        "............",
-        "P..........."
+        "L...qVq...L.",
+        "..oN...Nooo.",
+        "..oN...qNNN.",
+        "..oN...t...o",
+        "....NNNNNq.N",
+        "....oooooNPq"
       ]
     },
     {
       "id": "streamer-2",
       "chapter": "streamer",
       "bg": "streamer",
-      "optimal": 17,
-      "pushes": 6,
+      "kind": "tutorial",
+      "optimal": 13,
+      "pushes": 4,
       "view": { "dir": "down", "width": 3 },
       "demo": { "kind": "view", "from": { "x": 3, "y": 2 }, "dir": "right" },
       "map": [
-        "....LTL.....",
-        "L....V....L.",
-        "............",
-        "....ccc.....",
-        "............",
-        ".........t..",
-        "P..........."
+        "....LTLoo...",
+        "L..oNVqNN.L.",
+        "..o......No.",
+        ".qN.ccc..No.",
+        "o.....t...No",
+        "NP........No",
+        ".oNoNoNoNq.."
       ]
     },
     {
       "id": "streamer-3",
       "chapter": "streamer",
-      "bg": "encore",
-      "optimal": 19,
+      "bg": "streamer",
+      "kind": "puzzle",
+      "optimal": 22,
       "pushes": 7,
-      "chairNeeded": true,
       "view": { "dir": "down", "width": 3 },
       "map": [
-        "....LTL.....",
-        "....LVL.....",
-        "...L...L....",
-        "....c.c.....",
-        ".....c......",
-        ".....t......",
-        "P..........."
+        "....LTL.oo..",
+        "LoooNVq.NNL.",
+        ".NNNc..q..q.",
+        "o....c..q..o",
+        "N.toc......N",
+        "qP.N...o...q",
+        ".oNq...NoNq."
+      ]
+    },
+    {
+      "id": "streamer-4",
+      "chapter": "streamer",
+      "bg": "streamer",
+      "kind": "puzzle",
+      "optimal": 27,
+      "pushes": 6,
+      "view": { "dir": "down", "width": 3 },
+      "map": [
+        "....LTL.oo..",
+        "LoooNVq.NNL.",
+        ".NNNc..q..q.",
+        "o.......q..o",
+        "N..o.cc....N",
+        "qP.N.t.o...q",
+        ".oNq...NoNq."
+      ]
+    },
+    {
+      "id": "streamer-5",
+      "chapter": "streamer",
+      "bg": "encore",
+      "kind": "puzzle",
+      "maxWalk": 40,
+      "optimal": 39,
+      "pushes": 16,
+      "view": { "dir": "down", "width": 3 },
+      "map": [
+        "....LTL.oo..",
+        "....LVL.NN..",
+        "..qL...L..q.",
+        ".q....cq...o",
+        "o...q....c.N",
+        "N.q..cto.q.o",
+        "qP.....N...N"
+      ]
+    },
+    {
+      "id": "together-1",
+      "chapter": "together",
+      "bg": "sleeper",
+      "kind": "puzzle",
+      "maxWalk": 45,
+      "optimal": 24,
+      "pushes": 10,
+      "view": { "dir": "down", "width": 3 },
+      "map": [
+        "..ooooLL.LV.",
+        "..NNNN.oL*T.",
+        ".N....qF..N.",
+        ".TT..t.....o",
+        ".TT........N",
+        "o...b..LL..o",
+        "NP.........N"
+      ]
+    },
+    {
+      "id": "together-2",
+      "chapter": "together",
+      "bg": "sleeper",
+      "kind": "puzzle",
+      "maxWalk": 45,
+      "optimal": 34,
+      "pushes": 13,
+      "view": { "dir": "down", "width": 3 },
+      "map": [
+        "..ooooLL.LV.",
+        "..NNNN.oL*T.",
+        ".N....qF..N.",
+        ".TT......t.o",
+        ".TT.b......N",
+        "o......LL..o",
+        "NP.........N"
+      ]
+    },
+    {
+      "id": "together-3",
+      "chapter": "together",
+      "bg": "sleeper",
+      "kind": "puzzle",
+      "maxWalk": 45,
+      "optimal": 48,
+      "pushes": 26,
+      "view": { "dir": "down", "width": 3 },
+      "map": [
+        "..ooooLL.LV.",
+        "..NNNN.oL*T.",
+        ".N..c.qF..N.",
+        ".TT.....q..o",
+        ".TT.b.....cN",
+        "o...q..LLt.o",
+        "NP.........N"
       ]
     }
   ]
