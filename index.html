@@ -1303,17 +1303,28 @@
         element.innerHTML = art(key, color, round);
       }
 
-      // 고른 테마의 그림을 모두 미리 받아 디코딩해 둔다. 처음 방향을 바꿀 때나 카드가 뜰 때 그림이 늦게 뜨지 않게 한다.
-      const preloaded = new Set();
-      function preloadTheme() {
+      // 고른 테마의 그림을 미리 받아 디코딩해 둔다. 한꺼번에 70장 남짓을 요청하면 1MB가 넘는 배경과 일러스트 사이에
+      // 40KB짜리 주인공 방향 그림이 묻혀 늦게 와서, 처음 방향을 바꿀 때 그림이 늦게 바뀌었다(2026-10-30 사용자 피드백).
+      // 그래서 주인공과 물건 그림을 먼저 받고, 다음에 지금 레벨의 배경, 마지막에 나머지를 받는다. 받은 그림은 Map에 붙잡아 둔다.
+      const preloaded = new Map();
+      const FIRST_KEYS = ['player-up', 'player-down', 'player-left', 'player-right', 'buzzer', 'chair', 'trash', 'dock',
+        'plug-mine', 'outlet-theirs', 'outlet-mine'];
+
+      function loadImage(path) {
+        if (preloaded.has(path)) return preloaded.get(path).ready;
+        const image = new Image();
+        image.src = path;
+        const ready = (image.decode ? image.decode() : Promise.resolve()).catch(() => {});
+        preloaded.set(path, { image, ready });
+        return ready;
+      }
+
+      async function preloadTheme() {
         const themeAssets = (window.VILLAIN_ASSETS || {})[settings.theme] || {};
-        Object.values(themeAssets).forEach((path) => {
-          if (preloaded.has(path)) return;
-          preloaded.add(path);
-          const image = new Image();
-          image.src = path;
-          if (image.decode) image.decode().catch(() => {});
-        });
+        const pathsOf = (keys) => keys.map((key) => themeAssets[key]).filter(Boolean);
+        await Promise.all(pathsOf(FIRST_KEYS).map(loadImage));
+        await Promise.all(pathsOf([`bg-${levelDef().bg}`]).map(loadImage));
+        Object.values(themeAssets).forEach(loadImage);
       }
 
       function startLevel(index = game.index) {
