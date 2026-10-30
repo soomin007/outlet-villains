@@ -7873,6 +7873,328 @@
       ],
       "registration": "manifest byte-for-byte unchanged from task start.",
       "commit": "No staging, commit or push. User chooses candidate; Claude Code reviews and commits."
+    },
+    {
+      "date": "2026-10-30",
+      "name": "robot8-final-four-directions",
+      "tool": "built-in image_gen for six rotated views; byte-for-byte approved front reuse for two down views",
+      "scope": "Overwrite eight existing player-up/down/left/right PNGs, leave manifest and game code unchanged.",
+      "rationale": "User selected third-round robot8: vacuum disc, low cylinder, short neck and screen; charcoal thick pushing arms with white shoulderpivot attached to upper cylinder sides. Replace student protagonist; keep robot distinguishable among seated customers.",
+      "assets": [
+        {
+          "direction": "up",
+          "prompt": "Use case: precise-object-edit. ONE separate production 2D transparent game character sprite. Image1 is the USER-CHOSEN robot8 identity master. Rotate this exact machine to requested direction; do not redesign it. Preserve round flat vacuum-cleaner disc with black bumper and tiny wheels, LOW CYLINDRICAL COLORED TORSO (about25%totalheight), short neck, rectangular flat black screen head with thick colored frame. Two very bulky charcoal #3a3a3a segmented mechanical arms with one broad WHITE shoulder pivot each attached to upper SIDES of CYLINDER, NOT to disc or neck or head. Thick round C-shaped grippers. Everyarm shaft at least12%wholewidth; maintain originalchunky thickness. Both arms push in facing direction. No human parts, apron or new tools. Color/themeA: body, cylinder, frame red #c8302a matching master, all otherparts neutralgray/black/white. Sparse thickblack contour and big simple shapes exactly like reference, noaddedline detail. Camera: RPGMaker slight overhead (top of vacuumdisc visible), orthographic sprite, no ground or perspective. Intended192x288 transparentPNG with robotheight~230px and wheels on bottomy288. Compact vertical silhouette with wholewidth<=188px, arms don't spread excessively. Keep disc and topofhead scale consistentwith master. Solid opaque subject with actual transparentemptyspace, crisp antialiasing, no halo/glow, no floor/cast shadow, no white stickeroutline. No cords/plugs/text/numbers/logos/symbols, no mouth, no eyebrows. If facevisible, exactlyTWO SIMPLE WHITE OVAL EYES only. One fullrobot perimage, notspritesheet. DIRECTION UP / REAR VIEW: robot faces screenTOP directlyaway fromviewer. Show BACK of screenhead: plain darkgray backpanel in redframe, NO EYES anywherevisible. Rearof cylindricaltorso and vacuumdisc. Two charcoal arms originate cylinder upper sides, extend AWAY/UP towardtopedge to push unseenobject infrontof robot. Far Cgrippers may peekoutside either torso side, naturally partly occluded; do not point arms back towardviewer. Screenback/neck/cylindermust remain distinct. Show two white shoulderpivot portions on sides without extra whitejoints.",
+          "theme": "a",
+          "key": "player-up",
+          "file": "assets/a/player-up.png",
+          "refs": [
+            "assets/style-test/robot-8-a.png"
+          ]
+        },
+        {
+          "direction": "left",
+          "prompt": "Use case: precise-object-edit. Preserve exact left-facing robot in Image1 with Image2 selectedrobot8 identity. Change ONLY ARMLENGTH: shorten both horizontally forward LEFT arms by35%, keeping thick shafts and white shoulderpivots and roundCgrippers. Shoulderpositions fixed on uppercylinder; Cgrippers now end around leftmost edgeof vacuumdisc, not farbeyondbase. Total spritewidth should be dominated by originalroundbase, not extendedarms, enabling sameheight230 asfront. Do not shrink or flatten body/head; retain original disc/cylinder/neck and thinfaceprofile. Keep originaltwoeyes naturallyoverlapped in profile, no sideeye. Clean actual transparentemptybackground no haze/glow/shadow/stickerborder. Thick sparse lines and RED #c8302a matchingmaster, charcoal #3a3a3aarms, whitepivot. No cords/plugs/text/extraobjects. One leftviewrobot only.",
+          "theme": "a",
+          "key": "player-left",
+          "file": "assets/a/player-left.png",
+          "refs": [
+            "assets/a/player-left.png (initial generated profile before export)",
+            "assets/style-test/robot-8-a.png"
+          ],
+          "lineage": [
+            {
+              "prompt": "Use case: precise-object-edit. ONE separate production 2D transparent game character sprite. Image1 is the USER-CHOSEN robot8 identity master. Rotate this exact machine to requested direction; do not redesign it. Preserve round flat vacuum-cleaner disc with black bumper and tiny wheels, LOW CYLINDRICAL COLORED TORSO (about25%totalheight), short neck, rectangular flat black screen head with thick colored frame. Two very bulky charcoal #3a3a3a segmented mechanical arms with one broad WHITE shoulder pivot each attached to upper SIDES of CYLINDER, NOT to disc or neck or head. Thick round C-shaped grippers. Everyarm shaft at least12%wholewidth; maintain originalchunky thickness. Both arms push in facing direction. No human parts, apron or new tools. Color/themeA: body, cylinder, frame red #c8302a matching master, all otherparts neutralgray/black/white. Sparse thickblack contour and big simple shapes exactly like reference, noaddedline detail. Camera: RPGMaker slight overhead (top of vacuumdisc visible), orthographic sprite, no ground or perspective. Intended192x288 transparentPNG with robotheight~230px and wheels on bottomy288. Compact vertical silhouette with wholewidth<=188px, arms don't spread excessively. Keep disc and topofhead scale consistentwith master. Solid opaque subject with actual transparentemptyspace, crisp antialiasing, no halo/glow, no floor/cast shadow, no white stickeroutline. No cords/plugs/text/numbers/logos/symbols, no mouth, no eyebrows. If facevisible, exactlyTWO SIMPLE WHITE OVAL EYES only. One fullrobot perimage, notspritesheet. DIRECTION LEFT / STRICT LEFT SIDE PROFILE: robot looks and pushes toward LEFT edge ofimage, NOT diagonallyleft/threequarter front. Screen mounted on shortneck rotates sideways so its THIN dark displayfront is at LEFT and red side/back shell to its right. Do not show a broad front-facing two-eye face: a narrow screen sliver mayshow the overlapped oval eyes naturally; do not add a side eye on shell. Near chunkycharcoal arm shoulder at cylinder nearSIDE, extends HORIZONTALLY forward LEFT, roundedCgripper left oftorso; far arm also extendsleft but partlyoccluded. Gripperswell ABOVEfloor, wheelslowest. Machine should unmistakablylookleft. Keep cylindricaltorso/disc, do notflatten intoone flatbox.",
+              "refs": [
+                "assets/style-test/robot-8-a.png"
+              ]
+            }
+          ]
+        },
+        {
+          "direction": "right",
+          "prompt": "Use case: precise-object-edit. ONE separate production 2D transparent game character sprite. Image1 is the USER-CHOSEN robot8 identity master. Rotate this exact machine to requested direction; do not redesign it. Preserve round flat vacuum-cleaner disc with black bumper and tiny wheels, LOW CYLINDRICAL COLORED TORSO (about25%totalheight), short neck, rectangular flat black screen head with thick colored frame. Two very bulky charcoal #3a3a3a segmented mechanical arms with one broad WHITE shoulder pivot each attached to upper SIDES of CYLINDER, NOT to disc or neck or head. Thick round C-shaped grippers. Everyarm shaft at least12%wholewidth; maintain originalchunky thickness. Both arms push in facing direction. No human parts, apron or new tools. Color/themeA: body, cylinder, frame red #c8302a matching master, all otherparts neutralgray/black/white. Sparse thickblack contour and big simple shapes exactly like reference, noaddedline detail. Camera: RPGMaker slight overhead (top of vacuumdisc visible), orthographic sprite, no ground or perspective. Intended192x288 transparentPNG with robotheight~230px and wheels on bottomy288. Compact vertical silhouette with wholewidth<=188px, arms don't spread excessively. Keep disc and topofhead scale consistentwith master. Solid opaque subject with actual transparentemptyspace, crisp antialiasing, no halo/glow, no floor/cast shadow, no white stickeroutline. No cords/plugs/text/numbers/logos/symbols, no mouth, no eyebrows. If facevisible, exactlyTWO SIMPLE WHITE OVAL EYES only. One fullrobot perimage, notspritesheet. DIRECTION RIGHT / STRICT RIGHT SIDE PROFILE: robot looks and pushes toward RIGHT edge ofimage, NOT diagonal/front. Thin darkdisplayface at RIGHT ofhead, redside/backcase extendsleft. No broad frontfacing twoeye face. Near chunkycharcoal arm emerges from cylinder upper side and extends HORIZONTALLY forward RIGHT to roundedCgripper rightoftorso; fararm alsopushesright andpartlyoccluded. Grippersabovefloor, wheelslowest. No isolatedeye paintedon shell. Retain cylinder/disc and referenceheight.\nImage2 is the selected LEFTprofile. Make the corresponding RIGHTprofile as if camera sees opposite side of SAME robot. Keep its shortened chunky arms and same proportions, but face and push RIGHT. Grippers must NOT extend farbeyondrightedge of vacuumdisc; compactarmlength. No perspectiveflip into frontview.",
+          "refs": [
+            "assets/style-test/robot-8-a.png",
+            "assets/a/player-left.png (selected full-resolution generated source)"
+          ],
+          "theme": "a",
+          "key": "player-right",
+          "file": "assets/a/player-right.png"
+        },
+        {
+          "theme": "b",
+          "direction": "up",
+          "key": "player-up",
+          "file": "assets/b/player-up.png",
+          "refs": [
+            "assets/a/player-up.png (selected full-resolution generated source)",
+            "assets/style-test/robot-8-b.png"
+          ],
+          "prompt": "Use case: style-transfer. Image1 exact final UP/REAR robotview to preserve. Image2 chosenrobot8-b palette/identity. Replace all RED ofimage1 with MINT #7fd3b8 matchingimage2. Same flatdisc/bumper/wheels, lowcylindertorso, shortneck, rectangularscreenback. Robot faces AWAY toward TOP; headback is plainneutralgrayinmintframe, NO EYES visible. Same chunkycharcoalarms extendaway/topfromuppercylindershoulders, oneWHITEpivotperarm; Cgripperspartlyoccluded. Do not reshape/repose arms or body. Sparse thickblack strokes. One transparentfullrobot, cleanalphaemptybackground no glow/shadow/haze/stickerborder/text/mouth/cord/plug. Intended192x288 height230 wheelsbottom."
+        },
+        {
+          "theme": "b",
+          "direction": "left",
+          "key": "player-left",
+          "file": "assets/b/player-left.png",
+          "refs": [
+            "assets/a/player-left.png (selected full-resolution generated source)",
+            "assets/style-test/robot-8-b.png"
+          ],
+          "prompt": "Use case: style-transfer. Image1 exact selected LEFTprofile structure; Image2 robot8-b mintpaletteonly. Preserve ENTIRE pose/formofimage1; only RED body/lowcylinder/neckpanel/screenframe becomes MINT #7fd3b8. Thick CHARCOAL #3a3a3aarms and oneWHITEshoulderpivot each unchanged. Compactshortenedarms protrude forwardLEFT toward unseenobject, grippersaroundleftedge ofdisc, notfarbeyond. FacepointsLEFT, thin darkscreenfront atleftedge, gray/mintshellright. Two ovaleyes naturallyoverlap in sideview, no eyeon sideshell. Preserve disc,lowcylinder,shortneck,faceprofile, scale and thick sparse lines. One fullrobot transparentPNG no haze/glow/shadow/stickeroutline/text/cord/plug. Intended192x288 robotheight~230 wheelslowest."
+        },
+        {
+          "theme": "b",
+          "direction": "right",
+          "key": "player-right",
+          "file": "assets/b/player-right.png",
+          "refs": [
+            "assets/a/player-right.png (selected full-resolution generated source)",
+            "assets/style-test/robot-8-b.png"
+          ],
+          "prompt": "Use case: style-transfer. Image1 exact selected RIGHTprofile structure; Image2 chosenrobot8-b mintpaletteonly. Preserve entire robot pose anddimensions ofimage1, ONLY redbody/cylinder/neckpanel/screenframe becomesMINT #7fd3b8. Keep chunky CHARCOAL #3a3a3a arms, oneWHITEshoulderpivot each on upperCYLINDERsides, compactshortarms extending RIGHT toward unseenobject, Cgrippersaroundrightedge ofdisc notfarbeyond. HeadlooksRIGHT withthinscreenfront atrightedge and mintsideshellleft. Twoovaleyes naturallyoverlap inprofile, no eyeonthecase. Preservevacuumdisc,lowcylinder,shortneck andthick sparselines. Onefullrobot true transparentPNG, zeroalphaemptybackground no haze/glow/shadow/whiteborder/text/cord/plug. Intended192x288 height230 wheelslowest."
+        },
+        {
+          "theme": "a",
+          "direction": "down",
+          "key": "player-down",
+          "file": "assets/a/player-down.png",
+          "refs": [
+            "assets/style-test/robot-8-a.png"
+          ],
+          "method": "reuse-approved-front",
+          "prompt": "Reuse the user-approved robot8 front-view PNG byte-for-byte as player-down. No new generation or pixel editing; preserve chosen shape, color, eyes and alpha."
+        },
+        {
+          "theme": "b",
+          "direction": "down",
+          "key": "player-down",
+          "file": "assets/b/player-down.png",
+          "refs": [
+            "assets/style-test/robot-8-b.png"
+          ],
+          "method": "reuse-approved-front",
+          "prompt": "Reuse the user-approved robot8 front-view PNG byte-for-byte as player-down. No new generation or pixel editing; preserve chosen shape, color, eyes and alpha."
+        }
+      ],
+      "processing": "Only rectangle crop based on visible alpha>128, uniform fit(max188wide,230high), horizontal centering and bottom alignment on192x288 via Pillow, original retained alpha preserved. No code repaint, recolor, shape edit or mirroring. Down PNG copied byte-for-byte from selected robot8 trial.",
+      "outputMetrics": [
+        {
+          "key": "player-up",
+          "theme": "a",
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            86,
+            293,
+            939,
+            1408
+          ],
+          "visibleSize": [
+            176,
+            230
+          ],
+          "placement": [
+            8,
+            58
+          ],
+          "uniformScale": 0.2062780269058296,
+          "lastOpaqueRow": 287,
+          "sha256": "765eb42a80278f1f3853feadee93f2c1f8485fdcfdc91ca4a9ff77727ed0319f",
+          "redPixels": 14532,
+          "mintPixels": 0
+        },
+        {
+          "key": "player-left",
+          "theme": "a",
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            121,
+            223,
+            977,
+            1374
+          ],
+          "visibleSize": [
+            171,
+            230
+          ],
+          "placement": [
+            10,
+            58
+          ],
+          "uniformScale": 0.1998262380538662,
+          "lastOpaqueRow": 287,
+          "sha256": "31a61f56c7bd32da7a81f02e7754ab638c47bac303682a83ae033c0087c4fe53",
+          "redPixels": 9180,
+          "mintPixels": 0
+        },
+        {
+          "key": "player-right",
+          "theme": "a",
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            52,
+            215,
+            958,
+            1341
+          ],
+          "visibleSize": [
+            185,
+            230
+          ],
+          "placement": [
+            3,
+            58
+          ],
+          "uniformScale": 0.20426287744227353,
+          "lastOpaqueRow": 287,
+          "sha256": "c1770b11f7d969e8390534c3d4a19003df0421fe0024725ff988646fa010bf86",
+          "redPixels": 10391,
+          "mintPixels": 0
+        },
+        {
+          "key": "player-up",
+          "theme": "b",
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            85,
+            232,
+            939,
+            1345
+          ],
+          "visibleSize": [
+            176,
+            230
+          ],
+          "placement": [
+            8,
+            58
+          ],
+          "uniformScale": 0.20664869721473494,
+          "lastOpaqueRow": 287,
+          "sha256": "970d7da81d7a3c9d4efe5189043289adfbae9d0d312e03e5ef8e043aa4bad60d",
+          "redPixels": 0,
+          "mintPixels": 14656
+        },
+        {
+          "key": "player-left",
+          "theme": "b",
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            120,
+            223,
+            979,
+            1376
+          ],
+          "visibleSize": [
+            171,
+            230
+          ],
+          "placement": [
+            10,
+            58
+          ],
+          "uniformScale": 0.199479618386817,
+          "lastOpaqueRow": 287,
+          "sha256": "be1cfa1494b4ea6c11d60f064e97e3acbf7247772500a77b85ff231dc72efece",
+          "redPixels": 0,
+          "mintPixels": 9282
+        },
+        {
+          "key": "player-right",
+          "theme": "b",
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            52,
+            208,
+            989,
+            1341
+          ],
+          "visibleSize": [
+            188,
+            227
+          ],
+          "placement": [
+            2,
+            61
+          ],
+          "uniformScale": 0.2006403415154749,
+          "lastOpaqueRow": 287,
+          "sha256": "c857e18f9c094d6b3138ab36e26f4fe1a621c227e51df5646bf567ef39800d27",
+          "redPixels": 0,
+          "mintPixels": 10640
+        },
+        {
+          "key": "player-down",
+          "theme": "a",
+          "method": "reuse-approved-front",
+          "visibleSize": [
+            176,
+            230
+          ],
+          "placement": [
+            8,
+            58
+          ],
+          "lastOpaqueRow": 287,
+          "sha256": "cf5d64b8a7fefed4096e22c1844b903be056a2415c46eb87f7c200c6b15d35e0",
+          "redPixels": 10938,
+          "mintPixels": 0
+        },
+        {
+          "key": "player-down",
+          "theme": "b",
+          "method": "reuse-approved-front",
+          "visibleSize": [
+            177,
+            230
+          ],
+          "placement": [
+            7,
+            58
+          ],
+          "lastOpaqueRow": 287,
+          "sha256": "24ddd29dae53fb7787bc42e79951139e2c266db1367dbcd6007b24318c76a765",
+          "redPixels": 0,
+          "mintPixels": 11001
+        }
+      ],
+      "visualReview": "Front chosen master unchanged, two ovaleyes only. Back shows plain dark screencase and no eyes; arms face away/up. Side profiles show thin screen with overlapping/occluded eyes, neararm pushes in facing direction. Both theme armshafts charcoal with white shoulderpivot. No cords/plugs/mouth/text/stickerborder/floorshadow. At80px height arm masses and directions distinguishable.",
+      "iterations": "Initial left profile arms too long, would reduce full robot after widthfit; regenerated with35%shorterarms. Right uses selectedleft as extra structure input. B uses individual corresponding A source and robot8-b master.",
+      "qa": {
+        "canvas": [
+          192,
+          288
+        ],
+        "floorBoundary": 288,
+        "visibleHeight": "230px all except B-right227px.",
+        "registration": "All eight existing paths registered, manifest byte-identical to taskstart.",
+        "runtime": "Local no-store server index.html,1-2 level, desktop1920x1080 and mobile375x812. A/B theme toggles and four keyboard directions each changed DOM image src to correct final PNG, complete true. No console warnings/errors. Mobile document scrollWidth375 equals viewportwidth.",
+        "limits": [
+          "Visible totalwidth varies171-188px with view; circularbase profile appears narrower than front. No nonuniform stretching to force outline match.",
+          "Side screen exposes one visible oval due profile occlusion; second eye not drawn on sidecase.",
+          "At mobile375px, image element about20.5x30.8px, actual230px robot body about24.6px high. 80px review is standalone, not actual mobile display. Existing game scale outside artwork scope.",
+          "A bg-sleeper image once complete=true/naturalWidth=0 in browser after theme switch, although PNG fully decodes locally. B background loads1920x1080. Cause not determined; logged for Claude rather than editing code or background."
+        ]
+      },
+      "commit": "No staging, commit or push. Claude Code reviews and commits."
     }
   ]
 }

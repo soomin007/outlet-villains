@@ -117,6 +117,8 @@
       transition: transform 130ms linear, opacity 0.5s ease;
     }
 
+    .instant .sprite { transition: none !important; }
+
     .sprite img {
       display: block;
       width: 100%;
@@ -1494,6 +1496,8 @@
         applyGrid();
         drawBackdrop();
         ui.actors.innerHTML = '';
+        // 새로 만든 그림이 처음 자리로 갈 때는 움직임 효과를 끈다. 켜 두면 모든 그림이 장면 왼쪽 위에서 미끄러져 들어와 깜빡였다.
+        ui.actors.classList.add('instant');
         game.sprites.filmer = null;
         ui.portrait.classList.remove('show');
         const villain = level.villain;
@@ -1555,6 +1559,7 @@
         drawGoal();
         drawStream();
         syncFilmer();
+        requestAnimationFrame(() => requestAnimationFrame(() => ui.actors.classList.remove('instant')));
         placeAll();
         drawView();
         drawDots();
