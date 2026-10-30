@@ -888,15 +888,18 @@
       align-items: center;
       justify-content: center;
       background-color: #141210;
-      background-position: center;
-      background-size: cover;
+      overflow: hidden;
     }
 
+    /* 배경 그림은 흐리게(6px), 어둡게(밝기 40%), 채도를 낮춰(50%) 깔아서 로봇과 로고가 앞으로 나오게 한다(2026-10-30 사용자 피드백). */
     .title-screen::before {
       content: "";
       position: absolute;
-      inset: 0;
-      background: rgba(15, 13, 11, 0.62);
+      inset: -24px;
+      background-image: var(--title-bg);
+      background-position: center;
+      background-size: cover;
+      filter: blur(6px) brightness(0.4) saturate(0.5);
     }
 
     .title-inner {
@@ -961,21 +964,37 @@
       font-weight: 800;
     }
 
-    .title-btn.primary { background: #eee; color: #111; }
-    .title-btn:focus-visible { outline: 4px solid var(--logo-accent); outline-offset: 3px; }
+    /* 지금 고른 버튼만 밝아지고 앞에 ▶가 붙는다. 마우스를 올리면 그 버튼으로 초점이 옮겨 가서, 호버와 키보드 초점이 같은 모습이다. */
+    .title-btn {
+      position: relative;
+      transition: transform 0.12s ease, background 0.12s ease;
+    }
 
-    .title-hint {
-      margin: 0;
-      font-size: 15px;
-      color: #c8c4bf;
-      animation: blink 1.2s steps(2) infinite;
+    .title-btn:focus { outline: none; }
+
+    .title-btn.is-selected {
+      background: #eee;
+      color: #111;
+      border-color: var(--logo-accent);
+      transform: scale(1.05);
+    }
+
+    .title-btn.is-selected::before {
+      content: "▶";
+      position: absolute;
+      left: -30px;
+      top: 50%;
+      margin-top: -12px;
+      line-height: 24px;
+      color: var(--logo-accent);
+      font-size: 18px;
+      animation: cue 0.9s ease-in-out infinite alternate;
     }
 
     @media (max-width: 640px) {
       .title-inner { flex-direction: column; gap: 12px; }
       .title-robot img { height: min(28vh, 220px); }
       .title-logo img { width: min(78vw, 360px); }
-      .title-hint { display: none; }
     }
 
     /* 설정창. 화면 전체를 덮는 창이고, Esc나 닫기로 닫는다. */
@@ -1139,7 +1158,6 @@
           <button id="title-new" class="title-btn" type="button">처음부터</button>
           <button id="title-settings" class="title-btn" type="button">설정</button>
         </div>
-        <p class="title-hint">아무 키나 누르면 시작</p>
       </div>
     </div>
   </div>
@@ -1542,7 +1560,7 @@
       function showTitle() {
         const colors = THEMES[settings.theme];
         const story = assetPath('story-1');
-        ui.title.style.backgroundImage = story ? `url("${story}")` : '';
+        ui.title.style.setProperty('--title-bg', story ? `url("${story}")` : 'none');
         ui.title.style.setProperty('--logo-accent', colors.player);
         ui.titleRobot.innerHTML = imageTag(assetPath('title-robot') ? 'title-robot' : 'player-down');
         ui.titleLogo.innerHTML = assetPath('title-logo')
@@ -1553,7 +1571,13 @@
         ui.titleContinue.textContent = hasProgress ? `이어하기 (${chapterNumber(target)}-${levelNumber(target)})` : '시작하기';
         ui.titleNew.hidden = !hasProgress;
         ui.title.hidden = false;
-        ui.titleContinue.focus();
+        selectTitleButton(ui.titleContinue);
+      }
+
+      // 메인 화면에서 버튼 하나를 고른다. 키보드 초점과 밝게 보이는 표시를 함께 옮긴다.
+      function selectTitleButton(button) {
+        button.focus();
+        [ui.titleContinue, ui.titleNew, ui.titleSettings].forEach((other) => other.classList.toggle('is-selected', other === button));
       }
 
       // 메인 화면을 닫고 레벨을 시작한다. 이 첫 입력이 소리를 켜는 계기가 된다(브라우저는 사람이 누르기 전에는 소리를 막는다).
@@ -2211,7 +2235,7 @@
 
       function closeSettings() {
         ui.settings.hidden = true;
-        if (!ui.title.hidden) ui.titleContinue.focus();
+        if (!ui.title.hidden) selectTitleButton(ui.titleContinue);
         else ui.openSettings.focus();
       }
 
@@ -2236,16 +2260,16 @@
         }
         if (!ui.title.hidden) {
           const buttons = [ui.titleContinue, ui.titleNew, ui.titleSettings].filter((button) => !button.hidden);
-          const at = buttons.indexOf(document.activeElement);
           if (key === 'arrowdown' || key === 'arrowup' || key === 's' || key === 'w') {
             event.preventDefault();
             const step = key === 'arrowdown' || key === 's' ? 1 : -1;
-            buttons[(Math.max(at, 0) + step + buttons.length) % buttons.length].focus();
+            const current = Math.max(buttons.findIndex((button) => button.classList.contains('is-selected')), 0);
+            selectTitleButton(buttons[(current + step + buttons.length) % buttons.length]);
           } else if (key === 'escape') {
             openSettings();
-          } else if (!MODIFIER_KEYS.includes(key) && key !== 'tab') {
+          } else if (key === 'enter' || key === ' ') {
             event.preventDefault();
-            (at >= 0 ? buttons[at] : ui.titleContinue).click();
+            (buttons.find((button) => button.classList.contains('is-selected')) || ui.titleContinue).click();
           }
           return;
         }
@@ -2349,6 +2373,11 @@
         leaveTitle(0);
       });
       ui.titleSettings.addEventListener('click', openSettings);
+      // 고른 버튼 표시는 :focus 대신 클래스로 단다. :focus는 브라우저 창이 초점을 잃으면 사라진다.
+      [ui.titleContinue, ui.titleNew, ui.titleSettings].forEach((button, index, all) => {
+        button.addEventListener('mouseenter', () => selectTitleButton(button));
+        button.addEventListener('focus', () => all.forEach((other) => other.classList.toggle('is-selected', other === button)));
+      });
 
       game.cleared = new Set(settings.cleared);
       applySettings();
