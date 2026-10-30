@@ -8195,6 +8195,348 @@
         ]
       },
       "commit": "No staging, commit or push. Claude Code reviews and commits."
+    },
+    {
+      "date": "2026-10-30",
+      "name": "robot-wordless-prologue-five-panels-two-themes",
+      "tool": "built-in image_gen, one panel per call",
+      "scope": "Ten new1280x720 WebP story1-5 files under assets/a and assets/b, ten manifest entries, generation record and Codex log only. Game code untouched.",
+      "rationale": "Replace later text-card prologue with wordless cafe-robot lostchargingdock story: overcrowdedstudycafe, depletedbattery, customer occupyingdockoutlet, hesitationtowakecustomer, noticingcafepager.",
+      "sources": [
+        "AGENTS.md",
+        "CLAUDE.md",
+        "known-issues.md",
+        "docs/concept.md sections 주인공 로봇과 충전 독 / 로봇 생김새 결정",
+        "User-approved five-panel composition in current request"
+      ],
+      "assets": [
+        {
+          "n": 1,
+          "refs": [
+            "assets/a/bg-sleeper.png",
+            "assets/a/customer-down.png",
+            "assets/a/customer2-left.png",
+            "assets/a/customer3-right.png"
+          ],
+          "prompt": "Use case: illustration-story. ONE full-bleed SINGLE comic/story panel, landscape16:9, intended1280x720, no panel borders or insets. This is the wordless prologue of an existing Korean study-cafe puzzle game, not a gameplay map. Match the supplied existing thick sparse black outlines, simple large shapes, one shadow tone; do not add hatching, surface texture, tiny mechanical detail or photorealism. Low comfortable cafe interior camera, not isometric; if floor tilesvisible use regular equal squares. Characters and objects must match individual references, NOT generic replacements. Robot identity: chosen robot8, low round vacuumdisc and smallwheels, low cylindrical torso, shortneck, rectangularblack screen incoloredframe. Two chunky CHARCOAL #3a3a3a arms with one white shoulderpivot each attached to upperCYLINDER SIDES, roundCgrippers. No humanlimbs, no apron, no cord/plug attachedtorobot. Waist-high cafe servicecleaningrobot, not human-size giant. Normalface onlyTWOwhiteovaleyes, no mouth/eyebrows/nose, except panel2 screenbattery instruction. No letters/numbers/words/logos/signage, no speech/thoughtbubbles/captionboxes/soundeffecttext/emojis/comicpunctuation, no floatingstars/speedlines. Tell story through bodypose, gaze and physicalprops. No UI/buttons/hud, no decorativeframe. Environment scales sensible: regularcafe72cmhigh tables, seatedhuman significantly tallerthanrobot. No visible text on books/laptops/phones.\nTHEME A: entire cafe, people, clothes, skin, furniture,plants, ALLwires/powerstrip/dock and plugs use ONLY neutral black/white/gray. Only ROBOT BODY&FRAME red #c8302a and cafeBUZZER green #2f7a54 when present. Robotarmsneutralgray, notred. No greenhoodie/leaves/light, no otherchromaticcolors. References colors on extraneousobjects must not override this rule. Dock indicatorneutralwhite, preserve2metalcontacts. PANEL1 ESTABLISHING SHOT: night during examperiod, a Korean studycafe packed with universitystudents quietly studying at EVERY visible table. Many DISTINCT silhouettes, cap/shortlight hair/tiedhair, neutralgender, variedposes, no clonequeue. Large darkwindows show nighttimeoutdoors with a fewwhitecitylights. Similar cafe wallpanels, hangingblackpendantlights and squarefloor to reference1, but COMICinterior shot with populatedtables, not emptytopdownmap. 4to6 visible tables each occupied, blankopenbooks/papers and openlaptop silhouettes andcoffee cups. Wall electricaloutlets EVERYONE occupiedwith plugsand hanging chargingwires visibly feedingdevices; clearboldcords, nottangletexture. Composition communicates scarceoutlets and overnightstudy immediately. NO robot/buzzer necessary in thisestablishingshot. PuregrayscaleA. NO clocknumbers/posters/examschedules/letters. Broadshadowmasses, restrainedbackgroundlinecount.",
+          "theme": "a",
+          "key": "story-1",
+          "file": "assets/a/story-1.webp"
+        },
+        {
+          "n": 2,
+          "refs": [
+            "assets/style-test/robot-8-a.png",
+            "assets/a/story-1.webp (selected full-resolution generated source)"
+          ],
+          "prompt": "Use case: illustration-story. ONE full-bleed SINGLE comic/story panel, landscape16:9, intended1280x720, no panel borders or insets. This is the wordless prologue of an existing Korean study-cafe puzzle game, not a gameplay map. Match the supplied existing thick sparse black outlines, simple large shapes, one shadow tone; do not add hatching, surface texture, tiny mechanical detail or photorealism. Low comfortable cafe interior camera, not isometric; if floor tilesvisible use regular equal squares. Characters and objects must match individual references, NOT generic replacements. Robot identity: chosen robot8, low round vacuumdisc and smallwheels, low cylindrical torso, shortneck, rectangularblack screen incoloredframe. Two chunky CHARCOAL #3a3a3a arms with one white shoulderpivot each attached to upperCYLINDER SIDES, roundCgrippers. No humanlimbs, no apron, no cord/plug attachedtorobot. Waist-high cafe servicecleaningrobot, not human-size giant. Normalface onlyTWOwhiteovaleyes, no mouth/eyebrows/nose, except panel2 screenbattery instruction. No letters/numbers/words/logos/signage, no speech/thoughtbubbles/captionboxes/soundeffecttext/emojis/comicpunctuation, no floatingstars/speedlines. Tell story through bodypose, gaze and physicalprops. No UI/buttons/hud, no decorativeframe. Environment scales sensible: regularcafe72cmhigh tables, seatedhuman significantly tallerthanrobot. No visible text on books/laptops/phones.\nTHEME A: entire cafe, people, clothes, skin, furniture,plants, ALLwires/powerstrip/dock and plugs use ONLY neutral black/white/gray. Only ROBOT BODY&FRAME red #c8302a and cafeBUZZER green #2f7a54 when present. Robotarmsneutralgray, notred. No greenhoodie/leaves/light, no otherchromaticcolors. References colors on extraneousobjects must not override this rule. Dock indicatorneutralwhite, preserve2metalcontacts. PANEL2 LOW BATTERY WHILECLEANING: robot8 dominates foreground, fullbodyclearlyvisible, slightlyleaning/offbalance, headtilted andshouldersslumped, one smallwheel lightlylifted, roundbase notdeformed. It has been vacuuming dustfromcafefloor, with only a fewneutralgraycrumbs besidebase. No broom/mopheld, no toolsadded. Face SCREEN has a large EMPTY RED BATTERY PICTOGRAM onblackdisplay, outlinewithsmallterminaland onlythinremainingredsliver, almostempty. It REPLACES eyes onlyforthisframe, not a floatingUIbubble and no lightning/text/number. Stillimage impliesblinking via contrast, NO extraeffectlines. Background a few seatedstudyingcustomers/tablelegs nearwindows atnight, subduedgrayscale. Robotarmsdroop sidewayswithroundgrippers, not humanhands. Mainbeat exhaustionandneedcharge.\nImage2 is previouspanel1 cafestyle/lightingcontinuity only; do not copypopulatedwidecomposition. Camera now close toexhaustedrobot onfloor.",
+          "theme": "a",
+          "key": "story-2",
+          "file": "assets/a/story-2.webp"
+        },
+        {
+          "n": 3,
+          "refs": [
+            "assets/a/story-3.webp (initial generated panel before export)"
+          ],
+          "prompt": "Use case: precise-object-edit. Preserve this EXACT whole comicpanel, all characters, poses, robot/dock/powercords, colors, camera and composition. ONE tiny localized correction only: the walloutlet currently has a spare EMPTY ROUND SOCKET ABOVE the black plugged-in plug. REMOVE THAT UPPER EMPTY SOCKET ENTIRELY. Replace plate with a shorter SINGLE-SOCKET white outletplate fittedaround the existing occupiedsocket behindblackplug. Keep existingBLACKplugandcontinuouscordtohuggedcustomerpowerstripunchanged. All usablewallsockets must be occupied; NO spareemptycircularreceptacle onplate, NO extraoutletelsewhere. Keep robotdockUNPLUGGED withtwopinplugonfloor. No other changes, no text/bubbles/signs/symbols, no extraobjects, samegrayscale+redrobot. Full16:9 singlepanel.",
+          "theme": "a",
+          "key": "story-3",
+          "file": "assets/a/story-3.webp",
+          "lineage": [
+            {
+              "prompt": "Use case: illustration-story. ONE full-bleed SINGLE comic/story panel, landscape16:9, intended1280x720, no panel borders or insets. This is the wordless prologue of an existing Korean study-cafe puzzle game, not a gameplay map. Match the supplied existing thick sparse black outlines, simple large shapes, one shadow tone; do not add hatching, surface texture, tiny mechanical detail or photorealism. Low comfortable cafe interior camera, not isometric; if floor tilesvisible use regular equal squares. Characters and objects must match individual references, NOT generic replacements. Robot identity: chosen robot8, low round vacuumdisc and smallwheels, low cylindrical torso, shortneck, rectangularblack screen incoloredframe. Two chunky CHARCOAL #3a3a3a arms with one white shoulderpivot each attached to upperCYLINDER SIDES, roundCgrippers. No humanlimbs, no apron, no cord/plug attachedtorobot. Waist-high cafe servicecleaningrobot, not human-size giant. Normalface onlyTWOwhiteovaleyes, no mouth/eyebrows/nose, except panel2 screenbattery instruction. No letters/numbers/words/logos/signage, no speech/thoughtbubbles/captionboxes/soundeffecttext/emojis/comicpunctuation, no floatingstars/speedlines. Tell story through bodypose, gaze and physicalprops. No UI/buttons/hud, no decorativeframe. Environment scales sensible: regularcafe72cmhigh tables, seatedhuman significantly tallerthanrobot. No visible text on books/laptops/phones.\nTHEME A: entire cafe, people, clothes, skin, furniture,plants, ALLwires/powerstrip/dock and plugs use ONLY neutral black/white/gray. Only ROBOT BODY&FRAME red #c8302a and cafeBUZZER green #2f7a54 when present. Robotarmsneutralgray, notred. No greenhoodie/leaves/light, no otherchromaticcolors. References colors on extraneousobjects must not override this rule. Dock indicatorneutralwhite, preserve2metalcontacts. PANEL3 KEY STORY REVEAL, EVERYTHINGREADABLEINONESINGLEIMAGE: same nightcafe, robot lowerLEFTforeground hasreturnedto its EMPTY chargingdock atwall, lookingacross towardRIGHT. Dock reference2 onfloor atcenterunderwall: lowroundplate and standingbackplate with2large metalcontactpads, tinyNEUTRALindicator. It is separate fromrobot. Its BLACK POWER CORD begins unmistakablyatdock, trails to a largeUNPLUGGED WHITE TWO-ROUND-PIN KOREAN MAINSPLUG lyingonfloor directlyinfrontofit; exposedtwometalpinsobvious, isolatedfromallothercords. Above dock atcenterwall is ONE clearlyreadableKoreanwalloutlet, occupied by a DIFFERENT plugged-in BLACKPLUG. From thisblackplug ONE continuousBLACKCORD travels RIGHT to a WHITEPOWERSTRIP that SLEEPINGCUSTOMER hugswithbotharms onTABLEatright. That powerstrip has multiple round socketsandphonecharger, linkedtosmallphoneontable. Sleeper EXACTreference3 sameyounghoodedshortblackhairstudent, neutralgender, neutralgrayhoodieA, headonforearms, hoodup,mouthopen,drool. Robotheadreachesaroundtableheight, tablelegsandfloorvisible. CLEAR THREEITEMCONTRAST: emptydock + unpluggeddockplug onfloor VS occupiedwallsocket + continuouscordtohuggedcustomerstrip. Do not plug dockcord intooutlet or robot, do not draw2wallsocketswitha sparefreeone. Composition leftrobot,centeroutlet/dock/unpluggedplug,rightsleepinghoodedcustomer. Thick simple cablepaths separatedwithspace, no arrows or words.",
+              "refs": [
+                "assets/style-test/robot-8-a.png",
+                "assets/a/dock.png",
+                "assets/a/villain-sleep.png"
+              ]
+            }
+          ]
+        },
+        {
+          "n": 4,
+          "refs": [
+            "assets/style-test/robot-8-a.png",
+            "assets/a/villain-sleep.png",
+            "assets/a/story-3.webp (selected full-resolution generated source)"
+          ],
+          "prompt": "Use case: illustration-story. ONE full-bleed SINGLE comic/story panel, landscape16:9, intended1280x720, no panel borders or insets. This is the wordless prologue of an existing Korean study-cafe puzzle game, not a gameplay map. Match the supplied existing thick sparse black outlines, simple large shapes, one shadow tone; do not add hatching, surface texture, tiny mechanical detail or photorealism. Low comfortable cafe interior camera, not isometric; if floor tilesvisible use regular equal squares. Characters and objects must match individual references, NOT generic replacements. Robot identity: chosen robot8, low round vacuumdisc and smallwheels, low cylindrical torso, shortneck, rectangularblack screen incoloredframe. Two chunky CHARCOAL #3a3a3a arms with one white shoulderpivot each attached to upperCYLINDER SIDES, roundCgrippers. No humanlimbs, no apron, no cord/plug attachedtorobot. Waist-high cafe servicecleaningrobot, not human-size giant. Normalface onlyTWOwhiteovaleyes, no mouth/eyebrows/nose, except panel2 screenbattery instruction. No letters/numbers/words/logos/signage, no speech/thoughtbubbles/captionboxes/soundeffecttext/emojis/comicpunctuation, no floatingstars/speedlines. Tell story through bodypose, gaze and physicalprops. No UI/buttons/hud, no decorativeframe. Environment scales sensible: regularcafe72cmhigh tables, seatedhuman significantly tallerthanrobot. No visible text on books/laptops/phones.\nTHEME A: entire cafe, people, clothes, skin, furniture,plants, ALLwires/powerstrip/dock and plugs use ONLY neutral black/white/gray. Only ROBOT BODY&FRAME red #c8302a and cafeBUZZER green #2f7a54 when present. Robotarmsneutralgray, notred. No greenhoodie/leaves/light, no otherchromaticcolors. References colors on extraneousobjects must not override this rule. Dock indicatorneutralwhite, preserve2metalcontacts. PANEL4 HESITATION: same exact sleepinghoodedcustomer atRIGHT slumpedontable huggingwhitepowerstrip, asleepunaware, mouthopen. Smallrobot atLEFT liftsONE chunkyarm towardthecustomer's sleeve drapedattableedge, Cgripper stopsSHORTwithclear visiblegap: intendedwakeuptouch interrupted. Otherarm curlsback towardowncylinder, headtilteddown, twoovaleyeslookfromhandtocustomer, reservedhesitation. Robot is cafe employee and cannotforcecustomerout; show restrainedstoppedgesture, not attacking/grabbing/unpluggingor touching. Near-emptydock andits unpluggedplug visible smallonfloorbehindrobot, wallsocketstilloccupiedbycordtocustomer. SAME originalsmallcleaningrobotbody, no humanoidpose/hand, no extraheadsymbol/signbadges/thoughtbubbles. Mediumshot keepswholevacuumdiscandtableedge visible. Quietclearbodylanguage, visitorasleepratherthanvicious.\nImage3 is previouspanel3, exactcafe/table/customer/outlet/dock continuity. Continue same scene butmoveclosertogesture. Walloutlet has ONLYONE occupiedsocket, no sparefreeone. Keep dock unplugged, keep blackcordtosleeperspowerstrip. Preserve scene3 lowrobotvsseatedcustomer scale.",
+          "theme": "a",
+          "key": "story-4",
+          "file": "assets/a/story-4.webp"
+        },
+        {
+          "n": 5,
+          "refs": [
+            "assets/a/story-5.webp (initial generated panel before export)"
+          ],
+          "prompt": "Use case: precise-object-edit. Preserve EXACT wholepanel, composition, robotpose/cafe/counter/greenpager unchanged. Correct ONLY robot's TWO EYES: remove squiggly black marks that resemble tinydigits inside whiteeyes. Make BOTH EYES simple brightWHITEOVALS with one tiny ROUND darkpupil placedupperright and one tinyROUNDwhitecatchlight insideeachpupil. Pupils must be plain circles, NEVER curledshapes or glyphs. Lookupperright atcafepager. No floatingglints orstarshapes, no eyebrow/mouth/extraeye. Rest ofcharacterandcolorsidentical, no text/digits/bubbles/symbols anywhere. Same16:9 singlepanel.",
+          "theme": "a",
+          "key": "story-5",
+          "file": "assets/a/story-5.webp",
+          "lineage": [
+            {
+              "prompt": "Use case: illustration-story. ONE full-bleed SINGLE comic/story panel, landscape16:9, intended1280x720, no panel borders or insets. This is the wordless prologue of an existing Korean study-cafe puzzle game, not a gameplay map. Match the supplied existing thick sparse black outlines, simple large shapes, one shadow tone; do not add hatching, surface texture, tiny mechanical detail or photorealism. Low comfortable cafe interior camera, not isometric; if floor tilesvisible use regular equal squares. Characters and objects must match individual references, NOT generic replacements. Robot identity: chosen robot8, low round vacuumdisc and smallwheels, low cylindrical torso, shortneck, rectangularblack screen incoloredframe. Two chunky CHARCOAL #3a3a3a arms with one white shoulderpivot each attached to upperCYLINDER SIDES, roundCgrippers. No humanlimbs, no apron, no cord/plug attachedtorobot. Waist-high cafe servicecleaningrobot, not human-size giant. Normalface onlyTWOwhiteovaleyes, no mouth/eyebrows/nose, except panel2 screenbattery instruction. No letters/numbers/words/logos/signage, no speech/thoughtbubbles/captionboxes/soundeffecttext/emojis/comicpunctuation, no floatingstars/speedlines. Tell story through bodypose, gaze and physicalprops. No UI/buttons/hud, no decorativeframe. Environment scales sensible: regularcafe72cmhigh tables, seatedhuman significantly tallerthanrobot. No visible text on books/laptops/phones.\nTHEME A: entire cafe, people, clothes, skin, furniture,plants, ALLwires/powerstrip/dock and plugs use ONLY neutral black/white/gray. Only ROBOT BODY&FRAME red #c8302a and cafeBUZZER green #2f7a54 when present. Robotarmsneutralgray, notred. No greenhoodie/leaves/light, no otherchromaticcolors. References colors on extraneousobjects must not override this rule. Dock indicatorneutralwhite, preserve2metalcontacts. PANEL5 SPOTTINGTHESOLUTION: robot8 atLEFTforeground turningrectangularfaceandtwoeyes toward a CAFEORDERPAGER onCOUNTERatRIGHT. Pager exactreference2: compact palm-sized flat rounded-square GREENbody, blankdarkcenterwindow, perimeterofsmallWHITELEDdots, visiblynotabellwithhandle/notachair. Pager rests oncounter, nothandheld, notfloating. RobotlooksUPtowardpager, upperbodyperksslightly, Cgripperhalfraisedinclueofrealization. TWOwhiteovaleyesbrightenwithtinyinternalwhiteglintsinsideeyesonly; no starshapesfloatingaroundhead/no exclamation/no lightbulb. Counter remains plausible85cm high, smallrobotheadjustbelowcounteredge, angleensurepagerontopisvisible. Closemediumcomposition withrobotandpagerlargeclearandbackgroundnightcafemuted; no crowdlineclutter. Onlyredrobotandgreenpagercolor. Noeffectlinesradiatingfrompager, no digits, no arrows.\nImage3previouspanel for samerobot/strokestyle/nightcafecolors only. New composition atcafecounter, do not keep sleepingtableforeground. Eyehighlights remain inside2ovaleyes; absolutelyNO floatingglints/stars/lightbulb. Robot looksupperRIGHT atpager, not atviewer. Full robotbase visible ifpossible.",
+              "refs": [
+                "assets/style-test/robot-8-a.png",
+                "assets/a/buzzer.png",
+                "assets/a/story-4.webp (selected full-resolution generated source)"
+              ]
+            }
+          ]
+        },
+        {
+          "n": 1,
+          "theme": "b",
+          "key": "story-1",
+          "file": "assets/b/story-1.webp",
+          "refs": [
+            "assets/a/story-1.webp (selected full-resolution generated source)",
+            "assets/b/bg-sleeper.png",
+            "assets/b/customer-down.png"
+          ],
+          "prompt": "Use case: style-transfer. Image1 is EXACT panel1 composition/master: crowdedKoreanstudycafe atnight, distinctstudentsatalltables, everywalloutletoccupied and devicecords visible, citynightwindows, pendantlights. Preserve people identities/poses/camera/objects and sparse thickblacklines. Apply WARM CARTOON themeB palette matchingimage2existingcafebackground andimage3existingcustomer: mutedbeige/browntablesandfloor, warmcreamwalls, softpeachskin, low-saturation navy/gray/brownclothes, darkblue-gray nightoutside, gentlewarmwhitependantlighting. Do not addtexture, hatching ordetails. Thisframehasno robot/buzzer, so NO mint or brightorangeobjects/clothes. Don't turnallclothesdarkgreen, reserve darkgreenhoodiefor latersleeper. ONE landscape16:9 fullbleed comicpanel, no frame/inset, no text/letters/numbers/logos onbooks/screens/signage, no speechbubbles/symbols/UI. Same clearoutletscarcity story."
+        },
+        {
+          "n": 2,
+          "theme": "b",
+          "key": "story-2",
+          "file": "assets/b/story-2.webp",
+          "refs": [
+            "assets/a/story-2.webp (selected full-resolution generated source)",
+            "assets/style-test/robot-8-b.png",
+            "assets/b/story-1.webp (selected full-resolution generated source)"
+          ],
+          "prompt": "Use case: style-transfer. Image1 is exact PANEL2composition: exhaustedtiltingcleaningrobot onfloor, droopingchunkygripperarms, one smallwheelraised, crumbs, studycafestudents/windowatnight. Image2 robot8-b is CHARACTER/PALETTE master; image3 finalBpanel1 is cafe/colorcontinuity. Keepimage1 shapes, camera, pose and sparsethickblacklines, applythewarmBpaletteofimage3. Robotbody/lowcylindertorso/screenframe MINT #7fd3b8, arms charcoal #3a3a3a withoneWHITEshoulderpivoteach. Face displays ONLY A RED EMPTY BATTERY pictogram, replacingeyesfor thisframe: mostlyemptyrectangleoutlinewithsmallterminal andtinyredsliver, exactlyasimage1. REDbattery is intentionaldiegeticwarningexception, NOTmintandNOTfloatingHUD, no words/digits/lightning. Low-saturationbeigebrowncafe, navygrayclothedstudents, darkblue-graynight. No brightorangeobject/greenbuzzer, no speechbubbles/dizzy/speedlines/signs/text. Singlefullbleed16:9panel. Bodystructureremainsrobot8, no addedtools/cord/plug/mouth."
+        },
+        {
+          "n": 3,
+          "theme": "b",
+          "key": "story-3",
+          "file": "assets/b/story-3.webp",
+          "refs": [
+            "assets/a/story-3.webp (selected full-resolution generated source)",
+            "assets/style-test/robot-8-b.png",
+            "assets/b/villain-sleep.png",
+            "assets/b/dock.png"
+          ],
+          "prompt": "Use case: style-transfer. Image1 exact correctedPANEL3compositionmaster. Image2 chosenrobot8-b, image3 existingBsleepingvillain, image4 existingBdock are identity/colorreferences. Preserve WHOLE compositionand ALL CABLECONNECTIVITY ofimage1. Robotleft mustbeMINT, samevacuumdisc/lowcylinder/neck/screen/2whiteeyes andchunkycharcoalarms/whitepivots. SleepingatRIGHT samehoodedshortblackhairstudent asimage3, DARKGREENhoodie,huggingwhitepowerstrip, mouthopenanddrool, asleepunaware. Cafe mutedwarmbeige/browns/cream,darkbluishnight, gentlewarmcartoonstylewithsamesparseblackoutlines. Emptychargingdocklightgray and2metalpads, tinyneutralormintindicator. CRITICAL: wallplate contains ONE occupiedsocketONLY, blackplugwithcontinuousblackcordRIGHTtocustomershuggedwhitepowerstrip; NO SPARE/FREE wallreceptacle. DIFFERENT cordstarts atdockandendsin largeUNPLUGGEDWHITEtworoundpinplug onfloor, exposedpinsclearlyvisible. Neverconnectdocktorobot/outlet. Maintain large isolatedunpluggedplug readatmobilethumbnail. No orangeaccents/buzzerhere, no othermintobjects, no text/digits/speechbubbles/arrows/extraobjects/frames. ONE16:9panel."
+        },
+        {
+          "n": 4,
+          "theme": "b",
+          "key": "story-4",
+          "file": "assets/b/story-4.webp",
+          "refs": [
+            "assets/a/story-4.webp (selected full-resolution generated source)",
+            "assets/style-test/robot-8-b.png",
+            "assets/b/story-3.webp (selected full-resolution generated source)"
+          ],
+          "prompt": "Use case: style-transfer. Image1 exact PANEL4 composition/gesturemaster. Image2 robot8-b identity. Image3 finalBpanel3 cafe/sleeperpalette/continuity. Preserveimage1 pose/camera: robotLEFT hasONEcharcoalarm liftedtowardcustomerssleevebut CgripperSTOPSBEFOREtouching withcleargap, othergripperretreatstowardcylinder, headslightlyloweredhesitant, TWOwhiteovaleyes only. Same mintbody/vacuumdisc/lowcylinder/neck/screen, charcoalarmswithwhitepivots. SleepingdarkgreenhoodedcustomerRIGHT remainsunaware huggingpowerstrip; notawakened/notattacked/nopulling. Warmmutedbeigebrowncafe,darknightwindows identicalBpanel3. Singleoccupiedwallsocket, cordtocustomerpowerstrip; dockwithits separateUNPLUGGEDtwopinplugfloor behindrobot. No freewalloutlet. No words/letters/digits/speechbubbles/symbols/effectlines/extraobjects, no cordonrobot. SAMEthicksparselines, ONE fullbleed16:9panel."
+        },
+        {
+          "n": 5,
+          "theme": "b",
+          "key": "story-5",
+          "file": "assets/b/story-5.webp",
+          "refs": [
+            "assets/a/story-5.webp (selected full-resolution generated source)",
+            "assets/style-test/robot-8-b.png",
+            "assets/b/buzzer.png",
+            "assets/b/story-4.webp (selected full-resolution generated source)"
+          ],
+          "prompt": "Use case: style-transfer. Image1 exact PANEL5compositionmaster, image2 chosenrobot8-b identity/color, image3 Bcafepageridentity/color, image4 finalBpanel4 warmcafepalette/continuity. Preserveimage1 cameraandrobotposeandcounter: smallrobotLEFT looksUPRIGHT toflatrounded-squarecafepageratRIGHTontopcounter. Change robotredbody/frame/cylindertoMINT#7fd3b8, keepcharcoalarms/whitepivots andsamevacuumdisc/shortneck. PagerGREEN becomes brightORANGEexactlyimage3, withCREAMLEDdotrimandBLANKdarkcenterwindow,no numbers. Counterwarmbeige/brown,nightcafeandcustomersmutedlikeimage4. TWOeyes only: brightwhiteovals, simpletinyrounddarkpupilwithtinyroundwhiteglint lookingright, NEVER numbers/squiggles, no floatingglints/stars/lightbulb/exclamation. BodyperksupandCgripperhalfraised. No words/text/letters/digits/bubbles/comicsymbols/UI, no robotcord/plug, no addedprops. Sparseboldblacklines, one16:9fullbleedpanel."
+        }
+      ],
+      "processing": "Pillow whole-image uniform resize and tiny centered aspect crop with ImageOps.fit to1280x720, RGB WebP quality80/method6. No code repaint, recolor, line/shape/face or individualobject edits. No metadata EXIF/XMP/ICC stored. Review sheets outside repo and never input as generationreferences.",
+      "outputMetrics": [
+        {
+          "key": "story-1",
+          "theme": "a",
+          "sourceSize": [
+            1672,
+            941
+          ],
+          "size": [
+            1280,
+            720
+          ],
+          "quality": 80,
+          "bytes": 87656,
+          "sha256": "1bfb4a78ab8c9ed882b111865be75e263156c75ac7f83949edd9ada43764385c"
+        },
+        {
+          "key": "story-2",
+          "theme": "a",
+          "sourceSize": [
+            1672,
+            941
+          ],
+          "size": [
+            1280,
+            720
+          ],
+          "quality": 80,
+          "bytes": 63870,
+          "sha256": "feb3f8f3401b98c5bd98f07ecc02aa8b8dbcdb4f017c028289a78a552c09756b"
+        },
+        {
+          "key": "story-3",
+          "theme": "a",
+          "sourceSize": [
+            1672,
+            941
+          ],
+          "size": [
+            1280,
+            720
+          ],
+          "quality": 80,
+          "bytes": 51566,
+          "sha256": "25a29bf561dbd86eb1af82020b385bfffc8a7c1ce4dbc14daba6f794339f6b12"
+        },
+        {
+          "key": "story-4",
+          "theme": "a",
+          "sourceSize": [
+            1672,
+            941
+          ],
+          "size": [
+            1280,
+            720
+          ],
+          "quality": 80,
+          "bytes": 56980,
+          "sha256": "9e57c57dcb57418ae59e37f05925341ac5938b08652d548704ba6ead93947e87"
+        },
+        {
+          "key": "story-5",
+          "theme": "a",
+          "sourceSize": [
+            1672,
+            941
+          ],
+          "size": [
+            1280,
+            720
+          ],
+          "quality": 80,
+          "bytes": 44140,
+          "sha256": "7f2eb95546cc142227861d08f62a75c05d65bece6d517a89cfd620cdd3113dcf"
+        },
+        {
+          "key": "story-1",
+          "theme": "b",
+          "sourceSize": [
+            1672,
+            941
+          ],
+          "size": [
+            1280,
+            720
+          ],
+          "quality": 80,
+          "bytes": 105098,
+          "sha256": "f9d476d1ea85733e8311e6988f2a207abc041aa09fdb271e4babe2172695d7c6"
+        },
+        {
+          "key": "story-2",
+          "theme": "b",
+          "sourceSize": [
+            1672,
+            941
+          ],
+          "size": [
+            1280,
+            720
+          ],
+          "quality": 80,
+          "bytes": 79718,
+          "sha256": "4eab9dd9c02ba997dafb77679468982c3ffdc8a428264ae9732ad54f208718c0"
+        },
+        {
+          "key": "story-3",
+          "theme": "b",
+          "sourceSize": [
+            1672,
+            941
+          ],
+          "size": [
+            1280,
+            720
+          ],
+          "quality": 80,
+          "bytes": 62296,
+          "sha256": "821767d27090f85e5f05a7fbd6be9460b48f75378c9a54b71b2b8b6013d606c7"
+        },
+        {
+          "key": "story-4",
+          "theme": "b",
+          "sourceSize": [
+            1672,
+            941
+          ],
+          "size": [
+            1280,
+            720
+          ],
+          "quality": 80,
+          "bytes": 69924,
+          "sha256": "5436c739e7ee2cfd6842682468958b5c0684aff6b3d29e6061d194fbca56f97e"
+        },
+        {
+          "key": "story-5",
+          "theme": "b",
+          "sourceSize": [
+            1672,
+            941
+          ],
+          "size": [
+            1280,
+            720
+          ],
+          "quality": 80,
+          "bytes": 57350,
+          "sha256": "9f926403b0fc21713e985d7ce48355d48a67f21683d97969c24d083e58040a97"
+        }
+      ],
+      "totalBytes": 678598,
+      "perThemeBytes": {
+        "a": 304212,
+        "b": 374386
+      },
+      "visualReview": {
+        "1": "Nightwindows, diversecustomers fillingtables, occupiedwallplugs and visiblechargingwires. Textlessbooks/screens.",
+        "2": "Chosenrobot8vacuumdisc/lowcylinder/neck/screen andcharcoalwhitejointarms, slumpedtiltingpose, redemptybatterypictogram insidefacescreen. No floatingHUD. B redbattery intentionalwarningexception.",
+        "3": "Emptydock and disconnectedtwo-round-pinplugonfloor. Separate continuouscordfromsingleoccupiedwallsockettosleepershuggedpowerstrip. Samehoodedvillain. Initialsparewallsocketremovedwithimage_gen becauseitwouldundermineconflict.",
+        "4": "Robotgripperheldshortofsleeperssleevewithvisiblegap, otherarmwithdrawn. Customerstillasleep, dockunplugged. No symbols/bubbles toexplainhesitation.",
+        "5": "Robotgazeturnedtopageroncounter, roundpupils/catchlightswithintwoovaleyes. Pager A green/B orange with blankwindow and LEDrim. No floatingsparkles/lightbulbs."
+      },
+      "iterations": [
+        "A3 initialwallplate hadspareunoccupiedsocket; regeneratedlocalizedsingleoccupiedsocketplate before Btransfer.",
+        "A5 initialeyemarks resembledglyphs; localizedgenerationeditrequestedroundpupils/catchlightsonly. B5 keepssimple roundpupil/catchlight."
+      ],
+      "qa": {
+        "fileCheck": "Ten WebPs fully decode withPillow, each1280x720, quality80,44140-105098bytes (under200000bytes), no EXIF/XMP/ICC.",
+        "reviewSizes": [
+          1280,
+          320,
+          256
+        ],
+        "review": "Inspected full panels and compressedfinalWebPs;320px/256pxwide sheets show battery, looseplug, cablecontrast andpager. No captions/speechbubbles/effecttext/floatingcomicsymbols seen.",
+        "registration": "Manifest syntax check with Node passed. Exactlyfive story entries pertheme, allpreviousentries preserved.",
+        "runtime": "Existingindex.html loads afterregistration, no capturedconsolewarning/error. Desktop1920x1080 opened, mobile375x812 verified DOM viewport and scrollWidth375. CurrentplayPrologue stilltextcards, storyimage count0, no storyrendering/preloadintegration claimed.",
+        "browserLimits": "Local file reviewpage URL blocked by browserprotocolpolicy; directWebP navigation blockedbyclient. No bypass attempted. Artwork verified via localimageviewer/Pillow and reviewPNGs; actualprologuebrowserdisplay awaitsClaudeCode integration.",
+        "limits": [
+          "StaticWebPframe shows batterywarningbutdoesnotactuallyblink.",
+          "Panel4 reads stoppedhand/hesitation; employmentrule cannotbeunambiguouslycommunicated byonegesture, requiresfirst-timeplayer test.",
+          "Small320/256pxreviewshowsplugandcablegroups, but metalpins and subtleeyehighlights are small; full mobileprologue layoutnotyetimplemented.",
+          "Robotview proportions varyslightlybetweenframes, cylinderandneck remain. No forcedcodegeometrycorrection."
+        ]
+      },
+      "commit": "No staging, commit or push. Claude Code connects fiveframes into playPrologue and preload, reviews and commits."
     }
   ]
 }

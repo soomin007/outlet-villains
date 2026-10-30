@@ -3,6 +3,11 @@
 // Codex가 그림을 저장하면 그 테마에 한 줄씩 적는다. 예: 'bg-sleeper': 'assets/a/bg-sleeper.png',
 window.VILLAIN_ASSETS = {
   a: {
+    'story-1': 'assets/a/story-1.webp',
+    'story-2': 'assets/a/story-2.webp',
+    'story-3': 'assets/a/story-3.webp',
+    'story-4': 'assets/a/story-4.webp',
+    'story-5': 'assets/a/story-5.webp',
     'bg-sleeper': 'assets/a/bg-sleeper.png',
     'player-down': 'assets/a/player-down.png',
     'player-up': 'assets/a/player-up.png',
@@ -45,6 +50,11 @@ window.VILLAIN_ASSETS = {
     'customer3-right': 'assets/a/customer3-right.png',
   },
   b: {
+    'story-1': 'assets/b/story-1.webp',
+    'story-2': 'assets/b/story-2.webp',
+    'story-3': 'assets/b/story-3.webp',
+    'story-4': 'assets/b/story-4.webp',
+    'story-5': 'assets/b/story-5.webp',
     'bg-sleeper': 'assets/b/bg-sleeper.png',
     'player-down': 'assets/b/player-down.png',
     'villain-sleep': 'assets/b/villain-sleep.png',
