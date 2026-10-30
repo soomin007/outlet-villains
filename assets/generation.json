@@ -6358,6 +6358,357 @@
       },
       "commit": "No staging, commit or push. Claude Code reviews and commits.",
       "externalSourceChangesDuringTask": []
+    },
+    {
+      "id": "robot-protagonist-candidates-2026-10-30",
+      "date": "2026-10-30",
+      "tool": "built-in image_gen",
+      "purpose": "User chooses protagonist robot shape from three front-facing candidates, each in red A and mint B. Trial only; no game registration.",
+      "assets": [
+        {
+          "key": "robot-1-a",
+          "candidate": 1,
+          "theme": "a",
+          "file": "assets/style-test/robot-1-a.png",
+          "prompt": "Use case: stylized-concept. ONE front-facing cafe worker ROBOT candidate game sprite, transparent RGBA. Reference image is existing theme A player for bold sparse black contours, large flat color shapes and RPG Maker slightly-overhead view ONLY. Do NOT copy its human head, face, hair, clothes, skin, hands or legs.\nRobot faces screenDOWN/viewer, centered, upright. Full object alone, no cafe scene or other character. Face screen contains ONLY TWO simple WHITE oval eyes on black display: no mouth, nose, eyebrow, blush, text, numbers, logos or symbols. Mechanical form must be clearly different from a human guest or villain, NO humanoid limbs/clothes. Main body surfaces red around#c8302a, secondary parts black white neutralgray ONLY, no other hue. Sparse thick black outlines like reference, simple flat fills with one shadow plane, no tiny seams, textures or decorative details. No white sticker border, glow or floor/cast shadow.\nIntended canvas192x288 ratio2:3, entire robot approximately230px high with top at y58 and lowest wheel/body ground contact at y288. Full silhouette fits within width180px and transparent side margins. Genuine transparency including gaps. Slightly viewed from above like reference, not isometric. One separate asset, not sheet. Candidate1: waist-high ROUND SERVING ROBOT. Rounded mobile base on small visible wheels, rounded upright housing/frame containing EXACTLY TWO empty tray shelves, one above another, broad oval trays with shallow rims. Clear open gaps between the two shelf levels so it reads as food-serving robot immediately. At the very top is a landscape rounded-rectangular FACE SCREEN, two eyes only. Red tray rims/support housing and rounded base, gray shelf surfaces, black wheel material. NO arms. No food, cup or dishes. This is a service cart with two trays and a top face display, never a humanoid or barrel robot.",
+          "references": [
+            "assets/a/player-down.png"
+          ],
+          "output": {
+            "file": "assets/style-test/robot-1-a.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              166,
+              250,
+              860,
+              1425
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              136,
+              230
+            ],
+            "placement": [
+              28,
+              58
+            ],
+            "visibleBox": [
+              28,
+              58,
+              164,
+              288
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 287,
+            "redOpaquePixels": 9994,
+            "mintOpaquePixels": 0,
+            "PNGTextMetadata": [],
+            "processing": "Preserved generated alpha. Trimmed transparent margins, uniformly resized to230px height or188px maxwidth, centered on192x288 canvas with lowest edge at y288. No code modification of lines, colors, face, proportions or shape."
+          },
+          "outputSha256": "7c90721a6dcb645885ece303e53e34158523718e8b576a43144b6631d05bdf39"
+        },
+        {
+          "key": "robot-2-a",
+          "candidate": 2,
+          "theme": "a",
+          "file": "assets/style-test/robot-2-a.png",
+          "prompt": "Use case: stylized-concept. ONE front-facing cafe worker ROBOT candidate game sprite, transparent RGBA. Reference image is existing theme A player for bold sparse black contours, large flat color shapes and RPG Maker slightly-overhead view ONLY. Do NOT copy its human head, face, hair, clothes, skin, hands or legs.\nRobot faces screenDOWN/viewer, centered, upright. Full object alone, no cafe scene or other character. Face screen contains ONLY TWO simple WHITE oval eyes on black display: no mouth, nose, eyebrow, blush, text, numbers, logos or symbols. Mechanical form must be clearly different from a human guest or villain, NO humanoid limbs/clothes. Main body surfaces red around#c8302a, secondary parts black white neutralgray ONLY, no other hue. Sparse thick black outlines like reference, simple flat fills with one shadow plane, no tiny seams, textures or decorative details. No white sticker border, glow or floor/cast shadow.\nIntended canvas192x288 ratio2:3, entire robot approximately230px high with top at y58 and lowest wheel/body ground contact at y288. Full silhouette fits within width180px and transparent side margins. Genuine transparency including gaps. Slightly viewed from above like reference, not isometric. One separate asset, not sheet. Candidate2: SMALL HELPER ROBOT. Short solid cylindrical/barrel RED torso with TWO short simple mechanical stub arms, one per side, no articulated human elbows, fingers or hands. Wheels under cylindrical body. A separate ROUND face-screen head on top: black circular display with only two white oval eyes. Tubby compact solid silhouette, round head and two little paddle-like arm stubs are distinguishing features. Gray/black secondary rings and wheels. NO shelves, tray, humanoid legs, clothes or hair. Make it clearly different from a serving cart and from flat vacuum robot.",
+          "references": [
+            "assets/a/player-down.png"
+          ],
+          "output": {
+            "file": "assets/style-test/robot-2-a.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              92,
+              301,
+              931,
+              1297
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              188,
+              223
+            ],
+            "placement": [
+              2,
+              65
+            ],
+            "visibleBox": [
+              2,
+              65,
+              190,
+              288
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 287,
+            "redOpaquePixels": 9545,
+            "mintOpaquePixels": 0,
+            "PNGTextMetadata": [],
+            "processing": "Preserved generated alpha. Trimmed transparent margins, uniformly resized to230px height or188px maxwidth, centered on192x288 canvas with lowest edge at y288. No code modification of lines, colors, face, proportions or shape."
+          },
+          "outputSha256": "89ba54f22e3cef9b8fa12f9c3762ae3fdd5512fb5a92be6126ad3bf2423a9efe"
+        },
+        {
+          "key": "robot-3-a",
+          "candidate": 3,
+          "theme": "a",
+          "file": "assets/style-test/robot-3-a.png",
+          "prompt": "Create ONE new transparent cafe cleaning-robot game sprite with these proportions, NOT a wide squat picture. Use reference only for sparse thick black game outlines and red accent, NOT human anatomy.\nPORTRAIT canvas192x288. Complete robot bounding box about170px WIDE and230px HIGH, horizontally centered, topy58 and bottomy288. This tall bounding proportion is essential.\nConstruct the silhouette in THREE vertical parts:\n1) bottomy188..288: a RED FLAT CIRCULAR ROBOT-VACUUM base, about170pxwide, viewed from above so its broad ELLIPTICAL TOP is visible; physical rim thin, no barrel. The perspective top ellipse plus rim/wheels occupy100px VISUAL height.\n2) y118..188: ONE compact central plain vertical mechanical support, about70px visual height, black/gray/red, no joints.\n3) y58..118: SMALL rounded-rectangular face screen about82pxwide60pxtall, redrim blackdisplay, ONLY TWO simple WHITE OVAL EYES. No mouth, text, eyebrow or numbers.\nThus totalheight230 and width170, all parts inside canvas. Wide vacuum disc is still dominant body; support about one screen-height, not a long neck. Clearly a floor-cleaning robot, no arms, no humanoid legs/hair/skin/clothes, no shelves, no mop/broom, no extra features or otherprops.\nColor mainbody red around#c8302a, rest black/white/neutralgray ONLY. Same sparse bold black contours and simple flat shadowplanes as reference. No textures/fine seams. Front faces screenDOWN, RPG Maker slightly overhead, NOT isometric. No floor/background, cast shadow, glow or white sticker outline. Genuine RGBA including gaps. ONE sprite only, never sheet.",
+          "references": [
+            "assets/a/player-down.png"
+          ],
+          "discardedAttempts": [
+            {
+              "prompt": "Use case: stylized-concept. ONE front-facing cafe worker ROBOT candidate game sprite, transparent RGBA. Reference image is existing theme A player for bold sparse black contours, large flat color shapes and RPG Maker slightly-overhead view ONLY. Do NOT copy its human head, face, hair, clothes, skin, hands or legs.\nRobot faces screenDOWN/viewer, centered, upright. Full object alone, no cafe scene or other character. Face screen contains ONLY TWO simple WHITE oval eyes on black display: no mouth, nose, eyebrow, blush, text, numbers, logos or symbols. Mechanical form must be clearly different from a human guest or villain, NO humanoid limbs/clothes. Main body surfaces red around#c8302a, secondary parts black white neutralgray ONLY, no other hue. Sparse thick black outlines like reference, simple flat fills with one shadow plane, no tiny seams, textures or decorative details. No white sticker border, glow or floor/cast shadow.\nIntended canvas192x288 ratio2:3, entire robot approximately230px high with top at y58 and lowest wheel/body ground contact at y288. Full silhouette fits within width180px and transparent side margins. Genuine transparency including gaps. Slightly viewed from above like reference, not isometric. One separate asset, not sheet. Candidate3: CLEANING ROBOT, based on a floor ROBOT VACUUM. The main red body is a wide LOW FLAT DISC, with broad elliptical top seen from above and thin cylindrical rim at floor, small dark wheels tucked below. From the disc rises ONE simple SHORT central mechanical stalk, ending in a SMALL rounded face screen with only two white oval eyes. Keep the base recognizably a flattened circular robot vacuum, not a tall barrel. The short stalk and small face display are the only raised parts. NO arms, shelves, clothes, human legs/hair, broom, mop or tools. Preserve wide low disc as dominant silhouette, contrasting the tall shelved serving cart and stub-arm helper. Fit the complete candidate to about230px total height on the required canvas without clipping.",
+              "references": [
+                "assets/a/player-down.png"
+              ],
+              "reason": "Wide flat candidate exported168px high at180px width, below requested approximate230px."
+            },
+            {
+              "prompt": "Edit Image1 cleaning robot, keep same red/gray/black style, front direction, TWO white oval eyes ONLY and vacuum-disc concept. Image2 only for game's thick sparse line style, never human anatomy/clothes.\nChange proportions so complete robot is230px tall and at most180px wide on192x288 transparent canvas. Current candidate is too wide/short: at180px width it is only168px high. Required new object aspectheight/width about1.28, not0.93. Give disc a slightly narrower176px width and90px total visual height (elliptical top plus thin rim), a single central support about75px high, and a small face screen about65px high. Total around230px. Support is simple compact single pillar, no extra joints/arms. Still reads instantly as LOW flat circular robot vacuum below a small face, not a barrel or humanoid.\nPlace robot top aroundy58, wheel/floor contact y288, centered. Keep wide shallow disc dominant, small head, sparse contours and red main body around#c8302a with neutralgray/black only. Face ONLY2ovaleyes, no mouth/text/symbols. No shelves/arms/legs/clothes, no attachments/props, no white sticker outline, no painted glow/floor shadow. Genuine RGBA transparency. One standalone sprite.",
+              "references": [
+                "generated-intermediate/first-low-vacuum-robot (not committed)",
+                "assets/a/player-down.png"
+              ],
+              "reason": "Proportion edit remained wide; exported179px high at188px width. Fresh generation selected instead."
+            }
+          ],
+          "output": {
+            "file": "assets/style-test/robot-3-a.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              66,
+              282,
+              958,
+              1359
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              188,
+              227
+            ],
+            "placement": [
+              2,
+              61
+            ],
+            "visibleBox": [
+              2,
+              61,
+              190,
+              288
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 287,
+            "redOpaquePixels": 14524,
+            "mintOpaquePixels": 0,
+            "PNGTextMetadata": [],
+            "processing": "Preserved generated alpha. Trimmed transparent margins, uniformly resized to230px height or188px maxwidth, centered on192x288 canvas with lowest edge at y288. No code modification of lines, colors, face, proportions or shape."
+          },
+          "outputSha256": "06c450d8d1a15d9f6dccd6d29c2c90b1625e5a37d84105b97387be90b63e70c0"
+        },
+        {
+          "key": "robot-1-b",
+          "candidate": 1,
+          "theme": "b",
+          "file": "assets/style-test/robot-1-b.png",
+          "prompt": "Style-transfer ONLY. Image1 is exact robot1 to edit, preserve SAME robot structure, proportions, camera, face with ONLY TWO WHITE OVAL EYES, silhouette and all parts. Image2 is theme B player for thick sparse black outline/style and mint color ONLY. Do not copy human head/limbs/hair/clothes or skin.\nReplace the main RED body panels of Image1 with MINT around#7fd3b8. Secondary parts remain black/white/neutralgray. No red left, no other accent hue. Keep EXACTLY TWO empty tray shelves and top landscape face screen, rounded wheeled base, NO arms. No extra details/props/text/numbers/logo/symbols. Face has no mouth/nose/brows.\nPreserve original full-resolution canvas/framing and transparent alpha, no white sticker border/glow/floor shadow. Final192x288 portrait canvas with robot about230px tall and floor at y288, front faces screenDOWN, slight overhead RPG Maker camera. ONE sprite only.",
+          "references": [
+            "assets/style-test/robot-1-a.png (full-resolution generated source before canvas fit)",
+            "assets/b/player-down.png"
+          ],
+          "output": {
+            "file": "assets/style-test/robot-1-b.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              163,
+              233,
+              861,
+              1406
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              137,
+              230
+            ],
+            "placement": [
+              27,
+              58
+            ],
+            "visibleBox": [
+              27,
+              58,
+              164,
+              288
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 287,
+            "redOpaquePixels": 0,
+            "mintOpaquePixels": 9880,
+            "PNGTextMetadata": [],
+            "processing": "Preserved generated alpha. Trimmed transparent margins, uniformly resized to230px height or188px maxwidth, centered on192x288 canvas with lowest edge at y288. No code modification of lines, colors, face, proportions or shape."
+          },
+          "outputSha256": "ae57b87397baa4bc6660735227770e62e7e8d4ce159dd1fa70dc214c78e3a35e"
+        },
+        {
+          "key": "robot-2-b",
+          "candidate": 2,
+          "theme": "b",
+          "file": "assets/style-test/robot-2-b.png",
+          "prompt": "Style-transfer ONLY. Image1 is exact robot2 to edit, preserve SAME robot structure, proportions, camera, face with ONLY TWO WHITE OVAL EYES, silhouette and all parts. Image2 is theme B player for thick sparse black outline/style and mint color ONLY. Do not copy human head/limbs/hair/clothes or skin.\nReplace the main RED body panels of Image1 with MINT around#7fd3b8. Secondary parts remain black/white/neutralgray. No red left, no other accent hue. Keep compact cylindrical solid torso, TWO simple short mechanical paddle arms, separate ROUND face-screen head and wheels, NO shelves or humanhands/legs. No extra details/props/text/numbers/logo/symbols. Face has no mouth/nose/brows.\nPreserve original full-resolution canvas/framing and transparent alpha, no white sticker border/glow/floor shadow. Final192x288 portrait canvas with robot about230px tall and floor at y288, front faces screenDOWN, slight overhead RPG Maker camera. ONE sprite only.",
+          "references": [
+            "assets/style-test/robot-2-a.png (full-resolution generated source before canvas fit)",
+            "assets/b/player-down.png"
+          ],
+          "output": {
+            "file": "assets/style-test/robot-2-b.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              92,
+              288,
+              932,
+              1288
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              188,
+              224
+            ],
+            "placement": [
+              2,
+              64
+            ],
+            "visibleBox": [
+              2,
+              64,
+              190,
+              288
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 287,
+            "redOpaquePixels": 0,
+            "mintOpaquePixels": 9555,
+            "PNGTextMetadata": [],
+            "processing": "Preserved generated alpha. Trimmed transparent margins, uniformly resized to230px height or188px maxwidth, centered on192x288 canvas with lowest edge at y288. No code modification of lines, colors, face, proportions or shape."
+          },
+          "outputSha256": "a1a9c7986dbd07a9394e0cc7cb94807260382e7eced4bace18315e74f09306d4"
+        },
+        {
+          "key": "robot-3-b",
+          "candidate": 3,
+          "theme": "b",
+          "file": "assets/style-test/robot-3-b.png",
+          "prompt": "Style-transfer ONLY. Image1 is exact new cleaning robot edit target: keep same entire silhouette, proportions, canvas, flat vacuum-disc base, compact single support, small rounded face screen, mechanical parts, perspective and two white oval eyes. Image2 is theme B player for sparse thick black game outlines and MINT palette only. Do NOT draw human face/hair/skin/clothes or limbs.\nChange ONLY RED main body parts to MINT around#7fd3b8; secondary material remains black/white/neutralgray. No red remains, no other accent color. No added objects, arms, shelf, human legs/hands, mouth, eyebrow, text/numbers/logo/symbols. Face is ONLY TWO white oval eyes on blackscreen.\nPreserve original high-resolution portrait canvas and exact shape/placement of Image1; final192x288 with whole robot about230px high and floor contacty288. Front faces screenDOWN, slightly overhead RPG Maker view. Do not make it wider or shorter. Genuine RGBA background and leg gaps. No white sticker border, glow, painted floor/cast shadow, texture or extra details. ONE standalone sprite, not sheet.",
+          "references": [
+            "assets/style-test/robot-3-a.png (full-resolution generated source before canvas fit)",
+            "assets/b/player-down.png"
+          ],
+          "output": {
+            "file": "assets/style-test/robot-3-b.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              66,
+              281,
+              958,
+              1358
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              188,
+              227
+            ],
+            "placement": [
+              2,
+              61
+            ],
+            "visibleBox": [
+              2,
+              61,
+              190,
+              288
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 287,
+            "redOpaquePixels": 0,
+            "mintOpaquePixels": 14507,
+            "PNGTextMetadata": [],
+            "processing": "Preserved generated alpha. Trimmed transparent margins, uniformly resized to230px height or188px maxwidth, centered on192x288 canvas with lowest edge at y288. No code modification of lines, colors, face, proportions or shape."
+          },
+          "outputSha256": "682cf33d4d6a3dfe846c7bc79b6af0869ecd539e8d43696cb6b62fb55ac0d547"
+        }
+      ],
+      "qa": {
+        "preview": "Standalone192x288 PNGs inspected individually and in comparison grid. Game not used for trial artwork.",
+        "observed": "Three distinct mechanical forms: two-tray cart; cylindrical helper with two short mechanical arms; flattened vacuum disc with single support and small screen. Each face shows only two white oval eyes. No mouth/text/numbers, human clothes/hair/limbs, sticker border or floor shadow. A red with neutral secondary materials, B mint with neutral secondary materials.",
+        "actualHeights": {
+          "robot-1-a": 230,
+          "robot-1-b": 230,
+          "robot-2-a": 223,
+          "robot-2-b": 224,
+          "robot-3-a": 227,
+          "robot-3-b": 227
+        },
+        "sizeNote": "Heights223-230px satisfy approximately230px while fitting full silhouette inside192px width without distortion or clipping. All six canvases192x288 and bottom opaque row287, boundaryy288.",
+        "processing": "Only alpha-margin trim, proportional resize and canvas placement by Pillow. No code changes to lines, colors, face or proportions.",
+        "registration": "No manifest or game-code changes. Files are trial candidates, not chosen final protagonist."
+      },
+      "commit": "No staging, commit or push. User selects candidate before any final game artwork; Claude Code reviews and commits.",
+      "externalSourceChangesDuringTask": []
     }
   ]
 }
