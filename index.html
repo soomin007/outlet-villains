@@ -792,6 +792,18 @@
 
     .card-art img.small { height: min(24vh, 160px); }
 
+    /* 만화 프롤로그 컷: 글 없이 그림만 크게 보인다. */
+    .card.comic .card-text { display: none; }
+
+    .card-art img.comic {
+      width: min(90vw, 1120px);
+      height: auto;
+      max-height: 78vh;
+      object-fit: contain;
+      border: 4px solid #111;
+      border-radius: 10px;
+    }
+
     .card-kicker {
       margin: 0 0 6px;
       font-size: 15px;
@@ -862,6 +874,8 @@
       }
 
       .card-art img { height: min(28vh, 200px); }
+      .card-art img.comic { width: 100%; height: auto; }
+      .card.comic .card-body { padding-left: 6px; padding-right: 6px; }
       .card-art img.small { height: min(16vh, 110px); }
     }
 
@@ -1327,7 +1341,8 @@
 
       // 카드(프롤로그, 챕터 소개, 엔딩)를 띄우고, 아무 키나 누르거나 카드를 누르면 닫는다.
       // 앞 장면에서 누르던 키로 바로 넘어가지 않게 0.4초는 입력을 받지 않는다.
-      function showCard({ kicker = '', title = '', lines = [], art = '' }) {
+      function showCard({ kicker = '', title = '', lines = [], art = '', comic = false }) {
+        ui.card.classList.toggle('comic', comic);
         ui.cardKicker.textContent = kicker;
         ui.cardTitle.textContent = title;
         ui.cardLines.innerHTML = lines.map((line) => `<p>${line}</p>`).join('');
@@ -1353,23 +1368,22 @@
         return path ? `<img class="${extraClass}" src="${path}" alt="" draggable="false">` : '';
       }
 
-      // 프롤로그. 처음 한 번만 보이고, 설정창에서 다시 볼 수 있다. 목표 문장(CLAUDE.md)과 콘셉트만 옮겼다.
+      // 프롤로그. 글 없는 만화 다섯 컷(story-1 ~ story-5, 2026-10-30 사용자 요청)이고, 처음 한 번만 보이며 설정창에서 다시 볼 수 있다.
+      // 컷은 WebP 한 장에 100KB 안팎이라 테마 그림과 함께 미리 받아 둔다(preloadTheme). 그림이 없으면 컷 대신 짧은 글 카드를 보여 준다.
       async function playPrologue() {
-        await showCard({
-          kicker: '프롤로그', title: '배터리 1%',
-          lines: ['카페에서 일하는 로봇의 배터리가 다 떨어져 간다.'],
-          art: '<div class="big-battery"><span></span></div>',
-        });
-        await showCard({
-          kicker: '프롤로그', title: '콘센트는 이미 주인이 있다',
-          lines: ['벽 콘센트마다 손님이 플러그를 꽂고 버티고 있다.'],
-          art: LAYOUT.chapters.map((chapter) => imageTag(chapter.villain.idle, 'small')).join(''),
-        });
-        await showCard({
-          kicker: '프롤로그', title: '스스로 뽑게 만들자',
-          lines: ['로봇이 손님에게 비켜 달라고 할 수는 없다. 약점을 건드려 스스로 플러그를 뽑고 떠나게 만든다.', '빈 콘센트에 내 충전기가 꽂히면 성공이다.'],
-          art: imageTag('plug-mine', 'small'),
-        });
+        const fallback = [
+          '카페에서 일하는 청소 로봇의 배터리가 다 떨어져 간다.',
+          '로봇의 충전 독 플러그를 손님이 뽑고 자기 멀티탭을 꽂았다.',
+          '로봇이 손님에게 비켜 달라고 할 수는 없다. 약점을 건드려 스스로 떠나게 만든다.',
+        ];
+        if (!assetPath('story-1')) {
+          for (const line of fallback) await showCard({ kicker: '프롤로그', lines: [line] });
+        } else {
+          for (let panel = 1; panel <= 5; panel += 1) {
+            if (!assetPath(`story-${panel}`)) continue;
+            await showCard({ art: imageTag(`story-${panel}`, 'comic'), comic: true });
+          }
+        }
         settings.prologueSeen = true;
         saveSettings();
       }
