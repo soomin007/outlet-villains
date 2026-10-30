@@ -1402,19 +1402,14 @@
         game.busy = true;
         game.skip = false;
         const colors = THEMES[settings.theme];
+        // 빌런이 차지한 콘센트와 그 선, 그리고 바닥에 뽑혀 있는 충전 독의 플러그를 함께 짚는다.
         game.sprites.outlet.classList.add('pulse');
         game.sprites.cord.classList.add('pulse');
-        const bubble = document.createElement('div');
-        bubble.className = 'plug-bubble';
-        bubble.innerHTML = art('plug-mine', colors.outletMine, true);
-        const p = game.state.player;
-        bubble.style.left = `${tileLeft(p.x) + TILE / 2 - 15}px`;
-        bubble.style.top = `${tileTop(p.y) - TILE * 0.5 - 34}px`;
-        ui.actors.appendChild(bubble);
+        if (game.sprites.dockPlug) game.sprites.dockPlug.classList.add('pulse');
         await pause(1400);
-        bubble.remove();
         game.sprites.outlet.classList.remove('pulse');
         game.sprites.cord.classList.remove('pulse');
+        if (game.sprites.dockPlug) game.sprites.dockPlug.classList.remove('pulse');
         const demo = LAYOUT.levels[index].demo;
         if (demo && !settings.demosSeen.includes(demo.kind) && game.index === index) {
           game.skip = false;
@@ -1509,6 +1504,14 @@
         game.sprites.outlet = addSprite('outlet-theirs', TILE, TILE, colors.outletTheirs, { round: true });
         placeOnTile(game.sprites.outlet, look.outletX !== undefined ? look.outletX : villain.x, -1, TILE, TILE);
 
+        // 로봇 충전 독. 콘센트 오른쪽(판 끝이면 왼쪽) 벽 아래에 놓인다. 손님이 독의 플러그를 뽑아서, 플러그가 바닥에 나와 있다.
+        const outletCol = look.outletX !== undefined ? look.outletX : villain.x;
+        game.dockCols = { outlet: outletCol, dock: outletCol + 1 < LAYOUT.art.columns ? outletCol + 1 : outletCol - 1 };
+        game.sprites.dock = addSprite('dock', TILE, TILE, '#9a9a9a', { round: true });
+        placeOnTile(game.sprites.dock, game.dockCols.dock, -1, TILE, TILE);
+        game.sprites.dock.style.zIndex = '1';
+        drawDockCord(false);
+
         // 빌런 그림의 크기와 아래쪽이 닿는 칸은 판마다 다르다(잠든 빌런은 테이블 칸까지 엎드려 있다). layout.js가 기준이다.
         game.sprites.villain = addSprite(look.idle, TILE, TILE * look.heightTiles, colors.villain, { round: true });
         placeOnTile(game.sprites.villain, villain.x, villain.y + look.anchorRow, TILE, TILE * look.heightTiles);
@@ -1557,6 +1560,39 @@
         drawDots();
         ui.undo.disabled = game.history.length === 0;
         ui.nextCue.hidden = true;
+      }
+
+      // 충전 독의 선. 뽑힌 상태(plugged false)에서는 독에서 나온 선 끝의 플러그가 콘센트 아래 바닥에 놓여 있고,
+      // 꽂힌 상태에서는 선이 콘센트까지 이어진다. 선 안쪽 색은 주인공 색이다.
+      function drawDockCord(plugged) {
+        const colors = THEMES[settings.theme];
+        if (game.sprites.dockCord) game.sprites.dockCord.remove();
+        if (game.sprites.dockPlug) game.sprites.dockPlug.remove();
+        game.sprites.dockPlug = null;
+        const { outlet, dock } = game.dockCols;
+        const x1 = tileLeft(dock) + TILE / 2 + (outlet > dock ? TILE * 0.3 : -TILE * 0.3);
+        const y1 = tileTop(-1) + TILE_H * 0.8;
+        const x2 = plugged ? tileLeft(outlet) + TILE / 2 : (tileLeft(dock) + tileLeft(outlet)) / 2 + TILE / 2;
+        const y2 = plugged ? tileTop(-1) + TILE_H * 0.62 : tileTop(-1) + TILE_H * 0.95;
+        const path = `M ${x1} ${y1} Q ${(x1 + x2) / 2} ${Math.max(y1, y2) + TILE_H * 0.25} ${x2} ${y2}`;
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('class', 'cord');
+        svg.innerHTML = `<path d="${path}" stroke="#111" stroke-width="5"></path>`
+          + `<path d="${path}" stroke="${colors.outletMine}" stroke-width="2.5"></path>`;
+        svg.style.zIndex = '2';
+        ui.actors.appendChild(svg);
+        game.sprites.dockCord = svg;
+        if (plugged) return;
+        const size = TILE * 0.42;
+        const plug = document.createElement('div');
+        plug.className = 'sprite dock-plug';
+        plug.style.width = `${size}px`;
+        plug.style.height = `${size}px`;
+        plug.style.transform = `translate(${x2 - size / 2}px, ${y2 - size / 2}px)`;
+        plug.style.zIndex = '3';
+        plug.innerHTML = art('plug-mine', colors.outletMine, true);
+        ui.actors.appendChild(plug);
+        game.sprites.dockPlug = plug;
       }
 
       // 벽 콘센트에서 빌런까지 늘어진 충전 선. 콘센트를 누가 차지했는지 보여 준다. 빌런 그림 뒤로 들어가게 겹침 순서를 하나 낮춘다.
@@ -1800,6 +1836,7 @@
         game.sprites.cord.classList.add('gone');
         await wait(500);
         setArt(game.sprites.outlet, 'outlet-mine', colors.outletMine, true);
+        drawDockCord(true);
         Sound.play('plug');
         ui.battery.classList.add('full');
         game.cleared.add(game.level.id);
@@ -2083,6 +2120,7 @@
           game.sprites.villain.classList.add('gone');
           game.sprites.cord.classList.add('gone');
           setArt(game.sprites.outlet, 'outlet-mine', THEMES[settings.theme].outletMine, true);
+          drawDockCord(true);
           ui.battery.classList.add('full');
           ui.nextCue.hidden = false;
         }
