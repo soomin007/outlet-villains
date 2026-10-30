@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>콘센트 빌런 도감</title>
+  <title>충전이 필요해!</title>
   <style>
     /* 콘센트 빌런 도감 첫 판. 콘셉트와 그림 규칙은 docs/concept.md에 있다.
        그림이 없는 동안은 테마별 색 규칙대로 칠한 상자로 보인다. 글은 넣지 않는다. */
@@ -879,6 +879,105 @@
       .card-art img.small { height: min(16vh, 110px); }
     }
 
+    /* 메인 화면. 만화 1번 컷(밤의 카페)을 어둡게 깔고, 왼쪽에 로봇, 오른쪽에 제목 로고와 버튼을 둔다. */
+    .title-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #141210;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .title-screen::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 13, 11, 0.62);
+    }
+
+    .title-inner {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5vw;
+      width: 100%;
+      max-width: 1100px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .title-robot img {
+      display: block;
+      height: min(60vh, 520px);
+      width: auto;
+    }
+
+    .title-side {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .title-logo { margin: 0; }
+    .title-logo img { display: block; width: min(44vw, 560px); height: auto; }
+
+    /* 로고 그림이 오기 전의 글자 로고. 둘째 줄의 '필'이 첫 줄의 '전' 아래에 오도록 둘째 줄을 한 글자만큼 민다. */
+    .text-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      color: #f6efe2;
+      font-size: clamp(44px, 7vw, 96px);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      text-shadow: 0 4px 0 #111, 4px 0 0 #111, -4px 0 0 #111, 0 -4px 0 #111;
+    }
+
+    .text-logo .line2 { padding-left: 1em; }
+    .text-logo .bang { color: var(--logo-accent); }
+
+    .title-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .title-btn {
+      min-width: 230px;
+      min-height: 48px;
+      padding-left: 18px;
+      padding-right: 18px;
+      border: 3px solid #eee;
+      border-radius: 12px;
+      background: rgba(43, 40, 38, 0.88);
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .title-btn.primary { background: #eee; color: #111; }
+    .title-btn:focus-visible { outline: 4px solid var(--logo-accent); outline-offset: 3px; }
+
+    .title-hint {
+      margin: 0;
+      font-size: 15px;
+      color: #c8c4bf;
+      animation: blink 1.2s steps(2) infinite;
+    }
+
+    @media (max-width: 640px) {
+      .title-inner { flex-direction: column; gap: 12px; }
+      .title-robot img { height: min(28vh, 220px); }
+      .title-logo img { width: min(78vw, 360px); }
+      .title-hint { display: none; }
+    }
+
     /* 설정창. 화면 전체를 덮는 창이고, Esc나 닫기로 닫는다. */
     .modal {
       position: fixed;
@@ -1029,6 +1128,22 @@
     </div>
   </main>
 
+  <!-- 메인 화면. 그림을 받는 동안 이 화면을 보여 주므로 따로 로딩 화면을 두지 않는다(2026-10-30 사용자 결정). -->
+  <div id="title-screen" class="title-screen" hidden>
+    <div class="title-inner">
+      <div id="title-robot" class="title-robot"></div>
+      <div class="title-side">
+        <h1 id="title-logo" class="title-logo"></h1>
+        <div class="title-menu">
+          <button id="title-continue" class="title-btn primary" type="button"></button>
+          <button id="title-new" class="title-btn" type="button">처음부터</button>
+          <button id="title-settings" class="title-btn" type="button">설정</button>
+        </div>
+        <p class="title-hint">아무 키나 누르면 시작</p>
+      </div>
+    </div>
+  </div>
+
   <div id="settings" class="modal" role="dialog" aria-modal="true" aria-labelledby="settings-title" hidden>
     <div class="panel">
       <h2 id="settings-title">설정</h2>
@@ -1115,6 +1230,12 @@
         setMusic: document.getElementById('set-music'),
         setSfx: document.getElementById('set-sfx'),
         replayPrologue: document.getElementById('replay-prologue'),
+        title: document.getElementById('title-screen'),
+        titleRobot: document.getElementById('title-robot'),
+        titleLogo: document.getElementById('title-logo'),
+        titleContinue: document.getElementById('title-continue'),
+        titleNew: document.getElementById('title-new'),
+        titleSettings: document.getElementById('title-settings'),
         closeSettings: document.getElementById('close-settings'),
       };
 
@@ -1130,7 +1251,7 @@
 
       // 밝기는 %, 음악과 효과음은 0~100이다.
       function loadSettings() {
-        const defaults = { theme: 'a', brightness: 100, music: 60, sfx: 50, keysSeen: false, demosSeen: [], prologueSeen: false };
+        const defaults = { theme: 'a', brightness: 100, music: 60, sfx: 50, keysSeen: false, demosSeen: [], prologueSeen: false, cleared: [], lastLevel: 0 };
         try {
           return { ...defaults, ...JSON.parse(localStorage.getItem(STORAGE_KEY)) };
         } catch (error) {
@@ -1414,7 +1535,33 @@
           art: LAYOUT.chapters.map((chapter) => imageTag(chapter.villain.portrait, 'small')).join(''),
         });
         game.busy = false;
-        startLevel(0);
+        showTitle();
+      }
+
+      // 메인 화면. 배경은 만화 1번 컷, 로봇과 로고는 그림이 있으면 그림, 없으면 주인공 그림과 글자 로고를 쓴다.
+      function showTitle() {
+        const colors = THEMES[settings.theme];
+        const story = assetPath('story-1');
+        ui.title.style.backgroundImage = story ? `url("${story}")` : '';
+        ui.title.style.setProperty('--logo-accent', colors.player);
+        ui.titleRobot.innerHTML = imageTag(assetPath('title-robot') ? 'title-robot' : 'player-down');
+        ui.titleLogo.innerHTML = assetPath('title-logo')
+          ? `<img src="${assetPath('title-logo')}" alt="충전이 필요해!">`
+          : '<span class="text-logo"><span>충전이</span><span class="line2">필요해<span class="bang">!</span></span></span>';
+        const hasProgress = settings.cleared.length > 0;
+        const target = settings.lastLevel || 0;
+        ui.titleContinue.textContent = hasProgress ? `이어하기 (${chapterNumber(target)}-${levelNumber(target)})` : '시작하기';
+        ui.titleNew.hidden = !hasProgress;
+        ui.title.hidden = false;
+        ui.titleContinue.focus();
+      }
+
+      // 메인 화면을 닫고 레벨을 시작한다. 이 첫 입력이 소리를 켜는 계기가 된다(브라우저는 사람이 누르기 전에는 소리를 막는다).
+      function leaveTitle(index) {
+        ui.title.hidden = true;
+        Sound.start();
+        game.lastStarted = -1;
+        startLevel(index);
       }
 
       // 아무 키나 누르면 시작 연출과 시연을 건너뛴다. 기다리는 동안 건너뛰기를 0.05초마다 확인한다.
@@ -1870,6 +2017,10 @@
         Sound.play('plug');
         ui.battery.classList.add('full');
         game.cleared.add(game.level.id);
+        // 깬 레벨과 다음에 이어 할 레벨을 저장해, 메인 화면의 이어하기로 돌아올 수 있게 한다.
+        settings.cleared = [...game.cleared];
+        settings.lastLevel = Math.min(game.index + 1, LAYOUT.levels.length - 1);
+        saveSettings();
         drawDots();
         ui.nextCue.hidden = false;
         game.busy = false;
@@ -2054,13 +2205,14 @@
       function openSettings() {
         ui.settings.hidden = false;
         ui.themeButtons.forEach((button) => { button.disabled = game.busy; });
-        ui.replayPrologue.disabled = game.busy;
+        ui.replayPrologue.disabled = game.busy || !ui.title.hidden;
         ui.closeSettings.focus();
       }
 
       function closeSettings() {
         ui.settings.hidden = true;
-        ui.openSettings.focus();
+        if (!ui.title.hidden) ui.titleContinue.focus();
+        else ui.openSettings.focus();
       }
 
       // 밀 때 나는 소리. 녹음은 의자 끄는 소리 하나라서, 가벼운 물건일수록 높고 작게 튼다.
@@ -2080,6 +2232,21 @@
         const key = event.key.toLowerCase();
         if (!ui.settings.hidden) {
           if (key === 'escape') closeSettings();
+          return;
+        }
+        if (!ui.title.hidden) {
+          const buttons = [ui.titleContinue, ui.titleNew, ui.titleSettings].filter((button) => !button.hidden);
+          const at = buttons.indexOf(document.activeElement);
+          if (key === 'arrowdown' || key === 'arrowup' || key === 's' || key === 'w') {
+            event.preventDefault();
+            const step = key === 'arrowdown' || key === 's' ? 1 : -1;
+            buttons[(Math.max(at, 0) + step + buttons.length) % buttons.length].focus();
+          } else if (key === 'escape') {
+            openSettings();
+          } else if (!MODIFIER_KEYS.includes(key) && key !== 'tab') {
+            event.preventDefault();
+            (at >= 0 ? buttons[at] : ui.titleContinue).click();
+          }
           return;
         }
         if (key === 'escape') {
@@ -2145,6 +2312,10 @@
         saveSettings();
         applySettings();
         preloadTheme();
+        if (!game.level) {
+          showTitle();
+          return;
+        }
         draw();
         if (game.won) {
           game.sprites.villain.classList.add('gone');
@@ -2172,10 +2343,18 @@
       });
       new ResizeObserver(fitScene).observe(ui.stage);
 
+      ui.titleContinue.addEventListener('click', () => leaveTitle(settings.cleared.length > 0 ? settings.lastLevel || 0 : 0));
+      ui.titleNew.addEventListener('click', () => {
+        settings.prologueSeen = false;
+        leaveTitle(0);
+      });
+      ui.titleSettings.addEventListener('click', openSettings);
+
+      game.cleared = new Set(settings.cleared);
       applySettings();
       preloadTheme();
       buildSideKeys();
-      startLevel(0);
+      showTitle();
       fitScene();
     })();
   </script>
