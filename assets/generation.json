@@ -6709,6 +6709,1170 @@
       },
       "commit": "No staging, commit or push. User selects candidate before any final game artwork; Claude Code reviews and commits.",
       "externalSourceChangesDuringTask": []
+    },
+    {
+      "id": "robot-round2-and-charging-dock-2026-10-30",
+      "date": "2026-10-30",
+      "tool": "built-in image_gen",
+      "purpose": "Six trial robot candidates4/5/6 in themes A/B and two charging dock assets. Robot trials unregistered; only dock registered.",
+      "assets": [
+        {
+          "key": "robot-4-a",
+          "theme": "a",
+          "kind": "robot",
+          "file": "assets/style-test/robot-4-a.png",
+          "prompt": "Background-extraction edit ONLY. Preserve this EXACT red cleaning robot with its raised round pincer arms, all body/head/arms/wheels geometry, colors and two eyes. REMOVE ALL external red/gray glow, haze, painted shadow, smoky cloud and any rectangular matte outside the robot. Genuine clean transparent RGBA: pixels outside robot's OUTERMOST BLACK CONTOUR must be completely transparent, including negative spaces and the area beside head/neck. No soft glow or shadow generated around the cutout. Keep robot foreground intact and sharp, sparse thickblack lines unchanged. Wheels remain bottom, grippers above floor. No text, no stickeroutline, no cord/plug. Same canvas and pose. One clean isolated robot only.",
+          "references": [
+            "generated-intermediate/raisedGrippers4 (not committed)"
+          ],
+          "foregroundConstruction": {
+            "prompt": "Precisely edit this original full-resolution red vacuum robot. KEEP original body, short neck, face and disc silhouette, proportions, framing and entire high-resolution canvas. Keep wheel/floor boundary exactly where it is. ONLY add TWO SHORT mechanical arms on FRONT of red disc, with ROUND two-jaw C-PINCERS reaching forward toward viewer.\nCritical pose: grippers MUST FLOAT WELL ABOVE THE FLOOR, in front of the body at mid-height. The lowest gripper tip must be ABOVE the lowest wheel edge by at least30 logical pixels in final192x288. Put grippers over the FRONT RED BODY area, not below wheels. Within original robot width, no sideways overhang. Use foreshortened arms angled forward: shoulders on disc front, cylindrical forearms, rounded opening between two jaws. Keep hands/arms inside original full body's bounding box. It should push at its front-bumper height, not scrape hands on floor.\nAt logical192x288: head topy58, arms origin near y185, hands occupy roughlyy210..250, original bottom wheelsy288. Hands never define bottom edge. Preserve original whole robot around230px high, no body rescaling to accommodate arms. Face ONLY existing TWO white oval eyes, no mouth/text/logos. Main red#c8302a, neutralgray/black other parts. No apron, human fingers/legs/clothes, WALL-E features, treads, power cord or plug. Sparse black lines, genuine transparency. No glow, floor/cast shadow or sticker border. One sprite.",
+            "references": [
+              "assets/style-test/robot-3-a.png (first-round full-resolution generated source)"
+            ],
+            "note": "Raised grippers above wheels, preserves first-round vacuum identity."
+          },
+          "discardedAttempt": {
+            "prompt": "Use case: identity-preserve / precise-object-edit. Image1 defines the first-round3 vacuum robot to evolve; Image2 same-theme line/color style only, never human anatomy.\nONE front-facing cafe cleaning robot game concept sprite, genuine transparent RGBA, not sheet. Match the reference game's thick sparse black outlines and simple flat shading. Mechanical machine for pushing/carrying things, NOT humanoid. Face black screen has ONLY TWO simple white oval eyes, no mouth, brows, text/numbers/logo/symbols.\nMain body RED near#c8302a; all other material black/white/neutralgray only. No additional accent hue. No human skin, hair, clothes (except specifically requested apron variant later), legs or human fingers. No POWER CORD, wire tail or PLUG anywhere. Do NOT imitate WALL-E's binocular eyes, tank treads, rusty yellow box or body shape. Wheels and practical mechanical arms only.\nFront faces screenDOWN, slightly overhead RPG Maker game view. Intended192x288 PNG, whole robot about230px tall, floor/wheel contacty288. Keep complete silhouette inside width188px, centered, no clipping. Arms project FORWARD toward viewer rather than sideways so they look ready to PUSH an object. No pushed object/other props/background. No sticker border, glow, floor/cast shadow, texture or fine detail. \nRobot4: keep Image1's flat circular vacuum-disc wheeled base, short central neck and small rounded screen head. Add TWO SHORT mechanical arms originating on FRONT of body, extended toward screenBOTTOM/viewer in visible foreshortening. Both arms end in ROUND PINCER GRIPPERS: two smooth rounded jaws forming a gentle C/clamp gap, no human palm/fingers. Place hands in front above the disc front rim at left/right, keep open gap between hands to indicate pushing. Arms and hands sit within body's left/right extent, not a huge sideways wingspan. Two arms clearly connected to front body and distinct from wheel housings. Keep recognizable round cleaning robot, no chest box, no treads, no apron yet. Face only2whiteovaleyes. Target silhouette widthabout180,height230, top58 floor288.",
+            "references": [
+              "assets/style-test/robot-3-a.png",
+              "assets/a/player-down.png"
+            ],
+            "note": "Hands were below wheel floor. Not selected."
+          },
+          "output": {
+            "file": "assets/style-test/robot-4-a.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              47,
+              227,
+              976,
+              1326
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              188,
+              222
+            ],
+            "placement": [
+              2,
+              66
+            ],
+            "visibleBox": [
+              2,
+              66,
+              190,
+              288
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 287,
+            "redOpaquePixels": 12010,
+            "mintOpaquePixels": 0,
+            "PNGTextMetadata": [],
+            "processing": "Visible alpha core (>128) used to find crop rectangle; original alpha of retained pixels preserved. Only rectangle crop, uniform resize and canvas placement in Pillow. No code recoloring, shape/line/face edits. Faint haze on intermediate4 removed through image_gen background-extraction edit, not pixel painting."
+          },
+          "outputSha256": "8f20e32e4627e95e12072a9079e37662f75a28b609b25f98727d03ba64b60fbe"
+        },
+        {
+          "key": "robot-5-a",
+          "theme": "a",
+          "kind": "robot",
+          "file": "assets/style-test/robot-5-a.png",
+          "prompt": "Precise vertical proportion edit. Preserve this exact clean red BOX-BODY cafe robot: the low squared chassis, four wheels, long forward mechanical arms with round bumper pads, colors, two-eye screen face and all lower parts. Current full-resolution portrait is1024x1536. Head TOP is around nativey420, wheels end aroundy1320. Move ONLY entire head UPWARD about150native pixels to y270, LENGTHEN the narrow central support by150px to connect head back to unchanged chassis. Keep head SIZE the same. Keep torso/arms/bumper hands/wheels pixels and width/positions unchanged. Do not shrink body or move wheels. This makes full robot height about1050px versus original900 while keeping width about880px, so it fits approximately230px high at188pxwidth. Support can be taller but remains plain mechanical column, not humanoid.\nAll hands stay well above wheel floor. Face only existing2whiteovaleyes, no mouth/text. No cord/plug/apron, treads or WALL-E details. Keep pure red plusneutralgray/black/white palette, thick sparse game outlines, transparent cutout. Remove any external glow/haze/background/floor shadow, no stickerborder. One sprite, same portraitcanvas.",
+          "references": [
+            "generated-intermediate/boxBody5 (not committed)"
+          ],
+          "bodyConstruction": {
+            "prompt": "Create ONE new transparent wheeled cafe CLEANING ROBOT candidate5. References ONLY for sparse black game line style, red accent and two-eye screen, not human anatomy or circular body.\nPORTRAIT192x288 canvas. Full robot boundingheight230px, widthmax180px, topy58, wheel floor y288. Use these vertical parts:\nSmall screen head y58..120, about76px wide, black screen with ONLY TWO white oval eyes; red rounded frame.\nSimple narrow mechanical support y120..178, NOT humanoid neck.\nLOW RECTANGULAR BOX body y178..258, about130pxwide, red with black/gray structure. Clearly square/box silhouette, no barrel/disc.\nFOUR SMALL individual wheels at four lower corners: rear wheels visible toward outer sides, front wheel bottoms at y288. No treads.\nTWO LONG simple mechanical arms connect to the SIDES of box near y185 and project/bend forward toward viewer, rather than sideways. Thin rod/segment arms extend toward y225; hands are ROUND SOLID BUMPER PADS at approximatelyx28 and164, y225..252. No pincers/fingers. Arms/hands ABOVE floor: lowest hand y252, wheelsy288. Bumper pads are for pushing at body height, never touch floor. Long arms distinguish from stub-arm helper. Full silhouette width<=188px.\nThis is a small practical clean machine, no WALL-E binocular eyes/tank tracks/rust/yellow body, no human skin/hair/clothes, no apron, no powercord/plug. Main RED#c8302a, other material neutral black/white/gray only. Front faces screenDOWN, RPG Maker slight overhead, sparse thick black contours/flat shading. Genuine RGBA, no sticker outline/glow/floor shadow/text/numbers/symbols. One asset, not sheet.",
+            "references": [
+              "assets/a/player-down.png",
+              "assets/style-test/robot-3-a.png"
+            ],
+            "note": "Fresh squared low chassis and four-wheel construction; then screen/support height adjusted."
+          },
+          "discardedAttempt": {
+            "prompt": "Use case: stylized-concept. References are GAME LINE STYLE and simple screen/arm material only. Do not copy round helper body or human identity.\nONE front-facing cafe cleaning robot game concept sprite, genuine transparent RGBA, not sheet. Match the reference game's thick sparse black outlines and simple flat shading. Mechanical machine for pushing/carrying things, NOT humanoid. Face black screen has ONLY TWO simple white oval eyes, no mouth, brows, text/numbers/logo/symbols.\nMain body RED near#c8302a; all other material black/white/neutralgray only. No additional accent hue. No human skin, hair, clothes (except specifically requested apron variant later), legs or human fingers. No POWER CORD, wire tail or PLUG anywhere. Do NOT imitate WALL-E's binocular eyes, tank treads, rusty yellow box or body shape. Wheels and practical mechanical arms only.\nFront faces screenDOWN, slightly overhead RPG Maker game view. Intended192x288 PNG, whole robot about230px tall, floor/wheel contacty288. Keep complete silhouette inside width188px, centered, no clipping. Arms project FORWARD toward viewer rather than sideways so they look ready to PUSH an object. No pushed object/other props/background. No sticker border, glow, floor/cast shadow, texture or fine detail. \nRobot5 has a LOW SQUARED rectangular BOX torso with smooth large rounded corners, FOUR SMALL WHEELS at its four lower corners, and a small FACE SCREEN above the box on a short support. Neutral modern clean cafe machine, not rusty or yellow. TWO LONG simple mechanical arms connect at the SIDES of the box and bend/project forward toward viewer, visibly longer than stub arms. Hands are ROUND solid BUMPER PADS, disk/rounded-cap shapes for pushing, no pincers and no human fingers. Pose hands forward symmetrically with space between, within188px overall width. Low red rectangular chassis, black/gray wheels, red outer face frame and arm casing. Clearly different from round vacuum4: rectangular body, four wheels, long arms with rounded bumpers. No shelves, apron, tank tracks or binocular eyes. Overall~230px high, wheels floor288, full object centered.",
+            "references": [
+              "assets/a/player-down.png",
+              "assets/style-test/robot-2-a.png"
+            ],
+            "note": "Hands below wheels and exported182px height at188pxwidth. Not selected."
+          },
+          "output": {
+            "file": "assets/style-test/robot-5-a.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              73,
+              221,
+              951,
+              1301
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              187,
+              230
+            ],
+            "placement": [
+              2,
+              58
+            ],
+            "visibleBox": [
+              2,
+              58,
+              189,
+              288
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 287,
+            "redOpaquePixels": 9952,
+            "mintOpaquePixels": 0,
+            "PNGTextMetadata": [],
+            "processing": "Visible alpha core (>128) used to find crop rectangle; original alpha of retained pixels preserved. Only rectangle crop, uniform resize and canvas placement in Pillow. No code recoloring, shape/line/face edits. Faint haze on intermediate4 removed through image_gen background-extraction edit, not pixel painting."
+          },
+          "outputSha256": "9fd1b06067c7f8c8071557fdd4c606f0dd73dd7bb8221fff45de70184f441a15"
+        },
+        {
+          "key": "dock-a",
+          "theme": "a",
+          "kind": "dock",
+          "file": "assets/a/dock.png",
+          "prompt": "Use case: stylized-concept. ONE ROBOT CHARGING DOCK, isolated transparent game prop. References are same-theme sparse thick black contours/material style only. Do NOT draw robot, trays, cups or table.\nCharging dock sits on floor against wall: LOW horizontal floor platform and a squat upright BACKPLATE at its rear. Backplate FRONT faces viewer and has EXACTLY TWO silver/charcoal CHARGING CONTACT PADS side by side, and ONE tiny RED indicator light above/between them. Not a wall outlet, no socket holes, plug prongs, screen face or eyes. Clearly floor robot charging base with room for robot to roll onto platform. Body neutral mediumgray, contacts silvergray/darkgray, only color is a tiny redlight near#c8302a.\nNo POWER CORD or PLUG drawn; game draws them separately. No wall/floor background, words/digits/logos/symbols, white sticker outline, glow or cast/floor shadow. Simple flat shaded faces, sparse thick black contours, no texture/screws/detail clutter. RPG Maker slightly overhead front-visible furniture view, not isometric.\n192x192 transparent PNG ratio1:1; dock silhouette width154px (80%canvas) centered with19px side margins. Low overallheightabout120px, backplate above shallow floor plate; platform/feet ground contact at y192, all visible insidecanvas. One asset only.",
+          "references": [
+            "assets/style-test/robot-3-a.png",
+            "assets/a/cafe-table.png"
+          ],
+          "output": {
+            "file": "assets/a/dock.png",
+            "nativeSize": [
+              1254,
+              1254
+            ],
+            "sourceAlphaBox": [
+              55,
+              374,
+              1199,
+              1115
+            ],
+            "canvas": [
+              192,
+              192
+            ],
+            "objectSize": [
+              154,
+              100
+            ],
+            "placement": [
+              19,
+              92
+            ],
+            "visibleBox": [
+              19,
+              92,
+              173,
+              192
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 191,
+            "redOpaquePixels": 16,
+            "mintOpaquePixels": 0,
+            "PNGTextMetadata": [],
+            "processing": "Visible alpha core (>128) used to find crop rectangle; original alpha of retained pixels preserved. Only rectangle crop, uniform resize and canvas placement in Pillow. No code recoloring, shape/line/face edits. Faint haze on intermediate4 removed through image_gen background-extraction edit, not pixel painting."
+          },
+          "outputSha256": "a37401a3f775902628b4e1b7686c1e267dd1c297a016e1163d681018bf40b1c4"
+        },
+        {
+          "key": "dock-b",
+          "theme": "b",
+          "kind": "dock",
+          "file": "assets/b/dock.png",
+          "prompt": "Style-transfer ONLY. Image1 is exact robot charging dock EDIT TARGET, preserve its low floor platform, standing backplate, EXACT TWO metal charging contact pads, ONE small indicator light, entire geometry and pose. Image2 is theme B game line/material reference ONLY; don't copy cups/table.\nMake dock body LIGHT NEUTRAL GRAY rather than mediumgray, two charging contacts silvergray, black outlines. Change ONLY tiny RED indicator to MINT near#7fd3b8. Body does NOT become mint. No other colored element. Same sparse black game contours/simple shading, no added details.\nKeep original full-resolution canvas and silhouette. Final192x192 transparent PNG with width154px(80%) centered, bottom platform/feet aty192. No power cord or plug, no wall/floor background, no face/eyes, no text/numbers/logo/symbols, no sticker border/glow/floor shadow. One standalone charging dock only.",
+          "references": [
+            "assets/a/dock.png (full-resolution generated source before canvas fit)",
+            "assets/b/cafe-table.png"
+          ],
+          "output": {
+            "file": "assets/b/dock.png",
+            "nativeSize": [
+              1254,
+              1254
+            ],
+            "sourceAlphaBox": [
+              55,
+              374,
+              1199,
+              1115
+            ],
+            "canvas": [
+              192,
+              192
+            ],
+            "objectSize": [
+              154,
+              100
+            ],
+            "placement": [
+              19,
+              92
+            ],
+            "visibleBox": [
+              19,
+              92,
+              173,
+              192
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 191,
+            "redOpaquePixels": 0,
+            "mintOpaquePixels": 16,
+            "PNGTextMetadata": [],
+            "processing": "Visible alpha core (>128) used to find crop rectangle; original alpha of retained pixels preserved. Only rectangle crop, uniform resize and canvas placement in Pillow. No code recoloring, shape/line/face edits. Faint haze on intermediate4 removed through image_gen background-extraction edit, not pixel painting."
+          },
+          "outputSha256": "f2ba4d5944888482c439b6a2b4f7c61d67f8f9a0f4ac27c330a8c9f04d80c92a"
+        },
+        {
+          "key": "robot-6-a",
+          "theme": "a",
+          "kind": "robot",
+          "file": "assets/style-test/robot-6-a.png",
+          "prompt": "Precise clothing addition ONLY. Image1 is EXACT robot4 baseline. Keep SAME disc body, short neck, screen head, two white oval eyes, raised forward short arms with rounded C-pincer hands, wheels, pose, full silhouette and floor. Change ONLY add a SMALL plain CAFE APRON to the robot's round body.\nApron is light neutralgray/white cloth with a thin waist band around the circular body rim and a small plain front panel draped over FRONT RED BODY, behind the raised hands. No large human torso/bib, no clothes anywhere else, no apron extending to ground. Keep wheels visible and lowest, keep hands above ground and grippers clearly visible. No pocket/logo/words/numbers/pattern or added props. Apron should clearly be a small cafe-worker garment on SAME machine, not a new humanoid robot.\nMain body stays red#c8302a, secondary material gray/black/white only. Preserve proportions and full-resolution canvas exactly; final192x288 and approximately230px high with wheel ground y288. Genuine clean transparent alpha outside outerblackcontours, remove any glow/haze/shadow. No white sticker border, power cord, plug, mouth or face symbols. One sprite.",
+          "references": [
+            "assets/style-test/robot-4-a.png (full-resolution generated source before canvas fit)"
+          ],
+          "output": {
+            "file": "assets/style-test/robot-6-a.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              47,
+              226,
+              977,
+              1326
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              188,
+              222
+            ],
+            "placement": [
+              2,
+              66
+            ],
+            "visibleBox": [
+              2,
+              66,
+              190,
+              288
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 287,
+            "redOpaquePixels": 8973,
+            "mintOpaquePixels": 0,
+            "PNGTextMetadata": [],
+            "processing": "Visible alpha core (>128) used to find crop rectangle; original alpha of retained pixels preserved. Only rectangle crop, uniform resize and canvas placement in Pillow. No code recoloring, shape/line/face edits. Faint haze on intermediate4 removed through image_gen background-extraction edit, not pixel painting."
+          },
+          "outputSha256": "4ea98a120f471d3313b0e0c29bbc86837ec9e1ace31ba88dd0895dfaa27c867c"
+        },
+        {
+          "key": "robot-4-b",
+          "theme": "b",
+          "kind": "robot",
+          "file": "assets/style-test/robot-4-b.png",
+          "prompt": "Style-transfer ONLY. Image1 is exact candidate4 EDIT TARGET, preserve all robot geometry, head, flat vacuum disc body and two SHORT FRONT ARMS with ROUND C-PINCERS, arm position and wheels. Hands stay ABOVE wheel floor, wheels remain lowest. Image2 is B game's sparse black lines and MINT color only, do not copy human anatomy/clothing.\nReplace RED body/casings by MINT near#7fd3b8. All other material black/white/neutralgray, no red left or otheraccent hues. Keep existing TWO white oval eyes ONLY on blackscreen, no mouth/brows/text/numbers/logos/symbols. NO APRON in this candidate. No powercord/plug, treads, rust, WALL-E likeness, humanoid legs or fingers.\nSame full-resolution portraitcanvas/pose/proportions, final192x288 about230px high, wheel ground y288, front screenDOWN with RPG Maker slightoverhead. No resizing or widerarms. Clean real RGBA outside contours/gaps, no glow/haze/floor shadow/stickerborder. One isolated robot, not sheet.",
+          "references": [
+            "assets/style-test/robot-4-a.png (full-resolution generated source before canvas fit)",
+            "assets/b/player-down.png"
+          ],
+          "output": {
+            "file": "assets/style-test/robot-4-b.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              45,
+              226,
+              978,
+              1327
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              188,
+              222
+            ],
+            "placement": [
+              2,
+              66
+            ],
+            "visibleBox": [
+              2,
+              66,
+              190,
+              288
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 287,
+            "redOpaquePixels": 0,
+            "mintOpaquePixels": 12118,
+            "PNGTextMetadata": [],
+            "processing": "Visible alpha core (>128) used to find crop rectangle; original alpha of retained pixels preserved. Only rectangle crop, uniform resize and canvas placement in Pillow. No code recoloring, shape/line/face edits. Faint haze on intermediate4 removed through image_gen background-extraction edit, not pixel painting."
+          },
+          "outputSha256": "74b47158fe33a37c06a8b045ae996cea9a8ffac4a351624cfebc1379863b01b6"
+        },
+        {
+          "key": "robot-5-b",
+          "theme": "b",
+          "kind": "robot",
+          "file": "assets/style-test/robot-5-b.png",
+          "prompt": "Style-transfer ONLY. Image1 is exact candidate5 EDIT TARGET, preserve all robot geometry, head, low BOX body with FOUR small wheels, long side arms extending forward with ROUND SOLID BUMPER PADS, arm position and wheels. Hands stay ABOVE wheel floor, wheels remain lowest. Image2 is B game's sparse black lines and MINT color only, do not copy human anatomy/clothing.\nReplace RED body/casings by MINT near#7fd3b8. All other material black/white/neutralgray, no red left or otheraccent hues. Keep existing TWO white oval eyes ONLY on blackscreen, no mouth/brows/text/numbers/logos/symbols. NO APRON in this candidate. No powercord/plug, treads, rust, WALL-E likeness, humanoid legs or fingers.\nSame full-resolution portraitcanvas/pose/proportions, final192x288 about230px high, wheel ground y288, front screenDOWN with RPG Maker slightoverhead. No resizing or widerarms. Clean real RGBA outside contours/gaps, no glow/haze/floor shadow/stickerborder. One isolated robot, not sheet.",
+          "references": [
+            "assets/style-test/robot-5-a.png (full-resolution generated source before canvas fit)",
+            "assets/b/player-down.png"
+          ],
+          "output": {
+            "file": "assets/style-test/robot-5-b.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              46,
+              212,
+              978,
+              1340
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              188,
+              228
+            ],
+            "placement": [
+              2,
+              60
+            ],
+            "visibleBox": [
+              2,
+              60,
+              190,
+              288
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 287,
+            "redOpaquePixels": 0,
+            "mintOpaquePixels": 9591,
+            "PNGTextMetadata": [],
+            "processing": "Visible alpha core (>128) used to find crop rectangle; original alpha of retained pixels preserved. Only rectangle crop, uniform resize and canvas placement in Pillow. No code recoloring, shape/line/face edits. Faint haze on intermediate4 removed through image_gen background-extraction edit, not pixel painting."
+          },
+          "outputSha256": "dc9553d33fdda526a2cd2454852a16ac19feb54eeaa9c37dc3910990f84318ac"
+        },
+        {
+          "key": "robot-6-b",
+          "theme": "b",
+          "kind": "robot",
+          "file": "assets/style-test/robot-6-b.png",
+          "prompt": "Style-transfer ONLY. Image1 is exact apron robot6 EDIT TARGET. Keep all SAME body/head/neck/wheels, raised forward short pincer arms, plain small apron shape, floor and complete proportions. Image2 is same machine in theme B for precise MINT body palette only.\nChange red mainbody/casings of Image1 to MINT near#7fd3b8. Apron remains plain light neutralgray/white, not mint; all other secondary parts neutralgray/black/white. Do not modify apron or arms, and do not use image2 to REMOVE apron. Face only TWO white oval eyes on blackscreen, no mouth/brow/text/numbers/logo/symbols. No red left or extra accent color. No powercord/plug, humanlimbs/hair/clothes beyond existing apron, no extra props.\nPreserve exact full-resolution portraitcanvas, silhouette and wheel-bottom of Image1. Final192x288 about230pxhigh, wheels groundy288 and hands ABOVE floor. Clean genuine RGBA outside blackcontours and gaps, no glow/haze/floor shadow/stickerborder. Sparse thick black game outlines and simpleflat shading. One isolated robot, notsheet.",
+          "references": [
+            "assets/style-test/robot-6-a.png (full-resolution generated source before canvas fit)",
+            "assets/style-test/robot-4-b.png (full-resolution generated source before canvas fit)"
+          ],
+          "output": {
+            "file": "assets/style-test/robot-6-b.png",
+            "nativeSize": [
+              1024,
+              1536
+            ],
+            "sourceAlphaBox": [
+              48,
+              226,
+              976,
+              1324
+            ],
+            "canvas": [
+              192,
+              288
+            ],
+            "objectSize": [
+              188,
+              222
+            ],
+            "placement": [
+              2,
+              66
+            ],
+            "visibleBox": [
+              2,
+              66,
+              190,
+              288
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "lastOpaqueRow": 287,
+            "redOpaquePixels": 0,
+            "mintOpaquePixels": 9068,
+            "PNGTextMetadata": [],
+            "processing": "Visible alpha core (>128) used to find crop rectangle; original alpha of retained pixels preserved. Only rectangle crop, uniform resize and canvas placement in Pillow. No code recoloring, shape/line/face edits. Faint haze on intermediate4 removed through image_gen background-extraction edit, not pixel painting."
+          },
+          "outputSha256": "df23c7348d8c8fdef71798e8a8296d8caad14feb9511d077981cfa9b8e16c729"
+        }
+      ],
+      "qa": {
+        "robotSizes": {
+          "robot-4-a": [
+            188,
+            222
+          ],
+          "robot-4-b": [
+            188,
+            222
+          ],
+          "robot-5-a": [
+            187,
+            230
+          ],
+          "robot-5-b": [
+            188,
+            228
+          ],
+          "robot-6-a": [
+            188,
+            222
+          ],
+          "robot-6-b": [
+            188,
+            222
+          ]
+        },
+        "robotCanvas": [
+          192,
+          288
+        ],
+        "dockCanvas": [
+          192,
+          192
+        ],
+        "dockVisibleSize": [
+          154,
+          100
+        ],
+        "dockWidthPercent": 80.20833333333334,
+        "visualReview": "All six robot faces contain only two white oval eyes, no text/mouth. 4/6 have raised forward round pincers;6 adds plain neutralgray apron only.5 has low squared body, longer arms and round bumper hands above wheel floor. No wires/plugs/treads/binocular eyes/rust/yellow box. Docks have two metal contactpads and one tiny red(A)/mint(B)light, no cords/plugs.",
+        "registration": "Only dock path added once to each theme; no robot4/5/6 path in manifest. Manifest syntax check passed.",
+        "runtime": {
+          "desktop": [
+            1920,
+            1080
+          ],
+          "mobile": [
+            375,
+            812
+          ],
+          "game": "index.html loading and existing1-2 scene checked. No console error/warning or horizontal overflow at mobile width.",
+          "limits": "Current index.html has no dock rendering call. Dock registration/loading regression checked; actual dock placement/charging animation not tested. Robot trials deliberately not loaded into game. Standalone images and exact-size comparison inspected."
+        },
+        "limits": [
+          "Robot heights222-230px, maximum8px below approximate230px because proportions fit188px width without distortion/clipping.",
+          "In front view, candidate5 rear wheels partly hide behind chassis/front wheels. Four separate wheel positions are not equally visible at small size."
+        ],
+        "processing": "Visible alpha core (>128) used to find crop rectangle; original alpha of retained pixels preserved. Only rectangle crop, uniform resize and canvas placement in Pillow. No code recoloring, shape/line/face edits. Faint haze on intermediate4 removed through image_gen background-extraction edit, not pixel painting."
+      },
+      "commit": "No staging, commit or push. Claude Code reviews and commits; user chooses robot before final protagonist registration.",
+      "externalSourceChangesDuringTask": [
+        "src/engine.js",
+        "src/layout.js",
+        "index.html"
+      ],
+      "observedConcurrentChanges": [
+        "index.html",
+        "src/engine.js",
+        "src/layout.js",
+        "tools/verify.html"
+      ]
+    },
+    {
+      "date": "2026-10-30",
+      "name": "robot-round3-high-contrast-high-mounted-arms",
+      "tool": "built-in image_gen",
+      "scope": "Six robot7/8/9 trials only. No manifest registration, game-code changes, staging or commit.",
+      "rationale": "User found robot4 same-colored arms unreadable at80px and disc-mounted arms structurally awkward. Raise shoulders to neck(7), new cylinder torso(8), or screen sides(9), with thick charcoal arms and white pivots.",
+      "assets": [
+        {
+          "key": "robot-7-a",
+          "theme": "a",
+          "file": "assets/style-test/robot-7-a.png",
+          "refs": [
+            "assets/style-test/robot-7-a.png (prior generated arm assembly before export)"
+          ],
+          "prompt": "Use case: precise-object-edit. EXACT same robot7 supplied. Only make BOTH arm shafts MUCH THICKER: current narrow upperarm shafts are too thin at ~9%wholewidth. Increase ALL UPPERARM AND FOREARM SHAFTS by60% in perpendicular thickness. Every segment must have MINIMUM perpendicular thickness14% of ENTIRE robotwidth, equivalent27px for188pxwide finalrobot. This is industrial bulky pushing equipment, not skinny elbows. White shoulderpivot diameter at leastsame27px. Round Cgripper shape and outerhand positions unchanged. Preserve attachment at neck immediately below screen, red flatvacuumdisc, neck, face and exactly2whiteeyes, totalwidth andheight. Do not enlarge base/head or spread arm envelope; thicken shafts inward into negative space if needed. All arms charcoal #3a3a3a, one whitepivot each. Red body/frame should muted RED #c8302a, not bright neon scarlet. No redesign or other changes. Transparentbackground no glow/shadow/stickerborder/cord/plug/text. Same sparse thick linework.",
+          "lineage": [
+            {
+              "prompt": "Use case: precise-object-edit. Create ONE standalone transparent 2D cartoon game sprite, front-facing with slight overhead RPG Maker view, no perspective ground. Image 1 is the exact robot-4 edit target. Preserve its red flat circular vacuum base with black bumper and small wheels, single short neck, red framed rectangular black face screen, and TWO simple white oval eyes. Preserve face, sparse thick black linework, flat red/gray/white palette and overall identity. CHANGE ONLY THE ARM ASSEMBLY as described below, and for candidate8 add the specified cylinder. Remove the old thin red arms completely. Robot is pushing an object toward the viewer, but draw no object.\nNEW ARMS MUST READ AT ONLY 80px TOTAL ROBOT HEIGHT: two extremely simple thick DARK GRAY #3a3a3a mechanical arms, NOT red, NOT thin rods. Each arm shaft thickness >= 12% of the robot's entire width (e.g. 24px thick for 180px robot), preferably14%. One clear WHITE circular shoulder pivot per arm. Rounded DARK GRAY C-shaped gripper at each end; do not add tiny fingers, screws, lines, wires. White pivot joins arm to body at the specified mounting point. Arms travel outward, then forward/down in the image, ending in separated grippers above the disc. Both arms must visibly attach high, never originate on the bottom disc. Do not obscure either eye or look as if hands cradle the screen. Keep negative space separating the arms from neck/body. No red panels on arms, only solid charcoal and white pivot.\nFull silhouette compact and vertical: intended final192x288 transparent PNG, visible robot height approx230px, total width <=188px; do not spread arms so wide that fit-to-width makes robot tiny. Wheels are lowest point, level ground edgey288. Red base and face frame #c8302a near target; neutral grays only elsewhere. No apron, no extra tools, no cord/plug, no mouth/text/numbers/symbols/logo, no sticker white border, no cast floor shadow, no ground/background/checkerboard. True transparent alpha; clean firm opaque sprite without haze. No WALL-E binoculars, tracks, rust or box personality. VARIANT7: preserve EXACT original robot4 body proportions, disc and neck and face. Shoulder pivots sit at mid-neck immediately below the face screen, NOT on the screen and NOT on the disc. Two heavy charcoal arms emerge from left and right sides of neck at that upper attachment and extend forward/down to C-grippers. Clearly show neck-based shoulders.",
+              "refs": [
+                "assets/style-test/robot-4-a.png"
+              ]
+            },
+            {
+              "prompt": "Use case: background-extraction. Input image is the exact sprite to preserve. Remove ALL soft reddish/gray halo and translucent haze OUTSIDE the robot, including between arms and neck. Genuine zero-alpha empty background, no shadow/glow. Preserve the entire sharp outlined foreground robot, including the red disc, screen and two eyes, neck-mounted charcoal thick arms, white shoulder joints and round Cgrippers EXACTLY unchanged in size, shape, color, stroke and pose. Do not redraw the design. Keep antialiased edges, opaque solid interior. ONE transparent PNG cutout, no text or sticker border.",
+              "refs": [
+                "assets/style-test/robot-7-a.png (initial generated source before export)"
+              ]
+            }
+          ]
+        },
+        {
+          "key": "robot-8-a",
+          "theme": "a",
+          "file": "assets/style-test/robot-8-a.png",
+          "refs": [
+            "assets/style-test/robot-8-a.png (prior generated arm assembly before export)"
+          ],
+          "prompt": "Use case: precise-object-edit. EXACT same supplied robot8. Change ONLY arm thickness. ALL UPPERARM AND FOREARM SHAFTS must be60%thicker than now, MINIMUM perpendicular shaft width14%ofwhole robotwidth (26px at180pxwide finalrobot), INCLUDING NARROW upperarmsegment. Bulky charcoal #3a3a3a industrial pushing arms, broad white shoulderpivot. Round Cgrippers same pose/position. Thicken into negative space, don't spread silhouette or enlargebase/head. Keep arm mounts at upperSIDESofCYLINDRICALTORSO, cylinderheight25%totalrobot, preserve originalvacuumdisc/wheels, shortneck, face with exactly2whiteovaleyes. Body/frame muted RED #c8302a, notneon. Preserve proportions and sparse thick strokes, true transparentbackground no glow/haze/shadow/whiteborder/text/cord/plug. Nothingelsechanges.",
+          "lineage": [
+            {
+              "prompt": "Use case: precise-object-edit. Create ONE standalone transparent 2D cartoon game sprite, front-facing with slight overhead RPG Maker view, no perspective ground. Image 1 is the exact robot-4 edit target. Preserve its red flat circular vacuum base with black bumper and small wheels, single short neck, red framed rectangular black face screen, and TWO simple white oval eyes. Preserve face, sparse thick black linework, flat red/gray/white palette and overall identity. CHANGE ONLY THE ARM ASSEMBLY as described below, and for candidate8 add the specified cylinder. Remove the old thin red arms completely. Robot is pushing an object toward the viewer, but draw no object.\nNEW ARMS MUST READ AT ONLY 80px TOTAL ROBOT HEIGHT: two extremely simple thick DARK GRAY #3a3a3a mechanical arms, NOT red, NOT thin rods. Each arm shaft thickness >= 12% of the robot's entire width (e.g. 24px thick for 180px robot), preferably14%. One clear WHITE circular shoulder pivot per arm. Rounded DARK GRAY C-shaped gripper at each end; do not add tiny fingers, screws, lines, wires. White pivot joins arm to body at the specified mounting point. Arms travel outward, then forward/down in the image, ending in separated grippers above the disc. Both arms must visibly attach high, never originate on the bottom disc. Do not obscure either eye or look as if hands cradle the screen. Keep negative space separating the arms from neck/body. No red panels on arms, only solid charcoal and white pivot.\nFull silhouette compact and vertical: intended final192x288 transparent PNG, visible robot height approx230px, total width <=188px; do not spread arms so wide that fit-to-width makes robot tiny. Wheels are lowest point, level ground edgey288. Red base and face frame #c8302a near target; neutral grays only elsewhere. No apron, no extra tools, no cord/plug, no mouth/text/numbers/symbols/logo, no sticker white border, no cast floor shadow, no ground/background/checkerboard. True transparent alpha; clean firm opaque sprite without haze. No WALL-E binoculars, tracks, rust or box personality. VARIANT8: insert ONE low RED CYLINDRICAL TORSO between the circular vacuum base and neck. Torso height about25% of entire robot (~58px of230), width about60% of disc. Keep original disc and original face screen, compress empty neck spacing to retain height230. Shoulders with white pivots attach to UPPER LEFT AND RIGHT SIDES OF THE NEW CYLINDER, lower than the screen. Thick charcoal arms then extend forward/down, Cgrippers ending above base front. Cylinder must be unmistakable, stand more upright than robot7, not just a longer thin neck.",
+              "refs": [
+                "assets/style-test/robot-4-a.png"
+              ]
+            },
+            {
+              "prompt": "Use case: precise-object-edit. Preserve this exact robot8 sprite, front view, red disc and black bumper wheels, single neck, red framed screen with exactly2white ovaleyes, charcoal thick arms with1whitepivot each attached to CYLINDER sides, Cgrippers, same thick sparse strokes. TWO corrections only: 1) Increase the RED CYLINDRICAL TORSO height to 25% of total robot height, approximately58px of a230px robot. Current cylinder front is too short. Torso top behind shoulder pivots, bottom meets disc; make cylinder visibly tall but still low. Preserve original head/disc size and compact horizontalwidth, do not widen arms or alter their thickness. 2) remove ALL soft red/gray haze outside silhouette and between arms, yielding actual zero-alpha transparent background, no floor shadow/glow. Solid opaque foreground, antialiased outline only. No other edits, no text, no mouth, no extra eyes, no cord, no stickeroutline. One sprite only.",
+              "refs": [
+                "assets/style-test/robot-8-a.png (initial generated source before export)"
+              ]
+            }
+          ]
+        },
+        {
+          "key": "robot-9-a",
+          "theme": "a",
+          "file": "assets/style-test/robot-9-a.png",
+          "refs": [
+            "assets/style-test/robot-9-a.png (prior generated arm assembly before export)"
+          ],
+          "prompt": "Use case: precise-object-edit. Preserve EXACT supplied robot9, ONLY armshafts change: both UPPERARM and FOREARM shafts60%thicker, EACH minimum perpendicular thickness14%whole robotwidth (~27px if whole188px). Current shafts too thin. Very chunky darkgray #3a3a3a pushing-machine arms, one broad WHITE shoulderhinge each attached directly to FACEscreen SIDES. Thicken inward into available emptyspace, don't spread silhouette, keep handpositions and round Cgrippers, don't support/cradlescreen. Keep exact original disc+wheels, shortneck, screen and exactly2whiteeyes, shape/proportions. Redframe/base muted#c8302a. Preserve thick sparse linework. Transparentzeroalphaemptybackground, no glow/haze/shadow/stickerborder/cord/plug/text. No otherchanges.",
+          "lineage": [
+            {
+              "prompt": "Use case: precise-object-edit. Create ONE standalone transparent 2D cartoon game sprite, front-facing with slight overhead RPG Maker view, no perspective ground. Image 1 is the exact robot-4 edit target. Preserve its red flat circular vacuum base with black bumper and small wheels, single short neck, red framed rectangular black face screen, and TWO simple white oval eyes. Preserve face, sparse thick black linework, flat red/gray/white palette and overall identity. CHANGE ONLY THE ARM ASSEMBLY as described below, and for candidate8 add the specified cylinder. Remove the old thin red arms completely. Robot is pushing an object toward the viewer, but draw no object.\nNEW ARMS MUST READ AT ONLY 80px TOTAL ROBOT HEIGHT: two extremely simple thick DARK GRAY #3a3a3a mechanical arms, NOT red, NOT thin rods. Each arm shaft thickness >= 12% of the robot's entire width (e.g. 24px thick for 180px robot), preferably14%. One clear WHITE circular shoulder pivot per arm. Rounded DARK GRAY C-shaped gripper at each end; do not add tiny fingers, screws, lines, wires. White pivot joins arm to body at the specified mounting point. Arms travel outward, then forward/down in the image, ending in separated grippers above the disc. Both arms must visibly attach high, never originate on the bottom disc. Do not obscure either eye or look as if hands cradle the screen. Keep negative space separating the arms from neck/body. No red panels on arms, only solid charcoal and white pivot.\nFull silhouette compact and vertical: intended final192x288 transparent PNG, visible robot height approx230px, total width <=188px; do not spread arms so wide that fit-to-width makes robot tiny. Wheels are lowest point, level ground edgey288. Red base and face frame #c8302a near target; neutral grays only elsewhere. No apron, no extra tools, no cord/plug, no mouth/text/numbers/symbols/logo, no sticker white border, no cast floor shadow, no ground/background/checkerboard. True transparent alpha; clean firm opaque sprite without haze. No WALL-E binoculars, tracks, rust or box personality. VARIANT9: preserve original disc, neck and face and original proportions. WHITE shoulder pivots are on OUTSIDE LEFT AND RIGHT EDGES OF FACE SCREEN FRAME at its middle height, not on neck or base. Thick darkgray arms originate directly from screen side hinges, extend outward then forward/down to round Cgrippers roughly midway between face and base. Keep screen free and TWO EYES entirely visible. Arms do NOT curve upward under the face or look like hands supporting/holding screen. Distinct screen-side shoulder mounts.",
+              "refs": [
+                "assets/style-test/robot-4-a.png"
+              ]
+            },
+            {
+              "prompt": "Use case: background-extraction. Preserve the EXACT supplied robot9 as foreground without any design change. Red disc, short neck and red rectangular face, two white eyes, arms originating directly at face-side WHITE hinge pivots then hanging forward/down, charcoal thick arm shafts and round Cgrippers. Remove all SOFT RED/GRAY HALO around and between its parts, no shadow and no glow. Actual empty zero-alpha transparent background. Preserve crisp thick black contour, colors, pose and dimensions, solid opaque robot with clean antialiasing only. No face/body/arm redesign, no additions, no text, no cord, no stickeroutline. One sprite only.",
+              "refs": [
+                "assets/style-test/robot-9-a.png (initial generated source before export)"
+              ]
+            }
+          ]
+        },
+        {
+          "key": "robot-7-b",
+          "theme": "b",
+          "file": "assets/style-test/robot-7-b.png",
+          "refs": [
+            "assets/style-test/robot-7-a.png (selected full-resolution generated source)",
+            "assets/style-test/robot-4-b.png"
+          ],
+          "prompt": "Use case: style-transfer. Image1 EXACT thick-arm robot7 structure to preserve. Image2 robot4-b paletteonly. Replace RED areas of image1 with MINT #7fd3b8 only. Do NOT slim or move arms. Identical veryBULKY charcoal #3a3a3a upperarms and forearms, minimum14%wholewidth perpendicularshaftthickness, broadWHITEshoulder joints attached toNECK immediatelybelowSCREEN. Preserve originaldisc, shortneck, face with2whiteovaleyes, roundCgrippers and entirepose/dimensions. Sparse thick blackoutlines. ONE frontview transparent PNG sprite, no glow/shadow/haze/stickerborder/text/cord/plug. Solidopaque robot and zeroalphaemptyspace. Do not use thin arms of image2.",
+          "lineage": [
+            {
+              "prompt": "Use case: style-transfer. Image1 is final candidate7 structure/edit target. Image2 robot4-b is mint palette/style reference ONLY. Output ONE same robot7 as image1, identical silhouette, head/base sizes, neck-mounted high shoulders directly BELOW screen, forward/down thick darkgray arms, single WHITE shoulder pivot per arm, round C-shaped charcoalgrippers, exactly2whiteeyes. ONLY CHANGE red base/frame/frontneckpanel into MINT #7fd3b8 using image2 palette. Keep arm shafts and grippers DARK GRAY #3a3a3a, never mint, and keep WHITE joints visible. Each arm thickness >=12% wholewidth. Do not move arms down to disc. Preserve sparse thick black strokes. True transparent zero-alpha empty background without glow/haze/shadow/stickeroutline. No mouth/text/numbers/symbols/cords/plugs. Compact full front view; intended final192x288 height~230, wheelslowest. Do not create multipleversions.",
+              "refs": [
+                "assets/style-test/robot-7-a.png (selected full-resolution generated source)",
+                "assets/style-test/robot-4-b.png"
+              ]
+            }
+          ]
+        },
+        {
+          "key": "robot-8-b",
+          "theme": "b",
+          "file": "assets/style-test/robot-8-b.png",
+          "refs": [
+            "assets/style-test/robot-8-a.png (selected full-resolution generated source)",
+            "assets/style-test/robot-4-b.png"
+          ],
+          "prompt": "Use case: style-transfer. Image1 EXACT thick-arm robot8 structure to preserve. Image2 robot4-b paletteonly. Replace RED areas of image1 with MINT #7fd3b8 only. Do NOT slim or move arms. Identical veryBULKY charcoal #3a3a3a upperarms and forearms, minimum14%wholewidth perpendicularshaftthickness, broadWHITEshoulder joints on CYLINDER upper SIDES. PreservelowCYLINDERtorso25%totalheight abovevacuumdisc, originalshortneck, screenwith2whiteovaleyes, roundCgrippers and entirepose/dimensions. Sparse thick blackoutlines. ONE frontview transparent PNG sprite, no glow/shadow/haze/stickerborder/text/cord/plug. Solidopaque robot and zeroalphaemptyspace. Do not use thin arms of image2.",
+          "lineage": [
+            {
+              "prompt": "Use case: style-transfer. Image1 is final candidate8 structure/edit target. Image2 robot4-b is mint palette/style reference ONLY. Output ONE same robot8 as image1, preserve exact form: circular vacuum disc and wheels, additional LOW CYLINDER TORSO ~25%totalheight between disc and original neck, face with exactly2ovaleyes, WHITEshoulder pivots on upper CYLINDER sides, thick charcoal arms forward/down with round Cgrippers. ONLY replace RED body/cylinder/screenframe/neckpanel with MINT #7fd3b8 matching image2. Arms remain DARK GRAY #3a3a3a with WHITE joints, eacharm >=12%wholewidth. Do not attach to disc or face, no added anatomy. Same sparse thick blacklines. Genuine transparent empty background with no haze/glow, no floor shadow, no stickeroutline. No text/mouth/cord/plug/symbols. Intended final192x288, silhouette~230high, wheelsfloor. One sprite.",
+              "refs": [
+                "assets/style-test/robot-8-a.png (selected full-resolution generated source)",
+                "assets/style-test/robot-4-b.png"
+              ]
+            }
+          ]
+        },
+        {
+          "key": "robot-9-b",
+          "theme": "b",
+          "file": "assets/style-test/robot-9-b.png",
+          "refs": [
+            "assets/style-test/robot-9-a.png (selected full-resolution generated source)",
+            "assets/style-test/robot-4-b.png"
+          ],
+          "prompt": "Use case: style-transfer. Image1 EXACT thick-arm robot9 structure to preserve. Image2 robot4-b paletteonly. Replace RED areas of image1 with MINT #7fd3b8 only. Do NOT slim or move arms. Identical veryBULKY charcoal #3a3a3a upperarms and forearms, minimum14%wholewidth perpendicularshaftthickness, broadWHITEshoulderhinges directly on FACE SCREEN OUTSIDE SIDES midwayheight. Arms extend forward/down to roundCgrippers, nevercradlescreen. Preserve originaldisc, shortneck, screenwith2whiteovaleyes and entirepose/dimensions. Sparse thick blackoutlines. ONE frontview transparent PNG sprite, no glow/shadow/haze/stickerborder/text/cord/plug. Solidopaque robot and zeroalphaemptyspace. Do not use thin arms of image2.",
+          "lineage": [
+            {
+              "prompt": "Use case: style-transfer. Image1 exact final candidate9 edit target; Image2 robot4-b mint palette/style reference ONLY. Make ONE same robot9 as image1. Preserve circularvacuumdisc/blackbumper/wheels, original shortneck, redrectangularfacescreen shape with exactly2whiteovaleyes. Its shoulders are WHITE pivots mounted directly on OUTSIDE LEFT AND RIGHT FACE SCREEN EDGES halfway upscreen. Thick CHARCOAL arms extend FORWARD/DOWN fromthosepivots to rounded Cgrippers, NOT supporting/cradling face frombelow. Keep original pose, gripperposition, geometry and sparse thickstrokes. ONLY redbase/screenframe/neckpanel become MINT #7fd3b8. Botharms remain DARKGRAY #3a3a3a with WHITE pivots and >=12%wholewidthshaftthickness. No mint arms. Transparent zeroalpha empty background, clean opaque sprite without glow/haze/shadow/stickerborder. No cord/plug/text/numbers/mouth/extraeyes/symbols. Intended192x288 height~230, full silhouette, wheelsfloor.",
+              "refs": [
+                "assets/style-test/robot-9-a.png (selected full-resolution generated source)",
+                "assets/style-test/robot-4-b.png"
+              ]
+            }
+          ]
+        }
+      ],
+      "processing": "Pillow rectangular alpha-core (>128) crop, uniform fit(max188width,230height) and center/bottom alignment on192x288. Preserve source alpha; no code shape/line/color/face edits. Preview sheets only outside repo, not generation references.",
+      "outputMetrics": [
+        {
+          "key": "robot-7-a",
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            18,
+            192,
+            1005,
+            1359
+          ],
+          "visibleSize": [
+            188,
+            222
+          ],
+          "placement": [
+            2,
+            66
+          ],
+          "lastOpaqueRow": 287,
+          "sha256": "0ef6e1838acc021708f887dd25f4fd6d03822a04cbb36abc1443918d53cc16e9",
+          "sourceSemiTransparentPixels": 11250,
+          "redPixels": 9308,
+          "mintPixels": 0
+        },
+        {
+          "key": "robot-8-a",
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            59,
+            173,
+            965,
+            1355
+          ],
+          "visibleSize": [
+            176,
+            230
+          ],
+          "placement": [
+            8,
+            58
+          ],
+          "lastOpaqueRow": 287,
+          "sha256": "cf5d64b8a7fefed4096e22c1844b903be056a2415c46eb87f7c200c6b15d35e0",
+          "sourceSemiTransparentPixels": 11701,
+          "redPixels": 10938,
+          "mintPixels": 0
+        },
+        {
+          "key": "robot-9-a",
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            27,
+            353,
+            997,
+            1483
+          ],
+          "visibleSize": [
+            188,
+            219
+          ],
+          "placement": [
+            2,
+            69
+          ],
+          "lastOpaqueRow": 287,
+          "sha256": "f825c48541618e4f5c06eed2abbd88bf0ac45ddcc9c1ab335d5fd5b621c73aa3",
+          "sourceSemiTransparentPixels": 12523,
+          "redPixels": 11114,
+          "mintPixels": 0
+        },
+        {
+          "key": "robot-7-b",
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            18,
+            191,
+            1006,
+            1360
+          ],
+          "visibleSize": [
+            188,
+            222
+          ],
+          "placement": [
+            2,
+            66
+          ],
+          "lastOpaqueRow": 287,
+          "sha256": "150cde771a47017e51e04681f2ea07c2f9ef65d8728dde8778250e82ce924d78",
+          "sourceSemiTransparentPixels": 14646,
+          "redPixels": 0,
+          "mintPixels": 9715
+        },
+        {
+          "key": "robot-8-b",
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            58,
+            173,
+            966,
+            1355
+          ],
+          "visibleSize": [
+            177,
+            230
+          ],
+          "placement": [
+            7,
+            58
+          ],
+          "lastOpaqueRow": 287,
+          "sha256": "24ddd29dae53fb7787bc42e79951139e2c266db1367dbcd6007b24318c76a765",
+          "sourceSemiTransparentPixels": 15784,
+          "redPixels": 0,
+          "mintPixels": 11001
+        },
+        {
+          "key": "robot-9-b",
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            27,
+            314,
+            998,
+            1451
+          ],
+          "visibleSize": [
+            188,
+            220
+          ],
+          "placement": [
+            2,
+            68
+          ],
+          "lastOpaqueRow": 287,
+          "sha256": "27fb3e0386e55f3b14583826862cda0e42cb0349f4af359db925da0368fad22e",
+          "sourceSemiTransparentPixels": 12871,
+          "redPixels": 0,
+          "mintPixels": 11227
+        }
+      ],
+      "armCrossSectionMeasurements": [
+        {
+          "key": "robot-7-a",
+          "wholeWidth": 987,
+          "leftArmCrossSections": [
+            {
+              "center": [
+                259,
+                759
+              ],
+              "perpendicular": [
+                0.7507135169227553,
+                0.6606278948920247
+              ],
+              "rawPixels": 176,
+              "percentWholeWidth": 17.83
+            },
+            {
+              "center": [
+                211,
+                911
+              ],
+              "perpendicular": [
+                0.9023038158503489,
+                -0.4311007120173889
+              ],
+              "rawPixels": 191,
+              "percentWholeWidth": 19.35
+            }
+          ],
+          "rightArmCrossSections": [
+            {
+              "center": [
+                765,
+                759
+              ],
+              "perpendicular": [
+                -0.7507135169227553,
+                0.6606278948920247
+              ],
+              "rawPixels": 176,
+              "percentWholeWidth": 17.83
+            },
+            {
+              "center": [
+                813,
+                911
+              ],
+              "perpendicular": [
+                -0.9023038158503489,
+                -0.4311007120173889
+              ],
+              "rawPixels": 191,
+              "percentWholeWidth": 19.35
+            }
+          ]
+        },
+        {
+          "key": "robot-8-a",
+          "wholeWidth": 906,
+          "leftArmCrossSections": [
+            {
+              "center": [
+                220,
+                790
+              ],
+              "perpendicular": [
+                0.8530336638520313,
+                0.5218558884741838
+              ],
+              "rawPixels": 174,
+              "percentWholeWidth": 19.21
+            },
+            {
+              "center": [
+                220,
+                955
+              ],
+              "perpendicular": [
+                0.8530336638520313,
+                -0.5218558884741838
+              ],
+              "rawPixels": 193,
+              "percentWholeWidth": 21.3
+            }
+          ],
+          "rightArmCrossSections": [
+            {
+              "center": [
+                804,
+                790
+              ],
+              "perpendicular": [
+                -0.8530336638520313,
+                0.5218558884741838
+              ],
+              "rawPixels": 172,
+              "percentWholeWidth": 18.98
+            },
+            {
+              "center": [
+                804,
+                955
+              ],
+              "perpendicular": [
+                -0.8530336638520313,
+                -0.5218558884741838
+              ],
+              "rawPixels": 191,
+              "percentWholeWidth": 21.08
+            }
+          ]
+        },
+        {
+          "key": "robot-9-a",
+          "wholeWidth": 970,
+          "leftArmCrossSections": [
+            {
+              "center": [
+                160,
+                650
+              ],
+              "perpendicular": [
+                0.9291641282577402,
+                0.36966744887673536
+              ],
+              "rawPixels": 165,
+              "percentWholeWidth": 17.01
+            },
+            {
+              "center": [
+                180,
+                890
+              ],
+              "perpendicular": [
+                0.8983843609192009,
+                -0.43921013200494263
+              ],
+              "rawPixels": 178,
+              "percentWholeWidth": 18.35
+            }
+          ],
+          "rightArmCrossSections": [
+            {
+              "center": [
+                864,
+                650
+              ],
+              "perpendicular": [
+                -0.9291641282577402,
+                0.36966744887673536
+              ],
+              "rawPixels": 166,
+              "percentWholeWidth": 17.11
+            },
+            {
+              "center": [
+                844,
+                890
+              ],
+              "perpendicular": [
+                -0.8983843609192009,
+                -0.43921013200494263
+              ],
+              "rawPixels": 178,
+              "percentWholeWidth": 18.35
+            }
+          ]
+        },
+        {
+          "key": "robot-7-b",
+          "wholeWidth": 988,
+          "leftArmCrossSections": [
+            {
+              "center": [
+                259,
+                759
+              ],
+              "perpendicular": [
+                0.7507135169227553,
+                0.6606278948920247
+              ],
+              "rawPixels": 176,
+              "percentWholeWidth": 17.81
+            },
+            {
+              "center": [
+                211,
+                911
+              ],
+              "perpendicular": [
+                0.9023038158503489,
+                -0.4311007120173889
+              ],
+              "rawPixels": 190,
+              "percentWholeWidth": 19.23
+            }
+          ],
+          "rightArmCrossSections": [
+            {
+              "center": [
+                765,
+                759
+              ],
+              "perpendicular": [
+                -0.7507135169227553,
+                0.6606278948920247
+              ],
+              "rawPixels": 175,
+              "percentWholeWidth": 17.71
+            },
+            {
+              "center": [
+                813,
+                911
+              ],
+              "perpendicular": [
+                -0.9023038158503489,
+                -0.4311007120173889
+              ],
+              "rawPixels": 191,
+              "percentWholeWidth": 19.33
+            }
+          ]
+        },
+        {
+          "key": "robot-8-b",
+          "wholeWidth": 908,
+          "leftArmCrossSections": [
+            {
+              "center": [
+                220,
+                790
+              ],
+              "perpendicular": [
+                0.8530336638520313,
+                0.5218558884741838
+              ],
+              "rawPixels": 174,
+              "percentWholeWidth": 19.16
+            },
+            {
+              "center": [
+                220,
+                955
+              ],
+              "perpendicular": [
+                0.8530336638520313,
+                -0.5218558884741838
+              ],
+              "rawPixels": 194,
+              "percentWholeWidth": 21.37
+            }
+          ],
+          "rightArmCrossSections": [
+            {
+              "center": [
+                804,
+                790
+              ],
+              "perpendicular": [
+                -0.8530336638520313,
+                0.5218558884741838
+              ],
+              "rawPixels": 173,
+              "percentWholeWidth": 19.05
+            },
+            {
+              "center": [
+                804,
+                955
+              ],
+              "perpendicular": [
+                -0.8530336638520313,
+                -0.5218558884741838
+              ],
+              "rawPixels": 194,
+              "percentWholeWidth": 21.37
+            }
+          ]
+        },
+        {
+          "key": "robot-9-b",
+          "wholeWidth": 971,
+          "leftArmCrossSections": [
+            {
+              "center": [
+                160,
+                611
+              ],
+              "perpendicular": [
+                0.9291641282577402,
+                0.36966744887673536
+              ],
+              "rawPixels": 179,
+              "percentWholeWidth": 18.43
+            },
+            {
+              "center": [
+                180,
+                851
+              ],
+              "perpendicular": [
+                0.8983843609192009,
+                -0.43921013200494263
+              ],
+              "rawPixels": 177,
+              "percentWholeWidth": 18.23
+            }
+          ],
+          "rightArmCrossSections": [
+            {
+              "center": [
+                864,
+                611
+              ],
+              "perpendicular": [
+                -0.9291641282577402,
+                0.36966744887673536
+              ],
+              "rawPixels": 180,
+              "percentWholeWidth": 18.54
+            },
+            {
+              "center": [
+                844,
+                851
+              ],
+              "perpendicular": [
+                -0.8983843609192009,
+                -0.43921013200494263
+              ],
+              "rawPixels": 177,
+              "percentWholeWidth": 18.23
+            }
+          ]
+        }
+      ],
+      "measurementLimits": "Representative midpoint sections perpendicular to upper/lowerarm axes, including black outline, on botharms. Not a proof of minimum thickness at every curved/foreshortened joint.",
+      "visualReview": "Sparse charcoal arm masses, round Cgrippers and white shoulderpivot each readable at80px robotheight. Neck7/cylinder8/screen9 mounting differs. Exactlytwoeyes only, no cords/plugs/text/mouth/stickerborder/floorshadow. Original screen/disc identity retained; generator introduces small A/B differences.",
+      "limits": [
+        "Visible heights219-230px, up to11px below approximate230 to avoid nonuniform distortion or clipping.",
+        "Standalone80px comparison only, no actual game placement or movement testing. Trials intentionally unregistered."
+      ],
+      "registration": "manifest byte-for-byte unchanged from task start.",
+      "commit": "No staging, commit or push. User chooses candidate; Claude Code reviews and commits."
     }
   ]
 }
