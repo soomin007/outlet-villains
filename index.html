@@ -1315,6 +1315,65 @@
 
     /* 버튼 글자는 한 줄로 두고, 자리가 모자라면 버튼이 다음 줄로 넘어가 쌓인다. */
     .panel-actions .wide { flex: 1 1 140px; white-space: nowrap; }
+
+    /* 설정 분류 탭. 고른 탭은 밝은 글자와 밑줄로 보인다. */
+    .tabs {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 14px;
+      border-bottom: 2px solid rgba(238, 238, 238, 0.25);
+    }
+
+    .tab {
+      flex: 1;
+      min-height: 42px;
+      padding-left: 4px;
+      padding-right: 4px;
+      border: 0;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      background: transparent;
+      color: rgba(246, 239, 226, 0.55);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .tab[aria-selected="true"] {
+      color: #f6efe2;
+      border-bottom-color: #eee;
+    }
+
+    /* 탭을 바꿀 때 창 높이가 출렁이지 않도록, 가장 긴 조작 탭에 맞춰 높이를 잡는다. */
+    .tab-pane { min-height: 268px; }
+
+    @media (max-width: 400px) {
+      .tab-pane { min-height: 340px; }
+    }
+
+    .pane-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .pane-buttons button {
+      min-height: 44px;
+      border: 2px solid #eee;
+      border-radius: 10px;
+      background: transparent;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .pane-buttons button:disabled { opacity: 0.4; cursor: default; }
+
+    /* 키보드로 옮긴 초점은 어느 화면에서나 노란 테두리로 보인다. 마우스로 누를 때는 보이지 않는다. 메인 화면 버튼은 따로 밝게 표시한다. */
+    :focus-visible {
+      outline: 3px solid #ffd23c;
+      outline-offset: 3px;
+    }
+
+    .dot:focus-visible { outline-offset: 2px; }
   </style>
 </head>
 <body>
@@ -1398,29 +1457,46 @@
   <div id="settings" class="modal" role="dialog" aria-modal="true" aria-labelledby="settings-title" hidden>
     <div class="panel">
       <h2 id="settings-title">설정</h2>
-      <!-- 그림체는 흑백 한 벌만 쓴다(2026-10-31 사용자 결정). 카툰 그림과 코드를 정리할 때 이 줄도 지운다. -->
-      <div class="row" hidden>
-        <span>그림체</span>
-        <div class="seg">
-          <button type="button" data-theme="a">흑백</button>
-          <button type="button" data-theme="b">카툰</button>
+      <!-- 설정은 분류 탭으로 나누고, 고른 탭의 내용만 보인다(2026-10-31 사용자 요청). 키보드: ↑↓ 항목 옮기기, 탭 위에서 ←→ 탭 바꾸기, 막대 위에서 ←→ 값 조절, 1~4 탭 바로 가기. -->
+      <div class="tabs" role="tablist" aria-label="설정 분류">
+        <button type="button" role="tab" class="tab" data-tab="game" aria-controls="pane-game">게임</button>
+        <button type="button" role="tab" class="tab" data-tab="graphics" aria-controls="pane-graphics">그래픽</button>
+        <button type="button" role="tab" class="tab" data-tab="audio" aria-controls="pane-audio">오디오</button>
+        <button type="button" role="tab" class="tab" data-tab="controls" aria-controls="pane-controls">조작</button>
+      </div>
+      <div id="pane-game" class="tab-pane" role="tabpanel" data-pane="game">
+        <div class="pane-buttons">
+          <button id="replay-prologue" type="button">프롤로그 다시 보기</button>
+          <button id="reset-progress" type="button">진행 초기화</button>
         </div>
       </div>
-      <label class="row"><span>화면 밝기</span><input id="set-brightness" type="range" min="60" max="140" step="5"></label>
-      <label class="row"><span>음악</span><input id="set-music" type="range" min="0" max="100" step="5"></label>
-      <label class="row"><span>효과음</span><input id="set-sfx" type="range" min="0" max="100" step="5"></label>
-      <h3>조작법</h3>
-      <table class="key-table">
-        <tr><th>이동</th><td><kbd>↑</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>→</kbd> 또는 <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd></td></tr>
-        <tr><th>되돌리기</th><td><kbd>Z</kbd> 또는 <kbd>Backspace</kbd>, <span class="nw">위쪽 <kbd>↶</kbd> 버튼</span></td></tr>
-        <tr><th>처음부터</th><td><kbd>R</kbd>, <span class="nw">위쪽 <kbd>↻</kbd> 버튼</span></td></tr>
-        <tr><th>넘기기</th><td><span class="nw">아무 키나</span> <span class="nw">화면 누르기</span></td></tr>
-        <tr><th>설정</th><td><kbd>Esc</kbd>, <span class="nw">위쪽 <kbd>⚙</kbd> 버튼</span></td></tr>
-        <tr><th>휴대폰</th><td><span class="nw">화면 아래</span> <span class="nw">방향 버튼</span></td></tr>
-      </table>
+      <div id="pane-graphics" class="tab-pane" role="tabpanel" data-pane="graphics" hidden>
+        <!-- 그림체는 흑백 한 벌만 쓴다(2026-10-31 사용자 결정). 카툰 그림과 코드를 정리할 때 이 줄도 지운다. -->
+        <div class="row" hidden>
+          <span>그림체</span>
+          <div class="seg">
+            <button type="button" data-theme="a">흑백</button>
+            <button type="button" data-theme="b">카툰</button>
+          </div>
+        </div>
+        <label class="row"><span>화면 밝기</span><input id="set-brightness" type="range" min="60" max="140" step="5"></label>
+      </div>
+      <div id="pane-audio" class="tab-pane" role="tabpanel" data-pane="audio" hidden>
+        <label class="row"><span>음악</span><input id="set-music" type="range" min="0" max="100" step="5"></label>
+        <label class="row"><span>효과음</span><input id="set-sfx" type="range" min="0" max="100" step="5"></label>
+      </div>
+      <div id="pane-controls" class="tab-pane" role="tabpanel" data-pane="controls" hidden>
+        <table class="key-table">
+          <tr><th>이동</th><td><span class="nw"><kbd>↑</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>→</kbd></span> <span class="nw">또는 <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd></span></td></tr>
+          <tr><th>되돌리기</th><td><span class="nw"><kbd>Z</kbd> 또는 <kbd>Backspace</kbd>,</span> <span class="nw">위쪽 <kbd>↶</kbd> 버튼</span></td></tr>
+          <tr><th>처음부터</th><td><kbd>R</kbd>, <span class="nw">위쪽 <kbd>↻</kbd> 버튼</span></td></tr>
+          <tr><th>넘기기</th><td><span class="nw">아무 키나</span> <span class="nw">화면 누르기</span></td></tr>
+          <tr><th>레벨 고르기</th><td><span class="nw"><kbd>Tab</kbd>으로 위쪽 점</span> <span class="nw">고르고 <kbd>Enter</kbd></span></td></tr>
+          <tr><th>설정</th><td><kbd>Esc</kbd>, <span class="nw">위쪽 <kbd>⚙</kbd> 버튼</span></td></tr>
+          <tr><th>휴대폰</th><td><span class="nw">화면 아래</span> <span class="nw">방향 버튼</span></td></tr>
+        </table>
+      </div>
       <div class="panel-actions">
-        <button id="replay-prologue" type="button" class="wide">프롤로그 다시 보기</button>
-        <button id="reset-progress" type="button" class="wide">진행 초기화</button>
         <button id="close-settings" type="button" class="wide primary">닫기</button>
       </div>
     </div>
@@ -1482,6 +1558,8 @@
         openSettings: document.getElementById('open-settings'),
         settings: document.getElementById('settings'),
         themeButtons: [...document.querySelectorAll('#settings [data-theme]')],
+        settingsTabs: [...document.querySelectorAll('#settings [role="tab"]')],
+        settingsPanes: [...document.querySelectorAll('#settings [role="tabpanel"]')],
         setBrightness: document.getElementById('set-brightness'),
         setMusic: document.getElementById('set-music'),
         setSfx: document.getElementById('set-sfx'),
@@ -1516,7 +1594,10 @@
 
       // 밝기는 %, 음악과 효과음은 0~100이다.
       function loadSettings() {
-        const defaults = { theme: 'a', brightness: 100, music: 60, sfx: 50, keysSeen: false, demosSeen: [], prologueSeen: false, cleared: [], lastLevel: 0 };
+        const defaults = {
+          theme: 'a', brightness: 100, music: 60, sfx: 50, keysSeen: false, demosSeen: [], prologueSeen: false, cleared: [], lastLevel: 0,
+          settingsTab: 'game',
+        };
         try {
           return { ...defaults, ...JSON.parse(localStorage.getItem(STORAGE_KEY)) };
         } catch (error) {
@@ -2842,7 +2923,66 @@
         ui.settings.hidden = false;
         ui.themeButtons.forEach((button) => { button.disabled = game.busy; });
         ui.replayPrologue.disabled = game.busy || !ui.title.hidden;
-        ui.closeSettings.focus();
+        showSettingsTab(settings.settingsTab, true);
+      }
+
+      // 설정 탭 하나를 보여 준다. 고른 탭만 Tab 키 순서에 들어가고(나머지는 ←→로 옮긴다), 마지막에 본 탭을 기억한다.
+      function showSettingsTab(name, focusTab) {
+        const tab = ui.settingsTabs.find((candidate) => candidate.dataset.tab === name) || ui.settingsTabs[0];
+        ui.settingsTabs.forEach((candidate) => {
+          const on = candidate === tab;
+          candidate.setAttribute('aria-selected', String(on));
+          candidate.tabIndex = on ? 0 : -1;
+        });
+        ui.settingsPanes.forEach((pane) => { pane.hidden = pane.dataset.pane !== tab.dataset.tab; });
+        settings.settingsTab = tab.dataset.tab;
+        saveSettings();
+        if (focusTab) tab.focus();
+      }
+
+      // 창 안에서 키보드로 옮겨 다닐 수 있는 것들. 위에서부터 고른 탭, 그 탭의 버튼과 막대, 닫기 순서다. 꺼진 버튼과 숨은 것은 건너뛴다.
+      function modalItems(modal) {
+        return [...modal.querySelectorAll('[role="tab"][aria-selected="true"], button, input')]
+          .filter((element) => !element.disabled && element.offsetParent !== null && element.getAttribute('aria-selected') !== 'false');
+      }
+
+      function moveFocus(items, step) {
+        const index = items.indexOf(document.activeElement);
+        const next = index < 0 ? (step > 0 ? 0 : items.length - 1) : (index + step + items.length) % items.length;
+        items[next].focus();
+      }
+
+      // 설정창의 키보드 조작. ↑↓(W S)와 Tab은 항목을 옮기고, 탭 위의 ←→는 탭을 바꾸며, 막대 위의 ←→는 값을 조절한다(A D도 같다).
+      // 1~4는 탭으로 바로 간다. Enter와 Space는 브라우저가 고른 버튼을 누른다. 초점은 창 밖으로 나가지 않는다.
+      function settingsKey(event, key) {
+        if (key === 'escape') {
+          closeSettings();
+          return;
+        }
+        const items = modalItems(ui.settings);
+        const active = document.activeElement;
+        const vertical = { arrowup: -1, w: -1, arrowdown: 1, s: 1 }[key];
+        const side = { arrowleft: -1, a: -1, arrowright: 1, d: 1 }[key];
+        if (key === 'tab' || vertical) {
+          event.preventDefault();
+          moveFocus(items, key === 'tab' ? (event.shiftKey ? -1 : 1) : vertical);
+        } else if (side && active && active.getAttribute('role') === 'tab') {
+          event.preventDefault();
+          const index = ui.settingsTabs.indexOf(active);
+          showSettingsTab(ui.settingsTabs[(index + side + ui.settingsTabs.length) % ui.settingsTabs.length].dataset.tab, true);
+        } else if (side && active && active.type === 'range') {
+          if (key === 'a' || key === 'd') {
+            event.preventDefault();
+            active.value = Number(active.value) + side * Number(active.step);
+            active.dispatchEvent(new Event('input'));
+          }
+        } else if (side) {
+          event.preventDefault();
+          moveFocus(items, side);
+        } else if (/^[1-4]$/.test(key)) {
+          event.preventDefault();
+          showSettingsTab(ui.settingsTabs[Number(key) - 1].dataset.tab, true);
+        }
       }
 
       function closeSettings() {
@@ -2868,17 +3008,19 @@
       document.addEventListener('keydown', (event) => {
         const key = event.key.toLowerCase();
         if (!ui.settings.hidden) {
-          if (key === 'escape') closeSettings();
+          settingsKey(event, key);
           return;
         }
         if (!ui.credits.hidden) {
-          if (key === 'escape' || key === 'enter' || key === ' ') {
+          // 크레딧 창은 닫기 버튼 하나라, 초점이 창 밖으로 나가지 않게 Tab을 막고 Esc, Enter, Space로 닫는다.
+          if (key === 'escape' || key === 'enter' || key === ' ' || key === 'tab') {
             event.preventDefault();
-            closeCredits();
+            if (key !== 'tab') closeCredits();
           }
           return;
         }
         if (!ui.title.hidden && !game.titleOpened) {
+          if (key === 'tab') event.preventDefault();
           if (!MODIFIER_KEYS.includes(key)) {
             event.preventDefault();
             openTitle();
@@ -2887,6 +3029,12 @@
         }
         if (!ui.title.hidden) {
           const buttons = titleButtons();
+          // 메인 화면에서는 Tab도 ↑↓처럼 버튼 사이만 옮긴다. 그대로 두면 메인 화면 뒤에 가려진 위쪽 막대 버튼으로 초점이 빠졌다.
+          if (key === 'tab') {
+            event.preventDefault();
+            selectTitleButton(buttons[(Math.max(buttons.indexOf(document.activeElement), 0) + (event.shiftKey ? -1 : 1) + buttons.length) % buttons.length]);
+            return;
+          }
           if (key === 'arrowdown' || key === 'arrowup' || key === 's' || key === 'w') {
             event.preventDefault();
             const step = key === 'arrowdown' || key === 's' ? 1 : -1;
@@ -2905,6 +3053,8 @@
           return;
         }
         if (game.closeCard) {
+          // 카드가 떠 있는 동안 Tab으로 뒤에 가려진 버튼에 초점이 가지 않게 막는다.
+          if (key === 'tab') event.preventDefault();
           if (!MODIFIER_KEYS.includes(key)) {
             event.preventDefault();
             game.closeCard();
@@ -2954,6 +3104,7 @@
       });
       ui.openSettings.addEventListener('click', openSettings);
       ui.closeSettings.addEventListener('click', closeSettings);
+      ui.settingsTabs.forEach((tab) => tab.addEventListener('click', () => showSettingsTab(tab.dataset.tab, true)));
       ui.settings.addEventListener('click', (event) => {
         if (event.target === ui.settings) closeSettings();
       });
