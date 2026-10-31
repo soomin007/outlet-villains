@@ -2611,6 +2611,8 @@
 
         // 배경 음악 두 곡. title은 메인 화면, cafe는 퍼즐 중이다. 곡마다 따로 끝없이 돌리고, 바꿀 때는 크기만 엇갈려 바꾼다(약 0.6초).
         // 앞뒤의 짧은 무음은 잘라 내고 그 구간만 반복한다(MP3를 그냥 반복하면 이음매에서 끊긴다). 파일이 없으면 그 곡은 조용하다.
+        // 잰 크기(2026-10-31): cafe는 RMS -17.3dB, 가장 큰 0.1초 -9.2dB, 피크 -0.8dB. title은 RMS -17.1dB, 가장 큰 0.1초 -10.2dB, 피크 +0.1dB.
+        // 두 곡이 1dB 안쪽으로 같아서 곡마다 크기를 따로 곱하지 않는다(known-issues 19번). title의 피크는 MUSIC_MAX(30%)로 줄인 뒤라 깨지지 않는다.
         const TRACKS = { title: 'assets/audio/bgm-title.mp3', cafe: 'assets/audio/bgm-cafe.mp3' };
         const tracks = {};
         let wanted = 'cafe';
