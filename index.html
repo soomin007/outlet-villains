@@ -1103,18 +1103,18 @@
     .credit-list {
       display: grid;
       grid-template-columns: max-content 1fr;
-      gap: 10px 18px;
+      gap: 0.6em 1.1em;
       margin: 0;
-      font-size: 17px;
+      font-size: 1.0625em;
     }
 
     .credit-list dt { color: rgba(246, 239, 226, 0.65); }
     .credit-list dd { margin: 0; font-weight: 800; }
 
     .credit-note {
-      margin: 16px 0 0;
+      margin: 1em 0 0;
       color: rgba(246, 239, 226, 0.6);
-      font-size: 13px;
+      font-size: 0.8125em;
       line-height: 1.6;
     }
 
@@ -1217,26 +1217,32 @@
       background: rgba(0, 0, 0, 0.6);
     }
 
+    /* 설정창과 크레딧 창. 글자 크기 하나(--panel-font)만 화면 크기로 정하고, 창의 폭과 칸 높이는 모두 그 글자 크기에 비례한다(em).
+       예전에는 16px, 폭 460px로 고정이라 1920 x 1080 화면에서 화면 폭의 24%였다(2026-11-01 사용자 피드백).
+       Xbox 접근성 지침(XAG 101)은 1080p PC 게임 본문 글자를 18px 이상으로 잡는다. 화면 폭과 높이 가운데 작은 쪽을 따라
+       1366 x 768에서 약 19px, 1920 x 1080에서 약 23px, 휴대폰에서 16px이 된다. */
     .panel {
+      --panel-font: clamp(16px, min(0.75vw + 9px, 2.2vh + 4px), 24px);
       width: 100%;
-      max-width: 460px;
+      max-width: 28.75em;
       max-height: calc(100dvh - 40px);
       overflow-y: auto;
-      padding: 20px 22px;
+      padding: 1.25em 1.4em;
       border: 3px solid #eee;
       border-radius: 14px;
       background: #2b2826;
+      font-size: var(--panel-font);
     }
 
-    .panel h2 { margin: 0 0 14px; font-size: 22px; }
-    .panel h3 { margin: 18px 0 8px; font-size: 16px; }
+    .panel h2 { margin: 0 0 0.6em; font-size: 1.375em; }
+    .panel h3 { margin: 1.1em 0 0.5em; font-size: 1em; }
 
     .panel .row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      min-height: 44px;
+      gap: 0.75em;
+      min-height: 2.75em;
     }
 
     /* 막대 설정의 이름 칸. 글자 크게를 켜도 한 줄에 들도록 폭을 글자 크기에 맞춘다(16px에서 약 77px). */
@@ -1251,17 +1257,17 @@
     .panel input[type="range"] {
       flex: 1;
       min-width: 0;
-      max-width: 240px;
+      max-width: 15em;
       accent-color: #7fd3b8;
     }
 
-    .seg { display: flex; gap: 6px; }
+    .seg { display: flex; gap: 0.375em; }
 
     .seg button,
     .panel-actions button {
-      min-height: 40px;
-      padding-left: 14px;
-      padding-right: 14px;
+      min-height: 2.5em;
+      padding-left: 0.875em;
+      padding-right: 0.875em;
       border: 2px solid #eee;
       border-radius: 10px;
       background: transparent;
@@ -1277,56 +1283,56 @@
     .key-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 14px;
+      font-size: 0.875em;
     }
 
     .key-table th {
-      width: 72px;
-      padding: 6px 8px 6px 0;
+      width: 5.2em;
+      padding: 0.43em 0.57em 0.43em 0;
       text-align: left;
       vertical-align: top;
       white-space: nowrap;
     }
 
-    .key-table td { padding-top: 6px; padding-bottom: 6px; line-height: 1.8; }
+    .key-table td { padding-top: 0.43em; padding-bottom: 0.43em; line-height: 1.8; }
 
     kbd {
       display: inline-block;
-      min-width: 22px;
-      padding: 0 5px;
+      min-width: 1.85em;
+      padding: 0 0.4em;
       border: 2px solid #eee;
       border-bottom-width: 3px;
       border-radius: 5px;
       font: inherit;
-      font-size: 12px;
+      font-size: 0.86em;
       font-weight: 800;
       text-align: center;
-      line-height: 18px;
+      line-height: 1.5;
     }
 
     .panel-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 18px;
+      gap: 0.5em;
+      margin-top: 1.1em;
     }
 
     /* 버튼 글자는 한 줄로 두고, 자리가 모자라면 버튼이 다음 줄로 넘어가 쌓인다. */
-    .panel-actions .wide { flex: 1 1 140px; white-space: nowrap; }
+    .panel-actions .wide { flex: 1 1 8.75em; white-space: nowrap; }
 
     /* 설정 분류 탭. 고른 탭은 밝은 글자와 밑줄로 보인다. */
     .tabs {
       display: flex;
-      gap: 4px;
-      margin-bottom: 14px;
+      gap: 0.25em;
+      margin-bottom: 0.875em;
       border-bottom: 2px solid rgba(238, 238, 238, 0.25);
     }
 
     .tab {
       flex: 1;
-      min-height: 42px;
-      padding-left: 4px;
-      padding-right: 4px;
+      min-height: 2.625em;
+      padding-left: 0.25em;
+      padding-right: 0.25em;
       border: 0;
       border-bottom: 3px solid transparent;
       margin-bottom: -2px;
@@ -1352,10 +1358,10 @@
 
     .toggle {
       flex: none;
-      min-width: 64px;
-      min-height: 36px;
-      padding-left: 12px;
-      padding-right: 12px;
+      min-width: 4em;
+      min-height: 2.25em;
+      padding-left: 0.75em;
+      padding-right: 0.75em;
       border: 2px solid #eee;
       border-radius: 999px;
       background: transparent;
@@ -1384,11 +1390,14 @@
     .pane-buttons {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 0.625em;
     }
 
+    /* 켜고 끄는 줄 바로 아래에 버튼이 오면 붙어 보여서(2026-11-01 사용자 피드백) 줄 하나 높이의 1/3쯤 띄운다. */
+    .row + .pane-buttons { margin-top: 1em; }
+
     .pane-buttons button {
-      min-height: 44px;
+      min-height: 2.75em;
       border: 2px solid #eee;
       border-radius: 10px;
       background: transparent;
@@ -1455,7 +1464,14 @@
     .large-text .card-kicker { font-size: 18px; }
     .large-text .card-title { font-size: clamp(28px, 4.8vw, 48px); }
     .large-text .card-lines p { font-size: clamp(19px, 2.2vw, 25px); }
-    .large-text .panel { font-size: 18px; }
+    .large-text .panel { font-size: calc(var(--panel-font) * 1.25); }
+
+    /* 좁은 휴대폰(400px 이하)은 설정창 안쪽 폭이 220px 안팎이라, 안쪽 여백을 줄이고 글자 크게도 1.125배까지만 키운다.
+       1.25배로 키우면 320px 폭에서 켜고 끄는 버튼이 창 밖으로 넘쳤다. */
+    @media (max-width: 400px) {
+      .panel { padding-left: 0.9em; padding-right: 0.9em; }
+      .large-text .panel { font-size: calc(var(--panel-font) * 1.125); }
+    }
     .large-text .title-btn { font-size: 21px; }
     .large-text .dex-name { font-size: 16px; }
     .large-text .steps { font-size: 18px; }
@@ -1592,7 +1608,7 @@
       <div id="pane-controls" class="tab-pane" role="tabpanel" data-pane="controls" hidden>
         <div class="row toggle-row"><span><span class="nw">누르고 있으면</span> <span class="nw">계속 이동</span></span><button type="button" class="toggle" data-setting="keyRepeat"></button></div>
         <div class="row toggle-row choice-row">
-          <span>방향 버튼</span>
+          <span>화면 방향 버튼</span>
           <div class="seg" data-choice="padMode">
             <button type="button" data-value="auto">자동</button>
             <button type="button" data-value="on">켜기</button>
@@ -3130,8 +3146,12 @@
       }
 
       // 탭마다 내용의 길이가 달라서, 탭을 바꿀 때 창 높이가 출렁이지 않도록 가장 긴 탭의 높이를 모든 탭에 준다.
+      // 다만 창이 화면 높이를 넘으면 모든 탭이 스크롤되므로, 화면에 들어가는 높이까지만 맞춘다. 그보다 긴 탭(조작 탭)만 창 안에서 스크롤된다.
       function fitSettingsPanes() {
         ui.settingsPanes.forEach((pane) => { pane.style.minHeight = ''; });
+        const panel = ui.settings.querySelector('.panel');
+        const shown = ui.settingsPanes.find((pane) => !pane.hidden) || ui.settingsPanes[0];
+        const room = window.innerHeight - 40 - (panel.offsetHeight - shown.offsetHeight);
         let tallest = 0;
         ui.settingsPanes.forEach((pane) => {
           const wasHidden = pane.hidden;
@@ -3139,7 +3159,8 @@
           tallest = Math.max(tallest, pane.offsetHeight);
           pane.hidden = wasHidden;
         });
-        ui.settingsPanes.forEach((pane) => { pane.style.minHeight = `${tallest}px`; });
+        const height = Math.min(tallest, room);
+        ui.settingsPanes.forEach((pane) => { pane.style.minHeight = `${height}px`; });
       }
 
       // 설정 탭 하나를 보여 준다. 고른 탭만 Tab 키 순서에 들어가고(나머지는 ←→로 옮긴다), 마지막에 본 탭을 기억한다.
