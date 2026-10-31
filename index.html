@@ -261,8 +261,25 @@
       pointer-events: none;
     }
 
-    .wet-cell img {
-      display: block;
+    .wet-quarter {
+      position: absolute;
+      width: 50%;
+      height: 50%;
+      background-size: 200% 200%;
+      background-repeat: no-repeat;
+    }
+
+    .wet-quarter.whole {
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-size: 100% 100%;
+    }
+
+    .wet-shine {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
     }
@@ -1535,7 +1552,8 @@
       // 그래서 주인공과 물건 그림을 먼저 받고, 다음에 지금 레벨의 배경, 마지막에 나머지를 받는다. 받은 그림은 Map에 붙잡아 둔다.
       const preloaded = new Map();
       const FIRST_KEYS = ['player-up', 'player-down', 'player-left', 'player-right', 'buzzer', 'chair', 'trash', 'dock',
-        'plug-mine', 'outlet-theirs', 'outlet-mine', 'drink-1', 'drink-2', 'drink-3'];
+        'plug-mine', 'outlet-theirs', 'outlet-mine', 'drink-1', 'drink-2', 'drink-3',
+        'wet-0', 'wet-5', 'wet-10', 'wet-15', 'wet-shine'];
 
       function loadImage(path) {
         if (preloaded.has(path)) return preloaded.get(path).ready;
@@ -2081,6 +2099,65 @@
 
       // 젖은 바닥 조각. 이웃이 젖었으면 그쪽으로 이어지고(위 1, 오른쪽 2, 아래 4, 왼쪽 8), 그 합이 조각 번호다.
       // mopped가 있으면 방금 닦은 칸에 사라지는 웅덩이를 잠깐 남긴다.
+      // 젖은 칸의 귀퉁이 넷. 귀퉁이마다 닿은 세로 변(dy), 가로 변(dx)과 대각선 이웃을 보고, Codex가 그린 조각에서 그 귀퉁이를 잘라 쓴다(RPG Maker 자동 타일 방식).
+      // 조각 16장은 위아래좌우만 보고 골라서, 대각선이 마른 안쪽 모서리에 24 x 24px 네모 어깨가 튀어나왔다(2026-10-31 검토).
+      // 그래서 두 변이 다 이어졌는데 대각선이 말랐으면, 꽉 찬 귀퉁이에서 바깥 모서리 25%(그림 좌표 24px)를 잘라 낸다.
+      // notch는 그 귀퉁이의 바깥 모서리를 잘라 낸 모양이다.
+      const WET_QUARTERS = [
+        { dx: -1, dy: -1, position: '0 0', notch: 'polygon(25% 0, 100% 0, 100% 100%, 0 100%, 0 25%, 25% 25%)' },
+        { dx: 1, dy: -1, position: '100% 0', notch: 'polygon(0 0, 75% 0, 75% 25%, 100% 25%, 100% 100%, 0 100%)' },
+        { dx: -1, dy: 1, position: '0 100%', notch: 'polygon(0 0, 100% 0, 100% 100%, 25% 100%, 25% 75%, 0 75%)' },
+        { dx: 1, dy: 1, position: '100% 100%', notch: 'polygon(0 0, 100% 0, 100% 75%, 75% 75%, 75% 100%, 0 100%)' },
+      ];
+
+      function wetQuarter(quarter, joined) {
+        const vertical = joined(0, quarter.dy);
+        const horizontal = joined(quarter.dx, 0);
+        // 안 이어짐은 외딴 웅덩이(wet-0), 가로만은 가로 줄(wet-10), 세로만은 세로 줄(wet-5), 둘 다는 꽉 찬 칸(wet-15)에서 자른다.
+        let mask = 0;
+        if (horizontal && vertical) mask = 15;
+        else if (horizontal) mask = 10;
+        else if (vertical) mask = 5;
+        const left = quarter.dx > 0 ? '50%' : '0';
+        const top = quarter.dy > 0 ? '50%' : '0';
+        const clip = mask === 15 && !joined(quarter.dx, quarter.dy) ? `clip-path:${quarter.notch};` : '';
+        return `<div class="wet-quarter" style="left:${left};top:${top};background-image:url('${assetPath(`wet-${mask}`)}');`
+          + `background-position:${quarter.position};${clip}"></div>`;
+      }
+
+      // 반사광을 얹을 칸. 칸마다 얹으면 같은 무늬가 줄지어 반복돼서, 웅덩이마다 세 칸에 한 칸 꼴로만 얹고 적어도 한 칸은 얹는다.
+      // 닦을 때마다 자리가 바뀌지 않도록 판이 시작할 때의 웅덩이로 정한다.
+      function shineCells() {
+        if (game.shine && game.shine.level === game.level) return game.shine.cells;
+        const start = game.level.start.wet || [];
+        const cells = new Set();
+        const seen = new Set();
+        for (const first of start) {
+          if (seen.has(first)) continue;
+          const puddle = [];
+          const queue = [first];
+          seen.add(first);
+          while (queue.length > 0) {
+            const cell = queue.shift();
+            puddle.push(cell);
+            const [x, y] = cell.split(',').map(Number);
+            for (const next of [`${x + 1},${y}`, `${x - 1},${y}`, `${x},${y + 1}`, `${x},${y - 1}`]) {
+              if (start.includes(next) && !seen.has(next)) {
+                seen.add(next);
+                queue.push(next);
+              }
+            }
+          }
+          const picked = puddle.filter((cell) => {
+            const [x, y] = cell.split(',').map(Number);
+            return (x + 2 * y) % 3 === 0;
+          });
+          (picked.length > 0 ? picked : [puddle[0]]).forEach((cell) => cells.add(cell));
+        }
+        game.shine = { level: game.level, cells };
+        return cells;
+      }
+
       function drawWet(state = game.state, mopped = null) {
         ui.wet.innerHTML = '';
         if (!state.wet) return;
@@ -2098,9 +2175,15 @@
           element.style.top = `${tileTop(y)}px`;
           element.style.width = `${TILE}px`;
           element.style.height = `${TILE_H}px`;
-          const path = assetPath(`wet-${mask}`);
-          if (path) {
-            element.innerHTML = `<img src="${path}" alt="" draggable="false">`;
+          if (assetPath('wet-15')) {
+            // 귀퉁이로 나누면 칸 안에 경계가 생겨 반투명한 물에 가는 줄이 보일 수 있다. 그래서 잘라 낼 안쪽 모서리가 있는 칸만 나눈다.
+            const needsNotch = WET_QUARTERS.some((quarter) => joined(quarter.dx, 0) && joined(0, quarter.dy) && !joined(quarter.dx, quarter.dy));
+            element.innerHTML = needsNotch
+              ? WET_QUARTERS.map((quarter) => wetQuarter(quarter, joined)).join('')
+              : `<div class="wet-quarter whole" style="background-image:url('${assetPath(`wet-${mask}`)}')"></div>`;
+            if (shineCells().has(cell) && assetPath('wet-shine')) {
+              element.insertAdjacentHTML('beforeend', `<img class="wet-shine" src="${assetPath('wet-shine')}" alt="" draggable="false">`);
+            }
           } else {
             const inset = (bit) => (mask & bit ? '0' : '12%');
             const round = (a, b) => (mask & a || mask & b ? '0' : '40%');

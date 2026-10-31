@@ -8895,6 +8895,3771 @@
         "runtimeLimit": "Triedreload and reacquireexistingtitlepage; browser tool twice returned browser.user is unavailable. Stopped browserattempts; no fresh main-screencheck claimed. Existingassetpaths unchanged."
       },
       "commit": "No staging, commit or push. Claude Code reviews and commits."
+    },
+    {
+      "date": "2026-10-31",
+      "name": "standing-guests-drinks-and-wet-autotiles",
+      "tool": "built-in image_gen for24guests,6drinks,2watermasters; one compact-heightdrink correction. User-authorizedPillowwatercomposition.",
+      "scope": "62newPNGs,31pertheme:12standingguests+3drinks+16wettiles. Manifestregistration, generationrecordandCodexlogonly, nogamecodechanges.",
+      "rationale": "Cafe-robot-specificcleaningandsupplyactions: wetfloor makesshoveditemsslideuntiloffwetfloor androbotcleansit; deliverordereddrinktoadjacenttile toclearwaitingcustomer. Standing4directions also allowlaterdeterministicwalkingNPCs.",
+      "sourceOfTruth": [
+        "AGENTS.md",
+        "CLAUDE.md",
+        "known-issues.md",
+        "session_logs/2026-10-31.md",
+        "Currentuserrequest defines exact62assetlist and wetcompositionauthorization"
+      ],
+      "assets": [
+        {
+          "kind": "guest",
+          "theme": "a",
+          "person": 1,
+          "direction": "down",
+          "key": "guest-down",
+          "file": "assets/a/guest-down.png",
+          "refs": [
+            "assets/a/customer-down.png",
+            "assets/a/chair.png",
+            "assets/a/trash.png"
+          ],
+          "prompt": "Use case: identity-preserve. ONE standalone 2D game STANDING CAFE GUEST sprite on TRUEtransparentbackground. Image1 seatedcustomer is EXACT identity/outfit reference: sameperson now STANDING, not anewcharacter. Images2chair and3trash are only reference for sparse thickblackstrokes and gameassetview/style; doNOTdrawtheseobjects. Remove chair and remove heldcup; standingguest is WAITING FOR drinkdelivery with BOTH EMPTY HANDS relaxedatwaist orbodysides, no prop, no walkingaction. Uprightbalancedneutralpose, TWO feet on samebaseline. Fullbody fromhairtoSHOESOLES, no cropping. Camera orthographic RPGMaker slightoverhead, NOTisometric or photorealism, sameviewasreference, same thicklowcount blacklines/large simpleplanes, no newdetail/hatching. Intended192x288RGBAcanvas, visiblepersonheight250px, footsolesatbottomy288. Character centered width~100-140px, consistentheadsize/bodyproportions acrossdirections. No white stickerborder/floor or castshadow/glow/background. No letters/numbers/symbols/logos/green/red/orange/mint. ThemeA BLACK/WHITE/neutralGRAYonly.\nIDENTITY: same darkmessy shortblack hair, plain mediumgray longsleeve sweater, darkergray straightpants and darkcasualshoes; A grayscaleonly. Neutralgender youngadult, exactsameface/hairstyle/sweater asreference. NOTgreen/red hoodie.\nFACING DOWN: frontview lookingtowardviewer/screenbottom. Samepersonface fullyvisible, bothshoes onground; emptyhands bywaist/sides, notheldcup."
+        },
+        {
+          "kind": "guest",
+          "theme": "a",
+          "person": 2,
+          "direction": "down",
+          "key": "guest2-down",
+          "file": "assets/a/guest2-down.png",
+          "refs": [
+            "assets/a/customer2-down.png",
+            "assets/a/chair.png",
+            "assets/a/trash.png"
+          ],
+          "prompt": "Use case: identity-preserve. ONE standalone 2D game STANDING CAFE GUEST sprite on TRUEtransparentbackground. Image1 seatedcustomer is EXACT identity/outfit reference: sameperson now STANDING, not anewcharacter. Images2chair and3trash are only reference for sparse thickblackstrokes and gameassetview/style; doNOTdrawtheseobjects. Remove chair and remove heldcup; standingguest is WAITING FOR drinkdelivery with BOTH EMPTY HANDS relaxedatwaist orbodysides, no prop, no walkingaction. Uprightbalancedneutralpose, TWO feet on samebaseline. Fullbody fromhairtoSHOESOLES, no cropping. Camera orthographic RPGMaker slightoverhead, NOTisometric or photorealism, sameviewasreference, same thicklowcount blacklines/large simpleplanes, no newdetail/hatching. Intended192x288RGBAcanvas, visiblepersonheight250px, footsolesatbottomy288. Character centered width~100-140px, consistentheadsize/bodyproportions acrossdirections. No white stickerborder/floor or castshadow/glow/background. No letters/numbers/symbols/logos/green/red/orange/mint. ThemeA BLACK/WHITE/neutralGRAYonly.\nIDENTITY: same rounded baseballcap and shortlight fringe, loose LIGHTGRAY plain sweatshirt withribbedneck/cuffs/hem, DARKGRAYstraightpants anddarkcasualshoes. Samecap brim, face andhair. Neutralgender youngadult. No newbag/symbol/logo.\nFACING DOWN: frontview lookingtowardviewer/screenbottom. Samepersonface fullyvisible, bothshoes onground; emptyhands bywaist/sides, notheldcup."
+        },
+        {
+          "kind": "guest",
+          "theme": "a",
+          "person": 3,
+          "direction": "down",
+          "key": "guest3-down",
+          "file": "assets/a/guest3-down.png",
+          "refs": [
+            "assets/a/customer3-down.png",
+            "assets/a/chair.png",
+            "assets/a/trash.png"
+          ],
+          "prompt": "Use case: identity-preserve. ONE standalone 2D game STANDING CAFE GUEST sprite on TRUEtransparentbackground. Image1 seatedcustomer is EXACT identity/outfit reference: sameperson now STANDING, not anewcharacter. Images2chair and3trash are only reference for sparse thickblackstrokes and gameassetview/style; doNOTdrawtheseobjects. Remove chair and remove heldcup; standingguest is WAITING FOR drinkdelivery with BOTH EMPTY HANDS relaxedatwaist orbodysides, no prop, no walkingaction. Uprightbalancedneutralpose, TWO feet on samebaseline. Fullbody fromhairtoSHOESOLES, no cropping. Camera orthographic RPGMaker slightoverhead, NOTisometric or photorealism, sameviewasreference, same thicklowcount blacklines/large simpleplanes, no newdetail/hatching. Intended192x288RGBAcanvas, visiblepersonheight250px, footsolesatbottomy288. Character centered width~100-140px, consistentheadsize/bodyproportions acrossdirections. No white stickerborder/floor or castshadow/glow/background. No letters/numbers/symbols/logos/green/red/orange/mint. ThemeA BLACK/WHITE/neutralGRAYonly.\nIDENTITY: same short LIGHTGRAY sidefringehair, DARKcollaredbuttonshirt (few large buttons only), mediumgraystraightpantsanddarkcasualshoes. Sameface andhairstyle. Neutralgender youngadult. Notmessydarkhair, nocap.\nFACING DOWN: frontview lookingtowardviewer/screenbottom. Samepersonface fullyvisible, bothshoes onground; emptyhands bywaist/sides, notheldcup."
+        },
+        {
+          "kind": "guest",
+          "theme": "a",
+          "person": 1,
+          "direction": "up",
+          "key": "guest-up",
+          "file": "assets/a/guest-up.png",
+          "refs": [
+            "assets/a/customer-up.png",
+            "assets/a/chair.png",
+            "assets/a/trash.png",
+            "assets/a/guest-down.png (selected full-resolution generated source)"
+          ],
+          "prompt": "Use case: identity-preserve. ONE standalone 2D game STANDING CAFE GUEST sprite on TRUEtransparentbackground. Image1 seatedcustomer is EXACT identity/outfit reference: sameperson now STANDING, not anewcharacter. Images2chair and3trash are only reference for sparse thickblackstrokes and gameassetview/style; doNOTdrawtheseobjects. Remove chair and remove heldcup; standingguest is WAITING FOR drinkdelivery with BOTH EMPTY HANDS relaxedatwaist orbodysides, no prop, no walkingaction. Uprightbalancedneutralpose, TWO feet on samebaseline. Fullbody fromhairtoSHOESOLES, no cropping. Camera orthographic RPGMaker slightoverhead, NOTisometric or photorealism, sameviewasreference, same thicklowcount blacklines/large simpleplanes, no newdetail/hatching. Intended192x288RGBAcanvas, visiblepersonheight250px, footsolesatbottomy288. Character centered width~100-140px, consistentheadsize/bodyproportions acrossdirections. No white stickerborder/floor or castshadow/glow/background. No letters/numbers/symbols/logos/green/red/orange/mint. ThemeA BLACK/WHITE/neutralGRAYonly.\nIDENTITY: same darkmessy shortblack hair, plain mediumgray longsleeve sweater, darkergray straightpants and darkcasualshoes; A grayscaleonly. Neutralgender youngadult, exactsameface/hairstyle/sweater asreference. NOTgreen/red hoodie.\nFACING UP: full REAR VIEW facingscreenTOP, showbackofhead, backofshirtandpantlegs, heelsatbottom. NO face/eyes onbackofhead. Emptyhands bysides. Samehair/cap/outfitandbodyheight.\nImage4 is selected STANDINGFRONT version; preserve exactsamebodyheight/headsize, clothinglength/width andneutralemptysidehands. Rotatewholebody toback, don'tshowfrontface."
+        },
+        {
+          "kind": "guest",
+          "theme": "a",
+          "person": 2,
+          "direction": "up",
+          "key": "guest2-up",
+          "file": "assets/a/guest2-up.png",
+          "refs": [
+            "assets/a/customer2-up.png",
+            "assets/a/chair.png",
+            "assets/a/trash.png",
+            "assets/a/guest2-down.png (selected full-resolution generated source)"
+          ],
+          "prompt": "Use case: identity-preserve. ONE standalone 2D game STANDING CAFE GUEST sprite on TRUEtransparentbackground. Image1 seatedcustomer is EXACT identity/outfit reference: sameperson now STANDING, not anewcharacter. Images2chair and3trash are only reference for sparse thickblackstrokes and gameassetview/style; doNOTdrawtheseobjects. Remove chair and remove heldcup; standingguest is WAITING FOR drinkdelivery with BOTH EMPTY HANDS relaxedatwaist orbodysides, no prop, no walkingaction. Uprightbalancedneutralpose, TWO feet on samebaseline. Fullbody fromhairtoSHOESOLES, no cropping. Camera orthographic RPGMaker slightoverhead, NOTisometric or photorealism, sameviewasreference, same thicklowcount blacklines/large simpleplanes, no newdetail/hatching. Intended192x288RGBAcanvas, visiblepersonheight250px, footsolesatbottomy288. Character centered width~100-140px, consistentheadsize/bodyproportions acrossdirections. No white stickerborder/floor or castshadow/glow/background. No letters/numbers/symbols/logos/green/red/orange/mint. ThemeA BLACK/WHITE/neutralGRAYonly.\nIDENTITY: same rounded baseballcap and shortlight fringe, loose LIGHTGRAY plain sweatshirt withribbedneck/cuffs/hem, DARKGRAYstraightpants anddarkcasualshoes. Samecap brim, face andhair. Neutralgender youngadult. No newbag/symbol/logo.\nFACING UP: full REAR VIEW facingscreenTOP, showbackofhead, backofshirtandpantlegs, heelsatbottom. NO face/eyes onbackofhead. Emptyhands bysides. Samehair/cap/outfitandbodyheight.\nImage4 is selected STANDINGFRONT version; preserve exactsamebodyheight/headsize, clothinglength/width andneutralemptysidehands. Rotatewholebody toback, don'tshowfrontface."
+        },
+        {
+          "kind": "guest",
+          "theme": "a",
+          "person": 3,
+          "direction": "up",
+          "key": "guest3-up",
+          "file": "assets/a/guest3-up.png",
+          "refs": [
+            "assets/a/customer3-up.png",
+            "assets/a/chair.png",
+            "assets/a/trash.png",
+            "assets/a/guest3-down.png (selected full-resolution generated source)"
+          ],
+          "prompt": "Use case: identity-preserve. ONE standalone 2D game STANDING CAFE GUEST sprite on TRUEtransparentbackground. Image1 seatedcustomer is EXACT identity/outfit reference: sameperson now STANDING, not anewcharacter. Images2chair and3trash are only reference for sparse thickblackstrokes and gameassetview/style; doNOTdrawtheseobjects. Remove chair and remove heldcup; standingguest is WAITING FOR drinkdelivery with BOTH EMPTY HANDS relaxedatwaist orbodysides, no prop, no walkingaction. Uprightbalancedneutralpose, TWO feet on samebaseline. Fullbody fromhairtoSHOESOLES, no cropping. Camera orthographic RPGMaker slightoverhead, NOTisometric or photorealism, sameviewasreference, same thicklowcount blacklines/large simpleplanes, no newdetail/hatching. Intended192x288RGBAcanvas, visiblepersonheight250px, footsolesatbottomy288. Character centered width~100-140px, consistentheadsize/bodyproportions acrossdirections. No white stickerborder/floor or castshadow/glow/background. No letters/numbers/symbols/logos/green/red/orange/mint. ThemeA BLACK/WHITE/neutralGRAYonly.\nIDENTITY: same short LIGHTGRAY sidefringehair, DARKcollaredbuttonshirt (few large buttons only), mediumgraystraightpantsanddarkcasualshoes. Sameface andhairstyle. Neutralgender youngadult. Notmessydarkhair, nocap.\nFACING UP: full REAR VIEW facingscreenTOP, showbackofhead, backofshirtandpantlegs, heelsatbottom. NO face/eyes onbackofhead. Emptyhands bysides. Samehair/cap/outfitandbodyheight.\nImage4 is selected STANDINGFRONT version; preserve exactsamebodyheight/headsize, clothinglength/width andneutralemptysidehands. Rotatewholebody toback, don'tshowfrontface."
+        },
+        {
+          "kind": "guest",
+          "theme": "a",
+          "person": 1,
+          "direction": "left",
+          "key": "guest-left",
+          "file": "assets/a/guest-left.png",
+          "refs": [
+            "assets/a/customer-left.png",
+            "assets/a/chair.png",
+            "assets/a/trash.png",
+            "assets/a/guest-down.png (selected full-resolution generated source)"
+          ],
+          "prompt": "Use case: identity-preserve. ONE standalone 2D game STANDING CAFE GUEST sprite on TRUEtransparentbackground. Image1 seatedcustomer is EXACT identity/outfit reference: sameperson now STANDING, not anewcharacter. Images2chair and3trash are only reference for sparse thickblackstrokes and gameassetview/style; doNOTdrawtheseobjects. Remove chair and remove heldcup; standingguest is WAITING FOR drinkdelivery with BOTH EMPTY HANDS relaxedatwaist orbodysides, no prop, no walkingaction. Uprightbalancedneutralpose, TWO feet on samebaseline. Fullbody fromhairtoSHOESOLES, no cropping. Camera orthographic RPGMaker slightoverhead, NOTisometric or photorealism, sameviewasreference, same thicklowcount blacklines/large simpleplanes, no newdetail/hatching. Intended192x288RGBAcanvas, visiblepersonheight250px, footsolesatbottomy288. Character centered width~100-140px, consistentheadsize/bodyproportions acrossdirections. No white stickerborder/floor or castshadow/glow/background. No letters/numbers/symbols/logos/green/red/orange/mint. ThemeA BLACK/WHITE/neutralGRAYonly.\nIDENTITY: same darkmessy shortblack hair, plain mediumgray longsleeve sweater, darkergray straightpants and darkcasualshoes; A grayscaleonly. Neutralgender youngadult, exactsameface/hairstyle/sweater asreference. NOTgreen/red hoodie.\nFACING LEFT: TRUE LEFT SIDE PROFILE, faceandnose looktoward LEFTedge, bothshoe toes pointLEFT, shoulders/pelvisrotateleft, no broadfrontface. Emptynearhand relaxesbywaist, fararmnaturallyoccluded. Samepersonheightandfeetbaseline.\nImage4 selectedSTANDINGfront fixesbody proportions/height, clothing length/width andheadsize; sameperson rotated, no props. Do not keepseatedknees/chair/cup."
+        },
+        {
+          "kind": "guest",
+          "theme": "a",
+          "person": 2,
+          "direction": "left",
+          "key": "guest2-left",
+          "file": "assets/a/guest2-left.png",
+          "refs": [
+            "assets/a/customer2-left.png",
+            "assets/a/chair.png",
+            "assets/a/trash.png",
+            "assets/a/guest2-down.png (selected full-resolution generated source)"
+          ],
+          "prompt": "Use case: identity-preserve. ONE standalone 2D game STANDING CAFE GUEST sprite on TRUEtransparentbackground. Image1 seatedcustomer is EXACT identity/outfit reference: sameperson now STANDING, not anewcharacter. Images2chair and3trash are only reference for sparse thickblackstrokes and gameassetview/style; doNOTdrawtheseobjects. Remove chair and remove heldcup; standingguest is WAITING FOR drinkdelivery with BOTH EMPTY HANDS relaxedatwaist orbodysides, no prop, no walkingaction. Uprightbalancedneutralpose, TWO feet on samebaseline. Fullbody fromhairtoSHOESOLES, no cropping. Camera orthographic RPGMaker slightoverhead, NOTisometric or photorealism, sameviewasreference, same thicklowcount blacklines/large simpleplanes, no newdetail/hatching. Intended192x288RGBAcanvas, visiblepersonheight250px, footsolesatbottomy288. Character centered width~100-140px, consistentheadsize/bodyproportions acrossdirections. No white stickerborder/floor or castshadow/glow/background. No letters/numbers/symbols/logos/green/red/orange/mint. ThemeA BLACK/WHITE/neutralGRAYonly.\nIDENTITY: same rounded baseballcap and shortlight fringe, loose LIGHTGRAY plain sweatshirt withribbedneck/cuffs/hem, DARKGRAYstraightpants anddarkcasualshoes. Samecap brim, face andhair. Neutralgender youngadult. No newbag/symbol/logo.\nFACING LEFT: TRUE LEFT SIDE PROFILE, faceandnose looktoward LEFTedge, bothshoe toes pointLEFT, shoulders/pelvisrotateleft, no broadfrontface. Emptynearhand relaxesbywaist, fararmnaturallyoccluded. Samepersonheightandfeetbaseline.\nImage4 selectedSTANDINGfront fixesbody proportions/height, clothing length/width andheadsize; sameperson rotated, no props. Do not keepseatedknees/chair/cup."
+        },
+        {
+          "kind": "guest",
+          "theme": "a",
+          "person": 3,
+          "direction": "left",
+          "key": "guest3-left",
+          "file": "assets/a/guest3-left.png",
+          "refs": [
+            "assets/a/customer3-left.png",
+            "assets/a/chair.png",
+            "assets/a/trash.png",
+            "assets/a/guest3-down.png (selected full-resolution generated source)"
+          ],
+          "prompt": "Use case: identity-preserve. ONE standalone 2D game STANDING CAFE GUEST sprite on TRUEtransparentbackground. Image1 seatedcustomer is EXACT identity/outfit reference: sameperson now STANDING, not anewcharacter. Images2chair and3trash are only reference for sparse thickblackstrokes and gameassetview/style; doNOTdrawtheseobjects. Remove chair and remove heldcup; standingguest is WAITING FOR drinkdelivery with BOTH EMPTY HANDS relaxedatwaist orbodysides, no prop, no walkingaction. Uprightbalancedneutralpose, TWO feet on samebaseline. Fullbody fromhairtoSHOESOLES, no cropping. Camera orthographic RPGMaker slightoverhead, NOTisometric or photorealism, sameviewasreference, same thicklowcount blacklines/large simpleplanes, no newdetail/hatching. Intended192x288RGBAcanvas, visiblepersonheight250px, footsolesatbottomy288. Character centered width~100-140px, consistentheadsize/bodyproportions acrossdirections. No white stickerborder/floor or castshadow/glow/background. No letters/numbers/symbols/logos/green/red/orange/mint. ThemeA BLACK/WHITE/neutralGRAYonly.\nIDENTITY: same short LIGHTGRAY sidefringehair, DARKcollaredbuttonshirt (few large buttons only), mediumgraystraightpantsanddarkcasualshoes. Sameface andhairstyle. Neutralgender youngadult. Notmessydarkhair, nocap.\nFACING LEFT: TRUE LEFT SIDE PROFILE, faceandnose looktoward LEFTedge, bothshoe toes pointLEFT, shoulders/pelvisrotateleft, no broadfrontface. Emptynearhand relaxesbywaist, fararmnaturallyoccluded. Samepersonheightandfeetbaseline.\nImage4 selectedSTANDINGfront fixesbody proportions/height, clothing length/width andheadsize; sameperson rotated, no props. Do not keepseatedknees/chair/cup."
+        },
+        {
+          "kind": "guest",
+          "theme": "a",
+          "person": 1,
+          "direction": "right",
+          "key": "guest-right",
+          "file": "assets/a/guest-right.png",
+          "refs": [
+            "assets/a/customer-right.png",
+            "assets/a/chair.png",
+            "assets/a/trash.png",
+            "assets/a/guest-down.png (selected full-resolution generated source)"
+          ],
+          "prompt": "Use case: identity-preserve. ONE standalone 2D game STANDING CAFE GUEST sprite on TRUEtransparentbackground. Image1 seatedcustomer is EXACT identity/outfit reference: sameperson now STANDING, not anewcharacter. Images2chair and3trash are only reference for sparse thickblackstrokes and gameassetview/style; doNOTdrawtheseobjects. Remove chair and remove heldcup; standingguest is WAITING FOR drinkdelivery with BOTH EMPTY HANDS relaxedatwaist orbodysides, no prop, no walkingaction. Uprightbalancedneutralpose, TWO feet on samebaseline. Fullbody fromhairtoSHOESOLES, no cropping. Camera orthographic RPGMaker slightoverhead, NOTisometric or photorealism, sameviewasreference, same thicklowcount blacklines/large simpleplanes, no newdetail/hatching. Intended192x288RGBAcanvas, visiblepersonheight250px, footsolesatbottomy288. Character centered width~100-140px, consistentheadsize/bodyproportions acrossdirections. No white stickerborder/floor or castshadow/glow/background. No letters/numbers/symbols/logos/green/red/orange/mint. ThemeA BLACK/WHITE/neutralGRAYonly.\nIDENTITY: same darkmessy shortblack hair, plain mediumgray longsleeve sweater, darkergray straightpants and darkcasualshoes; A grayscaleonly. Neutralgender youngadult, exactsameface/hairstyle/sweater asreference. NOTgreen/red hoodie.\nFACING RIGHT: TRUE RIGHT SIDE PROFILE, faceandnose looktoward RIGHTedge, bothshoetoes pointRIGHT, no broadfrontface. Emptynearhand relaxesbywaist, fararmnaturallyoccluded. Samepersonheightandfeetbaseline.\nImage4 selectedSTANDINGfront fixesbody proportions/height, clothing length/width andheadsize; sameperson rotated, no props. Do not keepseatedknees/chair/cup."
+        },
+        {
+          "kind": "guest",
+          "theme": "a",
+          "person": 2,
+          "direction": "right",
+          "key": "guest2-right",
+          "file": "assets/a/guest2-right.png",
+          "refs": [
+            "assets/a/customer2-right.png",
+            "assets/a/chair.png",
+            "assets/a/trash.png",
+            "assets/a/guest2-down.png (selected full-resolution generated source)"
+          ],
+          "prompt": "Use case: identity-preserve. ONE standalone 2D game STANDING CAFE GUEST sprite on TRUEtransparentbackground. Image1 seatedcustomer is EXACT identity/outfit reference: sameperson now STANDING, not anewcharacter. Images2chair and3trash are only reference for sparse thickblackstrokes and gameassetview/style; doNOTdrawtheseobjects. Remove chair and remove heldcup; standingguest is WAITING FOR drinkdelivery with BOTH EMPTY HANDS relaxedatwaist orbodysides, no prop, no walkingaction. Uprightbalancedneutralpose, TWO feet on samebaseline. Fullbody fromhairtoSHOESOLES, no cropping. Camera orthographic RPGMaker slightoverhead, NOTisometric or photorealism, sameviewasreference, same thicklowcount blacklines/large simpleplanes, no newdetail/hatching. Intended192x288RGBAcanvas, visiblepersonheight250px, footsolesatbottomy288. Character centered width~100-140px, consistentheadsize/bodyproportions acrossdirections. No white stickerborder/floor or castshadow/glow/background. No letters/numbers/symbols/logos/green/red/orange/mint. ThemeA BLACK/WHITE/neutralGRAYonly.\nIDENTITY: same rounded baseballcap and shortlight fringe, loose LIGHTGRAY plain sweatshirt withribbedneck/cuffs/hem, DARKGRAYstraightpants anddarkcasualshoes. Samecap brim, face andhair. Neutralgender youngadult. No newbag/symbol/logo.\nFACING RIGHT: TRUE RIGHT SIDE PROFILE, faceandnose looktoward RIGHTedge, bothshoetoes pointRIGHT, no broadfrontface. Emptynearhand relaxesbywaist, fararmnaturallyoccluded. Samepersonheightandfeetbaseline.\nImage4 selectedSTANDINGfront fixesbody proportions/height, clothing length/width andheadsize; sameperson rotated, no props. Do not keepseatedknees/chair/cup."
+        },
+        {
+          "kind": "guest",
+          "theme": "a",
+          "person": 3,
+          "direction": "right",
+          "key": "guest3-right",
+          "file": "assets/a/guest3-right.png",
+          "refs": [
+            "assets/a/customer3-right.png",
+            "assets/a/chair.png",
+            "assets/a/trash.png",
+            "assets/a/guest3-down.png (selected full-resolution generated source)"
+          ],
+          "prompt": "Use case: identity-preserve. ONE standalone 2D game STANDING CAFE GUEST sprite on TRUEtransparentbackground. Image1 seatedcustomer is EXACT identity/outfit reference: sameperson now STANDING, not anewcharacter. Images2chair and3trash are only reference for sparse thickblackstrokes and gameassetview/style; doNOTdrawtheseobjects. Remove chair and remove heldcup; standingguest is WAITING FOR drinkdelivery with BOTH EMPTY HANDS relaxedatwaist orbodysides, no prop, no walkingaction. Uprightbalancedneutralpose, TWO feet on samebaseline. Fullbody fromhairtoSHOESOLES, no cropping. Camera orthographic RPGMaker slightoverhead, NOTisometric or photorealism, sameviewasreference, same thicklowcount blacklines/large simpleplanes, no newdetail/hatching. Intended192x288RGBAcanvas, visiblepersonheight250px, footsolesatbottomy288. Character centered width~100-140px, consistentheadsize/bodyproportions acrossdirections. No white stickerborder/floor or castshadow/glow/background. No letters/numbers/symbols/logos/green/red/orange/mint. ThemeA BLACK/WHITE/neutralGRAYonly.\nIDENTITY: same short LIGHTGRAY sidefringehair, DARKcollaredbuttonshirt (few large buttons only), mediumgraystraightpantsanddarkcasualshoes. Sameface andhairstyle. Neutralgender youngadult. Notmessydarkhair, nocap.\nFACING RIGHT: TRUE RIGHT SIDE PROFILE, faceandnose looktoward RIGHTedge, bothshoetoes pointRIGHT, no broadfrontface. Emptynearhand relaxesbywaist, fararmnaturallyoccluded. Samepersonheightandfeetbaseline.\nImage4 selectedSTANDINGfront fixesbody proportions/height, clothing length/width andheadsize; sameperson rotated, no props. Do not keepseatedknees/chair/cup."
+        },
+        {
+          "kind": "drink",
+          "theme": "a",
+          "n": 1,
+          "key": "drink-1",
+          "file": "assets/a/drink-1.png",
+          "refs": [
+            "assets/a/drink-1.png (initial generated source before compact-height correction)"
+          ],
+          "prompt": "Use case: precise-object-edit. Preserve exact suppliedGREENKoreantakeouticeddrink onroundtray, sameflatlid/transparentgreencup/ice/simplethickoutline/view/colors. ONLY compactheight: SHORTENSTRAWABOVELIDby60%, shortenCUPBODYHEIGHTby8%. DoNOTnarrowtray orcup. Need134pxtraywidth withTOTALsilhouetteheight<=176px sofits192canvas. Currentstrawmakesoveralltoo tall. Keepstrawstraightandclearlyvisible, drinkstillTALLcomparedwithlowmug, traywidest. No changingto mug/nohandle/no newprops, no text/numbers/stickeroutline/shadow/glow/background. TrueRGBAtransparency.",
+          "lineage": [
+            {
+              "prompt": "Use case: stylized-concept. ONE standalone pushableCAFE DRINK ON SMALL ROUND SERVINGTRAY, transparent2D gameasset, intended192x192. Same RPGMaker slightoverhead front/topview as references, fewTHICKBLACKlines/large simplefaces, no texture/hatching/tinydecorations. References1customer,2chair,3trash STYLEonly, doNOTdrawpeople/chair/trash. WholeTRAY AND VESSEL monochromeGREEN #2f7a54 withlight/darkgreen forONEshadowstep, blackcontours andtinywhiteglints only. No red/orange/mint/blue/beigebrowndrinkfill. Entirecup/handle/lid/straw/pot/tray greenfamily, notwhiteceramic. Smallroundtray seenasellipse, finalwidth134px (~70%canvas), centeredx96 inlowercanvas, traybottomy184 with8pxtransparentmargin. Vessel staysupright ontray. SilhouettemustreadasORDERICON only43pxwide; thick edges, almostnodetail. No text/logo/numbers/stickerborder/castshadow/floorground/glow/background, TRUEalpha. NO vibrationlines orUIbubble; justone servingasset. Korean cafe TAKEOUT ICEDDRINK: ONE TALL transparent-tintedGREEN plasticcup withFLATlid andONE straightstraw. Transparentplasticappearance fromlargeclear-greenbody andsimplehighlight, notgray/whitecup. Cup tallnarrow~70pxwide/110pxtall, strawextends~35pxup, simplefewlargeicecubes ifvisible. This is tallestofthree. No domelid, no handle, no secondvessel.",
+              "refs": [
+                "assets/a/customer-down.png",
+                "assets/a/chair.png",
+                "assets/a/trash.png"
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "drink",
+          "theme": "a",
+          "n": 3,
+          "key": "drink-3",
+          "file": "assets/a/drink-3.png",
+          "refs": [
+            "assets/a/customer-down.png",
+            "assets/a/chair.png",
+            "assets/a/trash.png"
+          ],
+          "prompt": "Use case: stylized-concept. ONE standalone pushableCAFE DRINK ON SMALL ROUND SERVINGTRAY, transparent2D gameasset, intended192x192. Same RPGMaker slightoverhead front/topview as references, fewTHICKBLACKlines/large simplefaces, no texture/hatching/tinydecorations. References1customer,2chair,3trash STYLEonly, doNOTdrawpeople/chair/trash. WholeTRAY AND VESSEL monochromeGREEN #2f7a54 withlight/darkgreen forONEshadowstep, blackcontours andtinywhiteglints only. No red/orange/mint/blue/beigebrowndrinkfill. Entirecup/handle/lid/straw/pot/tray greenfamily, notwhiteceramic. Smallroundtray seenasellipse, finalwidth134px (~70%canvas), centeredx96 inlowercanvas, traybottomy184 with8pxtransparentmargin. Vessel staysupright ontray. SilhouettemustreadasORDERICON only43pxwide; thick edges, almostnodetail. No text/logo/numbers/stickerborder/castshadow/floorground/glow/background, TRUEalpha. NO vibrationlines orUIbubble; justone servingasset. ONE ROUND TEAPOT withclearcurvedSPOUTatoneSIDE, roundedHANDLE opposite, smallroundedLID. ONE SMALL TEACUP nexttoit onSAMEroundtray, cupmuchsmallerthanpot. Roundbulbouspotdominatesgroup (~85pxinclspout/handle), smallcup~26pxwide tofrontside. Arrangementfits134pxtray, simpleboldsilhouette. No extrateacups/saucers/text/steam."
+        },
+        {
+          "kind": "drink",
+          "theme": "a",
+          "n": 2,
+          "key": "drink-2",
+          "file": "assets/a/drink-2.png",
+          "refs": [
+            "assets/a/customer-down.png",
+            "assets/a/chair.png",
+            "assets/a/trash.png"
+          ],
+          "prompt": "Use case: stylized-concept. ONE standalone pushableCAFE DRINK ON SMALL ROUND SERVINGTRAY, transparent2D gameasset, intended192x192. Same RPGMaker slightoverhead front/topview as references, fewTHICKBLACKlines/large simplefaces, no texture/hatching/tinydecorations. References1customer,2chair,3trash STYLEonly, doNOTdrawpeople/chair/trash. WholeTRAY AND VESSEL monochromeGREEN #2f7a54 withlight/darkgreen forONEshadowstep, blackcontours andtinywhiteglints only. No red/orange/mint/blue/beigebrowndrinkfill. Entirecup/handle/lid/straw/pot/tray greenfamily, notwhiteceramic. Smallroundtray seenasellipse, finalwidth134px (~70%canvas), centeredx96 inlowercanvas, traybottomy184 with8pxtransparentmargin. Vessel staysupright ontray. SilhouettemustreadasORDERICON only43pxwide; thick edges, almostnodetail. No text/logo/numbers/stickerborder/castshadow/floorground/glow/background, TRUEalpha. NO vibrationlines orUIbubble; justone servingasset. ONE LOW WIDE MUG withLARGE obviousCshapedSIDEHANDLE, broadovalrim, shortcylindricalbody. Wide squatcoffee mug, totalmugwidth~100px inclhandle, height~60px, on134pxroundtray. NO straw/tallcup/steamlines, no plateaside. Strong lowwidesilhouette distinctfromdrink1."
+        },
+        {
+          "kind": "guest",
+          "theme": "b",
+          "person": 1,
+          "direction": "down",
+          "key": "guest-down",
+          "file": "assets/b/guest-down.png",
+          "refs": [
+            "assets/b/customer-down.png",
+            "assets/b/chair.png",
+            "assets/b/trash.png",
+            "assets/a/guest-down.png (selected full-resolution generated source)"
+          ],
+          "prompt": "Use case: style-transfer. ONE STANDINGguest game sprite. Image1 is existingSEATEDBcustomer: exactidentity andclothingCOLORS only. Images2chair/3trash arethickblacklinecartoonstylerefs only, don'tdrawobjects. Image4 is SAMEPERSON STANDINGinA and is exactPOSE/BODYshape master. Preserve image4fullbodyproportions/hair/cap/shirt/pants/shoes, footpositions, emptysidehandsanddirection, applycolorsfromimage1. ExistingBguest1: shortmessyverydarkbrownhair, mutedblue-gray plaincrewnecksweater, taupebrownpants, darkbrownshoes, peachskin. No hoodie,newhair orshirtgraphics. FACING DOWN: frontview lookingtowardviewer/screenbottom. Samepersonface fullyvisible, bothshoes onground; emptyhands bywaist/sides, notheldcup. TrueRGBAtransparentbackground. NOchair/cup/props, noclothesred/brightorange/green/mint (thoseareinteractivecolors). Low-saturationexistingBclothes/skinonly. Sparsefewboldblacklines, sameRPGMaker slightoverhead, no hatching/text/logos/numbers/stickerborder/shadow/floorground/glow. Intended192x288, visibleperson250high, solesbottomy288, consistentallviews. Standingidle notwalking, fullbodyunclipped."
+        },
+        {
+          "kind": "guest",
+          "theme": "b",
+          "person": 2,
+          "direction": "down",
+          "key": "guest2-down",
+          "file": "assets/b/guest2-down.png",
+          "refs": [
+            "assets/b/customer2-down.png",
+            "assets/b/chair.png",
+            "assets/b/trash.png",
+            "assets/a/guest2-down.png (selected full-resolution generated source)"
+          ],
+          "prompt": "Use case: style-transfer. ONE STANDINGguest game sprite. Image1 is existingSEATEDBcustomer: exactidentity andclothingCOLORS only. Images2chair/3trash arethickblacklinecartoonstylerefs only, don'tdrawobjects. Image4 is SAMEPERSON STANDINGinA and is exactPOSE/BODYshape master. Preserve image4fullbodyproportions/hair/cap/shirt/pants/shoes, footpositions, emptysidehandsanddirection, applycolorsfromimage1. ExistingBguest2: graybaseballcap, shortlightoffwhitefringe, LIGHTBEIGEplainloosesweatshirt, DARKGRAYpants, darkgrayblackshoes, peachskin. FACING DOWN: frontview lookingtowardviewer/screenbottom. Samepersonface fullyvisible, bothshoes onground; emptyhands bywaist/sides, notheldcup. TrueRGBAtransparentbackground. NOchair/cup/props, noclothesred/brightorange/green/mint (thoseareinteractivecolors). Low-saturationexistingBclothes/skinonly. Sparsefewboldblacklines, sameRPGMaker slightoverhead, no hatching/text/logos/numbers/stickerborder/shadow/floorground/glow. Intended192x288, visibleperson250high, solesbottomy288, consistentallviews. Standingidle notwalking, fullbodyunclipped."
+        },
+        {
+          "kind": "guest",
+          "theme": "b",
+          "person": 3,
+          "direction": "down",
+          "key": "guest3-down",
+          "file": "assets/b/guest3-down.png",
+          "refs": [
+            "assets/b/customer3-down.png",
+            "assets/b/chair.png",
+            "assets/b/trash.png",
+            "assets/a/guest3-down.png (selected full-resolution generated source)"
+          ],
+          "prompt": "Use case: style-transfer. ONE STANDINGguest game sprite. Image1 is existingSEATEDBcustomer: exactidentity andclothingCOLORS only. Images2chair/3trash arethickblacklinecartoonstylerefs only, don'tdrawobjects. Image4 is SAMEPERSON STANDINGinA and is exactPOSE/BODYshape master. Preserve image4fullbodyproportions/hair/cap/shirt/pants/shoes, footpositions, emptysidehandsanddirection, applycolorsfromimage1. ExistingBguest3: shortlightbeigeblondhair, DARKNAVY collaredbuttonshirt, graytaupepants,darkgrayblackshoes,peachskin. FACING DOWN: frontview lookingtowardviewer/screenbottom. Samepersonface fullyvisible, bothshoes onground; emptyhands bywaist/sides, notheldcup. TrueRGBAtransparentbackground. NOchair/cup/props, noclothesred/brightorange/green/mint (thoseareinteractivecolors). Low-saturationexistingBclothes/skinonly. Sparsefewboldblacklines, sameRPGMaker slightoverhead, no hatching/text/logos/numbers/stickerborder/shadow/floorground/glow. Intended192x288, visibleperson250high, solesbottomy288, consistentallviews. Standingidle notwalking, fullbodyunclipped."
+        },
+        {
+          "kind": "guest",
+          "theme": "b",
+          "person": 1,
+          "direction": "up",
+          "key": "guest-up",
+          "file": "assets/b/guest-up.png",
+          "refs": [
+            "assets/b/customer-up.png",
+            "assets/b/chair.png",
+            "assets/b/trash.png",
+            "assets/a/guest-up.png (selected full-resolution generated source)"
+          ],
+          "prompt": "Use case: style-transfer. ONE STANDINGguest game sprite. Image1 is existingSEATEDBcustomer: exactidentity andclothingCOLORS only. Images2chair/3trash arethickblacklinecartoonstylerefs only, don'tdrawobjects. Image4 is SAMEPERSON STANDINGinA and is exactPOSE/BODYshape master. Preserve image4fullbodyproportions/hair/cap/shirt/pants/shoes, footpositions, emptysidehandsanddirection, applycolorsfromimage1. ExistingBguest1: shortmessyverydarkbrownhair, mutedblue-gray plaincrewnecksweater, taupebrownpants, darkbrownshoes, peachskin. No hoodie,newhair orshirtgraphics. FACING UP: full REAR VIEW facingscreenTOP, showbackofhead, backofshirtandpantlegs, heelsatbottom. NO face/eyes onbackofhead. Emptyhands bysides. Samehair/cap/outfitandbodyheight. TrueRGBAtransparentbackground. NOchair/cup/props, noclothesred/brightorange/green/mint (thoseareinteractivecolors). Low-saturationexistingBclothes/skinonly. Sparsefewboldblacklines, sameRPGMaker slightoverhead, no hatching/text/logos/numbers/stickerborder/shadow/floorground/glow. Intended192x288, visibleperson250high, solesbottomy288, consistentallviews. Standingidle notwalking, fullbodyunclipped."
+        },
+        {
+          "kind": "guest",
+          "theme": "b",
+          "person": 2,
+          "direction": "up",
+          "key": "guest2-up",
+          "file": "assets/b/guest2-up.png",
+          "refs": [
+            "assets/b/customer2-up.png",
+            "assets/b/chair.png",
+            "assets/b/trash.png",
+            "assets/a/guest2-up.png (selected full-resolution generated source)"
+          ],
+          "prompt": "Use case: style-transfer. ONE STANDINGguest game sprite. Image1 is existingSEATEDBcustomer: exactidentity andclothingCOLORS only. Images2chair/3trash arethickblacklinecartoonstylerefs only, don'tdrawobjects. Image4 is SAMEPERSON STANDINGinA and is exactPOSE/BODYshape master. Preserve image4fullbodyproportions/hair/cap/shirt/pants/shoes, footpositions, emptysidehandsanddirection, applycolorsfromimage1. ExistingBguest2: graybaseballcap, shortlightoffwhitefringe, LIGHTBEIGEplainloosesweatshirt, DARKGRAYpants, darkgrayblackshoes, peachskin. FACING UP: full REAR VIEW facingscreenTOP, showbackofhead, backofshirtandpantlegs, heelsatbottom. NO face/eyes onbackofhead. Emptyhands bysides. Samehair/cap/outfitandbodyheight. TrueRGBAtransparentbackground. NOchair/cup/props, noclothesred/brightorange/green/mint (thoseareinteractivecolors). Low-saturationexistingBclothes/skinonly. Sparsefewboldblacklines, sameRPGMaker slightoverhead, no hatching/text/logos/numbers/stickerborder/shadow/floorground/glow. Intended192x288, visibleperson250high, solesbottomy288, consistentallviews. Standingidle notwalking, fullbodyunclipped."
+        },
+        {
+          "kind": "guest",
+          "theme": "b",
+          "person": 3,
+          "direction": "up",
+          "key": "guest3-up",
+          "file": "assets/b/guest3-up.png",
+          "refs": [
+            "assets/b/customer3-up.png",
+            "assets/b/chair.png",
+            "assets/b/trash.png",
+            "assets/a/guest3-up.png (selected full-resolution generated source)"
+          ],
+          "prompt": "Use case: style-transfer. ONE STANDINGguest game sprite. Image1 is existingSEATEDBcustomer: exactidentity andclothingCOLORS only. Images2chair/3trash arethickblacklinecartoonstylerefs only, don'tdrawobjects. Image4 is SAMEPERSON STANDINGinA and is exactPOSE/BODYshape master. Preserve image4fullbodyproportions/hair/cap/shirt/pants/shoes, footpositions, emptysidehandsanddirection, applycolorsfromimage1. ExistingBguest3: shortlightbeigeblondhair, DARKNAVY collaredbuttonshirt, graytaupepants,darkgrayblackshoes,peachskin. FACING UP: full REAR VIEW facingscreenTOP, showbackofhead, backofshirtandpantlegs, heelsatbottom. NO face/eyes onbackofhead. Emptyhands bysides. Samehair/cap/outfitandbodyheight. TrueRGBAtransparentbackground. NOchair/cup/props, noclothesred/brightorange/green/mint (thoseareinteractivecolors). Low-saturationexistingBclothes/skinonly. Sparsefewboldblacklines, sameRPGMaker slightoverhead, no hatching/text/logos/numbers/stickerborder/shadow/floorground/glow. Intended192x288, visibleperson250high, solesbottomy288, consistentallviews. Standingidle notwalking, fullbodyunclipped."
+        },
+        {
+          "kind": "drink",
+          "theme": "b",
+          "n": 2,
+          "key": "drink-2",
+          "file": "assets/b/drink-2.png",
+          "refs": [
+            "assets/a/drink-2.png (selected full-resolution generated source)",
+            "assets/b/customer-down.png",
+            "assets/b/chair.png",
+            "assets/b/trash.png"
+          ],
+          "prompt": "Use case: style-transfer. ExactSAMEdrinkandroundtray asImage1, ONLY GREEN areas become ORANGE matchingImage3chair/Image4trash (#e8833a near). EntireTRAYandVESSELincludinghandle/lid/spout sameorangefamily, no greenceramic/whitecup/blue. Keepimage1wholeoutline/camera/proportions, thickfewblacklines, tinycreamglints. Images2customer/3chair/4trash styleandpaletteonly, doNOTdrawpeople/chair/trash. ONE lowwideMUGwithobviouslargeSIDEHANDLE, no straw. Intended192x192transparentPNG, roundtray134pxwide centeredlowercanvasbottomy184, simpleanddistinctat43pxordericon. No text/logo/numbers/steam/symbols/stickerborder/floorshadow/glow/background."
+        },
+        {
+          "kind": "drink",
+          "theme": "b",
+          "n": 3,
+          "key": "drink-3",
+          "file": "assets/b/drink-3.png",
+          "refs": [
+            "assets/a/drink-3.png (selected full-resolution generated source)",
+            "assets/b/customer-down.png",
+            "assets/b/chair.png",
+            "assets/b/trash.png"
+          ],
+          "prompt": "Use case: style-transfer. ExactSAMEdrinkandroundtray asImage1, ONLY GREEN areas become ORANGE matchingImage3chair/Image4trash (#e8833a near). EntireTRAYandVESSELincludinghandle/lid/spout sameorangefamily, no greenceramic/whitecup/blue. Keepimage1wholeoutline/camera/proportions, thickfewblacklines, tinycreamglints. Images2customer/3chair/4trash styleandpaletteonly, doNOTdrawpeople/chair/trash. ONE ROUNDTEAPOTwithspout/handle/lid andONE SMALLTEACUP on same tray. Intended192x192transparentPNG, roundtray134pxwide centeredlowercanvasbottomy184, simpleanddistinctat43pxordericon. No text/logo/numbers/steam/symbols/stickerborder/floorshadow/glow/background."
+        },
+        {
+          "kind": "drink",
+          "theme": "b",
+          "n": 1,
+          "key": "drink-1",
+          "file": "assets/b/drink-1.png",
+          "refs": [
+            "assets/a/drink-1.png (selected full-resolution generated source)",
+            "assets/b/customer-down.png",
+            "assets/b/chair.png",
+            "assets/b/trash.png"
+          ],
+          "prompt": "Use case: style-transfer. PreserveEXACTcompacttallKoreanplasticICEDCUP/flatlid/shortstraightstraw/iceandroundtrayofImage1. ONLY GREENfamilycolors becomeORANGE matchingchairImage3/trashImage4. Allvessel/lid/straw/trayorangefamily, clearorangetintedplasticappearance, no whitecup/blue/green. Otherrefs styleonly, nopeople/furniture. KeepheightandwidthUNCHANGED: tray134pxwide, wholeheight<=176px on192square, traycenterlowerbottomy184. THICKfewblackoutlines, largesimplehighlight, stilltallrelative squatmug. No text/numbers/logo/effectlines/stickerborder/floorshadow/glow/background, truealpha."
+        },
+        {
+          "kind": "guest",
+          "theme": "b",
+          "person": 1,
+          "direction": "left",
+          "key": "guest-left",
+          "file": "assets/b/guest-left.png",
+          "refs": [
+            "assets/b/customer-left.png",
+            "assets/b/chair.png",
+            "assets/b/trash.png",
+            "assets/a/guest-left.png (selected full-resolution generated source)",
+            "assets/b/guest-down.png (selected full-resolution generated source)"
+          ],
+          "prompt": "Use case: style-transfer. ONE STANDINGguest sprite, SAMEperson as refs. Image1 existingSEATEDBcustomer giveshair/outfitCOLORS, Image2chair/3trash givethickcartoongamestyle only. Image4 is sameperson STANDINGinA inrequestedSIDEVIEW andfixesexactPOSE/silhouette. Image5 selectedSTANDINGBfront fixescolorandbodyproportions. PreserveAimage4directionandemptyhands, applyexistingBcolors/identityfromimages1and5. ExistingBguest1: shortmessyverydarkbrownhair, mutedblue-gray plaincrewnecksweater, taupebrownpants, darkbrownshoes, peachskin. No hoodie,newhair orshirtgraphics. FACING LEFT: TRUE LEFT SIDE PROFILE, faceandnose looktoward LEFTedge, bothshoe toes pointLEFT, shoulders/pelvisrotateleft, no broadfrontface. Emptynearhand relaxesbywaist, fararmnaturallyoccluded. Samepersonheightandfeetbaseline. No chair/cup/props, nowalkingstep, uprightneutralstillpose withbothsolesonbottomy288, visibleheight250px on192x288transparentcanvas. Sameface/headsize/clothinglengthassamestandingfront. Bclothesmuted only, no mint/brightorange/green/red. Sparsefewboldblackstrokes, largeplanes, no text/logos/numbers/stickerborder/floorshadow/glow/background. DoNOTturnheadtowardviewer oraddnewaccessories."
+        },
+        {
+          "kind": "guest",
+          "theme": "b",
+          "person": 2,
+          "direction": "left",
+          "key": "guest2-left",
+          "file": "assets/b/guest2-left.png",
+          "refs": [
+            "assets/b/customer2-left.png",
+            "assets/b/chair.png",
+            "assets/b/trash.png",
+            "assets/a/guest2-left.png (selected full-resolution generated source)",
+            "assets/b/guest2-down.png (selected full-resolution generated source)"
+          ],
+          "prompt": "Use case: style-transfer. ONE STANDINGguest sprite, SAMEperson as refs. Image1 existingSEATEDBcustomer giveshair/outfitCOLORS, Image2chair/3trash givethickcartoongamestyle only. Image4 is sameperson STANDINGinA inrequestedSIDEVIEW andfixesexactPOSE/silhouette. Image5 selectedSTANDINGBfront fixescolorandbodyproportions. PreserveAimage4directionandemptyhands, applyexistingBcolors/identityfromimages1and5. ExistingBguest2: graybaseballcap, shortlightoffwhitefringe, LIGHTBEIGEplainloosesweatshirt, DARKGRAYpants, darkgrayblackshoes, peachskin. FACING LEFT: TRUE LEFT SIDE PROFILE, faceandnose looktoward LEFTedge, bothshoe toes pointLEFT, shoulders/pelvisrotateleft, no broadfrontface. Emptynearhand relaxesbywaist, fararmnaturallyoccluded. Samepersonheightandfeetbaseline. No chair/cup/props, nowalkingstep, uprightneutralstillpose withbothsolesonbottomy288, visibleheight250px on192x288transparentcanvas. Sameface/headsize/clothinglengthassamestandingfront. Bclothesmuted only, no mint/brightorange/green/red. Sparsefewboldblackstrokes, largeplanes, no text/logos/numbers/stickerborder/floorshadow/glow/background. DoNOTturnheadtowardviewer oraddnewaccessories."
+        },
+        {
+          "kind": "guest",
+          "theme": "b",
+          "person": 3,
+          "direction": "left",
+          "key": "guest3-left",
+          "file": "assets/b/guest3-left.png",
+          "refs": [
+            "assets/b/customer3-left.png",
+            "assets/b/chair.png",
+            "assets/b/trash.png",
+            "assets/a/guest3-left.png (selected full-resolution generated source)",
+            "assets/b/guest3-down.png (selected full-resolution generated source)"
+          ],
+          "prompt": "Use case: style-transfer. ONE STANDINGguest sprite, SAMEperson as refs. Image1 existingSEATEDBcustomer giveshair/outfitCOLORS, Image2chair/3trash givethickcartoongamestyle only. Image4 is sameperson STANDINGinA inrequestedSIDEVIEW andfixesexactPOSE/silhouette. Image5 selectedSTANDINGBfront fixescolorandbodyproportions. PreserveAimage4directionandemptyhands, applyexistingBcolors/identityfromimages1and5. ExistingBguest3: shortlightbeigeblondhair, DARKNAVY collaredbuttonshirt, graytaupepants,darkgrayblackshoes,peachskin. FACING LEFT: TRUE LEFT SIDE PROFILE, faceandnose looktoward LEFTedge, bothshoe toes pointLEFT, shoulders/pelvisrotateleft, no broadfrontface. Emptynearhand relaxesbywaist, fararmnaturallyoccluded. Samepersonheightandfeetbaseline. No chair/cup/props, nowalkingstep, uprightneutralstillpose withbothsolesonbottomy288, visibleheight250px on192x288transparentcanvas. Sameface/headsize/clothinglengthassamestandingfront. Bclothesmuted only, no mint/brightorange/green/red. Sparsefewboldblackstrokes, largeplanes, no text/logos/numbers/stickerborder/floorshadow/glow/background. DoNOTturnheadtowardviewer oraddnewaccessories."
+        },
+        {
+          "kind": "guest",
+          "theme": "b",
+          "person": 1,
+          "direction": "right",
+          "key": "guest-right",
+          "file": "assets/b/guest-right.png",
+          "refs": [
+            "assets/b/customer-right.png",
+            "assets/b/chair.png",
+            "assets/b/trash.png",
+            "assets/a/guest-right.png (selected full-resolution generated source)",
+            "assets/b/guest-down.png (selected full-resolution generated source)"
+          ],
+          "prompt": "Use case: style-transfer. ONE STANDINGguest sprite, SAMEperson as refs. Image1 existingSEATEDBcustomer giveshair/outfitCOLORS, Image2chair/3trash givethickcartoongamestyle only. Image4 is sameperson STANDINGinA inrequestedSIDEVIEW andfixesexactPOSE/silhouette. Image5 selectedSTANDINGBfront fixescolorandbodyproportions. PreserveAimage4directionandemptyhands, applyexistingBcolors/identityfromimages1and5. ExistingBguest1: shortmessyverydarkbrownhair, mutedblue-gray plaincrewnecksweater, taupebrownpants, darkbrownshoes, peachskin. No hoodie,newhair orshirtgraphics. FACING RIGHT: TRUE RIGHT SIDE PROFILE, faceandnose looktoward RIGHTedge, bothshoetoes pointRIGHT, no broadfrontface. Emptynearhand relaxesbywaist, fararmnaturallyoccluded. Samepersonheightandfeetbaseline. No chair/cup/props, nowalkingstep, uprightneutralstillpose withbothsolesonbottomy288, visibleheight250px on192x288transparentcanvas. Sameface/headsize/clothinglengthassamestandingfront. Bclothesmuted only, no mint/brightorange/green/red. Sparsefewboldblackstrokes, largeplanes, no text/logos/numbers/stickerborder/floorshadow/glow/background. DoNOTturnheadtowardviewer oraddnewaccessories."
+        },
+        {
+          "kind": "guest",
+          "theme": "b",
+          "person": 2,
+          "direction": "right",
+          "key": "guest2-right",
+          "file": "assets/b/guest2-right.png",
+          "refs": [
+            "assets/b/customer2-right.png",
+            "assets/b/chair.png",
+            "assets/b/trash.png",
+            "assets/a/guest2-right.png (selected full-resolution generated source)",
+            "assets/b/guest2-down.png (selected full-resolution generated source)"
+          ],
+          "prompt": "Use case: style-transfer. ONE STANDINGguest sprite, SAMEperson as refs. Image1 existingSEATEDBcustomer giveshair/outfitCOLORS, Image2chair/3trash givethickcartoongamestyle only. Image4 is sameperson STANDINGinA inrequestedSIDEVIEW andfixesexactPOSE/silhouette. Image5 selectedSTANDINGBfront fixescolorandbodyproportions. PreserveAimage4directionandemptyhands, applyexistingBcolors/identityfromimages1and5. ExistingBguest2: graybaseballcap, shortlightoffwhitefringe, LIGHTBEIGEplainloosesweatshirt, DARKGRAYpants, darkgrayblackshoes, peachskin. FACING RIGHT: TRUE RIGHT SIDE PROFILE, faceandnose looktoward RIGHTedge, bothshoetoes pointRIGHT, no broadfrontface. Emptynearhand relaxesbywaist, fararmnaturallyoccluded. Samepersonheightandfeetbaseline. No chair/cup/props, nowalkingstep, uprightneutralstillpose withbothsolesonbottomy288, visibleheight250px on192x288transparentcanvas. Sameface/headsize/clothinglengthassamestandingfront. Bclothesmuted only, no mint/brightorange/green/red. Sparsefewboldblackstrokes, largeplanes, no text/logos/numbers/stickerborder/floorshadow/glow/background. DoNOTturnheadtowardviewer oraddnewaccessories."
+        },
+        {
+          "kind": "guest",
+          "theme": "b",
+          "person": 3,
+          "direction": "right",
+          "key": "guest3-right",
+          "file": "assets/b/guest3-right.png",
+          "refs": [
+            "assets/b/customer3-right.png",
+            "assets/b/chair.png",
+            "assets/b/trash.png",
+            "assets/a/guest3-right.png (selected full-resolution generated source)",
+            "assets/b/guest3-down.png (selected full-resolution generated source)"
+          ],
+          "prompt": "Use case: style-transfer. ONE STANDINGguest sprite, SAMEperson as refs. Image1 existingSEATEDBcustomer giveshair/outfitCOLORS, Image2chair/3trash givethickcartoongamestyle only. Image4 is sameperson STANDINGinA inrequestedSIDEVIEW andfixesexactPOSE/silhouette. Image5 selectedSTANDINGBfront fixescolorandbodyproportions. PreserveAimage4directionandemptyhands, applyexistingBcolors/identityfromimages1and5. ExistingBguest3: shortlightbeigeblondhair, DARKNAVY collaredbuttonshirt, graytaupepants,darkgrayblackshoes,peachskin. FACING RIGHT: TRUE RIGHT SIDE PROFILE, faceandnose looktoward RIGHTedge, bothshoetoes pointRIGHT, no broadfrontface. Emptynearhand relaxesbywaist, fararmnaturallyoccluded. Samepersonheightandfeetbaseline. No chair/cup/props, nowalkingstep, uprightneutralstillpose withbothsolesonbottomy288, visibleheight250px on192x288transparentcanvas. Sameface/headsize/clothinglengthassamestandingfront. Bclothesmuted only, no mint/brightorange/green/red. Sparsefewboldblackstrokes, largeplanes, no text/logos/numbers/stickerborder/floorshadow/glow/background. DoNOTturnheadtowardviewer oraddnewaccessories."
+        },
+        {
+          "kind": "wet",
+          "theme": "a",
+          "key": "wet-0",
+          "file": "assets/a/wet-0.png",
+          "generatorPromptRef": "wetMaterialMasters.a",
+          "refs": [
+            "assets/a/customer-down.png",
+            "assets/a/chair.png",
+            "assets/a/trash.png"
+          ],
+          "derivedFrom": "wet-master-a",
+          "bits": {
+            "up": false,
+            "right": false,
+            "down": false,
+            "left": false
+          },
+          "processing": "Sharedgeneratedwaterbodypixel andgeneratedreflectionpatch, sourceAroundedcore144px/inset24, roundedextensions selectedbybits1/2/4/8, alpha140/255. Full-edgeconnectedcornerprecedence. FullrecipeinwetComposition."
+        },
+        {
+          "kind": "wet",
+          "theme": "a",
+          "key": "wet-1",
+          "file": "assets/a/wet-1.png",
+          "generatorPromptRef": "wetMaterialMasters.a",
+          "refs": [
+            "assets/a/customer-down.png",
+            "assets/a/chair.png",
+            "assets/a/trash.png"
+          ],
+          "derivedFrom": "wet-master-a",
+          "bits": {
+            "up": true,
+            "right": false,
+            "down": false,
+            "left": false
+          },
+          "processing": "Sharedgeneratedwaterbodypixel andgeneratedreflectionpatch, sourceAroundedcore144px/inset24, roundedextensions selectedbybits1/2/4/8, alpha140/255. Full-edgeconnectedcornerprecedence. FullrecipeinwetComposition."
+        },
+        {
+          "kind": "wet",
+          "theme": "a",
+          "key": "wet-2",
+          "file": "assets/a/wet-2.png",
+          "generatorPromptRef": "wetMaterialMasters.a",
+          "refs": [
+            "assets/a/customer-down.png",
+            "assets/a/chair.png",
+            "assets/a/trash.png"
+          ],
+          "derivedFrom": "wet-master-a",
+          "bits": {
+            "up": false,
+            "right": true,
+            "down": false,
+            "left": false
+          },
+          "processing": "Sharedgeneratedwaterbodypixel andgeneratedreflectionpatch, sourceAroundedcore144px/inset24, roundedextensions selectedbybits1/2/4/8, alpha140/255. Full-edgeconnectedcornerprecedence. FullrecipeinwetComposition."
+        },
+        {
+          "kind": "wet",
+          "theme": "a",
+          "key": "wet-3",
+          "file": "assets/a/wet-3.png",
+          "generatorPromptRef": "wetMaterialMasters.a",
+          "refs": [
+            "assets/a/customer-down.png",
+            "assets/a/chair.png",
+            "assets/a/trash.png"
+          ],
+          "derivedFrom": "wet-master-a",
+          "bits": {
+            "up": true,
+            "right": true,
+            "down": false,
+            "left": false
+          },
+          "processing": "Sharedgeneratedwaterbodypixel andgeneratedreflectionpatch, sourceAroundedcore144px/inset24, roundedextensions selectedbybits1/2/4/8, alpha140/255. Full-edgeconnectedcornerprecedence. FullrecipeinwetComposition."
+        },
+        {
+          "kind": "wet",
+          "theme": "a",
+          "key": "wet-4",
+          "file": "assets/a/wet-4.png",
+          "generatorPromptRef": "wetMaterialMasters.a",
+          "refs": [
+            "assets/a/customer-down.png",
+            "assets/a/chair.png",
+            "assets/a/trash.png"
+          ],
+          "derivedFrom": "wet-master-a",
+          "bits": {
+            "up": false,
+            "right": false,
+            "down": true,
+            "left": false
+          },
+          "processing": "Sharedgeneratedwaterbodypixel andgeneratedreflectionpatch, sourceAroundedcore144px/inset24, roundedextensions selectedbybits1/2/4/8, alpha140/255. Full-edgeconnectedcornerprecedence. FullrecipeinwetComposition."
+        },
+        {
+          "kind": "wet",
+          "theme": "a",
+          "key": "wet-5",
+          "file": "assets/a/wet-5.png",
+          "generatorPromptRef": "wetMaterialMasters.a",
+          "refs": [
+            "assets/a/customer-down.png",
+            "assets/a/chair.png",
+            "assets/a/trash.png"
+          ],
+          "derivedFrom": "wet-master-a",
+          "bits": {
+            "up": true,
+            "right": false,
+            "down": true,
+            "left": false
+          },
+          "processing": "Sharedgeneratedwaterbodypixel andgeneratedreflectionpatch, sourceAroundedcore144px/inset24, roundedextensions selectedbybits1/2/4/8, alpha140/255. Full-edgeconnectedcornerprecedence. FullrecipeinwetComposition."
+        },
+        {
+          "kind": "wet",
+          "theme": "a",
+          "key": "wet-6",
+          "file": "assets/a/wet-6.png",
+          "generatorPromptRef": "wetMaterialMasters.a",
+          "refs": [
+            "assets/a/customer-down.png",
+            "assets/a/chair.png",
+            "assets/a/trash.png"
+          ],
+          "derivedFrom": "wet-master-a",
+          "bits": {
+            "up": false,
+            "right": true,
+            "down": true,
+            "left": false
+          },
+          "processing": "Sharedgeneratedwaterbodypixel andgeneratedreflectionpatch, sourceAroundedcore144px/inset24, roundedextensions selectedbybits1/2/4/8, alpha140/255. Full-edgeconnectedcornerprecedence. FullrecipeinwetComposition."
+        },
+        {
+          "kind": "wet",
+          "theme": "a",
+          "key": "wet-7",
+          "file": "assets/a/wet-7.png",
+          "generatorPromptRef": "wetMaterialMasters.a",
+          "refs": [
+            "assets/a/customer-down.png",
+            "assets/a/chair.png",
+            "assets/a/trash.png"
+          ],
+          "derivedFrom": "wet-master-a",
+          "bits": {
+            "up": true,
+            "right": true,
+            "down": true,
+            "left": false
+          },
+          "processing": "Sharedgeneratedwaterbodypixel andgeneratedreflectionpatch, sourceAroundedcore144px/inset24, roundedextensions selectedbybits1/2/4/8, alpha140/255. Full-edgeconnectedcornerprecedence. FullrecipeinwetComposition."
+        },
+        {
+          "kind": "wet",
+          "theme": "a",
+          "key": "wet-8",
+          "file": "assets/a/wet-8.png",
+          "generatorPromptRef": "wetMaterialMasters.a",
+          "refs": [
+            "assets/a/customer-down.png",
+            "assets/a/chair.png",
+            "assets/a/trash.png"
+          ],
+          "derivedFrom": "wet-master-a",
+          "bits": {
+            "up": false,
+            "right": false,
+            "down": false,
+            "left": true
+          },
+          "processing": "Sharedgeneratedwaterbodypixel andgeneratedreflectionpatch, sourceAroundedcore144px/inset24, roundedextensions selectedbybits1/2/4/8, alpha140/255. Full-edgeconnectedcornerprecedence. FullrecipeinwetComposition."
+        },
+        {
+          "kind": "wet",
+          "theme": "a",
+          "key": "wet-9",
+          "file": "assets/a/wet-9.png",
+          "generatorPromptRef": "wetMaterialMasters.a",
+          "refs": [
+            "assets/a/customer-down.png",
+            "assets/a/chair.png",
+            "assets/a/trash.png"
+          ],
+          "derivedFrom": "wet-master-a",
+          "bits": {
+            "up": true,
+            "right": false,
+            "down": false,
+            "left": true
+          },
+          "processing": "Sharedgeneratedwaterbodypixel andgeneratedreflectionpatch, sourceAroundedcore144px/inset24, roundedextensions selectedbybits1/2/4/8, alpha140/255. Full-edgeconnectedcornerprecedence. FullrecipeinwetComposition."
+        },
+        {
+          "kind": "wet",
+          "theme": "a",
+          "key": "wet-10",
+          "file": "assets/a/wet-10.png",
+          "generatorPromptRef": "wetMaterialMasters.a",
+          "refs": [
+            "assets/a/customer-down.png",
+            "assets/a/chair.png",
+            "assets/a/trash.png"
+          ],
+          "derivedFrom": "wet-master-a",
+          "bits": {
+            "up": false,
+            "right": true,
+            "down": false,
+            "left": true
+          },
+          "processing": "Sharedgeneratedwaterbodypixel andgeneratedreflectionpatch, sourceAroundedcore144px/inset24, roundedextensions selectedbybits1/2/4/8, alpha140/255. Full-edgeconnectedcornerprecedence. FullrecipeinwetComposition."
+        },
+        {
+          "kind": "wet",
+          "theme": "a",
+          "key": "wet-11",
+          "file": "assets/a/wet-11.png",
+          "generatorPromptRef": "wetMaterialMasters.a",
+          "refs": [
+            "assets/a/customer-down.png",
+            "assets/a/chair.png",
+            "assets/a/trash.png"
+          ],
+          "derivedFrom": "wet-master-a",
+          "bits": {
+            "up": true,
+            "right": true,
+            "down": false,
+            "left": true
+          },
+          "processing": "Sharedgeneratedwaterbodypixel andgeneratedreflectionpatch, sourceAroundedcore144px/inset24, roundedextensions selectedbybits1/2/4/8, alpha140/255. Full-edgeconnectedcornerprecedence. FullrecipeinwetComposition."
+        },
+        {
+          "kind": "wet",
+          "theme": "a",
+          "key": "wet-12",
+          "file": "assets/a/wet-12.png",
+          "generatorPromptRef": "wetMaterialMasters.a",
+          "refs": [
+            "assets/a/customer-down.png",
+            "assets/a/chair.png",
+            "assets/a/trash.png"
+          ],
+          "derivedFrom": "wet-master-a",
+          "bits": {
+            "up": false,
+            "right": false,
+            "down": true,
+            "left": true
+          },
+          "processing": "Sharedgeneratedwaterbodypixel andgeneratedreflectionpatch, sourceAroundedcore144px/inset24, roundedextensions selectedbybits1/2/4/8, alpha140/255. Full-edgeconnectedcornerprecedence. FullrecipeinwetComposition."
+        },
+        {
+          "kind": "wet",
+          "theme": "a",
+          "key": "wet-13",
+          "file": "assets/a/wet-13.png",
+          "generatorPromptRef": "wetMaterialMasters.a",
+          "refs": [
+            "assets/a/customer-down.png",
+            "assets/a/chair.png",
+            "assets/a/trash.png"
+          ],
+          "derivedFrom": "wet-master-a",
+          "bits": {
+            "up": true,
+            "right": false,
+            "down": true,
+            "left": true
+          },
+          "processing": "Sharedgeneratedwaterbodypixel andgeneratedreflectionpatch, sourceAroundedcore144px/inset24, roundedextensions selectedbybits1/2/4/8, alpha140/255. Full-edgeconnectedcornerprecedence. FullrecipeinwetComposition."
+        },
+        {
+          "kind": "wet",
+          "theme": "a",
+          "key": "wet-14",
+          "file": "assets/a/wet-14.png",
+          "generatorPromptRef": "wetMaterialMasters.a",
+          "refs": [
+            "assets/a/customer-down.png",
+            "assets/a/chair.png",
+            "assets/a/trash.png"
+          ],
+          "derivedFrom": "wet-master-a",
+          "bits": {
+            "up": false,
+            "right": true,
+            "down": true,
+            "left": true
+          },
+          "processing": "Sharedgeneratedwaterbodypixel andgeneratedreflectionpatch, sourceAroundedcore144px/inset24, roundedextensions selectedbybits1/2/4/8, alpha140/255. Full-edgeconnectedcornerprecedence. FullrecipeinwetComposition."
+        },
+        {
+          "kind": "wet",
+          "theme": "a",
+          "key": "wet-15",
+          "file": "assets/a/wet-15.png",
+          "generatorPromptRef": "wetMaterialMasters.a",
+          "refs": [
+            "assets/a/customer-down.png",
+            "assets/a/chair.png",
+            "assets/a/trash.png"
+          ],
+          "derivedFrom": "wet-master-a",
+          "bits": {
+            "up": true,
+            "right": true,
+            "down": true,
+            "left": true
+          },
+          "processing": "Sharedgeneratedwaterbodypixel andgeneratedreflectionpatch, sourceAroundedcore144px/inset24, roundedextensions selectedbybits1/2/4/8, alpha140/255. Full-edgeconnectedcornerprecedence. FullrecipeinwetComposition."
+        },
+        {
+          "kind": "wet",
+          "theme": "b",
+          "key": "wet-0",
+          "file": "assets/b/wet-0.png",
+          "generatorPromptRef": "wetMaterialMasters.b",
+          "refs": [
+            "wet-master-a (selected full-resolution generated source)",
+            "assets/b/customer-down.png",
+            "assets/b/chair.png",
+            "assets/b/trash.png"
+          ],
+          "derivedFrom": "wet-master-b",
+          "bits": {
+            "up": false,
+            "right": false,
+            "down": false,
+            "left": false
+          },
+          "processing": "Sharedgeneratedwaterbodypixel andgeneratedreflectionpatch, sourceAroundedcore144px/inset24, roundedextensions selectedbybits1/2/4/8, alpha140/255. Full-edgeconnectedcornerprecedence. FullrecipeinwetComposition."
+        },
+        {
+          "kind": "wet",
+          "theme": "b",
+          "key": "wet-1",
+          "file": "assets/b/wet-1.png",
+          "generatorPromptRef": "wetMaterialMasters.b",
+          "refs": [
+            "wet-master-a (selected full-resolution generated source)",
+            "assets/b/customer-down.png",
+            "assets/b/chair.png",
+            "assets/b/trash.png"
+          ],
+          "derivedFrom": "wet-master-b",
+          "bits": {
+            "up": true,
+            "right": false,
+            "down": false,
+            "left": false
+          },
+          "processing": "Sharedgeneratedwaterbodypixel andgeneratedreflectionpatch, sourceAroundedcore144px/inset24, roundedextensions selectedbybits1/2/4/8, alpha140/255. Full-edgeconnectedcornerprecedence. FullrecipeinwetComposition."
+        },
+        {
+          "kind": "wet",
+          "theme": "b",
+          "key": "wet-2",
+          "file": "assets/b/wet-2.png",
+          "generatorPromptRef": "wetMaterialMasters.b",
+          "refs": [
+            "wet-master-a (selected full-resolution generated source)",
+            "assets/b/customer-down.png",
+            "assets/b/chair.png",
+            "assets/b/trash.png"
+          ],
+          "derivedFrom": "wet-master-b",
+          "bits": {
+            "up": false,
+            "right": true,
+            "down": false,
+            "left": false
+          },
+          "processing": "Sharedgeneratedwaterbodypixel andgeneratedreflectionpatch, sourceAroundedcore144px/inset24, roundedextensions selectedbybits1/2/4/8, alpha140/255. Full-edgeconnectedcornerprecedence. FullrecipeinwetComposition."
+        },
+        {
+          "kind": "wet",
+          "theme": "b",
+          "key": "wet-3",
+          "file": "assets/b/wet-3.png",
+          "generatorPromptRef": "wetMaterialMasters.b",
+          "refs": [
+            "wet-master-a (selected full-resolution generated source)",
+            "assets/b/customer-down.png",
+            "assets/b/chair.png",
+            "assets/b/trash.png"
+          ],
+          "derivedFrom": "wet-master-b",
+          "bits": {
+            "up": true,
+            "right": true,
+            "down": false,
+            "left": false
+          },
+          "processing": "Sharedgeneratedwaterbodypixel andgeneratedreflectionpatch, sourceAroundedcore144px/inset24, roundedextensions selectedbybits1/2/4/8, alpha140/255. Full-edgeconnectedcornerprecedence. FullrecipeinwetComposition."
+        },
+        {
+          "kind": "wet",
+          "theme": "b",
+          "key": "wet-4",
+          "file": "assets/b/wet-4.png",
+          "generatorPromptRef": "wetMaterialMasters.b",
+          "refs": [
+            "wet-master-a (selected full-resolution generated source)",
+            "assets/b/customer-down.png",
+            "assets/b/chair.png",
+            "assets/b/trash.png"
+          ],
+          "derivedFrom": "wet-master-b",
+          "bits": {
+            "up": false,
+            "right": false,
+            "down": true,
+            "left": false
+          },
+          "processing": "Sharedgeneratedwaterbodypixel andgeneratedreflectionpatch, sourceAroundedcore144px/inset24, roundedextensions selectedbybits1/2/4/8, alpha140/255. Full-edgeconnectedcornerprecedence. FullrecipeinwetComposition."
+        },
+        {
+          "kind": "wet",
+          "theme": "b",
+          "key": "wet-5",
+          "file": "assets/b/wet-5.png",
+          "generatorPromptRef": "wetMaterialMasters.b",
+          "refs": [
+            "wet-master-a (selected full-resolution generated source)",
+            "assets/b/customer-down.png",
+            "assets/b/chair.png",
+            "assets/b/trash.png"
+          ],
+          "derivedFrom": "wet-master-b",
+          "bits": {
+            "up": true,
+            "right": false,
+            "down": true,
+            "left": false
+          },
+          "processing": "Sharedgeneratedwaterbodypixel andgeneratedreflectionpatch, sourceAroundedcore144px/inset24, roundedextensions selectedbybits1/2/4/8, alpha140/255. Full-edgeconnectedcornerprecedence. FullrecipeinwetComposition."
+        },
+        {
+          "kind": "wet",
+          "theme": "b",
+          "key": "wet-6",
+          "file": "assets/b/wet-6.png",
+          "generatorPromptRef": "wetMaterialMasters.b",
+          "refs": [
+            "wet-master-a (selected full-resolution generated source)",
+            "assets/b/customer-down.png",
+            "assets/b/chair.png",
+            "assets/b/trash.png"
+          ],
+          "derivedFrom": "wet-master-b",
+          "bits": {
+            "up": false,
+            "right": true,
+            "down": true,
+            "left": false
+          },
+          "processing": "Sharedgeneratedwaterbodypixel andgeneratedreflectionpatch, sourceAroundedcore144px/inset24, roundedextensions selectedbybits1/2/4/8, alpha140/255. Full-edgeconnectedcornerprecedence. FullrecipeinwetComposition."
+        },
+        {
+          "kind": "wet",
+          "theme": "b",
+          "key": "wet-7",
+          "file": "assets/b/wet-7.png",
+          "generatorPromptRef": "wetMaterialMasters.b",
+          "refs": [
+            "wet-master-a (selected full-resolution generated source)",
+            "assets/b/customer-down.png",
+            "assets/b/chair.png",
+            "assets/b/trash.png"
+          ],
+          "derivedFrom": "wet-master-b",
+          "bits": {
+            "up": true,
+            "right": true,
+            "down": true,
+            "left": false
+          },
+          "processing": "Sharedgeneratedwaterbodypixel andgeneratedreflectionpatch, sourceAroundedcore144px/inset24, roundedextensions selectedbybits1/2/4/8, alpha140/255. Full-edgeconnectedcornerprecedence. FullrecipeinwetComposition."
+        },
+        {
+          "kind": "wet",
+          "theme": "b",
+          "key": "wet-8",
+          "file": "assets/b/wet-8.png",
+          "generatorPromptRef": "wetMaterialMasters.b",
+          "refs": [
+            "wet-master-a (selected full-resolution generated source)",
+            "assets/b/customer-down.png",
+            "assets/b/chair.png",
+            "assets/b/trash.png"
+          ],
+          "derivedFrom": "wet-master-b",
+          "bits": {
+            "up": false,
+            "right": false,
+            "down": false,
+            "left": true
+          },
+          "processing": "Sharedgeneratedwaterbodypixel andgeneratedreflectionpatch, sourceAroundedcore144px/inset24, roundedextensions selectedbybits1/2/4/8, alpha140/255. Full-edgeconnectedcornerprecedence. FullrecipeinwetComposition."
+        },
+        {
+          "kind": "wet",
+          "theme": "b",
+          "key": "wet-9",
+          "file": "assets/b/wet-9.png",
+          "generatorPromptRef": "wetMaterialMasters.b",
+          "refs": [
+            "wet-master-a (selected full-resolution generated source)",
+            "assets/b/customer-down.png",
+            "assets/b/chair.png",
+            "assets/b/trash.png"
+          ],
+          "derivedFrom": "wet-master-b",
+          "bits": {
+            "up": true,
+            "right": false,
+            "down": false,
+            "left": true
+          },
+          "processing": "Sharedgeneratedwaterbodypixel andgeneratedreflectionpatch, sourceAroundedcore144px/inset24, roundedextensions selectedbybits1/2/4/8, alpha140/255. Full-edgeconnectedcornerprecedence. FullrecipeinwetComposition."
+        },
+        {
+          "kind": "wet",
+          "theme": "b",
+          "key": "wet-10",
+          "file": "assets/b/wet-10.png",
+          "generatorPromptRef": "wetMaterialMasters.b",
+          "refs": [
+            "wet-master-a (selected full-resolution generated source)",
+            "assets/b/customer-down.png",
+            "assets/b/chair.png",
+            "assets/b/trash.png"
+          ],
+          "derivedFrom": "wet-master-b",
+          "bits": {
+            "up": false,
+            "right": true,
+            "down": false,
+            "left": true
+          },
+          "processing": "Sharedgeneratedwaterbodypixel andgeneratedreflectionpatch, sourceAroundedcore144px/inset24, roundedextensions selectedbybits1/2/4/8, alpha140/255. Full-edgeconnectedcornerprecedence. FullrecipeinwetComposition."
+        },
+        {
+          "kind": "wet",
+          "theme": "b",
+          "key": "wet-11",
+          "file": "assets/b/wet-11.png",
+          "generatorPromptRef": "wetMaterialMasters.b",
+          "refs": [
+            "wet-master-a (selected full-resolution generated source)",
+            "assets/b/customer-down.png",
+            "assets/b/chair.png",
+            "assets/b/trash.png"
+          ],
+          "derivedFrom": "wet-master-b",
+          "bits": {
+            "up": true,
+            "right": true,
+            "down": false,
+            "left": true
+          },
+          "processing": "Sharedgeneratedwaterbodypixel andgeneratedreflectionpatch, sourceAroundedcore144px/inset24, roundedextensions selectedbybits1/2/4/8, alpha140/255. Full-edgeconnectedcornerprecedence. FullrecipeinwetComposition."
+        },
+        {
+          "kind": "wet",
+          "theme": "b",
+          "key": "wet-12",
+          "file": "assets/b/wet-12.png",
+          "generatorPromptRef": "wetMaterialMasters.b",
+          "refs": [
+            "wet-master-a (selected full-resolution generated source)",
+            "assets/b/customer-down.png",
+            "assets/b/chair.png",
+            "assets/b/trash.png"
+          ],
+          "derivedFrom": "wet-master-b",
+          "bits": {
+            "up": false,
+            "right": false,
+            "down": true,
+            "left": true
+          },
+          "processing": "Sharedgeneratedwaterbodypixel andgeneratedreflectionpatch, sourceAroundedcore144px/inset24, roundedextensions selectedbybits1/2/4/8, alpha140/255. Full-edgeconnectedcornerprecedence. FullrecipeinwetComposition."
+        },
+        {
+          "kind": "wet",
+          "theme": "b",
+          "key": "wet-13",
+          "file": "assets/b/wet-13.png",
+          "generatorPromptRef": "wetMaterialMasters.b",
+          "refs": [
+            "wet-master-a (selected full-resolution generated source)",
+            "assets/b/customer-down.png",
+            "assets/b/chair.png",
+            "assets/b/trash.png"
+          ],
+          "derivedFrom": "wet-master-b",
+          "bits": {
+            "up": true,
+            "right": false,
+            "down": true,
+            "left": true
+          },
+          "processing": "Sharedgeneratedwaterbodypixel andgeneratedreflectionpatch, sourceAroundedcore144px/inset24, roundedextensions selectedbybits1/2/4/8, alpha140/255. Full-edgeconnectedcornerprecedence. FullrecipeinwetComposition."
+        },
+        {
+          "kind": "wet",
+          "theme": "b",
+          "key": "wet-14",
+          "file": "assets/b/wet-14.png",
+          "generatorPromptRef": "wetMaterialMasters.b",
+          "refs": [
+            "wet-master-a (selected full-resolution generated source)",
+            "assets/b/customer-down.png",
+            "assets/b/chair.png",
+            "assets/b/trash.png"
+          ],
+          "derivedFrom": "wet-master-b",
+          "bits": {
+            "up": false,
+            "right": true,
+            "down": true,
+            "left": true
+          },
+          "processing": "Sharedgeneratedwaterbodypixel andgeneratedreflectionpatch, sourceAroundedcore144px/inset24, roundedextensions selectedbybits1/2/4/8, alpha140/255. Full-edgeconnectedcornerprecedence. FullrecipeinwetComposition."
+        },
+        {
+          "kind": "wet",
+          "theme": "b",
+          "key": "wet-15",
+          "file": "assets/b/wet-15.png",
+          "generatorPromptRef": "wetMaterialMasters.b",
+          "refs": [
+            "wet-master-a (selected full-resolution generated source)",
+            "assets/b/customer-down.png",
+            "assets/b/chair.png",
+            "assets/b/trash.png"
+          ],
+          "derivedFrom": "wet-master-b",
+          "bits": {
+            "up": true,
+            "right": true,
+            "down": true,
+            "left": true
+          },
+          "processing": "Sharedgeneratedwaterbodypixel andgeneratedreflectionpatch, sourceAroundedcore144px/inset24, roundedextensions selectedbybits1/2/4/8, alpha140/255. Full-edgeconnectedcornerprecedence. FullrecipeinwetComposition."
+        }
+      ],
+      "wetMaterialMasters": {
+        "a": {
+          "kind": "wet-master",
+          "theme": "a",
+          "key": "wet-master-a",
+          "refs": [
+            "assets/a/customer-down.png",
+            "assets/a/chair.png",
+            "assets/a/trash.png"
+          ],
+          "prompt": "Use case: stylized-concept. ONE top-down WATER PUDDLE materialmaster for2D cafe flooroverlay, true transparentbackground. RoughlyroundedSQUARE ratherthanthinellipse, full evenbroad interior, fourbroadroundlobecorners, concise cartoonstyle like suppliedassets butNO BLACKOUTLINE. AthemeONLYneutralmediumdarkGRAYwater about#7b7b7b, 3large simpleWHITE curvedreflectionstreaks groupednearCENTER, no coloredgreen/orange/red/blue. Waterinside hasUNIFORM FLATGRAYcolor acrossmostsurface (no radialgradient ornoise), justfewcleanwhiteglints. Smoothroundedtransparentwaterboundary, no borderstroke/darkrim/white-stickeroutline/castshadow/ground/objects/bubbles/droplets outsidepuddle. Finalmaterialwillbecomposedinto16autotiles; largeuniformwaterareas essentialforcleanpatchcopy. Waterappears translucentapprox55%opacity, underlyingtilewillshowthrough, no checkerboardbakedin. NO text/logos/numbers/UI. Puddle occupies80-85%squarecanvas withcleantransparentmargin. Render justthissinglematerialmaster, nottilesheet orgrid.",
+          "generatedSourceFile": "exec-ac78da11-92e5-4b3b-962b-2789a9b15790.png"
+        },
+        "b": {
+          "kind": "wet-master",
+          "theme": "b",
+          "key": "wet-master-b",
+          "refs": [
+            "wet-master-a (selected full-resolution generated source)",
+            "assets/b/customer-down.png",
+            "assets/b/chair.png",
+            "assets/b/trash.png"
+          ],
+          "prompt": "Use case: style-transfer. Image1 ONErounded-squarewaterpuddle materialmaster, preserve exactwateroutline andTHREEwhitecurvedreflectionstreakpositions. ONLY graywaterfill becomes PALE SKY BLUE #9bc9e2 near, NOTgreen/mint/orange. Waterinside mostlyuniformflatlightblue, no addedtexture/noise/gradient/detail. True transparentbackground, waterabout55%opacity, cleanroundedboundary no blackoutline/darkrim/stickerborder/shadow/ground/objects. Other3images onlythickcartoongamefamily references, nopeople/chair/trash inoutput. Thiswillbecomposedinto16autotiles, broaduniforminteriorneeded. ONEpuddleonly no grid/tilesheet/text/UI/droplets/glow.",
+          "generatedSourceFile": "exec-ef242020-c81b-4f6f-ad75-e8078fba61a6.png"
+        }
+      },
+      "regularOutputMetrics": [
+        {
+          "key": "guest-down",
+          "theme": "a",
+          "canvas": [
+            192,
+            288
+          ],
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            272,
+            95,
+            752,
+            1464
+          ],
+          "visibleSize": [
+            88,
+            250
+          ],
+          "placement": [
+            52,
+            38
+          ],
+          "lastOpaqueRow": 287,
+          "sha256": "db51614bb41fe9a6b503c2dc4c908b5b11cf7ef85ed1650e3b289e49a71be8e6"
+        },
+        {
+          "key": "guest2-down",
+          "theme": "a",
+          "canvas": [
+            192,
+            288
+          ],
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            260,
+            116,
+            759,
+            1488
+          ],
+          "visibleSize": [
+            91,
+            250
+          ],
+          "placement": [
+            50,
+            38
+          ],
+          "lastOpaqueRow": 287,
+          "sha256": "d5b73a74f4c79b81be243873ca84cfdb3aa888a0d61845eec0df2c97fffb7267"
+        },
+        {
+          "key": "guest3-down",
+          "theme": "a",
+          "canvas": [
+            192,
+            288
+          ],
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            294,
+            127,
+            731,
+            1474
+          ],
+          "visibleSize": [
+            81,
+            250
+          ],
+          "placement": [
+            55,
+            38
+          ],
+          "lastOpaqueRow": 287,
+          "sha256": "5cfc730468baec384d9b51daf4d135d8b2299c3524a41755e2f259dbfe1e19b2"
+        },
+        {
+          "key": "guest-up",
+          "theme": "a",
+          "canvas": [
+            192,
+            288
+          ],
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            274,
+            109,
+            751,
+            1431
+          ],
+          "visibleSize": [
+            90,
+            250
+          ],
+          "placement": [
+            51,
+            38
+          ],
+          "lastOpaqueRow": 287,
+          "sha256": "458e82de7ea1e3385de6a209bec300daefe784024c620015842a7746a2db2809"
+        },
+        {
+          "key": "guest2-up",
+          "theme": "a",
+          "canvas": [
+            192,
+            288
+          ],
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            261,
+            140,
+            763,
+            1476
+          ],
+          "visibleSize": [
+            94,
+            250
+          ],
+          "placement": [
+            49,
+            38
+          ],
+          "lastOpaqueRow": 287,
+          "sha256": "14fb5923b5d167b700d64315e85fb4e6e26b5a6e9dda35eab87d9bc72c29f505"
+        },
+        {
+          "key": "guest3-up",
+          "theme": "a",
+          "canvas": [
+            192,
+            288
+          ],
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            284,
+            113,
+            740,
+            1468
+          ],
+          "visibleSize": [
+            84,
+            250
+          ],
+          "placement": [
+            54,
+            38
+          ],
+          "lastOpaqueRow": 287,
+          "sha256": "8bfd93de69dc8ccf3012a0982bd0aecaf46ba54d0636a3b0ebf6ba7190e603c3"
+        },
+        {
+          "key": "guest-left",
+          "theme": "a",
+          "canvas": [
+            192,
+            288
+          ],
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            312,
+            86,
+            703,
+            1489
+          ],
+          "visibleSize": [
+            70,
+            250
+          ],
+          "placement": [
+            61,
+            38
+          ],
+          "lastOpaqueRow": 287,
+          "sha256": "c271a2767be83532bbe0b7d097535a855e51dfe38026133a1c5d7b96d9b701e2"
+        },
+        {
+          "key": "guest2-left",
+          "theme": "a",
+          "canvas": [
+            192,
+            288
+          ],
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            280,
+            147,
+            682,
+            1476
+          ],
+          "visibleSize": [
+            76,
+            250
+          ],
+          "placement": [
+            58,
+            38
+          ],
+          "lastOpaqueRow": 287,
+          "sha256": "8624e30344f5c90db9ff8b71ae2b962c5a7307f848059ce5170df9ffffdfe304"
+        },
+        {
+          "key": "guest3-left",
+          "theme": "a",
+          "canvas": [
+            192,
+            288
+          ],
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            328,
+            126,
+            703,
+            1484
+          ],
+          "visibleSize": [
+            69,
+            250
+          ],
+          "placement": [
+            61,
+            38
+          ],
+          "lastOpaqueRow": 287,
+          "sha256": "ef83e196a82543df9b32b0aefef6290113afce09ea65374774b4b83184b309ce"
+        },
+        {
+          "key": "guest-right",
+          "theme": "a",
+          "canvas": [
+            192,
+            288
+          ],
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            300,
+            76,
+            736,
+            1485
+          ],
+          "visibleSize": [
+            77,
+            250
+          ],
+          "placement": [
+            57,
+            38
+          ],
+          "lastOpaqueRow": 287,
+          "sha256": "3a905d6e836ec128acdd7de5acba19f4c02e32abc0a1e7ce9e43106e1072e119"
+        },
+        {
+          "key": "guest2-right",
+          "theme": "a",
+          "canvas": [
+            192,
+            288
+          ],
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            327,
+            99,
+            763,
+            1462
+          ],
+          "visibleSize": [
+            80,
+            250
+          ],
+          "placement": [
+            56,
+            38
+          ],
+          "lastOpaqueRow": 287,
+          "sha256": "f403b07b802cd1e44f293c68729dc4e844d7a1e7380773074e89f20ad1c339df"
+        },
+        {
+          "key": "guest3-right",
+          "theme": "a",
+          "canvas": [
+            192,
+            288
+          ],
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            320,
+            117,
+            709,
+            1488
+          ],
+          "visibleSize": [
+            71,
+            250
+          ],
+          "placement": [
+            60,
+            38
+          ],
+          "lastOpaqueRow": 287,
+          "sha256": "6888829ff201a76b0c31d8245cdf30f10260c0ea846312f34d4ee3f97bd3dc35"
+        },
+        {
+          "key": "drink-1",
+          "theme": "a",
+          "canvas": [
+            192,
+            192
+          ],
+          "sourceSize": [
+            1095,
+            1437
+          ],
+          "cropBox": [
+            111,
+            290,
+            984,
+            1311
+          ],
+          "visibleSize": [
+            134,
+            157
+          ],
+          "placement": [
+            29,
+            27
+          ],
+          "lastOpaqueRow": 183,
+          "sha256": "3b092477916bf50e32b395eeea9f9863f0e48820e039884cc1e0cea777ff66f7"
+        },
+        {
+          "key": "drink-3",
+          "theme": "a",
+          "canvas": [
+            192,
+            192
+          ],
+          "sourceSize": [
+            1437,
+            1095
+          ],
+          "cropBox": [
+            210,
+            184,
+            1290,
+            991
+          ],
+          "visibleSize": [
+            134,
+            100
+          ],
+          "placement": [
+            29,
+            84
+          ],
+          "lastOpaqueRow": 183,
+          "sha256": "6614df40979dbd8d4b9344e5ca6efbf359eb8dfc949b6de00549f30daa8a5c24"
+        },
+        {
+          "key": "drink-2",
+          "theme": "a",
+          "canvas": [
+            192,
+            192
+          ],
+          "sourceSize": [
+            1254,
+            1254
+          ],
+          "cropBox": [
+            202,
+            605,
+            1052,
+            1131
+          ],
+          "visibleSize": [
+            134,
+            83
+          ],
+          "placement": [
+            29,
+            101
+          ],
+          "lastOpaqueRow": 183,
+          "sha256": "edcbb886c2be8b2f58decae98398147ad167aa282efa072cea17d1e2325544df"
+        },
+        {
+          "key": "guest-down",
+          "theme": "b",
+          "canvas": [
+            192,
+            288
+          ],
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            271,
+            93,
+            753,
+            1462
+          ],
+          "visibleSize": [
+            88,
+            250
+          ],
+          "placement": [
+            52,
+            38
+          ],
+          "lastOpaqueRow": 287,
+          "sha256": "220a44984d92b78bfca412802228ced8e30a4a33607400f4c23691c343bf53d4"
+        },
+        {
+          "key": "guest2-down",
+          "theme": "b",
+          "canvas": [
+            192,
+            288
+          ],
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            266,
+            124,
+            756,
+            1460
+          ],
+          "visibleSize": [
+            92,
+            250
+          ],
+          "placement": [
+            50,
+            38
+          ],
+          "lastOpaqueRow": 287,
+          "sha256": "64d42fbcf4d2118fb32e471f00fe0a048c703f550ffb4b6f5a567d8d0510fee4"
+        },
+        {
+          "key": "guest3-down",
+          "theme": "b",
+          "canvas": [
+            192,
+            288
+          ],
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            293,
+            120,
+            732,
+            1473
+          ],
+          "visibleSize": [
+            81,
+            250
+          ],
+          "placement": [
+            55,
+            38
+          ],
+          "lastOpaqueRow": 287,
+          "sha256": "c03bdcb37dd6178bbb25fc9805a492677a156fcd7c1193f1b0c53de5b7348b28"
+        },
+        {
+          "key": "guest-up",
+          "theme": "b",
+          "canvas": [
+            192,
+            288
+          ],
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            265,
+            91,
+            759,
+            1433
+          ],
+          "visibleSize": [
+            92,
+            250
+          ],
+          "placement": [
+            50,
+            38
+          ],
+          "lastOpaqueRow": 287,
+          "sha256": "bc629fd327ec9c8dd6ba36a365249747c6c84779212982dbc2d322d78d9427df"
+        },
+        {
+          "key": "guest2-up",
+          "theme": "b",
+          "canvas": [
+            192,
+            288
+          ],
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            262,
+            135,
+            762,
+            1472
+          ],
+          "visibleSize": [
+            93,
+            250
+          ],
+          "placement": [
+            49,
+            38
+          ],
+          "lastOpaqueRow": 287,
+          "sha256": "8a3c32b9c1c347359514a366e06ae88ca595d600b4e97cd4f3f49aae453758d2"
+        },
+        {
+          "key": "guest3-up",
+          "theme": "b",
+          "canvas": [
+            192,
+            288
+          ],
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            281,
+            112,
+            744,
+            1468
+          ],
+          "visibleSize": [
+            85,
+            250
+          ],
+          "placement": [
+            53,
+            38
+          ],
+          "lastOpaqueRow": 287,
+          "sha256": "89cb8fdef9fd51e681f8eb30ff452e5a1a319223c6ef3dd81c563e10601ad584"
+        },
+        {
+          "key": "drink-2",
+          "theme": "b",
+          "canvas": [
+            192,
+            192
+          ],
+          "sourceSize": [
+            1254,
+            1254
+          ],
+          "cropBox": [
+            200,
+            604,
+            1054,
+            1132
+          ],
+          "visibleSize": [
+            134,
+            83
+          ],
+          "placement": [
+            29,
+            101
+          ],
+          "lastOpaqueRow": 183,
+          "sha256": "000894ed4181a0d29a08c4a8d7c257e1a3ba02a1debdda471dfca5c63fc0cd4a"
+        },
+        {
+          "key": "drink-3",
+          "theme": "b",
+          "canvas": [
+            192,
+            192
+          ],
+          "sourceSize": [
+            1254,
+            1254
+          ],
+          "cropBox": [
+            22,
+            198,
+            1247,
+            1129
+          ],
+          "visibleSize": [
+            134,
+            102
+          ],
+          "placement": [
+            29,
+            82
+          ],
+          "lastOpaqueRow": 183,
+          "sha256": "67635e5ab7c161cae2e911681f7de92eb379b2bdfd14bc82b28439f163b1f933"
+        },
+        {
+          "key": "drink-1",
+          "theme": "b",
+          "canvas": [
+            192,
+            192
+          ],
+          "sourceSize": [
+            1095,
+            1437
+          ],
+          "cropBox": [
+            109,
+            288,
+            984,
+            1311
+          ],
+          "visibleSize": [
+            134,
+            157
+          ],
+          "placement": [
+            29,
+            27
+          ],
+          "lastOpaqueRow": 183,
+          "sha256": "81ebd6b4a646156090958a977576ee6cadd3d64e83dbc1507fd8816e9403fcc5"
+        },
+        {
+          "key": "guest-left",
+          "theme": "b",
+          "canvas": [
+            192,
+            288
+          ],
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            301,
+            86,
+            717,
+            1491
+          ],
+          "visibleSize": [
+            74,
+            250
+          ],
+          "placement": [
+            59,
+            38
+          ],
+          "lastOpaqueRow": 287,
+          "sha256": "31a4a0d1c162a114a25714e41c8198ceb6f15cf08da8270c629a81ef73f30ff0"
+        },
+        {
+          "key": "guest2-left",
+          "theme": "b",
+          "canvas": [
+            192,
+            288
+          ],
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            281,
+            88,
+            680,
+            1464
+          ],
+          "visibleSize": [
+            72,
+            250
+          ],
+          "placement": [
+            60,
+            38
+          ],
+          "lastOpaqueRow": 287,
+          "sha256": "4a99747183d927d97d186d15df8aa06a7183dd2a6bec16963758d374012eb768"
+        },
+        {
+          "key": "guest3-left",
+          "theme": "b",
+          "canvas": [
+            192,
+            288
+          ],
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            330,
+            116,
+            710,
+            1486
+          ],
+          "visibleSize": [
+            69,
+            250
+          ],
+          "placement": [
+            61,
+            38
+          ],
+          "lastOpaqueRow": 287,
+          "sha256": "a6cb13a387ba7617e65600734fb5e654d6f19ee1f359d5ce2c702b0fc6687ab0"
+        },
+        {
+          "key": "guest-right",
+          "theme": "b",
+          "canvas": [
+            192,
+            288
+          ],
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            301,
+            82,
+            734,
+            1487
+          ],
+          "visibleSize": [
+            77,
+            250
+          ],
+          "placement": [
+            57,
+            38
+          ],
+          "lastOpaqueRow": 287,
+          "sha256": "1c02ce63eee98304a7d8e4dfc7e226851db71e38fd405e85a3e43b2c83b171a7"
+        },
+        {
+          "key": "guest2-right",
+          "theme": "b",
+          "canvas": [
+            192,
+            288
+          ],
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            330,
+            90,
+            754,
+            1462
+          ],
+          "visibleSize": [
+            77,
+            250
+          ],
+          "placement": [
+            57,
+            38
+          ],
+          "lastOpaqueRow": 287,
+          "sha256": "3d69420d16abe64f40ac04fc55173e5a0bfbfc14bdf14cd2cde0b46a0f89bbbc"
+        },
+        {
+          "key": "guest3-right",
+          "theme": "b",
+          "canvas": [
+            192,
+            288
+          ],
+          "sourceSize": [
+            1024,
+            1536
+          ],
+          "cropBox": [
+            305,
+            109,
+            704,
+            1484
+          ],
+          "visibleSize": [
+            73,
+            250
+          ],
+          "placement": [
+            59,
+            38
+          ],
+          "lastOpaqueRow": 287,
+          "sha256": "2e258af644036be3ee69e395f2c90a9e61cfbf3ff30c16c75dc0c00d7cb55057"
+        }
+      ],
+      "wetComposition": {
+        "tiles": [
+          {
+            "key": "wet-0",
+            "theme": "a",
+            "file": "assets/a/wet-0.png",
+            "bits": {
+              "up": false,
+              "right": false,
+              "down": false,
+              "left": false
+            },
+            "basePixelRGB": [
+              115,
+              114,
+              114
+            ],
+            "maxAlpha": 140,
+            "sha256": "ea25baf923728f4899142cdd712fc9151d9f810039d2c8b9bcb9b9b1db61b268"
+          },
+          {
+            "key": "wet-1",
+            "theme": "a",
+            "file": "assets/a/wet-1.png",
+            "bits": {
+              "up": true,
+              "right": false,
+              "down": false,
+              "left": false
+            },
+            "basePixelRGB": [
+              115,
+              114,
+              114
+            ],
+            "maxAlpha": 140,
+            "sha256": "0e94fa9e21a03e5db40f2d5dd29e501e1e2325d414565dd0c3b4fbd528aa4807"
+          },
+          {
+            "key": "wet-2",
+            "theme": "a",
+            "file": "assets/a/wet-2.png",
+            "bits": {
+              "up": false,
+              "right": true,
+              "down": false,
+              "left": false
+            },
+            "basePixelRGB": [
+              115,
+              114,
+              114
+            ],
+            "maxAlpha": 140,
+            "sha256": "827f3c91eafb1da2157178d51c4667ab80d9486e99a307f28f5e06b92aeb9f8b"
+          },
+          {
+            "key": "wet-3",
+            "theme": "a",
+            "file": "assets/a/wet-3.png",
+            "bits": {
+              "up": true,
+              "right": true,
+              "down": false,
+              "left": false
+            },
+            "basePixelRGB": [
+              115,
+              114,
+              114
+            ],
+            "maxAlpha": 140,
+            "sha256": "a6a7c3d0b6ab21a9f194d02447ebeb9bfd10d2a0542ddcbf09b46f49b0aeef56"
+          },
+          {
+            "key": "wet-4",
+            "theme": "a",
+            "file": "assets/a/wet-4.png",
+            "bits": {
+              "up": false,
+              "right": false,
+              "down": true,
+              "left": false
+            },
+            "basePixelRGB": [
+              115,
+              114,
+              114
+            ],
+            "maxAlpha": 140,
+            "sha256": "016c9d013e0dd6c31c3a204c1ca2a4d7afdd8c3f65c58608b18890f0975565eb"
+          },
+          {
+            "key": "wet-5",
+            "theme": "a",
+            "file": "assets/a/wet-5.png",
+            "bits": {
+              "up": true,
+              "right": false,
+              "down": true,
+              "left": false
+            },
+            "basePixelRGB": [
+              115,
+              114,
+              114
+            ],
+            "maxAlpha": 140,
+            "sha256": "500245c29e4f5253be74386dafb0ca1ca025ad3a86b3a5806c112bed19cc96c7"
+          },
+          {
+            "key": "wet-6",
+            "theme": "a",
+            "file": "assets/a/wet-6.png",
+            "bits": {
+              "up": false,
+              "right": true,
+              "down": true,
+              "left": false
+            },
+            "basePixelRGB": [
+              115,
+              114,
+              114
+            ],
+            "maxAlpha": 140,
+            "sha256": "c675a5f49816442bc34a6743b56fcea9b5b2be8eae66bad4590a2969e16f752b"
+          },
+          {
+            "key": "wet-7",
+            "theme": "a",
+            "file": "assets/a/wet-7.png",
+            "bits": {
+              "up": true,
+              "right": true,
+              "down": true,
+              "left": false
+            },
+            "basePixelRGB": [
+              115,
+              114,
+              114
+            ],
+            "maxAlpha": 140,
+            "sha256": "39c3d09edd5ba33ba4fca968742b9ec2e58c5964ddd8743e6695415990a370a6"
+          },
+          {
+            "key": "wet-8",
+            "theme": "a",
+            "file": "assets/a/wet-8.png",
+            "bits": {
+              "up": false,
+              "right": false,
+              "down": false,
+              "left": true
+            },
+            "basePixelRGB": [
+              115,
+              114,
+              114
+            ],
+            "maxAlpha": 140,
+            "sha256": "a9ebcc4f3ffbc62e543b60f4d3db92b4f5f5a1d713597cf73de52a81486a16eb"
+          },
+          {
+            "key": "wet-9",
+            "theme": "a",
+            "file": "assets/a/wet-9.png",
+            "bits": {
+              "up": true,
+              "right": false,
+              "down": false,
+              "left": true
+            },
+            "basePixelRGB": [
+              115,
+              114,
+              114
+            ],
+            "maxAlpha": 140,
+            "sha256": "9de0464df569d5b48fc82f917f4c2dd8397d759515861aad8b9e95a11b27b33e"
+          },
+          {
+            "key": "wet-10",
+            "theme": "a",
+            "file": "assets/a/wet-10.png",
+            "bits": {
+              "up": false,
+              "right": true,
+              "down": false,
+              "left": true
+            },
+            "basePixelRGB": [
+              115,
+              114,
+              114
+            ],
+            "maxAlpha": 140,
+            "sha256": "15a4d48b4908e7356a9c86f44dd9847f7261ba7aedbf782ca7911020da8184a3"
+          },
+          {
+            "key": "wet-11",
+            "theme": "a",
+            "file": "assets/a/wet-11.png",
+            "bits": {
+              "up": true,
+              "right": true,
+              "down": false,
+              "left": true
+            },
+            "basePixelRGB": [
+              115,
+              114,
+              114
+            ],
+            "maxAlpha": 140,
+            "sha256": "7713abdcd543666ca2a129012c916f711247be6bcc84268d9ae05e657cc5e40d"
+          },
+          {
+            "key": "wet-12",
+            "theme": "a",
+            "file": "assets/a/wet-12.png",
+            "bits": {
+              "up": false,
+              "right": false,
+              "down": true,
+              "left": true
+            },
+            "basePixelRGB": [
+              115,
+              114,
+              114
+            ],
+            "maxAlpha": 140,
+            "sha256": "360ccb59cde8879b34d0f72fb988924923200070539dbe0e10840f68662a3e3a"
+          },
+          {
+            "key": "wet-13",
+            "theme": "a",
+            "file": "assets/a/wet-13.png",
+            "bits": {
+              "up": true,
+              "right": false,
+              "down": true,
+              "left": true
+            },
+            "basePixelRGB": [
+              115,
+              114,
+              114
+            ],
+            "maxAlpha": 140,
+            "sha256": "7158a9ad9fcbf6b46f3f47818e4c2f25f4d59e6f359941ca1e9c59f4a5aedaac"
+          },
+          {
+            "key": "wet-14",
+            "theme": "a",
+            "file": "assets/a/wet-14.png",
+            "bits": {
+              "up": false,
+              "right": true,
+              "down": true,
+              "left": true
+            },
+            "basePixelRGB": [
+              115,
+              114,
+              114
+            ],
+            "maxAlpha": 140,
+            "sha256": "a3fb6746d90520da59bb27d2de6023a2c1c14e6092da03e1059c0d24606643e0"
+          },
+          {
+            "key": "wet-15",
+            "theme": "a",
+            "file": "assets/a/wet-15.png",
+            "bits": {
+              "up": true,
+              "right": true,
+              "down": true,
+              "left": true
+            },
+            "basePixelRGB": [
+              115,
+              114,
+              114
+            ],
+            "maxAlpha": 140,
+            "sha256": "45f8bd7a3992e44d8923a5c3b46c3ded73e6685786f2d79bb0b068ea3a19645c"
+          },
+          {
+            "key": "wet-0",
+            "theme": "b",
+            "file": "assets/b/wet-0.png",
+            "bits": {
+              "up": false,
+              "right": false,
+              "down": false,
+              "left": false
+            },
+            "basePixelRGB": [
+              139,
+              198,
+              235
+            ],
+            "maxAlpha": 140,
+            "sha256": "41d070a5b19cd9cae7466a29552a2b147afe881e3c73a25c75ee337794fb30f4"
+          },
+          {
+            "key": "wet-1",
+            "theme": "b",
+            "file": "assets/b/wet-1.png",
+            "bits": {
+              "up": true,
+              "right": false,
+              "down": false,
+              "left": false
+            },
+            "basePixelRGB": [
+              139,
+              198,
+              235
+            ],
+            "maxAlpha": 140,
+            "sha256": "01453401fc30ed9ecf1ceba47bf4a7a0e8874314904ecf52fb4aa88ba7055e51"
+          },
+          {
+            "key": "wet-2",
+            "theme": "b",
+            "file": "assets/b/wet-2.png",
+            "bits": {
+              "up": false,
+              "right": true,
+              "down": false,
+              "left": false
+            },
+            "basePixelRGB": [
+              139,
+              198,
+              235
+            ],
+            "maxAlpha": 140,
+            "sha256": "e615d93a90dece99cb01f4e4ac03fca974198418b19a22a18c0462d4dcc35856"
+          },
+          {
+            "key": "wet-3",
+            "theme": "b",
+            "file": "assets/b/wet-3.png",
+            "bits": {
+              "up": true,
+              "right": true,
+              "down": false,
+              "left": false
+            },
+            "basePixelRGB": [
+              139,
+              198,
+              235
+            ],
+            "maxAlpha": 140,
+            "sha256": "556d1ae86646c6cef54d24c6b7bb39914d749dcd2f0e3efd393accf2bc319770"
+          },
+          {
+            "key": "wet-4",
+            "theme": "b",
+            "file": "assets/b/wet-4.png",
+            "bits": {
+              "up": false,
+              "right": false,
+              "down": true,
+              "left": false
+            },
+            "basePixelRGB": [
+              139,
+              198,
+              235
+            ],
+            "maxAlpha": 140,
+            "sha256": "6d995efb4f9a36366e3441c7f916d95032aa63a836c27acca735be9068d05498"
+          },
+          {
+            "key": "wet-5",
+            "theme": "b",
+            "file": "assets/b/wet-5.png",
+            "bits": {
+              "up": true,
+              "right": false,
+              "down": true,
+              "left": false
+            },
+            "basePixelRGB": [
+              139,
+              198,
+              235
+            ],
+            "maxAlpha": 140,
+            "sha256": "38915897c49105e8942832a4c8504e08bb519a18080a6fdbbbb29ebd446ce1f9"
+          },
+          {
+            "key": "wet-6",
+            "theme": "b",
+            "file": "assets/b/wet-6.png",
+            "bits": {
+              "up": false,
+              "right": true,
+              "down": true,
+              "left": false
+            },
+            "basePixelRGB": [
+              139,
+              198,
+              235
+            ],
+            "maxAlpha": 140,
+            "sha256": "b5aad77df34ed2bc11d0272b097a3256e84e38ff7132fecb00d7d658e44e895c"
+          },
+          {
+            "key": "wet-7",
+            "theme": "b",
+            "file": "assets/b/wet-7.png",
+            "bits": {
+              "up": true,
+              "right": true,
+              "down": true,
+              "left": false
+            },
+            "basePixelRGB": [
+              139,
+              198,
+              235
+            ],
+            "maxAlpha": 140,
+            "sha256": "b0b076eec707b17895d15abb2c94f406e969b72748919fb70943904e9c3cde9c"
+          },
+          {
+            "key": "wet-8",
+            "theme": "b",
+            "file": "assets/b/wet-8.png",
+            "bits": {
+              "up": false,
+              "right": false,
+              "down": false,
+              "left": true
+            },
+            "basePixelRGB": [
+              139,
+              198,
+              235
+            ],
+            "maxAlpha": 140,
+            "sha256": "fe2bf6dc48ce3608d9f85427da0ad688ba91a8ae4a495a75b19a5e54f6d6c088"
+          },
+          {
+            "key": "wet-9",
+            "theme": "b",
+            "file": "assets/b/wet-9.png",
+            "bits": {
+              "up": true,
+              "right": false,
+              "down": false,
+              "left": true
+            },
+            "basePixelRGB": [
+              139,
+              198,
+              235
+            ],
+            "maxAlpha": 140,
+            "sha256": "e0b0f3c916617b168136bfa98965576f7ed3a0869d46a690dd25376e2a9ecd92"
+          },
+          {
+            "key": "wet-10",
+            "theme": "b",
+            "file": "assets/b/wet-10.png",
+            "bits": {
+              "up": false,
+              "right": true,
+              "down": false,
+              "left": true
+            },
+            "basePixelRGB": [
+              139,
+              198,
+              235
+            ],
+            "maxAlpha": 140,
+            "sha256": "c49a41fbf47f9441716073566fbc058a16518bbe62e7abf5ce35e23d0dd6613e"
+          },
+          {
+            "key": "wet-11",
+            "theme": "b",
+            "file": "assets/b/wet-11.png",
+            "bits": {
+              "up": true,
+              "right": true,
+              "down": false,
+              "left": true
+            },
+            "basePixelRGB": [
+              139,
+              198,
+              235
+            ],
+            "maxAlpha": 140,
+            "sha256": "f6f351b5e925c22d06522112d2428a45c7919132d3336f6bc0ff119e1fd0ad74"
+          },
+          {
+            "key": "wet-12",
+            "theme": "b",
+            "file": "assets/b/wet-12.png",
+            "bits": {
+              "up": false,
+              "right": false,
+              "down": true,
+              "left": true
+            },
+            "basePixelRGB": [
+              139,
+              198,
+              235
+            ],
+            "maxAlpha": 140,
+            "sha256": "d66e2b4b5458ac12603499488dd0c003b9a457eebd0524eabecaaf95e57f8e54"
+          },
+          {
+            "key": "wet-13",
+            "theme": "b",
+            "file": "assets/b/wet-13.png",
+            "bits": {
+              "up": true,
+              "right": false,
+              "down": true,
+              "left": true
+            },
+            "basePixelRGB": [
+              139,
+              198,
+              235
+            ],
+            "maxAlpha": 140,
+            "sha256": "983aadd3e1f08f01f979bb4809b465d06c191d2a4268dd051907f28e745c8246"
+          },
+          {
+            "key": "wet-14",
+            "theme": "b",
+            "file": "assets/b/wet-14.png",
+            "bits": {
+              "up": false,
+              "right": true,
+              "down": true,
+              "left": true
+            },
+            "basePixelRGB": [
+              139,
+              198,
+              235
+            ],
+            "maxAlpha": 140,
+            "sha256": "afad6c42805a4e4e0f34ddac20e9b424f0b93812eec22654c90a8042c7f2a2b9"
+          },
+          {
+            "key": "wet-15",
+            "theme": "b",
+            "file": "assets/b/wet-15.png",
+            "bits": {
+              "up": true,
+              "right": true,
+              "down": true,
+              "left": true
+            },
+            "basePixelRGB": [
+              139,
+              198,
+              235
+            ],
+            "maxAlpha": 140,
+            "sha256": "d7ba54346f9d5d8cbd397c5d5fd88d757e4405dd384afff8bf15c0ebd295667b"
+          }
+        ],
+        "connectedSeamComparisons": 256,
+        "previewBoardRows": [
+          [
+            0,
+            2,
+            8,
+            4
+          ],
+          [
+            6,
+            10,
+            12,
+            5
+          ],
+          [
+            7,
+            14,
+            15,
+            13
+          ],
+          [
+            1,
+            3,
+            11,
+            9
+          ]
+        ],
+        "sourceAMaskCrop": [
+          99,
+          166,
+          1179,
+          1131
+        ],
+        "sourceAReflectionCrop": [
+          430,
+          436,
+          876,
+          858
+        ],
+        "reflectionSize": [
+          82,
+          78
+        ],
+        "reflectionPlacement": [
+          55,
+          57
+        ],
+        "coreSize": [
+          144,
+          144
+        ],
+        "coreInset": 24,
+        "maxAlpha": 140,
+        "alphaPercent": 54.90196078431373,
+        "cornerPolicy": "Connected full-edge takes precedence at a singlecornerpixel on perpendicular unconnectedside; other unconnected side middle stays24px inset. Adjacent connected sides fill shared24pxcorner. Four-neighbor rules cannot simultaneously make a fullconnectededge and its endpoint dry on perpendicularside.",
+        "processing": "Generated A rounded silhouette extracted at half its waterbody alpha, cropped/resized144x144 withantialias and inset24. Actual dominantbodycolorpixel from each generatedmaster repeated acrossmaterial. Generated A threewhitehighlightpixels extracted bybrightnessmask, cropped, uniformlyfit82x82 andcompositedcenter for alltiles/both themes. Rounded quartercircle extension masks androtations join material to requestedfullcanvas edges; alpha capped140. wet15 fullalpha140 toavoidcentralmicroholes. No new reflectionstrokes painted, no blackrim/shadow. Only water permitted codecomposing/alphaprocessing; otherassetart unchanged."
+      },
+      "regularProcessing": "Only visiblealpha-core(>128) rectangularcrop, uniformresize and center/bottomalignment inPillow. Guestsfitmax160wide250high on192x288, allsolesboundaryy288. Drinksfit134wide184high on192square, traybottomboundaryy184. No codepaint/recolor/outline/face/shapeedits toguest/drink.",
+      "iterationNotes": [
+        "InitialAicedcupstrawmadewholeimage too tall, traywouldonly110pxwidewhenheightfitted. Image_gen correctionshortenedstraw60% andcupbody8%; selectedA/Bicedcupsnow134widex157high withoutdistortion.",
+        "Initialwatercorealpha retained slightbodyopacityvariation. Numericfullwet15checkfailed. Extractedsolidbody-silhouettemaskathalfbodyalpha, keptantialiasedboundary, setwet15fullalpha140; allchecksnowpass. No failedfinalwet15shipped."
+      ],
+      "qa": {
+        "counts": {
+          "guest": 24,
+          "drink": 6,
+          "wet": 32,
+          "total": 62
+        },
+        "totalPNGBytes": 1056978,
+        "files": "AllRGBA PNG fullydecoded, exactcanvases, noPNGtextmetadata. Guestsallvisibleheight250, lastopaque287. Drinksallvisiblewidth134, lastopaque183; height157icedcup,83mug,100/102teapot.",
+        "palette": "Aguestonlygrayscale checked channelspread<=12opaquearea. Bguests existingmutedbluegray/beige/navyclothes byvisualcomparison. DrinksAgreen/Borange. WaterneutralgrayA/paleskyblueB, whiteglints, no green/orange.",
+        "viewConsistency": "Existing seatedcustomer/customer2/customer3 hair, outfit,face andcolors reused. AllfourviewsstandingwithEMPTYhands, NOchair/heldcup; fronts/rears/profilesvisuallychecked andsame250height/floor. Profilesnarrowerthanfacingviews, asviewrotation.",
+        "drinkIcons": "Fullsizeand43x43canvasreview. Tallflatlid/strawplasticcup, lowhandledmug, roundspoutedteapotwithsmallcup distinct. Trayfills134/192=69.79%canvas, centeredlower.",
+        "wet": "32tiles inspected via numbered4x4 andconstraint-matched4x4boards outside repo. 256connectededgepairRGBAcomparisons passed, all16hashesuniquepertheme, wet15fullwater, alpha140/255=54.90%, unconnectedmidpointinset24px. Actualgeneratedwhiteglints reused, no newpaintedstrokes.",
+        "cornerLimit": "Connected full-edge takes precedence at a singlecornerpixel on perpendicular unconnectedside; other unconnected side middle stays24px inset. Adjacent connected sides fill shared24pxcorner. Four-neighbor rules cannot simultaneously make a fullconnectededge and its endpoint dry on perpendicularside.",
+        "registration": "62exactmanifestlines,31pertheme, allolderlines unchanged, Nodesyntaxcheckpassed. AllolderPNG/WebP hashesunchanged.",
+        "runtime": "Existingindex.html loads afterregistration at1920x1080 and375x812, no capturedconsolewarn/error, mobile scrollWidth375. NewgimmickimagesInDOM0 onmainmenu, so newlevelinteractions not claimedtested. No testlevelorcodeadded.",
+        "limits": [
+          "Four-neighborfull-edgeandperpendiculardryedge constraints meet atcorners; connectededgewins atsingleendpointpixel. Dryside middle remains24pxinset, asrecorded.",
+          "Reflectionpattern repeatsper192tile tokeep16piecesconsistent; furtheraestheticplaytestmaychoosefewerreflections.",
+          "Standingcharactersand43pxordericons reviewed onneutralpreviewbackground; actuallevelplacement/deliveryanimation/sliding/cleaningnot tested here."
+        ]
+      },
+      "initialConcurrentChanges": [
+        "src/engine.js",
+        "tools/verify.html"
+      ],
+      "commit": "No staging, commit or push. Otheragentcompletedsourceworkduringgeneration; Codexdidnoteditorrevertcode. Claude Code reviewsandcommits."
+    },
+    {
+      "date": "2026-10-31",
+      "name": "wet-autotiles-per-corner-and-separated-shine",
+      "tool": "User-authorized Python/Pillow reassembly only, no new image_gen call",
+      "scope": "Overwrite32wettiles, create2wet-shinePNGs, add2manifestlines, appendgenerationandCodexlog. Guest/drink/otherartandgamecodeunchanged.",
+      "rationale": "known-issues21: oldfull-edgeinstructioncaused192-to144widthpinchingand1pxforcedcornerspikes. Userreplaceswithindependent96x96quarterlogic toreadasonecontinuouspond.",
+      "userSpecification": {
+        "canvas": [
+          192,
+          192
+        ],
+        "quarter": [
+          96,
+          96
+        ],
+        "disconnectedInset": 24,
+        "outerCornerRadius": 48,
+        "none": "Bothdry: inset24fromeachside, radius48outercorner.",
+        "one": "Straightstriptooneconnectededge,24insetatotherdryedge, norounding.",
+        "both": "Fillwhole96quarter.",
+        "surface": "SamepreviouswaterRGBandalpha140, no repeatedreflectionbakedin."
+      },
+      "output": {
+        "assets": [
+          {
+            "theme": "a",
+            "key": "wet-0",
+            "file": "assets/a/wet-0.png",
+            "bits": 0,
+            "baseRGB": [
+              115,
+              114,
+              114
+            ],
+            "sha256": "5c544402036f9f8596a67b8f95b3b8021fece8b6fb68171154c8384875eb8c1d"
+          },
+          {
+            "theme": "a",
+            "key": "wet-1",
+            "file": "assets/a/wet-1.png",
+            "bits": 1,
+            "baseRGB": [
+              115,
+              114,
+              114
+            ],
+            "sha256": "a4d7bb841f5a621f26a799a61e15ff506ce09d12d70ba9cb257252c039f9e529"
+          },
+          {
+            "theme": "a",
+            "key": "wet-2",
+            "file": "assets/a/wet-2.png",
+            "bits": 2,
+            "baseRGB": [
+              115,
+              114,
+              114
+            ],
+            "sha256": "2ce50f4bfa984161aeaf4b3a0ece9fee68cb45d288236cc9d004b85269682ef6"
+          },
+          {
+            "theme": "a",
+            "key": "wet-3",
+            "file": "assets/a/wet-3.png",
+            "bits": 3,
+            "baseRGB": [
+              115,
+              114,
+              114
+            ],
+            "sha256": "fee418efe772bfb02cafce9708783a0d980dce4c7698603d5f8c146b838fa083"
+          },
+          {
+            "theme": "a",
+            "key": "wet-4",
+            "file": "assets/a/wet-4.png",
+            "bits": 4,
+            "baseRGB": [
+              115,
+              114,
+              114
+            ],
+            "sha256": "cee45cd869a796348a010be119655f4ac01530c6f90a0af02c91bea50c6f780e"
+          },
+          {
+            "theme": "a",
+            "key": "wet-5",
+            "file": "assets/a/wet-5.png",
+            "bits": 5,
+            "baseRGB": [
+              115,
+              114,
+              114
+            ],
+            "sha256": "15333b9e068d75ead8a9d0de2b83923d103b1836c0ef75ce10ff0994a9246746"
+          },
+          {
+            "theme": "a",
+            "key": "wet-6",
+            "file": "assets/a/wet-6.png",
+            "bits": 6,
+            "baseRGB": [
+              115,
+              114,
+              114
+            ],
+            "sha256": "6384fb8c8bfbeb803d5b8500ceff80472c7181174946a890df682c42fc482a71"
+          },
+          {
+            "theme": "a",
+            "key": "wet-7",
+            "file": "assets/a/wet-7.png",
+            "bits": 7,
+            "baseRGB": [
+              115,
+              114,
+              114
+            ],
+            "sha256": "9497763d23ec7afa1d758db1462a385ecc3e25035333ac26ba043f21238c8f42"
+          },
+          {
+            "theme": "a",
+            "key": "wet-8",
+            "file": "assets/a/wet-8.png",
+            "bits": 8,
+            "baseRGB": [
+              115,
+              114,
+              114
+            ],
+            "sha256": "d8b23efaa67bfe5162b05e10193be267804dbf3e345284e48ca84b7c08f4d010"
+          },
+          {
+            "theme": "a",
+            "key": "wet-9",
+            "file": "assets/a/wet-9.png",
+            "bits": 9,
+            "baseRGB": [
+              115,
+              114,
+              114
+            ],
+            "sha256": "3c2438b383301dd8342f58bcbe741b2ec35961d1c880e05460e64840702bc89f"
+          },
+          {
+            "theme": "a",
+            "key": "wet-10",
+            "file": "assets/a/wet-10.png",
+            "bits": 10,
+            "baseRGB": [
+              115,
+              114,
+              114
+            ],
+            "sha256": "2b288296fccf9e5be469c3bc16a9edb79ebde6259f036bbde29488865ee00144"
+          },
+          {
+            "theme": "a",
+            "key": "wet-11",
+            "file": "assets/a/wet-11.png",
+            "bits": 11,
+            "baseRGB": [
+              115,
+              114,
+              114
+            ],
+            "sha256": "9837f8c76a418e8e0176dfe858ce35bab320de70317571e815f422182f222397"
+          },
+          {
+            "theme": "a",
+            "key": "wet-12",
+            "file": "assets/a/wet-12.png",
+            "bits": 12,
+            "baseRGB": [
+              115,
+              114,
+              114
+            ],
+            "sha256": "64c45cc2c54151285598f08c1aa6cb091dd02827b35c1a425d418a3853a98544"
+          },
+          {
+            "theme": "a",
+            "key": "wet-13",
+            "file": "assets/a/wet-13.png",
+            "bits": 13,
+            "baseRGB": [
+              115,
+              114,
+              114
+            ],
+            "sha256": "ca2af9c3a04c1837eb643d3399f1f592b5b4550371e683436983f72db878ec02"
+          },
+          {
+            "theme": "a",
+            "key": "wet-14",
+            "file": "assets/a/wet-14.png",
+            "bits": 14,
+            "baseRGB": [
+              115,
+              114,
+              114
+            ],
+            "sha256": "0cfc036e4eac3aa7935c85e97bc306ec9105816dad33fb76fa1df8cb7b5adc6c"
+          },
+          {
+            "theme": "a",
+            "key": "wet-15",
+            "file": "assets/a/wet-15.png",
+            "bits": 15,
+            "baseRGB": [
+              115,
+              114,
+              114
+            ],
+            "sha256": "13444a4f72cb94754fc03fd8a35df4e6150d6486421cf3333b8e018991ebba7e"
+          },
+          {
+            "theme": "a",
+            "key": "wet-shine",
+            "file": "assets/a/wet-shine.png",
+            "reflectionComponents": [
+              900,
+              386,
+              117
+            ],
+            "maxAlpha": 140,
+            "sha256": "12ca1949be2626b5ebe6548bb0c8f92f3c46294b431139a22d68029ed44563ea"
+          },
+          {
+            "theme": "b",
+            "key": "wet-0",
+            "file": "assets/b/wet-0.png",
+            "bits": 0,
+            "baseRGB": [
+              139,
+              198,
+              235
+            ],
+            "sha256": "c7ca2b8f37281d1631287565609b23107f465320e138a40a22aa7f31002c336e"
+          },
+          {
+            "theme": "b",
+            "key": "wet-1",
+            "file": "assets/b/wet-1.png",
+            "bits": 1,
+            "baseRGB": [
+              139,
+              198,
+              235
+            ],
+            "sha256": "084cc338d66a3eccf00a5062193e4661164970cb9a467ec69585c5fc6f191a11"
+          },
+          {
+            "theme": "b",
+            "key": "wet-2",
+            "file": "assets/b/wet-2.png",
+            "bits": 2,
+            "baseRGB": [
+              139,
+              198,
+              235
+            ],
+            "sha256": "98ca66a80a56f873075e54ed5c76aaaae04da58f67c0d7e3bb5b6fee3da23bd1"
+          },
+          {
+            "theme": "b",
+            "key": "wet-3",
+            "file": "assets/b/wet-3.png",
+            "bits": 3,
+            "baseRGB": [
+              139,
+              198,
+              235
+            ],
+            "sha256": "0b60787a303a7c05c28d626be9c141611cc2a77e1c42601e3a8ee3a00eebc3cc"
+          },
+          {
+            "theme": "b",
+            "key": "wet-4",
+            "file": "assets/b/wet-4.png",
+            "bits": 4,
+            "baseRGB": [
+              139,
+              198,
+              235
+            ],
+            "sha256": "6788761f6caa61bbd1590dbf33a0fea76ffffb1014e222e044c334a07d1e8df1"
+          },
+          {
+            "theme": "b",
+            "key": "wet-5",
+            "file": "assets/b/wet-5.png",
+            "bits": 5,
+            "baseRGB": [
+              139,
+              198,
+              235
+            ],
+            "sha256": "b5b7f92b5d90657c9781dea734c6f6b06ba1a213e44108d35fcf44d33dbaa3b8"
+          },
+          {
+            "theme": "b",
+            "key": "wet-6",
+            "file": "assets/b/wet-6.png",
+            "bits": 6,
+            "baseRGB": [
+              139,
+              198,
+              235
+            ],
+            "sha256": "8753a4648c122d222c3cb9d3ebbaf88a6b55b39f2ad3c944d5847d71773e65db"
+          },
+          {
+            "theme": "b",
+            "key": "wet-7",
+            "file": "assets/b/wet-7.png",
+            "bits": 7,
+            "baseRGB": [
+              139,
+              198,
+              235
+            ],
+            "sha256": "7504ced8d4141eb1610900923bfbe6818918f2fd957d3df321e685eed68a9781"
+          },
+          {
+            "theme": "b",
+            "key": "wet-8",
+            "file": "assets/b/wet-8.png",
+            "bits": 8,
+            "baseRGB": [
+              139,
+              198,
+              235
+            ],
+            "sha256": "27c398dc5707ace249c8ddf2c2a0118dc30392ad167f37e06737ded3d93d75da"
+          },
+          {
+            "theme": "b",
+            "key": "wet-9",
+            "file": "assets/b/wet-9.png",
+            "bits": 9,
+            "baseRGB": [
+              139,
+              198,
+              235
+            ],
+            "sha256": "f573ce1be6090da6b53c2a8523f6000eace0076959cb9325a83a44db97fc59ed"
+          },
+          {
+            "theme": "b",
+            "key": "wet-10",
+            "file": "assets/b/wet-10.png",
+            "bits": 10,
+            "baseRGB": [
+              139,
+              198,
+              235
+            ],
+            "sha256": "68f63b8471839fe5eeddc18d34f3378281dbddf5ad32fb2374bee8d1b27738fc"
+          },
+          {
+            "theme": "b",
+            "key": "wet-11",
+            "file": "assets/b/wet-11.png",
+            "bits": 11,
+            "baseRGB": [
+              139,
+              198,
+              235
+            ],
+            "sha256": "8d7b2a03945a6009819e2fffd9f66c1bcc3b24718a44755498cf0140a6f7b494"
+          },
+          {
+            "theme": "b",
+            "key": "wet-12",
+            "file": "assets/b/wet-12.png",
+            "bits": 12,
+            "baseRGB": [
+              139,
+              198,
+              235
+            ],
+            "sha256": "d560e661cd0380af060da704bc2f0c4c83fe3287854c3c260f6d9bb5ddbe8c2b"
+          },
+          {
+            "theme": "b",
+            "key": "wet-13",
+            "file": "assets/b/wet-13.png",
+            "bits": 13,
+            "baseRGB": [
+              139,
+              198,
+              235
+            ],
+            "sha256": "e0c294a5176387d1301b82d2425f7ad77be521e825884c6d9e1b14422f625c8d"
+          },
+          {
+            "theme": "b",
+            "key": "wet-14",
+            "file": "assets/b/wet-14.png",
+            "bits": 14,
+            "baseRGB": [
+              139,
+              198,
+              235
+            ],
+            "sha256": "2cf7aecdbe6099bef7d358514437da61508f0caf025134913f5d6e6746f92f2f"
+          },
+          {
+            "theme": "b",
+            "key": "wet-15",
+            "file": "assets/b/wet-15.png",
+            "bits": 15,
+            "baseRGB": [
+              139,
+              198,
+              235
+            ],
+            "sha256": "8e3d39d5b527e61f464da81a684430d9077eb8734e42c104c6d1e0236c95a6a6"
+          },
+          {
+            "theme": "b",
+            "key": "wet-shine",
+            "file": "assets/b/wet-shine.png",
+            "reflectionComponents": [
+              900,
+              386,
+              117
+            ],
+            "maxAlpha": 140,
+            "sha256": "12ca1949be2626b5ebe6548bb0c8f92f3c46294b431139a22d68029ed44563ea"
+          }
+        ],
+        "baseRGB": {
+          "a": [
+            115,
+            114,
+            114
+          ],
+          "b": [
+            139,
+            198,
+            235
+          ]
+        },
+        "canvas": [
+          192,
+          192
+        ],
+        "quarter": [
+          96,
+          96
+        ],
+        "inset": 24,
+        "outerCornerRadius": 48,
+        "supersampling": 8,
+        "resampling": "BOX coverage, no ringing/no forcededgepixels",
+        "alpha": 140,
+        "shine": {
+          "source": "exec-ac78da11-92e5-4b3b-962b-2789a9b15790.png",
+          "crop": [
+            430,
+            436,
+            876,
+            858
+          ],
+          "size": [
+            82,
+            78
+          ],
+          "placement": [
+            55,
+            57
+          ],
+          "components": [
+            900,
+            386,
+            117
+          ],
+          "alpha": 140
+        },
+        "tests": {
+          "samePerpendicularContextEdgePairs": 64,
+          "globalRoundedRectangleMatches": [
+            "horizontal3tiles",
+            "vertical3tiles",
+            "2x2square"
+          ],
+          "LouterEdgesStraight": true
+        },
+        "recipe": "Evaluate each96quarter byits2adjacentcardinalbits. Neither:24inseteachdrysideandradius48center(72,72). One:straight24insetstripalongconnectedaxis, no roundcorner. Both:fullquarter. Mirrorcanonicaltopleftquarterforother3. FixedpriorbaseRGB/alpha140, no surfacehighlights inwet0..15. No waving/edgefillingoverride. Shineextractedfromsamepreviousgeneratedthreewhitestreaks, center82x78 at55,57, trueemptybackground, savedseparatelyforthemes."
+      },
+      "assets": [
+        {
+          "theme": "a",
+          "key": "wet-0",
+          "file": "assets/a/wet-0.png",
+          "bits": 0,
+          "baseRGB": [
+            115,
+            114,
+            114
+          ],
+          "sha256": "5c544402036f9f8596a67b8f95b3b8021fece8b6fb68171154c8384875eb8c1d",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existinga/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "a",
+          "key": "wet-1",
+          "file": "assets/a/wet-1.png",
+          "bits": 1,
+          "baseRGB": [
+            115,
+            114,
+            114
+          ],
+          "sha256": "a4d7bb841f5a621f26a799a61e15ff506ce09d12d70ba9cb257252c039f9e529",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existinga/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "a",
+          "key": "wet-2",
+          "file": "assets/a/wet-2.png",
+          "bits": 2,
+          "baseRGB": [
+            115,
+            114,
+            114
+          ],
+          "sha256": "2ce50f4bfa984161aeaf4b3a0ece9fee68cb45d288236cc9d004b85269682ef6",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existinga/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "a",
+          "key": "wet-3",
+          "file": "assets/a/wet-3.png",
+          "bits": 3,
+          "baseRGB": [
+            115,
+            114,
+            114
+          ],
+          "sha256": "fee418efe772bfb02cafce9708783a0d980dce4c7698603d5f8c146b838fa083",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existinga/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "a",
+          "key": "wet-4",
+          "file": "assets/a/wet-4.png",
+          "bits": 4,
+          "baseRGB": [
+            115,
+            114,
+            114
+          ],
+          "sha256": "cee45cd869a796348a010be119655f4ac01530c6f90a0af02c91bea50c6f780e",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existinga/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "a",
+          "key": "wet-5",
+          "file": "assets/a/wet-5.png",
+          "bits": 5,
+          "baseRGB": [
+            115,
+            114,
+            114
+          ],
+          "sha256": "15333b9e068d75ead8a9d0de2b83923d103b1836c0ef75ce10ff0994a9246746",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existinga/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "a",
+          "key": "wet-6",
+          "file": "assets/a/wet-6.png",
+          "bits": 6,
+          "baseRGB": [
+            115,
+            114,
+            114
+          ],
+          "sha256": "6384fb8c8bfbeb803d5b8500ceff80472c7181174946a890df682c42fc482a71",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existinga/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "a",
+          "key": "wet-7",
+          "file": "assets/a/wet-7.png",
+          "bits": 7,
+          "baseRGB": [
+            115,
+            114,
+            114
+          ],
+          "sha256": "9497763d23ec7afa1d758db1462a385ecc3e25035333ac26ba043f21238c8f42",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existinga/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "a",
+          "key": "wet-8",
+          "file": "assets/a/wet-8.png",
+          "bits": 8,
+          "baseRGB": [
+            115,
+            114,
+            114
+          ],
+          "sha256": "d8b23efaa67bfe5162b05e10193be267804dbf3e345284e48ca84b7c08f4d010",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existinga/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "a",
+          "key": "wet-9",
+          "file": "assets/a/wet-9.png",
+          "bits": 9,
+          "baseRGB": [
+            115,
+            114,
+            114
+          ],
+          "sha256": "3c2438b383301dd8342f58bcbe741b2ec35961d1c880e05460e64840702bc89f",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existinga/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "a",
+          "key": "wet-10",
+          "file": "assets/a/wet-10.png",
+          "bits": 10,
+          "baseRGB": [
+            115,
+            114,
+            114
+          ],
+          "sha256": "2b288296fccf9e5be469c3bc16a9edb79ebde6259f036bbde29488865ee00144",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existinga/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "a",
+          "key": "wet-11",
+          "file": "assets/a/wet-11.png",
+          "bits": 11,
+          "baseRGB": [
+            115,
+            114,
+            114
+          ],
+          "sha256": "9837f8c76a418e8e0176dfe858ce35bab320de70317571e815f422182f222397",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existinga/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "a",
+          "key": "wet-12",
+          "file": "assets/a/wet-12.png",
+          "bits": 12,
+          "baseRGB": [
+            115,
+            114,
+            114
+          ],
+          "sha256": "64c45cc2c54151285598f08c1aa6cb091dd02827b35c1a425d418a3853a98544",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existinga/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "a",
+          "key": "wet-13",
+          "file": "assets/a/wet-13.png",
+          "bits": 13,
+          "baseRGB": [
+            115,
+            114,
+            114
+          ],
+          "sha256": "ca2af9c3a04c1837eb643d3399f1f592b5b4550371e683436983f72db878ec02",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existinga/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "a",
+          "key": "wet-14",
+          "file": "assets/a/wet-14.png",
+          "bits": 14,
+          "baseRGB": [
+            115,
+            114,
+            114
+          ],
+          "sha256": "0cfc036e4eac3aa7935c85e97bc306ec9105816dad33fb76fa1df8cb7b5adc6c",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existinga/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "a",
+          "key": "wet-15",
+          "file": "assets/a/wet-15.png",
+          "bits": 15,
+          "baseRGB": [
+            115,
+            114,
+            114
+          ],
+          "sha256": "13444a4f72cb94754fc03fd8a35df4e6150d6486421cf3333b8e018991ebba7e",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existinga/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "a",
+          "key": "wet-shine",
+          "file": "assets/a/wet-shine.png",
+          "reflectionComponents": [
+            900,
+            386,
+            117
+          ],
+          "maxAlpha": 140,
+          "sha256": "12ca1949be2626b5ebe6548bb0c8f92f3c46294b431139a22d68029ed44563ea",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existinga/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "b",
+          "key": "wet-0",
+          "file": "assets/b/wet-0.png",
+          "bits": 0,
+          "baseRGB": [
+            139,
+            198,
+            235
+          ],
+          "sha256": "c7ca2b8f37281d1631287565609b23107f465320e138a40a22aa7f31002c336e",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existingb/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "b",
+          "key": "wet-1",
+          "file": "assets/b/wet-1.png",
+          "bits": 1,
+          "baseRGB": [
+            139,
+            198,
+            235
+          ],
+          "sha256": "084cc338d66a3eccf00a5062193e4661164970cb9a467ec69585c5fc6f191a11",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existingb/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "b",
+          "key": "wet-2",
+          "file": "assets/b/wet-2.png",
+          "bits": 2,
+          "baseRGB": [
+            139,
+            198,
+            235
+          ],
+          "sha256": "98ca66a80a56f873075e54ed5c76aaaae04da58f67c0d7e3bb5b6fee3da23bd1",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existingb/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "b",
+          "key": "wet-3",
+          "file": "assets/b/wet-3.png",
+          "bits": 3,
+          "baseRGB": [
+            139,
+            198,
+            235
+          ],
+          "sha256": "0b60787a303a7c05c28d626be9c141611cc2a77e1c42601e3a8ee3a00eebc3cc",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existingb/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "b",
+          "key": "wet-4",
+          "file": "assets/b/wet-4.png",
+          "bits": 4,
+          "baseRGB": [
+            139,
+            198,
+            235
+          ],
+          "sha256": "6788761f6caa61bbd1590dbf33a0fea76ffffb1014e222e044c334a07d1e8df1",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existingb/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "b",
+          "key": "wet-5",
+          "file": "assets/b/wet-5.png",
+          "bits": 5,
+          "baseRGB": [
+            139,
+            198,
+            235
+          ],
+          "sha256": "b5b7f92b5d90657c9781dea734c6f6b06ba1a213e44108d35fcf44d33dbaa3b8",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existingb/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "b",
+          "key": "wet-6",
+          "file": "assets/b/wet-6.png",
+          "bits": 6,
+          "baseRGB": [
+            139,
+            198,
+            235
+          ],
+          "sha256": "8753a4648c122d222c3cb9d3ebbaf88a6b55b39f2ad3c944d5847d71773e65db",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existingb/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "b",
+          "key": "wet-7",
+          "file": "assets/b/wet-7.png",
+          "bits": 7,
+          "baseRGB": [
+            139,
+            198,
+            235
+          ],
+          "sha256": "7504ced8d4141eb1610900923bfbe6818918f2fd957d3df321e685eed68a9781",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existingb/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "b",
+          "key": "wet-8",
+          "file": "assets/b/wet-8.png",
+          "bits": 8,
+          "baseRGB": [
+            139,
+            198,
+            235
+          ],
+          "sha256": "27c398dc5707ace249c8ddf2c2a0118dc30392ad167f37e06737ded3d93d75da",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existingb/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "b",
+          "key": "wet-9",
+          "file": "assets/b/wet-9.png",
+          "bits": 9,
+          "baseRGB": [
+            139,
+            198,
+            235
+          ],
+          "sha256": "f573ce1be6090da6b53c2a8523f6000eace0076959cb9325a83a44db97fc59ed",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existingb/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "b",
+          "key": "wet-10",
+          "file": "assets/b/wet-10.png",
+          "bits": 10,
+          "baseRGB": [
+            139,
+            198,
+            235
+          ],
+          "sha256": "68f63b8471839fe5eeddc18d34f3378281dbddf5ad32fb2374bee8d1b27738fc",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existingb/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "b",
+          "key": "wet-11",
+          "file": "assets/b/wet-11.png",
+          "bits": 11,
+          "baseRGB": [
+            139,
+            198,
+            235
+          ],
+          "sha256": "8d7b2a03945a6009819e2fffd9f66c1bcc3b24718a44755498cf0140a6f7b494",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existingb/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "b",
+          "key": "wet-12",
+          "file": "assets/b/wet-12.png",
+          "bits": 12,
+          "baseRGB": [
+            139,
+            198,
+            235
+          ],
+          "sha256": "d560e661cd0380af060da704bc2f0c4c83fe3287854c3c260f6d9bb5ddbe8c2b",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existingb/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "b",
+          "key": "wet-13",
+          "file": "assets/b/wet-13.png",
+          "bits": 13,
+          "baseRGB": [
+            139,
+            198,
+            235
+          ],
+          "sha256": "e0c294a5176387d1301b82d2425f7ad77be521e825884c6d9e1b14422f625c8d",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existingb/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "b",
+          "key": "wet-14",
+          "file": "assets/b/wet-14.png",
+          "bits": 14,
+          "baseRGB": [
+            139,
+            198,
+            235
+          ],
+          "sha256": "2cf7aecdbe6099bef7d358514437da61508f0caf025134913f5d6e6746f92f2f",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existingb/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "b",
+          "key": "wet-15",
+          "file": "assets/b/wet-15.png",
+          "bits": 15,
+          "baseRGB": [
+            139,
+            198,
+            235
+          ],
+          "sha256": "8e3d39d5b527e61f464da81a684430d9077eb8734e42c104c6d1e0236c95a6a6",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existingb/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        },
+        {
+          "theme": "b",
+          "key": "wet-shine",
+          "file": "assets/b/wet-shine.png",
+          "reflectionComponents": [
+            900,
+            386,
+            117
+          ],
+          "maxAlpha": 140,
+          "sha256": "12ca1949be2626b5ebe6548bb0c8f92f3c46294b431139a22d68029ed44563ea",
+          "instructionRef": "userSpecification",
+          "sourceRefs": [
+            "existingb/wet-15.png waterbodypixel",
+            "previous generated wet-master-a reflectionstreaks (shine only)"
+          ]
+        }
+      ],
+      "sourceGenerationRef": "standing-guests-drinks-and-wet-autotiles.wetMaterialMasters",
+      "reflectionSource": {
+        "generatedPNG": "exec-ac78da11-92e5-4b3b-962b-2789a9b15790.png",
+        "previousCrop": [
+          430,
+          436,
+          876,
+          858
+        ],
+        "previousSize": [
+          82,
+          78
+        ],
+        "previousPlacement": [
+          55,
+          57
+        ],
+        "processing": "Reusepreviousbrightnessselected3whitegeneratedstreaks withsame82x78fitandcenterplacement55,57 on192transparentcanvas. Alpha140retainssoft55%whiteglints. SamePNGcopiedboth themes, no waterrectangle/background."
+      },
+      "processing": "Createcanonicaltop-left96quarterat8xcoverage usingpixelcenters. Outerarc center72,72 radius48 after24inset. Oneconnectedcase isexactstraightstrip; twoconnectedfullquarter. MirrorforTR/BL/BR, BOXdownsample toavoidringing, alpha0..140. No wavyedge/core or oldforcedfullboundarypixels. ConstantpriorRGB sampledfromoldwet15corner, surfacesnohighlight.",
+      "qa": {
+        "files": "34fullydecoded192x192RGBA PNGs, noPNGtext, maxalpha140; waterRGBconstant. Awater115,114,114; B139,198,235 unchanged.",
+        "globalShapes": "Horizontal3cells,vertical3cells,2x2 assembledalpha match one globalradius48roundedrectangleexactly at8xcoverage. Notjustmatchingendpointpixels.",
+        "edgePairs": "64matchingneighborcontexts withsameperpendicularconnections matchRGBA; oldall-edge256comparison notappropriatefornewcornergeometry.",
+        "Lshape": "Outerstraightedgescontinuousthroughtileboundaries, visualLinsidecornerordinaryrightangle.",
+        "visualReview": "BothA/Bfourtestassembliesviewedatnativepixels: constantwidthstraightrows,roundedterminalcornersonly,continuousL/square, noscallopingor1pxspikes. TestPNGsoutside repository only.",
+        "shine": "Exactly3connectedreflectioncomponents; no repeatedglintsinwet0..15.",
+        "preservation": "Guestanddrink plusalloldernonwetart SHA256unchanged. Existingwetentriesunchanged; exactlytwo newshineentries, Nodesyntaxcheckpassed.",
+        "runtimeLimit": "Gamecode notchanged. Assemblytests arestandalone; wet-shine placementonselectedpondcells isClaudeCode integration scope."
+      },
+      "commit": "No staging, commit or push. Claude Code reviewsandcommits."
     }
   ]
 }
