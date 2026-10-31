@@ -1011,6 +1011,79 @@
       animation: robot-idle 2.6s ease-in-out infinite alternate;
     }
 
+    /* 달리는 로봇과 흐르는 카페(2026-11-01 사용자 요청). 로봇 자리(--robot-h 높이)를 기준으로, 로봇 뒤에 옆에서 본 카페가
+       오른쪽에서 왼쪽으로 끝없이 흐르고, 로봇은 오른쪽을 보고 제자리에서 달린다. 카페 그림은 3840 x 640이라 폭이 높이의 6배다. */
+    .title-robot.running {
+      --robot-h: min(52vh, 480px);
+      position: relative;
+      width: calc(var(--robot-h) * 0.82);
+      height: var(--robot-h);
+      flex: none;
+    }
+
+    /* 카페 띠는 로봇 자리를 가운데로 화면 폭의 3배만큼 깔아서, 로봇이 어디 있든 화면 양 끝까지 덮는다. 메인 화면 맨 뒤에 그린다. */
+    .title-world {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 300vw;
+      height: 100%;
+      transform: translateX(-50%);
+      overflow: hidden;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .title-track {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      display: flex;
+      animation: cafe-scroll 36s linear infinite;
+    }
+
+    @keyframes cafe-scroll {
+      to { transform: translateX(calc(var(--robot-h) * -6)); }
+    }
+
+    .title-track .strip {
+      position: relative;
+      flex: none;
+      height: 100%;
+    }
+
+    .title-track .strip > img.cafe {
+      display: block;
+      height: 100%;
+      width: auto;
+      animation: none;
+    }
+
+    /* 이스터에그(지나간 빌런들, 충전 독). 카페 바닥선(그림 높이의 87.5%)에 발이 닿는다. 그림 아래 24/512는 빈 자리다. */
+    .title-track .egg {
+      position: absolute;
+      height: 72%;
+      width: auto;
+      bottom: calc(12.5% - 72% * 24 / 512);
+      animation: none;
+    }
+
+    /* 달리는 로봇 네 장면. 네 장을 겹쳐 두고 한 장씩만 보여서, 그림을 바꿀 때 깜빡이지 않는다(known-issues 18번). */
+    .title-robot.running > img.run {
+      position: absolute;
+      left: 0;
+      bottom: calc(var(--robot-h) * 0.088);
+      height: calc(var(--robot-h) * 0.78);
+      width: auto;
+      visibility: hidden;
+      animation: none;
+    }
+
+    .title-robot.running > img.run.on { visibility: visible; }
+
+    .calm .title-track { animation: none; }
+
     /* 로봇이 제자리에서 숨 쉬듯 아주 조금 떠올랐다 내려앉는다(그림 높이의 약 1.5%). */
     @keyframes robot-idle {
       from { transform: translateY(0); }
@@ -1196,6 +1269,7 @@
       .title-menu { gap: 8px; }
       .title-btn { min-height: 44px; }
       .title-robot img { height: min(22vh, 190px); }
+      .title-robot.running { --robot-h: min(22vh, 190px); }
       .title-logo img { width: min(78vw, 360px); }
       .title-dex { gap: 8px; }
       .dex-card { width: 84px; }
@@ -1621,6 +1695,7 @@
           <tr><th>처음부터</th><td><kbd>R</kbd>, <span class="nw">위쪽 <kbd>↻</kbd> 버튼</span></td></tr>
           <tr><th>넘기기</th><td><span class="nw">아무 키나</span> <span class="nw">화면 누르기</span></td></tr>
           <tr><th>레벨 고르기</th><td><span class="nw"><kbd>Tab</kbd>으로 위쪽 점</span> <span class="nw">고르고 <kbd>Enter</kbd></span></td></tr>
+          <tr><th>로봇 누르기</th><td><kbd>Space</kbd>, <span class="nw">로봇 누르기</span></td></tr>
           <tr><th>설정</th><td><kbd>Esc</kbd>, <span class="nw">위쪽 <kbd>⚙</kbd> 버튼</span></td></tr>
           <tr><th>설정창</th><td><span class="nw"><kbd>↑</kbd> <kbd>↓</kbd> 고르기,</span> <span class="nw"><kbd>←</kbd> <kbd>→</kbd> 바꾸기</span></td></tr>
           <tr><th>소리 끄기</th><td><kbd>M</kbd></td></tr>
@@ -1901,11 +1976,9 @@
           return true;
         }
         if (char === 'N') {
-          // 기존 손님 셋(customer, customer2, customer3)과 새 손님 둘(seated-1, seated-2)을 칸마다 번갈아 앉힌다.
-          // 새 손님만 쓰면 판의 손님이 모두 두 사람으로 바뀐다(2026-10-31 사용자 지적, known-issues 23번).
           const facing = customerFacing(map, x, y);
-          const people = ['customer', 'customer2', 'customer3', 'seated-1', 'seated-2'].filter((name) => assetPath(`${name}-${facing}`));
-          const key = people.length > 0 ? `${people[(x + 2 * y) % people.length]}-${facing}` : customerKey(facing, x, y);
+          const person = personAt(x, y, facing);
+          const key = person ? `${person}-${facing}` : customerKey(facing, x, y);
           const customer = addSprite(key, TILE, TILE * 1.5, colors.customer);
           customer.classList.add('kind-customer');
           customer.dataset.facing = facing;
@@ -1940,18 +2013,31 @@
         return cells;
       }
 
-      // 테이블 위 물건. 손님이 보고 앉은 칸에는 컵을, 나머지 칸에는 네 칸에 한 칸 꼴로 작은 화분을 놓는다.
-      // 노트북과 펼친 책은 한 방향 그림뿐이라 손님이 어느 쪽에 앉든 아래를 향해 어색했다. 2026-10-29 결정("탁자에는 방향이 있는 물건을 올리지 않는다")대로
-      // 네 방향 그림이 오기 전까지 놓지 않는다(docs/art-rules.md).
+      // 기존 손님 셋(customer, customer2, customer3)과 새 손님 둘(seated-1, seated-2)을 칸마다 번갈아 앉힌다.
+      // 새 손님만 쓰면 판의 손님이 모두 두 사람으로 바뀐다(2026-10-31 사용자 지적, known-issues 23번).
+      function personAt(x, y, facing) {
+        const people = ['customer', 'customer2', 'customer3', 'seated-1', 'seated-2'].filter((name) => assetPath(`${name}-${facing}`));
+        return people.length > 0 ? people[(x + 2 * y) % people.length] : null;
+      }
+
+      // 테이블 위 물건(2026-11-01 큼직한 그림). 손님이 보고 앉은 칸에는 그 손님의 물건을, 나머지 칸에는 다섯 칸에 한 칸 꼴로 꽃병이나 케이크를 놓는다.
+      // 노트북은 네 방향 그림이 있어서, 그 노트북을 쓰는 손님이 바라보는 방향(table-laptop-방향)을 쓴다(docs/art-rules.md).
       function tabletopItem(x, y) {
         const map = game.level.map;
         const around = [[0, -1, 'down'], [0, 1, 'up'], [-1, 0, 'right'], [1, 0, 'left']];
         for (const [dx, dy, facing] of around) {
           const cx = x + dx;
           const cy = y + dy;
-          if ((map[cy] || '')[cx] === 'N' && customerFacing(map, cx, cy) === facing) return 'tabletop-1';
+          if ((map[cy] || '')[cx] === 'N' && customerFacing(map, cx, cy) === facing) {
+            // 노트북 치는 손님(seated-1) 앞에는 그 손님 쪽을 향한 노트북, 다른 손님 앞에는 컵을 놓는다.
+            if (personAt(cx, cy, facing) === 'seated-1' && assetPath(`table-laptop-${facing}`)) return `table-laptop-${facing}`;
+            return assetPath('table-cups') ? 'table-cups' : 'tabletop-1';
+          }
         }
-        return (x * 3 + y * 5) % 4 === 0 ? 'tabletop-4' : null;
+        const pick = (x * 3 + y * 5) % 5;
+        if (pick === 0) return assetPath('table-vase') ? 'table-vase' : 'tabletop-4';
+        if (pick === 1 && assetPath('table-cake')) return 'table-cake';
+        return null;
       }
 
       // 손님 그림 key. 같은 사람이 줄지어 앉으면 복제 인간처럼 보여서, 그려 둔 손님 종류(customer, customer2, customer3...)를
@@ -1968,6 +2054,76 @@
       }
 
       // 주인공 그림 크기. 앉은 손님과 키가 비슷해 묻혀서 1.2배로 그린다(2026-10-29 사용자 피드백).
+      // 주인공 그림 key. 얼굴 화면 표정(push 힘줌, dizzy 어지러움, happy 웃음, sleepy 졸림)이 있으면 그 그림을 쓴다.
+      // 위(뒷모습)는 얼굴이 보이지 않아 표정 그림이 없다(docs/art-rules.md "주인공 로봇").
+      function playerKey(facing = game.state.facing) {
+        if (game.face && facing !== 'up' && assetPath(`player-${facing}-${game.face}`)) return `player-${facing}-${game.face}`;
+        return `player-${facing}`;
+      }
+
+      function refreshPlayer(facing) {
+        if (game.sprites.player) setArt(game.sprites.player, playerKey(facing), THEMES[settings.theme].player, true);
+      }
+
+      // 표정을 잠깐 바꾼다. ms가 지나면 기본 얼굴로 돌아간다. 그 사이 다른 표정이 들어오면 나중 것이 이긴다.
+      function setFace(face, ms) {
+        game.face = face;
+        game.faceToken = (game.faceToken || 0) + 1;
+        const token = game.faceToken;
+        refreshPlayer();
+        if (ms) {
+          setTimeout(() => {
+            if (game.faceToken !== token) return;
+            game.face = null;
+            refreshPlayer();
+          }, ms);
+        }
+      }
+
+      // 가만히 두면 하는 행동. 6초 동안 입력이 없으면 왼쪽과 오른쪽을 두리번거리고, 15초가 지나면 졸린 눈이 된다.
+      // 어떤 키나 누르기든 들어오면 처음부터 다시 센다. 판을 깼거나 연출 중이면 하지 않는다.
+      function resetIdle() {
+        clearTimeout(game.idleTimer);
+        game.idleToken = (game.idleToken || 0) + 1;
+        if (game.face === 'sleepy') setFace(null);
+        // 두리번거리던 중이면 바로 지금 보는 방향으로 되돌린다. 그대로 두면 두리번 동작이 새 방향을 덮어썼다.
+        if (game.looking) {
+          game.looking = false;
+          refreshPlayer();
+        }
+        game.idleTimer = setTimeout(lookAround, 6000);
+      }
+
+      async function lookAround() {
+        if (!game.level || game.busy || game.won || !ui.title.hidden || overlayOpen()) {
+          game.idleTimer = setTimeout(lookAround, 6000);
+          return;
+        }
+        const token = game.idleToken;
+        game.looking = true;
+        for (const side of ['left', 'right', game.state.facing]) {
+          if (game.idleToken !== token) return;
+          refreshPlayer(side);
+          await wait(550);
+        }
+        if (game.idleToken !== token) return;
+        game.looking = false;
+        game.idleTimer = setTimeout(() => {
+          if (!game.busy && !game.won && ui.title.hidden) setFace('sleepy');
+        }, 9000);
+      }
+
+      // 로봇 누르기(로봇을 누르거나 Space). 삐빅 소리와 함께 한 번 뛰고 웃는다.
+      function pokeRobot() {
+        if (!game.level || game.busy || game.won) return;
+        Sound.start();
+        Sound.beep();
+        setFace('happy', 900);
+        game.sprites.player.classList.remove('hop');
+        void game.sprites.player.offsetWidth;
+        game.sprites.player.classList.add('hop');
+      }
+
       function playerWidth() {
         return TILE * 1.2;
       }
@@ -2044,6 +2200,8 @@
       }
 
       function startLevel(index = game.index) {
+        game.face = null;
+        resetIdle();
         const fresh = index !== game.lastStarted;
         game.lastStarted = index;
         game.index = index;
@@ -2140,7 +2298,7 @@
         ui.title.style.setProperty('--title-bg', 'none');
         ui.title.style.backgroundColor = settings.theme === 'a' ? '#1b1b1b' : '#2a1f18';
         ui.title.style.setProperty('--logo-accent', colors.player);
-        ui.titleRobot.innerHTML = imageTag(assetPath('title-robot') ? 'title-robot' : 'player-down');
+        drawTitleWorld();
         ui.titleLogo.innerHTML = assetPath('title-logo')
           ? `<img src="${assetPath('title-logo')}" alt="충전이 필요해!">`
           : '<span class="text-logo"><span>충전이</span><span class="line2">필요해<span class="bang">!</span></span></span>';
@@ -2159,6 +2317,41 @@
           Sound.music('title');
           selectTitleButton(ui.titleContinue);
         }
+      }
+
+      // 메인 화면의 로봇. 달리는 그림이 있으면 흐르는 카페 위에서 제자리로 달리고, 없으면 예전처럼 서 있는 로봇 그림을 쓴다.
+      // 흐르는 카페에는 만난 빌런(도감에서 드러난 빌런)과 충전 독이 이스터에그로 지나간다.
+      function drawTitleWorld() {
+        clearInterval(game.runTimer);
+        if (!assetPath('title-run-1') || !assetPath('title-cafe-strip')) {
+          ui.titleRobot.classList.remove('running');
+          ui.titleRobot.innerHTML = imageTag(assetPath('title-robot') ? 'title-robot' : 'player-down');
+          return;
+        }
+        const eggs = [];
+        if (game.cleared.has(lastLevelOf('sleeper')) && assetPath('title-egg-sleeper')) eggs.push(['title-egg-sleeper', 0.2]);
+        if (game.cleared.has(lastLevelOf('streamer')) && assetPath('title-egg-streamer')) eggs.push(['title-egg-streamer', 0.5]);
+        if (assetPath('title-egg-dock')) eggs.push(['title-egg-dock', 0.8]);
+        // 카페 띠 한 장(폭 = 높이의 6배)에 이스터에그를 정해진 자리에 얹고, 넉 장을 이어 붙여 한 장 폭만큼 흐르면 처음으로 돌아간다.
+        const strip = `<div class="strip">${imageTag('title-cafe-strip', 'cafe')}`
+          + eggs.map(([key, at]) => `<img class="egg" src="${assetPath(key)}" alt="" draggable="false" style="left:${at * 100}%">`).join('')
+          + '</div>';
+        ui.titleRobot.classList.add('running');
+        ui.titleRobot.innerHTML = `<div class="title-world"><div class="title-track">${strip.repeat(4)}</div></div>`
+          + [1, 2, 3, 4].map((frame) => imageTag(`title-run-${frame}`, `run${frame === 1 ? ' on' : ''}`)).join('');
+        const frames = [...ui.titleRobot.querySelectorAll('img.run')];
+        let frame = 0;
+        game.runTimer = setInterval(() => {
+          if (ui.title.hidden || document.body.classList.contains('calm')) return;
+          frames[frame].classList.remove('on');
+          frame = (frame + 1) % frames.length;
+          frames[frame].classList.add('on');
+        }, 110);
+      }
+
+      function lastLevelOf(chapterId) {
+        const levels = LAYOUT.levels.filter((level) => level.chapter === chapterId);
+        return levels[levels.length - 1].id;
       }
 
       // 첫 화면을 누른 순간. 이 입력이 소리를 켜는 계기다(브라우저는 사람이 누르기 전에는 소리를 막는다).
@@ -2213,6 +2406,7 @@
       // 메인 화면을 닫고 레벨을 시작한다. 음악은 카페 배경 음악으로 바뀐다.
       function leaveTitle(index) {
         ui.title.hidden = true;
+        clearInterval(game.runTimer);
         Sound.start();
         Sound.music('cafe');
         game.lastStarted = -1;
@@ -2409,7 +2603,11 @@
           if (item.kind === 'drink') element.classList.add(`drink-${'ABC'.indexOf(item.order) + 1}`);
           return element;
         });
-        game.sprites.player = addSprite(`player-${state.facing}`, playerWidth(), playerHeight(), colors.player, { sticker: true, round: true });
+        game.sprites.player = addSprite(playerKey(state.facing), playerWidth(), playerHeight(), colors.player, { sticker: true, round: true });
+        game.sprites.player.addEventListener('click', (event) => {
+          event.stopPropagation();
+          pokeRobot();
+        });
         game.sprites.player.classList.add('is-player');
         game.sprites.player.style.setProperty('--player-color', colors.player);
         drawGoal();
@@ -2751,9 +2949,7 @@
         if (game.busy || game.won) return;
         const result = Engine.step(game.level, game.state, direction);
         const colors = THEMES[settings.theme];
-        if (result.state.facing !== game.state.facing) {
-          setArt(game.sprites.player, `player-${result.state.facing}`, colors.player, true);
-        }
+        if (result.state.facing !== game.state.facing) refreshPlayer(result.state.facing);
         if (result.seen) {
           Sound.play('shutter');
           // 화각에 들어가는 걸음: 내디딘 모습을 잠깐 보여 주고 화각이 붉어진 뒤 제자리로 돌아온다. 기록은 남기지 않는다.
@@ -2771,7 +2967,9 @@
         }
         if (!result.moved) {
           Sound.play('bump');
+          // 표정은 새로 바라보는 방향의 그림으로 그려야 해서, 상태를 먼저 바꾼 뒤 표정을 정한다.
           game.state = result.state;
+          setFace('dizzy', 700);
           ui.scene.classList.remove('bump');
           void ui.scene.offsetWidth;
           ui.scene.classList.add('bump');
@@ -2784,6 +2982,7 @@
         }
         game.history.push(game.state);
         game.state = result.state;
+        if (result.pushed !== null) setFace('push', 450);
         game.steps += 1;
         updateSteps();
         if (game.steps >= 3) hideKeys();
@@ -2808,6 +3007,7 @@
       async function win() {
         game.won = true;
         game.busy = true;
+        setFace('happy');
         const colors = THEMES[settings.theme];
         const look = chapterOf().villain;
         const triggerKind = game.level.goal ? 'buzzer' : 'trash';
@@ -2865,10 +3065,11 @@
         game.state = game.history.pop();
         game.won = false;
         if (wasWon) {
+          game.face = null;
           draw();
           return;
         }
-        setArt(game.sprites.player, `player-${game.state.facing}`, THEMES[settings.theme].player, true);
+        refreshPlayer();
         placeAll();
         syncServed();
         drawWet();
@@ -3015,6 +3216,14 @@
           rhodes(783.99, now + 0.09, 0.7, 0.1);
         }
 
+        // 로봇을 눌렀을 때의 짧은 삐빅. 높은 두 음을 아주 짧게 낸다.
+        function beep() {
+          if (!context) return;
+          const now = context.currentTime + 0.02;
+          rhodes(1046.5, now, 0.18, 0.07);
+          rhodes(1396.91, now + 0.09, 0.22, 0.07);
+        }
+
         function rhodes(frequency, when, length, level) {
           const carrier = context.createOscillator();
           const modulator = context.createOscillator();
@@ -3052,7 +3261,7 @@
           else context.resume().catch(() => {});
         }
 
-        return { start, play, chime, serve, music, setVolumes, setPaused };
+        return { start, play, chime, serve, beep, music, setVolumes, setPaused };
       })();
 
       function applySettings() {
@@ -3256,8 +3465,10 @@
       // 키를 누르고 있을 때 이동과 되돌리기가 반복되는 간격(ms). 브라우저 그대로면 1초에 30번쯤 반복되어 로봇이 미끄러지듯 지나갔다.
       const REPEAT_GAP = 150;
 
+      document.addEventListener('pointerdown', resetIdle);
       document.addEventListener('keydown', (event) => {
         const key = event.key.toLowerCase();
+        resetIdle();
         // M은 소리 끄기, F는 전체 화면이다. 어느 화면에서나 듣는다. 첫 화면이면 그 입력으로 메인 화면도 연다.
         if ((key === 'm' || key === 'f') && !event.repeat && !event.ctrlKey && !event.metaKey && !event.altKey) {
           event.preventDefault();
@@ -3341,6 +3552,10 @@
           undo();
         } else if (key === 'r') {
           if (!game.busy) startLevel();
+        } else if (key === ' ' && !game.won && !(document.activeElement && document.activeElement.matches('button, input'))) {
+          // Tab으로 버튼에 초점을 둔 채 누른 Space는 그 버튼을 누르게 두고, 그 밖에는 로봇을 누른다.
+          event.preventDefault();
+          pokeRobot();
         } else if (game.won && !MODIFIER_KEYS.includes(key)) {
           event.preventDefault();
           goNext();

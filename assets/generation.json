@@ -15942,6 +15942,3606 @@
         "Browserindex loadedafterregistration; Blevel1-4 viewed at1920x1080 and375x812. Noerror/warningconsolelogs orhorizontaloverflow at375. CurrentgamehasNOnewfurniturekeysinrenderer/map, so newtrialartwasNOTactuallyplacedinlevel1-4. Currentoldfurniture remainsvisible; integrationbelongs toClaudeCode. Standalonescaleproof isNOTactuallevel.",
         "Allproofimagesandprocessinghelpers remainoutside repository. No gamecode, gitstaging, commit orpush. Foreignnewassets/audio/bgm-title.mp3 leftuntouched andexcludedfrompendinglist."
       ]
+    },
+    {
+      "group": 1,
+      "title": "주인공 얼굴 표정 12장",
+      "tool": "Built-in image_gen, then user-authorized Pillow face-only composition",
+      "authorization": "User explicitly allowed Python for generated-eye composition and group2 garment/prop recoloring on2026-10-31. AGENTS ordinary rule remains for other assets.",
+      "summary": "기존 주인공의 정면과 좌우에 네 표정을 더한 그림 12장을 만들었다. 생성한 흰 눈만 원본 얼굴 화면에 합성했고, 몸과 팔, 색, 선, 투명도와 발 위치를 유지했다. 원본 기본 그림과 뒷모습은 바꾸지 않았다.",
+      "images": [
+        {
+          "key": "player-down-happy",
+          "group": 1,
+          "direction": "down",
+          "expression": "happy",
+          "prompt": "Use case: precise-object-edit. Input1 is EDIT TARGET, actual existing192x288game sprite. Change ONLY the two white eyes INSIDE BLACK FACE SCREEN into two big thick white smiling upward carets, ^ ^. NO mouth, no extra symbols/cheeks. Keep EVERYTHING outside the screen pixel-for-pixel unchanged: exact same facing-front/down robot, red ring facecase, cylindricalredbody, grayarms/hands/whitejoints, discbase, outline, proportions, bodypose, color andcanvasalignment. Preserve original black screen shape/placement and original transparent background. Eyes must read at80pxtotalrobotheight, so few chunky strokes, nottiny. Output same192x288ratio, soleonbottom. Input2title-robot, Input3villain-sleep, Input4streamer-idle are separate EXISTING STYLE references only; doNOTcopy theirposes/characters. RobotidentityisexactInput1. NO stickers/castshadows/floor/text/logos/newprops; faceeyesonly. One sprite, no sheet.",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "file": "assets/a/player-down-happy.png",
+          "processing": {
+            "key": "player-down-happy",
+            "file": "assets/a/player-down-happy.png",
+            "canvas": [
+              192,
+              288
+            ],
+            "sourceEyeCrop": [
+              359,
+              472,
+              664,
+              562
+            ],
+            "faceEditRectangle": [
+              68,
+              81,
+              124,
+              110
+            ],
+            "eyeSize": [
+              52,
+              15
+            ],
+            "eyePlacement": [
+              70,
+              88
+            ],
+            "outsideFaceChangedPixels": 0,
+            "originalAlphaPreserved": true,
+            "visibleProfileEyes": 2
+          },
+          "source": "assets/a/player-down.png",
+          "sha256": "c9b05c581a0cb6b6f48afb251c3b4fbf9bf58896ffc68f68154851245f208a2e",
+          "generatedPNG": "exec-80f76136-805d-4189-8abe-34f981f38203.png"
+        },
+        {
+          "group": 1,
+          "key": "player-down-push",
+          "direction": "down",
+          "expression": "push",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "prompt": "Use case: precise-object-edit. Input1 EDITTARGET is existing192x288 robot sprite. KEEP EXACT SAME robot, same downfacing direction, same redbody, charcoalgrayarms, whitejoint, discbase, bodypose, outlinecolors, sizes, bottomflooranchor andcanvas. Change ONLY EYES INSIDE the black face screen into two thick inward-angled squint chevrons, effort/pushing eyes > <. Expression symbols are the only allowed marks, no mouth/cheeks/text/newprops. Simple very bold white eye strokes, legible at totalrobotheight80px. Preserve black screen shape and every pixel outside face screen. Frontview two eyes. Otherseparateimages are SAME GAME style/identity refs only; donotaddtheirpeople/props or copytheirposes. True transparent background, no glow/stickeroutline/castshadow/floor/sheet. One sprite only.",
+          "file": "assets/a/player-down-push.png",
+          "processing": {
+            "key": "player-down-push",
+            "file": "assets/a/player-down-push.png",
+            "canvas": [
+              192,
+              288
+            ],
+            "sourceEyeCrop": [
+              373,
+              348,
+              651,
+              470
+            ],
+            "faceEditRectangle": [
+              68,
+              81,
+              124,
+              110
+            ],
+            "eyeSize": [
+              50,
+              22
+            ],
+            "eyePlacement": [
+              71,
+              84
+            ],
+            "outsideFaceChangedPixels": 0,
+            "originalAlphaPreserved": true,
+            "visibleProfileEyes": 2
+          },
+          "source": "assets/a/player-down.png",
+          "sha256": "70e38c87c8bc47efa31d25ad8b17a8f4c717ca97d9d4b766844bdbdd7b033d62",
+          "generatedPNG": "exec-311235f9-b782-4bdb-9f19-4056a8b08f48.png"
+        },
+        {
+          "group": 1,
+          "key": "player-down-dizzy",
+          "direction": "down",
+          "expression": "dizzy",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "prompt": "Use case: precise-object-edit. Input1 EDITTARGET is existing192x288 robot sprite. KEEP EXACT SAME robot, same downfacing direction, same redbody, charcoalgrayarms, whitejoint, discbase, bodypose, outlinecolors, sizes, bottomflooranchor andcanvas. Change ONLY EYES INSIDE the black face screen into two large chunky white SPIRAL eyes @ @, cartoon dizzy swirl, simplified 1.5turn each no tinyloop. Expression symbols are the only allowed marks, no mouth/cheeks/text/newprops. Simple very bold white eye strokes, legible at totalrobotheight80px. Preserve black screen shape and every pixel outside face screen. Frontview two eyes. Otherseparateimages are SAME GAME style/identity refs only; donotaddtheirpeople/props or copytheirposes. True transparent background, no glow/stickeroutline/castshadow/floor/sheet. One sprite only.",
+          "file": "assets/a/player-down-dizzy.png",
+          "processing": {
+            "key": "player-down-dizzy",
+            "file": "assets/a/player-down-dizzy.png",
+            "canvas": [
+              192,
+              288
+            ],
+            "sourceEyeCrop": [
+              346,
+              309,
+              677,
+              449
+            ],
+            "faceEditRectangle": [
+              68,
+              81,
+              124,
+              110
+            ],
+            "eyeSize": [
+              52,
+              22
+            ],
+            "eyePlacement": [
+              70,
+              84
+            ],
+            "outsideFaceChangedPixels": 0,
+            "originalAlphaPreserved": true,
+            "visibleProfileEyes": 2
+          },
+          "source": "assets/a/player-down.png",
+          "sha256": "25c3373738b375c95d7aff3f49908d99c76aa6efef7b306e003e19168b317cee",
+          "generatedPNG": "exec-8a785ec5-a9e7-4d1b-836e-0fcd4f76a0a6.png"
+        },
+        {
+          "group": 1,
+          "key": "player-down-sleepy",
+          "direction": "down",
+          "expression": "sleepy",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "prompt": "Use case: precise-object-edit. Input1 EDITTARGET is existing192x288 robot sprite. KEEP EXACT SAME robot, same downfacing direction, same redbody, charcoalgrayarms, whitejoint, discbase, bodypose, outlinecolors, sizes, bottomflooranchor andcanvas. Change ONLY EYES INSIDE the black face screen into two thick SHORT HORIZONTAL white bars - -, halfclosed sleepy eyes. Expression symbols are the only allowed marks, no mouth/cheeks/text/newprops. Simple very bold white eye strokes, legible at totalrobotheight80px. Preserve black screen shape and every pixel outside face screen. Frontview two eyes. Otherseparateimages are SAME GAME style/identity refs only; donotaddtheirpeople/props or copytheirposes. True transparent background, no glow/stickeroutline/castshadow/floor/sheet. One sprite only.",
+          "file": "assets/a/player-down-sleepy.png",
+          "processing": {
+            "key": "player-down-sleepy",
+            "file": "assets/a/player-down-sleepy.png",
+            "canvas": [
+              192,
+              288
+            ],
+            "sourceEyeCrop": [
+              373,
+              396,
+              651,
+              430
+            ],
+            "faceEditRectangle": [
+              68,
+              81,
+              124,
+              110
+            ],
+            "eyeSize": [
+              52,
+              6
+            ],
+            "eyePlacement": [
+              70,
+              92
+            ],
+            "outsideFaceChangedPixels": 0,
+            "originalAlphaPreserved": true,
+            "visibleProfileEyes": 2
+          },
+          "source": "assets/a/player-down.png",
+          "sha256": "9e569993611998ee0edd8794064cef14dd07682dfd1933910238ef61e1635e6c",
+          "generatedPNG": "exec-5b30873f-f751-47c2-833e-7f3836bceda4.png"
+        },
+        {
+          "group": 1,
+          "key": "player-left-push",
+          "direction": "left",
+          "expression": "push",
+          "refs": [
+            "assets/a/player-left.png",
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "prompt": "Use case: precise-object-edit. Input1 EDITTARGET is existing192x288 robot sprite. KEEP EXACT SAME robot, same leftfacing direction, same redbody, charcoalgrayarms, whitejoint, discbase, bodypose, outlinecolors, sizes, bottomflooranchor andcanvas. Change ONLY EYES INSIDE the black face screen into two thick inward-angled squint chevrons, effort/pushing eyes > <. Expression symbols are the only allowed marks, no mouth/cheeks/text/newprops. Simple very bold white eye strokes, legible at totalrobotheight80px. Preserve black screen shape and every pixel outside face screen. Same EXACT SIDE PROFILE asInput1: screen remains on LEFTthinface, eye foreshortened as original. DoNOTturnhead tofront/threequarter toshowtwoeyes. Preserve original occlusion and screenoutline. Otherseparateimages are SAME GAME style/identity refs only; donotaddtheirpeople/props or copytheirposes. True transparent background, no glow/stickeroutline/castshadow/floor/sheet. One sprite only.",
+          "file": "assets/a/player-left-push.png",
+          "processing": {
+            "key": "player-left-push",
+            "file": "assets/a/player-left-push.png",
+            "canvas": [
+              192,
+              288
+            ],
+            "sourceEyeCrop": [
+              413,
+              447,
+              460,
+              567
+            ],
+            "faceEditRectangle": [
+              76,
+              87,
+              85,
+              123
+            ],
+            "eyeSize": [
+              7,
+              22
+            ],
+            "eyePlacement": [
+              77,
+              94
+            ],
+            "outsideFaceChangedPixels": 0,
+            "originalAlphaPreserved": true,
+            "visibleProfileEyes": 1
+          },
+          "source": "assets/a/player-left.png",
+          "sha256": "011c3984cb569a172c72f8c5cdebbcd70250c4a696a56e45e69005c8f4c57999",
+          "generatedPNG": "exec-01ff92f9-5975-4d68-a0e7-787ad0dac016.png"
+        },
+        {
+          "group": 1,
+          "key": "player-left-dizzy",
+          "direction": "left",
+          "expression": "dizzy",
+          "refs": [
+            "assets/a/player-left.png",
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "prompt": "Use case: precise-object-edit. Input1 EDITTARGET is existing192x288 robot sprite. KEEP EXACT SAME robot, same leftfacing direction, same redbody, charcoalgrayarms, whitejoint, discbase, bodypose, outlinecolors, sizes, bottomflooranchor andcanvas. Change ONLY EYES INSIDE the black face screen into two large chunky white SPIRAL eyes @ @, cartoon dizzy swirl, simplified 1.5turn each no tinyloop. Expression symbols are the only allowed marks, no mouth/cheeks/text/newprops. Simple very bold white eye strokes, legible at totalrobotheight80px. Preserve black screen shape and every pixel outside face screen. Same EXACT SIDE PROFILE asInput1: screen remains on LEFTthinface, eye foreshortened as original. DoNOTturnhead tofront/threequarter toshowtwoeyes. Preserve original occlusion and screenoutline. Otherseparateimages are SAME GAME style/identity refs only; donotaddtheirpeople/props or copytheirposes. True transparent background, no glow/stickeroutline/castshadow/floor/sheet. One sprite only.",
+          "file": "assets/a/player-left-dizzy.png",
+          "processing": {
+            "key": "player-left-dizzy",
+            "file": "assets/a/player-left-dizzy.png",
+            "canvas": [
+              192,
+              288
+            ],
+            "sourceEyeCrop": [
+              419,
+              417,
+              468,
+              580
+            ],
+            "faceEditRectangle": [
+              76,
+              87,
+              85,
+              123
+            ],
+            "eyeSize": [
+              7,
+              26
+            ],
+            "eyePlacement": [
+              77,
+              92
+            ],
+            "outsideFaceChangedPixels": 0,
+            "originalAlphaPreserved": true,
+            "visibleProfileEyes": 1
+          },
+          "source": "assets/a/player-left.png",
+          "sha256": "0dbab2a0935c42f8ff556bc199d3735e930ed5bb8026da142af000c31c7e5e39",
+          "generatedPNG": "exec-5bbc6647-8a17-431d-a06e-b51ee085abd8.png"
+        },
+        {
+          "group": 1,
+          "key": "player-left-happy",
+          "direction": "left",
+          "expression": "happy",
+          "refs": [
+            "assets/a/player-left.png",
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "prompt": "Use case: precise-object-edit. Input1 EDITTARGET is existing192x288 robot sprite. KEEP EXACT SAME robot, same leftfacing direction, same redbody, charcoalgrayarms, whitejoint, discbase, bodypose, outlinecolors, sizes, bottomflooranchor andcanvas. Change ONLY EYES INSIDE the black face screen into two thick white UPWARDcaret arches ^ ^, happy smiling eyes. Expression symbols are the only allowed marks, no mouth/cheeks/text/newprops. Simple very bold white eye strokes, legible at totalrobotheight80px. Preserve black screen shape and every pixel outside face screen. Same EXACT SIDE PROFILE asInput1: screen remains on LEFTthinface, eye foreshortened as original. DoNOTturnhead tofront/threequarter toshowtwoeyes. Preserve original occlusion and screenoutline. Otherseparateimages are SAME GAME style/identity refs only; donotaddtheirpeople/props or copytheirposes. True transparent background, no glow/stickeroutline/castshadow/floor/sheet. One sprite only.",
+          "file": "assets/a/player-left-happy.png",
+          "processing": {
+            "key": "player-left-happy",
+            "file": "assets/a/player-left-happy.png",
+            "canvas": [
+              192,
+              288
+            ],
+            "sourceEyeCrop": [
+              415,
+              483,
+              464,
+              577
+            ],
+            "faceEditRectangle": [
+              76,
+              87,
+              85,
+              123
+            ],
+            "eyeSize": [
+              7,
+              17
+            ],
+            "eyePlacement": [
+              77,
+              96
+            ],
+            "outsideFaceChangedPixels": 0,
+            "originalAlphaPreserved": true,
+            "visibleProfileEyes": 1
+          },
+          "source": "assets/a/player-left.png",
+          "sha256": "b88e58e99045ae88c8359e73e6447530f50e5361cbcbf2998141c3657e89100f",
+          "generatedPNG": "exec-f70f6d3f-c76f-4396-a49d-baa025214144.png"
+        },
+        {
+          "group": 1,
+          "key": "player-right-push",
+          "direction": "right",
+          "expression": "push",
+          "refs": [
+            "assets/a/player-right.png",
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "prompt": "Use case: precise-object-edit. Input1 EDITTARGET is existing192x288 robot sprite. KEEP EXACT SAME robot, same rightfacing direction, same redbody, charcoalgrayarms, whitejoint, discbase, bodypose, outlinecolors, sizes, bottomflooranchor andcanvas. Change ONLY EYES INSIDE the black face screen into two thick inward-angled squint chevrons, effort/pushing eyes > <. Expression symbols are the only allowed marks, no mouth/cheeks/text/newprops. Simple very bold white eye strokes, legible at totalrobotheight80px. Preserve black screen shape and every pixel outside face screen. Same EXACT SIDE PROFILE asInput1: screen remains on RIGHTthinface, eye foreshortened as original. DoNOTturnhead tofront/threequarter toshowtwoeyes. Preserve original occlusion and screenoutline. Otherseparateimages are SAME GAME style/identity refs only; donotaddtheirpeople/props or copytheirposes. True transparent background, no glow/stickeroutline/castshadow/floor/sheet. One sprite only.",
+          "file": "assets/a/player-right-push.png",
+          "processing": {
+            "key": "player-right-push",
+            "file": "assets/a/player-right-push.png",
+            "canvas": [
+              192,
+              288
+            ],
+            "sourceEyeCrop": [
+              571,
+              480,
+              625,
+              600
+            ],
+            "faceEditRectangle": [
+              106,
+              88,
+              116,
+              123
+            ],
+            "eyeSize": [
+              7,
+              22
+            ],
+            "eyePlacement": [
+              107,
+              94
+            ],
+            "outsideFaceChangedPixels": 0,
+            "originalAlphaPreserved": true,
+            "visibleProfileEyes": 1
+          },
+          "source": "assets/a/player-right.png",
+          "sha256": "d1a3efe56b4690300627cc4be4805601932ce87e355bfd5c50fd926d56984c60",
+          "generatedPNG": "exec-2442b65b-a15f-4f67-9b9f-9953d2053e43.png"
+        },
+        {
+          "group": 1,
+          "key": "player-left-sleepy",
+          "direction": "left",
+          "expression": "sleepy",
+          "refs": [
+            "assets/a/player-left.png",
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "prompt": "Use case: precise-object-edit. Input1 EDITTARGET is existing192x288 robot sprite. KEEP EXACT SAME robot, same leftfacing direction, same redbody, charcoalgrayarms, whitejoint, discbase, bodypose, outlinecolors, sizes, bottomflooranchor andcanvas. Change ONLY EYES INSIDE the black face screen into two thick SHORT HORIZONTAL white bars - -, halfclosed sleepy eyes. Expression symbols are the only allowed marks, no mouth/cheeks/text/newprops. Simple very bold white eye strokes, legible at totalrobotheight80px. Preserve black screen shape and every pixel outside face screen. Same EXACT SIDE PROFILE asInput1: screen remains on LEFTthinface, eye foreshortened as original. DoNOTturnhead tofront/threequarter toshowtwoeyes. Preserve original occlusion and screenoutline. Otherseparateimages are SAME GAME style/identity refs only; donotaddtheirpeople/props or copytheirposes. True transparent background, no glow/stickeroutline/castshadow/floor/sheet. One sprite only.",
+          "file": "assets/a/player-left-sleepy.png",
+          "processing": {
+            "key": "player-left-sleepy",
+            "file": "assets/a/player-left-sleepy.png",
+            "canvas": [
+              192,
+              288
+            ],
+            "sourceEyeCrop": [
+              417,
+              433,
+              466,
+              467
+            ],
+            "faceEditRectangle": [
+              76,
+              87,
+              85,
+              123
+            ],
+            "eyeSize": [
+              7,
+              5
+            ],
+            "eyePlacement": [
+              77,
+              102
+            ],
+            "outsideFaceChangedPixels": 0,
+            "originalAlphaPreserved": true,
+            "visibleProfileEyes": 1
+          },
+          "source": "assets/a/player-left.png",
+          "sha256": "a14db3ae015859d3ce938f7f5c19f65e232f8761a024546b63a6cbfa74b5318c",
+          "generatedPNG": "exec-fcffd83b-1a22-4e6a-96da-d843dd5a2997.png"
+        },
+        {
+          "group": 1,
+          "key": "player-right-dizzy",
+          "direction": "right",
+          "expression": "dizzy",
+          "refs": [
+            "assets/a/player-right.png",
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "prompt": "Use case: precise-object-edit. Input1 EDITTARGET is existing192x288 robot sprite. KEEP EXACT SAME robot, same rightfacing direction, same redbody, charcoalgrayarms, whitejoint, discbase, bodypose, outlinecolors, sizes, bottomflooranchor andcanvas. Change ONLY EYES INSIDE the black face screen into two large chunky white SPIRAL eyes @ @, cartoon dizzy swirl, simplified 1.5turn each no tinyloop. Expression symbols are the only allowed marks, no mouth/cheeks/text/newprops. Simple very bold white eye strokes, legible at totalrobotheight80px. Preserve black screen shape and every pixel outside face screen. Same EXACT SIDE PROFILE asInput1: screen remains on RIGHTthinface, eye foreshortened as original. DoNOTturnhead tofront/threequarter toshowtwoeyes. Preserve original occlusion and screenoutline. Otherseparateimages are SAME GAME style/identity refs only; donotaddtheirpeople/props or copytheirposes. True transparent background, no glow/stickeroutline/castshadow/floor/sheet. One sprite only.",
+          "file": "assets/a/player-right-dizzy.png",
+          "processing": {
+            "key": "player-right-dizzy",
+            "file": "assets/a/player-right-dizzy.png",
+            "canvas": [
+              192,
+              288
+            ],
+            "sourceEyeCrop": [
+              582,
+              413,
+              629,
+              581
+            ],
+            "faceEditRectangle": [
+              106,
+              88,
+              116,
+              123
+            ],
+            "eyeSize": [
+              7,
+              26
+            ],
+            "eyePlacement": [
+              107,
+              92
+            ],
+            "outsideFaceChangedPixels": 0,
+            "originalAlphaPreserved": true,
+            "visibleProfileEyes": 1
+          },
+          "source": "assets/a/player-right.png",
+          "sha256": "32505c67e50ab6481f2a50219bfd14aa43007aae830b6c7060d933f90084847f",
+          "generatedPNG": "exec-bad95057-5f5b-4d58-a655-2622519eefff.png"
+        },
+        {
+          "group": 1,
+          "key": "player-right-sleepy",
+          "direction": "right",
+          "expression": "sleepy",
+          "refs": [
+            "assets/a/player-right.png",
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "prompt": "Use case: precise-object-edit. Input1 EDITTARGET is existing192x288 robot sprite. KEEP EXACT SAME robot, same rightfacing direction, same redbody, charcoalgrayarms, whitejoint, discbase, bodypose, outlinecolors, sizes, bottomflooranchor andcanvas. Change ONLY EYES INSIDE the black face screen into two thick SHORT HORIZONTAL white bars - -, halfclosed sleepy eyes. Expression symbols are the only allowed marks, no mouth/cheeks/text/newprops. Simple very bold white eye strokes, legible at totalrobotheight80px. Preserve black screen shape and every pixel outside face screen. Same EXACT SIDE PROFILE asInput1: screen remains on RIGHTthinface, eye foreshortened as original. DoNOTturnhead tofront/threequarter toshowtwoeyes. Preserve original occlusion and screenoutline. Otherseparateimages are SAME GAME style/identity refs only; donotaddtheirpeople/props or copytheirposes. True transparent background, no glow/stickeroutline/castshadow/floor/sheet. One sprite only.",
+          "file": "assets/a/player-right-sleepy.png",
+          "processing": {
+            "key": "player-right-sleepy",
+            "file": "assets/a/player-right-sleepy.png",
+            "canvas": [
+              192,
+              288
+            ],
+            "sourceEyeCrop": [
+              572,
+              579,
+              616,
+              613
+            ],
+            "faceEditRectangle": [
+              106,
+              88,
+              116,
+              123
+            ],
+            "eyeSize": [
+              7,
+              5
+            ],
+            "eyePlacement": [
+              107,
+              103
+            ],
+            "outsideFaceChangedPixels": 0,
+            "originalAlphaPreserved": true,
+            "visibleProfileEyes": 1
+          },
+          "source": "assets/a/player-right.png",
+          "sha256": "969d19c56eced6965eff610711a3e2398f395935bb2bfe8004deb449311737b4",
+          "generatedPNG": "exec-9cb8c234-ef82-4ce7-b02b-509fb267e805.png"
+        },
+        {
+          "group": 1,
+          "key": "player-right-happy",
+          "direction": "right",
+          "expression": "happy",
+          "refs": [
+            "assets/a/player-right.png",
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "prompt": "Use case: precise-object-edit. Input1 EDITTARGET is existing192x288 robot sprite. KEEP EXACT SAME robot, same rightfacing direction, same redbody, charcoalgrayarms, whitejoint, discbase, bodypose, outlinecolors, sizes, bottomflooranchor andcanvas. Change ONLY EYES INSIDE the black face screen into two thick white UPWARDcaret arches ^ ^, happy smiling eyes. Expression symbols are the only allowed marks, no mouth/cheeks/text/newprops. Simple very bold white eye strokes, legible at totalrobotheight80px. Preserve black screen shape and every pixel outside face screen. Same EXACT SIDE PROFILE asInput1: screen remains on RIGHTthinface, eye foreshortened as original. DoNOTturnhead tofront/threequarter toshowtwoeyes. Preserve original occlusion and screenoutline. Otherseparateimages are SAME GAME style/identity refs only; donotaddtheirpeople/props or copytheirposes. True transparent background, no glow/stickeroutline/castshadow/floor/sheet. One sprite only.",
+          "file": "assets/a/player-right-happy.png",
+          "processing": {
+            "key": "player-right-happy",
+            "file": "assets/a/player-right-happy.png",
+            "canvas": [
+              192,
+              288
+            ],
+            "sourceEyeCrop": [
+              571,
+              499,
+              624,
+              594
+            ],
+            "faceEditRectangle": [
+              106,
+              88,
+              116,
+              123
+            ],
+            "eyeSize": [
+              7,
+              17
+            ],
+            "eyePlacement": [
+              107,
+              97
+            ],
+            "outsideFaceChangedPixels": 0,
+            "originalAlphaPreserved": true,
+            "visibleProfileEyes": 1
+          },
+          "source": "assets/a/player-right.png",
+          "sha256": "a899b8184e8611431b4e05233684f08fb356757f83e3b13f142c71b20f6c94ab",
+          "generatedPNG": "exec-0ddb40d5-627f-476e-9c25-6acba143a915.png"
+        }
+      ],
+      "qa": {
+        "canvas": [
+          192,
+          288
+        ],
+        "outsideFaceChangedPixels": 0,
+        "allOriginalAlphaPreserved": true,
+        "gameSizeReview": "Native and80px-high previews reviewed. Down four expressions clearlydistinct. Left/right showonlyone foreshortenedeye likeoriginal; spiral detail lesslegible at80px. Bodypose andheadrotation notchanged toshowmoreeyes."
+      },
+      "processing": "Find generated white eye connectedcomponents inupper33%ofvisiblebody. Use2componentsfront/1side. Extractwhitealpha frombrightness, fitfrontwithin52x24max andsidewithin7x26max; eraseoldovals onlyinside documentedfaceeditrectangle. Reuseoriginal192x288RGBA andrestoreoriginalalphaeverypixel. Assertoutsidefacerectangle exactRGBA equality. No body resampling.",
+      "logNotes": [
+        "사용자가 Python으로 생성한 눈 영역만 합성하는 방법을 허용했다. 얼굴 화면 밖의 변경 픽셀은 12장 모두 0개이고 원본 알파도 전체가 같다. 192 x 288 캔버스와 발 위치를 유지했다.",
+        "정면 네 표정은 높이 80px로 줄여도 구별됐다. 좌우는 원래 화면이 9~10px 폭이고 눈 하나만 보이는 옆모습이라, 소용돌이의 세부 모양은 작은 게임 크기에서 덜 읽힌다. 눈을 크게 보이려고 머리나 몸을 돌리지는 않았다. 이 한계는 사용자 확인이 필요하다.",
+        "첫 묶음을 등록하고 기록했다. 다음에는 기존 빌런의 옷과 소품 색만 고친다. 게임 코드와 B 그림은 고치지 않았다."
+      ],
+      "id": "four-bundles-2026-10-31-group-1",
+      "date": "2026-10-31",
+      "theme": "a"
+    },
+    {
+      "group": 2,
+      "title": "빌런 고유색 7장",
+      "tool": "User-authorized Pillow targeted recoloring of existing artwork",
+      "summary": "잠든 카공족의 옷은 보라, 촬영자의 옷과 헤드밴드 및 헤드셋은 파랑으로 칠했다. 기존 일곱 그림의 생김새와 자세, 크기, 선 위치, 알파를 보존했고, 얼굴과 피부 및 머리는 흑백으로 남겼다. 의자와 멀티탭도 흑백으로 유지했다.",
+      "images": [
+        {
+          "key": "villain-sleep",
+          "file": "assets/a/villain-sleep.png",
+          "source": "assets/a/villain-sleep.png",
+          "size": [
+            192,
+            480
+          ],
+          "tool": "User-authorized Pillow targeted colorization, no new character generation",
+          "prompt": "Preserve existing silhouette, line positions, face/skin/hair, pose and alpha. Recolor only original garment/wearable gray regions to #7b4fb0 purple. No red/green/yellow. Same canvas/file/format.",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "processing": {
+            "targetRGB": [
+              123,
+              79,
+              176
+            ],
+            "includePolygons": [
+              [
+                [
+                  5,
+                  246
+                ],
+                [
+                  18,
+                  188
+                ],
+                [
+                  63,
+                  119
+                ],
+                [
+                  141,
+                  153
+                ],
+                [
+                  178,
+                  202
+                ],
+                [
+                  169,
+                  217
+                ],
+                [
+                  190,
+                  270
+                ],
+                [
+                  177,
+                  309
+                ],
+                [
+                  126,
+                  313
+                ],
+                [
+                  58,
+                  304
+                ],
+                [
+                  11,
+                  305
+                ]
+              ]
+            ],
+            "protectedPolygons": [
+              [
+                [
+                  53,
+                  227
+                ],
+                [
+                  71,
+                  203
+                ],
+                [
+                  89,
+                  183
+                ],
+                [
+                  120,
+                  185
+                ],
+                [
+                  140,
+                  210
+                ],
+                [
+                  130,
+                  236
+                ],
+                [
+                  111,
+                  251
+                ],
+                [
+                  89,
+                  253
+                ],
+                [
+                  63,
+                  238
+                ]
+              ],
+              [
+                [
+                  69,
+                  250
+                ],
+                [
+                  101,
+                  249
+                ],
+                [
+                  108,
+                  277
+                ],
+                [
+                  70,
+                  274
+                ]
+              ],
+              [
+                [
+                  89,
+                  278
+                ],
+                [
+                  121,
+                  278
+                ],
+                [
+                  121,
+                  333
+                ],
+                [
+                  89,
+                  333
+                ]
+              ],
+              [
+                [
+                  15,
+                  303
+                ],
+                [
+                  127,
+                  303
+                ],
+                [
+                  127,
+                  351
+                ],
+                [
+                  15,
+                  351
+                ]
+              ],
+              [
+                [
+                  50,
+                  221
+                ],
+                [
+                  74,
+                  221
+                ],
+                [
+                  74,
+                  244
+                ],
+                [
+                  50,
+                  244
+                ]
+              ],
+              [
+                [
+                  124,
+                  205
+                ],
+                [
+                  144,
+                  205
+                ],
+                [
+                  144,
+                  238
+                ],
+                [
+                  124,
+                  238
+                ]
+              ]
+            ],
+            "headwearSeeds": [],
+            "grayRange": [
+              30,
+              220
+            ],
+            "formula": "Preserve source darkink<=30 and whitehighlights>=220; recolor selectedgray as gray/128*targetRGB, no geometry/alphachange. Headwear uses4-connectedgraycomponents fromnamedseeds toexclude hair. LosslessWebP protects unchanged visiblepixels.",
+            "changedPixels": 12920,
+            "outsideMaskChangedPixels": 0,
+            "protectedChangedPixels": 0,
+            "alphaChangedPixels": 0
+          },
+          "sha256": "fb529d169d13a3711ae59eac7ea6315d2202bff326a02552f289d6b75c9f412f"
+        },
+        {
+          "key": "villain-wake",
+          "file": "assets/a/villain-wake.png",
+          "source": "assets/a/villain-wake.png",
+          "size": [
+            192,
+            480
+          ],
+          "tool": "User-authorized Pillow targeted colorization, no new character generation",
+          "prompt": "Preserve existing silhouette, line positions, face/skin/hair, pose and alpha. Recolor only original garment/wearable gray regions to #7b4fb0 purple. No red/green/yellow. Same canvas/file/format.",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "processing": {
+            "targetRGB": [
+              123,
+              79,
+              176
+            ],
+            "includePolygons": [
+              [
+                [
+                  5,
+                  244
+                ],
+                [
+                  20,
+                  185
+                ],
+                [
+                  61,
+                  119
+                ],
+                [
+                  140,
+                  151
+                ],
+                [
+                  178,
+                  202
+                ],
+                [
+                  168,
+                  218
+                ],
+                [
+                  190,
+                  274
+                ],
+                [
+                  183,
+                  328
+                ],
+                [
+                  139,
+                  336
+                ],
+                [
+                  125,
+                  313
+                ],
+                [
+                  13,
+                  306
+                ]
+              ]
+            ],
+            "protectedPolygons": [
+              [
+                [
+                  53,
+                  218
+                ],
+                [
+                  69,
+                  190
+                ],
+                [
+                  99,
+                  161
+                ],
+                [
+                  139,
+                  193
+                ],
+                [
+                  138,
+                  217
+                ],
+                [
+                  119,
+                  241
+                ],
+                [
+                  103,
+                  254
+                ],
+                [
+                  72,
+                  240
+                ]
+              ],
+              [
+                [
+                  95,
+                  229
+                ],
+                [
+                  144,
+                  225
+                ],
+                [
+                  145,
+                  281
+                ],
+                [
+                  133,
+                  295
+                ],
+                [
+                  130,
+                  310
+                ],
+                [
+                  103,
+                  313
+                ],
+                [
+                  98,
+                  293
+                ],
+                [
+                  91,
+                  276
+                ]
+              ],
+              [
+                [
+                  16,
+                  302
+                ],
+                [
+                  126,
+                  302
+                ],
+                [
+                  126,
+                  353
+                ],
+                [
+                  16,
+                  353
+                ]
+              ],
+              [
+                [
+                  50,
+                  211
+                ],
+                [
+                  74,
+                  211
+                ],
+                [
+                  74,
+                  242
+                ],
+                [
+                  50,
+                  242
+                ]
+              ],
+              [
+                [
+                  126,
+                  202
+                ],
+                [
+                  145,
+                  202
+                ],
+                [
+                  145,
+                  237
+                ],
+                [
+                  126,
+                  237
+                ]
+              ]
+            ],
+            "headwearSeeds": [],
+            "grayRange": [
+              30,
+              220
+            ],
+            "formula": "Preserve source darkink<=30 and whitehighlights>=220; recolor selectedgray as gray/128*targetRGB, no geometry/alphachange. Headwear uses4-connectedgraycomponents fromnamedseeds toexclude hair. LosslessWebP protects unchanged visiblepixels.",
+            "changedPixels": 11544,
+            "outsideMaskChangedPixels": 0,
+            "protectedChangedPixels": 0,
+            "alphaChangedPixels": 0
+          },
+          "sha256": "25b08ecba1eb431ce638ed72fe68fa885c74dbbbf264678a4eade659b5b7366b"
+        },
+        {
+          "key": "villain-portrait",
+          "file": "assets/a/villain-portrait.webp",
+          "source": "assets/a/villain-portrait.webp",
+          "size": [
+            1024,
+            1024
+          ],
+          "tool": "User-authorized Pillow targeted colorization, no new character generation",
+          "prompt": "Preserve existing silhouette, line positions, face/skin/hair, pose and alpha. Recolor only original garment/wearable gray regions to #7b4fb0 purple. No red/green/yellow. Same canvas/file/format.",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "processing": {
+            "targetRGB": [
+              123,
+              79,
+              176
+            ],
+            "includePolygons": [
+              [
+                [
+                  100,
+                  0
+                ],
+                [
+                  943,
+                  0
+                ],
+                [
+                  943,
+                  1024
+                ],
+                [
+                  100,
+                  1024
+                ]
+              ]
+            ],
+            "protectedPolygons": [
+              [
+                [
+                  282,
+                  394
+                ],
+                [
+                  319,
+                  327
+                ],
+                [
+                  356,
+                  268
+                ],
+                [
+                  450,
+                  201
+                ],
+                [
+                  499,
+                  195
+                ],
+                [
+                  569,
+                  245
+                ],
+                [
+                  638,
+                  344
+                ],
+                [
+                  618,
+                  421
+                ],
+                [
+                  560,
+                  471
+                ],
+                [
+                  506,
+                  498
+                ],
+                [
+                  411,
+                  483
+                ],
+                [
+                  351,
+                  456
+                ]
+              ],
+              [
+                [
+                  463,
+                  535
+                ],
+                [
+                  520,
+                  530
+                ],
+                [
+                  547,
+                  445
+                ],
+                [
+                  590,
+                  445
+                ],
+                [
+                  592,
+                  501
+                ],
+                [
+                  636,
+                  470
+                ],
+                [
+                  657,
+                  478
+                ],
+                [
+                  654,
+                  636
+                ],
+                [
+                  629,
+                  681
+                ],
+                [
+                  636,
+                  713
+                ],
+                [
+                  682,
+                  729
+                ],
+                [
+                  669,
+                  806
+                ],
+                [
+                  614,
+                  835
+                ],
+                [
+                  549,
+                  808
+                ],
+                [
+                  531,
+                  771
+                ],
+                [
+                  538,
+                  736
+                ],
+                [
+                  510,
+                  716
+                ],
+                [
+                  480,
+                  670
+                ]
+              ],
+              [
+                [
+                  537,
+                  791
+                ],
+                [
+                  563,
+                  799
+                ],
+                [
+                  558,
+                  854
+                ],
+                [
+                  549,
+                  905
+                ],
+                [
+                  571,
+                  942
+                ],
+                [
+                  611,
+                  982
+                ],
+                [
+                  617,
+                  1024
+                ],
+                [
+                  593,
+                  1024
+                ],
+                [
+                  592,
+                  985
+                ],
+                [
+                  548,
+                  958
+                ],
+                [
+                  528,
+                  918
+                ],
+                [
+                  530,
+                  853
+                ]
+              ],
+              [
+                [
+                  262,
+                  389
+                ],
+                [
+                  350,
+                  389
+                ],
+                [
+                  350,
+                  451
+                ],
+                [
+                  262,
+                  451
+                ]
+              ],
+              [
+                [
+                  600,
+                  338
+                ],
+                [
+                  655,
+                  338
+                ],
+                [
+                  655,
+                  414
+                ],
+                [
+                  600,
+                  414
+                ]
+              ]
+            ],
+            "headwearSeeds": [],
+            "grayRange": [
+              30,
+              220
+            ],
+            "formula": "Preserve source darkink<=30 and whitehighlights>=220; recolor selectedgray as gray/128*targetRGB, no geometry/alphachange. Headwear uses4-connectedgraycomponents fromnamedseeds toexclude hair. LosslessWebP protects unchanged visiblepixels.",
+            "changedPixels": 299799,
+            "outsideMaskChangedPixels": 0,
+            "protectedChangedPixels": 0,
+            "alphaChangedPixels": 0
+          },
+          "sha256": "7891569206da1c385a6b91e655a0b5b209a69618c7e3397b0e7f8cae8e001678"
+        },
+        {
+          "key": "streamer-idle",
+          "file": "assets/a/streamer-idle.png",
+          "source": "assets/a/streamer-idle.png",
+          "size": [
+            192,
+            288
+          ],
+          "tool": "User-authorized Pillow targeted colorization, no new character generation",
+          "prompt": "Preserve existing silhouette, line positions, face/skin/hair, pose and alpha. Recolor only original garment/wearable gray regions to #2f6db3 blue. No red/green/yellow. Same canvas/file/format.",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "processing": {
+            "targetRGB": [
+              47,
+              109,
+              179
+            ],
+            "includePolygons": [
+              [
+                [
+                  31,
+                  121
+                ],
+                [
+                  53,
+                  99
+                ],
+                [
+                  112,
+                  96
+                ],
+                [
+                  126,
+                  123
+                ],
+                [
+                  149,
+                  107
+                ],
+                [
+                  160,
+                  114
+                ],
+                [
+                  160,
+                  148
+                ],
+                [
+                  136,
+                  163
+                ],
+                [
+                  121,
+                  148
+                ],
+                [
+                  39,
+                  150
+                ],
+                [
+                  26,
+                  152
+                ]
+              ],
+              [
+                [
+                  43,
+                  45
+                ],
+                [
+                  61,
+                  33
+                ],
+                [
+                  98,
+                  31
+                ],
+                [
+                  112,
+                  44
+                ],
+                [
+                  105,
+                  57
+                ],
+                [
+                  69,
+                  50
+                ],
+                [
+                  46,
+                  66
+                ]
+              ],
+              [
+                [
+                  30,
+                  60
+                ],
+                [
+                  49,
+                  52
+                ],
+                [
+                  61,
+                  91
+                ],
+                [
+                  40,
+                  98
+                ]
+              ],
+              [
+                [
+                  107,
+                  49
+                ],
+                [
+                  120,
+                  56
+                ],
+                [
+                  120,
+                  86
+                ],
+                [
+                  110,
+                  91
+                ]
+              ]
+            ],
+            "protectedPolygons": [
+              [
+                [
+                  138,
+                  74
+                ],
+                [
+                  174,
+                  74
+                ],
+                [
+                  174,
+                  117
+                ],
+                [
+                  138,
+                  117
+                ]
+              ],
+              [
+                [
+                  74,
+                  95
+                ],
+                [
+                  96,
+                  96
+                ],
+                [
+                  99,
+                  111
+                ],
+                [
+                  83,
+                  113
+                ]
+              ]
+            ],
+            "headwearSeeds": [
+              [
+                75,
+                40
+              ],
+              [
+                91,
+                42
+              ],
+              [
+                43,
+                73
+              ],
+              [
+                113,
+                68
+              ]
+            ],
+            "grayRange": [
+              30,
+              220
+            ],
+            "formula": "Preserve source darkink<=30 and whitehighlights>=220; recolor selectedgray as gray/128*targetRGB, no geometry/alphachange. Headwear uses4-connectedgraycomponents fromnamedseeds toexclude hair. LosslessWebP protects unchanged visiblepixels.",
+            "changedPixels": 4531,
+            "outsideMaskChangedPixels": 0,
+            "protectedChangedPixels": 0,
+            "alphaChangedPixels": 0
+          },
+          "sha256": "54ade643c89c98be3456cd07cf2e3f52fb2f90578c4bd8da3096b784c7841c75"
+        },
+        {
+          "key": "streamer-react",
+          "file": "assets/a/streamer-react.png",
+          "source": "assets/a/streamer-react.png",
+          "size": [
+            192,
+            288
+          ],
+          "tool": "User-authorized Pillow targeted colorization, no new character generation",
+          "prompt": "Preserve existing silhouette, line positions, face/skin/hair, pose and alpha. Recolor only original garment/wearable gray regions to #2f6db3 blue. No red/green/yellow. Same canvas/file/format.",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "processing": {
+            "targetRGB": [
+              47,
+              109,
+              179
+            ],
+            "includePolygons": [
+              [
+                [
+                  34,
+                  96
+                ],
+                [
+                  64,
+                  98
+                ],
+                [
+                  99,
+                  96
+                ],
+                [
+                  127,
+                  114
+                ],
+                [
+                  146,
+                  112
+                ],
+                [
+                  158,
+                  128
+                ],
+                [
+                  150,
+                  154
+                ],
+                [
+                  130,
+                  150
+                ],
+                [
+                  121,
+                  148
+                ],
+                [
+                  42,
+                  149
+                ],
+                [
+                  29,
+                  141
+                ]
+              ],
+              [
+                [
+                  42,
+                  34
+                ],
+                [
+                  72,
+                  30
+                ],
+                [
+                  105,
+                  43
+                ],
+                [
+                  101,
+                  55
+                ],
+                [
+                  72,
+                  44
+                ],
+                [
+                  44,
+                  52
+                ]
+              ],
+              [
+                [
+                  37,
+                  49
+                ],
+                [
+                  52,
+                  48
+                ],
+                [
+                  60,
+                  78
+                ],
+                [
+                  43,
+                  89
+                ]
+              ],
+              [
+                [
+                  94,
+                  48
+                ],
+                [
+                  118,
+                  58
+                ],
+                [
+                  117,
+                  87
+                ],
+                [
+                  99,
+                  91
+                ]
+              ]
+            ],
+            "protectedPolygons": [
+              [
+                [
+                  9,
+                  95
+                ],
+                [
+                  45,
+                  85
+                ],
+                [
+                  54,
+                  104
+                ],
+                [
+                  47,
+                  121
+                ],
+                [
+                  22,
+                  122
+                ]
+              ],
+              [
+                [
+                  133,
+                  102
+                ],
+                [
+                  165,
+                  104
+                ],
+                [
+                  163,
+                  133
+                ],
+                [
+                  143,
+                  130
+                ]
+              ],
+              [
+                [
+                  48,
+                  49
+                ],
+                [
+                  88,
+                  41
+                ],
+                [
+                  105,
+                  62
+                ],
+                [
+                  99,
+                  91
+                ],
+                [
+                  82,
+                  103
+                ],
+                [
+                  59,
+                  88
+                ]
+              ]
+            ],
+            "headwearSeeds": [
+              [
+                55,
+                40
+              ],
+              [
+                73,
+                38
+              ],
+              [
+                105,
+                70
+              ]
+            ],
+            "grayRange": [
+              30,
+              220
+            ],
+            "formula": "Preserve source darkink<=30 and whitehighlights>=220; recolor selectedgray as gray/128*targetRGB, no geometry/alphachange. Headwear uses4-connectedgraycomponents fromnamedseeds toexclude hair. LosslessWebP protects unchanged visiblepixels.",
+            "changedPixels": 3149,
+            "outsideMaskChangedPixels": 0,
+            "protectedChangedPixels": 0,
+            "alphaChangedPixels": 0
+          },
+          "sha256": "cbb4114ff29d05315fe0d0c8d33d21d65f4ed8c92349cf47a092384df058a9e2"
+        },
+        {
+          "key": "streamer-face",
+          "file": "assets/a/streamer-face.png",
+          "source": "assets/a/streamer-face.png",
+          "size": [
+            128,
+            128
+          ],
+          "tool": "User-authorized Pillow targeted colorization, no new character generation",
+          "prompt": "Preserve existing silhouette, line positions, face/skin/hair, pose and alpha. Recolor only original garment/wearable gray regions to #2f6db3 blue. No red/green/yellow. Same canvas/file/format.",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "processing": {
+            "targetRGB": [
+              47,
+              109,
+              179
+            ],
+            "includePolygons": [
+              [
+                [
+                  26,
+                  35
+                ],
+                [
+                  46,
+                  26
+                ],
+                [
+                  77,
+                  25
+                ],
+                [
+                  104,
+                  38
+                ],
+                [
+                  104,
+                  50
+                ],
+                [
+                  73,
+                  41
+                ],
+                [
+                  42,
+                  45
+                ],
+                [
+                  23,
+                  57
+                ]
+              ],
+              [
+                [
+                  10,
+                  55
+                ],
+                [
+                  27,
+                  49
+                ],
+                [
+                  36,
+                  91
+                ],
+                [
+                  21,
+                  103
+                ],
+                [
+                  11,
+                  86
+                ]
+              ],
+              [
+                [
+                  96,
+                  51
+                ],
+                [
+                  116,
+                  56
+                ],
+                [
+                  121,
+                  84
+                ],
+                [
+                  108,
+                  101
+                ],
+                [
+                  95,
+                  93
+                ]
+              ]
+            ],
+            "protectedPolygons": [],
+            "headwearSeeds": [
+              [
+                81,
+                35
+              ],
+              [
+                107,
+                76
+              ],
+              [
+                25,
+                77
+              ]
+            ],
+            "grayRange": [
+              30,
+              220
+            ],
+            "formula": "Preserve source darkink<=30 and whitehighlights>=220; recolor selectedgray as gray/128*targetRGB, no geometry/alphachange. Headwear uses4-connectedgraycomponents fromnamedseeds toexclude hair. LosslessWebP protects unchanged visiblepixels.",
+            "changedPixels": 927,
+            "outsideMaskChangedPixels": 0,
+            "protectedChangedPixels": 0,
+            "alphaChangedPixels": 0
+          },
+          "sha256": "a3b438e618b842edbd8b9fd510af3c2cae3d90705953ad42c72937e9616ea104"
+        },
+        {
+          "key": "streamer-portrait",
+          "file": "assets/a/streamer-portrait.webp",
+          "source": "assets/a/streamer-portrait.webp",
+          "size": [
+            1024,
+            1024
+          ],
+          "tool": "User-authorized Pillow targeted colorization, no new character generation",
+          "prompt": "Preserve existing silhouette, line positions, face/skin/hair, pose and alpha. Recolor only original garment/wearable gray regions to #2f6db3 blue. No red/green/yellow. Same canvas/file/format.",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "processing": {
+            "targetRGB": [
+              47,
+              109,
+              179
+            ],
+            "includePolygons": [
+              [
+                [
+                  0,
+                  610
+                ],
+                [
+                  1024,
+                  610
+                ],
+                [
+                  1024,
+                  1024
+                ],
+                [
+                  0,
+                  1024
+                ]
+              ],
+              [
+                [
+                  285,
+                  237
+                ],
+                [
+                  341,
+                  170
+                ],
+                [
+                  440,
+                  139
+                ],
+                [
+                  602,
+                  119
+                ],
+                [
+                  647,
+                  191
+                ],
+                [
+                  492,
+                  210
+                ],
+                [
+                  392,
+                  239
+                ],
+                [
+                  284,
+                  298
+                ]
+              ],
+              [
+                [
+                  210,
+                  269
+                ],
+                [
+                  288,
+                  272
+                ],
+                [
+                  344,
+                  507
+                ],
+                [
+                  276,
+                  534
+                ],
+                [
+                  222,
+                  460
+                ]
+              ],
+              [
+                [
+                  682,
+                  249
+                ],
+                [
+                  767,
+                  286
+                ],
+                [
+                  780,
+                  474
+                ],
+                [
+                  697,
+                  520
+                ],
+                [
+                  673,
+                  458
+                ]
+              ]
+            ],
+            "protectedPolygons": [
+              [
+                [
+                  38,
+                  611
+                ],
+                [
+                  50,
+                  530
+                ],
+                [
+                  90,
+                  500
+                ],
+                [
+                  128,
+                  418
+                ],
+                [
+                  181,
+                  406
+                ],
+                [
+                  196,
+                  504
+                ],
+                [
+                  232,
+                  529
+                ],
+                [
+                  302,
+                  488
+                ],
+                [
+                  355,
+                  493
+                ],
+                [
+                  364,
+                  555
+                ],
+                [
+                  330,
+                  623
+                ],
+                [
+                  278,
+                  696
+                ],
+                [
+                  230,
+                  777
+                ],
+                [
+                  171,
+                  794
+                ],
+                [
+                  88,
+                  721
+                ]
+              ],
+              [
+                [
+                  751,
+                  567
+                ],
+                [
+                  761,
+                  483
+                ],
+                [
+                  787,
+                  390
+                ],
+                [
+                  835,
+                  366
+                ],
+                [
+                  869,
+                  398
+                ],
+                [
+                  895,
+                  456
+                ],
+                [
+                  958,
+                  494
+                ],
+                [
+                  985,
+                  540
+                ],
+                [
+                  968,
+                  628
+                ],
+                [
+                  921,
+                  691
+                ],
+                [
+                  862,
+                  739
+                ],
+                [
+                  792,
+                  684
+                ]
+              ],
+              [
+                [
+                  420,
+                  557
+                ],
+                [
+                  598,
+                  555
+                ],
+                [
+                  599,
+                  697
+                ],
+                [
+                  508,
+                  694
+                ],
+                [
+                  455,
+                  670
+                ]
+              ]
+            ],
+            "headwearSeeds": [
+              [
+                355,
+                204
+              ],
+              [
+                452,
+                176
+              ],
+              [
+                543,
+                159
+              ],
+              [
+                269,
+                381
+              ],
+              [
+                724,
+                378
+              ]
+            ],
+            "grayRange": [
+              30,
+              220
+            ],
+            "formula": "Preserve source darkink<=30 and whitehighlights>=220; recolor selectedgray as gray/128*targetRGB, no geometry/alphachange. Headwear uses4-connectedgraycomponents fromnamedseeds toexclude hair. LosslessWebP protects unchanged visiblepixels.",
+            "changedPixels": 228050,
+            "outsideMaskChangedPixels": 0,
+            "protectedChangedPixels": 0,
+            "alphaChangedPixels": 0
+          },
+          "sha256": "11a135a256ef3bdb01d593f81b13afbf57322011c8b3b8784546fcbcd07d5e7f"
+        }
+      ],
+      "qa": {
+        "files": 7,
+        "alphaChangedPixels": 0,
+        "outsideSelectedMaskChangedPixels": 0,
+        "protectedFaceSkinHairHandsChangedPixels": 0,
+        "portraits": "Original1024x1024WebP paths retained; lossless encoding to preserve unedited pixels.",
+        "visual": "All7colorvariants reviewed together against originals. Initial ear/hair tint corrected before installation."
+      },
+      "authorization": "User explicitly allowed Python recoloring for group2 to preserve originals. No new character generation.",
+      "logNotes": [
+        "사용자가 원본 보존을 위한 Python 색 수정 방법을 허용했다. 원본 선의 위치와 알파는 그대로이고, 선택한 옷과 착용 소품 범위 밖의 변경 픽셀은 0개다. PNG와 WebP의 파일 이름과 크기는 유지했다.",
+        "처음 색 마스크에서 귀와 머리카락 가장자리가 물드는 곳을 찾아 제외했다. 촬영자의 머리 소품은 검은 선으로 나뉜 회색 영역을 시드에서 골라 칠했고, 손과 피부를 보호했다. 빨강과 초록, 노랑은 추가하지 않았다.",
+        "기존 manifest의 일곱 key와 경로를 다시 확인했다. 새 인물이나 자세를 만들지 않았고 기존 B 그림도 고치지 않았다. 다음은 큼직한 테이블 위 물건 일곱 장이다."
+      ],
+      "id": "four-bundles-2026-10-31-group-2",
+      "date": "2026-10-31",
+      "theme": "a"
+    },
+    {
+      "group": 3,
+      "title": "큼직한 테이블 위 물건 7장",
+      "tool": "Built-in image_gen, then crop/uniform scale/canvas alignment only",
+      "summary": "컵 두 개와 케이크 접시, 꽃병, 네 방향 노트북을 각각 분리된 그림으로 만들었다. 기존 작은 소품을 덮어쓰지 않고 새 key로 등록했다. 노트북은 손님이 바라보는 방향을 key로 삼아 키보드가 손님 가까이 오고 화면이 그 너머에 오도록 그렸다.",
+      "images": [
+        {
+          "key": "table-cups",
+          "width": 106,
+          "source": "assets/a/tabletop-1.png",
+          "prompt": "Use case: stylized-concept. ONE single separate tabletop object sprite on TRUE transparent background. SAME thick clean black outlines and few broad cartoonplanes as four individual existing A-theme references. References player-down/title-robot/villain-sleep/streamer-idle are STYLE ONLY, do NOT draw characters. Object palette ONLY black/white/neutralgray, no red/purple/blue/green/yellow. RPG Maker slight-overhead orthographic view, NOTisometric. No tabletop/tray/person/hands/background/stickerborder/castgroundshadow/text/logos/numbers. Large readable shape, no microscopicdetails/noisytexture. Canvas192x192RGBA; object centered. Objects are intentionally larger than realism toreadongame tables.\nTwo Korean cafe ceramic coffee MUGS, round cupswithsimplehandles, darkcoffeeinside. Cupsnexttoeachother asonegroup. Combined visiblewidth106px (55%of192canvas), ~55pxhigh. Two distinctroundsilhouettes, no saucers. First image is object STRUCTURE reference only; sameobject now enlargedand rotatedasrequested, followingindividual4gamestyle refs.",
+          "group": 3,
+          "refs": [
+            "assets/a/tabletop-1.png",
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "file": "assets/a/table-cups.png",
+          "processing": {
+            "crop": [
+              118,
+              437,
+              1140,
+              845
+            ],
+            "visibleSize": [
+              106,
+              42
+            ],
+            "canvas": [
+              192,
+              192
+            ],
+            "placement": [
+              43,
+              75
+            ],
+            "method": "Cropalpha>128, uniformscaleonly, center192square. No color/shape/linechanges."
+          },
+          "sha256": "091a6f3304e65735e2717735051aed7fefc48d98608e1b830b66a3a3281231b2",
+          "generatedPNG": "exec-f8d9b8f7-7905-4fa7-bcfe-353a0529b9dc.png"
+        },
+        {
+          "key": "table-cake",
+          "width": 96,
+          "prompt": "Use case: stylized-concept. ONE single separate tabletop object sprite on TRUE transparent background. SAME thick clean black outlines and few broad cartoonplanes as four individual existing A-theme references. References player-down/title-robot/villain-sleep/streamer-idle are STYLE ONLY, do NOT draw characters. Object palette ONLY black/white/neutralgray, no red/purple/blue/green/yellow. RPG Maker slight-overhead orthographic view, NOTisometric. No tabletop/tray/person/hands/background/stickerborder/castgroundshadow/text/logos/numbers. Large readable shape, no microscopicdetails/noisytexture. Canvas192x192RGBA; object centered. Objects are intentionally larger than realism toreadongame tables.\nONE rounddessertplate with ONEslice of layercake. Korea cafe dessert, a simple wedgecake onroundporcelainplate, no cup/fork/extrafruit. Platevisiblewidth96px (50%of192canvas), totalobjectheight~70px. Roundplate canbeviewedfromanyside, big simplecakeplanes.",
+          "group": 3,
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "file": "assets/a/table-cake.png",
+          "processing": {
+            "crop": [
+              201,
+              258,
+              1054,
+              1055
+            ],
+            "visibleSize": [
+              96,
+              90
+            ],
+            "canvas": [
+              192,
+              192
+            ],
+            "placement": [
+              48,
+              51
+            ],
+            "method": "Cropalpha>128, uniformscaleonly, center192square. No color/shape/linechanges."
+          },
+          "sha256": "18031d2fbbe5a14b8059e02841783a643944084aa6e8ef268db89ba1da42cd38",
+          "generatedPNG": "exec-3fce211f-4009-4e98-9d78-ed50b338109d.png"
+        },
+        {
+          "key": "table-vase",
+          "width": 58,
+          "height": 86,
+          "prompt": "Use case: precise-object-edit. Input1 EDITTARGET is the grayflower vase. Sameflower/vase identity, same cartoonblacklines/shades, no extra flowers/props. Change PROPORTIONS: make the ENTIRE flower+vase silhouette about30% WIDER relative to height. Target silhouettewidth:height=58:86=0.674. Current is455:877=0.519, TOO NARROW. The rounded vasebelly shouldbefuller, flowerstems/blossoms spreadwider. Fullsprite108x160ratio approximate alsofine, buttargetfinalobject58x86 on192squaretransparentcanvas. Do not just enlargewholesprite uniformly; width proportion must increase. Keep sameheight, plantwholebodybroadroundednotthincolumn. Grayscaleonly. No shadows/stickers/text. Inputs2..5 individualexistingAstyle refs only, ignoretheircolors/characters.",
+          "group": 3,
+          "refs": [
+            "generated:table-vase-first",
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "file": "assets/a/table-vase.png",
+          "lineage": [
+            {
+              "prompt": "Use case: stylized-concept. ONE single separate tabletop object sprite on TRUE transparent background. SAME thick clean black outlines and few broad cartoonplanes as four individual existing A-theme references. References player-down/title-robot/villain-sleep/streamer-idle are STYLE ONLY, do NOT draw characters. Object palette ONLY black/white/neutralgray, no red/purple/blue/green/yellow. RPG Maker slight-overhead orthographic view, NOTisometric. No tabletop/tray/person/hands/background/stickerborder/castgroundshadow/text/logos/numbers. Large readable shape, no microscopicdetails/noisytexture. Canvas192x192RGBA; object centered. Objects are intentionally larger than realism toreadongame tables.\nONE small rounded ceramicFLOWERVASE with one or two simple short flowerstems. Entireobjectincludingflowers width58px (30%of192) andheight86px (45%of192). Uprighttallnarrowcomposition ratio58:86. Vaseandflowersroundsilhouette readfromallseatingsides. Neutralgrayleaves andwhiteflowers, no colorfulpetals.",
+              "refs": [
+                "assets/a/player-down.png",
+                "assets/a/title-robot.webp",
+                "assets/a/villain-sleep.png",
+                "assets/a/streamer-idle.png"
+              ],
+              "generatedPNG": "exec-ca26a030-21fb-422a-a402-f5e8349baaec.png"
+            }
+          ],
+          "processing": {
+            "crop": [
+              309,
+              90,
+              998,
+              1180
+            ],
+            "visibleSize": [
+              54,
+              86
+            ],
+            "canvas": [
+              192,
+              192
+            ],
+            "placement": [
+              69,
+              53
+            ],
+            "method": "Cropalpha>128, uniformscaleonly, center192square. No color/shape/linechanges."
+          },
+          "sha256": "0fe42335d0ac5713ed82f623e5f896f4d58f0c6c84b2d84b654d143ab0714df8",
+          "generatedPNG": "exec-31051aac-d2af-4b95-8cf4-f5ffa94a492f.png"
+        },
+        {
+          "key": "table-laptop-up",
+          "width": 125,
+          "source": "assets/a/tabletop-2.png",
+          "direction": "up",
+          "prompt": "Use case: stylized-concept. ONE single separate tabletop object sprite on TRUE transparent background. SAME thick clean black outlines and few broad cartoonplanes as four individual existing A-theme references. References player-down/title-robot/villain-sleep/streamer-idle are STYLE ONLY, do NOT draw characters. Object palette ONLY black/white/neutralgray, no red/purple/blue/green/yellow. RPG Maker slight-overhead orthographic view, NOTisometric. No tabletop/tray/person/hands/background/stickerborder/castgroundshadow/text/logos/numbers. Large readable shape, no microscopicdetails/noisytexture. Canvas192x192RGBA; object centered. Objects are intentionally larger than realism toreadongame tables.\nONE open Korean cafe studentLAPTOP only. Fullvisiblewidth125px (65%of192canvas), centered, no extraobjects. Same physicalplainneutralgraylaptop inallfourviews. Keyboardbigclearrectangularplainkeys withNOletters/symbols, blankdarkdisplay, plainbackcase NOlogo. DIRECTION means user's gaze, notcamera: User sits BELOW and looksUP. Keyboard is in BOTTOM/nearhalf, upright lid at TOP/farhalf. The rear edge/back of upright screen sits uppermost. Display face points back toward typing user below. Keep screenabove, keyboardbelow. Symmetricaxis-aligned arrangement, notsideways. First image is object STRUCTURE reference only; sameobject now enlargedand rotatedasrequested, followingindividual4gamestyle refs.",
+          "group": 3,
+          "refs": [
+            "assets/a/tabletop-2.png",
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "file": "assets/a/table-laptop-up.png",
+          "processing": {
+            "crop": [
+              90,
+              153,
+              1161,
+              1122
+            ],
+            "visibleSize": [
+              125,
+              113
+            ],
+            "canvas": [
+              192,
+              192
+            ],
+            "placement": [
+              33,
+              39
+            ],
+            "method": "Cropalpha>128, uniformscaleonly, center192square. No color/shape/linechanges."
+          },
+          "sha256": "1d57dfc3e21e7b6de93d96403f6e57f4c347033e9afa04a14f844d9e7e33d006",
+          "generatedPNG": "exec-2a9b6645-6d38-4e10-b7a2-9bb5f70db938.png"
+        },
+        {
+          "key": "table-laptop-down",
+          "width": 125,
+          "source": "assets/a/tabletop-2.png",
+          "direction": "down",
+          "prompt": "Use case: precise-object-edit. Input1 EDIT TARGET has an ERROR: TWO upright rectangles/screens. Fix to ONE real laptop viewed FROM BEHIND ITS SCREEN. User sits ABOVE, looksDOWN. ONE plain gray EXTERIOR BACK OF SCREEN LID occupies lowerforeground/bottom; no logo. Keyboard sits ABOVE/BEHIND that lid toward upperuser, partiallyvisiblepasttopedge fromslightoverhead. Delete ENTIRE UPPER blackdisplayrectangle completely. There is ONLY ONE LID andONEkeyboard, no secondblackdisplay visible anywhere. A laptop has one hinged display only; do NOT stackfrontviewandbackview. Keepgrayblackboldcartoonstyle same reference. No words/letters/numbers/stickers/groundshadow.192x192transparent, totalvisiblewidth125px andcenter. Inputs2..5 separateoriginalA gamestyle refs only, do notdrawtheircharacters orcolors.",
+          "group": 3,
+          "refs": [
+            "generated:table-laptop-down-first",
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "file": "assets/a/table-laptop-down.png",
+          "lineage": [
+            {
+              "prompt": "Use case: stylized-concept. ONE single separate tabletop object sprite on TRUE transparent background. SAME thick clean black outlines and few broad cartoonplanes as four individual existing A-theme references. References player-down/title-robot/villain-sleep/streamer-idle are STYLE ONLY, do NOT draw characters. Object palette ONLY black/white/neutralgray, no red/purple/blue/green/yellow. RPG Maker slight-overhead orthographic view, NOTisometric. No tabletop/tray/person/hands/background/stickerborder/castgroundshadow/text/logos/numbers. Large readable shape, no microscopicdetails/noisytexture. Canvas192x192RGBA; object centered. Objects are intentionally larger than realism toreadongame tables.\nONE open Korean cafe studentLAPTOP only. Fullvisiblewidth125px (65%of192canvas), centered, no extraobjects. Same physicalplainneutralgraylaptop inallfourviews. Keyboardbigclearrectangularplainkeys withNOletters/symbols, blankdarkdisplay, plainbackcase NOlogo. DIRECTION means user's gaze, notcamera: User sits ABOVE and looksDOWN. Keyboard is in TOP/farhalf nearuser, upright lid at BOTTOM/nearhalf. Show exterior/back of lid toviewer atbottom, displayface pointsUP towarduser. Clearlyoppositeofup. First image is object STRUCTURE reference only; sameobject now enlargedand rotatedasrequested, followingindividual4gamestyle refs.",
+              "refs": [
+                "assets/a/tabletop-2.png",
+                "assets/a/player-down.png",
+                "assets/a/title-robot.webp",
+                "assets/a/villain-sleep.png",
+                "assets/a/streamer-idle.png"
+              ],
+              "generatedPNG": "exec-23f97d7c-b43a-4482-a0ba-9c3622f8cd3e.png"
+            }
+          ],
+          "processing": {
+            "crop": [
+              167,
+              518,
+              1087,
+              971
+            ],
+            "visibleSize": [
+              125,
+              62
+            ],
+            "canvas": [
+              192,
+              192
+            ],
+            "placement": [
+              33,
+              65
+            ],
+            "method": "Cropalpha>128, uniformscaleonly, center192square. No color/shape/linechanges."
+          },
+          "sha256": "95496ff85677de52919a78d7be143d55f78a9a2512c7ed6f52ca1e56bd33c9e5",
+          "generatedPNG": "exec-8b82a024-d49d-4948-8905-270e8aed18e9.png"
+        },
+        {
+          "key": "table-laptop-left",
+          "width": 125,
+          "source": "assets/a/tabletop-2.png",
+          "direction": "left",
+          "prompt": "Use case: stylized-concept. ONE single separate tabletop object sprite on TRUE transparent background. SAME thick clean black outlines and few broad cartoonplanes as four individual existing A-theme references. References player-down/title-robot/villain-sleep/streamer-idle are STYLE ONLY, do NOT draw characters. Object palette ONLY black/white/neutralgray, no red/purple/blue/green/yellow. RPG Maker slight-overhead orthographic view, NOTisometric. No tabletop/tray/person/hands/background/stickerborder/castgroundshadow/text/logos/numbers. Large readable shape, no microscopicdetails/noisytexture. Canvas192x192RGBA; object centered. Objects are intentionally larger than realism toreadongame tables.\nONE open Korean cafe studentLAPTOP only. Fullvisiblewidth125px (65%of192canvas), centered, no extraobjects. Same physicalplainneutralgraylaptop inallfourviews. Keyboardbigclearrectangularplainkeys withNOletters/symbols, blankdarkdisplay, plainbackcase NOlogo. DIRECTION means user's gaze, notcamera: User sits toRIGHT and looksLEFT. Keyboard lies toRIGHT nearuser; upright lid/screen stands toLEFT beyondkeyboard. Displayface pointsRIGHT to typing user. Orthogonalleft/rightarrangement, not front/backview. First image is object STRUCTURE reference only; sameobject now enlargedand rotatedasrequested, followingindividual4gamestyle refs.",
+          "group": 3,
+          "refs": [
+            "assets/a/tabletop-2.png",
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "file": "assets/a/table-laptop-left.png",
+          "processing": {
+            "crop": [
+              107,
+              129,
+              1148,
+              1088
+            ],
+            "visibleSize": [
+              125,
+              115
+            ],
+            "canvas": [
+              192,
+              192
+            ],
+            "placement": [
+              33,
+              38
+            ],
+            "method": "Cropalpha>128, uniformscaleonly, center192square. No color/shape/linechanges."
+          },
+          "sha256": "de00a2b8af7a1cbaa231584d5412c2db537fe7fcc6c24269bcd10f772e340098",
+          "generatedPNG": "exec-da3e6105-a115-4995-8f53-123be9698518.png"
+        },
+        {
+          "key": "table-laptop-right",
+          "width": 125,
+          "source": "assets/a/tabletop-2.png",
+          "direction": "right",
+          "prompt": "Use case: stylized-concept. ONE single separate tabletop object sprite on TRUE transparent background. SAME thick clean black outlines and few broad cartoonplanes as four individual existing A-theme references. References player-down/title-robot/villain-sleep/streamer-idle are STYLE ONLY, do NOT draw characters. Object palette ONLY black/white/neutralgray, no red/purple/blue/green/yellow. RPG Maker slight-overhead orthographic view, NOTisometric. No tabletop/tray/person/hands/background/stickerborder/castgroundshadow/text/logos/numbers. Large readable shape, no microscopicdetails/noisytexture. Canvas192x192RGBA; object centered. Objects are intentionally larger than realism toreadongame tables.\nONE open Korean cafe studentLAPTOP only. Fullvisiblewidth125px (65%of192canvas), centered, no extraobjects. Same physicalplainneutralgraylaptop inallfourviews. Keyboardbigclearrectangularplainkeys withNOletters/symbols, blankdarkdisplay, plainbackcase NOlogo. DIRECTION means user's gaze, notcamera: User sits toLEFT and looksRIGHT. Keyboard lies toLEFT nearuser; upright lid/screen stands toRIGHT beyondkeyboard. Displayface pointsLEFT to typing user. Orthogonalleft/rightarrangement, not front/backview. First image is object STRUCTURE reference only; sameobject now enlargedand rotatedasrequested, followingindividual4gamestyle refs.",
+          "group": 3,
+          "refs": [
+            "assets/a/tabletop-2.png",
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "file": "assets/a/table-laptop-right.png",
+          "processing": {
+            "crop": [
+              74,
+              240,
+              1207,
+              1073
+            ],
+            "visibleSize": [
+              125,
+              92
+            ],
+            "canvas": [
+              192,
+              192
+            ],
+            "placement": [
+              33,
+              50
+            ],
+            "method": "Cropalpha>128, uniformscaleonly, center192square. No color/shape/linechanges."
+          },
+          "sha256": "222cf3a5556c0cfe8dad2702a8c9b69844dc3c5becfc81bf81d4c7b920f94b2f",
+          "generatedPNG": "exec-e0b61b4c-091c-4b6a-a3a7-8591ad0ffa2e.png"
+        }
+      ],
+      "qa": {
+        "canvas": [
+          192,
+          192
+        ],
+        "cupsGroupWidth": 106,
+        "cakePlateWidth": 96,
+        "laptopWidths": [
+          125,
+          125,
+          125,
+          125
+        ],
+        "vaseVisibleSize": [
+          54,
+          86
+        ],
+        "orientation": "UPkeyboardbottom/lidtop, DOWNkeyboardtop/lidbottom, LEFTkeyboardright/lidleft, RIGHTkeyboardleft/lidright. No text/logos.",
+        "limits": "Vase width54px is4px narrower than58px target; height86px exact. Preserve generated shape by uniformscale, no codestretch. Laptop left/rightvisibleheights differ115/92 due generated viewprojection."
+      },
+      "logNotes": [
+        "컵 둘의 합친 폭은 106px, 케이크 접시는 96px, 노트북 네 방향의 전체 폭은 각각 125px다. 192 x 192 투명 캔버스 가운데에 놓았다. 꽃병은 한 번 폭을 넓혀 다시 생성했고 최종 폭 54px, 높이 86px다. 목표 폭 58px보다 4px 좁지만 그림을 가로로만 늘이지 않았다.",
+        "아래 방향 노트북의 첫 생성 결과가 화면 두 개처럼 보여 다시 편집했다. 최종 그림은 뚜껑 하나와 키보드 하나다. up은 키보드 아래와 화면 위, down은 키보드 위와 뒷뚜껑 아래, left와 right는 키보드와 화면이 좌우로 반대다. 화면은 사용하는 손님 쪽을 향하게 해석했다.",
+        "노트북 좌우 그림의 높이는 115px와 92px로 투영 차이가 남고, 폭은 둘 다 125px다. 손님과 함께 실제 테이블에 놓은 모습은 Claude Code 연결 후 사용자가 확인해야 한다. 새 물건을 실제 게임에 놓는 코드는 고치지 않았다."
+      ],
+      "id": "four-bundles-2026-10-31-group-3",
+      "date": "2026-10-31",
+      "theme": "a"
+    },
+    {
+      "group": 4,
+      "date": "2026-11-01",
+      "startedDate": "2026-10-31",
+      "title": "달리는 로봇, 흐르는 카페, 이스터에그 8장",
+      "tool": "Built-in image_gen with separateoriginalArefs; user-authorized Pillow animationassembly and mirror-strip assembly.",
+      "summary": "마지막 묶음으로 오른쪽을 보며 달리는 로봇 네 프레임, 반복 카페 배경 한 장, 빌런 둘과 충전 독 이스터에그 세 장을 만들었다. 작업 중 날짜가 바뀌어 앞 세 묶음은 2026-10-31 Codex 로그, 이 묶음은 2026-11-01 로그에 남긴다. 네 묶음 합계 34장을 A에만 저장했다.",
+      "images": [
+        {
+          "key": "title-run-1",
+          "kind": "run",
+          "refs": [
+            "assets/a/player-right.png",
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "prompt": "Use case: stylized-concept. ONE separate MAINMENUillustration for existing cafe robotgame. Use provided original A references individually as STYLE/IDENTITY sources, no new characterdesign/age/gender. Sameboldcleanblacklinework andfew broad cartoonplanes; sparse details. Mainmenu ONLYSIDEVIEW (not overheadgameview). NO words/letters/numbers/logos/bubbles/comicmarks/white-stickeroutline/groundcastshadow. Transparent foregroundsprites, entire subject unclipped. Input1 existingrobotRIGHTPROFILE is shape/camera reference; title-robot reference is same redrobotdesign, NOTitsfrontpose. CreateONE rightfacingSIDEVIEW of SAME discbase+lowcylindertorso+neck+screenhead+charcoalgrayarms/whitejoint roboticcleaner, NOTbiped/humanoid. Two roundclawarms EXTENDED FORWARD toRIGHT, torso leansforward slightly inurgentrollingmotion. Facial screen shows ONE visible urgentwhiteeyelikeangledsquint, no battery text ormouth. Discbase has smallwheels underneath, notlegs; wheelrimfewboldspokeforms suggestrolling. Red#c8302abody andscreenrim, charcoal#3a3a3aarms, whitejoints, blackwhitegrayrest. No plug/cord/speedlines/dustclouds. Transparent512x512, BASEFLOOR exactlyY488 (24pxfrombottom). Wholefigurevisibleheight~440px,width~430px. Firstkeyframeofsubtle4frameinplacerollingloop; fixeddiscground/scale andfixedoutstretchedarmpose, bodynottravelhorizontally. Torso neutralbouncephase.",
+          "group": 4,
+          "file": "assets/a/title-run-1.png",
+          "processing": {
+            "initialGeneratedExport": {
+              "sourceSize": [
+                1254,
+                1254
+              ],
+              "crop": [
+                80,
+                129,
+                1199,
+                1140
+              ],
+              "visibleSize": [
+                444,
+                401
+              ],
+              "canvas": [
+                512,
+                512
+              ],
+              "placement": [
+                46,
+                87
+              ],
+              "groundY": 488,
+              "transparentRowsBelowGround": 24,
+              "method": "Cropalpha>128, uniformscaleonly andcanvas alignment. Runs normalized byred-discwidth300px withdisc-centerX200, unchangedshape; eggsfit440square. No drawing/recolor/partialbodywarping.",
+              "sourceRedDiscSpan": [
+                91,
+                847
+              ]
+            },
+            "finalAssembly": {
+              "key": "title-run-1",
+              "canvas": [
+                512,
+                512
+              ],
+              "bodyOffsetY": 0,
+              "headTop": 87,
+              "groundY": 488,
+              "lastOpaqueRow": 487,
+              "discStaticRows": [
+                410,
+                470
+              ],
+              "wheelRows": [
+                470,
+                488
+              ],
+              "bodyTemplate": "Generated title-run-1 upperbody pixels, translated only; no form/color/scale changes"
+            },
+            "sourceLayers": {
+              "body": "generated:title-run-1",
+              "discOcclusionFill": "exec-e556241b-d696-41a3-b342-e0a2c25ebf78.png",
+              "wheelPhase": "exec-c6411493-27cf-4130-835b-29c59c3db3bd.png"
+            },
+            "method": "User-authorized animationassembly. Samegeneratedupperbody moved0,-4,0,+4pixels; no bodyresizing/recoloring. Samebasebody/staticrows410..469. Keepgeneratedwheelphasepixels inrows470..487. Reconstructeddiscfill onlyunderbodyocclusion, no newbackground/shadow."
+          },
+          "sha256": "73d155f511b2948368a32773bdd03c09b06b9062e5bf64d491c9f95f68618f7f",
+          "generatedPNG": "exec-c6411493-27cf-4130-835b-29c59c3db3bd.png"
+        },
+        {
+          "key": "title-cafe-strip",
+          "kind": "strip",
+          "refs": [
+            "assets/a/bg-sleeper-empty.png",
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "prompt": "Use case: stylized-concept. Mainmenu scrolling cafe BACKGROUND, same cafedesign andsparseconfidentcartoonlinework asindividualArefs. Opaque wide SIDEVIEW panorama,1920x640 half-strip source, THREE TIMES widerthanheight, no perspectivevanishinglines. Floor/wallcontact HORIZONTALBASELINEy560 (87.5%height), floorbottom80px. Quiet KOREAN studycafe atnight withwindows, pendantlamps, counter, tables/chairsandmodestplants. NOpeople/robots/villains/looseforegroundprops. Lowcontrast blackwhiteGRAY ONLY, no red/green/yellow/blue/purple. Small restrained lightgray/darkgraydifference soforegroundlogo/buttonsread; few broadwalls/windows withsmallamountoffurniture, no busywoodgrain/hatching/signage/text. Bothends pass throughplainblankneutralwallandfloor for repeating. Fullwidthpanorama, no borders, no alphabackground. CompositionreferenceInput1 keepssamecafe windows/counter/pendantshapes, but cameraisSIDEELEVATION ratherthanRPGfloorgrid. No triangularfloorperspective.",
+          "group": 4,
+          "file": "assets/a/title-cafe-strip.webp",
+          "processing": {
+            "sourceSize": [
+              2172,
+              724
+            ],
+            "crop": [
+              126,
+              0,
+              2046,
+              640
+            ],
+            "halfSize": [
+              1920,
+              640
+            ],
+            "canvas": [
+              3840,
+              640
+            ],
+            "floorY": 560,
+            "method": "User-authorized center1920x640crop, encodehalfWebPquality82 then decode, appendhorizontalmirror, savefinalLOSSLESSWebP. Cuts/encoding only, no handpainting. Bothendsandcenterjoin pixelidentical, opaque3840x640, floor560.",
+            "leftRightEdgeDifference": 0,
+            "centerJoinDifference": 0,
+            "bytes": 243038
+          },
+          "sha256": "26e785810cde3649397b35f2e42c32e739e8b7b246177fb016504b4c36625cb9",
+          "generatedPNG": "exec-8a70dc2e-f365-4028-863e-89c3375c19d4.png"
+        },
+        {
+          "key": "title-egg-sleeper",
+          "kind": "egg",
+          "refs": [
+            "generated:title-egg-sleeper-first",
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "prompt": "Use case: precise-object-edit. Input1 EDITTARGET. Keep EXACT SAME hooded blackhaired sleepingvillain, purplehoodie,graychair,smalltable,whitepowerstripphonecharger, sleepingmouth/drool andcartoonstyle. Correct CAMERA/POSE to TRUE SIDE PROFILE facingRIGHT, notfrontal/3quarter, NOToverhead. ONE visibleclosedeye, clearnose/profile underhood; upperbody lies flatforward onto smalltable toRIGHT while armswrapsamepowerstrip. ChairbehindbodytoLEFT, personkneesfeetpointRIGHT under table. Sideelevation table/chair legs vertical, tabletopverythinellipse, no overheadtableplane. Sameidentity, no newgender/hair/outfit/props. Clothingpurpleonly, restgrayscale.512x512transparent, feetandtablebasefloorY488. No words/symbols/stickers/shadows.",
+          "group": 4,
+          "lineage": [
+            {
+              "prompt": "Use case: stylized-concept. ONE separate MAINMENUillustration for existing cafe robotgame. Use provided original A references individually as STYLE/IDENTITY sources, no new characterdesign/age/gender. Sameboldcleanblacklinework andfew broad cartoonplanes; sparse details. Mainmenu ONLYSIDEVIEW (not overheadgameview). NO words/letters/numbers/logos/bubbles/comicmarks/white-stickeroutline/groundcastshadow. Transparent foregroundsprites, entire subject unclipped. ONE sideview miniaturecomposition of EXACT SAME hooded sleepingvillain fromvillain-sleep reference: same hoodshaperoundfaceblackhair, no gender ornewaccessory. Character SIDEPROFILE atsmall cafeTABLE, faceandupperbodyflatontable, mouthopen sleeping/drool onlyactualdroplet notsymbol, arms HUGGING same whitegraypowerstrip pluggedwithphonecharger. Ordinarygraychairincluded, foot/legfloory488. No extra objects. Clothing PURPLEnear#7b4fb0 onlyaccent; skin/hair/face/table/chair/powerstripBLACKWHITEGRAY.512x512transparent, wholepersonchairtableheight~400px, centered, basegroundY488 exactly24pxfrombottom. Matchexistingpersonandprops notnew hoodcharacter.",
+              "refs": [
+                "assets/a/player-down.png",
+                "assets/a/title-robot.webp",
+                "assets/a/villain-sleep.png",
+                "assets/a/streamer-idle.png"
+              ],
+              "generatedPNG": "exec-cd39b30f-aa66-4a18-8c7a-55a71cb8b07d.png"
+            }
+          ],
+          "file": "assets/a/title-egg-sleeper.png",
+          "processing": {
+            "crop": [
+              179,
+              180,
+              1155,
+              1141
+            ],
+            "visibleSize": [
+              440,
+              433
+            ],
+            "canvas": [
+              512,
+              512
+            ],
+            "placement": [
+              36,
+              55
+            ],
+            "groundY": 488,
+            "method": "Croptransparentmargins, uniformscale, flooranchor488. No recolor/shape edits."
+          },
+          "sha256": "6ae3704b33276da316224ad20ae2b69ac49932b25001a0a5dfca4ca6e642f0eb",
+          "generatedPNG": "exec-1dcfc318-e5cc-4a44-ad6e-2bfbe12025db.png"
+        },
+        {
+          "key": "title-egg-streamer",
+          "kind": "egg",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "prompt": "Use case: stylized-concept. ONE separate MAINMENUillustration for existing cafe robotgame. Use provided original A references individually as STYLE/IDENTITY sources, no new characterdesign/age/gender. Sameboldcleanblacklinework andfew broad cartoonplanes; sparse details. Mainmenu ONLYSIDEVIEW (not overheadgameview). NO words/letters/numbers/logos/bubbles/comicmarks/white-stickeroutline/groundcastshadow. Transparent foregroundsprites, entire subject unclipped. ONE rightfacingSIDEVIEW of EXACT SAME filmingstudent fromstreamer-idle ref: SAME lightshortspikyhair, stripedheadband, largeheadset, vest/overshirt, existingface. Seatedonordinarygraycafechair, calmly lookingtowardONEphone onfloorstandingTRIPOD infront ofthem toRIGHT, simpleblankphoneface. Handsordinaryseatedstudyposition, NOTwaving/startled. Chairandtripodfeet restsamey488. No laptop/books/newaccessory/words. Clothing/headband/headset BLUEnear#2f6db3 onlyaccent; skin/hair/face/chair/phone/tripodGRAYWHITEBLACK.512x512transparent, compositeheight~400px, centeredflooratY488 exactly24pxfrombottom.",
+          "group": 4,
+          "file": "assets/a/title-egg-streamer.png",
+          "processing": {
+            "sourceSize": [
+              1254,
+              1254
+            ],
+            "crop": [
+              282,
+              178,
+              1074,
+              1151
+            ],
+            "visibleSize": [
+              358,
+              440
+            ],
+            "canvas": [
+              512,
+              512
+            ],
+            "placement": [
+              77,
+              48
+            ],
+            "groundY": 488,
+            "transparentRowsBelowGround": 24,
+            "method": "Cropalpha>128, uniformscaleonly andcanvas alignment. Runs normalized byred-discwidth300px withdisc-centerX200, unchangedshape; eggsfit440square. No drawing/recolor/partialbodywarping.",
+            "sourceRedDiscSpan": null
+          },
+          "sha256": "059cdc550267b40bf21cd6caaaa6e6ad4694121cd2eb78f97d226aa96964af66",
+          "generatedPNG": "exec-85d5b6c1-a710-420c-8472-82eec7391816.png"
+        },
+        {
+          "key": "title-egg-dock",
+          "kind": "egg",
+          "refs": [
+            "generated:title-egg-dock-first",
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "prompt": "Use case: precise-object-edit. Input1 EDITTARGET, preserve entirechargingdock/powerstrip/cordcomposition anddrawstyle. Correct ONLY WALLSOCKET to SOUTH KOREAN household TYPEF/SCHUKO: ONEroundrecessed socket with TWO circularpinholes, smallsidegroundcontacts. NOT USArectangularslots/thirdgroundhole. SingleEuropeanKoreanroundsocketface ongrayrectangularwallplate. Powerstripthree outlets also KOREANroundrecesses withtworoundholes, noAmericanslots. Preservegraydockbodytwochargingcontacts/tinyredLED, samecordrouting, samealpha,sameobjectsand512squarefloorY488. No text/newprops/shadows/stickerrim. Inputs2..5 separateexistingAstyle refs, keepgraypaletteignoreothercharactercolors.",
+          "group": 4,
+          "lineage": [
+            {
+              "prompt": "Use case: stylized-concept. ONE separate MAINMENUillustration for existing cafe robotgame. Use provided original A references individually as STYLE/IDENTITY sources, no new characterdesign/age/gender. Sameboldcleanblacklinework andfew broad cartoonplanes; sparse details. Mainmenu ONLYSIDEVIEW (not overheadgameview). NO words/letters/numbers/logos/bubbles/comicmarks/white-stickeroutline/groundcastshadow. Transparent foregroundsprites, entire subject unclipped. ONE ROBOTCHARGINGSTATION environmentalcutout, NOperson. Input1 existingdock isexactidentity: lowgrayfloorplate anduprightbackrest withtwocontacts andoneTINYredLED. Showthisdock restingonfloorY488, aboveitONEgraywalloutletplate witha pluggedin grayMULTIPOWERSTRIPcord, powertap nearby belowwalloutlet. Outlet/powerstrip/dock connected clearly byblackcords. Notrobotwithtail, nopersonbody. Mostlyblackwhitegray, onlytinydockLEDexistingred.512x512transparent, walloutletfloatingasindividualplate withno wallrectangle/background, compositeheight~400px, centered, baseY488 exactly24pxfrombottom. No groundshadow/text/stickers.",
+              "refs": [
+                "assets/a/dock.png",
+                "assets/a/player-down.png",
+                "assets/a/title-robot.webp",
+                "assets/a/villain-sleep.png",
+                "assets/a/streamer-idle.png"
+              ],
+              "generatedPNG": "exec-2b3ac57a-2936-48dc-abc7-f50abca91673.png"
+            }
+          ],
+          "file": "assets/a/title-egg-dock.png",
+          "processing": {
+            "crop": [
+              298,
+              97,
+              1149,
+              1196
+            ],
+            "visibleSize": [
+              341,
+              440
+            ],
+            "canvas": [
+              512,
+              512
+            ],
+            "placement": [
+              85,
+              48
+            ],
+            "groundY": 488,
+            "method": "Croptransparentmargins, uniformscale, flooranchor488. No recolor/shape edits."
+          },
+          "sha256": "362ccf78b289ce88a09fa66a29c0b111c3a2d445947aa738ba89550dbe09e709",
+          "generatedPNG": "exec-8f088e43-5d90-4351-be31-467600bd15dd.png"
+        },
+        {
+          "group": 4,
+          "key": "title-run-3",
+          "kind": "run",
+          "refs": [
+            "generated:title-run-1",
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "prompt": "Use case: precise-object-edit. Input1 is ANIMATIONKEYFRAME1 EDITTARGET, exactrobotreference. Make ONLY next subtleanimationframe 3 of SAMErightfacingrobotrollingINPLACE. Keep canvas, pose, bodyproportions, camera, rightfacinghead, botharmsoutstretchedforward, urgentwhiteeye, redcolors/charcoalarms/whitejoints, outlines andsize EXACT SAME. DISCBASEfloorposition andcenterfixed. DO NOT reimaginepose or movewholeimage/camera. Only return head/torso/shoulders tosameheightasframe1. RotatevisibleWHEEL SPOKES ONLY by180degrees toconveyfastrolling, NOTthediscbody. No extra motionlines/dust/text/shadows/whiteborder/cords. True transparent512square, groundY488, spare24pxbelow. Inputs2..5 individualAstyle/identityreferences only, DO NOT replaceInput1 withtheirdifferentposes. Oneframeonly, notspritesheet.",
+          "file": "assets/a/title-run-3.png",
+          "processing": {
+            "initialGeneratedExport": {
+              "sourceSize": [
+                1254,
+                1254
+              ],
+              "crop": [
+                80,
+                128,
+                1200,
+                1140
+              ],
+              "visibleSize": [
+                443,
+                401
+              ],
+              "canvas": [
+                512,
+                512
+              ],
+              "placement": [
+                46,
+                87
+              ],
+              "groundY": 488,
+              "transparentRowsBelowGround": 24,
+              "method": "Cropalpha>128, uniformscaleonly andcanvas alignment. Runs normalized byred-discwidth300px withdisc-centerX200, unchangedshape; eggsfit440square. No drawing/recolor/partialbodywarping.",
+              "sourceRedDiscSpan": [
+                91,
+                849
+              ]
+            },
+            "finalAssembly": {
+              "key": "title-run-3",
+              "canvas": [
+                512,
+                512
+              ],
+              "bodyOffsetY": 0,
+              "headTop": 87,
+              "groundY": 488,
+              "lastOpaqueRow": 487,
+              "discStaticRows": [
+                410,
+                470
+              ],
+              "wheelRows": [
+                470,
+                488
+              ],
+              "bodyTemplate": "Generated title-run-1 upperbody pixels, translated only; no form/color/scale changes"
+            },
+            "sourceLayers": {
+              "body": "generated:title-run-1",
+              "discOcclusionFill": "exec-e556241b-d696-41a3-b342-e0a2c25ebf78.png",
+              "wheelPhase": "exec-7f518232-680e-47f6-8b94-c01c78a9afac.png"
+            },
+            "method": "User-authorized animationassembly. Samegeneratedupperbody moved0,-4,0,+4pixels; no bodyresizing/recoloring. Samebasebody/staticrows410..469. Keepgeneratedwheelphasepixels inrows470..487. Reconstructeddiscfill onlyunderbodyocclusion, no newbackground/shadow."
+          },
+          "sha256": "452df9f3d6c7ccf60088ab58ec045935051f0cbde0b31df635f061631760c3f7",
+          "generatedPNG": "exec-7f518232-680e-47f6-8b94-c01c78a9afac.png"
+        },
+        {
+          "group": 4,
+          "key": "title-run-2",
+          "kind": "run",
+          "refs": [
+            "generated:title-run-1",
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "prompt": "Use case: precise-object-edit. Input1 is ANIMATIONKEYFRAME1 EDITTARGET, exactrobotreference. Make ONLY next subtleanimationframe 2 of SAMErightfacingrobotrollingINPLACE. Keep canvas, pose, bodyproportions, camera, rightfacinghead, botharmsoutstretchedforward, urgentwhiteeye, redcolors/charcoalarms/whitejoints, outlines andsize EXACT SAME. DISCBASEfloorposition andcenterfixed. DO NOT reimaginepose or movewholeimage/camera. Only lift head/torso/shoulders upward a tiny4px on final512canvas(~10pixelsinsource), neck/torso springupslightly, keepdiscunchanged. RotatevisibleWHEEL SPOKES ONLY by90degrees toconveyfastrolling, NOTthediscbody. No extra motionlines/dust/text/shadows/whiteborder/cords. True transparent512square, groundY488, spare24pxbelow. Inputs2..5 individualAstyle/identityreferences only, DO NOT replaceInput1 withtheirdifferentposes. Oneframeonly, notspritesheet.",
+          "file": "assets/a/title-run-2.png",
+          "processing": {
+            "initialGeneratedExport": {
+              "sourceSize": [
+                1254,
+                1254
+              ],
+              "crop": [
+                80,
+                120,
+                1204,
+                1134
+              ],
+              "visibleSize": [
+                445,
+                401
+              ],
+              "canvas": [
+                512,
+                512
+              ],
+              "placement": [
+                46,
+                87
+              ],
+              "groundY": 488,
+              "transparentRowsBelowGround": 24,
+              "method": "Cropalpha>128, uniformscaleonly andcanvas alignment. Runs normalized byred-discwidth300px withdisc-centerX200, unchangedshape; eggsfit440square. No drawing/recolor/partialbodywarping.",
+              "sourceRedDiscSpan": [
+                90,
+                848
+              ]
+            },
+            "finalAssembly": {
+              "key": "title-run-2",
+              "canvas": [
+                512,
+                512
+              ],
+              "bodyOffsetY": -4,
+              "headTop": 83,
+              "groundY": 488,
+              "lastOpaqueRow": 487,
+              "discStaticRows": [
+                410,
+                470
+              ],
+              "wheelRows": [
+                470,
+                488
+              ],
+              "bodyTemplate": "Generated title-run-1 upperbody pixels, translated only; no form/color/scale changes"
+            },
+            "sourceLayers": {
+              "body": "generated:title-run-1",
+              "discOcclusionFill": "exec-e556241b-d696-41a3-b342-e0a2c25ebf78.png",
+              "wheelPhase": "exec-cde0d229-d306-4073-83f8-e521b5495905.png"
+            },
+            "method": "User-authorized animationassembly. Samegeneratedupperbody moved0,-4,0,+4pixels; no bodyresizing/recoloring. Samebasebody/staticrows410..469. Keepgeneratedwheelphasepixels inrows470..487. Reconstructeddiscfill onlyunderbodyocclusion, no newbackground/shadow."
+          },
+          "sha256": "e3de5ad4b11d36fc62b98f40e467f41edfa2557d544811d6ca1d856bf4ec232c",
+          "generatedPNG": "exec-cde0d229-d306-4073-83f8-e521b5495905.png"
+        },
+        {
+          "group": 4,
+          "key": "title-run-4",
+          "kind": "run",
+          "refs": [
+            "generated:title-run-1",
+            "assets/a/player-down.png",
+            "assets/a/title-robot.webp",
+            "assets/a/villain-sleep.png",
+            "assets/a/streamer-idle.png"
+          ],
+          "prompt": "Use case: precise-object-edit. Input1 is ANIMATIONKEYFRAME1 EDITTARGET, exactrobotreference. Make ONLY next subtleanimationframe 4 of SAMErightfacingrobotrollingINPLACE. Keep canvas, pose, bodyproportions, camera, rightfacinghead, botharmsoutstretchedforward, urgentwhiteeye, redcolors/charcoalarms/whitejoints, outlines andsize EXACT SAME. DISCBASEfloorposition andcenterfixed. DO NOT reimaginepose or movewholeimage/camera. Only lower head/torso/shoulders by tiny4px on final512canvas(~10pixelsinsource), torsocompressesminimally, keepdiscunchanged. RotatevisibleWHEEL SPOKES ONLY by270degrees toconveyfastrolling, NOTthediscbody. No extra motionlines/dust/text/shadows/whiteborder/cords. True transparent512square, groundY488, spare24pxbelow. Inputs2..5 individualAstyle/identityreferences only, DO NOT replaceInput1 withtheirdifferentposes. Oneframeonly, notspritesheet.",
+          "file": "assets/a/title-run-4.png",
+          "processing": {
+            "initialGeneratedExport": {
+              "sourceSize": [
+                1254,
+                1254
+              ],
+              "crop": [
+                80,
+                199,
+                1200,
+                1155
+              ],
+              "visibleSize": [
+                444,
+                379
+              ],
+              "canvas": [
+                512,
+                512
+              ],
+              "placement": [
+                46,
+                109
+              ],
+              "groundY": 488,
+              "transparentRowsBelowGround": 24,
+              "method": "Cropalpha>128, uniformscaleonly andcanvas alignment. Runs normalized byred-discwidth300px withdisc-centerX200, unchangedshape; eggsfit440square. No drawing/recolor/partialbodywarping.",
+              "sourceRedDiscSpan": [
+                91,
+                848
+              ]
+            },
+            "finalAssembly": {
+              "key": "title-run-4",
+              "canvas": [
+                512,
+                512
+              ],
+              "bodyOffsetY": 4,
+              "headTop": 91,
+              "groundY": 488,
+              "lastOpaqueRow": 487,
+              "discStaticRows": [
+                410,
+                470
+              ],
+              "wheelRows": [
+                470,
+                488
+              ],
+              "bodyTemplate": "Generated title-run-1 upperbody pixels, translated only; no form/color/scale changes"
+            },
+            "sourceLayers": {
+              "body": "generated:title-run-1",
+              "discOcclusionFill": "exec-e556241b-d696-41a3-b342-e0a2c25ebf78.png",
+              "wheelPhase": "exec-cd43adda-1066-4bcb-bfe5-41c3f6a6c3ec.png"
+            },
+            "method": "User-authorized animationassembly. Samegeneratedupperbody moved0,-4,0,+4pixels; no bodyresizing/recoloring. Samebasebody/staticrows410..469. Keepgeneratedwheelphasepixels inrows470..487. Reconstructeddiscfill onlyunderbodyocclusion, no newbackground/shadow."
+          },
+          "sha256": "65a5dcc7004daafba6dac2419e6dd88b6d1ddfdb1efb4c5f5a5e75a60aabb371",
+          "generatedPNG": "exec-cd43adda-1066-4bcb-bfe5-41c3f6a6c3ec.png"
+        }
+      ],
+      "qa": {
+        "assets": [
+          {
+            "key": "player-down-happy",
+            "file": "assets/a/player-down-happy.png",
+            "size": [
+              192,
+              288
+            ],
+            "bytes": 56259,
+            "sha256": "c9b05c581a0cb6b6f48afb251c3b4fbf9bf58896ffc68f68154851245f208a2e"
+          },
+          {
+            "key": "player-down-push",
+            "file": "assets/a/player-down-push.png",
+            "size": [
+              192,
+              288
+            ],
+            "bytes": 56514,
+            "sha256": "70e38c87c8bc47efa31d25ad8b17a8f4c717ca97d9d4b766844bdbdd7b033d62"
+          },
+          {
+            "key": "player-down-dizzy",
+            "file": "assets/a/player-down-dizzy.png",
+            "size": [
+              192,
+              288
+            ],
+            "bytes": 57190,
+            "sha256": "25c3373738b375c95d7aff3f49908d99c76aa6efef7b306e003e19168b317cee"
+          },
+          {
+            "key": "player-down-sleepy",
+            "file": "assets/a/player-down-sleepy.png",
+            "size": [
+              192,
+              288
+            ],
+            "bytes": 55453,
+            "sha256": "9e569993611998ee0edd8794064cef14dd07682dfd1933910238ef61e1635e6c"
+          },
+          {
+            "key": "player-left-push",
+            "file": "assets/a/player-left-push.png",
+            "size": [
+              192,
+              288
+            ],
+            "bytes": 46507,
+            "sha256": "011c3984cb569a172c72f8c5cdebbcd70250c4a696a56e45e69005c8f4c57999"
+          },
+          {
+            "key": "player-left-dizzy",
+            "file": "assets/a/player-left-dizzy.png",
+            "size": [
+              192,
+              288
+            ],
+            "bytes": 46679,
+            "sha256": "0dbab2a0935c42f8ff556bc199d3735e930ed5bb8026da142af000c31c7e5e39"
+          },
+          {
+            "key": "player-left-happy",
+            "file": "assets/a/player-left-happy.png",
+            "size": [
+              192,
+              288
+            ],
+            "bytes": 46415,
+            "sha256": "b88e58e99045ae88c8359e73e6447530f50e5361cbcbf2998141c3657e89100f"
+          },
+          {
+            "key": "player-right-push",
+            "file": "assets/a/player-right-push.png",
+            "size": [
+              192,
+              288
+            ],
+            "bytes": 49486,
+            "sha256": "d1a3efe56b4690300627cc4be4805601932ce87e355bfd5c50fd926d56984c60"
+          },
+          {
+            "key": "player-left-sleepy",
+            "file": "assets/a/player-left-sleepy.png",
+            "size": [
+              192,
+              288
+            ],
+            "bytes": 46202,
+            "sha256": "a14db3ae015859d3ce938f7f5c19f65e232f8761a024546b63a6cbfa74b5318c"
+          },
+          {
+            "key": "player-right-dizzy",
+            "file": "assets/a/player-right-dizzy.png",
+            "size": [
+              192,
+              288
+            ],
+            "bytes": 49655,
+            "sha256": "32505c67e50ab6481f2a50219bfd14aa43007aae830b6c7060d933f90084847f"
+          },
+          {
+            "key": "player-right-sleepy",
+            "file": "assets/a/player-right-sleepy.png",
+            "size": [
+              192,
+              288
+            ],
+            "bytes": 49238,
+            "sha256": "969d19c56eced6965eff610711a3e2398f395935bb2bfe8004deb449311737b4"
+          },
+          {
+            "key": "player-right-happy",
+            "file": "assets/a/player-right-happy.png",
+            "size": [
+              192,
+              288
+            ],
+            "bytes": 49402,
+            "sha256": "a899b8184e8611431b4e05233684f08fb356757f83e3b13f142c71b20f6c94ab"
+          },
+          {
+            "key": "villain-sleep",
+            "file": "assets/a/villain-sleep.png",
+            "size": [
+              192,
+              480
+            ],
+            "bytes": 62624,
+            "sha256": "fb529d169d13a3711ae59eac7ea6315d2202bff326a02552f289d6b75c9f412f"
+          },
+          {
+            "key": "villain-wake",
+            "file": "assets/a/villain-wake.png",
+            "size": [
+              192,
+              480
+            ],
+            "bytes": 69298,
+            "sha256": "25b08ecba1eb431ce638ed72fe68fa885c74dbbbf264678a4eade659b5b7366b"
+          },
+          {
+            "key": "villain-portrait",
+            "file": "assets/a/villain-portrait.webp",
+            "size": [
+              1024,
+              1024
+            ],
+            "bytes": 281742,
+            "sha256": "7891569206da1c385a6b91e655a0b5b209a69618c7e3397b0e7f8cae8e001678"
+          },
+          {
+            "key": "streamer-idle",
+            "file": "assets/a/streamer-idle.png",
+            "size": [
+              192,
+              288
+            ],
+            "bytes": 45619,
+            "sha256": "54ade643c89c98be3456cd07cf2e3f52fb2f90578c4bd8da3096b784c7841c75"
+          },
+          {
+            "key": "streamer-react",
+            "file": "assets/a/streamer-react.png",
+            "size": [
+              192,
+              288
+            ],
+            "bytes": 46968,
+            "sha256": "cbb4114ff29d05315fe0d0c8d33d21d65f4ed8c92349cf47a092384df058a9e2"
+          },
+          {
+            "key": "streamer-face",
+            "file": "assets/a/streamer-face.png",
+            "size": [
+              128,
+              128
+            ],
+            "bytes": 28129,
+            "sha256": "a3b438e618b842edbd8b9fd510af3c2cae3d90705953ad42c72937e9616ea104"
+          },
+          {
+            "key": "streamer-portrait",
+            "file": "assets/a/streamer-portrait.webp",
+            "size": [
+              1024,
+              1024
+            ],
+            "bytes": 461974,
+            "sha256": "11a135a256ef3bdb01d593f81b13afbf57322011c8b3b8784546fcbcd07d5e7f"
+          },
+          {
+            "key": "table-cups",
+            "file": "assets/a/table-cups.png",
+            "size": [
+              192,
+              192
+            ],
+            "bytes": 10271,
+            "sha256": "091a6f3304e65735e2717735051aed7fefc48d98608e1b830b66a3a3281231b2"
+          },
+          {
+            "key": "table-cake",
+            "file": "assets/a/table-cake.png",
+            "size": [
+              192,
+              192
+            ],
+            "bytes": 15749,
+            "sha256": "18031d2fbbe5a14b8059e02841783a643944084aa6e8ef268db89ba1da42cd38"
+          },
+          {
+            "key": "table-vase",
+            "file": "assets/a/table-vase.png",
+            "size": [
+              192,
+              192
+            ],
+            "bytes": 9689,
+            "sha256": "0fe42335d0ac5713ed82f623e5f896f4d58f0c6c84b2d84b654d143ab0714df8"
+          },
+          {
+            "key": "table-laptop-up",
+            "file": "assets/a/table-laptop-up.png",
+            "size": [
+              192,
+              192
+            ],
+            "bytes": 19380,
+            "sha256": "1d57dfc3e21e7b6de93d96403f6e57f4c347033e9afa04a14f844d9e7e33d006"
+          },
+          {
+            "key": "table-laptop-down",
+            "file": "assets/a/table-laptop-down.png",
+            "size": [
+              192,
+              192
+            ],
+            "bytes": 12530,
+            "sha256": "95496ff85677de52919a78d7be143d55f78a9a2512c7ed6f52ca1e56bd33c9e5"
+          },
+          {
+            "key": "table-laptop-left",
+            "file": "assets/a/table-laptop-left.png",
+            "size": [
+              192,
+              192
+            ],
+            "bytes": 15472,
+            "sha256": "de00a2b8af7a1cbaa231584d5412c2db537fe7fcc6c24269bcd10f772e340098"
+          },
+          {
+            "key": "table-laptop-right",
+            "file": "assets/a/table-laptop-right.png",
+            "size": [
+              192,
+              192
+            ],
+            "bytes": 13659,
+            "sha256": "222cf3a5556c0cfe8dad2702a8c9b69844dc3c5becfc81bf81d4c7b920f94b2f"
+          },
+          {
+            "key": "title-run-1",
+            "file": "assets/a/title-run-1.png",
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 162785,
+            "sha256": "73d155f511b2948368a32773bdd03c09b06b9062e5bf64d491c9f95f68618f7f"
+          },
+          {
+            "key": "title-cafe-strip",
+            "file": "assets/a/title-cafe-strip.webp",
+            "size": [
+              3840,
+              640
+            ],
+            "bytes": 243038,
+            "sha256": "26e785810cde3649397b35f2e42c32e739e8b7b246177fb016504b4c36625cb9"
+          },
+          {
+            "key": "title-egg-sleeper",
+            "file": "assets/a/title-egg-sleeper.png",
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 173342,
+            "sha256": "6ae3704b33276da316224ad20ae2b69ac49932b25001a0a5dfca4ca6e642f0eb"
+          },
+          {
+            "key": "title-egg-streamer",
+            "file": "assets/a/title-egg-streamer.png",
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 157738,
+            "sha256": "059cdc550267b40bf21cd6caaaa6e6ad4694121cd2eb78f97d226aa96964af66"
+          },
+          {
+            "key": "title-egg-dock",
+            "file": "assets/a/title-egg-dock.png",
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 119410,
+            "sha256": "362ccf78b289ce88a09fa66a29c0b111c3a2d445947aa738ba89550dbe09e709"
+          },
+          {
+            "key": "title-run-3",
+            "file": "assets/a/title-run-3.png",
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 162959,
+            "sha256": "452df9f3d6c7ccf60088ab58ec045935051f0cbde0b31df635f061631760c3f7"
+          },
+          {
+            "key": "title-run-2",
+            "file": "assets/a/title-run-2.png",
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 163929,
+            "sha256": "e3de5ad4b11d36fc62b98f40e467f41edfa2557d544811d6ca1d856bf4ec232c"
+          },
+          {
+            "key": "title-run-4",
+            "file": "assets/a/title-run-4.png",
+            "size": [
+              512,
+              512
+            ],
+            "bytes": 161254,
+            "sha256": "65a5dcc7004daafba6dac2419e6dd88b6d1ddfdb1efb4c5f5a5e75a60aabb371"
+          }
+        ],
+        "faceOutsideChanges": 0,
+        "originalArtChanged": [
+          "assets/a/streamer-face.png",
+          "assets/a/streamer-idle.png",
+          "assets/a/streamer-portrait.webp",
+          "assets/a/streamer-react.png",
+          "assets/a/villain-portrait.webp",
+          "assets/a/villain-sleep.png",
+          "assets/a/villain-wake.png"
+        ],
+        "newAssets": 27,
+        "bManifestUnchanged": true,
+        "runtime": {
+          "game": "index1-1and2-1, purple/bluevillains visible;1920x1080and375x812, nofailedDOMimages/nohorizontaloverflow/noerrororwarnconsolelogs.",
+          "newMotion": "Standalone64frameGIFpreview; desktop1280x640render andmobile375x187.5render loaded. Gamecode doesnotyetconsume newexpression/laptop/mainkeys.",
+          "captureLimit": "Desktop screenshot capture appears zoomed/cropped relativetoDOMrectangle, sameexistingtoolissue; DOMdimensionsandmobilecapture plusnativeofflineassetproofused."
+        },
+        "oldArtPreserved": 213,
+        "runAssembly": {
+          "frames": [
+            {
+              "key": "title-run-1",
+              "canvas": [
+                512,
+                512
+              ],
+              "bodyOffsetY": 0,
+              "headTop": 87,
+              "groundY": 488,
+              "lastOpaqueRow": 487,
+              "discStaticRows": [
+                410,
+                470
+              ],
+              "wheelRows": [
+                470,
+                488
+              ],
+              "bodyTemplate": "Generated title-run-1 upperbody pixels, translated only; no form/color/scale changes"
+            },
+            {
+              "key": "title-run-2",
+              "canvas": [
+                512,
+                512
+              ],
+              "bodyOffsetY": -4,
+              "headTop": 83,
+              "groundY": 488,
+              "lastOpaqueRow": 487,
+              "discStaticRows": [
+                410,
+                470
+              ],
+              "wheelRows": [
+                470,
+                488
+              ],
+              "bodyTemplate": "Generated title-run-1 upperbody pixels, translated only; no form/color/scale changes"
+            },
+            {
+              "key": "title-run-3",
+              "canvas": [
+                512,
+                512
+              ],
+              "bodyOffsetY": 0,
+              "headTop": 87,
+              "groundY": 488,
+              "lastOpaqueRow": 487,
+              "discStaticRows": [
+                410,
+                470
+              ],
+              "wheelRows": [
+                470,
+                488
+              ],
+              "bodyTemplate": "Generated title-run-1 upperbody pixels, translated only; no form/color/scale changes"
+            },
+            {
+              "key": "title-run-4",
+              "canvas": [
+                512,
+                512
+              ],
+              "bodyOffsetY": 4,
+              "headTop": 91,
+              "groundY": 488,
+              "lastOpaqueRow": 487,
+              "discStaticRows": [
+                410,
+                470
+              ],
+              "wheelRows": [
+                470,
+                488
+              ],
+              "bodyTemplate": "Generated title-run-1 upperbody pixels, translated only; no form/color/scale changes"
+            }
+          ],
+          "staticDiscPixelsIdentical": true,
+          "bodyBobRange": 8,
+          "bodyCut": {
+            "bodyBottomPolygon": [
+              [
+                126,
+                342
+              ],
+              [
+                282,
+                342
+              ],
+              [
+                278,
+                367
+              ],
+              [
+                273,
+                378
+              ],
+              [
+                251,
+                387
+              ],
+              [
+                220,
+                388
+              ],
+              [
+                188,
+                384
+              ],
+              [
+                158,
+                377
+              ],
+              [
+                140,
+                371
+              ],
+              [
+                130,
+                363
+              ],
+              [
+                125,
+                353
+              ]
+            ],
+            "armLowerPolygon": [
+              [
+                266,
+                340
+              ],
+              [
+                380,
+                330
+              ],
+              [
+                503,
+                320
+              ],
+              [
+                503,
+                410
+              ],
+              [
+                395,
+                410
+              ],
+              [
+                395,
+                382
+              ],
+              [
+                335,
+                371
+              ],
+              [
+                285,
+                363
+              ],
+              [
+                266,
+                352
+              ]
+            ],
+            "topRect": [
+              0,
+              0,
+              512,
+              349
+            ]
+          },
+          "discFillSource": {
+            "key": "title-run-disc-material",
+            "kind": "material",
+            "prompt": "Use case: precise-object-edit. Input1 EDITTARGET is robotanimationmaster. Create its DISC BASE ONLY as a separate animationlayer. REMOVE entirehead/neck/cylindertorso/whitejoints/botharms/claws. KEEP EXACT SAME RED DISC BASE and THREE SMALLWHEELS underneath, same ellipseperspective, blackoutline, red/shadowpanels, frontgraybumpers, centershape andwheeldesign. Reconstruct only the small portionofrear topdisc whichbodyusedtocover, withsameflatreddisc andgraycentralroundplate. No verticalparts atall, no robothead/body/arms. KEEP disc exactsameSIZE andPOSITION incanvas asInput1; upperlargearea becomestransparent. Transparent background no shadow/glow/whiteedge/words. Inputs2..5 areindividualgamerefs forstyleonly. Outputonlyone disc+wheel layer, no duplicatedrobot.",
+            "refs": [
+              "generated:title-run-1",
+              "assets/a/player-down.png",
+              "assets/a/title-robot.webp",
+              "assets/a/villain-sleep.png",
+              "assets/a/streamer-idle.png"
+            ],
+            "raw": "exec-e556241b-d696-41a3-b342-e0a2c25ebf78.png"
+          },
+          "discFillCrop": [
+            128,
+            792,
+            1126,
+            1189
+          ],
+          "discFillPlacement": [
+            46,
+            354
+          ],
+          "discFillSize": [
+            307,
+            122
+          ],
+          "fillClipping": "Expanded originalbodyocclusion mask, x110..300,y345..406; preserveoriginalbase outsideocclusion. Sourcefillfloor476, finalbasefloor488.",
+          "authorization": "User explicitly allowed assembly of same body with+-4px bob and wheel phases.",
+          "baseEraseMarginPx": 4,
+          "baseEraseRegion": [
+            110,
+            345,
+            300,
+            406
+          ],
+          "bodySliverRemoval": "Discard disconnectedredcomponents of fewerthan200pixels whoseminY>345 fromthecutlayer, includingcomponentboundingbox; thesearebasefragments notbody."
+        },
+        "strip": {
+          "size": [
+            3840,
+            640
+          ],
+          "floorY": 560,
+          "bytes": 243038,
+          "leftRightJoinRGBADifference": 0,
+          "centerJoinRGBADifference": 0
+        }
+      },
+      "authorizations": [
+        "Userallowed Python generated-eye composition/group2targetedrecolor.",
+        "Userallowed1920half+horizontalmirror assembly of3840strip.",
+        "Userallowed sameupperbody+-4px animationassembly andwheelphases afterimagegen shrankframe4by22px."
+      ],
+      "logNotes": [
+        "로봇은 같은 몸과 머리 및 팔을 잘라 쓰고 y 이동 0, -4, 0, +4px를 적용했다. 크기와 표정을 바꾸지 않았고 원판의 고정 부분은 픽셀이 같다. 생성된 바퀴 위상 그림을 아래쪽에 써서 구르는 움직임을 더했다. 일곱 투명 그림의 바닥은 모두 y488이고 아래 24px는 비어 있다.",
+        "생성기가 4번 몸통을 약 22px 낮추며 줄여, 사용자가 같은 몸으로 애니메이션을 조립하도록 허용했다. 원판만 남기는 재료 그림도 생성해서 몸 아래 가려져 있던 부분만 채웠다. 작업 스크립트와 재료 및 확인용 GIF는 저장소 밖에 두었다.",
+        "카페 배경은 3840 x 640 불투명 WebP다. 사용자가 반전 반복 조립을 허용해서 1920 x 640 반쪽과 반전본을 이었다. 반쪽을 WebP 품질 82로 줄인 뒤, 해독한 픽셀과 반전본을 무손실 WebP로 저장해 약 243KB로 줄였다. 왼쪽과 오른쪽 끝, 가운데 접합부의 픽셀 차이는 0이고 바닥선은 y560이다.",
+        "잠든 빌런은 정면에 가깝던 첫 그림을 오른쪽 옆모습으로 고쳤다. 충전 독 컷은 한국형 두 원형 구멍 콘센트를 명시하지 않아 미국형이 나왔던 첫 그림을 다시 편집했다. 촬영자는 기존 인물의 밝은 머리와 헤드밴드 및 헤드셋을 유지하고 폰 삼각대를 보게 그렸다.",
+        "실제 index.html에서 보라 빌런과 파랑 촬영자가 나오는 1-1과 2-1을 확인했다. 1920 x 1080과 375 x 812에서 DOM 이미지 로딩 오류와 가로 넘침이 없고 콘솔 오류 및 경고가 없다. 데스크톱 캡처는 기존 도구의 확대 문제로 잘려 보여 DOM 크기와 휴대폰 캡처, 원본 그림 확인을 함께 썼다.",
+        "새 메인 움직임은 저장소 밖의 별도 시연으로 확인했다. 64프레임 GIF에서 카페가 왼쪽으로 흐르고 고정된 로봇이 들썩이며, 빌런과 독이 지나간다. 이 시연은 실제 메인 화면 구현이 아니다. 새 표정, 테이블 물건 선택과 방향, 메인 애니메이션 연결은 Claude Code가 맡는다.",
+        "최종 검수에서 새 파일 27장과 색을 고친 기존 파일 7장을 확인했다. 나머지 기존 그림 213장과 B 그림 및 B manifest는 바뀌지 않았다. 기존 기본 주인공과 title-robot, title-logo도 보존했다. 게임 코드는 고치지 않았고 커밋과 push도 하지 않았다.",
+        "첫 묶음의 옆모습 눈은 좁은 화면 때문에 80px에서 소용돌이가 덜 읽히고, 셋째 묶음 꽃병은 54 x 86px로 목표 폭보다 4px 좁다. 이 차이는 앞 날짜 로그와 생성 기록에 남겼다."
+      ],
+      "id": "four-bundles-2026-11-01-group-4",
+      "theme": "a"
     }
   ]
 }
