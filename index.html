@@ -1313,7 +1313,8 @@
       margin-top: 18px;
     }
 
-    .panel-actions .wide { flex: 1; }
+    /* 버튼 글자는 한 줄로 두고, 자리가 모자라면 버튼이 다음 줄로 넘어가 쌓인다. */
+    .panel-actions .wide { flex: 1 1 140px; white-space: nowrap; }
   </style>
 </head>
 <body>
@@ -1370,7 +1371,7 @@
           <button id="title-continue" class="title-btn primary" type="button"></button>
           <button id="title-new" class="title-btn" type="button">처음부터</button>
           <button id="title-settings" class="title-btn" type="button">설정</button>
-          <button id="title-credits" class="title-btn" type="button">만든 사람들</button>
+          <button id="title-credits" class="title-btn" type="button">만든 사람</button>
         </div>
       </div>
     </div>
@@ -1379,7 +1380,7 @@
 
   <div id="credits" class="modal" role="dialog" aria-modal="true" aria-labelledby="credits-title" hidden>
     <div class="panel credits">
-      <h2 id="credits-title">만든 사람들</h2>
+      <h2 id="credits-title">만든 사람</h2>
       <dl class="credit-list">
         <dt>만든 사람</dt><dd>soomin007</dd>
         <dt>코드</dt><dd>Claude Code</dd>
@@ -1418,6 +1419,7 @@
       </table>
       <div class="panel-actions">
         <button id="replay-prologue" type="button" class="wide">프롤로그 다시 보기</button>
+        <button id="reset-progress" type="button" class="wide">진행 초기화</button>
         <button id="close-settings" type="button" class="wide primary">닫기</button>
       </div>
     </div>
@@ -1483,6 +1485,7 @@
         setMusic: document.getElementById('set-music'),
         setSfx: document.getElementById('set-sfx'),
         replayPrologue: document.getElementById('replay-prologue'),
+        resetProgress: document.getElementById('reset-progress'),
         title: document.getElementById('title-screen'),
         titleRobot: document.getElementById('title-robot'),
         titleLogo: document.getElementById('title-logo'),
@@ -1636,6 +1639,12 @@
       // 새 실내(2026-10-31 시험, layout.js의 interior). 배경 그림에는 바닥과 벽만 있고 가구는 모두 소품으로 얹는다(docs/concept.md "실내 다시 꾸미기").
       // 테이블(T, o)은 붙은 칸끼리 하나의 상판으로 이어지는 조각(table-0 ~ table-15)이고, 화분(L)은 실제 크기의 바닥 화분이다.
       // 소품(q)은 바닥 화분, 기둥, 짐 가운데 하나, 앉은 손님(N)은 새 손님 둘을 번갈아 쓴다. 그린 것이 있으면 true를 돌려준다.
+      const PROP_LIFT = 0.18;
+      const SEAT_PULL = {
+        amount: 0.35,
+        up: { dx: 0, dy: -1 }, down: { dx: 0, dy: 1 }, left: { dx: -1, dy: 0 }, right: { dx: 1, dy: 0 },
+      };
+
       function drawInterior(char, x, y, colors) {
         const map = game.level.map;
         const isTable = (cx, cy) => 'To'.includes((map[cy] || '')[cx] || '#');
@@ -1660,16 +1669,26 @@
           const height = key === 'pillar' ? TILE * 2.5 : key === 'decor2' ? TILE * 1.25 : TILE;
           const prop = addSprite(key, TILE, height, colors.table);
           prop.classList.add('kind-decor');
-          placeOnTile(prop, x, y, TILE, height);
+          // 바닥 기준선을 칸 아래 끝에서 칸 높이의 18%만큼 올려 칸 가운데쯤에 놓는다. 아래 끝에 붙이면 칸 경계에 걸쳐 보였다(2026-10-31 사용자 피드백).
+          placeOnTile(prop, x, y - PROP_LIFT, TILE, height);
+          prop.style.zIndex = String(10 + y * 10);
           return true;
         }
         if (char === 'N') {
+          // 기존 손님 셋(customer, customer2, customer3)과 새 손님 둘(seated-1, seated-2)을 칸마다 번갈아 앉힌다.
+          // 새 손님만 쓰면 판의 손님이 모두 두 사람으로 바뀐다(2026-10-31 사용자 지적, known-issues 23번).
           const facing = customerFacing(map, x, y);
-          const key = `seated-${((x + 2 * y) % 2) + 1}-${facing}`;
-          const customer = addSprite(assetPath(key) ? key : customerKey(facing, x, y), TILE, TILE * 1.5, colors.customer);
+          const people = ['customer', 'customer2', 'customer3', 'seated-1', 'seated-2'].filter((name) => assetPath(`${name}-${facing}`));
+          const key = people.length > 0 ? `${people[(x + 2 * y) % people.length]}-${facing}` : customerKey(facing, x, y);
+          const customer = addSprite(key, TILE, TILE * 1.5, colors.customer);
           customer.classList.add('kind-customer');
           customer.dataset.facing = facing;
-          placeOnTile(customer, x, y, TILE, TILE * 1.5);
+          // 테이블을 보고 앉은 손님은 테이블 쪽으로 칸의 35%만큼 당겨 앉힌다. 칸 가운데 앉히면 의자가 테이블에서 멀찍이 떨어져 보였다.
+          const pull = SEAT_PULL[facing];
+          const facesTable = isTable(x + pull.dx, y + pull.dy);
+          placeOnTile(customer, x + (facesTable ? pull.dx * SEAT_PULL.amount : 0), y + (facesTable ? pull.dy * SEAT_PULL.amount : 0), TILE, TILE * 1.5);
+          // 테이블 아래쪽에 앉은 뒷모습 손님은 테이블 앞에 그리고, 위쪽에 앉은 손님은 테이블 뒤에 그린다.
+          customer.style.zIndex = String(10 + y * 10 + 1);
           return true;
         }
         return false;
@@ -1695,22 +1714,18 @@
         return cells;
       }
 
-      // 테이블 위 물건. 손님이 보고 앉은 칸에는 그 손님의 물건(노트북 치는 손님은 노트북, 폰 보는 손님은 컵)을 놓고,
-      // 나머지 칸에는 네 칸에 한 칸 꼴로 책이나 작은 화분을 놓는다.
+      // 테이블 위 물건. 손님이 보고 앉은 칸에는 컵을, 나머지 칸에는 네 칸에 한 칸 꼴로 작은 화분을 놓는다.
+      // 노트북과 펼친 책은 한 방향 그림뿐이라 손님이 어느 쪽에 앉든 아래를 향해 어색했다. 2026-10-29 결정("탁자에는 방향이 있는 물건을 올리지 않는다")대로
+      // 네 방향 그림이 오기 전까지 놓지 않는다(docs/art-rules.md).
       function tabletopItem(x, y) {
         const map = game.level.map;
         const around = [[0, -1, 'down'], [0, 1, 'up'], [-1, 0, 'right'], [1, 0, 'left']];
         for (const [dx, dy, facing] of around) {
           const cx = x + dx;
           const cy = y + dy;
-          if ((map[cy] || '')[cx] === 'N' && customerFacing(map, cx, cy) === facing) {
-            return ((cx + 2 * cy) % 2) + 1 === 1 ? 'tabletop-2' : 'tabletop-1';
-          }
+          if ((map[cy] || '')[cx] === 'N' && customerFacing(map, cx, cy) === facing) return 'tabletop-1';
         }
-        const pick = (x * 3 + y * 5) % 4;
-        if (pick === 0) return 'tabletop-3';
-        if (pick === 1) return 'tabletop-4';
-        return null;
+        return (x * 3 + y * 5) % 4 === 0 ? 'tabletop-4' : null;
       }
 
       // 손님 그림 key. 같은 사람이 줄지어 앉으면 복제 인간처럼 보여서, 그려 둔 손님 종류(customer, customer2, customer3...)를
@@ -2973,6 +2988,28 @@
         game.busy = true;
         await playPrologue();
         game.busy = false;
+      });
+      // 진행 초기화. 깬 레벨, 이어 할 레벨, 프롤로그와 시연과 조작 안내를 본 기록을 지워 처음 하는 사람의 화면으로 돌아간다.
+      // 그림체와 밝기, 소리 크기는 남긴다. 실수로 누르지 않도록 3초 안에 한 번 더 눌러야 지운다.
+      let resetArmed = null;
+      ui.resetProgress.addEventListener('click', () => {
+        if (game.busy) return;
+        if (!resetArmed) {
+          ui.resetProgress.textContent = '한 번 더 누르면 초기화';
+          resetArmed = setTimeout(() => {
+            resetArmed = null;
+            ui.resetProgress.textContent = '진행 초기화';
+          }, 3000);
+          return;
+        }
+        clearTimeout(resetArmed);
+        resetArmed = null;
+        ui.resetProgress.textContent = '진행 초기화';
+        Object.assign(settings, { cleared: [], lastLevel: 0, prologueSeen: false, demosSeen: [], keysSeen: false });
+        saveSettings();
+        game.cleared = new Set();
+        closeSettings();
+        showTitle();
       });
       new ResizeObserver(fitScene).observe(ui.stage);
 
