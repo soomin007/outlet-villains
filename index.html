@@ -253,6 +253,76 @@
 
     .scene.seen .view-cell { background: rgba(217, 60, 50, 0.45); }
 
+    /* 젖은 바닥. 칸마다 위, 오른쪽, 아래, 왼쪽 이웃이 젖었는지로 조각(wet-0 ~ wet-15)을 고른다.
+       그림이 오기 전에는 반투명 상자로 그리고, 이어지지 않는 쪽만 12% 안쪽에서 둥글게 끝낸다. */
+    .wet-cell {
+      position: absolute;
+      z-index: 4;
+      pointer-events: none;
+    }
+
+    .wet-cell img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .wet-cell .wet-box {
+      position: absolute;
+      background: var(--wet-color);
+      box-shadow: inset 0 0 0 1px var(--wet-edge);
+    }
+
+    /* 로봇이 닦은 칸에 잠깐 반짝임이 남는다. */
+    .wet-cell.mopped {
+      animation: mopped 0.6s ease-out forwards;
+    }
+
+    @keyframes mopped {
+      from { opacity: 1; transform: scale(1); }
+      to { opacity: 0; transform: scale(0.6); }
+    }
+
+    /* 그림이 오기 전의 음료 상자. 세 음료는 색이 같아서 실루엣으로 구분한다(키 큰 컵, 낮고 넓은 머그, 둥근 주전자). */
+    .kind-drink .gbox { margin: 0 auto; }
+    .kind-drink.drink-1 .gbox { width: 44%; height: 82%; margin-top: 12%; border-radius: 6px 6px 14px 14px; }
+    .kind-drink.drink-2 .gbox { width: 76%; height: 50%; margin-top: 44%; border-radius: 6px 6px 18px 18px; }
+    .kind-drink.drink-3 .gbox { width: 70%; height: 66%; margin-top: 28%; border-radius: 50%; }
+
+    /* 음료를 기다리는 손님 머리 위의 주문 말풍선. 안에 그 손님의 음료 그림을 작게 띄운다. */
+    .order-bubble {
+      position: absolute;
+      left: 50%;
+      bottom: 100%;
+      width: 64%;
+      aspect-ratio: 1;
+      margin-left: -32%;
+      margin-bottom: 2%;
+      padding: 8%;
+      box-sizing: border-box;
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      background: #fff;
+      animation: bubble-bob 1.8s ease-in-out infinite alternate;
+    }
+
+    @keyframes bubble-bob {
+      to { transform: translateY(-4px); }
+    }
+
+    .order-bubble::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -9px;
+      margin-left: -5px;
+      border: 5px solid transparent;
+      border-top: 6px solid var(--ink);
+    }
+
+    .order-bubble .art { filter: none; }
+    .order-bubble .gbox::after { display: none; }
+
     /* 레벨 점. 챕터 번호 옆에 그 챕터의 레벨 점이 붙는다. 지금 레벨은 채운 점, 깬 레벨은 초록으로 채운다. */
     .dots {
       display: flex;
@@ -1130,6 +1200,7 @@
       <div id="viewport" class="viewport">
         <div id="scene" class="scene">
           <div id="backdrop" class="layer backdrop"></div>
+          <div id="wet" class="layer"></div>
           <div id="view" class="layer"></div>
           <div id="actors" class="layer"></div>
           <div id="flash" class="flash"></div>
@@ -1217,9 +1288,11 @@
       // 그림이 없을 때 상자에 칠하는 테마별 색. 색 규칙은 docs/concept.md "그림체 시험 결과와 결정" 절과 같다.
       const THEMES = {
         a: { floor: '#e6e6e2', grid: '#b8b8b4', wall: '#3a3a3a', side: '#5a5a5a', table: '#9a9a9a', plant: '#6f6f6f',
-          player: '#c8302a', item: '#2f7a54', villain: '#cfcfcf', outletTheirs: '#9a9a9a', outletMine: '#c8302a', customer: '#b8b8b4' },
+          player: '#c8302a', item: '#2f7a54', villain: '#cfcfcf', outletTheirs: '#9a9a9a', outletMine: '#c8302a', customer: '#b8b8b4',
+          wet: 'rgba(70, 70, 70, 0.38)', wetEdge: 'rgba(255, 255, 255, 0.55)' },
         b: { floor: '#e8d6b4', grid: '#d2bd96', wall: '#c99a6b', side: '#b98f68', table: '#a9805c', plant: '#7f9a72',
-          player: '#7fd3b8', item: '#e8833a', villain: '#2f5e4a', outletTheirs: '#2f5e4a', outletMine: '#7fd3b8', customer: '#c9b79c' },
+          player: '#7fd3b8', item: '#e8833a', villain: '#2f5e4a', outletTheirs: '#2f5e4a', outletMine: '#7fd3b8', customer: '#c9b79c',
+          wet: 'rgba(120, 185, 225, 0.55)', wetEdge: 'rgba(255, 255, 255, 0.7)' },
       };
 
       const ui = {
@@ -1230,6 +1303,7 @@
         backdrop: document.getElementById('backdrop'),
         actors: document.getElementById('actors'),
         view: document.getElementById('view'),
+        wet: document.getElementById('wet'),
         dots: document.getElementById('dots'),
         flash: document.getElementById('flash'),
         portrait: document.getElementById('portrait'),
@@ -1431,6 +1505,20 @@
         return [TILE, TILE];
       }
 
+      // 물건의 그림 key. 음료는 받을 손님(A, B, C)에 따라 drink-1, drink-2, drink-3이다.
+      function itemKey(item) {
+        return item.kind === 'drink' ? drinkKey(item.order) : item.kind;
+      }
+
+      function drinkKey(order) {
+        return `drink-${'ABC'.indexOf(order) + 1}`;
+      }
+
+      // 음료를 기다리는 손님 그림 key. A, B, C가 각각 손님 guest, guest2, guest3이다(앉은 손님 customer, customer2, customer3과 같은 사람).
+      function guestKey(order, facing) {
+        return `guest${['', '2', '3']['ABC'.indexOf(order)]}-${facing}`;
+      }
+
       // 이미 그림이 있으면 src만 바꾼다. <img>를 새로 만들면 디코딩되는 동안 한 프레임 비어 보여 걸을 때 깜빡였다.
       function setArt(element, key, color, round) {
         const path = assetPath(key);
@@ -1447,7 +1535,7 @@
       // 그래서 주인공과 물건 그림을 먼저 받고, 다음에 지금 레벨의 배경, 마지막에 나머지를 받는다. 받은 그림은 Map에 붙잡아 둔다.
       const preloaded = new Map();
       const FIRST_KEYS = ['player-up', 'player-down', 'player-left', 'player-right', 'buzzer', 'chair', 'trash', 'dock',
-        'plug-mine', 'outlet-theirs', 'outlet-mine'];
+        'plug-mine', 'outlet-theirs', 'outlet-mine', 'drink-1', 'drink-2', 'drink-3'];
 
       function loadImage(path) {
         if (preloaded.has(path)) return preloaded.get(path).ready;
@@ -1622,7 +1710,8 @@
         if (index === 0 && !settings.keysSeen && window.matchMedia('(hover: hover)').matches) showKeys();
       }
 
-      // 반투명한 주인공의 시연. push는 물건을 한 칸 밀어 보이고, view는 화각에 들어갔다가 붉게 깜빡이며 되돌아온다.
+      // 반투명한 주인공의 시연. view는 화각에 들어갔다가 붉게 깜빡이며 되돌아온다.
+      // 나머지(push 물건 밀기, slide 젖은 바닥에서 미끄러지기, serve 음료 건네기)는 물건을 한 번 밀어 보이고, 결과는 엔진의 한 걸음과 같다.
       async function runDemo(demo) {
         const colors = THEMES[settings.theme];
         const d = Engine.DIRECTIONS[demo.dir];
@@ -1630,22 +1719,33 @@
         ghost.classList.add('ghost');
         placeOnTile(ghost, demo.from.x, demo.from.y, playerWidth(), playerHeight());
         await pause(500);
-        if (demo.kind === 'push') {
+        if (demo.kind !== 'view') {
           const target = { x: demo.from.x + d.dx, y: demo.from.y + d.dy };
           const index = game.state.items.findIndex((item) => item.x === target.x && item.y === target.y);
+          const result = Engine.step(game.level, { ...game.state, player: demo.from }, demo.dir);
+          const landed = result.state.items[index];
           const real = game.sprites.items[index];
-          const kind = game.state.items[index].kind;
-          const [width, height] = itemSize(kind);
-          const ghostItem = addSprite(kind, width, height, colors.item);
-          ghostItem.classList.add('ghost', `kind-${kind}`);
+          const item = game.state.items[index];
+          const [width, height] = itemSize(item.kind);
+          const ghostItem = addSprite(itemKey(item), width, height, colors.item);
+          ghostItem.classList.add('ghost', `kind-${item.kind}`);
+          if (item.kind === 'drink') ghostItem.classList.add(`drink-${'ABC'.indexOf(item.order) + 1}`);
           placeOnTile(ghostItem, target.x, target.y, width, height);
           real.style.opacity = '0';
           await pause(300);
+          ghostItem.style.transitionDuration = `${130 + result.slid * 90}ms`;
           placeOnTile(ghost, target.x, target.y, playerWidth(), playerHeight());
-          placeOnTile(ghostItem, target.x + d.dx, target.y + d.dy, width, height);
+          placeOnTile(ghostItem, landed.x, landed.y, width, height);
+          // 음료를 건네는 시연이면 손님이 잠깐 흐려져 비켜 주는 것을 보여 준다.
+          const waiter = result.served ? game.sprites.waiters[result.served] : null;
+          if (waiter) {
+            await pause(300);
+            waiter.style.opacity = '0.25';
+          }
           await pause(900);
           ghostItem.style.opacity = '0';
           ghost.style.opacity = '0';
+          if (waiter) waiter.style.opacity = '';
           await wait(300);
           ghostItem.remove();
           real.style.opacity = '';
@@ -1743,11 +1843,25 @@
             placeOnTile(customer, x, y, TILE, TILE * 1.5);
           }
         }));
+        // 음료를 기다리며 서 있는 손님. 길을 막고, 머리 위 말풍선에 주문한 음료가 뜬다. 음료를 받으면 떠난다.
+        game.sprites.waiters = {};
+        level.waiters.forEach((waiter) => {
+          const element = addSprite(guestKey(waiter.order, 'down'), TILE, TILE * 1.5, colors.customer);
+          element.classList.add('kind-customer', 'kind-waiter');
+          element.dataset.facing = 'down';
+          const bubble = document.createElement('div');
+          bubble.className = `order-bubble kind-drink drink-${'ABC'.indexOf(waiter.order) + 1}`;
+          bubble.innerHTML = art(drinkKey(waiter.order), colors.item);
+          element.appendChild(bubble);
+          placeOnTile(element, waiter.x, waiter.y, TILE, TILE * 1.5);
+          game.sprites.waiters[waiter.order] = element;
+        });
         game.sprites.items = state.items.map((item) => {
           const size = itemSize(item.kind);
-          const element = addSprite(item.kind, size[0], size[1], colors.item, { sticker: true, round: item.kind === 'buzzer' });
+          const element = addSprite(itemKey(item), size[0], size[1], colors.item, { sticker: true, round: item.kind === 'buzzer' });
           element.dataset.kind = item.kind;
           element.classList.add('kind-' + item.kind);
+          if (item.kind === 'drink') element.classList.add(`drink-${'ABC'.indexOf(item.order) + 1}`);
           return element;
         });
         game.sprites.player = addSprite(`player-${state.facing}`, playerWidth(), playerHeight(), colors.player, { sticker: true, round: true });
@@ -1758,6 +1872,8 @@
         syncFilmer();
         requestAnimationFrame(() => requestAnimationFrame(() => ui.actors.classList.remove('instant')));
         placeAll();
+        syncServed();
+        drawWet();
         drawView();
         drawDots();
         ui.undo.disabled = game.history.length === 0;
@@ -1939,18 +2055,81 @@
         });
       }
 
-      function placeAll(state = game.state) {
+      // slid는 이번 걸음에 젖은 바닥에서 미끄러진 칸 수다. 미끄러진 물건은 칸 수만큼 오래 움직이게 한다.
+      function placeAll(state = game.state, slid = 0, pushed = null) {
         state.items.forEach((item, index) => {
           const element = game.sprites.items[index];
           const [width, height] = itemSize(element.dataset.kind);
+          element.style.transitionDuration = index === pushed && slid > 0 ? `${130 + slid * 90}ms, 0.5s` : '';
+          element.style.transitionTimingFunction = index === pushed && slid > 0 ? 'ease-out, ease' : '';
           placeOnTile(element, item.x, item.y, width, height);
         });
         placeOnTile(game.sprites.player, state.player.x, state.player.y, playerWidth(), playerHeight());
         game.sprites.player.style.zIndex = String(15 + state.player.y * 10);
       }
 
+      // 손님이 받아 간 음료와 떠난 손님을 지운다. 되돌리기를 하면 다시 나타난다.
+      function syncServed(state = game.state) {
+        state.items.forEach((item, index) => {
+          game.sprites.items[index].classList.toggle('gone', Boolean(item.gone));
+        });
+        game.level.waiters.forEach((waiter) => {
+          const present = Engine.waiterAt(game.level, state, waiter.x, waiter.y);
+          game.sprites.waiters[waiter.order].classList.toggle('gone', !present);
+        });
+      }
+
+      // 젖은 바닥 조각. 이웃이 젖었으면 그쪽으로 이어지고(위 1, 오른쪽 2, 아래 4, 왼쪽 8), 그 합이 조각 번호다.
+      // mopped가 있으면 방금 닦은 칸에 사라지는 웅덩이를 잠깐 남긴다.
+      function drawWet(state = game.state, mopped = null) {
+        ui.wet.innerHTML = '';
+        if (!state.wet) return;
+        const colors = THEMES[settings.theme];
+        ui.wet.style.setProperty('--wet-color', colors.wet);
+        ui.wet.style.setProperty('--wet-edge', colors.wetEdge);
+        const cells = mopped ? [...state.wet, `${mopped.x},${mopped.y}`] : state.wet;
+        for (const cell of cells) {
+          const [x, y] = cell.split(',').map(Number);
+          const joined = (dx, dy) => Engine.isWet(state, x + dx, y + dy);
+          const mask = (joined(0, -1) ? 1 : 0) + (joined(1, 0) ? 2 : 0) + (joined(0, 1) ? 4 : 0) + (joined(-1, 0) ? 8 : 0);
+          const element = document.createElement('div');
+          element.className = 'wet-cell';
+          element.style.left = `${tileLeft(x)}px`;
+          element.style.top = `${tileTop(y)}px`;
+          element.style.width = `${TILE}px`;
+          element.style.height = `${TILE_H}px`;
+          const path = assetPath(`wet-${mask}`);
+          if (path) {
+            element.innerHTML = `<img src="${path}" alt="" draggable="false">`;
+          } else {
+            const inset = (bit) => (mask & bit ? '0' : '12%');
+            const round = (a, b) => (mask & a || mask & b ? '0' : '40%');
+            element.innerHTML = `<div class="wet-box" style="top:${inset(1)};right:${inset(2)};bottom:${inset(4)};left:${inset(8)};`
+              + `border-radius:${round(1, 8)} ${round(1, 2)} ${round(4, 2)} ${round(4, 8)}"></div>`;
+          }
+          if (mopped && cell === `${mopped.x},${mopped.y}`) element.classList.add('mopped');
+          ui.wet.appendChild(element);
+        }
+      }
+
       function wait(ms) {
         return new Promise((resolve) => setTimeout(resolve, ms));
+      }
+
+      // 음료를 건넨 순간: 음료가 멈추기를 기다렸다가, 손님이 한 번 뛰며 음료를 받아 들고 떠난다. 길이 열린다.
+      // 연출 동안에도 입력을 막지 않는다(빨리 누른 키가 버려지면 조작이 끊겨 보인다). 그래서 사라지는 것은 지금 상태로 다시 맞추고,
+      // 그 사이에 되돌리기를 눌렀으면 손님은 그대로 남는다.
+      async function serve(result) {
+        const waiter = game.sprites.waiters[result.served];
+        await wait(160 + result.slid * 90);
+        Sound.serve();
+        waiter.classList.remove('hop');
+        void waiter.offsetWidth;
+        waiter.classList.add('hop');
+        game.sprites.items[result.pushed].classList.toggle('gone', Boolean(game.state.items[result.pushed].gone));
+        await wait(260);
+        syncServed();
+        drawView();
       }
 
       async function move(direction) {
@@ -1986,7 +2165,8 @@
         }
         if (result.pushed !== null) {
           const pushSound = PUSH_SOUNDS[result.state.items[result.pushed].kind] || PUSH_SOUNDS.chair;
-          Sound.play('chair', pushSound);
+          // 젖은 바닥에서 미끄러지면 조금 낮고 길게 들리도록 속도를 낮춘다.
+          Sound.play('chair', result.slid > 0 ? { ...pushSound, rate: pushSound.rate * 0.8 } : pushSound);
         }
         game.history.push(game.state);
         game.state = result.state;
@@ -1995,8 +2175,14 @@
         game.sprites.player.classList.remove('hop');
         void game.sprites.player.offsetWidth;
         game.sprites.player.classList.add('hop');
-        placeAll();
-        drawView();
+        placeAll(game.state, result.slid, result.pushed);
+        if (result.mopped || result.slid > 0) drawWet(game.state, result.mopped ? game.state.player : null);
+        if (result.served) {
+          const serving = serve(result);
+          if (result.won) await serving;
+        } else {
+          drawView();
+        }
         ui.undo.disabled = false;
         if (result.filmerLeft) await filmerLeaves();
         if (result.won) await win();
@@ -2069,6 +2255,8 @@
         }
         setArt(game.sprites.player, `player-${game.state.facing}`, THEMES[settings.theme].player, true);
         placeAll();
+        syncServed();
+        drawWet();
         drawView();
         syncFilmer();
         ui.undo.disabled = game.history.length === 0;
@@ -2173,6 +2361,14 @@
           bgmGain.gain.setTargetAtTime(full, now + 1.4, 0.4);
         }
 
+        // 음료를 건넸을 때의 짧은 두 음. 클리어 화음과 같은 전자 피아노 소리로, 그보다 짧고 작다.
+        function serve() {
+          if (!context) return;
+          const now = context.currentTime + 0.02;
+          rhodes(523.25, now, 0.5, 0.1);
+          rhodes(783.99, now + 0.09, 0.7, 0.1);
+        }
+
         function rhodes(frequency, when, length, level) {
           const carrier = context.createOscillator();
           const modulator = context.createOscillator();
@@ -2202,7 +2398,7 @@
           if (sfxGain) sfxGain.gain.value = SFX_MAX * (settings.sfx / 100);
         }
 
-        return { start, play, chime, setVolumes };
+        return { start, play, chime, serve, setVolumes };
       })();
 
       function applySettings() {
@@ -2245,6 +2441,7 @@
         chair: { rate: 1, volume: 1 },
         trash: { rate: 1.2, volume: 0.8 },
         buzzer: { rate: 1.45, volume: 0.6 },
+        drink: { rate: 1.3, volume: 0.7 },
       };
 
       const MODIFIER_KEYS = ['shift', 'control', 'alt', 'meta', 'tab', 'capslock'];

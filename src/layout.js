@@ -19,7 +19,9 @@
 // N은 앉아 있는 손님, o는 카페 테이블, q는 화분이나 짐 같은 소품이다. 모두 움직이지 않는 칸이고 판을 좁히며 카페가 붐비는 것을 보여 준다.
 // 손님은 이웃한 테이블(o를 먼저, 없으면 T) 쪽을 본다. 손님은 함께 쓰는 테이블에 둘러앉히고, 한 칸짜리 테이블에 한 명씩 붙이지 않는다(2026-10-29 사용자 피드백).
 // 플레이 영역 둘레만 막고 닿을 수 없는 나머지는 바닥으로 두며, 플레이 영역 안의 외딴 한 칸은 소품으로 막는다. 그림이 오기 전에는 상자로 보인다.
-// demo는 그 레벨에서 처음 나오는 기믹을 반투명한 주인공이 한 번 시연할 자리다(kind: push는 물건 밀기, view는 화각에 들어갔다 되돌아오기).
+// demo는 그 레벨에서 처음 나오는 기믹을 반투명한 주인공이 한 번 시연할 자리다(kind: push는 물건 밀기, view는 화각에 들어갔다 되돌아오기,
+// slide는 젖은 바닥에서 미끄러지기, serve는 음료 건네기).
+// w는 젖은 바닥, 1 2 3은 음료, A B C는 그 음료를 기다리며 서 있는 손님이다(engine.js 머리말 9~12번 규칙). 1장 레벨 3~5는 젖은 바닥, 2장 레벨 4~5는 음료 배달을 쓴다(2026-10-31 사용자 결정).
 window.VILLAIN_LAYOUT = {
   "art": { "width": 1920, "height": 1080, "tile": 96, "originX": 384, "originY": 240, "columns": 12, "rows": 7, "uiTop": 912, "viewBottom": 880 },
   "sprite": { "personWidthTiles": 1, "personHeightTiles": 1.5 },
@@ -84,17 +86,18 @@ window.VILLAIN_LAYOUT = {
       "id": "sleeper-3",
       "chapter": "sleeper",
       "bg": "sleeper",
-      "kind": "puzzle",
-      "optimal": 19,
-      "pushes": 6,
+      "kind": "tutorial",
+      "optimal": 8,
+      "pushes": 1,
+      "demo": { "kind": "slide", "from": { "x": 9, "y": 6 }, "dir": "up" },
       "map": [
         ".....NLL.LV.",
         "....NooNL*TN",
-        ".NNq......No",
-        "NTTN....bcNo",
-        "NTTNP.....No",
-        ".NN.NNNLLq.N",
-        "....ooo....."
+        ".NNqNooNqwNo",
+        "NTTNNooNNwNo",
+        "NTTqNNNNqwNo",
+        ".NNqNNNLLbqN",
+        "..Pwww......"
       ]
     },
     {
@@ -102,16 +105,16 @@ window.VILLAIN_LAYOUT = {
       "chapter": "sleeper",
       "bg": "sleeper",
       "kind": "puzzle",
-      "optimal": 28,
-      "pushes": 11,
+      "optimal": 24,
+      "pushes": 6,
       "map": [
         ".....NLL.LV.",
-        "...qNooNL*TN",
-        ".NN..c.c..No",
-        "NTTN.b.q..No",
-        "NTTN.P....No",
-        ".NoN..oLLq.N",
-        ".NoN..oN...."
+        "....NooNL*TN",
+        ".NNqNooNqwNo",
+        "NTTPbwwwwwwN",
+        "NTT.......No",
+        ".NNqNNNLL.qN",
+        "NNNNooooNNNN"
       ]
     },
     {
@@ -119,16 +122,17 @@ window.VILLAIN_LAYOUT = {
       "chapter": "sleeper",
       "bg": "sleeper",
       "kind": "puzzle",
-      "optimal": 35,
-      "pushes": 15,
+      "optimal": 18,
+      "pushes": 5,
+      "chairNeeded": true,
       "map": [
-        "....NNLL.LV.",
-        "..qNooNqL*T.",
-        ".N..c.P.....",
-        "NTTN..q...q.",
-        "NTTN..c.b.No",
-        ".NoN..qLL.No",
-        ".NoN....ooNN"
+        ".....NLL.LV.",
+        "....NooNL*TN",
+        ".NNqNooNqwNo",
+        "NTT.bwcwwwwN",
+        "NTT...NN..No",
+        ".NNP..NLLqqN",
+        "NNNNooooNNNN"
       ]
     },
     {
@@ -190,18 +194,19 @@ window.VILLAIN_LAYOUT = {
       "id": "streamer-4",
       "chapter": "streamer",
       "bg": "streamer",
-      "kind": "puzzle",
-      "optimal": 27,
-      "pushes": 6,
+      "kind": "tutorial",
+      "optimal": 7,
+      "pushes": 1,
       "view": { "dir": "down", "width": 3 },
+      "demo": { "kind": "serve", "from": { "x": 3, "y": 4 }, "dir": "right" },
       "map": [
         "....LTL.oo..",
-        "LoooNVq.NNL.",
-        ".NNNc..q..q.",
-        "o.......q..o",
-        "N..o.cc....N",
-        "qP.N.t.o...q",
-        ".oNq...NoNq."
+        "L..oNVqNN.L.",
+        "..oN...Nooo.",
+        "..oNqAqNNN..",
+        "N...1.qNNNNo",
+        "N.NNNtNNNq.N",
+        "N..P.oooooNN"
       ]
     },
     {
@@ -210,17 +215,17 @@ window.VILLAIN_LAYOUT = {
       "bg": "encore",
       "kind": "puzzle",
       "maxWalk": 40,
-      "optimal": 39,
-      "pushes": 16,
+      "optimal": 30,
+      "pushes": 9,
       "view": { "dir": "down", "width": 3 },
       "map": [
         "....LTL.oo..",
         "....LVL.NN..",
         "..qL...L..q.",
-        ".q....cq...o",
-        "o...q....c.N",
-        "N.q..cto.q.o",
-        "qP.....N...N"
+        ".q..qB.q...o",
+        "o..1..cA2..N",
+        "N.qP.t.N.q.o",
+        "q......N...N"
       ]
     },
     {

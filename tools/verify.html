@@ -52,7 +52,7 @@
 
     // 시작에서 물건을 밀지 않고 걸어서 갈 수 있는 모든 자리에서, 처음 미는 수를 모두 찾아 그 뒤에 풀리는지 본다.
     function firstPushOutcomes(level) {
-      const keyOf = (state) => `${state.player.x},${state.player.y}|${state.items.map((item) => `${item.kind}${item.x},${item.y}`).sort().join(';')}|${state.gone ? 1 : 0}`;
+      const keyOf = VillainEngine.stateKey;
       const seen = new Set([keyOf(level.start)]);
       const queue = [level.start];
       const firsts = new Map();
