@@ -10,6 +10,8 @@
 //   4. 유튜버는 테이블 위 폰 카메라를 보며 방송 중이라, 방송 화면에는 빌런 등 뒤의 카페가 비친다. 그 화각은 빌런 뒤로 뻗은 세 줄이다.
 //      화각은 줄마다 처음 닿는 물건이나 사람에서 멈춘다. 그래서 의자 뒤는 화면에 비치지 않는 그늘이 된다.
 //   5. 내가 화각에 들어가면 방송에 잡힐 뻔한 것이라, 벌칙 없이 그 걸음이 없던 일이 된다.
+//      이유(2026-10-31 사용자 결정): 쓰레기통을 미는 로봇이 찍히면 촬영자는 로봇의 짓인 줄 알고 로봇만 쫓아내고 자리는 지킨다.
+//      손님이 스스로 떠나게 하려면(목표 문장) 쓰레기통이 우연히 화면에 들어온 것처럼 보여야 한다.
 //   6. 쓰레기통이 화각에 비치면 유튜버가 방송을 접고 충전기를 챙겨 자리를 옮긴다. 판을 깬다.
 //
 // 셋째 판 "합석"의 규칙(2026-10-30). 판에 F(촬영자)가 있으면 화각은 빌런이 아니라 촬영자 뒤로 뻗는다.
@@ -87,8 +89,7 @@
 
   function blocked(level, x, y) {
     return level.walls.has(`${x},${y}`) || x < 0 || y < 0 || x >= level.width || y >= level.height
-      || (level.villain.x === x && level.villain.y === y)
-      || (level.filmer !== null && level.filmer !== undefined && level.filmer.x === x && level.filmer.y === y);
+      || (level.villain.x === x && level.villain.y === y);
   }
 
   // 사라진 물건(손님이 받아 간 음료)은 판에 없는 것으로 본다.
@@ -102,9 +103,11 @@
       && !state.items.some((item) => item.kind === 'drink' && item.order === waiter.order && item.gone));
   }
 
-  // 벽과 빌런에 더해, 지금 상태에서 길을 막는 손님까지 본다.
+  // 벽과 빌런에 더해, 지금 상태에서 길을 막는 손님과 아직 떠나지 않은 촬영자까지 본다.
+  // 촬영자가 떠난 자리는 열린다. 예전에는 촬영자 그림만 사라지고 칸은 계속 막혀 보이지 않는 벽이 됐다(known-issues 22번).
   function blockedNow(level, state, x, y) {
-    return blocked(level, x, y) || waiterAt(level, state, x, y);
+    const filmerHere = level.filmer && !state.gone && level.filmer.x === x && level.filmer.y === y;
+    return blocked(level, x, y) || waiterAt(level, state, x, y) || Boolean(filmerHere);
   }
 
   function isWet(state, x, y) {
