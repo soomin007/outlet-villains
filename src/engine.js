@@ -245,7 +245,7 @@
     return { moves: null, pushes: null, path: null };
   }
 
-  const api = { DIRECTIONS, parseLevel, viewOf, step, won, solve, stateKey, isWet, waiterAt };
+  const api = { DIRECTIONS, parseLevel, viewOf, step, won, solve, stateKey, isWet, waiterAt, blockedAt: blockedNow };
   if (typeof module === 'object' && module.exports) module.exports = api;
   else root.VillainEngine = api;
 })(typeof window !== 'undefined' ? window : globalThis);

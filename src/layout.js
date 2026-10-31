@@ -21,6 +21,7 @@
 // 플레이 영역 둘레만 막고 닿을 수 없는 나머지는 바닥으로 두며, 플레이 영역 안의 외딴 한 칸은 소품으로 막는다. 그림이 오기 전에는 상자로 보인다.
 // demo는 그 레벨에서 처음 나오는 기믹을 반투명한 주인공이 한 번 시연할 자리다(kind: push는 물건 밀기, view는 화각에 들어갔다 되돌아오기,
 // slide는 젖은 바닥에서 미끄러지기, serve는 음료 건네기).
+// interior가 true인 레벨은 가구 없는 배경(bg-이름-empty) 위에 테이블, 화분, 손님을 모두 소품으로 얹는다(2026-10-31 시험, 지금은 1-4만).
 // w는 젖은 바닥, 1 2 3은 음료, A B C는 그 음료를 기다리며 서 있는 손님이다(engine.js 머리말 9~12번 규칙). 1장 레벨 3~5는 젖은 바닥, 2장 레벨 4~5는 음료 배달을 쓴다(2026-10-31 사용자 결정).
 window.VILLAIN_LAYOUT = {
   "art": { "width": 1920, "height": 1080, "tile": 96, "originX": 384, "originY": 240, "columns": 12, "rows": 7, "uiTop": 912, "viewBottom": 880 },
@@ -103,7 +104,8 @@ window.VILLAIN_LAYOUT = {
     {
       "id": "sleeper-4",
       "chapter": "sleeper",
-      "bg": "sleeper",
+      "bg": "sleeper-empty",
+      "interior": true,
       "kind": "puzzle",
       "optimal": 24,
       "pushes": 6,

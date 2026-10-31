@@ -73,10 +73,15 @@ def draw_level(art, level):
     fill(image, left + columns * tile, top, art['width'] - left - columns * tile, art['uiTop'] - top, SIDE_WALL)
     fill(image, 0, art['uiTop'], art['width'], art['height'] - art['uiTop'], UI_STRIP)
 
+    # 새 실내 레벨(interior)의 배경에는 바닥과 벽만 그리고, 가구와 움직이는 것은 게임이 소품으로 얹는다.
+    interior = level.get('interior', False)
     for y, line in enumerate(level['map']):
         for x, char in enumerate(line):
             px, py = left + x * tile, top + y * tile
             fill(image, px, py, tile, tile, FLOOR)
+            if interior and char not in 'V*':
+                outline(image, px, py, tile, tile, GRID, 2)
+                continue
             if char == 'T':
                 fill(image, px, py, tile, tile, TABLE)
             elif char == 'L':

@@ -1633,6 +1633,86 @@
         element.style.zIndex = String(10 + y * 10);
       }
 
+      // 새 실내(2026-10-31 시험, layout.js의 interior). 배경 그림에는 바닥과 벽만 있고 가구는 모두 소품으로 얹는다(docs/concept.md "실내 다시 꾸미기").
+      // 테이블(T, o)은 붙은 칸끼리 하나의 상판으로 이어지는 조각(table-0 ~ table-15)이고, 화분(L)은 실제 크기의 바닥 화분이다.
+      // 소품(q)은 바닥 화분, 기둥, 짐 가운데 하나, 앉은 손님(N)은 새 손님 둘을 번갈아 쓴다. 그린 것이 있으면 true를 돌려준다.
+      function drawInterior(char, x, y, colors) {
+        const map = game.level.map;
+        const isTable = (cx, cy) => 'To'.includes((map[cy] || '')[cx] || '#');
+        if (isTable(x, y)) {
+          const mask = (isTable(x, y - 1) ? 1 : 0) + (isTable(x + 1, y) ? 2 : 0) + (isTable(x, y + 1) ? 4 : 0) + (isTable(x - 1, y) ? 8 : 0);
+          const table = addSprite(`table-${mask}`, TILE, TILE_H, colors.table);
+          table.classList.add('kind-table');
+          placeOnTile(table, x, y, TILE, TILE_H);
+          const item = tabletopItem(x, y);
+          if (item) {
+            const top = addSprite(item, TILE, TILE_H, 'transparent');
+            top.classList.add('kind-table');
+            placeOnTile(top, x, y, TILE, TILE_H);
+            top.style.zIndex = String(11 + y * 10);
+          }
+          return true;
+        }
+        if (char === 'L' || char === 'q') {
+          // 기둥은 칸 높이의 2.5배라 윗칸을 가린다. 로봇이 걷는 바닥을 가리면 안 되므로, 윗칸이 로봇이 갈 수 없는 칸일 때만 세운다.
+          let key = char === 'L' ? 'plant-floor' : ['plant-floor', 'pillar', 'decor2'][(x + 2 * y) % 3];
+          if (key === 'pillar' && walkableCells().has(`${x},${y - 1}`)) key = 'plant-floor';
+          const height = key === 'pillar' ? TILE * 2.5 : key === 'decor2' ? TILE * 1.25 : TILE;
+          const prop = addSprite(key, TILE, height, colors.table);
+          prop.classList.add('kind-decor');
+          placeOnTile(prop, x, y, TILE, height);
+          return true;
+        }
+        if (char === 'N') {
+          const facing = customerFacing(map, x, y);
+          const key = `seated-${((x + 2 * y) % 2) + 1}-${facing}`;
+          const customer = addSprite(assetPath(key) ? key : customerKey(facing, x, y), TILE, TILE * 1.5, colors.customer);
+          customer.classList.add('kind-customer');
+          customer.dataset.facing = facing;
+          placeOnTile(customer, x, y, TILE, TILE * 1.5);
+          return true;
+        }
+        return false;
+      }
+
+      // 시작 자리에서 걸어서 닿을 수 있는 칸(물건은 바닥으로 본다). 판마다 한 번만 센다.
+      function walkableCells() {
+        if (game.walkable && game.walkable.level === game.level) return game.walkable.cells;
+        const level = game.level;
+        const start = `${level.start.player.x},${level.start.player.y}`;
+        const cells = new Set([start]);
+        const queue = [level.start.player];
+        while (queue.length > 0) {
+          const { x, y } = queue.shift();
+          for (const { dx, dy } of Object.values(Engine.DIRECTIONS)) {
+            const key = `${x + dx},${y + dy}`;
+            if (cells.has(key) || Engine.blockedAt(level, level.start, x + dx, y + dy)) continue;
+            cells.add(key);
+            queue.push({ x: x + dx, y: y + dy });
+          }
+        }
+        game.walkable = { level, cells };
+        return cells;
+      }
+
+      // 테이블 위 물건. 손님이 보고 앉은 칸에는 그 손님의 물건(노트북 치는 손님은 노트북, 폰 보는 손님은 컵)을 놓고,
+      // 나머지 칸에는 네 칸에 한 칸 꼴로 책이나 작은 화분을 놓는다.
+      function tabletopItem(x, y) {
+        const map = game.level.map;
+        const around = [[0, -1, 'down'], [0, 1, 'up'], [-1, 0, 'right'], [1, 0, 'left']];
+        for (const [dx, dy, facing] of around) {
+          const cx = x + dx;
+          const cy = y + dy;
+          if ((map[cy] || '')[cx] === 'N' && customerFacing(map, cx, cy) === facing) {
+            return ((cx + 2 * cy) % 2) + 1 === 1 ? 'tabletop-2' : 'tabletop-1';
+          }
+        }
+        const pick = (x * 3 + y * 5) % 4;
+        if (pick === 0) return 'tabletop-3';
+        if (pick === 1) return 'tabletop-4';
+        return null;
+      }
+
       // 손님 그림 key. 같은 사람이 줄지어 앉으면 복제 인간처럼 보여서, 그려 둔 손님 종류(customer, customer2, customer3...)를
       // 칸마다 번갈아 쓴다. (x + 2y)로 고르면 종류가 세 개 이상일 때 상하좌우로 붙은 손님끼리 겹치지 않는다.
       function customerKey(facing, x, y) {
@@ -2043,6 +2123,7 @@
         // 카페 테이블(o)과 앉은 손님(N). 움직이지 않는 칸이고, 상호작용하지 않으므로 스티커 테두리가 없다.
         // 손님은 이웃한 테이블 쪽을 본다(그림 key: customer-up/down/left/right). 그림이 오기 전에는 상자로 보인다.
         level.map.forEach((line, y) => [...line].forEach((char, x) => {
+          if (level.interior && drawInterior(char, x, y, colors)) return;
           if (char === 'o') {
             const table = addSprite(variantKey('cafe-table', '', x, y), TILE, TILE * 1.1, colors.table);
             table.classList.add('kind-table');

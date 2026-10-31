@@ -12660,6 +12660,3288 @@
         "runtimeLimit": "Gamecode notchanged. Assemblytests arestandalone; wet-shine placementonselectedpondcells isClaudeCode integration scope."
       },
       "commit": "No staging, commit or push. Claude Code reviewsandcommits."
+    },
+    {
+      "date": "2026-10-31",
+      "id": "interior-trial-autotiles-and-seated-guests",
+      "tool": "Built-in image_gen with individual image references, followed by user-authorized Pillow crop/scale/alignment and table cutting.",
+      "purpose": "Trial set for level1-4 before commissioning the rest. Empty background plus independently controlled furniture, realistic smallprops, two carefullydrawn seatedguest identities.",
+      "confirmedBottomRule": "Userconfirmed:8pxinset applies top/left/right only. Terminalbottomsurfaceendsy134; front andlegs134..192. Frontsidewidthmustmatchtop. Connectedbottomhasfullsurface andNOfront/legs.",
+      "tableRecipe": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+      "tableMaterialSources": [
+        {
+          "kind": "table-master",
+          "theme": "a",
+          "key": "table-master-a",
+          "file": null,
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/chair.png",
+            "assets/a/guest-down.png"
+          ],
+          "prompt": "Use case: stylized-concept. ONE separate2Dcaferoomgameasset onTRUEtransparentbackground. Image1player,Image2chair,Image3guest are INDIVIDUALSTYLEreferences ONLY: sameconfidentthickblacklinework, carefullydesignedlargecartoonplanes, clearformelegantshadowshape likeprotagonist, not sketchy/loweffort but NO extra tinyhatching/noise. Camera RPGMaker orthographic slightoverhead, NOTisometric, horizontalgroundalignment. No words/letters/numbers/logos, no white-stickerborder/castgroundshadow/glow/background/floortile. ThemeA onlyBLACK/WHITE/NEUTRALGRAY for allfurniture, people, props andleaves. IgnoreplayerRED andchairGREEN inreferences: thoseareINTERACTIVEcolors andMUSTNOTappear in thisbackgroundasset. Fullassetunclipped. ONE TABLE MATERIAL/CONSTRUCTION MASTER, intendedfinal192x192squaretile. Thiswillbecropped/composedinto16RPGMakertableautotilesbyPython. NOTisometrictable, NOT sideviewthinrestauranttable. BroadSQUARE WOODENTABLETOP seenmostlyfromABOVE occupyingthewholefloorcell. Topplane axis-aligned x8..184,y8..134: onlyverylightfewwoodgrainmarks anduniformneutralgraywoodbody, slightrounded16pxcorners, thickcleanblackedge. Orthographicplan view, no sidewalltriangles.\nBELOWtopfrontedge y134 draw FRONTAPRON andTWOlegs ONLY insidebottom58px y134..192. Frontapron width176pxsameastop x8..184, neutralgraywoodfrontface, thinblackhorizontalfrontlip. TWOsturdylegs atleft/rightoutercorners only, extenddownnearY192 onfloor. No rearleg behindshowingthrough, no underfloor/sticker shadow. Headonfrontviewprojection legsflatinline withsquaretop, notsplayedperspectivediagonal. Emptytabletop noobjects. TableheightnotproportionalhumanherebecauseRPGMakercellcoversfootprint. Need clean materialareas inTOPplane andflatfrontapron/individualleft-rightlegparts forclipping. DrawONEisolatedtabletile only, not16sheet ordiagram/label. ALL grayscale nointeractivecolors.",
+          "generatedPNG": "exec-a152ec8c-11e7-4e86-b164-03249247d794.png",
+          "use": "Generated cutting material only; not installed or registered.",
+          "cutBoxes": {
+            "surface": [
+              320,
+              280,
+              950,
+              720
+            ],
+            "front": [
+              350,
+              801,
+              900,
+              856
+            ],
+            "leg": [
+              132,
+              854,
+              250,
+              1165
+            ]
+          }
+        },
+        {
+          "kind": "table-master",
+          "theme": "b",
+          "key": "table-master-b",
+          "file": null,
+          "refs": [
+            "generated:table-master-a",
+            "assets/b/player-down.png",
+            "assets/b/chair.png",
+            "assets/b/guest-down.png"
+          ],
+          "prompt": "Use case: stylized-concept. Produce ONE single separate game sprite only, on real transparent background. Input1 is STRUCTURE/IDENTITY reference: keep that object/person and pose. Inputs2,3,4 are INDIVIDUAL theme B STYLE references (player-down,chair,guest-down); match bold confident black lines, few carefully designed large cartoon planes, flat warm color and one shadow level. Ignore mint on player and orange on chair: BACKGROUND assets must NOT use mint, orange, red or dark green. Muted beige, brown, gray, desaturated navy only. Slight overhead RPG Maker view, not isometric. NO white sticker rim, NO floor/cast shadow, NO text/logos/letters/numbers, NO extra people/props/views/sheet.\nOne single blank square WOODEN CAFE TABLE master for autotile cutting. Same shape as Input1. Large unobstructed axis-aligned tabletop surface, simple thin apron, straight legs, no objects. Muted desaturated taupe graybrown wood, not orange. Few broad woodgrain marks only, no noisytexture. Alltablevisible.",
+          "generatedPNG": "exec-5dfa17ef-fafb-4c0e-9f81-60be98a2293d.png",
+          "use": "Generated cutting material only; not installed or registered.",
+          "cutBoxes": {
+            "surface": [
+              320,
+              280,
+              950,
+              720
+            ],
+            "front": [
+              350,
+              801,
+              900,
+              856
+            ],
+            "leg": [
+              132,
+              854,
+              250,
+              1165
+            ]
+          }
+        }
+      ],
+      "images": [
+        {
+          "kind": "background",
+          "theme": "a",
+          "key": "bg-sleeper-empty",
+          "file": "assets/a/bg-sleeper-empty.png",
+          "refs": [
+            "assets/a/bg-sleeper.webp",
+            "docs/layout-guide/sleeper-empty.png",
+            "assets/a/player-down.png",
+            "assets/a/chair.png",
+            "assets/a/guest-down.png"
+          ],
+          "prompt": "Use case: precise-object-edit. CreateONE OPAQUE1920x1080cafegameBACKGROUND. Image1 EXISTINGbg-sleeper is environmentSTYLE/architecturetarget: preserve samewindows/wallsidebands/fixedcounterattop/pendantlighting/colors/thickblackstyle. Image2 is STRICTLAYOUTGUIDE, colorcellsarePLACEHOLDERS ONLY andmustnotbedrawn. Images3player,4chair,5guest arestyleonly; donotdrawanycharacters/furniture.\nREMOVE ALL freestandingobjects: bigdiningtable, tinytable, allchairs andeveryplant; remove theirshadows andpaint floorbeneath. EntireBOARD rectangle12columnsx7rows, intendedleft384top240right1536bottom912: ONLYEMPTYFLOORSQUARETILES. Uniformequal96x96squaretiles withstraightparallelhorizontal/verticallines, no perspectivevanishingpoint, no cuttriangles/isometric. Tilelinepositionsmatchlayoutguideascloselyaspossible. Floor cleanconsistenttilelightgrayA, notbrokeninto differentspacingblocks. Preservefixedcounter/walls/windows/pendantlights OUTSIDEboard only. No outlet orredtile/yellowhatching/cyanmarker: thosegamemarkers mustbeemptyfloororplainwall. No columns/tables/cups/plants/chairs/stools inboard, no people/robot/props anywhere. WholeimagegrayscaleA only, no red/greenorothercolor. Existingarchitecture visualfamily, no newstyle/texture/hatching/text/logos/captions/UI. Full16:9singlebackground notgridreferenceimage.",
+          "generatedPNG": "exec-afb0aa18-29a4-481d-a7aa-715a529178f8.png",
+          "export": {
+            "theme": "a",
+            "key": "bg-sleeper-empty",
+            "canvas": [
+              1920,
+              1080
+            ],
+            "sourceSize": [
+              1672,
+              941
+            ],
+            "opaque": true,
+            "sha256": "7e4a8de47d1b85bc35c9e44a0e19243b30e7b240247a559a27e5e4fa4e3e780e"
+          },
+          "processing": "Crop transparent margins at alpha>128, UNIFORM scale only, center on requested canvas. Floor anchor at canvas bottom for seated/plant/pillar; tabletop props centered. Preserve original color/line/shape/alpha. Background uniform fit to1920x1080 RGB."
+        },
+        {
+          "kind": "seated",
+          "theme": "a",
+          "person": 1,
+          "direction": "down",
+          "key": "seated-1-down",
+          "file": "assets/a/seated-1-down.png",
+          "refs": [
+            "assets/a/seated-1-down.png (initial generated front before chair-floor correction)"
+          ],
+          "prompt": "Use case: precise-object-edit. Preserve exact suppliedNEWseatedperson1, identity/hair/headphonesandvest/outfit/face/pose/chair unchanged. TWO physicalfixes: extendALLvisibleCHAIRLEGS straightDOWNuntiltheirbottomsatSAMEFLOORLINEasshoesoles. Currentchairlegs endaboveshoes, lookingfloating. Chairlegtips shouldreachshoeBOTTOM, don'tshortenlegsorpants. KeepchairSEATlevel(~77pxabovefloorwhenwholeheight212), hipsONSEAT, nocrouch. REMOVE the entireLAPTOP fromlap, leavingemptypalmsforwardinTYPINGgesture, notholdinganything. LaptopandtableareSEPARATEASSETS. Restorepants/shirtbehindremovedlaptop, noflatblankrectangle. No otherchanges, no newprops, no shadow/glow/whiteborder/text, trueRGBAbackground.",
+          "lineage": [
+            {
+              "prompt": "Use case: stylized-concept. ONE separate2Dcaferoomgameasset onTRUEtransparentbackground. Image1player,Image2chair,Image3guest are INDIVIDUALSTYLEreferences ONLY: sameconfidentthickblacklinework, carefullydesignedlargecartoonplanes, clearformelegantshadowshape likeprotagonist, not sketchy/loweffort but NO extra tinyhatching/noise. Camera RPGMaker orthographic slightoverhead, NOTisometric, horizontalgroundalignment. No words/letters/numbers/logos, no white-stickerborder/castgroundshadow/glow/background/floortile. ThemeA onlyBLACK/WHITE/NEUTRALGRAY for allfurniture, people, props andleaves. IgnoreplayerRED andchairGREEN inreferences: thoseareINTERACTIVEcolors andMUSTNOTappear in thisbackgroundasset. Fullassetunclipped. SEATEDCAFEGUEST WITHCHAIR asONEcomposite. Canvas192x288RGBA, headtopabouty76, floorbottomy288. Wholeperson+chairheight212px (~125cm), chairSEATatY211 (77pxabovefloor,45cm). Chairfourlegtips andpersonshoes reachfloorbottomy288, hipsrestONSEAT, NEVERsquat/kneel/sitair. Kneesintable-facingdirection atordinaryseatedheight, notdrawnattopoffeet. ChairneutralgrayA, NOTgreenpushchair. Sameperson/body/chairheight/groundanchorinallfourviews. Personnot tiny silhouette orcopyofexistingstudent. NEW PERSON1: straight smooth chin-lengthBOB hair inmediumgray, over-earROUNDHEADPHONES withvisibleheadband (ONLYheadphonesaccessory,NOglasses/cap). Cleanstructuredlong sleevelessVEST/overshirtoverplainlongsleeve, straightdarkpants, simpleshoes. Neutralgender youngadult, face andsilhouette clearlydifferentfrom existingmessyshortblackhairedguest/capguest/lightshorthairedguest. Uprightneckandcleanshoulderline, thoughtfullydrawnfacialfeatures andclothingplanes, no extraembroidery.\nTYPING ONLAPTOP onadjacenttable towardfacingdirection: bothforearmsforward, handspalmslow withfewsimplefingers atkeyboardheight. DoNOTdrawlaptop/table inpersonfile; thoseareseparatetabletopasset. Handsrelaxedtyping notpushingfists.\nDIRECTIONDOWN: frontview, facingtowardviewer/screenBOTTOM andtableinadjacentBOTTOMcell. Chairbackbehindbodypartlyhidden, kneesandshoesfront, allchairlegsreachbaseline. Twohandsandface readable, comfortableseatedposture.",
+              "refs": [
+                "assets/a/player-down.png",
+                "assets/a/chair.png",
+                "assets/a/guest-down.png"
+              ]
+            }
+          ],
+          "generatedPNG": "exec-c5060d35-72a1-4b2a-aae1-eaa0be487654.png",
+          "export": {
+            "theme": "a",
+            "key": "seated-1-down",
+            "canvas": [
+              192,
+              288
+            ],
+            "sourceSize": [
+              1024,
+              1536
+            ],
+            "cropBox": [
+              286,
+              109,
+              738,
+              1460
+            ],
+            "visibleSize": [
+              71,
+              212
+            ],
+            "placement": [
+              60,
+              76
+            ],
+            "lastOpaqueRow": 287,
+            "sha256": "4ba79e602b3b606ea2a81de25aab729935d915470a71259baf0ee8f902ea2df6"
+          },
+          "processing": "Crop transparent margins at alpha>128, UNIFORM scale only, center on requested canvas. Floor anchor at canvas bottom for seated/plant/pillar; tabletop props centered. Preserve original color/line/shape/alpha. Background uniform fit to1920x1080 RGB."
+        },
+        {
+          "kind": "seated",
+          "theme": "a",
+          "person": 2,
+          "direction": "down",
+          "key": "seated-2-down",
+          "file": "assets/a/seated-2-down.png",
+          "refs": [
+            "assets/a/seated-2-down.png (initial generated front before chair-floor correction)"
+          ],
+          "prompt": "Use case: precise-object-edit. Preserve exact suppliedNEWseatedperson2, identity/hair/glasses/bun/cardigan/outfit/face/pose/chair unchanged. TWO physicalfixes: extendALLvisibleCHAIRLEGS straightDOWNuntiltheirbottomsatSAMEFLOORLINEasshoesoles. Currentchairlegs endaboveshoes, lookingfloating. Chairlegtips shouldreachshoeBOTTOM, don'tshortenlegsorpants. KeepchairSEATlevel(~77pxabovefloorwhenwholeheight212), hipsONSEAT, nocrouch. Keepblankphoneheldintwohands exactlyasnow. No otherchanges, no newprops, no shadow/glow/whiteborder/text, trueRGBAbackground.",
+          "lineage": [
+            {
+              "prompt": "Use case: stylized-concept. ONE separate2Dcaferoomgameasset onTRUEtransparentbackground. Image1player,Image2chair,Image3guest are INDIVIDUALSTYLEreferences ONLY: sameconfidentthickblacklinework, carefullydesignedlargecartoonplanes, clearformelegantshadowshape likeprotagonist, not sketchy/loweffort but NO extra tinyhatching/noise. Camera RPGMaker orthographic slightoverhead, NOTisometric, horizontalgroundalignment. No words/letters/numbers/logos, no white-stickerborder/castgroundshadow/glow/background/floortile. ThemeA onlyBLACK/WHITE/NEUTRALGRAY for allfurniture, people, props andleaves. IgnoreplayerRED andchairGREEN inreferences: thoseareINTERACTIVEcolors andMUSTNOTappear in thisbackgroundasset. Fullassetunclipped. SEATEDCAFEGUEST WITHCHAIR asONEcomposite. Canvas192x288RGBA, headtopabouty76, floorbottomy288. Wholeperson+chairheight212px (~125cm), chairSEATatY211 (77pxabovefloor,45cm). Chairfourlegtips andpersonshoes reachfloorbottomy288, hipsrestONSEAT, NEVERsquat/kneel/sitair. Kneesintable-facingdirection atordinaryseatedheight, notdrawnattopoffeet. ChairneutralgrayA, NOTgreenpushchair. Sameperson/body/chairheight/groundanchorinallfourviews. Personnot tiny silhouette orcopyofexistingstudent. NEW PERSON2: tidyhairpulledintoONEsmallHIGHBUN/topknot withsmoothsides, ROUNDGLASSES (ONLYglassesaccessory,NOheadphones/cap). ShortboxyCASUALJACKET/cardigan overplainshirt, slightlybroadercoat silhouettethanperson1, mediumgraypants andsimpleshoes. Neutralgender youngadult, not existingmessy/cap/shortlightguest. Carefulclearneckandshoulderform, well-definedface andfewclothingfoldplanes, no logos.\nLOOKINGATPHONE: smallgrayblankSMARTPHONEheldintwohands atlowchest/lap, elbowsbent, headslightlydownlookingatownscreen. DoNOTdrawtext/numbers/emojis onscreen. Thisphone belongsinpersonfile.\nDIRECTIONDOWN: frontview, facingtowardviewer/screenBOTTOM andtableinadjacentBOTTOMcell. Chairbackbehindbodypartlyhidden, kneesandshoesfront, allchairlegsreachbaseline. Twohandsandface readable, comfortableseatedposture.",
+              "refs": [
+                "assets/a/player-down.png",
+                "assets/a/chair.png",
+                "assets/a/guest-down.png"
+              ]
+            }
+          ],
+          "generatedPNG": "exec-69ef7034-4c58-451a-a460-d2c9c664d992.png",
+          "export": {
+            "theme": "a",
+            "key": "seated-2-down",
+            "canvas": [
+              192,
+              288
+            ],
+            "sourceSize": [
+              1024,
+              1536
+            ],
+            "cropBox": [
+              279,
+              124,
+              746,
+              1469
+            ],
+            "visibleSize": [
+              74,
+              212
+            ],
+            "placement": [
+              59,
+              76
+            ],
+            "lastOpaqueRow": 287,
+            "sha256": "cc3ac445e15717fb8fae72355096d246f05c72aebc3148c5ce9b84642a7d8097"
+          },
+          "processing": "Crop transparent margins at alpha>128, UNIFORM scale only, center on requested canvas. Floor anchor at canvas bottom for seated/plant/pillar; tabletop props centered. Preserve original color/line/shape/alpha. Background uniform fit to1920x1080 RGB."
+        },
+        {
+          "key": "tabletop-1",
+          "kind": "top-prop",
+          "target": [
+            44,
+            24
+          ],
+          "prompt": "Use case: stylized-concept. ONE separate2Dcaferoomgameasset onTRUEtransparentbackground. Image1player,Image2chair,Image3guest are INDIVIDUALSTYLEreferences ONLY: sameconfidentthickblacklinework, carefullydesignedlargecartoonplanes, clearformelegantshadowshape likeprotagonist, not sketchy/loweffort but NO extra tinyhatching/noise. Camera RPGMaker orthographic slightoverhead, NOTisometric, horizontalgroundalignment. No words/letters/numbers/logos, no white-stickerborder/castgroundshadow/glow/background/floortile. ThemeA onlyBLACK/WHITE/NEUTRALGRAY for allfurniture, people, props andleaves. IgnoreplayerRED andchairGREEN inreferences: thoseareINTERACTIVEcolors andMUSTNOTappear in thisbackgroundasset. Fullassetunclipped. TWO SMALLCERAMICCOFFEECUPS only, sidebysidewithsmallgap, simplehandles, ovalrims, lowmugs. No tray/table/saucer/spoon/steam. Realcup8cmwide10cmhigh, finaltwo-cupgroup44pxwide24pxhigh centeredat96,96 on192square. Generateobjectslargeforquality thenuniformresizewillsetreal-scale. Clearboldshapes, grayscale.",
+          "theme": "a",
+          "file": "assets/a/tabletop-1.png",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/chair.png",
+            "assets/a/guest-down.png"
+          ],
+          "generatedPNG": "exec-4e2ae9fc-e41e-4265-bd08-ef654f51fee9.png",
+          "export": {
+            "theme": "a",
+            "key": "tabletop-1",
+            "canvas": [
+              192,
+              192
+            ],
+            "sourceSize": [
+              1254,
+              1254
+            ],
+            "cropBox": [
+              231,
+              478,
+              1024,
+              780
+            ],
+            "visibleSize": [
+              44,
+              17
+            ],
+            "placement": [
+              74,
+              87
+            ],
+            "lastOpaqueRow": 103,
+            "sha256": "292fd2c1a4dc21fcac5e1cdcf9cda948021915852679a26dfe3a83acd4c23f4d"
+          },
+          "processing": "Crop transparent margins at alpha>128, UNIFORM scale only, center on requested canvas. Floor anchor at canvas bottom for seated/plant/pillar; tabletop props centered. Preserve original color/line/shape/alpha. Background uniform fit to1920x1080 RGB."
+        },
+        {
+          "key": "tabletop-2",
+          "kind": "top-prop",
+          "target": [
+            56,
+            43
+          ],
+          "prompt": "Use case: stylized-concept. ONE separate2Dcaferoomgameasset onTRUEtransparentbackground. Image1player,Image2chair,Image3guest are INDIVIDUALSTYLEreferences ONLY: sameconfidentthickblacklinework, carefullydesignedlargecartoonplanes, clearformelegantshadowshape likeprotagonist, not sketchy/loweffort but NO extra tinyhatching/noise. Camera RPGMaker orthographic slightoverhead, NOTisometric, horizontalgroundalignment. No words/letters/numbers/logos, no white-stickerborder/castgroundshadow/glow/background/floortile. ThemeA onlyBLACK/WHITE/NEUTRALGRAY for allfurniture, people, props andleaves. IgnoreplayerRED andchairGREEN inreferences: thoseareINTERACTIVEcolors andMUSTNOTappear in thisbackgroundasset. Fullassetunclipped. ONE OPENLAPTOP only, headonfromslightlyabove, uprightbackscreenwithBLANKdarkdisplay, simplekeyboardbase withfewunlabeledkeyrectangles, NO text/logos/letters. No hands/person/table. Real31cmwide, finalgroup56pxwide43pxhigh centered96,96 on192square. Compactprofessionalgraylaptop notgiantmonitor.",
+          "theme": "a",
+          "file": "assets/a/tabletop-2.png",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/chair.png",
+            "assets/a/guest-down.png"
+          ],
+          "generatedPNG": "exec-4885d1c3-2ffb-4ce7-997a-895da6be6b4b.png",
+          "export": {
+            "theme": "a",
+            "key": "tabletop-2",
+            "canvas": [
+              192,
+              192
+            ],
+            "sourceSize": [
+              1491,
+              1055
+            ],
+            "cropBox": [
+              362,
+              194,
+              1128,
+              875
+            ],
+            "visibleSize": [
+              48,
+              43
+            ],
+            "placement": [
+              72,
+              74
+            ],
+            "lastOpaqueRow": 116,
+            "sha256": "33f52cd203dae9018b75d51ab7774ba81d8c23a6d7071404285a6d540933c61d"
+          },
+          "processing": "Crop transparent margins at alpha>128, UNIFORM scale only, center on requested canvas. Floor anchor at canvas bottom for seated/plant/pillar; tabletop props centered. Preserve original color/line/shape/alpha. Background uniform fit to1920x1080 RGB."
+        },
+        {
+          "key": "tabletop-3",
+          "kind": "top-prop",
+          "target": [
+            66,
+            40
+          ],
+          "prompt": "Use case: stylized-concept. ONE separate2Dcaferoomgameasset onTRUEtransparentbackground. Image1player,Image2chair,Image3guest are INDIVIDUALSTYLEreferences ONLY: sameconfidentthickblacklinework, carefullydesignedlargecartoonplanes, clearformelegantshadowshape likeprotagonist, not sketchy/loweffort but NO extra tinyhatching/noise. Camera RPGMaker orthographic slightoverhead, NOTisometric, horizontalgroundalignment. No words/letters/numbers/logos, no white-stickerborder/castgroundshadow/glow/background/floortile. ThemeA onlyBLACK/WHITE/NEUTRALGRAY for allfurniture, people, props andleaves. IgnoreplayerRED andchairGREEN inreferences: thoseareINTERACTIVEcolors andMUSTNOTappear in thisbackgroundasset. Fullassetunclipped. ONE CLOSEDBOOK andONE SMALLNOTEBOOK only, slightlyoverlappingonflatplane. RealbookA5-A4 scale, finalgroup66pxwide40pxhigh centered96,96 on192square. Plaincovers, notebookblankpages withsimplebinding, no text/letters/numbers/graphiccover/pen/table/otherprops. Boldoutlinesfewpageplanes.",
+          "theme": "a",
+          "file": "assets/a/tabletop-3.png",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/chair.png",
+            "assets/a/guest-down.png"
+          ],
+          "generatedPNG": "exec-fa8971fb-75cc-45ee-80b1-938883bd8327.png",
+          "export": {
+            "theme": "a",
+            "key": "tabletop-3",
+            "canvas": [
+              192,
+              192
+            ],
+            "sourceSize": [
+              1254,
+              1254
+            ],
+            "cropBox": [
+              194,
+              366,
+              1065,
+              947
+            ],
+            "visibleSize": [
+              60,
+              40
+            ],
+            "placement": [
+              66,
+              76
+            ],
+            "lastOpaqueRow": 115,
+            "sha256": "f1c01e43167630868cf23e1c1dc7dd6c0cf3cdad8c465996b5e19b417962acb6"
+          },
+          "processing": "Crop transparent margins at alpha>128, UNIFORM scale only, center on requested canvas. Floor anchor at canvas bottom for seated/plant/pillar; tabletop props centered. Preserve original color/line/shape/alpha. Background uniform fit to1920x1080 RGB."
+        },
+        {
+          "key": "tabletop-4",
+          "kind": "top-prop",
+          "target": [
+            32,
+            35
+          ],
+          "prompt": "Use case: stylized-concept. ONE separate2Dcaferoomgameasset onTRUEtransparentbackground. Image1player,Image2chair,Image3guest are INDIVIDUALSTYLEreferences ONLY: sameconfidentthickblacklinework, carefullydesignedlargecartoonplanes, clearformelegantshadowshape likeprotagonist, not sketchy/loweffort but NO extra tinyhatching/noise. Camera RPGMaker orthographic slightoverhead, NOTisometric, horizontalgroundalignment. No words/letters/numbers/logos, no white-stickerborder/castgroundshadow/glow/background/floortile. ThemeA onlyBLACK/WHITE/NEUTRALGRAY for allfurniture, people, props andleaves. IgnoreplayerRED andchairGREEN inreferences: thoseareINTERACTIVEcolors andMUSTNOTappear in thisbackgroundasset. Fullassetunclipped. ONE TINYTABLETOPPOTTEDPLANT, about20cmtall, finalVISIBLEHEIGHT35px andwholewidthabout28px, potbody~14pxwide, centered96,96 on192square. Only3or4broadleaves/shortstem, neutralgrayfoliageandpot. No largeshrub/treetrunk/saucer/table/ground. Cleanbroadsimpleleafsilhouette, nottinydetailedbush.",
+          "theme": "a",
+          "file": "assets/a/tabletop-4.png",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/chair.png",
+            "assets/a/guest-down.png"
+          ],
+          "generatedPNG": "exec-7744a211-a6b3-411f-b6cf-cef2d2608a31.png",
+          "export": {
+            "theme": "a",
+            "key": "tabletop-4",
+            "canvas": [
+              192,
+              192
+            ],
+            "sourceSize": [
+              1254,
+              1254
+            ],
+            "cropBox": [
+              322,
+              323,
+              893,
+              950
+            ],
+            "visibleSize": [
+              32,
+              35
+            ],
+            "placement": [
+              80,
+              78
+            ],
+            "lastOpaqueRow": 112,
+            "sha256": "239bf20b31bfddd7cbe93d9b96f87c7ec567ca06c2ac415a7714854b52e8d980"
+          },
+          "processing": "Crop transparent margins at alpha>128, UNIFORM scale only, center on requested canvas. Floor anchor at canvas bottom for seated/plant/pillar; tabletop props centered. Preserve original color/line/shape/alpha. Background uniform fit to1920x1080 RGB."
+        },
+        {
+          "key": "plant-floor",
+          "kind": "plant",
+          "target": [
+            112,
+            153
+          ],
+          "prompt": "Use case: stylized-concept. ONE separate2Dcaferoomgameasset onTRUEtransparentbackground. Image1player,Image2chair,Image3guest are INDIVIDUALSTYLEreferences ONLY: sameconfidentthickblacklinework, carefullydesignedlargecartoonplanes, clearformelegantshadowshape likeprotagonist, not sketchy/loweffort but NO extra tinyhatching/noise. Camera RPGMaker orthographic slightoverhead, NOTisometric, horizontalgroundalignment. No words/letters/numbers/logos, no white-stickerborder/castgroundshadow/glow/background/floortile. ThemeA onlyBLACK/WHITE/NEUTRALGRAY for allfurniture, people, props andleaves. IgnoreplayerRED andchairGREEN inreferences: thoseareINTERACTIVEcolors andMUSTNOTappear in thisbackgroundasset. Fullassetunclipped. ONE COMPACTINDOORFLOORPOTTEDPLANT: height<=90cm, finalVISIBLEHEIGHT153px, widepotbodyWIDTH77px (~45cmdiameter), wholefoliagewidthabout110px. Wide squat potbase, shortstem/trunkandfewlarge leaves, no giantperson-heighttree. ALLneutralgrayA includingleaves. Final192squarecanvas, potbasebottomY192, centered. No ground/shadow/stickerborder, no extraobjects. Physicallyplausiblesmallcafefloorplant.",
+          "theme": "a",
+          "file": "assets/a/plant-floor.png",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/chair.png",
+            "assets/a/guest-down.png"
+          ],
+          "generatedPNG": "exec-7fc576b6-0123-40d1-bb28-67f682c069e8.png",
+          "export": {
+            "theme": "a",
+            "key": "plant-floor",
+            "canvas": [
+              192,
+              192
+            ],
+            "sourceSize": [
+              1254,
+              1254
+            ],
+            "cropBox": [
+              151,
+              98,
+              1143,
+              1164
+            ],
+            "visibleSize": [
+              142,
+              153
+            ],
+            "placement": [
+              25,
+              39
+            ],
+            "lastOpaqueRow": 191,
+            "sha256": "dde1f6df4a82e04b568d3890463f7fa4eff41a27ac0d766b61cf89c2552d4943"
+          },
+          "processing": "Crop transparent margins at alpha>128, UNIFORM scale only, center on requested canvas. Floor anchor at canvas bottom for seated/plant/pillar; tabletop props centered. Preserve original color/line/shape/alpha. Background uniform fit to1920x1080 RGB."
+        },
+        {
+          "key": "pillar",
+          "kind": "pillar",
+          "target": [
+            134,
+            460
+          ],
+          "prompt": "Use case: precise-object-edit. Input1 is edit target gray pillar. Keep same black/whitegray cartoon style, simple topcap/shaft/base and transparency. Correct ONLY proportions: whole silhouette width:height MUSTbe134:460 (~0.291), visibly BROADER than original which was415:1920(~0.216). Make shaft/column 35% BROADER, keepheight. Input2/3/4 individualstyle refs. Canvas192x480, fullcolumnwidth134px, fullheight460px, baseatbottom. No shadows/stickeroutline/text/props. Onepillar only.",
+          "theme": "a",
+          "file": "assets/a/pillar.png",
+          "refs": [
+            "generated:pillar-a-first",
+            "assets/a/player-down.png",
+            "assets/a/chair.png",
+            "assets/a/guest-down.png"
+          ],
+          "lineage": [
+            {
+              "prompt": "Use case: stylized-concept. ONE separate2Dcaferoomgameasset onTRUEtransparentbackground. Image1player,Image2chair,Image3guest are INDIVIDUALSTYLEreferences ONLY: sameconfidentthickblacklinework, carefullydesignedlargecartoonplanes, clearformelegantshadowshape likeprotagonist, not sketchy/loweffort but NO extra tinyhatching/noise. Camera RPGMaker orthographic slightoverhead, NOTisometric, horizontalgroundalignment. No words/letters/numbers/logos, no white-stickerborder/castgroundshadow/glow/background/floortile. ThemeA onlyBLACK/WHITE/NEUTRALGRAY for allfurniture, people, props andleaves. IgnoreplayerRED andchairGREEN inreferences: thoseareINTERACTIVEcolors andMUSTNOTappear in thisbackgroundasset. Fullassetunclipped. ONE TALLNARROW SQUARE CAFESTRUCTURALCOLUMN/plasterpillar, notplant/lamppost. Uprightrectangularshaft withsimpletopcapandsmallrectangularbaseplinth, slighttopfacevisiblebutNOTisometric diamond. Height~460px on192x480canvas; WHOLECOLUMNWIDTH134px includingbase, floorbottomy480. Shaft~110pxwide, proportionsTALLSLENDER (height3.4xwidth), no widebottompanel/wallpiece. Lower192pxofcanvasisfloorcell region, no drawnfloortile. Grayplaster/stone, boldcarefulfewplanes, no carvings/signs/poweroutlet/objects/floorshadow.",
+              "refs": [
+                "assets/a/player-down.png",
+                "assets/a/chair.png",
+                "assets/a/guest-down.png"
+              ]
+            }
+          ],
+          "generatedPNG": "exec-f393f536-e842-434e-a889-a61bfb34005f.png",
+          "export": {
+            "theme": "a",
+            "key": "pillar",
+            "canvas": [
+              192,
+              480
+            ],
+            "sourceSize": [
+              793,
+              1983
+            ],
+            "cropBox": [
+              105,
+              55,
+              688,
+              1931
+            ],
+            "visibleSize": [
+              134,
+              431
+            ],
+            "placement": [
+              29,
+              49
+            ],
+            "lastOpaqueRow": 479,
+            "sha256": "98b70f4cb9e642cf80a723428a73b1fd4fc2db04a0e815dc24707b899cb66cf4"
+          },
+          "processing": "Crop transparent margins at alpha>128, UNIFORM scale only, center on requested canvas. Floor anchor at canvas bottom for seated/plant/pillar; tabletop props centered. Preserve original color/line/shape/alpha. Background uniform fit to1920x1080 RGB."
+        },
+        {
+          "kind": "seated",
+          "theme": "a",
+          "person": 2,
+          "direction": "up",
+          "key": "seated-2-up",
+          "file": "assets/a/seated-2-up.png",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/chair.png",
+            "assets/a/guest-down.png",
+            "assets/a/seated-2-down.png (selected corrected full-resolution front)"
+          ],
+          "prompt": "Use case: stylized-concept. ONE separate2Dcaferoomgameasset onTRUEtransparentbackground. Image1player,Image2chair,Image3guest are INDIVIDUALSTYLEreferences ONLY: sameconfidentthickblacklinework, carefullydesignedlargecartoonplanes, clearformelegantshadowshape likeprotagonist, not sketchy/loweffort but NO extra tinyhatching/noise. Camera RPGMaker orthographic slightoverhead, NOTisometric, horizontalgroundalignment. No words/letters/numbers/logos, no white-stickerborder/castgroundshadow/glow/background/floortile. ThemeA onlyBLACK/WHITE/NEUTRALGRAY for allfurniture, people, props andleaves. IgnoreplayerRED andchairGREEN inreferences: thoseareINTERACTIVEcolors andMUSTNOTappear in thisbackgroundasset. Fullassetunclipped. SEATEDCAFEGUEST WITHCHAIR asONEcomposite. Canvas192x288RGBA, headtopabouty76, floorbottomy288. Wholeperson+chairheight212px (~125cm), chairSEATatY211 (77pxabovefloor,45cm). Chairfourlegtips andpersonshoes reachfloorbottomy288, hipsrestONSEAT, NEVERsquat/kneel/sitair. Kneesintable-facingdirection atordinaryseatedheight, notdrawnattopoffeet. ChairneutralgrayA, NOTgreenpushchair. Sameperson/body/chairheight/groundanchorinallfourviews. Personnot tiny silhouette orcopyofexistingstudent. NEW PERSON2: tidyhairpulledintoONEsmallHIGHBUN/topknot withsmoothsides, ROUNDGLASSES (ONLYglassesaccessory,NOheadphones/cap). ShortboxyCASUALJACKET/cardigan overplainshirt, slightlybroadercoat silhouettethanperson1, mediumgraypants andsimpleshoes. Neutralgender youngadult, not existingmessy/cap/shortlightguest. Carefulclearneckandshoulderform, well-definedface andfewclothingfoldplanes, no logos.\nLOOKINGATPHONE: smallgrayblankSMARTPHONEheldintwohands atlowchest/lap, elbowsbent, headslightlydownlookingatownscreen. DoNOTdrawtext/numbers/emojis onscreen. Thisphone belongsinpersonfile.\nDIRECTION: REARVIEW: faceandknees towardscreenTOP/adjacentUPtable. Backofhead/accessory andCHAIRBACKvisible; chairbackcoverslowerback, fourlegsreachsamefloorlineasshoes. No eyes/phoneprintedonbackofhead.\nImage4 iscorrectedFRONTIDENTITY/CHAIRmaster; SAMEpersonbodyandchairdimensions/accessory/hair. Rotatewholepersonandchair. ALLCHAIRLEGtips onshoe-floorline, notfloating. Forperson1 absolutelyNOlaptop/keyboard/table drawnonlap/inpersonfile, onlyhandsintypingpose. Person2keepphone.",
+          "sourceBox": [
+            510,
+            120,
+            1000,
+            1460
+          ],
+          "generatedPNG": "exec-9d319678-1f38-421d-aaa0-cbe20a5511a5.png",
+          "export": {
+            "theme": "a",
+            "key": "seated-2-up",
+            "canvas": [
+              192,
+              288
+            ],
+            "sourceSize": [
+              490,
+              1340
+            ],
+            "cropBox": [
+              13,
+              68,
+              469,
+              1304
+            ],
+            "visibleSize": [
+              78,
+              212
+            ],
+            "placement": [
+              57,
+              76
+            ],
+            "lastOpaqueRow": 287,
+            "sha256": "5e3fa369d407a8bb8605617dff29f7b623ef87b935995cf2a0b149069e80a8a6"
+          },
+          "processing": "Crop transparent margins at alpha>128, UNIFORM scale only, center on requested canvas. Floor anchor at canvas bottom for seated/plant/pillar; tabletop props centered. Preserve original color/line/shape/alpha. Background uniform fit to1920x1080 RGB. First crop ONLY requested rear view from generated multi-view sheet using sourceBox; remove other views without changing pixels."
+        },
+        {
+          "kind": "seated",
+          "theme": "a",
+          "person": 1,
+          "direction": "up",
+          "key": "seated-1-up",
+          "file": "assets/a/seated-1-up.png",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/chair.png",
+            "assets/a/guest-down.png",
+            "assets/a/seated-1-down.png (selected corrected full-resolution front)"
+          ],
+          "prompt": "Use case: stylized-concept. ONE separate2Dcaferoomgameasset onTRUEtransparentbackground. Image1player,Image2chair,Image3guest are INDIVIDUALSTYLEreferences ONLY: sameconfidentthickblacklinework, carefullydesignedlargecartoonplanes, clearformelegantshadowshape likeprotagonist, not sketchy/loweffort but NO extra tinyhatching/noise. Camera RPGMaker orthographic slightoverhead, NOTisometric, horizontalgroundalignment. No words/letters/numbers/logos, no white-stickerborder/castgroundshadow/glow/background/floortile. ThemeA onlyBLACK/WHITE/NEUTRALGRAY for allfurniture, people, props andleaves. IgnoreplayerRED andchairGREEN inreferences: thoseareINTERACTIVEcolors andMUSTNOTappear in thisbackgroundasset. Fullassetunclipped. SEATEDCAFEGUEST WITHCHAIR asONEcomposite. Canvas192x288RGBA, headtopabouty76, floorbottomy288. Wholeperson+chairheight212px (~125cm), chairSEATatY211 (77pxabovefloor,45cm). Chairfourlegtips andpersonshoes reachfloorbottomy288, hipsrestONSEAT, NEVERsquat/kneel/sitair. Kneesintable-facingdirection atordinaryseatedheight, notdrawnattopoffeet. ChairneutralgrayA, NOTgreenpushchair. Sameperson/body/chairheight/groundanchorinallfourviews. Personnot tiny silhouette orcopyofexistingstudent. NEW PERSON1: straight smooth chin-lengthBOB hair inmediumgray, over-earROUNDHEADPHONES withvisibleheadband (ONLYheadphonesaccessory,NOglasses/cap). Cleanstructuredlong sleevelessVEST/overshirtoverplainlongsleeve, straightdarkpants, simpleshoes. Neutralgender youngadult, face andsilhouette clearlydifferentfrom existingmessyshortblackhairedguest/capguest/lightshorthairedguest. Uprightneckandcleanshoulderline, thoughtfullydrawnfacialfeatures andclothingplanes, no extraembroidery.\nTYPING ONLAPTOP onadjacenttable towardfacingdirection: bothforearmsforward, handspalmslow withfewsimplefingers atkeyboardheight. DoNOTdrawlaptop/table inpersonfile; thoseareseparatetabletopasset. Handsrelaxedtyping notpushingfists.\nDIRECTION: REARVIEW: faceandknees towardscreenTOP/adjacentUPtable. Backofhead/accessory andCHAIRBACKvisible; chairbackcoverslowerback, fourlegsreachsamefloorlineasshoes. No eyes/phoneprintedonbackofhead.\nImage4 iscorrectedFRONTIDENTITY/CHAIRmaster; SAMEpersonbodyandchairdimensions/accessory/hair. Rotatewholepersonandchair. ALLCHAIRLEGtips onshoe-floorline, notfloating. Forperson1 absolutelyNOlaptop/keyboard/table drawnonlap/inpersonfile, onlyhandsintypingpose. Person2keepphone.",
+          "sourceBox": [
+            530,
+            0,
+            870,
+            790
+          ],
+          "generatedPNG": "exec-b6fa826c-e074-48b2-aa71-75af085a6ab8.png",
+          "export": {
+            "theme": "a",
+            "key": "seated-1-up",
+            "canvas": [
+              192,
+              288
+            ],
+            "sourceSize": [
+              340,
+              790
+            ],
+            "cropBox": [
+              28,
+              33,
+              314,
+              761
+            ],
+            "visibleSize": [
+              83,
+              212
+            ],
+            "placement": [
+              54,
+              76
+            ],
+            "lastOpaqueRow": 287,
+            "sha256": "bb41ece26a328ae8632adf8e6bc5379920b22aee7749d4c8414d5b42df1e4265"
+          },
+          "processing": "Crop transparent margins at alpha>128, UNIFORM scale only, center on requested canvas. Floor anchor at canvas bottom for seated/plant/pillar; tabletop props centered. Preserve original color/line/shape/alpha. Background uniform fit to1920x1080 RGB. First crop ONLY requested rear view from generated multi-view sheet using sourceBox; remove other views without changing pixels."
+        },
+        {
+          "kind": "seated",
+          "theme": "a",
+          "person": 1,
+          "direction": "left",
+          "key": "seated-1-left",
+          "file": "assets/a/seated-1-left.png",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/chair.png",
+            "assets/a/guest-down.png",
+            "assets/a/seated-1-down.png (selected corrected full-resolution front)"
+          ],
+          "prompt": "Use case: stylized-concept. ONE separate2Dcaferoomgameasset onTRUEtransparentbackground. Image1player,Image2chair,Image3guest are INDIVIDUALSTYLEreferences ONLY: sameconfidentthickblacklinework, carefullydesignedlargecartoonplanes, clearformelegantshadowshape likeprotagonist, not sketchy/loweffort but NO extra tinyhatching/noise. Camera RPGMaker orthographic slightoverhead, NOTisometric, horizontalgroundalignment. No words/letters/numbers/logos, no white-stickerborder/castgroundshadow/glow/background/floortile. ThemeA onlyBLACK/WHITE/NEUTRALGRAY for allfurniture, people, props andleaves. IgnoreplayerRED andchairGREEN inreferences: thoseareINTERACTIVEcolors andMUSTNOTappear in thisbackgroundasset. Fullassetunclipped. SEATEDCAFEGUEST WITHCHAIR asONEcomposite. Canvas192x288RGBA, headtopabouty76, floorbottomy288. Wholeperson+chairheight212px (~125cm), chairSEATatY211 (77pxabovefloor,45cm). Chairfourlegtips andpersonshoes reachfloorbottomy288, hipsrestONSEAT, NEVERsquat/kneel/sitair. Kneesintable-facingdirection atordinaryseatedheight, notdrawnattopoffeet. ChairneutralgrayA, NOTgreenpushchair. Sameperson/body/chairheight/groundanchorinallfourviews. Personnot tiny silhouette orcopyofexistingstudent. NEW PERSON1: straight smooth chin-lengthBOB hair inmediumgray, over-earROUNDHEADPHONES withvisibleheadband (ONLYheadphonesaccessory,NOglasses/cap). Cleanstructuredlong sleevelessVEST/overshirtoverplainlongsleeve, straightdarkpants, simpleshoes. Neutralgender youngadult, face andsilhouette clearlydifferentfrom existingmessyshortblackhairedguest/capguest/lightshorthairedguest. Uprightneckandcleanshoulderline, thoughtfullydrawnfacialfeatures andclothingplanes, no extraembroidery.\nTYPING ONLAPTOP onadjacenttable towardfacingdirection: bothforearmsforward, handspalmslow withfewsimplefingers atkeyboardheight. DoNOTdrawlaptop/table inpersonfile; thoseareseparatetabletopasset. Handsrelaxedtyping notpushingfists.\nDIRECTION: LEFT SIDEPROFILE: face/torso/knees/shoetipsandworkgesture alltowardLEFTadjacenttable, nottowardviewer. Chairseatunderhips, chairlegsallwaytofloor. Neararmvisible, fararmnaturallypartlyoccluded.\nImage4 iscorrectedFRONTIDENTITY/CHAIRmaster; SAMEpersonbodyandchairdimensions/accessory/hair. Rotatewholepersonandchair. ALLCHAIRLEGtips onshoe-floorline, notfloating. Forperson1 absolutelyNOlaptop/keyboard/table drawnonlap/inpersonfile, onlyhandsintypingpose. Person2keepphone.",
+          "generatedPNG": "exec-ee3f49cc-f798-4445-ae6a-949b4808f99b.png",
+          "export": {
+            "theme": "a",
+            "key": "seated-1-left",
+            "canvas": [
+              192,
+              288
+            ],
+            "sourceSize": [
+              1024,
+              1536
+            ],
+            "cropBox": [
+              181,
+              162,
+              814,
+              1460
+            ],
+            "visibleSize": [
+              103,
+              212
+            ],
+            "placement": [
+              44,
+              76
+            ],
+            "lastOpaqueRow": 287,
+            "sha256": "dccc319564b3c4de59806b066a4f9edbaaf73a37f7c932eb3a6ba170dce6a3b6"
+          },
+          "processing": "Crop transparent margins at alpha>128, UNIFORM scale only, center on requested canvas. Floor anchor at canvas bottom for seated/plant/pillar; tabletop props centered. Preserve original color/line/shape/alpha. Background uniform fit to1920x1080 RGB."
+        },
+        {
+          "kind": "seated",
+          "theme": "a",
+          "person": 2,
+          "direction": "left",
+          "key": "seated-2-left",
+          "file": "assets/a/seated-2-left.png",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/chair.png",
+            "assets/a/guest-down.png",
+            "assets/a/seated-2-down.png (selected corrected full-resolution front)"
+          ],
+          "prompt": "Use case: stylized-concept. ONE separate2Dcaferoomgameasset onTRUEtransparentbackground. Image1player,Image2chair,Image3guest are INDIVIDUALSTYLEreferences ONLY: sameconfidentthickblacklinework, carefullydesignedlargecartoonplanes, clearformelegantshadowshape likeprotagonist, not sketchy/loweffort but NO extra tinyhatching/noise. Camera RPGMaker orthographic slightoverhead, NOTisometric, horizontalgroundalignment. No words/letters/numbers/logos, no white-stickerborder/castgroundshadow/glow/background/floortile. ThemeA onlyBLACK/WHITE/NEUTRALGRAY for allfurniture, people, props andleaves. IgnoreplayerRED andchairGREEN inreferences: thoseareINTERACTIVEcolors andMUSTNOTappear in thisbackgroundasset. Fullassetunclipped. SEATEDCAFEGUEST WITHCHAIR asONEcomposite. Canvas192x288RGBA, headtopabouty76, floorbottomy288. Wholeperson+chairheight212px (~125cm), chairSEATatY211 (77pxabovefloor,45cm). Chairfourlegtips andpersonshoes reachfloorbottomy288, hipsrestONSEAT, NEVERsquat/kneel/sitair. Kneesintable-facingdirection atordinaryseatedheight, notdrawnattopoffeet. ChairneutralgrayA, NOTgreenpushchair. Sameperson/body/chairheight/groundanchorinallfourviews. Personnot tiny silhouette orcopyofexistingstudent. NEW PERSON2: tidyhairpulledintoONEsmallHIGHBUN/topknot withsmoothsides, ROUNDGLASSES (ONLYglassesaccessory,NOheadphones/cap). ShortboxyCASUALJACKET/cardigan overplainshirt, slightlybroadercoat silhouettethanperson1, mediumgraypants andsimpleshoes. Neutralgender youngadult, not existingmessy/cap/shortlightguest. Carefulclearneckandshoulderform, well-definedface andfewclothingfoldplanes, no logos.\nLOOKINGATPHONE: smallgrayblankSMARTPHONEheldintwohands atlowchest/lap, elbowsbent, headslightlydownlookingatownscreen. DoNOTdrawtext/numbers/emojis onscreen. Thisphone belongsinpersonfile.\nDIRECTION: LEFT SIDEPROFILE: face/torso/knees/shoetipsandworkgesture alltowardLEFTadjacenttable, nottowardviewer. Chairseatunderhips, chairlegsallwaytofloor. Neararmvisible, fararmnaturallypartlyoccluded.\nImage4 iscorrectedFRONTIDENTITY/CHAIRmaster; SAMEpersonbodyandchairdimensions/accessory/hair. Rotatewholepersonandchair. ALLCHAIRLEGtips onshoe-floorline, notfloating. Forperson1 absolutelyNOlaptop/keyboard/table drawnonlap/inpersonfile, onlyhandsintypingpose. Person2keepphone.",
+          "generatedPNG": "exec-b849e4a5-f804-480d-870f-5729caf704fb.png",
+          "export": {
+            "theme": "a",
+            "key": "seated-2-left",
+            "canvas": [
+              192,
+              288
+            ],
+            "sourceSize": [
+              1024,
+              1536
+            ],
+            "cropBox": [
+              172,
+              179,
+              855,
+              1476
+            ],
+            "visibleSize": [
+              112,
+              212
+            ],
+            "placement": [
+              40,
+              76
+            ],
+            "lastOpaqueRow": 287,
+            "sha256": "d7055daaf4eac59dcde98f39c03808805ac882a534d9c3ab49a0922477f3edd4"
+          },
+          "processing": "Crop transparent margins at alpha>128, UNIFORM scale only, center on requested canvas. Floor anchor at canvas bottom for seated/plant/pillar; tabletop props centered. Preserve original color/line/shape/alpha. Background uniform fit to1920x1080 RGB."
+        },
+        {
+          "kind": "seated",
+          "theme": "a",
+          "person": 1,
+          "direction": "right",
+          "key": "seated-1-right",
+          "file": "assets/a/seated-1-right.png",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/chair.png",
+            "assets/a/guest-down.png",
+            "assets/a/seated-1-down.png (selected corrected full-resolution front)"
+          ],
+          "prompt": "Use case: stylized-concept. ONE separate2Dcaferoomgameasset onTRUEtransparentbackground. Image1player,Image2chair,Image3guest are INDIVIDUALSTYLEreferences ONLY: sameconfidentthickblacklinework, carefullydesignedlargecartoonplanes, clearformelegantshadowshape likeprotagonist, not sketchy/loweffort but NO extra tinyhatching/noise. Camera RPGMaker orthographic slightoverhead, NOTisometric, horizontalgroundalignment. No words/letters/numbers/logos, no white-stickerborder/castgroundshadow/glow/background/floortile. ThemeA onlyBLACK/WHITE/NEUTRALGRAY for allfurniture, people, props andleaves. IgnoreplayerRED andchairGREEN inreferences: thoseareINTERACTIVEcolors andMUSTNOTappear in thisbackgroundasset. Fullassetunclipped. SEATEDCAFEGUEST WITHCHAIR asONEcomposite. Canvas192x288RGBA, headtopabouty76, floorbottomy288. Wholeperson+chairheight212px (~125cm), chairSEATatY211 (77pxabovefloor,45cm). Chairfourlegtips andpersonshoes reachfloorbottomy288, hipsrestONSEAT, NEVERsquat/kneel/sitair. Kneesintable-facingdirection atordinaryseatedheight, notdrawnattopoffeet. ChairneutralgrayA, NOTgreenpushchair. Sameperson/body/chairheight/groundanchorinallfourviews. Personnot tiny silhouette orcopyofexistingstudent. NEW PERSON1: straight smooth chin-lengthBOB hair inmediumgray, over-earROUNDHEADPHONES withvisibleheadband (ONLYheadphonesaccessory,NOglasses/cap). Cleanstructuredlong sleevelessVEST/overshirtoverplainlongsleeve, straightdarkpants, simpleshoes. Neutralgender youngadult, face andsilhouette clearlydifferentfrom existingmessyshortblackhairedguest/capguest/lightshorthairedguest. Uprightneckandcleanshoulderline, thoughtfullydrawnfacialfeatures andclothingplanes, no extraembroidery.\nTYPING ONLAPTOP onadjacenttable towardfacingdirection: bothforearmsforward, handspalmslow withfewsimplefingers atkeyboardheight. DoNOTdrawlaptop/table inpersonfile; thoseareseparatetabletopasset. Handsrelaxedtyping notpushingfists.\nDIRECTION: RIGHT SIDEPROFILE: face/torso/knees/shoetipsandworkgesture alltowardRIGHTadjacenttable, nottowardviewer. Chairseatunderhips, chairlegsallwaytofloor. Neararmvisible, fararmnaturallypartlyoccluded.\nImage4 iscorrectedFRONTIDENTITY/CHAIRmaster; SAMEpersonbodyandchairdimensions/accessory/hair. Rotatewholepersonandchair. ALLCHAIRLEGtips onshoe-floorline, notfloating. Forperson1 absolutelyNOlaptop/keyboard/table drawnonlap/inpersonfile, onlyhandsintypingpose. Person2keepphone.",
+          "generatedPNG": "exec-d401aa7d-85ef-46d4-9f03-4ce56484415f.png",
+          "export": {
+            "theme": "a",
+            "key": "seated-1-right",
+            "canvas": [
+              192,
+              288
+            ],
+            "sourceSize": [
+              1024,
+              1536
+            ],
+            "cropBox": [
+              205,
+              124,
+              883,
+              1435
+            ],
+            "visibleSize": [
+              110,
+              212
+            ],
+            "placement": [
+              41,
+              76
+            ],
+            "lastOpaqueRow": 287,
+            "sha256": "5455d660f5fe99ec823b3424ee5c9ffa692d6ed6cffdd1f990dbcd18289c867f"
+          },
+          "processing": "Crop transparent margins at alpha>128, UNIFORM scale only, center on requested canvas. Floor anchor at canvas bottom for seated/plant/pillar; tabletop props centered. Preserve original color/line/shape/alpha. Background uniform fit to1920x1080 RGB."
+        },
+        {
+          "kind": "seated",
+          "theme": "a",
+          "person": 2,
+          "direction": "right",
+          "key": "seated-2-right",
+          "file": "assets/a/seated-2-right.png",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/chair.png",
+            "assets/a/guest-down.png",
+            "assets/a/seated-2-down.png (selected corrected full-resolution front)"
+          ],
+          "prompt": "Use case: stylized-concept. ONE separate2Dcaferoomgameasset onTRUEtransparentbackground. Image1player,Image2chair,Image3guest are INDIVIDUALSTYLEreferences ONLY: sameconfidentthickblacklinework, carefullydesignedlargecartoonplanes, clearformelegantshadowshape likeprotagonist, not sketchy/loweffort but NO extra tinyhatching/noise. Camera RPGMaker orthographic slightoverhead, NOTisometric, horizontalgroundalignment. No words/letters/numbers/logos, no white-stickerborder/castgroundshadow/glow/background/floortile. ThemeA onlyBLACK/WHITE/NEUTRALGRAY for allfurniture, people, props andleaves. IgnoreplayerRED andchairGREEN inreferences: thoseareINTERACTIVEcolors andMUSTNOTappear in thisbackgroundasset. Fullassetunclipped. SEATEDCAFEGUEST WITHCHAIR asONEcomposite. Canvas192x288RGBA, headtopabouty76, floorbottomy288. Wholeperson+chairheight212px (~125cm), chairSEATatY211 (77pxabovefloor,45cm). Chairfourlegtips andpersonshoes reachfloorbottomy288, hipsrestONSEAT, NEVERsquat/kneel/sitair. Kneesintable-facingdirection atordinaryseatedheight, notdrawnattopoffeet. ChairneutralgrayA, NOTgreenpushchair. Sameperson/body/chairheight/groundanchorinallfourviews. Personnot tiny silhouette orcopyofexistingstudent. NEW PERSON2: tidyhairpulledintoONEsmallHIGHBUN/topknot withsmoothsides, ROUNDGLASSES (ONLYglassesaccessory,NOheadphones/cap). ShortboxyCASUALJACKET/cardigan overplainshirt, slightlybroadercoat silhouettethanperson1, mediumgraypants andsimpleshoes. Neutralgender youngadult, not existingmessy/cap/shortlightguest. Carefulclearneckandshoulderform, well-definedface andfewclothingfoldplanes, no logos.\nLOOKINGATPHONE: smallgrayblankSMARTPHONEheldintwohands atlowchest/lap, elbowsbent, headslightlydownlookingatownscreen. DoNOTdrawtext/numbers/emojis onscreen. Thisphone belongsinpersonfile.\nDIRECTION: RIGHT SIDEPROFILE: face/torso/knees/shoetipsandworkgesture alltowardRIGHTadjacenttable, nottowardviewer. Chairseatunderhips, chairlegsallwaytofloor. Neararmvisible, fararmnaturallypartlyoccluded.\nImage4 iscorrectedFRONTIDENTITY/CHAIRmaster; SAMEpersonbodyandchairdimensions/accessory/hair. Rotatewholepersonandchair. ALLCHAIRLEGtips onshoe-floorline, notfloating. Forperson1 absolutelyNOlaptop/keyboard/table drawnonlap/inpersonfile, onlyhandsintypingpose. Person2keepphone.",
+          "generatedPNG": "exec-db56abab-d75a-4343-83f6-c9457334aac6.png",
+          "export": {
+            "theme": "a",
+            "key": "seated-2-right",
+            "canvas": [
+              192,
+              288
+            ],
+            "sourceSize": [
+              1024,
+              1536
+            ],
+            "cropBox": [
+              224,
+              89,
+              886,
+              1475
+            ],
+            "visibleSize": [
+              101,
+              212
+            ],
+            "placement": [
+              45,
+              76
+            ],
+            "lastOpaqueRow": 287,
+            "sha256": "b1b5ca6d02e4e92beb24c8133b8ac1ba80784abde5546e22a22809724e399d66"
+          },
+          "processing": "Crop transparent margins at alpha>128, UNIFORM scale only, center on requested canvas. Floor anchor at canvas bottom for seated/plant/pillar; tabletop props centered. Preserve original color/line/shape/alpha. Background uniform fit to1920x1080 RGB."
+        },
+        {
+          "kind": "seated",
+          "theme": "b",
+          "person": 1,
+          "direction": "down",
+          "key": "seated-1-down",
+          "file": "assets/b/seated-1-down.png",
+          "refs": [
+            "generated:exec-c0476fae-4a99-42db-b558-17f42cca8801.png",
+            "assets/b/player-down.png",
+            "assets/b/chair.png",
+            "assets/b/guest-down.png",
+            "generated:table-master-b"
+          ],
+          "prompt": "Use case: precise-object-edit. Input1 EDIT TARGET: preserve EXACT same single seated person, head, hair, outfit, pose, face, lines and chair structure. Change CHAIR COLOR ONLY from orange to VERY DESATURATED DARK GRAYBROWN (#6c6258 main, #4d4741 shadow, #8a8076 light). Chair is NONMOVABLE background, MUST NOT look orange/golden/honey/caramel. Input5 table graybrownwood is COLOR reference for neutraldesaturatedbrown; Inputs2/3/4 individually style refs ONLY: do NOT copy mintrobot or brightorange pushchair! Also extend the two FRONT CHAIR LEGS down to same floor line as shoe soles, a little longer than current, preserving seatedbody and seatheight. No floor shadow/stickeroutline/newprop/text. Transparent background, one figure only, no sheet, frontview. Person1 emptytypinghands NOlaptop; person2 keeps phone. Original composition intact.",
+          "lineage": [
+            {
+              "prompt": "Use case: stylized-concept. Produce ONE single separate game sprite only, on real transparent background. Input1 is STRUCTURE/IDENTITY reference: keep that object/person and pose. Inputs2,3,4 are INDIVIDUAL theme B STYLE references (player-down,chair,guest-down); match bold confident black lines, few carefully designed large cartoon planes, flat warm color and one shadow level. Ignore mint on player and orange on chair: BACKGROUND assets must NOT use mint, orange, red or dark green. Muted beige, brown, gray, desaturated navy only. Slight overhead RPG Maker view, not isometric. NO white sticker rim, NO floor/cast shadow, NO text/logos/letters/numbers, NO extra people/props/views/sheet.\nONE seated guest WITH ordinary brown chair, full single down view, NOT turnaround sheet. Same person as Input1. Canvas192x288. Whole guest and chair visible height212px, headtopY76, chair seatY211, legtips and shoes onbottomY288. Ordinary seated posture, hipsonseat, neckandshouldersvisible. Allfour views same size/body/chair. Facing screenBOTTOM/front. Person1 straight smooth chinlength ashbrown bob, charcoal overear headphones, mutednavy Vneckvest over cream longsleeve, darktaupe straightpants, plain shoes. Forearms forward in empty typing posture toward adjacenttable. Absolutely NO laptop/table/keyboard in thisfile; hands inair atkeyboardheight only.",
+              "refs": [
+                "assets/a/seated-1-down.png",
+                "assets/b/player-down.png",
+                "assets/b/chair.png",
+                "assets/b/guest-down.png"
+              ],
+              "generatedPNG": "exec-c0476fae-4a99-42db-b558-17f42cca8801.png"
+            }
+          ],
+          "generatedPNG": "exec-4abc56f7-70aa-4f31-a709-39c44df3ad26.png",
+          "export": {
+            "theme": "b",
+            "key": "seated-1-down",
+            "canvas": [
+              192,
+              288
+            ],
+            "sourceSize": [
+              1024,
+              1536
+            ],
+            "cropBox": [
+              268,
+              115,
+              757,
+              1456
+            ],
+            "visibleSize": [
+              77,
+              212
+            ],
+            "placement": [
+              57,
+              76
+            ],
+            "lastOpaqueRow": 287,
+            "sha256": "1379d23b3bb4f4bbd52fbda7f386cfdd0de6226345de96133355b0ee6648d3ed"
+          },
+          "processing": "Crop transparent margins at alpha>128, UNIFORM scale only, center on requested canvas. Floor anchor at canvas bottom for seated/plant/pillar; tabletop props centered. Preserve original color/line/shape/alpha. Background uniform fit to1920x1080 RGB."
+        },
+        {
+          "kind": "seated",
+          "theme": "b",
+          "person": 2,
+          "direction": "down",
+          "key": "seated-2-down",
+          "file": "assets/b/seated-2-down.png",
+          "refs": [
+            "generated:exec-b627e524-2337-4652-b881-0a15298e89cf.png",
+            "assets/b/player-down.png",
+            "assets/b/chair.png",
+            "assets/b/guest-down.png",
+            "generated:table-master-b"
+          ],
+          "prompt": "Use case: precise-object-edit. Input1 EDIT TARGET: preserve EXACT same single seated person, head, hair, outfit, pose, face, lines and chair structure. Change CHAIR COLOR ONLY from orange to VERY DESATURATED DARK GRAYBROWN (#6c6258 main, #4d4741 shadow, #8a8076 light). Chair is NONMOVABLE background, MUST NOT look orange/golden/honey/caramel. Input5 table graybrownwood is COLOR reference for neutraldesaturatedbrown; Inputs2/3/4 individually style refs ONLY: do NOT copy mintrobot or brightorange pushchair! Also extend the two FRONT CHAIR LEGS down to same floor line as shoe soles, a little longer than current, preserving seatedbody and seatheight. No floor shadow/stickeroutline/newprop/text. Transparent background, one figure only, no sheet, frontview. Person1 emptytypinghands NOlaptop; person2 keeps phone. Original composition intact.",
+          "lineage": [
+            {
+              "prompt": "Use case: stylized-concept. Produce ONE single separate game sprite only, on real transparent background. Input1 is STRUCTURE/IDENTITY reference: keep that object/person and pose. Inputs2,3,4 are INDIVIDUAL theme B STYLE references (player-down,chair,guest-down); match bold confident black lines, few carefully designed large cartoon planes, flat warm color and one shadow level. Ignore mint on player and orange on chair: BACKGROUND assets must NOT use mint, orange, red or dark green. Muted beige, brown, gray, desaturated navy only. Slight overhead RPG Maker view, not isometric. NO white sticker rim, NO floor/cast shadow, NO text/logos/letters/numbers, NO extra people/props/views/sheet.\nONE seated guest WITH ordinary brown chair, full single down view, NOT turnaround sheet. Same person as Input1. Canvas192x288. Whole guest and chair visible height212px, headtopY76, chair seatY211, legtips and shoes onbottomY288. Ordinary seated posture, hipsonseat, neckandshouldersvisible. Allfour views same size/body/chair. Facing screenBOTTOM/front. Person2 darkbrown hair in smallhighbun, roundblackglasses, mutedgrayplum shortcardigan over creamshirt, charcoalpants. BOTHhands hold ONEsmall blankphone toward table direction. Chairback hides lowerback in rearview.",
+              "refs": [
+                "assets/a/seated-2-down.png",
+                "assets/b/player-down.png",
+                "assets/b/chair.png",
+                "assets/b/guest-down.png"
+              ],
+              "generatedPNG": "exec-b627e524-2337-4652-b881-0a15298e89cf.png"
+            }
+          ],
+          "generatedPNG": "exec-d7ab8cd3-8a51-4cce-b30c-020c008b17b0.png",
+          "export": {
+            "theme": "b",
+            "key": "seated-2-down",
+            "canvas": [
+              192,
+              288
+            ],
+            "sourceSize": [
+              1024,
+              1536
+            ],
+            "cropBox": [
+              262,
+              32,
+              762,
+              1474
+            ],
+            "visibleSize": [
+              74,
+              212
+            ],
+            "placement": [
+              59,
+              76
+            ],
+            "lastOpaqueRow": 287,
+            "sha256": "e5e573c27d3ee8e682556c041c26eb61a4687c4d9285ff9b30dfe356ed2be8c8"
+          },
+          "processing": "Crop transparent margins at alpha>128, UNIFORM scale only, center on requested canvas. Floor anchor at canvas bottom for seated/plant/pillar; tabletop props centered. Preserve original color/line/shape/alpha. Background uniform fit to1920x1080 RGB."
+        },
+        {
+          "key": "tabletop-1",
+          "kind": "top-prop",
+          "target": [
+            44,
+            24
+          ],
+          "prompt": "Use case: stylized-concept. Produce ONE single separate game sprite only, on real transparent background. Input1 is STRUCTURE/IDENTITY reference: keep that object/person and pose. Inputs2,3,4 are INDIVIDUAL theme B STYLE references (player-down,chair,guest-down); match bold confident black lines, few carefully designed large cartoon planes, flat warm color and one shadow level. Ignore mint on player and orange on chair: BACKGROUND assets must NOT use mint, orange, red or dark green. Muted beige, brown, gray, desaturated navy only. Slight overhead RPG Maker view, not isometric. NO white sticker rim, NO floor/cast shadow, NO text/logos/letters/numbers, NO extra people/props/views/sheet.\nTwo tiny coffee cups only, no tray/table. Simple cream porcelain, darkcoffee, group visible44x24px maximum, centered on192square transparentcanvas.",
+          "theme": "b",
+          "file": "assets/b/tabletop-1.png",
+          "refs": [
+            "assets/a/tabletop-1.png",
+            "assets/b/player-down.png",
+            "assets/b/chair.png",
+            "assets/b/guest-down.png"
+          ],
+          "generatedPNG": "exec-a75de698-06d8-43e8-bc03-18092bedc9b2.png",
+          "export": {
+            "theme": "b",
+            "key": "tabletop-1",
+            "canvas": [
+              192,
+              192
+            ],
+            "sourceSize": [
+              1254,
+              1254
+            ],
+            "cropBox": [
+              378,
+              552,
+              876,
+              728
+            ],
+            "visibleSize": [
+              44,
+              16
+            ],
+            "placement": [
+              74,
+              88
+            ],
+            "lastOpaqueRow": 103,
+            "sha256": "844ee83c0a8f8598b7b46ec1b4ab73ab84e3000d5e17398c3c4ba6a6902113d8"
+          },
+          "processing": "Crop transparent margins at alpha>128, UNIFORM scale only, center on requested canvas. Floor anchor at canvas bottom for seated/plant/pillar; tabletop props centered. Preserve original color/line/shape/alpha. Background uniform fit to1920x1080 RGB."
+        },
+        {
+          "key": "tabletop-2",
+          "kind": "top-prop",
+          "target": [
+            56,
+            43
+          ],
+          "prompt": "Use case: stylized-concept. Produce ONE single separate game sprite only, on real transparent background. Input1 is STRUCTURE/IDENTITY reference: keep that object/person and pose. Inputs2,3,4 are INDIVIDUAL theme B STYLE references (player-down,chair,guest-down); match bold confident black lines, few carefully designed large cartoon planes, flat warm color and one shadow level. Ignore mint on player and orange on chair: BACKGROUND assets must NOT use mint, orange, red or dark green. Muted beige, brown, gray, desaturated navy only. Slight overhead RPG Maker view, not isometric. NO white sticker rim, NO floor/cast shadow, NO text/logos/letters/numbers, NO extra people/props/views/sheet.\nOne open laptop only, small and centered, mutedgraycase, blankdarkgraydisplay with no markings. Real31cmwidth(~53px), totalvisible~56x43px on192squaretransparentcanvas. No table/hands.",
+          "theme": "b",
+          "file": "assets/b/tabletop-2.png",
+          "refs": [
+            "assets/a/tabletop-2.png",
+            "assets/b/player-down.png",
+            "assets/b/chair.png",
+            "assets/b/guest-down.png"
+          ],
+          "generatedPNG": "exec-8614282c-8f41-4a88-b8e3-dc6212929538.png",
+          "export": {
+            "theme": "b",
+            "key": "tabletop-2",
+            "canvas": [
+              192,
+              192
+            ],
+            "sourceSize": [
+              1254,
+              1254
+            ],
+            "cropBox": [
+              431,
+              463,
+              823,
+              807
+            ],
+            "visibleSize": [
+              49,
+              43
+            ],
+            "placement": [
+              71,
+              74
+            ],
+            "lastOpaqueRow": 116,
+            "sha256": "fcc7fd7aa43ff71b01717bb1ddcc4cae289341b68f68c767d3eb796e0e83defe"
+          },
+          "processing": "Crop transparent margins at alpha>128, UNIFORM scale only, center on requested canvas. Floor anchor at canvas bottom for seated/plant/pillar; tabletop props centered. Preserve original color/line/shape/alpha. Background uniform fit to1920x1080 RGB."
+        },
+        {
+          "key": "tabletop-3",
+          "kind": "top-prop",
+          "target": [
+            66,
+            40
+          ],
+          "prompt": "Use case: stylized-concept. Produce ONE single separate game sprite only, on real transparent background. Input1 is STRUCTURE/IDENTITY reference: keep that object/person and pose. Inputs2,3,4 are INDIVIDUAL theme B STYLE references (player-down,chair,guest-down); match bold confident black lines, few carefully designed large cartoon planes, flat warm color and one shadow level. Ignore mint on player and orange on chair: BACKGROUND assets must NOT use mint, orange, red or dark green. Muted beige, brown, gray, desaturated navy only. Slight overhead RPG Maker view, not isometric. NO white sticker rim, NO floor/cast shadow, NO text/logos/letters/numbers, NO extra people/props/views/sheet.\nOne closed book and one blank notebook sidebyside, plain mutednavy/beigecovers, no text/ruling. Groupvisible66x40px maximum atcenter192squaretransparentcanvas.",
+          "theme": "b",
+          "file": "assets/b/tabletop-3.png",
+          "refs": [
+            "assets/a/tabletop-3.png",
+            "assets/b/player-down.png",
+            "assets/b/chair.png",
+            "assets/b/guest-down.png"
+          ],
+          "generatedPNG": "exec-f11c088f-580a-46f3-99f2-8a5a5ea597b1.png",
+          "export": {
+            "theme": "b",
+            "key": "tabletop-3",
+            "canvas": [
+              192,
+              192
+            ],
+            "sourceSize": [
+              1254,
+              1254
+            ],
+            "cropBox": [
+              429,
+              495,
+              828,
+              762
+            ],
+            "visibleSize": [
+              60,
+              40
+            ],
+            "placement": [
+              66,
+              76
+            ],
+            "lastOpaqueRow": 115,
+            "sha256": "72ba706acdd4822e4dc0701282452b4a554abf8f8c83c2e47f50147ea0f31be0"
+          },
+          "processing": "Crop transparent margins at alpha>128, UNIFORM scale only, center on requested canvas. Floor anchor at canvas bottom for seated/plant/pillar; tabletop props centered. Preserve original color/line/shape/alpha. Background uniform fit to1920x1080 RGB."
+        },
+        {
+          "key": "tabletop-4",
+          "kind": "top-prop",
+          "target": [
+            32,
+            35
+          ],
+          "prompt": "Use case: stylized-concept. Produce ONE single separate game sprite only, on real transparent background. Input1 is STRUCTURE/IDENTITY reference: keep that object/person and pose. Inputs2,3,4 are INDIVIDUAL theme B STYLE references (player-down,chair,guest-down); match bold confident black lines, few carefully designed large cartoon planes, flat warm color and one shadow level. Ignore mint on player and orange on chair: BACKGROUND assets must NOT use mint, orange, red or dark green. Muted beige, brown, gray, desaturated navy only. Slight overhead RPG Maker view, not isometric. NO white sticker rim, NO floor/cast shadow, NO text/logos/letters/numbers, NO extra people/props/views/sheet.\nOne very small tabletop plant in tiny pot. Neutralgraypot, desaturated bluegray3leaves, no green. Visibleheight35px(~20cm), potbody14pxwide, foliage28pxwide, centerof192squaretransparentcanvas.",
+          "theme": "b",
+          "file": "assets/b/tabletop-4.png",
+          "refs": [
+            "assets/a/tabletop-4.png",
+            "assets/b/player-down.png",
+            "assets/b/chair.png",
+            "assets/b/guest-down.png"
+          ],
+          "generatedPNG": "exec-d21f40ee-1971-4ec8-96bb-167e7ac686d1.png",
+          "export": {
+            "theme": "b",
+            "key": "tabletop-4",
+            "canvas": [
+              192,
+              192
+            ],
+            "sourceSize": [
+              1254,
+              1254
+            ],
+            "cropBox": [
+              486,
+              512,
+              763,
+              816
+            ],
+            "visibleSize": [
+              32,
+              35
+            ],
+            "placement": [
+              80,
+              78
+            ],
+            "lastOpaqueRow": 112,
+            "sha256": "4246f9d303bb11ef21ddb5d5f5046855c534429fae40f9c6980db6e3a4fc2256"
+          },
+          "processing": "Crop transparent margins at alpha>128, UNIFORM scale only, center on requested canvas. Floor anchor at canvas bottom for seated/plant/pillar; tabletop props centered. Preserve original color/line/shape/alpha. Background uniform fit to1920x1080 RGB."
+        },
+        {
+          "key": "plant-floor",
+          "kind": "plant",
+          "target": [
+            112,
+            153
+          ],
+          "prompt": "Use case: stylized-concept. Produce ONE single separate game sprite only, on real transparent background. Input1 is STRUCTURE/IDENTITY reference: keep that object/person and pose. Inputs2,3,4 are INDIVIDUAL theme B STYLE references (player-down,chair,guest-down); match bold confident black lines, few carefully designed large cartoon planes, flat warm color and one shadow level. Ignore mint on player and orange on chair: BACKGROUND assets must NOT use mint, orange, red or dark green. Muted beige, brown, gray, desaturated navy only. Slight overhead RPG Maker view, not isometric. NO white sticker rim, NO floor/cast shadow, NO text/logos/letters/numbers, NO extra people/props/views/sheet.\nOne medium floor plant same fivebroadleaves as Input1. Neutral taupe pot, desaturated BLUEGRAY foliage (notgreen). Fullplantheight153px maximum on192squarecanvas, potbodywidth77px, foliagecanbroader. PotflatbottomatY192. No floortile/shadow.",
+          "theme": "b",
+          "file": "assets/b/plant-floor.png",
+          "refs": [
+            "assets/a/plant-floor.png",
+            "assets/b/player-down.png",
+            "assets/b/chair.png",
+            "assets/b/guest-down.png"
+          ],
+          "generatedPNG": "exec-086526a8-f8ab-4f01-85d4-92b233a13b23.png",
+          "export": {
+            "theme": "b",
+            "key": "plant-floor",
+            "canvas": [
+              192,
+              192
+            ],
+            "sourceSize": [
+              1254,
+              1254
+            ],
+            "cropBox": [
+              235,
+              276,
+              1049,
+              1182
+            ],
+            "visibleSize": [
+              137,
+              153
+            ],
+            "placement": [
+              27,
+              39
+            ],
+            "lastOpaqueRow": 191,
+            "sha256": "bfc4cb8d85a91c7305661af51a75262bd1b4ac2334d913107ef4759f3f44fad6"
+          },
+          "processing": "Crop transparent margins at alpha>128, UNIFORM scale only, center on requested canvas. Floor anchor at canvas bottom for seated/plant/pillar; tabletop props centered. Preserve original color/line/shape/alpha. Background uniform fit to1920x1080 RGB."
+        },
+        {
+          "key": "pillar",
+          "kind": "pillar",
+          "target": [
+            134,
+            460
+          ],
+          "prompt": "Use case: stylized-concept. Produce ONE single separate game sprite only, on real transparent background. Input1 is STRUCTURE/IDENTITY reference: keep that object/person and pose. Inputs2,3,4 are INDIVIDUAL theme B STYLE references (player-down,chair,guest-down); match bold confident black lines, few carefully designed large cartoon planes, flat warm color and one shadow level. Ignore mint on player and orange on chair: BACKGROUND assets must NOT use mint, orange, red or dark green. Muted beige, brown, gray, desaturated navy only. Slight overhead RPG Maker view, not isometric. NO white sticker rim, NO floor/cast shadow, NO text/logos/letters/numbers, NO extra people/props/views/sheet.\nOne square cafe structural plaster pillar, single entirecolumn. Cream/taupe neutralstone. Wholevisible width134px and height460px within192x480canvas, width:height=134:460, NOT thinner! Shaft110wide, cap/base134wide. BasebottomY480. Simple3planes, no ornament/objects/shadow.",
+          "theme": "b",
+          "file": "assets/b/pillar.png",
+          "refs": [
+            "assets/a/pillar.png",
+            "assets/b/player-down.png",
+            "assets/b/chair.png",
+            "assets/b/guest-down.png"
+          ],
+          "generatedPNG": "exec-6cfb7fae-313e-40aa-a542-6a724269f117.png",
+          "export": {
+            "theme": "b",
+            "key": "pillar",
+            "canvas": [
+              192,
+              480
+            ],
+            "sourceSize": [
+              1086,
+              1448
+            ],
+            "cropBox": [
+              295,
+              51,
+              791,
+              1403
+            ],
+            "visibleSize": [
+              134,
+              365
+            ],
+            "placement": [
+              29,
+              115
+            ],
+            "lastOpaqueRow": 479,
+            "sha256": "11b687624baa9bf949dc4996ce5159c5f992bbc188ae862b2cd6a5e12c98a94f"
+          },
+          "processing": "Crop transparent margins at alpha>128, UNIFORM scale only, center on requested canvas. Floor anchor at canvas bottom for seated/plant/pillar; tabletop props centered. Preserve original color/line/shape/alpha. Background uniform fit to1920x1080 RGB."
+        },
+        {
+          "kind": "seated",
+          "theme": "b",
+          "person": 2,
+          "direction": "up",
+          "key": "seated-2-up",
+          "file": "assets/b/seated-2-up.png",
+          "refs": [
+            "generated:exec-1ac52d6b-45ee-4f70-871c-40fbcbc03b7e.png",
+            "assets/b/player-down.png",
+            "assets/b/chair.png",
+            "assets/b/guest-down.png",
+            "generated:corrected-graybrown-chair-person1"
+          ],
+          "prompt": "Use case: precise-object-edit. Input1 EDIT TARGET. Keep EXACT SAME person/identity, facing direction, chair geometry, bodyproportions, pose, eyes/headphones/glasses/phone, linework, transparentbackground. ONLY recolor chair from orange/goldenwood to VERY DESATURATED DARK GRAYBROWN, main#6c6258, shadow#4d4741, light#8a8076. Input5 is exact correct neutralgraybrown chairCOLOR reference only; DO NOT rotate or copy Input5frontpose. Inputs2,3,4 individualgamestyle refs ONLY: ignore mintrobot and brightorange pushchair. Orange is interactivepushablecolor and MUSTNOT appear inthis NONMOVABLEseatedchair. Preserveallpersoncolors, nobackground/floorshadow/whiteoutline/newobjects/text/sheet. Output one figure ONLY, same upview asInput1.",
+          "lineage": [
+            {
+              "prompt": "Use case: stylized-concept. Produce ONE single separate game sprite only, on real transparent background. Input1 is STRUCTURE/IDENTITY reference: keep that object/person and pose. Inputs2,3,4 are INDIVIDUAL theme B STYLE references (player-down,chair,guest-down); match bold confident black lines, few carefully designed large cartoon planes, flat warm color and one shadow level. Ignore mint on player and orange on chair: BACKGROUND assets must NOT use mint, orange, red or dark green. Muted beige, brown, gray, desaturated navy only. Slight overhead RPG Maker view, not isometric. NO white sticker rim, NO floor/cast shadow, NO text/logos/letters/numbers, NO extra people/props/views/sheet.\nONE seated guest WITH ordinary brown chair, full single up view, NOT turnaround sheet. Same person as Input1. Canvas192x288. Whole guest and chair visible height212px, headtopY76, chair seatY211, legtips and shoes onbottomY288. Ordinary seated posture, hipsonseat, neckandshouldersvisible. Allfour views same size/body/chair. Facing screenTOP, ONLY BACK OF HEAD and CHAIRBACK, no front/side versions. Person2 darkbrown hair in smallhighbun, roundblackglasses, mutedgrayplum shortcardigan over creamshirt, charcoalpants. BOTHhands hold ONEsmall blankphone toward table direction. Chairback hides lowerback in rearview.",
+              "refs": [
+                "assets/a/seated-2-up.png",
+                "assets/b/player-down.png",
+                "assets/b/chair.png",
+                "assets/b/guest-down.png"
+              ],
+              "generatedPNG": "exec-1ac52d6b-45ee-4f70-871c-40fbcbc03b7e.png"
+            }
+          ],
+          "generatedPNG": "exec-f90641fa-294b-4242-999d-d692e5d9d38b.png",
+          "export": {
+            "theme": "b",
+            "key": "seated-2-up",
+            "canvas": [
+              192,
+              288
+            ],
+            "sourceSize": [
+              1024,
+              1536
+            ],
+            "cropBox": [
+              256,
+              99,
+              764,
+              1408
+            ],
+            "visibleSize": [
+              82,
+              212
+            ],
+            "placement": [
+              55,
+              76
+            ],
+            "lastOpaqueRow": 287,
+            "sha256": "11ed15ebd4a3b99b4c2d93013fa531d66d5bda49a059affe39a03dd8f4566cd2"
+          },
+          "processing": "Crop transparent margins at alpha>128, UNIFORM scale only, center on requested canvas. Floor anchor at canvas bottom for seated/plant/pillar; tabletop props centered. Preserve original color/line/shape/alpha. Background uniform fit to1920x1080 RGB."
+        },
+        {
+          "kind": "seated",
+          "theme": "b",
+          "person": 1,
+          "direction": "up",
+          "key": "seated-1-up",
+          "file": "assets/b/seated-1-up.png",
+          "refs": [
+            "generated:exec-066ad815-68a9-4b18-a7e3-8f20ccfac664.png",
+            "assets/b/player-down.png",
+            "assets/b/chair.png",
+            "assets/b/guest-down.png",
+            "generated:corrected-graybrown-chair-person1"
+          ],
+          "prompt": "Use case: precise-object-edit. Input1 EDIT TARGET. Keep EXACT SAME person/identity, facing direction, chair geometry, bodyproportions, pose, eyes/headphones/glasses/phone, linework, transparentbackground. ONLY recolor chair from orange/goldenwood to VERY DESATURATED DARK GRAYBROWN, main#6c6258, shadow#4d4741, light#8a8076. Input5 is exact correct neutralgraybrown chairCOLOR reference only; DO NOT rotate or copy Input5frontpose. Inputs2,3,4 individualgamestyle refs ONLY: ignore mintrobot and brightorange pushchair. Orange is interactivepushablecolor and MUSTNOT appear inthis NONMOVABLEseatedchair. Preserveallpersoncolors, nobackground/floorshadow/whiteoutline/newobjects/text/sheet. Output one figure ONLY, same upview asInput1.",
+          "lineage": [
+            {
+              "prompt": "Use case: stylized-concept. Produce ONE single separate game sprite only, on real transparent background. Input1 is STRUCTURE/IDENTITY reference: keep that object/person and pose. Inputs2,3,4 are INDIVIDUAL theme B STYLE references (player-down,chair,guest-down); match bold confident black lines, few carefully designed large cartoon planes, flat warm color and one shadow level. Ignore mint on player and orange on chair: BACKGROUND assets must NOT use mint, orange, red or dark green. Muted beige, brown, gray, desaturated navy only. Slight overhead RPG Maker view, not isometric. NO white sticker rim, NO floor/cast shadow, NO text/logos/letters/numbers, NO extra people/props/views/sheet.\nONE seated guest WITH ordinary brown chair, full single up view, NOT turnaround sheet. Same person as Input1. Canvas192x288. Whole guest and chair visible height212px, headtopY76, chair seatY211, legtips and shoes onbottomY288. Ordinary seated posture, hipsonseat, neckandshouldersvisible. Allfour views same size/body/chair. Facing screenTOP, ONLY BACK OF HEAD and CHAIRBACK, no front/side versions. Person1 straight smooth chinlength ashbrown bob, charcoal overear headphones, mutednavy Vneckvest over cream longsleeve, darktaupe straightpants, plain shoes. Forearms forward in empty typing posture toward adjacenttable. Absolutely NO laptop/table/keyboard in thisfile; hands inair atkeyboardheight only.",
+              "refs": [
+                "assets/a/seated-1-up.png",
+                "assets/b/player-down.png",
+                "assets/b/chair.png",
+                "assets/b/guest-down.png"
+              ],
+              "generatedPNG": "exec-066ad815-68a9-4b18-a7e3-8f20ccfac664.png"
+            }
+          ],
+          "generatedPNG": "exec-131c75dd-3b32-4b11-8066-bd10c0fd824f.png",
+          "export": {
+            "theme": "b",
+            "key": "seated-1-up",
+            "canvas": [
+              192,
+              288
+            ],
+            "sourceSize": [
+              1024,
+              1536
+            ],
+            "cropBox": [
+              255,
+              149,
+              770,
+              1377
+            ],
+            "visibleSize": [
+              89,
+              212
+            ],
+            "placement": [
+              51,
+              76
+            ],
+            "lastOpaqueRow": 287,
+            "sha256": "d9c28bf53fdd0e421ee5db0595867d59c6d46016abdaf23b14b0a88e1d9e47b5"
+          },
+          "processing": "Crop transparent margins at alpha>128, UNIFORM scale only, center on requested canvas. Floor anchor at canvas bottom for seated/plant/pillar; tabletop props centered. Preserve original color/line/shape/alpha. Background uniform fit to1920x1080 RGB."
+        },
+        {
+          "kind": "seated",
+          "theme": "b",
+          "person": 1,
+          "direction": "left",
+          "key": "seated-1-left",
+          "file": "assets/b/seated-1-left.png",
+          "refs": [
+            "generated:exec-ac744897-48b9-47e8-8476-d2f0d608af39.png",
+            "assets/b/player-down.png",
+            "assets/b/chair.png",
+            "assets/b/guest-down.png",
+            "generated:corrected-graybrown-chair-person1"
+          ],
+          "prompt": "Use case: precise-object-edit. Input1 EDIT TARGET. Keep EXACT SAME person/identity, facing direction, chair geometry, bodyproportions, pose, eyes/headphones/glasses/phone, linework, transparentbackground. ONLY recolor chair from orange/goldenwood to VERY DESATURATED DARK GRAYBROWN, main#6c6258, shadow#4d4741, light#8a8076. Input5 is exact correct neutralgraybrown chairCOLOR reference only; DO NOT rotate or copy Input5frontpose. Inputs2,3,4 individualgamestyle refs ONLY: ignore mintrobot and brightorange pushchair. Orange is interactivepushablecolor and MUSTNOT appear inthis NONMOVABLEseatedchair. Preserveallpersoncolors, nobackground/floorshadow/whiteoutline/newobjects/text/sheet. Output one figure ONLY, same leftview asInput1.",
+          "lineage": [
+            {
+              "prompt": "Use case: stylized-concept. Produce ONE single separate game sprite only, on real transparent background. Input1 is STRUCTURE/IDENTITY reference: keep that object/person and pose. Inputs2,3,4 are INDIVIDUAL theme B STYLE references (player-down,chair,guest-down); match bold confident black lines, few carefully designed large cartoon planes, flat warm color and one shadow level. Ignore mint on player and orange on chair: BACKGROUND assets must NOT use mint, orange, red or dark green. Muted beige, brown, gray, desaturated navy only. Slight overhead RPG Maker view, not isometric. NO white sticker rim, NO floor/cast shadow, NO text/logos/letters/numbers, NO extra people/props/views/sheet.\nONE seated guest WITH ordinary brown chair, full single left view, NOT turnaround sheet. Same person as Input1. Canvas192x288. Whole guest and chair visible height212px, headtopY76, chair seatY211, legtips and shoes onbottomY288. Ordinary seated posture, hipsonseat, neckandshouldersvisible. Allfour views same size/body/chair. Facing screenLEFT/profile. Person1 straight smooth chinlength ashbrown bob, charcoal overear headphones, mutednavy Vneckvest over cream longsleeve, darktaupe straightpants, plain shoes. Forearms forward in empty typing posture toward adjacenttable. Absolutely NO laptop/table/keyboard in thisfile; hands inair atkeyboardheight only.",
+              "refs": [
+                "assets/a/seated-1-left.png",
+                "assets/b/player-down.png",
+                "assets/b/chair.png",
+                "assets/b/guest-down.png"
+              ],
+              "generatedPNG": "exec-ac744897-48b9-47e8-8476-d2f0d608af39.png"
+            }
+          ],
+          "generatedPNG": "exec-072665bb-6a64-4682-a936-be916289187f.png",
+          "export": {
+            "theme": "b",
+            "key": "seated-1-left",
+            "canvas": [
+              192,
+              288
+            ],
+            "sourceSize": [
+              1024,
+              1536
+            ],
+            "cropBox": [
+              208,
+              145,
+              820,
+              1404
+            ],
+            "visibleSize": [
+              103,
+              212
+            ],
+            "placement": [
+              44,
+              76
+            ],
+            "lastOpaqueRow": 287,
+            "sha256": "4d8ec956a258b73ead600069f295407071df7c1c58728bef982351f35284f0d9"
+          },
+          "processing": "Crop transparent margins at alpha>128, UNIFORM scale only, center on requested canvas. Floor anchor at canvas bottom for seated/plant/pillar; tabletop props centered. Preserve original color/line/shape/alpha. Background uniform fit to1920x1080 RGB."
+        },
+        {
+          "kind": "seated",
+          "theme": "b",
+          "person": 2,
+          "direction": "left",
+          "key": "seated-2-left",
+          "file": "assets/b/seated-2-left.png",
+          "refs": [
+            "generated:exec-45afe95d-4e37-4d8e-a5d2-65e72587ac23.png",
+            "assets/b/player-down.png",
+            "assets/b/chair.png",
+            "assets/b/guest-down.png",
+            "generated:corrected-graybrown-chair-person1"
+          ],
+          "prompt": "Use case: precise-object-edit. Input1 EDIT TARGET. Keep EXACT SAME person/identity, facing direction, chair geometry, bodyproportions, pose, eyes/headphones/glasses/phone, linework, transparentbackground. ONLY recolor chair from orange/goldenwood to VERY DESATURATED DARK GRAYBROWN, main#6c6258, shadow#4d4741, light#8a8076. Input5 is exact correct neutralgraybrown chairCOLOR reference only; DO NOT rotate or copy Input5frontpose. Inputs2,3,4 individualgamestyle refs ONLY: ignore mintrobot and brightorange pushchair. Orange is interactivepushablecolor and MUSTNOT appear inthis NONMOVABLEseatedchair. Preserveallpersoncolors, nobackground/floorshadow/whiteoutline/newobjects/text/sheet. Output one figure ONLY, same leftview asInput1.",
+          "lineage": [
+            {
+              "prompt": "Use case: stylized-concept. Produce ONE single separate game sprite only, on real transparent background. Input1 is STRUCTURE/IDENTITY reference: keep that object/person and pose. Inputs2,3,4 are INDIVIDUAL theme B STYLE references (player-down,chair,guest-down); match bold confident black lines, few carefully designed large cartoon planes, flat warm color and one shadow level. Ignore mint on player and orange on chair: BACKGROUND assets must NOT use mint, orange, red or dark green. Muted beige, brown, gray, desaturated navy only. Slight overhead RPG Maker view, not isometric. NO white sticker rim, NO floor/cast shadow, NO text/logos/letters/numbers, NO extra people/props/views/sheet.\nONE seated guest WITH ordinary brown chair, full single left view, NOT turnaround sheet. Same person as Input1. Canvas192x288. Whole guest and chair visible height212px, headtopY76, chair seatY211, legtips and shoes onbottomY288. Ordinary seated posture, hipsonseat, neckandshouldersvisible. Allfour views same size/body/chair. Facing screenLEFT/profile. Person2 darkbrown hair in smallhighbun, roundblackglasses, mutedgrayplum shortcardigan over creamshirt, charcoalpants. BOTHhands hold ONEsmall blankphone toward table direction. Chairback hides lowerback in rearview.",
+              "refs": [
+                "assets/a/seated-2-left.png",
+                "assets/b/player-down.png",
+                "assets/b/chair.png",
+                "assets/b/guest-down.png"
+              ],
+              "generatedPNG": "exec-45afe95d-4e37-4d8e-a5d2-65e72587ac23.png"
+            }
+          ],
+          "generatedPNG": "exec-77caaa3a-f7b3-4982-8c3f-09e1011ba71f.png",
+          "export": {
+            "theme": "b",
+            "key": "seated-2-left",
+            "canvas": [
+              192,
+              288
+            ],
+            "sourceSize": [
+              1024,
+              1536
+            ],
+            "cropBox": [
+              186,
+              81,
+              856,
+              1422
+            ],
+            "visibleSize": [
+              106,
+              212
+            ],
+            "placement": [
+              43,
+              76
+            ],
+            "lastOpaqueRow": 287,
+            "sha256": "b21bd1e56f66f356f3d9959aadca725960c1058b16c926e564c6ca9743f1dce4"
+          },
+          "processing": "Crop transparent margins at alpha>128, UNIFORM scale only, center on requested canvas. Floor anchor at canvas bottom for seated/plant/pillar; tabletop props centered. Preserve original color/line/shape/alpha. Background uniform fit to1920x1080 RGB."
+        },
+        {
+          "kind": "seated",
+          "theme": "b",
+          "person": 1,
+          "direction": "right",
+          "key": "seated-1-right",
+          "file": "assets/b/seated-1-right.png",
+          "refs": [
+            "generated:exec-8a1790f5-9c7e-435f-8193-494ff6cb64be.png",
+            "assets/b/player-down.png",
+            "assets/b/chair.png",
+            "assets/b/guest-down.png",
+            "generated:corrected-graybrown-chair-person1"
+          ],
+          "prompt": "Use case: precise-object-edit. Input1 EDIT TARGET. Preserve EXACT SAME single person and RIGHTFACINGPROFILE, pose, face, hair, headphones/glasses/phone, proportions andlinework, fullchair andtransparency. Change ONLY CHAIR COLOR: orange/golden/honey -> VERY DESATURATED DARK GRAYBROWN, main#6c6258, shadow#4d4741, light#8a8076. Input5 correctneutralgraybrownchair COLORreference only, doNOTcopyitsfrontview. Inputs2,3,4 individualstyle references only, doNOTcopy mintrobot or brightorangepushchair. ThischairNONMOVABLE soorangeforbidden. No background/groundshadow/stickerrim/text/extraobjects/extrafigure. One single RIGHTFACINGfigurewithchair only.",
+          "lineage": [
+            {
+              "prompt": "Use case: stylized-concept. Produce ONE single separate game sprite only, on real transparent background. Input1 is STRUCTURE/IDENTITY reference: keep that object/person and pose. Inputs2,3,4 are INDIVIDUAL theme B STYLE references (player-down,chair,guest-down); match bold confident black lines, few carefully designed large cartoon planes, flat warm color and one shadow level. Ignore mint on player and orange on chair: BACKGROUND assets must NOT use mint, orange, red or dark green. Muted beige, brown, gray, desaturated navy only. Slight overhead RPG Maker view, not isometric. NO white sticker rim, NO floor/cast shadow, NO text/logos/letters/numbers, NO extra people/props/views/sheet.\nONE seated guest WITH ordinary brown chair, full single right view, NOT turnaround sheet. Same person as Input1. Canvas192x288. Whole guest and chair visible height212px, headtopY76, chair seatY211, legtips and shoes onbottomY288. Ordinary seated posture, hipsonseat, neckandshouldersvisible. Allfour views same size/body/chair. Facing screenRIGHT/profile. Person1 straight smooth chinlength ashbrown bob, charcoal overear headphones, mutednavy Vneckvest over cream longsleeve, darktaupe straightpants, plain shoes. Forearms forward in empty typing posture toward adjacenttable. Absolutely NO laptop/table/keyboard in thisfile; hands inair atkeyboardheight only.",
+              "refs": [
+                "assets/a/seated-1-right.png",
+                "assets/b/player-down.png",
+                "assets/b/chair.png",
+                "assets/b/guest-down.png"
+              ],
+              "generatedPNG": "exec-8a1790f5-9c7e-435f-8193-494ff6cb64be.png"
+            }
+          ],
+          "generatedPNG": "exec-8c733e9b-dde4-4a48-af41-bb0c0875ae7a.png",
+          "export": {
+            "theme": "b",
+            "key": "seated-1-right",
+            "canvas": [
+              192,
+              288
+            ],
+            "sourceSize": [
+              1024,
+              1536
+            ],
+            "cropBox": [
+              193,
+              172,
+              875,
+              1397
+            ],
+            "visibleSize": [
+              118,
+              212
+            ],
+            "placement": [
+              37,
+              76
+            ],
+            "lastOpaqueRow": 287,
+            "sha256": "f28ac8ea623f76f7202375240f34e48f284b7aa778624d1dc1e9aa1f6ad0a5e8"
+          },
+          "processing": "Crop transparent margins at alpha>128, UNIFORM scale only, center on requested canvas. Floor anchor at canvas bottom for seated/plant/pillar; tabletop props centered. Preserve original color/line/shape/alpha. Background uniform fit to1920x1080 RGB."
+        },
+        {
+          "kind": "seated",
+          "theme": "b",
+          "person": 2,
+          "direction": "right",
+          "key": "seated-2-right",
+          "file": "assets/b/seated-2-right.png",
+          "refs": [
+            "generated:exec-b0654912-acde-4f4a-bc19-dc7623150e26.png",
+            "assets/b/player-down.png",
+            "assets/b/chair.png",
+            "assets/b/guest-down.png",
+            "generated:corrected-graybrown-chair-person1"
+          ],
+          "prompt": "Use case: precise-object-edit. Input1 EDIT TARGET. Preserve EXACT SAME single person and RIGHTFACINGPROFILE, pose, face, hair, headphones/glasses/phone, proportions andlinework, fullchair andtransparency. Change ONLY CHAIR COLOR: orange/golden/honey -> VERY DESATURATED DARK GRAYBROWN, main#6c6258, shadow#4d4741, light#8a8076. Input5 correctneutralgraybrownchair COLORreference only, doNOTcopyitsfrontview. Inputs2,3,4 individualstyle references only, doNOTcopy mintrobot or brightorangepushchair. ThischairNONMOVABLE soorangeforbidden. No background/groundshadow/stickerrim/text/extraobjects/extrafigure. One single RIGHTFACINGfigurewithchair only.",
+          "lineage": [
+            {
+              "prompt": "Use case: stylized-concept. Produce ONE single separate game sprite only, on real transparent background. Input1 is STRUCTURE/IDENTITY reference: keep that object/person and pose. Inputs2,3,4 are INDIVIDUAL theme B STYLE references (player-down,chair,guest-down); match bold confident black lines, few carefully designed large cartoon planes, flat warm color and one shadow level. Ignore mint on player and orange on chair: BACKGROUND assets must NOT use mint, orange, red or dark green. Muted beige, brown, gray, desaturated navy only. Slight overhead RPG Maker view, not isometric. NO white sticker rim, NO floor/cast shadow, NO text/logos/letters/numbers, NO extra people/props/views/sheet.\nONE seated guest WITH ordinary brown chair, full single right view, NOT turnaround sheet. Same person as Input1. Canvas192x288. Whole guest and chair visible height212px, headtopY76, chair seatY211, legtips and shoes onbottomY288. Ordinary seated posture, hipsonseat, neckandshouldersvisible. Allfour views same size/body/chair. Facing screenRIGHT/profile. Person2 darkbrown hair in smallhighbun, roundblackglasses, mutedgrayplum shortcardigan over creamshirt, charcoalpants. BOTHhands hold ONEsmall blankphone toward table direction. Chairback hides lowerback in rearview.",
+              "refs": [
+                "assets/a/seated-2-right.png",
+                "assets/b/player-down.png",
+                "assets/b/chair.png",
+                "assets/b/guest-down.png"
+              ],
+              "generatedPNG": "exec-b0654912-acde-4f4a-bc19-dc7623150e26.png"
+            }
+          ],
+          "generatedPNG": "exec-57634382-ace9-4b08-b9b2-03e1b2be3469.png",
+          "export": {
+            "theme": "b",
+            "key": "seated-2-right",
+            "canvas": [
+              192,
+              288
+            ],
+            "sourceSize": [
+              1024,
+              1536
+            ],
+            "cropBox": [
+              211,
+              29,
+              899,
+              1486
+            ],
+            "visibleSize": [
+              100,
+              212
+            ],
+            "placement": [
+              46,
+              76
+            ],
+            "lastOpaqueRow": 287,
+            "sha256": "57a0d25d6edfc5ec93107a355d264bf6483b15150d7f6f3881da62dfd5efa5f9"
+          },
+          "processing": "Crop transparent margins at alpha>128, UNIFORM scale only, center on requested canvas. Floor anchor at canvas bottom for seated/plant/pillar; tabletop props centered. Preserve original color/line/shape/alpha. Background uniform fit to1920x1080 RGB."
+        },
+        {
+          "kind": "background",
+          "theme": "b",
+          "key": "bg-sleeper-empty",
+          "file": "assets/b/bg-sleeper-empty.png",
+          "refs": [
+            "assets/b/bg-sleeper.webp",
+            "docs/layout-guide/sleeper-empty.png",
+            "assets/b/player-down.png",
+            "assets/b/chair.png",
+            "assets/b/guest-down.png"
+          ],
+          "prompt": "Use case: precise-object-edit. \nOpaque1920x1080 EMPTY CAFE ROOM BACKGROUND. Input1 current B cafe: preserve windows, straight sidewall strips, top fixed counter and pendantlights and square floor grid. Input2 layout guide for composition only; DO NOT draw its colored placeholders/hatching. Inputs3/4/5 B player/chair/guest separate style refs. REMOVE EVERY table/chair/person/plant/furniture/looseprop from entire board. Entire12column7row board is ONLY clean square floor tiles. Board intendedx384..1536,y240..912,pitch96, straight parallel horizontal/vertical tile lines. Keep architecture same cafe, warm mutedbeige/brown low contrast tiles. No perspective slants/triangular tiles, no text, no colored guide blocks.",
+          "generatedPNG": "exec-1db8ce5f-4825-49f7-b2af-a17d6a3208b0.png",
+          "export": {
+            "theme": "b",
+            "key": "bg-sleeper-empty",
+            "canvas": [
+              1920,
+              1080
+            ],
+            "sourceSize": [
+              1672,
+              941
+            ],
+            "opaque": true,
+            "sha256": "3a8be32955ca83562eeebc544cca00e865c0bc7369858d848caf6b2fe889b356"
+          },
+          "processing": "Crop transparent margins at alpha>128, UNIFORM scale only, center on requested canvas. Floor anchor at canvas bottom for seated/plant/pillar; tabletop props centered. Preserve original color/line/shape/alpha. Background uniform fit to1920x1080 RGB."
+        },
+        {
+          "theme": "a",
+          "key": "table-0",
+          "file": "assets/a/table-0.png",
+          "kind": "derived-table-autotile",
+          "prompt": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/chair.png",
+            "assets/a/guest-down.png"
+          ],
+          "generatedSourcePNG": "exec-a152ec8c-11e7-4e86-b164-03249247d794.png",
+          "generatorPromptRef": "table-master-a",
+          "export": {
+            "theme": "a",
+            "key": "table-0",
+            "canvas": [
+              192,
+              192
+            ],
+            "downConnected": false,
+            "frontY": [
+              134,
+              192
+            ],
+            "sha256": "f5a5500860ba806e839a6f1ed2aefb48fc12c25b29fdad9aaf2254215c6b37ce"
+          },
+          "processing": "Authorized Python/Pillow cutting and assembly. Samplegenerated tabletopcenter; resize material to192square; fadeouter20px to same sampled medianRGB so neighboring material edges match. Buildquartercoverage at8x andBOXdownsample, replicateedgepad then7/9pxMinFilter for3pxblackrim and1pxhighlight without outlines on connectedborders. Apron uses ONE generated centerverticalstripe repeated across width, avoiding resampling seam. Cutgenerated leftleg patch, fit20x46, mirrorforrightleg. No paintedcharacter edits."
+        },
+        {
+          "theme": "a",
+          "key": "table-1",
+          "file": "assets/a/table-1.png",
+          "kind": "derived-table-autotile",
+          "prompt": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/chair.png",
+            "assets/a/guest-down.png"
+          ],
+          "generatedSourcePNG": "exec-a152ec8c-11e7-4e86-b164-03249247d794.png",
+          "generatorPromptRef": "table-master-a",
+          "export": {
+            "theme": "a",
+            "key": "table-1",
+            "canvas": [
+              192,
+              192
+            ],
+            "downConnected": false,
+            "frontY": [
+              134,
+              192
+            ],
+            "sha256": "bd0cc10818b79c92c5dd6328e8740ecfd5931f1cafbe9e76c5a88d52935fdc67"
+          },
+          "processing": "Authorized Python/Pillow cutting and assembly. Samplegenerated tabletopcenter; resize material to192square; fadeouter20px to same sampled medianRGB so neighboring material edges match. Buildquartercoverage at8x andBOXdownsample, replicateedgepad then7/9pxMinFilter for3pxblackrim and1pxhighlight without outlines on connectedborders. Apron uses ONE generated centerverticalstripe repeated across width, avoiding resampling seam. Cutgenerated leftleg patch, fit20x46, mirrorforrightleg. No paintedcharacter edits."
+        },
+        {
+          "theme": "a",
+          "key": "table-2",
+          "file": "assets/a/table-2.png",
+          "kind": "derived-table-autotile",
+          "prompt": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/chair.png",
+            "assets/a/guest-down.png"
+          ],
+          "generatedSourcePNG": "exec-a152ec8c-11e7-4e86-b164-03249247d794.png",
+          "generatorPromptRef": "table-master-a",
+          "export": {
+            "theme": "a",
+            "key": "table-2",
+            "canvas": [
+              192,
+              192
+            ],
+            "downConnected": false,
+            "frontY": [
+              134,
+              192
+            ],
+            "sha256": "cf74871bb87443cb018d10e0c6f36d8c43030279916d298b9b327b28601b48ea"
+          },
+          "processing": "Authorized Python/Pillow cutting and assembly. Samplegenerated tabletopcenter; resize material to192square; fadeouter20px to same sampled medianRGB so neighboring material edges match. Buildquartercoverage at8x andBOXdownsample, replicateedgepad then7/9pxMinFilter for3pxblackrim and1pxhighlight without outlines on connectedborders. Apron uses ONE generated centerverticalstripe repeated across width, avoiding resampling seam. Cutgenerated leftleg patch, fit20x46, mirrorforrightleg. No paintedcharacter edits."
+        },
+        {
+          "theme": "a",
+          "key": "table-3",
+          "file": "assets/a/table-3.png",
+          "kind": "derived-table-autotile",
+          "prompt": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/chair.png",
+            "assets/a/guest-down.png"
+          ],
+          "generatedSourcePNG": "exec-a152ec8c-11e7-4e86-b164-03249247d794.png",
+          "generatorPromptRef": "table-master-a",
+          "export": {
+            "theme": "a",
+            "key": "table-3",
+            "canvas": [
+              192,
+              192
+            ],
+            "downConnected": false,
+            "frontY": [
+              134,
+              192
+            ],
+            "sha256": "414d1bd3312a412568d8e2c7183e3455a9e6bad9af587210d0d50ebe7a823b09"
+          },
+          "processing": "Authorized Python/Pillow cutting and assembly. Samplegenerated tabletopcenter; resize material to192square; fadeouter20px to same sampled medianRGB so neighboring material edges match. Buildquartercoverage at8x andBOXdownsample, replicateedgepad then7/9pxMinFilter for3pxblackrim and1pxhighlight without outlines on connectedborders. Apron uses ONE generated centerverticalstripe repeated across width, avoiding resampling seam. Cutgenerated leftleg patch, fit20x46, mirrorforrightleg. No paintedcharacter edits."
+        },
+        {
+          "theme": "a",
+          "key": "table-4",
+          "file": "assets/a/table-4.png",
+          "kind": "derived-table-autotile",
+          "prompt": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/chair.png",
+            "assets/a/guest-down.png"
+          ],
+          "generatedSourcePNG": "exec-a152ec8c-11e7-4e86-b164-03249247d794.png",
+          "generatorPromptRef": "table-master-a",
+          "export": {
+            "theme": "a",
+            "key": "table-4",
+            "canvas": [
+              192,
+              192
+            ],
+            "downConnected": true,
+            "frontY": null,
+            "sha256": "bc838de67f7701c2136fe7901f61771c86f5dbb5497a0bafc5bda23d58555ef7"
+          },
+          "processing": "Authorized Python/Pillow cutting and assembly. Samplegenerated tabletopcenter; resize material to192square; fadeouter20px to same sampled medianRGB so neighboring material edges match. Buildquartercoverage at8x andBOXdownsample, replicateedgepad then7/9pxMinFilter for3pxblackrim and1pxhighlight without outlines on connectedborders. Apron uses ONE generated centerverticalstripe repeated across width, avoiding resampling seam. Cutgenerated leftleg patch, fit20x46, mirrorforrightleg. No paintedcharacter edits."
+        },
+        {
+          "theme": "a",
+          "key": "table-5",
+          "file": "assets/a/table-5.png",
+          "kind": "derived-table-autotile",
+          "prompt": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/chair.png",
+            "assets/a/guest-down.png"
+          ],
+          "generatedSourcePNG": "exec-a152ec8c-11e7-4e86-b164-03249247d794.png",
+          "generatorPromptRef": "table-master-a",
+          "export": {
+            "theme": "a",
+            "key": "table-5",
+            "canvas": [
+              192,
+              192
+            ],
+            "downConnected": true,
+            "frontY": null,
+            "sha256": "c444f895dd2e6d89dd7bb1786a77a4430b0903a711e1986760e4ffd3e554420c"
+          },
+          "processing": "Authorized Python/Pillow cutting and assembly. Samplegenerated tabletopcenter; resize material to192square; fadeouter20px to same sampled medianRGB so neighboring material edges match. Buildquartercoverage at8x andBOXdownsample, replicateedgepad then7/9pxMinFilter for3pxblackrim and1pxhighlight without outlines on connectedborders. Apron uses ONE generated centerverticalstripe repeated across width, avoiding resampling seam. Cutgenerated leftleg patch, fit20x46, mirrorforrightleg. No paintedcharacter edits."
+        },
+        {
+          "theme": "a",
+          "key": "table-6",
+          "file": "assets/a/table-6.png",
+          "kind": "derived-table-autotile",
+          "prompt": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/chair.png",
+            "assets/a/guest-down.png"
+          ],
+          "generatedSourcePNG": "exec-a152ec8c-11e7-4e86-b164-03249247d794.png",
+          "generatorPromptRef": "table-master-a",
+          "export": {
+            "theme": "a",
+            "key": "table-6",
+            "canvas": [
+              192,
+              192
+            ],
+            "downConnected": true,
+            "frontY": null,
+            "sha256": "396ca2914eb19244d4f798529c4fb68e6916152103890a6e66faaccd27936275"
+          },
+          "processing": "Authorized Python/Pillow cutting and assembly. Samplegenerated tabletopcenter; resize material to192square; fadeouter20px to same sampled medianRGB so neighboring material edges match. Buildquartercoverage at8x andBOXdownsample, replicateedgepad then7/9pxMinFilter for3pxblackrim and1pxhighlight without outlines on connectedborders. Apron uses ONE generated centerverticalstripe repeated across width, avoiding resampling seam. Cutgenerated leftleg patch, fit20x46, mirrorforrightleg. No paintedcharacter edits."
+        },
+        {
+          "theme": "a",
+          "key": "table-7",
+          "file": "assets/a/table-7.png",
+          "kind": "derived-table-autotile",
+          "prompt": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/chair.png",
+            "assets/a/guest-down.png"
+          ],
+          "generatedSourcePNG": "exec-a152ec8c-11e7-4e86-b164-03249247d794.png",
+          "generatorPromptRef": "table-master-a",
+          "export": {
+            "theme": "a",
+            "key": "table-7",
+            "canvas": [
+              192,
+              192
+            ],
+            "downConnected": true,
+            "frontY": null,
+            "sha256": "a3efb108cb5938f20fdc27273ef6f477f3a04b23f119f7b39a03aacb52a02ae2"
+          },
+          "processing": "Authorized Python/Pillow cutting and assembly. Samplegenerated tabletopcenter; resize material to192square; fadeouter20px to same sampled medianRGB so neighboring material edges match. Buildquartercoverage at8x andBOXdownsample, replicateedgepad then7/9pxMinFilter for3pxblackrim and1pxhighlight without outlines on connectedborders. Apron uses ONE generated centerverticalstripe repeated across width, avoiding resampling seam. Cutgenerated leftleg patch, fit20x46, mirrorforrightleg. No paintedcharacter edits."
+        },
+        {
+          "theme": "a",
+          "key": "table-8",
+          "file": "assets/a/table-8.png",
+          "kind": "derived-table-autotile",
+          "prompt": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/chair.png",
+            "assets/a/guest-down.png"
+          ],
+          "generatedSourcePNG": "exec-a152ec8c-11e7-4e86-b164-03249247d794.png",
+          "generatorPromptRef": "table-master-a",
+          "export": {
+            "theme": "a",
+            "key": "table-8",
+            "canvas": [
+              192,
+              192
+            ],
+            "downConnected": false,
+            "frontY": [
+              134,
+              192
+            ],
+            "sha256": "738e89fca2383f9b5096045738b2db87c57accd8ed2ae14dab91006da90b9eaa"
+          },
+          "processing": "Authorized Python/Pillow cutting and assembly. Samplegenerated tabletopcenter; resize material to192square; fadeouter20px to same sampled medianRGB so neighboring material edges match. Buildquartercoverage at8x andBOXdownsample, replicateedgepad then7/9pxMinFilter for3pxblackrim and1pxhighlight without outlines on connectedborders. Apron uses ONE generated centerverticalstripe repeated across width, avoiding resampling seam. Cutgenerated leftleg patch, fit20x46, mirrorforrightleg. No paintedcharacter edits."
+        },
+        {
+          "theme": "a",
+          "key": "table-9",
+          "file": "assets/a/table-9.png",
+          "kind": "derived-table-autotile",
+          "prompt": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/chair.png",
+            "assets/a/guest-down.png"
+          ],
+          "generatedSourcePNG": "exec-a152ec8c-11e7-4e86-b164-03249247d794.png",
+          "generatorPromptRef": "table-master-a",
+          "export": {
+            "theme": "a",
+            "key": "table-9",
+            "canvas": [
+              192,
+              192
+            ],
+            "downConnected": false,
+            "frontY": [
+              134,
+              192
+            ],
+            "sha256": "4ce1f9765ffe9661424839db9c26a78ad9dcde6327404d37bccbbeb64739298e"
+          },
+          "processing": "Authorized Python/Pillow cutting and assembly. Samplegenerated tabletopcenter; resize material to192square; fadeouter20px to same sampled medianRGB so neighboring material edges match. Buildquartercoverage at8x andBOXdownsample, replicateedgepad then7/9pxMinFilter for3pxblackrim and1pxhighlight without outlines on connectedborders. Apron uses ONE generated centerverticalstripe repeated across width, avoiding resampling seam. Cutgenerated leftleg patch, fit20x46, mirrorforrightleg. No paintedcharacter edits."
+        },
+        {
+          "theme": "a",
+          "key": "table-10",
+          "file": "assets/a/table-10.png",
+          "kind": "derived-table-autotile",
+          "prompt": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/chair.png",
+            "assets/a/guest-down.png"
+          ],
+          "generatedSourcePNG": "exec-a152ec8c-11e7-4e86-b164-03249247d794.png",
+          "generatorPromptRef": "table-master-a",
+          "export": {
+            "theme": "a",
+            "key": "table-10",
+            "canvas": [
+              192,
+              192
+            ],
+            "downConnected": false,
+            "frontY": [
+              134,
+              192
+            ],
+            "sha256": "fe0aae83cc2d3343e986ec7c9a87106ab5439f137343ddd3840cf7782c42003f"
+          },
+          "processing": "Authorized Python/Pillow cutting and assembly. Samplegenerated tabletopcenter; resize material to192square; fadeouter20px to same sampled medianRGB so neighboring material edges match. Buildquartercoverage at8x andBOXdownsample, replicateedgepad then7/9pxMinFilter for3pxblackrim and1pxhighlight without outlines on connectedborders. Apron uses ONE generated centerverticalstripe repeated across width, avoiding resampling seam. Cutgenerated leftleg patch, fit20x46, mirrorforrightleg. No paintedcharacter edits."
+        },
+        {
+          "theme": "a",
+          "key": "table-11",
+          "file": "assets/a/table-11.png",
+          "kind": "derived-table-autotile",
+          "prompt": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/chair.png",
+            "assets/a/guest-down.png"
+          ],
+          "generatedSourcePNG": "exec-a152ec8c-11e7-4e86-b164-03249247d794.png",
+          "generatorPromptRef": "table-master-a",
+          "export": {
+            "theme": "a",
+            "key": "table-11",
+            "canvas": [
+              192,
+              192
+            ],
+            "downConnected": false,
+            "frontY": [
+              134,
+              192
+            ],
+            "sha256": "de48f380c3681c073ec2b71e4830adab2c418f9974eaa92bfcd500895f65237f"
+          },
+          "processing": "Authorized Python/Pillow cutting and assembly. Samplegenerated tabletopcenter; resize material to192square; fadeouter20px to same sampled medianRGB so neighboring material edges match. Buildquartercoverage at8x andBOXdownsample, replicateedgepad then7/9pxMinFilter for3pxblackrim and1pxhighlight without outlines on connectedborders. Apron uses ONE generated centerverticalstripe repeated across width, avoiding resampling seam. Cutgenerated leftleg patch, fit20x46, mirrorforrightleg. No paintedcharacter edits."
+        },
+        {
+          "theme": "a",
+          "key": "table-12",
+          "file": "assets/a/table-12.png",
+          "kind": "derived-table-autotile",
+          "prompt": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/chair.png",
+            "assets/a/guest-down.png"
+          ],
+          "generatedSourcePNG": "exec-a152ec8c-11e7-4e86-b164-03249247d794.png",
+          "generatorPromptRef": "table-master-a",
+          "export": {
+            "theme": "a",
+            "key": "table-12",
+            "canvas": [
+              192,
+              192
+            ],
+            "downConnected": true,
+            "frontY": null,
+            "sha256": "8ea17bc4e1379b1bb24bb50a669da440770c4d1a8d391907ec7c15d63b9c8daa"
+          },
+          "processing": "Authorized Python/Pillow cutting and assembly. Samplegenerated tabletopcenter; resize material to192square; fadeouter20px to same sampled medianRGB so neighboring material edges match. Buildquartercoverage at8x andBOXdownsample, replicateedgepad then7/9pxMinFilter for3pxblackrim and1pxhighlight without outlines on connectedborders. Apron uses ONE generated centerverticalstripe repeated across width, avoiding resampling seam. Cutgenerated leftleg patch, fit20x46, mirrorforrightleg. No paintedcharacter edits."
+        },
+        {
+          "theme": "a",
+          "key": "table-13",
+          "file": "assets/a/table-13.png",
+          "kind": "derived-table-autotile",
+          "prompt": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/chair.png",
+            "assets/a/guest-down.png"
+          ],
+          "generatedSourcePNG": "exec-a152ec8c-11e7-4e86-b164-03249247d794.png",
+          "generatorPromptRef": "table-master-a",
+          "export": {
+            "theme": "a",
+            "key": "table-13",
+            "canvas": [
+              192,
+              192
+            ],
+            "downConnected": true,
+            "frontY": null,
+            "sha256": "f82225d39a683655041cbbe923056a8ae8da2c9bb5beae58a314f0de90abdbcd"
+          },
+          "processing": "Authorized Python/Pillow cutting and assembly. Samplegenerated tabletopcenter; resize material to192square; fadeouter20px to same sampled medianRGB so neighboring material edges match. Buildquartercoverage at8x andBOXdownsample, replicateedgepad then7/9pxMinFilter for3pxblackrim and1pxhighlight without outlines on connectedborders. Apron uses ONE generated centerverticalstripe repeated across width, avoiding resampling seam. Cutgenerated leftleg patch, fit20x46, mirrorforrightleg. No paintedcharacter edits."
+        },
+        {
+          "theme": "a",
+          "key": "table-14",
+          "file": "assets/a/table-14.png",
+          "kind": "derived-table-autotile",
+          "prompt": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/chair.png",
+            "assets/a/guest-down.png"
+          ],
+          "generatedSourcePNG": "exec-a152ec8c-11e7-4e86-b164-03249247d794.png",
+          "generatorPromptRef": "table-master-a",
+          "export": {
+            "theme": "a",
+            "key": "table-14",
+            "canvas": [
+              192,
+              192
+            ],
+            "downConnected": true,
+            "frontY": null,
+            "sha256": "7926f2729e4adbfddb77936c1aaca3ca33778843896f7ee45a9b8c4fe82a867a"
+          },
+          "processing": "Authorized Python/Pillow cutting and assembly. Samplegenerated tabletopcenter; resize material to192square; fadeouter20px to same sampled medianRGB so neighboring material edges match. Buildquartercoverage at8x andBOXdownsample, replicateedgepad then7/9pxMinFilter for3pxblackrim and1pxhighlight without outlines on connectedborders. Apron uses ONE generated centerverticalstripe repeated across width, avoiding resampling seam. Cutgenerated leftleg patch, fit20x46, mirrorforrightleg. No paintedcharacter edits."
+        },
+        {
+          "theme": "a",
+          "key": "table-15",
+          "file": "assets/a/table-15.png",
+          "kind": "derived-table-autotile",
+          "prompt": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+          "refs": [
+            "assets/a/player-down.png",
+            "assets/a/chair.png",
+            "assets/a/guest-down.png"
+          ],
+          "generatedSourcePNG": "exec-a152ec8c-11e7-4e86-b164-03249247d794.png",
+          "generatorPromptRef": "table-master-a",
+          "export": {
+            "theme": "a",
+            "key": "table-15",
+            "canvas": [
+              192,
+              192
+            ],
+            "downConnected": true,
+            "frontY": null,
+            "sha256": "c400f4d6c88db198f0cef2aac4142ee755b9f8b016410a8712092f33b4559213"
+          },
+          "processing": "Authorized Python/Pillow cutting and assembly. Samplegenerated tabletopcenter; resize material to192square; fadeouter20px to same sampled medianRGB so neighboring material edges match. Buildquartercoverage at8x andBOXdownsample, replicateedgepad then7/9pxMinFilter for3pxblackrim and1pxhighlight without outlines on connectedborders. Apron uses ONE generated centerverticalstripe repeated across width, avoiding resampling seam. Cutgenerated leftleg patch, fit20x46, mirrorforrightleg. No paintedcharacter edits."
+        },
+        {
+          "theme": "b",
+          "key": "table-0",
+          "file": "assets/b/table-0.png",
+          "kind": "derived-table-autotile",
+          "prompt": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+          "refs": [
+            "generated:table-master-a",
+            "assets/b/player-down.png",
+            "assets/b/chair.png",
+            "assets/b/guest-down.png"
+          ],
+          "generatedSourcePNG": "exec-5dfa17ef-fafb-4c0e-9f81-60be98a2293d.png",
+          "generatorPromptRef": "table-master-b",
+          "export": {
+            "theme": "b",
+            "key": "table-0",
+            "canvas": [
+              192,
+              192
+            ],
+            "downConnected": false,
+            "frontY": [
+              134,
+              192
+            ],
+            "sha256": "545a9f88a87167e601e6559b21723798fce254c964e1080bfdb480138f27a9fc"
+          },
+          "processing": "Authorized Python/Pillow cutting and assembly. Samplegenerated tabletopcenter; resize material to192square; fadeouter20px to same sampled medianRGB so neighboring material edges match. Buildquartercoverage at8x andBOXdownsample, replicateedgepad then7/9pxMinFilter for3pxblackrim and1pxhighlight without outlines on connectedborders. Apron uses ONE generated centerverticalstripe repeated across width, avoiding resampling seam. Cutgenerated leftleg patch, fit20x46, mirrorforrightleg. No paintedcharacter edits."
+        },
+        {
+          "theme": "b",
+          "key": "table-1",
+          "file": "assets/b/table-1.png",
+          "kind": "derived-table-autotile",
+          "prompt": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+          "refs": [
+            "generated:table-master-a",
+            "assets/b/player-down.png",
+            "assets/b/chair.png",
+            "assets/b/guest-down.png"
+          ],
+          "generatedSourcePNG": "exec-5dfa17ef-fafb-4c0e-9f81-60be98a2293d.png",
+          "generatorPromptRef": "table-master-b",
+          "export": {
+            "theme": "b",
+            "key": "table-1",
+            "canvas": [
+              192,
+              192
+            ],
+            "downConnected": false,
+            "frontY": [
+              134,
+              192
+            ],
+            "sha256": "2cc6586ab9ea7223bde4386d374afd4f8cfaec12a4f97de72f99f48e458f9964"
+          },
+          "processing": "Authorized Python/Pillow cutting and assembly. Samplegenerated tabletopcenter; resize material to192square; fadeouter20px to same sampled medianRGB so neighboring material edges match. Buildquartercoverage at8x andBOXdownsample, replicateedgepad then7/9pxMinFilter for3pxblackrim and1pxhighlight without outlines on connectedborders. Apron uses ONE generated centerverticalstripe repeated across width, avoiding resampling seam. Cutgenerated leftleg patch, fit20x46, mirrorforrightleg. No paintedcharacter edits."
+        },
+        {
+          "theme": "b",
+          "key": "table-2",
+          "file": "assets/b/table-2.png",
+          "kind": "derived-table-autotile",
+          "prompt": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+          "refs": [
+            "generated:table-master-a",
+            "assets/b/player-down.png",
+            "assets/b/chair.png",
+            "assets/b/guest-down.png"
+          ],
+          "generatedSourcePNG": "exec-5dfa17ef-fafb-4c0e-9f81-60be98a2293d.png",
+          "generatorPromptRef": "table-master-b",
+          "export": {
+            "theme": "b",
+            "key": "table-2",
+            "canvas": [
+              192,
+              192
+            ],
+            "downConnected": false,
+            "frontY": [
+              134,
+              192
+            ],
+            "sha256": "be62d247a2f5388e72e3e6764ff62469c372a65bc28646f533f06b059ec718dd"
+          },
+          "processing": "Authorized Python/Pillow cutting and assembly. Samplegenerated tabletopcenter; resize material to192square; fadeouter20px to same sampled medianRGB so neighboring material edges match. Buildquartercoverage at8x andBOXdownsample, replicateedgepad then7/9pxMinFilter for3pxblackrim and1pxhighlight without outlines on connectedborders. Apron uses ONE generated centerverticalstripe repeated across width, avoiding resampling seam. Cutgenerated leftleg patch, fit20x46, mirrorforrightleg. No paintedcharacter edits."
+        },
+        {
+          "theme": "b",
+          "key": "table-3",
+          "file": "assets/b/table-3.png",
+          "kind": "derived-table-autotile",
+          "prompt": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+          "refs": [
+            "generated:table-master-a",
+            "assets/b/player-down.png",
+            "assets/b/chair.png",
+            "assets/b/guest-down.png"
+          ],
+          "generatedSourcePNG": "exec-5dfa17ef-fafb-4c0e-9f81-60be98a2293d.png",
+          "generatorPromptRef": "table-master-b",
+          "export": {
+            "theme": "b",
+            "key": "table-3",
+            "canvas": [
+              192,
+              192
+            ],
+            "downConnected": false,
+            "frontY": [
+              134,
+              192
+            ],
+            "sha256": "cb09c001974396f7fefd9754ccf6e2eaf9146fe3d2df067d51f55ef635fbd303"
+          },
+          "processing": "Authorized Python/Pillow cutting and assembly. Samplegenerated tabletopcenter; resize material to192square; fadeouter20px to same sampled medianRGB so neighboring material edges match. Buildquartercoverage at8x andBOXdownsample, replicateedgepad then7/9pxMinFilter for3pxblackrim and1pxhighlight without outlines on connectedborders. Apron uses ONE generated centerverticalstripe repeated across width, avoiding resampling seam. Cutgenerated leftleg patch, fit20x46, mirrorforrightleg. No paintedcharacter edits."
+        },
+        {
+          "theme": "b",
+          "key": "table-4",
+          "file": "assets/b/table-4.png",
+          "kind": "derived-table-autotile",
+          "prompt": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+          "refs": [
+            "generated:table-master-a",
+            "assets/b/player-down.png",
+            "assets/b/chair.png",
+            "assets/b/guest-down.png"
+          ],
+          "generatedSourcePNG": "exec-5dfa17ef-fafb-4c0e-9f81-60be98a2293d.png",
+          "generatorPromptRef": "table-master-b",
+          "export": {
+            "theme": "b",
+            "key": "table-4",
+            "canvas": [
+              192,
+              192
+            ],
+            "downConnected": true,
+            "frontY": null,
+            "sha256": "fa5c2bae31ec218bd833b32db1488081cdf6c09203de2f3e64b9228000e3145e"
+          },
+          "processing": "Authorized Python/Pillow cutting and assembly. Samplegenerated tabletopcenter; resize material to192square; fadeouter20px to same sampled medianRGB so neighboring material edges match. Buildquartercoverage at8x andBOXdownsample, replicateedgepad then7/9pxMinFilter for3pxblackrim and1pxhighlight without outlines on connectedborders. Apron uses ONE generated centerverticalstripe repeated across width, avoiding resampling seam. Cutgenerated leftleg patch, fit20x46, mirrorforrightleg. No paintedcharacter edits."
+        },
+        {
+          "theme": "b",
+          "key": "table-5",
+          "file": "assets/b/table-5.png",
+          "kind": "derived-table-autotile",
+          "prompt": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+          "refs": [
+            "generated:table-master-a",
+            "assets/b/player-down.png",
+            "assets/b/chair.png",
+            "assets/b/guest-down.png"
+          ],
+          "generatedSourcePNG": "exec-5dfa17ef-fafb-4c0e-9f81-60be98a2293d.png",
+          "generatorPromptRef": "table-master-b",
+          "export": {
+            "theme": "b",
+            "key": "table-5",
+            "canvas": [
+              192,
+              192
+            ],
+            "downConnected": true,
+            "frontY": null,
+            "sha256": "7f0792daf89dbc23ac9d086821e3faa6c063c43066b6314bd6c07e8fb5826655"
+          },
+          "processing": "Authorized Python/Pillow cutting and assembly. Samplegenerated tabletopcenter; resize material to192square; fadeouter20px to same sampled medianRGB so neighboring material edges match. Buildquartercoverage at8x andBOXdownsample, replicateedgepad then7/9pxMinFilter for3pxblackrim and1pxhighlight without outlines on connectedborders. Apron uses ONE generated centerverticalstripe repeated across width, avoiding resampling seam. Cutgenerated leftleg patch, fit20x46, mirrorforrightleg. No paintedcharacter edits."
+        },
+        {
+          "theme": "b",
+          "key": "table-6",
+          "file": "assets/b/table-6.png",
+          "kind": "derived-table-autotile",
+          "prompt": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+          "refs": [
+            "generated:table-master-a",
+            "assets/b/player-down.png",
+            "assets/b/chair.png",
+            "assets/b/guest-down.png"
+          ],
+          "generatedSourcePNG": "exec-5dfa17ef-fafb-4c0e-9f81-60be98a2293d.png",
+          "generatorPromptRef": "table-master-b",
+          "export": {
+            "theme": "b",
+            "key": "table-6",
+            "canvas": [
+              192,
+              192
+            ],
+            "downConnected": true,
+            "frontY": null,
+            "sha256": "085a48f842f76089d2b3705c606472454dc85f8015d11ef9dd437189a3bcf5df"
+          },
+          "processing": "Authorized Python/Pillow cutting and assembly. Samplegenerated tabletopcenter; resize material to192square; fadeouter20px to same sampled medianRGB so neighboring material edges match. Buildquartercoverage at8x andBOXdownsample, replicateedgepad then7/9pxMinFilter for3pxblackrim and1pxhighlight without outlines on connectedborders. Apron uses ONE generated centerverticalstripe repeated across width, avoiding resampling seam. Cutgenerated leftleg patch, fit20x46, mirrorforrightleg. No paintedcharacter edits."
+        },
+        {
+          "theme": "b",
+          "key": "table-7",
+          "file": "assets/b/table-7.png",
+          "kind": "derived-table-autotile",
+          "prompt": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+          "refs": [
+            "generated:table-master-a",
+            "assets/b/player-down.png",
+            "assets/b/chair.png",
+            "assets/b/guest-down.png"
+          ],
+          "generatedSourcePNG": "exec-5dfa17ef-fafb-4c0e-9f81-60be98a2293d.png",
+          "generatorPromptRef": "table-master-b",
+          "export": {
+            "theme": "b",
+            "key": "table-7",
+            "canvas": [
+              192,
+              192
+            ],
+            "downConnected": true,
+            "frontY": null,
+            "sha256": "e8383e88bde4749443399fffbe2001888968da667edaf49c989bdb88246a3f13"
+          },
+          "processing": "Authorized Python/Pillow cutting and assembly. Samplegenerated tabletopcenter; resize material to192square; fadeouter20px to same sampled medianRGB so neighboring material edges match. Buildquartercoverage at8x andBOXdownsample, replicateedgepad then7/9pxMinFilter for3pxblackrim and1pxhighlight without outlines on connectedborders. Apron uses ONE generated centerverticalstripe repeated across width, avoiding resampling seam. Cutgenerated leftleg patch, fit20x46, mirrorforrightleg. No paintedcharacter edits."
+        },
+        {
+          "theme": "b",
+          "key": "table-8",
+          "file": "assets/b/table-8.png",
+          "kind": "derived-table-autotile",
+          "prompt": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+          "refs": [
+            "generated:table-master-a",
+            "assets/b/player-down.png",
+            "assets/b/chair.png",
+            "assets/b/guest-down.png"
+          ],
+          "generatedSourcePNG": "exec-5dfa17ef-fafb-4c0e-9f81-60be98a2293d.png",
+          "generatorPromptRef": "table-master-b",
+          "export": {
+            "theme": "b",
+            "key": "table-8",
+            "canvas": [
+              192,
+              192
+            ],
+            "downConnected": false,
+            "frontY": [
+              134,
+              192
+            ],
+            "sha256": "e61e4e0ebdc036239cede5961477f4795a3983385253223936bed14bea98d1d7"
+          },
+          "processing": "Authorized Python/Pillow cutting and assembly. Samplegenerated tabletopcenter; resize material to192square; fadeouter20px to same sampled medianRGB so neighboring material edges match. Buildquartercoverage at8x andBOXdownsample, replicateedgepad then7/9pxMinFilter for3pxblackrim and1pxhighlight without outlines on connectedborders. Apron uses ONE generated centerverticalstripe repeated across width, avoiding resampling seam. Cutgenerated leftleg patch, fit20x46, mirrorforrightleg. No paintedcharacter edits."
+        },
+        {
+          "theme": "b",
+          "key": "table-9",
+          "file": "assets/b/table-9.png",
+          "kind": "derived-table-autotile",
+          "prompt": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+          "refs": [
+            "generated:table-master-a",
+            "assets/b/player-down.png",
+            "assets/b/chair.png",
+            "assets/b/guest-down.png"
+          ],
+          "generatedSourcePNG": "exec-5dfa17ef-fafb-4c0e-9f81-60be98a2293d.png",
+          "generatorPromptRef": "table-master-b",
+          "export": {
+            "theme": "b",
+            "key": "table-9",
+            "canvas": [
+              192,
+              192
+            ],
+            "downConnected": false,
+            "frontY": [
+              134,
+              192
+            ],
+            "sha256": "0b747aa61634765c0c85229102dc2471ee43ac3843ce8a68127918c83c78280b"
+          },
+          "processing": "Authorized Python/Pillow cutting and assembly. Samplegenerated tabletopcenter; resize material to192square; fadeouter20px to same sampled medianRGB so neighboring material edges match. Buildquartercoverage at8x andBOXdownsample, replicateedgepad then7/9pxMinFilter for3pxblackrim and1pxhighlight without outlines on connectedborders. Apron uses ONE generated centerverticalstripe repeated across width, avoiding resampling seam. Cutgenerated leftleg patch, fit20x46, mirrorforrightleg. No paintedcharacter edits."
+        },
+        {
+          "theme": "b",
+          "key": "table-10",
+          "file": "assets/b/table-10.png",
+          "kind": "derived-table-autotile",
+          "prompt": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+          "refs": [
+            "generated:table-master-a",
+            "assets/b/player-down.png",
+            "assets/b/chair.png",
+            "assets/b/guest-down.png"
+          ],
+          "generatedSourcePNG": "exec-5dfa17ef-fafb-4c0e-9f81-60be98a2293d.png",
+          "generatorPromptRef": "table-master-b",
+          "export": {
+            "theme": "b",
+            "key": "table-10",
+            "canvas": [
+              192,
+              192
+            ],
+            "downConnected": false,
+            "frontY": [
+              134,
+              192
+            ],
+            "sha256": "3b4482765af18bb86b05e185b255c3f6ceebd183b74fb10d975a16b68b2b37fb"
+          },
+          "processing": "Authorized Python/Pillow cutting and assembly. Samplegenerated tabletopcenter; resize material to192square; fadeouter20px to same sampled medianRGB so neighboring material edges match. Buildquartercoverage at8x andBOXdownsample, replicateedgepad then7/9pxMinFilter for3pxblackrim and1pxhighlight without outlines on connectedborders. Apron uses ONE generated centerverticalstripe repeated across width, avoiding resampling seam. Cutgenerated leftleg patch, fit20x46, mirrorforrightleg. No paintedcharacter edits."
+        },
+        {
+          "theme": "b",
+          "key": "table-11",
+          "file": "assets/b/table-11.png",
+          "kind": "derived-table-autotile",
+          "prompt": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+          "refs": [
+            "generated:table-master-a",
+            "assets/b/player-down.png",
+            "assets/b/chair.png",
+            "assets/b/guest-down.png"
+          ],
+          "generatedSourcePNG": "exec-5dfa17ef-fafb-4c0e-9f81-60be98a2293d.png",
+          "generatorPromptRef": "table-master-b",
+          "export": {
+            "theme": "b",
+            "key": "table-11",
+            "canvas": [
+              192,
+              192
+            ],
+            "downConnected": false,
+            "frontY": [
+              134,
+              192
+            ],
+            "sha256": "5f581ca62a80d382e8805791894701642a041f273bb10294a0b5f385cf7485be"
+          },
+          "processing": "Authorized Python/Pillow cutting and assembly. Samplegenerated tabletopcenter; resize material to192square; fadeouter20px to same sampled medianRGB so neighboring material edges match. Buildquartercoverage at8x andBOXdownsample, replicateedgepad then7/9pxMinFilter for3pxblackrim and1pxhighlight without outlines on connectedborders. Apron uses ONE generated centerverticalstripe repeated across width, avoiding resampling seam. Cutgenerated leftleg patch, fit20x46, mirrorforrightleg. No paintedcharacter edits."
+        },
+        {
+          "theme": "b",
+          "key": "table-12",
+          "file": "assets/b/table-12.png",
+          "kind": "derived-table-autotile",
+          "prompt": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+          "refs": [
+            "generated:table-master-a",
+            "assets/b/player-down.png",
+            "assets/b/chair.png",
+            "assets/b/guest-down.png"
+          ],
+          "generatedSourcePNG": "exec-5dfa17ef-fafb-4c0e-9f81-60be98a2293d.png",
+          "generatorPromptRef": "table-master-b",
+          "export": {
+            "theme": "b",
+            "key": "table-12",
+            "canvas": [
+              192,
+              192
+            ],
+            "downConnected": true,
+            "frontY": null,
+            "sha256": "0cf9454b6d768c9fb8cf9331963ea77918b9bc61b40208eb43bade1b14e7c40a"
+          },
+          "processing": "Authorized Python/Pillow cutting and assembly. Samplegenerated tabletopcenter; resize material to192square; fadeouter20px to same sampled medianRGB so neighboring material edges match. Buildquartercoverage at8x andBOXdownsample, replicateedgepad then7/9pxMinFilter for3pxblackrim and1pxhighlight without outlines on connectedborders. Apron uses ONE generated centerverticalstripe repeated across width, avoiding resampling seam. Cutgenerated leftleg patch, fit20x46, mirrorforrightleg. No paintedcharacter edits."
+        },
+        {
+          "theme": "b",
+          "key": "table-13",
+          "file": "assets/b/table-13.png",
+          "kind": "derived-table-autotile",
+          "prompt": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+          "refs": [
+            "generated:table-master-a",
+            "assets/b/player-down.png",
+            "assets/b/chair.png",
+            "assets/b/guest-down.png"
+          ],
+          "generatedSourcePNG": "exec-5dfa17ef-fafb-4c0e-9f81-60be98a2293d.png",
+          "generatorPromptRef": "table-master-b",
+          "export": {
+            "theme": "b",
+            "key": "table-13",
+            "canvas": [
+              192,
+              192
+            ],
+            "downConnected": true,
+            "frontY": null,
+            "sha256": "00b144b15dfa5218ba8c8d4fd9609b83fd1c2d144fede7abc45a9394911584ef"
+          },
+          "processing": "Authorized Python/Pillow cutting and assembly. Samplegenerated tabletopcenter; resize material to192square; fadeouter20px to same sampled medianRGB so neighboring material edges match. Buildquartercoverage at8x andBOXdownsample, replicateedgepad then7/9pxMinFilter for3pxblackrim and1pxhighlight without outlines on connectedborders. Apron uses ONE generated centerverticalstripe repeated across width, avoiding resampling seam. Cutgenerated leftleg patch, fit20x46, mirrorforrightleg. No paintedcharacter edits."
+        },
+        {
+          "theme": "b",
+          "key": "table-14",
+          "file": "assets/b/table-14.png",
+          "kind": "derived-table-autotile",
+          "prompt": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+          "refs": [
+            "generated:table-master-a",
+            "assets/b/player-down.png",
+            "assets/b/chair.png",
+            "assets/b/guest-down.png"
+          ],
+          "generatedSourcePNG": "exec-5dfa17ef-fafb-4c0e-9f81-60be98a2293d.png",
+          "generatorPromptRef": "table-master-b",
+          "export": {
+            "theme": "b",
+            "key": "table-14",
+            "canvas": [
+              192,
+              192
+            ],
+            "downConnected": true,
+            "frontY": null,
+            "sha256": "403761bd90ce92ac296f70964faa33e9114900ae3f4fbc4585ed90fb470867f7"
+          },
+          "processing": "Authorized Python/Pillow cutting and assembly. Samplegenerated tabletopcenter; resize material to192square; fadeouter20px to same sampled medianRGB so neighboring material edges match. Buildquartercoverage at8x andBOXdownsample, replicateedgepad then7/9pxMinFilter for3pxblackrim and1pxhighlight without outlines on connectedborders. Apron uses ONE generated centerverticalstripe repeated across width, avoiding resampling seam. Cutgenerated leftleg patch, fit20x46, mirrorforrightleg. No paintedcharacter edits."
+        },
+        {
+          "theme": "b",
+          "key": "table-15",
+          "file": "assets/b/table-15.png",
+          "kind": "derived-table-autotile",
+          "prompt": "Build one table autotile from the generated table master. Cardinal bits U1,R2,D4,L8. Four96x96quarters. Top/left/right dry inset8px, radius16px on corners with neither adjacent neighbor. One connected side gives straight strip; both connected fillsquarter. If DOWN not connected, surface endsy134 and front/apron/legs occupy134..192; frontleft/right bounds match surface at0or8/192or184. If DOWN connected, surface reaches192 with NO apron/legs. Legs only at unconnected outerleft/right ends, bottom192. No text/shadow/stickeroutline.",
+          "refs": [
+            "generated:table-master-a",
+            "assets/b/player-down.png",
+            "assets/b/chair.png",
+            "assets/b/guest-down.png"
+          ],
+          "generatedSourcePNG": "exec-5dfa17ef-fafb-4c0e-9f81-60be98a2293d.png",
+          "generatorPromptRef": "table-master-b",
+          "export": {
+            "theme": "b",
+            "key": "table-15",
+            "canvas": [
+              192,
+              192
+            ],
+            "downConnected": true,
+            "frontY": null,
+            "sha256": "b3037612aba96754038dabe4ad989e5c0ad94687733feca4a78bdff30e495c56"
+          },
+          "processing": "Authorized Python/Pillow cutting and assembly. Samplegenerated tabletopcenter; resize material to192square; fadeouter20px to same sampled medianRGB so neighboring material edges match. Buildquartercoverage at8x andBOXdownsample, replicateedgepad then7/9pxMinFilter for3pxblackrim and1pxhighlight without outlines on connectedborders. Apron uses ONE generated centerverticalstripe repeated across width, avoiding resampling seam. Cutgenerated leftleg patch, fit20x46, mirrorforrightleg. No paintedcharacter edits."
+        }
+      ],
+      "qa": {
+        "assets": [
+          {
+            "theme": "a",
+            "key": "bg-sleeper-empty",
+            "file": "assets/a/bg-sleeper-empty.png",
+            "size": [
+              1920,
+              1080
+            ],
+            "mode": "RGB",
+            "bytes": 1155568,
+            "sha256": "7e4a8de47d1b85bc35c9e44a0e19243b30e7b240247a559a27e5e4fa4e3e780e",
+            "maxRGBChannelDifference": 12
+          },
+          {
+            "theme": "a",
+            "key": "table-0",
+            "file": "assets/a/table-0.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 23029,
+            "sha256": "f5a5500860ba806e839a6f1ed2aefb48fc12c25b29fdad9aaf2254215c6b37ce",
+            "maxRGBChannelDifference": 3
+          },
+          {
+            "theme": "a",
+            "key": "table-1",
+            "file": "assets/a/table-1.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 23317,
+            "sha256": "bd0cc10818b79c92c5dd6328e8740ecfd5931f1cafbe9e76c5a88d52935fdc67",
+            "maxRGBChannelDifference": 3
+          },
+          {
+            "theme": "a",
+            "key": "table-2",
+            "file": "assets/a/table-2.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 21824,
+            "sha256": "cf74871bb87443cb018d10e0c6f36d8c43030279916d298b9b327b28601b48ea",
+            "maxRGBChannelDifference": 3
+          },
+          {
+            "theme": "a",
+            "key": "table-3",
+            "file": "assets/a/table-3.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 22452,
+            "sha256": "414d1bd3312a412568d8e2c7183e3455a9e6bad9af587210d0d50ebe7a823b09",
+            "maxRGBChannelDifference": 3
+          },
+          {
+            "theme": "a",
+            "key": "table-4",
+            "file": "assets/a/table-4.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 28285,
+            "sha256": "bc838de67f7701c2136fe7901f61771c86f5dbb5497a0bafc5bda23d58555ef7",
+            "maxRGBChannelDifference": 3
+          },
+          {
+            "theme": "a",
+            "key": "table-5",
+            "file": "assets/a/table-5.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 28406,
+            "sha256": "c444f895dd2e6d89dd7bb1786a77a4430b0903a711e1986760e4ffd3e554420c",
+            "maxRGBChannelDifference": 3
+          },
+          {
+            "theme": "a",
+            "key": "table-6",
+            "file": "assets/a/table-6.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 28762,
+            "sha256": "396ca2914eb19244d4f798529c4fb68e6916152103890a6e66faaccd27936275",
+            "maxRGBChannelDifference": 3
+          },
+          {
+            "theme": "a",
+            "key": "table-7",
+            "file": "assets/a/table-7.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 29282,
+            "sha256": "a3efb108cb5938f20fdc27273ef6f477f3a04b23f119f7b39a03aacb52a02ae2",
+            "maxRGBChannelDifference": 3
+          },
+          {
+            "theme": "a",
+            "key": "table-8",
+            "file": "assets/a/table-8.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 21860,
+            "sha256": "738e89fca2383f9b5096045738b2db87c57accd8ed2ae14dab91006da90b9eaa",
+            "maxRGBChannelDifference": 3
+          },
+          {
+            "theme": "a",
+            "key": "table-9",
+            "file": "assets/a/table-9.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 22335,
+            "sha256": "4ce1f9765ffe9661424839db9c26a78ad9dcde6327404d37bccbbeb64739298e",
+            "maxRGBChannelDifference": 3
+          },
+          {
+            "theme": "a",
+            "key": "table-10",
+            "file": "assets/a/table-10.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 20121,
+            "sha256": "fe0aae83cc2d3343e986ec7c9a87106ab5439f137343ddd3840cf7782c42003f",
+            "maxRGBChannelDifference": 3
+          },
+          {
+            "theme": "a",
+            "key": "table-11",
+            "file": "assets/a/table-11.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 21042,
+            "sha256": "de48f380c3681c073ec2b71e4830adab2c418f9974eaa92bfcd500895f65237f",
+            "maxRGBChannelDifference": 3
+          },
+          {
+            "theme": "a",
+            "key": "table-12",
+            "file": "assets/a/table-12.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 28712,
+            "sha256": "8ea17bc4e1379b1bb24bb50a669da440770c4d1a8d391907ec7c15d63b9c8daa",
+            "maxRGBChannelDifference": 3
+          },
+          {
+            "theme": "a",
+            "key": "table-13",
+            "file": "assets/a/table-13.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 29068,
+            "sha256": "f82225d39a683655041cbbe923056a8ae8da2c9bb5beae58a314f0de90abdbcd",
+            "maxRGBChannelDifference": 3
+          },
+          {
+            "theme": "a",
+            "key": "table-14",
+            "file": "assets/a/table-14.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 29017,
+            "sha256": "7926f2729e4adbfddb77936c1aaca3ca33778843896f7ee45a9b8c4fe82a867a",
+            "maxRGBChannelDifference": 3
+          },
+          {
+            "theme": "a",
+            "key": "table-15",
+            "file": "assets/a/table-15.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 29910,
+            "sha256": "c400f4d6c88db198f0cef2aac4142ee755b9f8b016410a8712092f33b4559213",
+            "maxRGBChannelDifference": 3
+          },
+          {
+            "theme": "a",
+            "key": "tabletop-1",
+            "file": "assets/a/tabletop-1.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 2792,
+            "sha256": "292fd2c1a4dc21fcac5e1cdcf9cda948021915852679a26dfe3a83acd4c23f4d",
+            "maxRGBChannelDifference": 5
+          },
+          {
+            "theme": "a",
+            "key": "tabletop-2",
+            "file": "assets/a/tabletop-2.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 3997,
+            "sha256": "33f52cd203dae9018b75d51ab7774ba81d8c23a6d7071404285a6d540933c61d",
+            "maxRGBChannelDifference": 3
+          },
+          {
+            "theme": "a",
+            "key": "tabletop-3",
+            "file": "assets/a/tabletop-3.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 4829,
+            "sha256": "f1c01e43167630868cf23e1c1dc7dd6c0cf3cdad8c465996b5e19b417962acb6",
+            "maxRGBChannelDifference": 3
+          },
+          {
+            "theme": "a",
+            "key": "tabletop-4",
+            "file": "assets/a/tabletop-4.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 3242,
+            "sha256": "239bf20b31bfddd7cbe93d9b96f87c7ec567ca06c2ac415a7714854b52e8d980",
+            "maxRGBChannelDifference": 3
+          },
+          {
+            "theme": "a",
+            "key": "plant-floor",
+            "file": "assets/a/plant-floor.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 28355,
+            "sha256": "dde1f6df4a82e04b568d3890463f7fa4eff41a27ac0d766b61cf89c2552d4943",
+            "maxRGBChannelDifference": 5
+          },
+          {
+            "theme": "a",
+            "key": "pillar",
+            "file": "assets/a/pillar.png",
+            "size": [
+              192,
+              480
+            ],
+            "mode": "RGBA",
+            "bytes": 45477,
+            "sha256": "98b70f4cb9e642cf80a723428a73b1fd4fc2db04a0e815dc24707b899cb66cf4",
+            "maxRGBChannelDifference": 5
+          },
+          {
+            "theme": "a",
+            "key": "seated-1-down",
+            "file": "assets/a/seated-1-down.png",
+            "size": [
+              192,
+              288
+            ],
+            "mode": "RGBA",
+            "bytes": 31768,
+            "sha256": "4ba79e602b3b606ea2a81de25aab729935d915470a71259baf0ee8f902ea2df6",
+            "maxRGBChannelDifference": 6
+          },
+          {
+            "theme": "a",
+            "key": "seated-1-up",
+            "file": "assets/a/seated-1-up.png",
+            "size": [
+              192,
+              288
+            ],
+            "mode": "RGBA",
+            "bytes": 29545,
+            "sha256": "bb41ece26a328ae8632adf8e6bc5379920b22aee7749d4c8414d5b42df1e4265",
+            "maxRGBChannelDifference": 7
+          },
+          {
+            "theme": "a",
+            "key": "seated-1-left",
+            "file": "assets/a/seated-1-left.png",
+            "size": [
+              192,
+              288
+            ],
+            "mode": "RGBA",
+            "bytes": 32567,
+            "sha256": "dccc319564b3c4de59806b066a4f9edbaaf73a37f7c932eb3a6ba170dce6a3b6",
+            "maxRGBChannelDifference": 6
+          },
+          {
+            "theme": "a",
+            "key": "seated-1-right",
+            "file": "assets/a/seated-1-right.png",
+            "size": [
+              192,
+              288
+            ],
+            "mode": "RGBA",
+            "bytes": 33925,
+            "sha256": "5455d660f5fe99ec823b3424ee5c9ffa692d6ed6cffdd1f990dbcd18289c867f",
+            "maxRGBChannelDifference": 4
+          },
+          {
+            "theme": "a",
+            "key": "seated-2-down",
+            "file": "assets/a/seated-2-down.png",
+            "size": [
+              192,
+              288
+            ],
+            "mode": "RGBA",
+            "bytes": 30539,
+            "sha256": "cc3ac445e15717fb8fae72355096d246f05c72aebc3148c5ce9b84642a7d8097",
+            "maxRGBChannelDifference": 4
+          },
+          {
+            "theme": "a",
+            "key": "seated-2-up",
+            "file": "assets/a/seated-2-up.png",
+            "size": [
+              192,
+              288
+            ],
+            "mode": "RGBA",
+            "bytes": 26699,
+            "sha256": "5e3fa369d407a8bb8605617dff29f7b623ef87b935995cf2a0b149069e80a8a6",
+            "maxRGBChannelDifference": 3
+          },
+          {
+            "theme": "a",
+            "key": "seated-2-left",
+            "file": "assets/a/seated-2-left.png",
+            "size": [
+              192,
+              288
+            ],
+            "mode": "RGBA",
+            "bytes": 33313,
+            "sha256": "d7055daaf4eac59dcde98f39c03808805ac882a534d9c3ab49a0922477f3edd4",
+            "maxRGBChannelDifference": 7
+          },
+          {
+            "theme": "a",
+            "key": "seated-2-right",
+            "file": "assets/a/seated-2-right.png",
+            "size": [
+              192,
+              288
+            ],
+            "mode": "RGBA",
+            "bytes": 30473,
+            "sha256": "b1b5ca6d02e4e92beb24c8133b8ac1ba80784abde5546e22a22809724e399d66",
+            "maxRGBChannelDifference": 4
+          },
+          {
+            "theme": "b",
+            "key": "bg-sleeper-empty",
+            "file": "assets/b/bg-sleeper-empty.png",
+            "size": [
+              1920,
+              1080
+            ],
+            "mode": "RGB",
+            "bytes": 1226555,
+            "sha256": "3a8be32955ca83562eeebc544cca00e865c0bc7369858d848caf6b2fe889b356"
+          },
+          {
+            "theme": "b",
+            "key": "table-0",
+            "file": "assets/b/table-0.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 24384,
+            "sha256": "545a9f88a87167e601e6559b21723798fce254c964e1080bfdb480138f27a9fc"
+          },
+          {
+            "theme": "b",
+            "key": "table-1",
+            "file": "assets/b/table-1.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 24698,
+            "sha256": "2cc6586ab9ea7223bde4386d374afd4f8cfaec12a4f97de72f99f48e458f9964"
+          },
+          {
+            "theme": "b",
+            "key": "table-2",
+            "file": "assets/b/table-2.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 23425,
+            "sha256": "be62d247a2f5388e72e3e6764ff62469c372a65bc28646f533f06b059ec718dd"
+          },
+          {
+            "theme": "b",
+            "key": "table-3",
+            "file": "assets/b/table-3.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 24114,
+            "sha256": "cb09c001974396f7fefd9754ccf6e2eaf9146fe3d2df067d51f55ef635fbd303"
+          },
+          {
+            "theme": "b",
+            "key": "table-4",
+            "file": "assets/b/table-4.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 30166,
+            "sha256": "fa5c2bae31ec218bd833b32db1488081cdf6c09203de2f3e64b9228000e3145e"
+          },
+          {
+            "theme": "b",
+            "key": "table-5",
+            "file": "assets/b/table-5.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 30302,
+            "sha256": "7f0792daf89dbc23ac9d086821e3faa6c063c43066b6314bd6c07e8fb5826655"
+          },
+          {
+            "theme": "b",
+            "key": "table-6",
+            "file": "assets/b/table-6.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 30869,
+            "sha256": "085a48f842f76089d2b3705c606472454dc85f8015d11ef9dd437189a3bcf5df"
+          },
+          {
+            "theme": "b",
+            "key": "table-7",
+            "file": "assets/b/table-7.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 31458,
+            "sha256": "e8383e88bde4749443399fffbe2001888968da667edaf49c989bdb88246a3f13"
+          },
+          {
+            "theme": "b",
+            "key": "table-8",
+            "file": "assets/b/table-8.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 23326,
+            "sha256": "e61e4e0ebdc036239cede5961477f4795a3983385253223936bed14bea98d1d7"
+          },
+          {
+            "theme": "b",
+            "key": "table-9",
+            "file": "assets/b/table-9.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 23835,
+            "sha256": "0b747aa61634765c0c85229102dc2471ee43ac3843ce8a68127918c83c78280b"
+          },
+          {
+            "theme": "b",
+            "key": "table-10",
+            "file": "assets/b/table-10.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 21868,
+            "sha256": "3b4482765af18bb86b05e185b255c3f6ceebd183b74fb10d975a16b68b2b37fb"
+          },
+          {
+            "theme": "b",
+            "key": "table-11",
+            "file": "assets/b/table-11.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 22816,
+            "sha256": "5f581ca62a80d382e8805791894701642a041f273bb10294a0b5f385cf7485be"
+          },
+          {
+            "theme": "b",
+            "key": "table-12",
+            "file": "assets/b/table-12.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 30682,
+            "sha256": "0cf9454b6d768c9fb8cf9331963ea77918b9bc61b40208eb43bade1b14e7c40a"
+          },
+          {
+            "theme": "b",
+            "key": "table-13",
+            "file": "assets/b/table-13.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 31069,
+            "sha256": "00b144b15dfa5218ba8c8d4fd9609b83fd1c2d144fede7abc45a9394911584ef"
+          },
+          {
+            "theme": "b",
+            "key": "table-14",
+            "file": "assets/b/table-14.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 31249,
+            "sha256": "403761bd90ce92ac296f70964faa33e9114900ae3f4fbc4585ed90fb470867f7"
+          },
+          {
+            "theme": "b",
+            "key": "table-15",
+            "file": "assets/b/table-15.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 32182,
+            "sha256": "b3037612aba96754038dabe4ad989e5c0ad94687733feca4a78bdff30e495c56"
+          },
+          {
+            "theme": "b",
+            "key": "tabletop-1",
+            "file": "assets/b/tabletop-1.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 2666,
+            "sha256": "844ee83c0a8f8598b7b46ec1b4ab73ab84e3000d5e17398c3c4ba6a6902113d8"
+          },
+          {
+            "theme": "b",
+            "key": "tabletop-2",
+            "file": "assets/b/tabletop-2.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 4900,
+            "sha256": "fcc7fd7aa43ff71b01717bb1ddcc4cae289341b68f68c767d3eb796e0e83defe"
+          },
+          {
+            "theme": "b",
+            "key": "tabletop-3",
+            "file": "assets/b/tabletop-3.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 5457,
+            "sha256": "72ba706acdd4822e4dc0701282452b4a554abf8f8c83c2e47f50147ea0f31be0"
+          },
+          {
+            "theme": "b",
+            "key": "tabletop-4",
+            "file": "assets/b/tabletop-4.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 3314,
+            "sha256": "4246f9d303bb11ef21ddb5d5f5046855c534429fae40f9c6980db6e3a4fc2256"
+          },
+          {
+            "theme": "b",
+            "key": "plant-floor",
+            "file": "assets/b/plant-floor.png",
+            "size": [
+              192,
+              192
+            ],
+            "mode": "RGBA",
+            "bytes": 28515,
+            "sha256": "bfc4cb8d85a91c7305661af51a75262bd1b4ac2334d913107ef4759f3f44fad6"
+          },
+          {
+            "theme": "b",
+            "key": "pillar",
+            "file": "assets/b/pillar.png",
+            "size": [
+              192,
+              480
+            ],
+            "mode": "RGBA",
+            "bytes": 42184,
+            "sha256": "11b687624baa9bf949dc4996ce5159c5f992bbc188ae862b2cd6a5e12c98a94f"
+          },
+          {
+            "theme": "b",
+            "key": "seated-1-down",
+            "file": "assets/b/seated-1-down.png",
+            "size": [
+              192,
+              288
+            ],
+            "mode": "RGBA",
+            "bytes": 35651,
+            "sha256": "1379d23b3bb4f4bbd52fbda7f386cfdd0de6226345de96133355b0ee6648d3ed"
+          },
+          {
+            "theme": "b",
+            "key": "seated-1-up",
+            "file": "assets/b/seated-1-up.png",
+            "size": [
+              192,
+              288
+            ],
+            "mode": "RGBA",
+            "bytes": 32588,
+            "sha256": "d9c28bf53fdd0e421ee5db0595867d59c6d46016abdaf23b14b0a88e1d9e47b5"
+          },
+          {
+            "theme": "b",
+            "key": "seated-1-left",
+            "file": "assets/b/seated-1-left.png",
+            "size": [
+              192,
+              288
+            ],
+            "mode": "RGBA",
+            "bytes": 34870,
+            "sha256": "4d8ec956a258b73ead600069f295407071df7c1c58728bef982351f35284f0d9"
+          },
+          {
+            "theme": "b",
+            "key": "seated-1-right",
+            "file": "assets/b/seated-1-right.png",
+            "size": [
+              192,
+              288
+            ],
+            "mode": "RGBA",
+            "bytes": 36780,
+            "sha256": "f28ac8ea623f76f7202375240f34e48f284b7aa778624d1dc1e9aa1f6ad0a5e8"
+          },
+          {
+            "theme": "b",
+            "key": "seated-2-down",
+            "file": "assets/b/seated-2-down.png",
+            "size": [
+              192,
+              288
+            ],
+            "mode": "RGBA",
+            "bytes": 32919,
+            "sha256": "e5e573c27d3ee8e682556c041c26eb61a4687c4d9285ff9b30dfe356ed2be8c8"
+          },
+          {
+            "theme": "b",
+            "key": "seated-2-up",
+            "file": "assets/b/seated-2-up.png",
+            "size": [
+              192,
+              288
+            ],
+            "mode": "RGBA",
+            "bytes": 29221,
+            "sha256": "11ed15ebd4a3b99b4c2d93013fa531d66d5bda49a059affe39a03dd8f4566cd2"
+          },
+          {
+            "theme": "b",
+            "key": "seated-2-left",
+            "file": "assets/b/seated-2-left.png",
+            "size": [
+              192,
+              288
+            ],
+            "mode": "RGBA",
+            "bytes": 33456,
+            "sha256": "b21bd1e56f66f356f3d9959aadca725960c1058b16c926e564c6ca9743f1dce4"
+          },
+          {
+            "theme": "b",
+            "key": "seated-2-right",
+            "file": "assets/b/seated-2-right.png",
+            "size": [
+              192,
+              288
+            ],
+            "mode": "RGBA",
+            "bytes": 31938,
+            "sha256": "57a0d25d6edfc5ec93107a355d264bf6483b15150d7f6f3881da62dfd5efa5f9"
+          }
+        ],
+        "grid": {
+          "a": {
+            "left": 371,
+            "top": 178.5,
+            "right": 1550,
+            "bottom": 876
+          },
+          "b": {
+            "left": 372,
+            "top": 177.5,
+            "right": 1547,
+            "bottom": 875
+          }
+        },
+        "tableSeams": [
+          {
+            "theme": "a",
+            "contexts": 32,
+            "maxRGBADifference": 0,
+            "maxAlphaDifference": 0,
+            "differingPairs": []
+          },
+          {
+            "theme": "b",
+            "contexts": 32,
+            "maxRGBADifference": 0,
+            "maxAlphaDifference": 0,
+            "differingPairs": []
+          }
+        ],
+        "preservation": {
+          "previousArtFiles": 181,
+          "changed": []
+        }
+      },
+      "notes": [
+        "All62requestedPNGfiles installed and62manifestentries added. Existing181art files SHA256unchanged.",
+        "A/B2x3rectangle andL assemblies viewed at nativepixel size outside repository. Compatible32adjacencycontexts/theme have identicalRGBAatjoins; no gap/scallop/spike or duplicateinteriorlegs.",
+        "BG guideincluded individually. Floors remain12x7 with parallelhorizontalandverticallines. Measuredgrid replacesintended384,240..1536,912 becausegeneratorpreservedolderroomorigin. A371,178.5..1550,876; B372,177.5..1547,875. No imagewarp.",
+        "Seatedspritevisibleheight212 andbottomrow287 on192x288. Sameidentity4views. Directionalchairseat/shoulderwidthnot mathematicallyidentical, becauseordinaryspriteswerenot reshapedbycode. SeatY211wasprompted; actualposeapproximate.",
+        "Pillarvisiblewidth134 both themes; generatedvisibleheightsA431/B365 differ, withbottomrow479. Do notstretch tofillcanvas.",
+        "TinytabletopplantA/Bheight35; floorplantA/Bheight153. Floorplantpotwidthapproximately77; fullleafwidth142/137.",
+        "AassetRGBchannels show atmost12levels of minor generatedtint despitegrayscaleinstruction; visuallyneutral and nointeractivegreen/red. No coderecoloring.",
+        "Binitialorangechairs correctedwithimagegen todesaturatedgraybrown inall8views. Bplantfoliage ismutedbluegray.",
+        "Woodgrainrepeats bycell althoughouteredgesarepixelidentical. Trialscaleproof mayread broadtabletop nexttonarrowseatedfigures; retainrequestedscale foruserreview ratherthan independentlystretch people.",
+        "Browserindex loadedafterregistration; Blevel1-4 viewed at1920x1080 and375x812. Noerror/warningconsolelogs orhorizontaloverflow at375. CurrentgamehasNOnewfurniturekeysinrenderer/map, so newtrialartwasNOTactuallyplacedinlevel1-4. Currentoldfurniture remainsvisible; integrationbelongs toClaudeCode. Standalonescaleproof isNOTactuallevel.",
+        "Allproofimagesandprocessinghelpers remainoutside repository. No gamecode, gitstaging, commit orpush. Foreignnewassets/audio/bgm-title.mp3 leftuntouched andexcludedfrompendinglist."
+      ]
     }
   ]
 }
