@@ -891,7 +891,7 @@
       overflow: hidden;
     }
 
-    /* 배경 그림은 흐리게(6px), 어둡게(밝기 40%), 채도를 낮춰(50%) 깔아서 로봇과 로고가 앞으로 나오게 한다(2026-10-30 사용자 피드백). */
+    /* 바탕 그림 자리(--title-bg). 지금은 단색 바탕만 쓰고 그림은 깔지 않는다. 다시 깔면 흐림, 어둡게 효과가 적용된다. */
     .title-screen::before {
       content: "";
       position: absolute;
@@ -1559,8 +1559,9 @@
       // 메인 화면. 배경은 만화 1번 컷, 로봇과 로고는 그림이 있으면 그림, 없으면 주인공 그림과 글자 로고를 쓴다.
       function showTitle() {
         const colors = THEMES[settings.theme];
-        const story = assetPath('story-1');
-        ui.title.style.setProperty('--title-bg', story ? `url("${story}")` : 'none');
+        // 글자와 그림 뒤에는 복잡한 그림을 깔지 않는다(2026-10-31 사용자 피드백). 테마별 단색 바탕만 쓴다.
+        ui.title.style.setProperty('--title-bg', 'none');
+        ui.title.style.backgroundColor = settings.theme === 'a' ? '#1b1b1b' : '#2a1f18';
         ui.title.style.setProperty('--logo-accent', colors.player);
         ui.titleRobot.innerHTML = imageTag(assetPath('title-robot') ? 'title-robot' : 'player-down');
         ui.titleLogo.innerHTML = assetPath('title-logo')
