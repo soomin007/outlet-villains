@@ -966,14 +966,17 @@
       .card-art img.small { height: min(16vh, 110px); }
     }
 
-    /* 메인 화면. 만화 1번 컷(밤의 카페)을 어둡게 깔고, 왼쪽에 로봇, 오른쪽에 제목 로고와 버튼을 둔다. */
+    /* 메인 화면. 단색 바탕에 왼쪽 로봇, 오른쪽 제목 로고와 버튼, 아래쪽에 빌런 도감 줄을 둔다. */
     .title-screen {
       position: fixed;
       inset: 0;
       z-index: 90;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: safe center;
+      gap: 3vh;
+      overflow-y: auto;
       background-color: #141210;
       overflow: hidden;
     }
@@ -981,7 +984,7 @@
     /* 바탕 그림 자리(--title-bg). 지금은 단색 바탕만 쓰고 그림은 깔지 않는다. 다시 깔면 흐림, 어둡게 효과가 적용된다. */
     .title-screen::before {
       content: "";
-      position: absolute;
+      position: fixed;
       inset: -24px;
       background-image: var(--title-bg);
       background-position: center;
@@ -1003,8 +1006,120 @@
 
     .title-robot img {
       display: block;
-      height: min(60vh, 520px);
+      height: min(52vh, 480px);
       width: auto;
+      animation: robot-idle 2.6s ease-in-out infinite alternate;
+    }
+
+    /* 로봇이 제자리에서 숨 쉬듯 아주 조금 떠올랐다 내려앉는다(그림 높이의 약 1.5%). */
+    @keyframes robot-idle {
+      from { transform: translateY(0); }
+      to { transform: translateY(-1.5%); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .title-robot img,
+      .title-press { animation: none; }
+    }
+
+    /* 첫 화면의 "아무 키나 누르세요". 누르면 사라지고 버튼이 나온다. 브라우저는 한 번 누르기 전에는 소리를 막아서, 이 입력으로 메인 화면 음악을 켠다. */
+    .title-press {
+      margin: 0;
+      min-height: 48px;
+      color: #f6efe2;
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 48px;
+      animation: press-blink 1.2s ease-in-out infinite alternate;
+    }
+
+    @keyframes press-blink {
+      from { opacity: 1; }
+      to { opacity: 0.35; }
+    }
+
+    /* 빌런 도감 줄. 챕터마다 카드 하나이고, 챕터의 마지막 레벨을 깨면 빌런의 반응 그림이 드러난다. 아직이면 검은 실루엣과 물음표다. */
+    .title-dex {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .dex-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      width: 112px;
+    }
+
+    .dex-art {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: 112px;
+      overflow: hidden;
+      border: 3px solid rgba(246, 239, 226, 0.75);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .dex-art img {
+      height: 100%;
+      width: auto;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    /* 합석 챕터는 두 사람을 반씩 겹쳐 그린다. */
+    .dex-art.pair img { width: 60%; height: 100%; object-fit: cover; }
+    .dex-art.pair img + img { margin-left: -20%; }
+
+    .dex-card.locked .dex-art { border-style: dashed; border-color: rgba(246, 239, 226, 0.35); }
+    .dex-card.locked .dex-art img { filter: brightness(0); opacity: 0.55; }
+
+    .dex-card.locked .dex-art::after {
+      content: "?";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(246, 239, 226, 0.8);
+      font-size: 44px;
+      font-weight: 900;
+    }
+
+    .dex-name {
+      color: #f6efe2;
+      font-size: 14px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .dex-card.locked .dex-name { color: rgba(246, 239, 226, 0.45); }
+
+    /* 크레딧. 왼쪽에 맡은 일, 오른쪽에 이름이다. */
+    .credit-list {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      gap: 10px 18px;
+      margin: 0;
+      font-size: 17px;
+    }
+
+    .credit-list dt { color: rgba(246, 239, 226, 0.65); }
+    .credit-list dd { margin: 0; font-weight: 800; }
+
+    .credit-note {
+      margin: 16px 0 0;
+      color: rgba(246, 239, 226, 0.6);
+      font-size: 13px;
+      line-height: 1.6;
     }
 
     .title-side {
@@ -1079,9 +1194,18 @@
     }
 
     @media (max-width: 640px) {
-      .title-inner { flex-direction: column; gap: 12px; }
-      .title-robot img { height: min(28vh, 220px); }
+      .title-screen { gap: 12px; }
+      .title-inner { flex-direction: column; gap: 10px; }
+      .title-side { gap: 14px; }
+      .title-menu { gap: 8px; }
+      .title-btn { min-height: 44px; }
+      .title-robot img { height: min(22vh, 190px); }
       .title-logo img { width: min(78vw, 360px); }
+      .title-dex { gap: 8px; }
+      .dex-card { width: 84px; }
+      .dex-art { height: 84px; }
+      .dex-card.locked .dex-art::after { font-size: 34px; }
+      .dex-name { font-size: 12px; }
     }
 
     /* 설정창. 화면 전체를 덮는 창이고, Esc나 닫기로 닫는다. */
@@ -1241,11 +1365,31 @@
       <div id="title-robot" class="title-robot"></div>
       <div class="title-side">
         <h1 id="title-logo" class="title-logo"></h1>
-        <div class="title-menu">
+        <p id="title-press" class="title-press" hidden></p>
+        <div id="title-menu" class="title-menu">
           <button id="title-continue" class="title-btn primary" type="button"></button>
           <button id="title-new" class="title-btn" type="button">처음부터</button>
           <button id="title-settings" class="title-btn" type="button">설정</button>
+          <button id="title-credits" class="title-btn" type="button">만든 사람들</button>
         </div>
+      </div>
+    </div>
+    <div id="title-dex" class="title-dex" aria-label="빌런 도감"></div>
+  </div>
+
+  <div id="credits" class="modal" role="dialog" aria-modal="true" aria-labelledby="credits-title" hidden>
+    <div class="panel credits">
+      <h2 id="credits-title">만든 사람들</h2>
+      <dl class="credit-list">
+        <dt>만든 사람</dt><dd>soomin007</dd>
+        <dt>코드</dt><dd>Claude Code</dd>
+        <dt>그림</dt><dd>Codex</dd>
+        <dt>음악</dt><dd>Suno</dd>
+        <dt>효과음</dt><dd>ElevenLabs</dd>
+      </dl>
+      <p class="credit-note">음악은 Suno 무료 플랜으로 만들어<br>비상업적 용도로만 씁니다.</p>
+      <div class="panel-actions">
+        <button id="close-credits" type="button" class="wide primary">닫기</button>
       </div>
     </div>
   </div>
@@ -1345,6 +1489,12 @@
         titleContinue: document.getElementById('title-continue'),
         titleNew: document.getElementById('title-new'),
         titleSettings: document.getElementById('title-settings'),
+        titleCredits: document.getElementById('title-credits'),
+        titlePress: document.getElementById('title-press'),
+        titleMenu: document.getElementById('title-menu'),
+        titleDex: document.getElementById('title-dex'),
+        credits: document.getElementById('credits'),
+        closeCredits: document.getElementById('close-credits'),
         closeSettings: document.getElementById('close-settings'),
       };
 
@@ -1355,7 +1505,7 @@
       }
       const game = {
         index: 0, level: null, state: null, history: [], busy: false, won: false, sprites: {}, cleared: new Set(),
-        skip: false, steps: 0, lastStarted: -1, closeCard: null,
+        skip: false, steps: 0, lastStarted: -1, closeCard: null, titleOpened: false,
       };
 
       // 밝기는 %, 음악과 효과음은 0~100이다.
@@ -1677,20 +1827,73 @@
         const target = settings.lastLevel || 0;
         ui.titleContinue.textContent = hasProgress ? `이어하기 (${chapterNumber(target)}-${levelNumber(target)})` : '시작하기';
         ui.titleNew.hidden = !hasProgress;
+        drawDex();
         ui.title.hidden = false;
+        // 페이지를 처음 열었을 때는 "아무 키나 누르세요"만 보이고, 누르면 메인 화면 음악이 켜지며 버튼이 나온다(2026-10-31 사용자 결정).
+        // 엔딩 뒤에 돌아왔을 때처럼 이미 눌렀으면 바로 버튼을 보여 주고 메인 화면 음악으로 바꾼다.
+        ui.titlePress.textContent = window.matchMedia('(hover: hover)').matches ? '아무 키나 누르세요' : '화면을 누르세요';
+        ui.titlePress.hidden = game.titleOpened;
+        ui.titleMenu.hidden = !game.titleOpened;
+        if (game.titleOpened) {
+          Sound.music('title');
+          selectTitleButton(ui.titleContinue);
+        }
+      }
+
+      // 첫 화면을 누른 순간. 이 입력이 소리를 켜는 계기다(브라우저는 사람이 누르기 전에는 소리를 막는다).
+      function openTitle() {
+        game.titleOpened = true;
+        Sound.start();
+        Sound.music('title');
+        ui.titlePress.hidden = true;
+        ui.titleMenu.hidden = false;
         selectTitleButton(ui.titleContinue);
+      }
+
+      // 빌런 도감 줄. 챕터의 마지막 레벨을 깨면 빌런의 반응 그림과 이름이 드러나고, 아직이면 검은 실루엣과 물음표다.
+      // 합석 챕터는 잠든 카공족과 촬영자 두 사람을 반씩 겹쳐 보여 준다.
+      function drawDex() {
+        ui.titleDex.innerHTML = LAYOUT.chapters.map((chapter) => {
+          const levels = LAYOUT.levels.filter((level) => level.chapter === chapter.id);
+          const met = game.cleared.has(levels[levels.length - 1].id);
+          const portraits = [chapter.villain.portrait];
+          if (chapter.filmer) {
+            const filmerChapter = LAYOUT.chapters.find((other) => other.villain.idle === chapter.filmer.idle);
+            if (filmerChapter) portraits.push(filmerChapter.villain.portrait);
+          }
+          const images = portraits.map((key) => imageTag(key)).join('');
+          return `<div class="dex-card${met ? '' : ' locked'}">`
+            + `<div class="dex-art${portraits.length > 1 ? ' pair' : ''}">${images}</div>`
+            + `<span class="dex-name">${met ? chapter.name : '???'}</span></div>`;
+        }).join('');
+      }
+
+      // 메인 화면의 버튼들. 숨긴 버튼(처음 시작이면 '처음부터')은 키보드로 고를 때 건너뛴다.
+      function titleButtons() {
+        return [ui.titleContinue, ui.titleNew, ui.titleSettings, ui.titleCredits].filter((button) => !button.hidden);
       }
 
       // 메인 화면에서 버튼 하나를 고른다. 키보드 초점과 밝게 보이는 표시를 함께 옮긴다.
       function selectTitleButton(button) {
         button.focus();
-        [ui.titleContinue, ui.titleNew, ui.titleSettings].forEach((other) => other.classList.toggle('is-selected', other === button));
+        titleButtons().forEach((other) => other.classList.toggle('is-selected', other === button));
       }
 
-      // 메인 화면을 닫고 레벨을 시작한다. 이 첫 입력이 소리를 켜는 계기가 된다(브라우저는 사람이 누르기 전에는 소리를 막는다).
+      function openCredits() {
+        ui.credits.hidden = false;
+        ui.closeCredits.focus();
+      }
+
+      function closeCredits() {
+        ui.credits.hidden = true;
+        selectTitleButton(ui.titleCredits);
+      }
+
+      // 메인 화면을 닫고 레벨을 시작한다. 음악은 카페 배경 음악으로 바뀐다.
       function leaveTitle(index) {
         ui.title.hidden = true;
         Sound.start();
+        Sound.music('cafe');
         game.lastStarted = -1;
         startLevel(index);
       }
@@ -2396,22 +2599,50 @@
             bgmGain = context.createGain();
             bgmGain.connect(master);
             setVolumes();
+            music(wanted);
             await Promise.all(Object.entries(SFX).map(async ([name, sound]) => {
               buffers[name] = await load(sound.file);
               sound.range = audibleRange(buffers[name]);
             }));
-            const bgm = await load('assets/audio/bgm-cafe.mp3');
-            const range = audibleRange(bgm);
-            const source = context.createBufferSource();
-            source.buffer = bgm;
-            source.loop = true;
-            source.loopStart = range.start;
-            source.loopEnd = range.end;
-            source.connect(bgmGain);
-            source.start(0, range.start);
           } catch (error) {
             // 파일을 직접 연 경우처럼 소리를 불러올 수 없으면 소리 없이 진행한다.
           }
+        }
+
+        // 배경 음악 두 곡. title은 메인 화면, cafe는 퍼즐 중이다. 곡마다 따로 끝없이 돌리고, 바꿀 때는 크기만 엇갈려 바꾼다(약 0.6초).
+        // 앞뒤의 짧은 무음은 잘라 내고 그 구간만 반복한다(MP3를 그냥 반복하면 이음매에서 끊긴다). 파일이 없으면 그 곡은 조용하다.
+        const TRACKS = { title: 'assets/audio/bgm-title.mp3', cafe: 'assets/audio/bgm-cafe.mp3' };
+        const tracks = {};
+        let wanted = 'cafe';
+
+        function track(name) {
+          if (tracks[name]) return tracks[name];
+          const gain = context.createGain();
+          gain.gain.value = 0;
+          gain.connect(bgmGain);
+          tracks[name] = { gain };
+          load(TRACKS[name]).then((buffer) => {
+            const range = audibleRange(buffer);
+            const source = context.createBufferSource();
+            source.buffer = buffer;
+            source.loop = true;
+            source.loopStart = range.start;
+            source.loopEnd = range.end;
+            source.connect(gain);
+            source.start(0, range.start);
+          }).catch(() => {});
+          return tracks[name];
+        }
+
+        function music(name) {
+          wanted = name;
+          if (!context) return;
+          const now = context.currentTime;
+          track(name);
+          Object.entries(tracks).forEach(([other, { gain }]) => {
+            gain.gain.cancelScheduledValues(now);
+            gain.gain.setTargetAtTime(other === name ? 1 : 0, now, 0.2);
+          });
         }
 
         // 효과음 하나. rate는 재생 속도(높을수록 가볍고 높은 소리), volume은 표의 크기에 한 번 더 곱하는 값이다.
@@ -2481,7 +2712,7 @@
           if (sfxGain) sfxGain.gain.value = SFX_MAX * (settings.sfx / 100);
         }
 
-        return { start, play, chime, serve, setVolumes };
+        return { start, play, chime, serve, music, setVolumes };
       })();
 
       function applySettings() {
@@ -2539,8 +2770,22 @@
           if (key === 'escape') closeSettings();
           return;
         }
+        if (!ui.credits.hidden) {
+          if (key === 'escape' || key === 'enter' || key === ' ') {
+            event.preventDefault();
+            closeCredits();
+          }
+          return;
+        }
+        if (!ui.title.hidden && !game.titleOpened) {
+          if (!MODIFIER_KEYS.includes(key)) {
+            event.preventDefault();
+            openTitle();
+          }
+          return;
+        }
         if (!ui.title.hidden) {
-          const buttons = [ui.titleContinue, ui.titleNew, ui.titleSettings].filter((button) => !button.hidden);
+          const buttons = titleButtons();
           if (key === 'arrowdown' || key === 'arrowup' || key === 's' || key === 'w') {
             event.preventDefault();
             const step = key === 'arrowdown' || key === 's' ? 1 : -1;
@@ -2654,8 +2899,16 @@
         leaveTitle(0);
       });
       ui.titleSettings.addEventListener('click', openSettings);
+      ui.titleCredits.addEventListener('click', openCredits);
+      ui.closeCredits.addEventListener('click', closeCredits);
+      ui.credits.addEventListener('click', (event) => {
+        if (event.target === ui.credits) closeCredits();
+      });
+      ui.title.addEventListener('click', () => {
+        if (!game.titleOpened) openTitle();
+      });
       // 고른 버튼 표시는 :focus 대신 클래스로 단다. :focus는 브라우저 창이 초점을 잃으면 사라진다.
-      [ui.titleContinue, ui.titleNew, ui.titleSettings].forEach((button, index, all) => {
+      [ui.titleContinue, ui.titleNew, ui.titleSettings, ui.titleCredits].forEach((button, index, all) => {
         button.addEventListener('mouseenter', () => selectTitleButton(button));
         button.addEventListener('focus', () => all.forEach((other) => other.classList.toggle('is-selected', other === button)));
       });
