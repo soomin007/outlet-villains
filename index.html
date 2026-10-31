@@ -1017,10 +1017,6 @@
       to { transform: translateY(-1.5%); }
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      .title-robot img,
-      .title-press { animation: none; }
-    }
 
     /* 첫 화면의 "아무 키나 누르세요". 누르면 사라지고 버튼이 나온다. 브라우저는 한 번 누르기 전에는 소리를 막아서, 이 입력으로 메인 화면 음악을 켠다. */
     .title-press {
@@ -1243,9 +1239,11 @@
       min-height: 44px;
     }
 
+    /* 막대 설정의 이름 칸. 글자 크게를 켜도 한 줄에 들도록 폭을 글자 크기에 맞춘다(16px에서 약 77px). */
     .panel .row > span {
       flex: none;
-      width: 72px;
+      width: 4.8em;
+      white-space: nowrap;
     }
 
     .nw { white-space: nowrap; }
@@ -1343,11 +1341,44 @@
       border-bottom-color: #eee;
     }
 
-    /* 탭을 바꿀 때 창 높이가 출렁이지 않도록, 가장 긴 조작 탭에 맞춰 높이를 잡는다. */
-    .tab-pane { min-height: 268px; }
+    /* 탭을 바꿀 때 창 높이가 출렁이지 않도록, 창을 열 때 가장 긴 탭의 높이를 재서 모든 탭에 준다(fitSettingsPanes). */
 
-    @media (max-width: 400px) {
-      .tab-pane { min-height: 340px; }
+    /* 켜고 끄는 설정. 이름은 왼쪽에서 남는 폭을 쓰고, 켜짐은 밝게 칠한다. */
+    .panel .toggle-row > span:first-child {
+      flex: 1;
+      width: auto;
+      white-space: normal;
+    }
+
+    .toggle {
+      flex: none;
+      min-width: 64px;
+      min-height: 36px;
+      padding-left: 12px;
+      padding-right: 12px;
+      border: 2px solid #eee;
+      border-radius: 999px;
+      background: transparent;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    /* 선택지가 여럿인 줄. 이름은 한 줄로 두고, 좁은 화면에서 자리가 모자라면 선택지 버튼이 아랫줄로 내려간다. */
+    .panel .choice-row {
+      flex-wrap: wrap;
+      row-gap: 6px;
+    }
+
+    .panel .choice-row > span:first-child {
+      flex: 1 0 auto;
+      white-space: nowrap;
+    }
+
+    .panel .choice-row .seg { margin-left: auto; }
+
+    .toggle[aria-pressed="true"] {
+      background: #eee;
+      color: #111;
     }
 
     .pane-buttons {
@@ -1374,6 +1405,64 @@
     }
 
     .dot:focus-visible { outline-offset: 2px; }
+
+    /* 걸음 수(설정의 게임 탭에서 켠다). 위쪽 막대의 레벨 점과 버튼 사이에 둔다. 장면 안에 두면 휴대폰에서 글자가 너무 작아졌다. */
+    .steps {
+      align-self: center;
+      min-width: 52px;
+      color: #f6efe2;
+      font-size: 15px;
+      font-weight: 800;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    /* 칸 격자(설정의 그래픽 탭에서 켠다). 배경 그림에서 잰 격자(applyGrid) 위에 옅은 선을 긋는다. */
+    .grid-lines {
+      position: absolute;
+      pointer-events: none;
+      background-image:
+        linear-gradient(to right, rgba(0, 0, 0, 0.3) 2px, transparent 2px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 2px, transparent 2px);
+      box-shadow: inset -2px -2px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    /* 화면 흔들림 끄기: 부딪힐 때 장면이 흔들리는 것과 촬영 화면 창이 요동치는 것을 멈춘다. */
+    .no-shake .scene.bump,
+    .no-shake .stream.chaos { animation: none; }
+
+    /* 움직임 줄이기: 미끄러지고 튀고 흔들리고 떠다니는 움직임을 없앤다. 깜빡임처럼 자리를 옮기지 않는 표시는 남긴다.
+       처음 값은 기기의 "동작 줄이기" 설정을 따른다. */
+    .calm .sprite,
+    .calm .portrait,
+    .calm .scene::after { transition: none !important; }
+
+    .calm .sprite.hop .art,
+    .calm .sprite.ringing .art,
+    .calm .sprite.kind-buzzer:not(.ringing) .art,
+    .calm .sprite.is-player::before,
+    .calm .wob,
+    .calm .title-robot img,
+    .calm .order-bubble,
+    .calm .plug-bubble,
+    .calm .goal-mark.near::after,
+    .calm .card,
+    .calm .flash.go,
+    .calm .scene.bump,
+    .calm .stream.chaos { animation: none; }
+
+    /* 글자 크게: 이야기 카드, 설정창, 크레딧, 메인 화면 버튼의 글자를 키운다. 장면 안의 글자는 장면과 함께 커지고 줄어든다. */
+    .large-text .card-kicker { font-size: 18px; }
+    .large-text .card-title { font-size: clamp(28px, 4.8vw, 48px); }
+    .large-text .card-lines p { font-size: clamp(19px, 2.2vw, 25px); }
+    .large-text .panel { font-size: 18px; }
+    .large-text .title-btn { font-size: 21px; }
+    .large-text .dex-name { font-size: 16px; }
+    .large-text .steps { font-size: 18px; }
+
+    /* 화면 방향 버튼(설정의 조작 탭). 자동은 터치 화면에서만 보이고, 켜기와 끄기는 기기와 상관없이 정한다. */
+    .pad-on .pad { display: grid; }
+    .pad-off .pad { display: none; }
   </style>
 </head>
 <body>
@@ -1381,6 +1470,7 @@
     <div class="bar">
       <div id="battery" class="battery" aria-label="로봇 배터리"><span class="battery-fill"></span><span class="battery-bolt">⚡</span></div>
       <nav id="dots" class="dots" aria-label="레벨 고르기"></nav>
+      <span id="steps" class="steps" aria-live="off" hidden></span>
       <button id="undo" class="btn" type="button" aria-label="되돌리기">↶</button>
       <button id="restart" class="btn" type="button" aria-label="처음부터">↻</button>
       <button id="open-settings" class="btn" type="button" aria-label="설정">⚙</button>
@@ -1401,6 +1491,7 @@
       <div id="viewport" class="viewport">
         <div id="scene" class="scene">
           <div id="backdrop" class="layer backdrop"></div>
+          <div id="grid-lines" class="grid-lines" hidden></div>
           <div id="wet" class="layer"></div>
           <div id="view" class="layer"></div>
           <div id="actors" class="layer"></div>
@@ -1465,7 +1556,10 @@
         <button type="button" role="tab" class="tab" data-tab="controls" aria-controls="pane-controls">조작</button>
       </div>
       <div id="pane-game" class="tab-pane" role="tabpanel" data-pane="game">
+        <div class="row toggle-row"><span><span class="nw">판 시작 때</span> <span class="nw">목표 짚기</span></span><button type="button" class="toggle" data-setting="startHint"></button></div>
+        <div class="row toggle-row"><span>걸음 수 보기</span><button type="button" class="toggle" data-setting="showSteps"></button></div>
         <div class="pane-buttons">
+          <button id="replay-guides" type="button">시연과 안내 다시 보기</button>
           <button id="replay-prologue" type="button">프롤로그 다시 보기</button>
           <button id="reset-progress" type="button">진행 초기화</button>
         </div>
@@ -1480,12 +1574,31 @@
           </div>
         </div>
         <label class="row"><span>화면 밝기</span><input id="set-brightness" type="range" min="60" max="140" step="5"></label>
+        <div class="row toggle-row"><span>칸 격자 보기</span><button type="button" class="toggle" data-setting="showGrid"></button></div>
+        <div class="row toggle-row"><span>화면 흔들림</span><button type="button" class="toggle" data-setting="screenShake"></button></div>
+        <div class="row toggle-row"><span>움직임 줄이기</span><button type="button" class="toggle" data-setting="reduceMotion"></button></div>
+        <div class="row toggle-row"><span>글자 크게</span><button type="button" class="toggle" data-setting="largeText"></button></div>
+        <div class="pane-buttons">
+          <button id="toggle-fullscreen" type="button">전체 화면</button>
+        </div>
       </div>
       <div id="pane-audio" class="tab-pane" role="tabpanel" data-pane="audio" hidden>
+        <label class="row"><span>전체 소리</span><input id="set-master" type="range" min="0" max="100" step="5"></label>
         <label class="row"><span>음악</span><input id="set-music" type="range" min="0" max="100" step="5"></label>
         <label class="row"><span>효과음</span><input id="set-sfx" type="range" min="0" max="100" step="5"></label>
+        <div class="row toggle-row"><span>소리 끄기</span><button type="button" class="toggle" data-setting="muted"></button></div>
+        <div class="row toggle-row"><span><span class="nw">창을 떠나면</span> <span class="nw">소리 끄기</span></span><button type="button" class="toggle" data-setting="muteHidden"></button></div>
       </div>
       <div id="pane-controls" class="tab-pane" role="tabpanel" data-pane="controls" hidden>
+        <div class="row toggle-row"><span><span class="nw">누르고 있으면</span> <span class="nw">계속 이동</span></span><button type="button" class="toggle" data-setting="keyRepeat"></button></div>
+        <div class="row toggle-row choice-row">
+          <span>방향 버튼</span>
+          <div class="seg" data-choice="padMode">
+            <button type="button" data-value="auto">자동</button>
+            <button type="button" data-value="on">켜기</button>
+            <button type="button" data-value="off">끄기</button>
+          </div>
+        </div>
         <table class="key-table">
           <tr><th>이동</th><td><span class="nw"><kbd>↑</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>→</kbd></span> <span class="nw">또는 <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd></span></td></tr>
           <tr><th>되돌리기</th><td><span class="nw"><kbd>Z</kbd> 또는 <kbd>Backspace</kbd>,</span> <span class="nw">위쪽 <kbd>↶</kbd> 버튼</span></td></tr>
@@ -1493,6 +1606,9 @@
           <tr><th>넘기기</th><td><span class="nw">아무 키나</span> <span class="nw">화면 누르기</span></td></tr>
           <tr><th>레벨 고르기</th><td><span class="nw"><kbd>Tab</kbd>으로 위쪽 점</span> <span class="nw">고르고 <kbd>Enter</kbd></span></td></tr>
           <tr><th>설정</th><td><kbd>Esc</kbd>, <span class="nw">위쪽 <kbd>⚙</kbd> 버튼</span></td></tr>
+          <tr><th>설정창</th><td><span class="nw"><kbd>↑</kbd> <kbd>↓</kbd> 고르기,</span> <span class="nw"><kbd>←</kbd> <kbd>→</kbd> 바꾸기</span></td></tr>
+          <tr><th>소리 끄기</th><td><kbd>M</kbd></td></tr>
+          <tr><th>전체 화면</th><td><kbd>F</kbd></td></tr>
           <tr><th>휴대폰</th><td><span class="nw">화면 아래</span> <span class="nw">방향 버튼</span></td></tr>
         </table>
       </div>
@@ -1559,6 +1675,13 @@
         settings: document.getElementById('settings'),
         themeButtons: [...document.querySelectorAll('#settings [data-theme]')],
         settingsTabs: [...document.querySelectorAll('#settings [role="tab"]')],
+        toggles: [...document.querySelectorAll('#settings .toggle')],
+        padChoices: [...document.querySelectorAll('#settings [data-choice="padMode"] button')],
+        setMaster: document.getElementById('set-master'),
+        fullscreen: document.getElementById('toggle-fullscreen'),
+        replayGuides: document.getElementById('replay-guides'),
+        steps: document.getElementById('steps'),
+        gridLines: document.getElementById('grid-lines'),
         settingsPanes: [...document.querySelectorAll('#settings [role="tabpanel"]')],
         setBrightness: document.getElementById('set-brightness'),
         setMusic: document.getElementById('set-music'),
@@ -1597,6 +1720,9 @@
         const defaults = {
           theme: 'a', brightness: 100, music: 60, sfx: 50, keysSeen: false, demosSeen: [], prologueSeen: false, cleared: [], lastLevel: 0,
           settingsTab: 'game',
+          // 2026-10-31에 더한 설정. reduceMotion이 null이면 기기의 "동작 줄이기" 설정을 따른다.
+          master: 100, muted: false, muteHidden: true, showGrid: false, screenShake: true, reduceMotion: null, largeText: false,
+          showSteps: false, startHint: true, keyRepeat: true, padMode: 'auto',
         };
         try {
           return { ...defaults, ...JSON.parse(localStorage.getItem(STORAGE_KEY)) };
@@ -2089,14 +2215,16 @@
         game.busy = true;
         game.skip = false;
         const colors = THEMES[settings.theme];
-        // 빌런이 차지한 콘센트와 그 선, 그리고 바닥에 뽑혀 있는 충전 독의 플러그를 함께 짚는다.
-        game.sprites.outlet.classList.add('pulse');
-        game.sprites.cord.classList.add('pulse');
-        if (game.sprites.dockPlug) game.sprites.dockPlug.classList.add('pulse');
-        await pause(1400);
-        game.sprites.outlet.classList.remove('pulse');
-        game.sprites.cord.classList.remove('pulse');
-        if (game.sprites.dockPlug) game.sprites.dockPlug.classList.remove('pulse');
+        // 빌런이 차지한 콘센트와 그 선, 그리고 바닥에 뽑혀 있는 충전 독의 플러그를 함께 짚는다. 설정에서 끌 수 있다.
+        if (settings.startHint) {
+          game.sprites.outlet.classList.add('pulse');
+          game.sprites.cord.classList.add('pulse');
+          if (game.sprites.dockPlug) game.sprites.dockPlug.classList.add('pulse');
+          await pause(1400);
+          game.sprites.outlet.classList.remove('pulse');
+          game.sprites.cord.classList.remove('pulse');
+          if (game.sprites.dockPlug) game.sprites.dockPlug.classList.remove('pulse');
+        }
         const demo = LAYOUT.levels[index].demo;
         if (demo && !settings.demosSeen.includes(demo.kind) && game.index === index) {
           game.skip = false;
@@ -2277,6 +2405,8 @@
         drawWet();
         drawView();
         drawDots();
+        drawGridLines();
+        updateSteps();
         ui.undo.disabled = game.history.length === 0;
         ui.nextCue.hidden = true;
       }
@@ -2547,7 +2677,9 @@
         const colors = THEMES[settings.theme];
         ui.wet.style.setProperty('--wet-color', colors.wet);
         ui.wet.style.setProperty('--wet-edge', colors.wetEdge);
-        const cells = mopped ? [...state.wet, `${mopped.x},${mopped.y}`] : state.wet;
+        // 움직임 줄이기에서는 닦은 칸이 사라지는 연출을 하지 않는다(그 연출이 없으면 웅덩이가 다음 걸음까지 남아 보인다).
+        const fade = mopped && !document.body.classList.contains('calm');
+        const cells = fade ? [...state.wet, `${mopped.x},${mopped.y}`] : state.wet;
         for (const cell of cells) {
           const [x, y] = cell.split(',').map(Number);
           const joined = (dx, dy) => Engine.isWet(state, x + dx, y + dy);
@@ -2637,6 +2769,7 @@
         game.history.push(game.state);
         game.state = result.state;
         game.steps += 1;
+        updateSteps();
         if (game.steps >= 3) hideKeys();
         game.sprites.player.classList.remove('hop');
         void game.sprites.player.offsetWidth;
@@ -2725,6 +2858,7 @@
         drawWet();
         drawView();
         syncFilmer();
+        updateSteps();
         ui.undo.disabled = game.history.length === 0;
       }
 
@@ -2890,20 +3024,87 @@
         }
 
         function setVolumes() {
+          if (master) master.gain.value = settings.muted ? 0 : settings.master / 100;
           if (bgmGain) bgmGain.gain.value = musicLevel();
           if (sfxGain) sfxGain.gain.value = SFX_MAX * (settings.sfx / 100);
         }
 
-        return { start, play, chime, serve, music, setVolumes };
+        // 다른 탭이나 창으로 가면 소리를 멈추고(설정에서 끌 수 있다), 돌아오면 이어서 튼다.
+        function setPaused(paused) {
+          if (!context) return;
+          if (paused) context.suspend().catch(() => {});
+          else context.resume().catch(() => {});
+        }
+
+        return { start, play, chime, serve, music, setVolumes, setPaused };
       })();
 
       function applySettings() {
         ui.viewport.style.filter = settings.brightness === 100 ? '' : `brightness(${settings.brightness / 100})`;
         ui.themeButtons.forEach((button) => button.classList.toggle('on', button.dataset.theme === settings.theme));
         ui.setBrightness.value = settings.brightness;
+        ui.setMaster.value = settings.master;
         ui.setMusic.value = settings.music;
         ui.setSfx.value = settings.sfx;
+        ui.toggles.forEach((toggle) => {
+          const on = toggleValue(toggle.dataset.setting);
+          toggle.setAttribute('aria-pressed', String(on));
+          toggle.textContent = on ? '켜짐' : '꺼짐';
+        });
+        ui.padChoices.forEach((button) => button.classList.toggle('on', button.dataset.value === settings.padMode));
+        document.body.classList.toggle('calm', toggleValue('reduceMotion'));
+        document.body.classList.toggle('no-shake', !settings.screenShake);
+        document.body.classList.toggle('large-text', settings.largeText);
+        document.body.classList.toggle('pad-on', settings.padMode === 'on');
+        document.body.classList.toggle('pad-off', settings.padMode === 'off');
+        updateFullscreenButton();
+        updateSteps();
+        if (game.level) drawGridLines();
         Sound.setVolumes();
+      }
+
+      // 켜고 끄는 설정의 지금 값. 움직임 줄이기는 사람이 고르기 전까지 기기의 "동작 줄이기" 설정을 따른다.
+      function toggleValue(name) {
+        if (name === 'reduceMotion' && settings.reduceMotion === null) return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        return Boolean(settings[name]);
+      }
+
+      function flipSetting(name) {
+        settings[name] = !toggleValue(name);
+        saveSettings();
+        applySettings();
+      }
+
+      // 전체 화면. 휴대폰 사파리처럼 전체 화면을 지원하지 않는 브라우저에서는 버튼을 숨긴다.
+      function toggleFullscreen() {
+        if (!document.fullscreenEnabled) return;
+        if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
+        else document.documentElement.requestFullscreen().catch(() => {});
+      }
+
+      function updateFullscreenButton() {
+        ui.fullscreen.hidden = !document.fullscreenEnabled;
+        ui.fullscreen.textContent = document.fullscreenElement ? '전체 화면 끄기' : '전체 화면';
+      }
+
+      // 위쪽 막대의 걸음 수. 되돌리기를 하면 줄어든다(지금까지 걸은 기록의 길이).
+      function updateSteps() {
+        ui.steps.hidden = !settings.showSteps || !game.level;
+        ui.steps.textContent = `${game.history.length}걸음`;
+      }
+
+      // 칸 격자. 배경 그림에서 잰 격자(applyGrid)와 같은 자리, 같은 칸 크기로 긋는다.
+      function drawGridLines() {
+        ui.gridLines.hidden = !settings.showGrid;
+        if (!settings.showGrid) return;
+        const art = LAYOUT.art;
+        Object.assign(ui.gridLines.style, {
+          left: `${ORIGIN_X}px`,
+          top: `${ORIGIN_Y}px`,
+          width: `${TILE * art.columns}px`,
+          height: `${TILE_H * art.rows}px`,
+          backgroundSize: `${TILE}px ${TILE_H}px`,
+        });
       }
 
       // 오른쪽 옆벽의 조작법 안내. 글자를 하나씩 감싸고 시작 시점을 엇갈려, 글자마다 따로 꼬물거리게 한다.
@@ -2923,7 +3124,22 @@
         ui.settings.hidden = false;
         ui.themeButtons.forEach((button) => { button.disabled = game.busy; });
         ui.replayPrologue.disabled = game.busy || !ui.title.hidden;
+        applySettings();
+        fitSettingsPanes();
         showSettingsTab(settings.settingsTab, true);
+      }
+
+      // 탭마다 내용의 길이가 달라서, 탭을 바꿀 때 창 높이가 출렁이지 않도록 가장 긴 탭의 높이를 모든 탭에 준다.
+      function fitSettingsPanes() {
+        ui.settingsPanes.forEach((pane) => { pane.style.minHeight = ''; });
+        let tallest = 0;
+        ui.settingsPanes.forEach((pane) => {
+          const wasHidden = pane.hidden;
+          pane.hidden = false;
+          tallest = Math.max(tallest, pane.offsetHeight);
+          pane.hidden = wasHidden;
+        });
+        ui.settingsPanes.forEach((pane) => { pane.style.minHeight = `${tallest}px`; });
       }
 
       // 설정 탭 하나를 보여 준다. 고른 탭만 Tab 키 순서에 들어가고(나머지는 ←→로 옮긴다), 마지막에 본 탭을 기억한다.
@@ -2943,7 +3159,8 @@
       // 창 안에서 키보드로 옮겨 다닐 수 있는 것들. 위에서부터 고른 탭, 그 탭의 버튼과 막대, 닫기 순서다. 꺼진 버튼과 숨은 것은 건너뛴다.
       function modalItems(modal) {
         return [...modal.querySelectorAll('[role="tab"][aria-selected="true"], button, input')]
-          .filter((element) => !element.disabled && element.offsetParent !== null && element.getAttribute('aria-selected') !== 'false');
+          .filter((element) => !element.disabled && element.offsetParent !== null && element.getAttribute('aria-selected') !== 'false')
+          .filter((element) => !element.closest('[data-choice]') || element.classList.contains('on'));
       }
 
       function moveFocus(items, step) {
@@ -2953,7 +3170,8 @@
       }
 
       // 설정창의 키보드 조작. ↑↓(W S)와 Tab은 항목을 옮기고, 탭 위의 ←→는 탭을 바꾸며, 막대 위의 ←→는 값을 조절한다(A D도 같다).
-      // 1~4는 탭으로 바로 간다. Enter와 Space는 브라우저가 고른 버튼을 누른다. 초점은 창 밖으로 나가지 않는다.
+      // 켜고 끄는 설정과 선택지 위의 ←→는 값을 바꾼다. 1~4는 탭으로 바로 간다. Enter와 Space는 브라우저가 고른 버튼을 누른다.
+      // 초점은 창 밖으로 나가지 않는다.
       function settingsKey(event, key) {
         if (key === 'escape') {
           closeSettings();
@@ -2970,6 +3188,15 @@
           event.preventDefault();
           const index = ui.settingsTabs.indexOf(active);
           showSettingsTab(ui.settingsTabs[(index + side + ui.settingsTabs.length) % ui.settingsTabs.length].dataset.tab, true);
+        } else if (side && active && active.classList.contains('toggle')) {
+          event.preventDefault();
+          flipSetting(active.dataset.setting);
+        } else if (side && active && active.closest('[data-choice]')) {
+          event.preventDefault();
+          const choices = [...active.closest('[data-choice]').querySelectorAll('button')];
+          const next = choices[(choices.indexOf(active) + side + choices.length) % choices.length];
+          next.click();
+          next.focus();
         } else if (side && active && active.type === 'range') {
           if (key === 'a' || key === 'd') {
             event.preventDefault();
@@ -3005,8 +3232,19 @@
         arrowup: 'up', w: 'up', arrowdown: 'down', s: 'down', arrowleft: 'left', a: 'left', arrowright: 'right', d: 'right',
       };
 
+      // 키를 누르고 있을 때 이동과 되돌리기가 반복되는 간격(ms). 브라우저 그대로면 1초에 30번쯤 반복되어 로봇이 미끄러지듯 지나갔다.
+      const REPEAT_GAP = 150;
+
       document.addEventListener('keydown', (event) => {
         const key = event.key.toLowerCase();
+        // M은 소리 끄기, F는 전체 화면이다. 어느 화면에서나 듣는다. 첫 화면이면 그 입력으로 메인 화면도 연다.
+        if ((key === 'm' || key === 'f') && !event.repeat && !event.ctrlKey && !event.metaKey && !event.altKey) {
+          event.preventDefault();
+          if (key === 'm') flipSetting('muted');
+          else toggleFullscreen();
+          if (!ui.title.hidden && !game.titleOpened && ui.settings.hidden) openTitle();
+          return;
+        }
         if (!ui.settings.hidden) {
           settingsKey(event, key);
           return;
@@ -3067,6 +3305,13 @@
           if (KEY_DIRECTIONS[key]) event.preventDefault();
           return;
         }
+        // 누르고 있을 때의 반복은 설정에서 끌 수 있고, 켜 두면 REPEAT_GAP마다 한 번만 받는다.
+        if (event.repeat && (KEY_DIRECTIONS[key] || key === 'z' || key === 'backspace')) {
+          event.preventDefault();
+          const now = performance.now();
+          if (!settings.keyRepeat || now - (game.lastRepeat || 0) < REPEAT_GAP) return;
+          game.lastRepeat = now;
+        }
         if (KEY_DIRECTIONS[key] && !game.won) {
           event.preventDefault();
           move(KEY_DIRECTIONS[key]);
@@ -3105,6 +3350,30 @@
       ui.openSettings.addEventListener('click', openSettings);
       ui.closeSettings.addEventListener('click', closeSettings);
       ui.settingsTabs.forEach((tab) => tab.addEventListener('click', () => showSettingsTab(tab.dataset.tab, true)));
+      ui.toggles.forEach((toggle) => toggle.addEventListener('click', () => {
+        flipSetting(toggle.dataset.setting);
+        Sound.start();
+      }));
+      ui.padChoices.forEach((button) => button.addEventListener('click', () => {
+        settings.padMode = button.dataset.value;
+        saveSettings();
+        applySettings();
+      }));
+      ui.fullscreen.addEventListener('click', toggleFullscreen);
+      document.addEventListener('fullscreenchange', updateFullscreenButton);
+      document.addEventListener('visibilitychange', () => Sound.setPaused(document.hidden && settings.muteHidden));
+      window.addEventListener('resize', () => {
+        if (!ui.settings.hidden) fitSettingsPanes();
+      });
+      // 시연과 조작 안내 다시 보기. 판 안이면 지금 판을 다시 시작해 바로 보여 주고, 메인 화면이면 다음에 들어가는 판부터 보여 준다.
+      ui.replayGuides.addEventListener('click', () => {
+        if (game.busy) return;
+        settings.demosSeen = [];
+        settings.keysSeen = false;
+        saveSettings();
+        closeSettings();
+        if (ui.title.hidden && game.level) startLevel(game.index);
+      });
       ui.settings.addEventListener('click', (event) => {
         if (event.target === ui.settings) closeSettings();
       });
@@ -3128,7 +3397,7 @@
           ui.nextCue.hidden = false;
         }
       }));
-      [['setBrightness', 'brightness'], ['setMusic', 'music'], ['setSfx', 'sfx']].forEach(([element, name]) => {
+      [['setBrightness', 'brightness'], ['setMaster', 'master'], ['setMusic', 'music'], ['setSfx', 'sfx']].forEach(([element, name]) => {
         ui[element].addEventListener('input', () => {
           settings[name] = Number(ui[element].value);
           saveSettings();
