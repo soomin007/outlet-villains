@@ -966,139 +966,100 @@
       .card-art img.small { height: min(16vh, 110px); }
     }
 
-    /* 메인 화면. 단색 바탕에 왼쪽 로봇, 오른쪽 제목 로고와 버튼, 아래쪽에 빌런 도감 줄을 둔다. */
+    /* 메인 화면(2026-11-01 사용자 확정, docs/concept.md "2026-11-01 결정"). 위 층은 옆에서 본 카페 벽이 천천히 흐르고, 가운데 층은 멈춘 밝은 바닥,
+       아래 층은 앞쪽 찬장이 빠르게 흐른다. 글자와 버튼은 모두 가운데 층에만 둔다. 흐르는 띠가 제목 뒤를 지나가 제목이 읽히지 않았다(known-issues 25번).
+       숫자는 layout.js의 title이다. 1920 x 1080 판(세로 화면은 375 x 812 판)으로 짜서 화면에 맞게 줄이고 늘린다(layoutTitle). */
     .title-screen {
       position: fixed;
       inset: 0;
       z-index: 90;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: safe center;
-      gap: 3vh;
-      overflow-y: auto;
-      background-color: #141210;
       overflow: hidden;
+      background-color: #d9d9d9;
     }
 
-    /* 바탕 그림 자리(--title-bg). 지금은 단색 바탕만 쓰고 그림은 깔지 않는다. 다시 깔면 흐림, 어둡게 효과가 적용된다. */
-    .title-screen::before {
-      content: "";
-      position: fixed;
-      inset: -24px;
-      background-image: var(--title-bg);
-      background-position: center;
-      background-size: cover;
-      filter: blur(6px) brightness(0.4) saturate(0.5);
-    }
-
-    .title-inner {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 5vw;
-      width: 100%;
-      max-width: 1100px;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-
-    .title-robot img {
-      display: block;
-      height: min(52vh, 480px);
-      width: auto;
-      animation: robot-idle 2.6s ease-in-out infinite alternate;
-    }
-
-    /* 달리는 로봇과 흐르는 카페(2026-11-01 사용자 요청). 로봇 자리(--robot-h 높이)를 기준으로, 로봇 뒤에 옆에서 본 카페가
-       오른쪽에서 왼쪽으로 끝없이 흐르고, 로봇은 오른쪽을 보고 제자리에서 달린다. 카페 그림은 3840 x 640이라 폭이 높이의 6배다. */
-    .title-robot.running {
-      --robot-h: min(52vh, 480px);
-      position: relative;
-      width: calc(var(--robot-h) * 0.82);
-      height: var(--robot-h);
-      flex: none;
-    }
-
-    /* 카페 띠는 로봇 자리를 가운데로 화면 폭의 3배만큼 깔아서, 로봇이 어디 있든 화면 양 끝까지 덮는다. 메인 화면 맨 뒤에 그린다. */
-    .title-world {
+    .title-stage {
       position: absolute;
+      left: 0;
       top: 0;
-      left: 50%;
-      width: 300vw;
-      height: 100%;
-      transform: translateX(-50%);
-      overflow: hidden;
-      z-index: -1;
-      pointer-events: none;
+      transform-origin: 0 0;
     }
 
+    .title-stage > * { position: absolute; margin: 0; }
+
+    .title-band { overflow: hidden; pointer-events: none; }
+    .title-band.wall { background: #1b1b1b; }
+    .title-band.floor { background: #d9d9d9; }
+    .title-band.cupboard { background: #1b1b1b; z-index: 3; }
+
+    /* 띠 한 장을 여러 벌 이어 붙인 줄. 이스터에그가 세 벌마다 되풀이되므로 세 벌만큼 흐르면 처음 모습으로 돌아간다. */
     .title-track {
       position: absolute;
       left: 0;
-      top: 0;
-      height: 100%;
       display: flex;
-      animation: cafe-scroll 36s linear infinite;
+      animation: title-flow var(--flow-time) linear infinite;
     }
 
-    @keyframes cafe-scroll {
-      to { transform: translateX(calc(var(--robot-h) * -6)); }
+    .title-band.wall .title-track { bottom: 0; }
+    .title-band.cupboard .title-track { top: 0; }
+
+    @keyframes title-flow {
+      to { transform: translateX(calc(var(--flow-loop) * -1)); }
     }
 
-    .title-track .strip {
-      position: relative;
-      flex: none;
-      height: 100%;
-    }
+    .title-track .strip { position: relative; flex: none; }
+    .title-track .strip > img.band { display: block; width: 100%; height: 100%; animation: none; }
+    .title-track .egg { position: absolute; width: auto; animation: none; }
 
-    .title-track .strip > img.cafe {
-      display: block;
-      height: 100%;
-      width: auto;
-      animation: none;
-    }
+    /* 달리는 로봇. 네 장면을 겹쳐 두고 한 장씩만 보여서 그림을 바꿀 때 깜빡이지 않는다(known-issues 18번).
+       그림은 512 x 512에서 발이 y 487이라, 아래쪽 25/512를 상자 밖으로 내려 발이 상자 바닥(바닥 층의 바닥선)에 닿게 한다. */
+    .title-robot { z-index: 2; }
 
-    /* 이스터에그(지나간 빌런들, 충전 독). 카페 바닥선(그림 높이의 87.5%)에 발이 닿는다. 그림 아래 24/512는 빈 자리다. */
-    .title-track .egg {
+    .title-robot .frames { position: absolute; inset: 0; }
+
+    .title-robot .frames img {
       position: absolute;
-      height: 72%;
+      left: 50%;
+      bottom: -4.88%;
+      height: 100%;
       width: auto;
-      bottom: calc(12.5% - 72% * 24 / 512);
-      animation: none;
-    }
-
-    /* 달리는 로봇 네 장면. 네 장을 겹쳐 두고 한 장씩만 보여서, 그림을 바꿀 때 깜빡이지 않는다(known-issues 18번). */
-    .title-robot.running > img.run {
-      position: absolute;
-      left: 0;
-      bottom: calc(var(--robot-h) * 0.088);
-      height: calc(var(--robot-h) * 0.78);
-      width: auto;
+      transform: translateX(-50%);
       visibility: hidden;
       animation: none;
     }
 
-    .title-robot.running > img.run.on { visibility: visible; }
+    .title-robot .frames img.on { visibility: visible; }
 
-    .calm .title-track { animation: none; }
+    /* 달려 나가는 느낌(2026-11-01 사용자). 같은 장면을 왼쪽으로 조금 민 옅은 잔상 한 겹과, 로봇 뒤로 흘러가는 속도선 넷을 코드로 그린다. */
+    .title-robot .frames.ghost { transform: translateX(-14%); opacity: 0.22; }
 
-    /* 로봇이 제자리에서 숨 쉬듯 아주 조금 떠올랐다 내려앉는다(그림 높이의 약 1.5%). */
-    @keyframes robot-idle {
-      from { transform: translateY(0); }
-      to { transform: translateY(-1.5%); }
+    .speed-line {
+      position: absolute;
+      height: 2%;
+      border-radius: 99px;
+      background: #5e5e5e;
+      opacity: 0;
+      animation: speed-line 0.6s linear infinite;
     }
+
+    @keyframes speed-line {
+      0% { transform: translateX(0); opacity: 0; }
+      25% { opacity: 0.75; }
+      100% { transform: translateX(-160%); opacity: 0; }
+    }
+
+    .calm .title-track,
+    .calm .title-logo .bang-fill { animation: none; }
+    .calm .title-robot .frames.ghost,
+    .calm .speed-line { display: none; }
 
 
     /* 첫 화면의 "아무 키나 누르세요". 누르면 사라지고 버튼이 나온다. 브라우저는 한 번 누르기 전에는 소리를 막아서, 이 입력으로 메인 화면 음악을 켠다. */
     .title-press {
-      margin: 0;
-      min-height: 48px;
-      color: #f6efe2;
-      font-size: 20px;
+      z-index: 2;
+      color: #1b1b1b;
+      font-size: var(--menu-font, 20px);
       font-weight: 800;
-      line-height: 48px;
+      line-height: 1.5;
       animation: press-blink 1.2s ease-in-out infinite alternate;
     }
 
@@ -1108,13 +1069,13 @@
     }
 
     /* 빌런 도감 줄. 챕터마다 카드 하나이고, 챕터의 마지막 레벨을 깨면 빌런의 반응 그림이 드러난다. 아직이면 검은 실루엣과 물음표다. */
+    /* 메인 화면 바닥이 밝아서(#d9d9d9) 도감 카드는 진한 테두리와 글자를 쓴다. 카드 크기는 layout.js title의 dex.card다. */
     .title-dex {
-      position: relative;
+      z-index: 2;
       display: flex;
       justify-content: center;
-      gap: 14px;
-      padding-left: 20px;
-      padding-right: 20px;
+      align-items: flex-start;
+      gap: calc(var(--dex-card, 112px) * 0.12);
     }
 
     .dex-card {
@@ -1122,7 +1083,7 @@
       flex-direction: column;
       align-items: center;
       gap: 6px;
-      width: 112px;
+      width: var(--dex-card, 112px);
     }
 
     .dex-art {
@@ -1130,11 +1091,11 @@
       display: flex;
       justify-content: center;
       width: 100%;
-      height: 112px;
+      height: var(--dex-card, 112px);
       overflow: hidden;
-      border: 3px solid rgba(246, 239, 226, 0.75);
+      border: 3px solid #1b1b1b;
       border-radius: 12px;
-      background: rgba(255, 255, 255, 0.06);
+      background: rgba(0, 0, 0, 0.05);
     }
 
     .dex-art img {
@@ -1148,8 +1109,8 @@
     .dex-art.pair img { width: 60%; height: 100%; object-fit: cover; }
     .dex-art.pair img + img { margin-left: -20%; }
 
-    .dex-card.locked .dex-art { border-style: dashed; border-color: rgba(246, 239, 226, 0.35); }
-    .dex-card.locked .dex-art img { filter: brightness(0); opacity: 0.55; }
+    .dex-card.locked .dex-art { border-style: dashed; border-color: rgba(27, 27, 27, 0.45); }
+    .dex-card.locked .dex-art img { filter: brightness(0); opacity: 0.4; }
 
     .dex-card.locked .dex-art::after {
       content: "?";
@@ -1158,19 +1119,19 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: rgba(246, 239, 226, 0.8);
-      font-size: 44px;
+      color: #f6efe2;
+      font-size: calc(var(--dex-card, 112px) * 0.4);
       font-weight: 900;
     }
 
     .dex-name {
-      color: #f6efe2;
-      font-size: 14px;
+      color: #1b1b1b;
+      font-size: var(--dex-font, 14px);
       font-weight: 800;
       white-space: nowrap;
     }
 
-    .dex-card.locked .dex-name { color: rgba(246, 239, 226, 0.45); }
+    .dex-card.locked .dex-name { color: rgba(27, 27, 27, 0.5); }
 
     /* 크레딧. 왼쪽에 맡은 일, 오른쪽에 이름이다. */
     .credit-list {
@@ -1191,15 +1152,53 @@
       line-height: 1.6;
     }
 
-    .title-side {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 24px;
+    /* 로고 받침(2026-11-01 사용자 제안). 빨간 테두리의 배터리 모양 검은 받침 위에 흰 글씨 로고를 얹는다.
+       빨간 글씨는 회색 배경과 명암비가 1.4~1.9 대 1이라 쓰지 않는다. 크기는 layoutTitle이 layout.js title.badge 비율로 정한다. */
+    .title-logo { z-index: 2; }
+
+    .logo-badge {
+      position: relative;
+      box-sizing: border-box;
+      background: #111;
+      border-style: solid;
+      border-color: #c8302a;
     }
 
-    .title-logo { margin: 0; }
-    .title-logo img { display: block; width: min(44vw, 560px); height: auto; }
+    .logo-badge::after {
+      content: "";
+      position: absolute;
+      left: 100%;
+      top: 30%;
+      height: 40%;
+      width: var(--nub);
+      background: #c8302a;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .logo-layers { position: absolute; }
+    .logo-layers img { position: absolute; inset: 0; width: 100%; height: 100%; animation: none; }
+
+    /* 로고 끝 배터리 느낌표의 속. 빨강(1/3), 노랑(2/3), 초록(가득)으로 차오르기를 되풀이한다. 메인 화면에만 쓰는 색 규칙의 예외다(docs/art-rules.md "색"). */
+    .bang-hole { position: absolute; overflow: hidden; }
+
+    .bang-fill {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 100%;
+      background: #3aa35a;
+      animation: bang-charge var(--bang-cycle, 3s) step-end infinite;
+    }
+
+    @keyframes bang-charge {
+      0% { height: 33.3%; background: #c8302a; }
+      33.33% { height: 66.7%; background: #e0b020; }
+      66.67% { height: 100%; background: #3aa35a; }
+      100% { height: 100%; background: #3aa35a; }
+    }
+
+    .title-logo > img { display: block; width: 100%; height: auto; }
 
     /* 로고 그림이 오기 전의 글자 로고. 둘째 줄의 '필'이 첫 줄의 '전' 아래에 오도록 둘째 줄을 한 글자만큼 민다. */
     .text-logo {
@@ -1217,21 +1216,23 @@
     .text-logo .line2 { padding-left: 1em; }
     .text-logo .bang { color: var(--logo-accent); }
 
+    /* 메인 화면 버튼(2026-11-01 사용자: 훨씬 크게). 크기와 글자는 layout.js title.menu다. 밝은 바닥 위라 흰 바탕에 진한 테두리를 쓴다. */
     .title-menu {
+      z-index: 2;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: var(--menu-gap, 10px);
     }
 
     .title-btn {
-      min-width: 230px;
-      min-height: 48px;
+      height: var(--menu-h, 48px);
       padding-left: 18px;
       padding-right: 18px;
-      border: 3px solid #eee;
+      border: 3px solid #1b1b1b;
       border-radius: 12px;
-      background: rgba(43, 40, 38, 0.88);
-      font-size: 18px;
+      background: #f6f6f6;
+      color: #1b1b1b;
+      font-size: var(--menu-font, 18px);
       font-weight: 800;
     }
 
@@ -1244,38 +1245,22 @@
     .title-btn:focus { outline: none; }
 
     .title-btn.is-selected {
-      background: #eee;
-      color: #111;
+      background: #1b1b1b;
+      color: #fff;
       border-color: var(--logo-accent);
-      transform: scale(1.05);
+      transform: scale(1.04);
     }
 
     .title-btn.is-selected::before {
       content: "▶";
       position: absolute;
-      left: -30px;
+      left: -1.3em;
       top: 50%;
-      margin-top: -12px;
-      line-height: 24px;
+      margin-top: -0.6em;
+      line-height: 1.2em;
       color: var(--logo-accent);
-      font-size: 18px;
+      font-size: 0.9em;
       animation: cue 0.9s ease-in-out infinite alternate;
-    }
-
-    @media (max-width: 640px) {
-      .title-screen { gap: 12px; }
-      .title-inner { flex-direction: column; gap: 10px; }
-      .title-side { gap: 14px; }
-      .title-menu { gap: 8px; }
-      .title-btn { min-height: 44px; }
-      .title-robot img { height: min(22vh, 190px); }
-      .title-robot.running { --robot-h: min(22vh, 190px); }
-      .title-logo img { width: min(78vw, 360px); }
-      .title-dex { gap: 8px; }
-      .dex-card { width: 84px; }
-      .dex-art { height: 84px; }
-      .dex-card.locked .dex-art::after { font-size: 34px; }
-      .dex-name { font-size: 12px; }
     }
 
     /* 설정창. 화면 전체를 덮는 창이고, Esc나 닫기로 닫는다. */
@@ -1525,7 +1510,6 @@
     .calm .sprite.kind-buzzer:not(.ringing) .art,
     .calm .sprite.is-player::before,
     .calm .wob,
-    .calm .title-robot img,
     .calm .order-bubble,
     .calm .plug-bubble,
     .calm .goal-mark.near::after,
@@ -1546,8 +1530,8 @@
       .panel { padding-left: 0.9em; padding-right: 0.9em; }
       .large-text .panel { font-size: calc(var(--panel-font) * 1.125); }
     }
-    .large-text .title-btn { font-size: 21px; }
-    .large-text .dex-name { font-size: 16px; }
+    .large-text .title-btn { font-size: calc(var(--menu-font, 18px) * 1.125); }
+    .large-text .dex-name { font-size: calc(var(--dex-font, 14px) * 1.125); }
     .large-text .steps { font-size: 18px; }
 
     /* 화면 방향 버튼(설정의 조작 탭). 자동은 터치 화면에서만 보이고, 켜기와 끄기는 기기와 상관없이 정한다. */
@@ -1602,20 +1586,21 @@
 
   <!-- 메인 화면. 그림을 받는 동안 이 화면을 보여 주므로 따로 로딩 화면을 두지 않는다(2026-10-30 사용자 결정). -->
   <div id="title-screen" class="title-screen" hidden>
-    <div class="title-inner">
+    <div id="title-stage" class="title-stage">
+      <div id="title-wall" class="title-band wall"></div>
+      <div id="title-floor" class="title-band floor"></div>
+      <div id="title-cupboard" class="title-band cupboard"></div>
       <div id="title-robot" class="title-robot"></div>
-      <div class="title-side">
-        <h1 id="title-logo" class="title-logo"></h1>
-        <p id="title-press" class="title-press" hidden></p>
-        <div id="title-menu" class="title-menu">
-          <button id="title-continue" class="title-btn primary" type="button"></button>
-          <button id="title-new" class="title-btn" type="button">처음부터</button>
-          <button id="title-settings" class="title-btn" type="button">설정</button>
-          <button id="title-credits" class="title-btn" type="button">만든 사람</button>
-        </div>
+      <h1 id="title-logo" class="title-logo"></h1>
+      <p id="title-press" class="title-press" hidden></p>
+      <div id="title-menu" class="title-menu">
+        <button id="title-continue" class="title-btn primary" type="button"></button>
+        <button id="title-new" class="title-btn" type="button">처음부터</button>
+        <button id="title-settings" class="title-btn" type="button">설정</button>
+        <button id="title-credits" class="title-btn" type="button">만든 사람</button>
       </div>
+      <div id="title-dex" class="title-dex" aria-label="빌런 도감"></div>
     </div>
-    <div id="title-dex" class="title-dex" aria-label="빌런 도감"></div>
   </div>
 
   <div id="credits" class="modal" role="dialog" aria-modal="true" aria-labelledby="credits-title" hidden>
@@ -1780,6 +1765,10 @@
         replayPrologue: document.getElementById('replay-prologue'),
         resetProgress: document.getElementById('reset-progress'),
         title: document.getElementById('title-screen'),
+        titleStage: document.getElementById('title-stage'),
+        titleWall: document.getElementById('title-wall'),
+        titleFloor: document.getElementById('title-floor'),
+        titleCupboard: document.getElementById('title-cupboard'),
         titleRobot: document.getElementById('title-robot'),
         titleLogo: document.getElementById('title-logo'),
         titleContinue: document.getElementById('title-continue'),
@@ -2085,9 +2074,9 @@
       function tabletopItems(x, y) {
         const map = game.level.map;
         const around = [[0, -1, 'down'], [0, 1, 'up'], [-1, 0, 'right'], [1, 0, 'left']];
-        // 빌런 자리(V)에 붙은 탁자는 빌런이 엎드린 탁자라 꾸밈 물건을 놓지 않는다.
-        // 빌런은 손님(N)으로 세지 않아서 빈 탁자로 보고 다섯 칸에 한 칸 꼴의 꽃병을 놓았다(2026-11-01 사용자 지적).
-        if (around.some(([dx, dy]) => (map[y + dy] || '')[x + dx] === 'V')) return [];
+        // 빌런 자리(V)와 촬영자 자리(F)에 붙은 탁자는 그 사람의 탁자라 꾸밈 물건을 놓지 않는다.
+        // 둘 다 손님(N)으로 세지 않아서 빈 탁자로 보고 다섯 칸에 한 칸 꼴의 꽃병이나 케이크를 놓았다(2026-11-01 사용자 지적, 3장 촬영자 탁자도 같음).
+        if (around.some(([dx, dy]) => 'VF'.includes((map[y + dy] || '')[x + dx] || '.'))) return [];
         const items = [];
         const facedBy = around.filter(([dx, dy, facing]) => (map[y + dy] || '')[x + dx] === 'N' && customerFacing(map, x + dx, y + dy) === facing);
         const faced = facedBy.length > 0;
@@ -2378,20 +2367,16 @@
       // 메인 화면. 배경은 만화 1번 컷, 로봇과 로고는 그림이 있으면 그림, 없으면 주인공 그림과 글자 로고를 쓴다.
       function showTitle() {
         const colors = THEMES[settings.theme];
-        // 글자와 그림 뒤에는 복잡한 그림을 깔지 않는다(2026-10-31 사용자 피드백). 테마별 단색 바탕만 쓴다.
-        ui.title.style.setProperty('--title-bg', 'none');
-        ui.title.style.backgroundColor = settings.theme === 'a' ? '#1b1b1b' : '#2a1f18';
         ui.title.style.setProperty('--logo-accent', colors.player);
         drawTitleWorld();
-        ui.titleLogo.innerHTML = assetPath('title-logo')
-          ? `<img src="${assetPath('title-logo')}" alt="충전이 필요해!">`
-          : '<span class="text-logo"><span>충전이</span><span class="line2">필요해<span class="bang">!</span></span></span>';
+        drawTitleLogo();
         const hasProgress = settings.cleared.length > 0;
         const target = settings.lastLevel || 0;
         ui.titleContinue.textContent = hasProgress ? `이어하기 (${chapterNumber(target)}-${levelNumber(target)})` : '시작하기';
         ui.titleNew.hidden = !hasProgress;
         drawDex();
         ui.title.hidden = false;
+        layoutTitle();
         // 페이지를 처음 열었을 때는 "아무 키나 누르세요"만 보이고, 누르면 메인 화면 음악이 켜지며 버튼이 나온다(2026-10-31 사용자 결정).
         // 엔딩 뒤에 돌아왔을 때처럼 이미 눌렀으면 바로 버튼을 보여 주고 메인 화면 음악으로 바꾼다.
         ui.titlePress.textContent = window.matchMedia('(hover: hover)').matches ? '아무 키나 누르세요' : '화면을 누르세요';
@@ -2403,34 +2388,148 @@
         }
       }
 
-      // 메인 화면의 로봇. 달리는 그림이 있으면 흐르는 카페 위에서 제자리로 달리고, 없으면 예전처럼 서 있는 로봇 그림을 쓴다.
-      // 흐르는 카페에는 만난 빌런(도감에서 드러난 빌런)과 충전 독이 이스터에그로 지나간다.
+      // 흐르는 띠는 한 장을 여덟 벌 이어 붙인다. 아주 넓은 화면(32:9)에서도 화면 폭과 한 주기(세 벌)를 덮는다.
+      const TITLE_STRIP_COPIES = 8;
+
+      // 메인 화면의 흐르는 띠와 달리는 로봇(2026-11-01 사용자 확정). 위 띠에는 만난 빌런(도감에서 드러난 빌런)과 충전 독이 이스터에그로
+      // 세 벌마다 한 번씩 지나간다. 로봇은 당황한 눈 그림(-fluster)이 있으면 그것을 쓰고, 뒤에 옅은 잔상과 속도선을 그린다.
       function drawTitleWorld() {
         clearInterval(game.runTimer);
-        if (!assetPath('title-run-1') || !assetPath('title-cafe-strip')) {
-          ui.titleRobot.classList.remove('running');
-          ui.titleRobot.innerHTML = imageTag(assetPath('title-robot') ? 'title-robot' : 'player-down');
+        const egg = LAYOUT.title.egg;
+        const wallStrip = LAYOUT.title.strips.wall;
+        const eggs = [];
+        if (game.cleared.has(lastLevelOf('sleeper')) && assetPath('title-egg-sleeper')) eggs.push('title-egg-sleeper');
+        if (game.cleared.has(lastLevelOf('streamer')) && assetPath('title-egg-streamer')) eggs.push('title-egg-streamer');
+        if (assetPath('title-egg-dock')) eggs.push('title-egg-dock');
+        // 이스터에그 그림(512 x 512)은 발이 y 488이라, 그 아래 빈 자리만큼 띠 바닥선 밑으로 내린다.
+        const eggHeight = egg.height / wallStrip.height * 100;
+        const eggStyle = `height:${eggHeight}%; bottom:${-(egg.art - egg.floorY) / egg.art * eggHeight}%; left:${egg.centerX / wallStrip.width * 100}%; transform:translateX(-50%)`;
+        const track = (key, withEggs) => {
+          if (!assetPath(key)) return '';
+          const strips = Array.from({ length: TITLE_STRIP_COPIES }, (_, index) => {
+            const eggKey = withEggs ? eggs[index % 3] : null;
+            const eggTag = eggKey ? `<img class="egg" src="${assetPath(eggKey)}" alt="" draggable="false" style="${eggStyle}">` : '';
+            return `<div class="strip">${imageTag(key, 'band')}${eggTag}</div>`;
+          }).join('');
+          return `<div class="title-track">${strips}</div>`;
+        };
+        ui.titleWall.innerHTML = track('title-wall-strip', true);
+        ui.titleCupboard.innerHTML = track('title-cupboard-strip', false);
+
+        if (!assetPath('title-run-1')) {
+          ui.titleRobot.innerHTML = `<div class="frames">${imageTag(assetPath('title-robot') ? 'title-robot' : 'player-down', 'on')}</div>`;
           return;
         }
-        const eggs = [];
-        if (game.cleared.has(lastLevelOf('sleeper')) && assetPath('title-egg-sleeper')) eggs.push(['title-egg-sleeper', 0.2]);
-        if (game.cleared.has(lastLevelOf('streamer')) && assetPath('title-egg-streamer')) eggs.push(['title-egg-streamer', 0.5]);
-        if (assetPath('title-egg-dock')) eggs.push(['title-egg-dock', 0.8]);
-        // 카페 띠 한 장(폭 = 높이의 6배)에 이스터에그를 정해진 자리에 얹고, 넉 장을 이어 붙여 한 장 폭만큼 흐르면 처음으로 돌아간다.
-        const strip = `<div class="strip">${imageTag('title-cafe-strip', 'cafe')}`
-          + eggs.map(([key, at]) => `<img class="egg" src="${assetPath(key)}" alt="" draggable="false" style="left:${at * 100}%">`).join('')
-          + '</div>';
-        ui.titleRobot.classList.add('running');
-        ui.titleRobot.innerHTML = `<div class="title-world"><div class="title-track">${strip.repeat(4)}</div></div>`
-          + [1, 2, 3, 4].map((frame) => imageTag(`title-run-${frame}`, `run${frame === 1 ? ' on' : ''}`)).join('');
-        const frames = [...ui.titleRobot.querySelectorAll('img.run')];
+        const runKey = (frame) => (assetPath(`title-run-${frame}-fluster`) ? `title-run-${frame}-fluster` : `title-run-${frame}`);
+        const frames = [1, 2, 3, 4].map((frame) => imageTag(runKey(frame), frame === 1 ? 'on' : '')).join('');
+        // 속도선 넷. [위치(상자 높이의 비율), 길이(상자 폭의 비율)]이고, 로봇 등 뒤(왼쪽)에서 생겨 뒤로 흘러가며 사라진다.
+        const lines = [[0.34, 0.32], [0.47, 0.44], [0.6, 0.28], [0.73, 0.38]].map(([top, length], index) =>
+          `<span class="speed-line" style="top:${top * 100}%; left:${12 - length * 100}%; width:${length * 100}%; animation-delay:${index * -0.15}s"></span>`).join('');
+        ui.titleRobot.innerHTML = `${lines}<div class="frames ghost">${frames}</div><div class="frames">${frames}</div>`;
+        const sets = [...ui.titleRobot.querySelectorAll('.frames')].map((set) => [...set.querySelectorAll('img')]);
         let frame = 0;
         game.runTimer = setInterval(() => {
           if (ui.title.hidden || document.body.classList.contains('calm')) return;
-          frames[frame].classList.remove('on');
-          frame = (frame + 1) % frames.length;
-          frames[frame].classList.add('on');
+          sets.forEach((images) => images[frame].classList.remove('on'));
+          frame = (frame + 1) % 4;
+          sets.forEach((images) => images[frame].classList.add('on'));
         }, 110);
+      }
+
+      // 로고 받침과 느낌표 배터리(2026-11-01). 글자층(title-logo-text)과 느낌표 껍데기(title-bang-shell)가 있으면 그 사이에 차오르는 속을 칠한다.
+      // 둘이 없으면 원래 로고 한 장을, 로고 그림도 없으면 글자 로고를 받침 위에 얹는다. 크기와 자리는 layoutTitle이 정한다.
+      function drawTitleLogo() {
+        const bang = LAYOUT.title.bang;
+        let layers;
+        if (assetPath('title-logo-text') && assetPath('title-bang-shell')) {
+          const hole = `left:${bang.x / bang.logoW * 100}%; top:${bang.y / bang.logoH * 100}%; width:${bang.w / bang.logoW * 100}%; height:${bang.h / bang.logoH * 100}%`;
+          layers = imageTag('title-logo-text') + `<div class="bang-hole" style="${hole}"><div class="bang-fill"></div></div>` + imageTag('title-bang-shell');
+        } else if (assetPath('title-logo')) {
+          layers = imageTag('title-logo');
+        } else {
+          layers = '<span class="text-logo"><span>충전이</span><span class="line2">필요해<span class="bang">!</span></span></span>';
+        }
+        ui.titleLogo.innerHTML = `<div class="logo-badge" role="img" aria-label="충전이 필요해!"><div class="logo-layers">${layers}</div></div>`;
+        ui.titleLogo.style.setProperty('--bang-cycle', `${bang.cycle}s`);
+      }
+
+      // 메인 화면 판을 화면에 맞춘다(layout.js title). 1920 x 1080 판과 375 x 812 판 가운데, 화면에 맞췄을 때 버튼 글자가 더 크게 보이는 판을 고른다.
+      // 가로세로 비율로만 고르면 587 x 614 같은 창에서 1920 판이 31%로 줄어 버튼 글자가 10px이 됐다(2026-11-01 확인).
+      // 판은 가로와 세로 가운데 좁은 쪽에 맞춰 키우고 가운데에 둔다. 세 층의 띠와 바닥은 판 밖 화면 끝까지 늘려 빈 자리가 생기지 않게 한다.
+      function layoutTitle() {
+        if (ui.title.hidden) return;
+        const fitScale = (candidate) => Math.min(window.innerWidth / candidate.size[0], window.innerHeight / candidate.size[1]);
+        const { desk, phone } = LAYOUT.title;
+        const spec = desk.menu.font * fitScale(desk) >= phone.menu.font * fitScale(phone) ? desk : phone;
+        const [width, height] = spec.size;
+        const scale = fitScale(spec);
+        const padX = (window.innerWidth / scale - width) / 2;
+        const padY = (window.innerHeight / scale - height) / 2;
+        const box = (element, x, y, w, h) => {
+          element.style.left = `${x}px`;
+          element.style.top = `${y}px`;
+          element.style.width = `${w}px`;
+          element.style.height = h === null ? '' : `${h}px`;
+        };
+        ui.titleStage.style.width = `${width}px`;
+        ui.titleStage.style.height = `${height}px`;
+        ui.titleStage.style.transform = `translate(${padX * scale}px, ${padY * scale}px) scale(${scale})`;
+
+        const { wallBottom, cupboardTop } = spec.bands;
+        const bandWidth = width + padX * 2;
+        box(ui.titleWall, -padX, -padY, bandWidth, wallBottom + padY);
+        box(ui.titleFloor, -padX, wallBottom, bandWidth, cupboardTop - wallBottom);
+        box(ui.titleCupboard, -padX, cupboardTop, bandWidth, height - cupboardTop + padY);
+        layoutStrip(ui.titleWall, LAYOUT.title.strips.wall, wallBottom);
+        layoutStrip(ui.titleCupboard, LAYOUT.title.strips.cupboard, height - cupboardTop);
+
+        box(ui.titleRobot, spec.robot.x, spec.robot.y, spec.robot.w, spec.robot.h);
+
+        // 받침은 로고 둘레에 여백을 두고, 테두리 두께는 받침 높이의 비율이되 화면에서 3px보다 얇아지지 않게 한다.
+        const badge = LAYOUT.title.badge;
+        const logoWidth = spec.logo.logoWidth;
+        const logoHeight = logoWidth * LAYOUT.title.bang.logoH / LAYOUT.title.bang.logoW;
+        const marginX = logoWidth * badge.padX;
+        const marginY = logoHeight * badge.padY;
+        const badgeWidth = logoWidth + marginX * 2;
+        const badgeHeight = logoHeight + marginY * 2;
+        const border = Math.max(3 / scale, badgeHeight * badge.border);
+        box(ui.titleLogo, spec.logo.x, spec.logo.y, badgeWidth, badgeHeight);
+        const badgeElement = ui.titleLogo.querySelector('.logo-badge');
+        if (badgeElement) {
+          Object.assign(badgeElement.style, {
+            width: `${badgeWidth}px`,
+            height: `${badgeHeight}px`,
+            borderWidth: `${border}px`,
+            borderRadius: `${badgeHeight * badge.radius}px`,
+          });
+          badgeElement.style.setProperty('--nub', `${badgeWidth * badge.nubW}px`);
+          box(badgeElement.querySelector('.logo-layers'), marginX - border, marginY - border, logoWidth, logoHeight);
+        }
+
+        box(ui.titleMenu, spec.menu.x, spec.menu.y, spec.menu.w, null);
+        box(ui.titlePress, spec.menu.x, spec.menu.y, spec.menu.w, null);
+        ui.title.style.setProperty('--menu-h', `${spec.menu.h}px`);
+        ui.title.style.setProperty('--menu-gap', `${spec.menu.gap}px`);
+        ui.title.style.setProperty('--menu-font', `${spec.menu.font}px`);
+
+        box(ui.titleDex, spec.dex.x, spec.dex.y, spec.dex.w, spec.dex.h);
+        ui.title.style.setProperty('--dex-card', `${spec.dex.card}px`);
+        ui.title.style.setProperty('--dex-font', `${spec.dex.font}px`);
+      }
+
+      // 흐르는 띠 한 줄을 그 층의 띠 높이에 맞춘다. 띠 한 장의 폭은 그림 비율을 따르고, 세 장(이스터에그 한 주기)만큼 흐르면 처음으로 돌아간다.
+      function layoutStrip(band, strip, stripHeight) {
+        const track = band.querySelector('.title-track');
+        if (!track) return;
+        const stripWidth = stripHeight * strip.width / strip.height;
+        track.style.height = `${stripHeight}px`;
+        track.style.setProperty('--flow-loop', `${stripWidth * 3}px`);
+        track.style.setProperty('--flow-time', `${strip.loopSeconds * 3}s`);
+        track.querySelectorAll('.strip').forEach((element) => {
+          element.style.width = `${stripWidth}px`;
+          element.style.height = `${stripHeight}px`;
+        });
       }
 
       function lastLevelOf(chapterId) {
@@ -3716,6 +3815,7 @@
       document.addEventListener('visibilitychange', () => Sound.setPaused(document.hidden && settings.muteHidden));
       window.addEventListener('resize', () => {
         if (!ui.settings.hidden) fitSettingsPanes();
+        layoutTitle();
       });
       // 시연과 조작 안내 다시 보기. 판 안이면 지금 판을 다시 시작해 바로 보여 주고, 메인 화면이면 다음에 들어가는 판부터 보여 준다.
       ui.replayGuides.addEventListener('click', () => {

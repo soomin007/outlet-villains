@@ -26,9 +26,37 @@
 // 벽 높이와 자리는 회색 상자 목업으로 확인받은 뒤 지도에 넣는다(docs/concept.md "2026-11-01 결정"). 판 밖은 배경의 벽과 맞닿아 있어 벽으로 이어 본다.
 // decor는 구석을 꾸미는 카페 가구다. 그 칸들은 지도에서 q로 막고, (x, y)부터 가로 w칸에 높이 h칸(칸 높이 배수)짜리 그림 하나를 놓는다.
 // w는 젖은 바닥, 1 2 3은 음료, A B C는 그 음료를 기다리며 서 있는 손님이다(engine.js 머리말 9~12번 규칙). 1장 레벨 3~5는 젖은 바닥, 2장 레벨 4~5는 음료 배달을 쓴다(2026-10-31 사용자 결정).
+//
+// title은 메인 화면 배치다(2026-11-01 사용자 확정, docs/concept.md "목업 2차"). desk는 1920 x 1080 판, phone은 세로 화면용 375 x 812 판이고, 숫자는 그 판의 px다.
+// bands의 wallBottom은 위 층(흐르는 카페 벽)이 끝나는 y, cupboardTop은 아래 층(흐르는 찬장)이 시작하는 y이고, 그 사이가 멈춘 바닥이다. 글자와 버튼은 바닥 층에만 둔다.
+// loopSeconds는 띠 한 장이 제 폭만큼 흐르는 시간이다. 예전 카페 띠(초속 80px)의 0.5배와 1.5배로 맞췄다(위 1920px를 48초, 아래 1920px를 16초).
+// logo의 logoWidth는 받침 안 로고 폭이고, 받침 크기는 badge 비율로 정한다. bang은 로고 그림(1120 x 640) 속 느낌표 배터리의 빈칸이고, cycle초마다 빨강, 노랑, 초록으로 차오른다.
+// egg는 위 띠(1920 x 380) 속 이스터에그 자리다. Codex가 비워 둔 빈 벽면(x 780~1140)의 가운데에 키 320px로 세운다.
 window.VILLAIN_LAYOUT = {
   "art": { "width": 1920, "height": 1080, "tile": 96, "originX": 384, "originY": 240, "columns": 12, "rows": 7, "uiTop": 912, "viewBottom": 880 },
   "sprite": { "personWidthTiles": 1, "personHeightTiles": 1.5 },
+  "title": {
+    "desk": {
+      "size": [1920, 1080],
+      "bands": { "wallBottom": 380, "cupboardTop": 920 },
+      "robot": { "x": 260, "y": 420, "w": 394, "h": 480 },
+      "logo": { "x": 731, "y": 400, "logoWidth": 480 },
+      "menu": { "x": 1340, "y": 420, "w": 340, "h": 80, "gap": 20, "font": 32 },
+      "dex": { "x": 740, "y": 734, "w": 525, "h": 178, "card": 146, "font": 18 }
+    },
+    "phone": {
+      "size": [375, 812],
+      "bands": { "wallBottom": 96, "cupboardTop": 756 },
+      "robot": { "x": 128, "y": 102, "w": 120, "h": 120 },
+      "logo": { "x": 41, "y": 230, "logoWidth": 250 },
+      "menu": { "x": 38, "y": 406, "w": 300, "h": 52, "gap": 8, "font": 20 },
+      "dex": { "x": 28, "y": 648, "w": 320, "h": 96, "card": 70, "font": 12 }
+    },
+    "strips": { "wall": { "width": 1920, "height": 380, "loopSeconds": 48 }, "cupboard": { "width": 1920, "height": 160, "loopSeconds": 16 } },
+    "egg": { "centerX": 960, "height": 320, "floorY": 488, "art": 512 },
+    "badge": { "padX": 0.06, "padY": 0.08, "border": 0.04, "radius": 0.12, "nubW": 0.05, "nubH": 0.4 },
+    "bang": { "x": 987, "y": 366, "w": 50, "h": 122, "logoW": 1120, "logoH": 640, "cycle": 3 }
+  },
   "chapters": [
     {
       "id": "sleeper",
@@ -54,54 +82,70 @@ window.VILLAIN_LAYOUT = {
     {
       "id": "sleeper-1",
       "chapter": "sleeper",
-      "bg": "sleeper",
+      "bg": "sleeper-empty",
+      "interior": true,
       "kind": "tutorial",
       "optimal": 7,
       "pushes": 5,
       "demo": { "kind": "push", "from": { "x": 4, "y": 2 }, "dir": "right" },
       "map": [
-        ".....NLL.LV.",
-        "....NooNL*TN",
-        ".NNqPb....No",
+        "#####NLq#LV#",
+        "####NooNL*TN",
+        "#NNqPb....No",
         "NTTNNNNN..No",
-        "NTT.ooooNq.N",
-        ".NN.NNNLL...",
-        "............"
+        "NTT#ooooNq#N",
+        "#NN#NNNLL###",
+        "qqq########q"
+      ],
+      "decor": [
+        { "x": 7, "y": 0, "key": "decor-bookshelf", "w": 1, "h": 2 },
+        { "x": 0, "y": 6, "key": "decor-selfbar", "w": 3, "h": 1.5 },
+        { "x": 11, "y": 6, "key": "decor-return", "w": 1, "h": 1.5 }
       ]
     },
     {
       "id": "sleeper-2",
       "chapter": "sleeper",
-      "bg": "sleeper",
+      "bg": "sleeper-empty",
+      "interior": true,
       "kind": "tutorial",
       "optimal": 7,
       "pushes": 6,
       "map": [
-        ".....NLL.LV.",
-        "....NooNL*TN",
-        ".NNqPb....No",
+        "#####NLq#LV#",
+        "####NooNL*TN",
+        "#NNqPb....No",
         "NTTNNNNNc.No",
-        "NTT.oooo.q.N",
-        ".NN.NNNLL...",
-        "............"
+        "NTT#oooo.q#N",
+        "#NN#NNNLL###",
+        "qqq########q"
+      ],
+      "decor": [
+        { "x": 7, "y": 0, "key": "decor-bookshelf", "w": 1, "h": 2 },
+        { "x": 0, "y": 6, "key": "decor-selfbar", "w": 3, "h": 1.5 },
+        { "x": 11, "y": 6, "key": "decor-return", "w": 1, "h": 1.5 }
       ]
     },
     {
       "id": "sleeper-3",
       "chapter": "sleeper",
-      "bg": "sleeper",
+      "bg": "sleeper-empty",
+      "interior": true,
       "kind": "tutorial",
       "optimal": 8,
       "pushes": 1,
       "demo": { "kind": "slide", "from": { "x": 9, "y": 6 }, "dir": "up" },
       "map": [
-        ".....NLL.LV.",
-        "....NooNL*TN",
-        ".NNqNooNqwNo",
+        "#####NLq#LV#",
+        "####NooNL*TN",
+        "#NNqNooNqwNo",
         "NTTNNooNNwNo",
-        "NTTqNNNNqwNo",
+        "NTTqqNNqqwNo",
         ".NNqNNNLLbqN",
         "..Pwww......"
+      ],
+      "decor": [
+        { "x": 7, "y": 0, "key": "decor-bookshelf", "w": 1, "h": 2 }
       ]
     },
     {
@@ -119,7 +163,7 @@ window.VILLAIN_LAYOUT = {
         "NTTPbwwwwwwN",
         "NTT.......No",
         "#NNqNNNLL.qN",
-        "qqqNooooNNNq"
+        "qqqNooooNqqq"
       ],
       "decor": [
         { "x": 7, "y": 0, "key": "decor-bookshelf", "w": 1, "h": 2 },
@@ -130,19 +174,25 @@ window.VILLAIN_LAYOUT = {
     {
       "id": "sleeper-5",
       "chapter": "sleeper",
-      "bg": "sleeper",
+      "bg": "sleeper-empty",
+      "interior": true,
       "kind": "puzzle",
       "optimal": 18,
       "pushes": 5,
       "chairNeeded": true,
       "map": [
-        ".....NLL.LV.",
-        "....NooNL*TN",
-        ".NNqNooNqwNo",
+        "#####NLq#LV#",
+        "####NooNL*TN",
+        "#NNqNooNqwNo",
         "NTT.bwcwwwwN",
         "NTT...NN..No",
-        ".NNP..NLLqqN",
-        "NNNNooooNNNN"
+        "#NNP..NLLqqN",
+        "qqqNooooNqqq"
+      ],
+      "decor": [
+        { "x": 7, "y": 0, "key": "decor-bookshelf", "w": 1, "h": 2 },
+        { "x": 0, "y": 6, "key": "decor-selfbar", "w": 3, "h": 1.5 },
+        { "x": 11, "y": 6, "key": "decor-return", "w": 1, "h": 1.5 }
       ]
     },
     {
@@ -241,18 +291,19 @@ window.VILLAIN_LAYOUT = {
     {
       "id": "together-1",
       "chapter": "together",
-      "bg": "sleeper",
+      "bg": "sleeper-empty",
+      "interior": true,
       "kind": "puzzle",
       "maxWalk": 45,
       "optimal": 24,
       "pushes": 10,
       "view": { "dir": "down", "width": 3 },
       "map": [
-        "..ooooLL.LV.",
-        "..NNNN.oL*T.",
-        ".N....qF..N.",
-        ".TT..t.....o",
-        ".TT........N",
+        "##ooooLL#LV#",
+        "##NNNN.oL*T#",
+        "#N....qF..N#",
+        "#TT..t.....o",
+        "#TT........N",
         "o...b..LL..o",
         "NP.........N"
       ]
@@ -260,18 +311,19 @@ window.VILLAIN_LAYOUT = {
     {
       "id": "together-2",
       "chapter": "together",
-      "bg": "sleeper",
+      "bg": "sleeper-empty",
+      "interior": true,
       "kind": "puzzle",
       "maxWalk": 45,
       "optimal": 34,
       "pushes": 13,
       "view": { "dir": "down", "width": 3 },
       "map": [
-        "..ooooLL.LV.",
-        "..NNNN.oL*T.",
-        ".N....qF..N.",
-        ".TT......t.o",
-        ".TT.b......N",
+        "##ooooLL#LV#",
+        "##NNNN.oL*T#",
+        "#N....qF..N#",
+        "#TT......t.o",
+        "#TT.b......N",
         "o......LL..o",
         "NP.........N"
       ]
@@ -279,18 +331,19 @@ window.VILLAIN_LAYOUT = {
     {
       "id": "together-3",
       "chapter": "together",
-      "bg": "sleeper",
+      "bg": "sleeper-empty",
+      "interior": true,
       "kind": "puzzle",
       "maxWalk": 45,
       "optimal": 48,
       "pushes": 25,
       "view": { "dir": "down", "width": 3 },
       "map": [
-        "..ooooLL.LV.",
-        "..NNNN.oL*T.",
-        ".N....qF..N.",
-        ".TT.....q..o",
-        ".TT.b.....cN",
+        "##ooooLL#LV#",
+        "##NNNN.oL*T#",
+        "#N....qF..N#",
+        "#TT.....q..o",
+        "#TT.b.....cN",
         "o...q..LLt.o",
         "NP.........N"
       ]
