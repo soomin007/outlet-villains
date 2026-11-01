@@ -4,8 +4,10 @@
 <meta charset="utf-8">
 <title>의뢰 안내 그림</title>
 <!--
-  Codex 의뢰 10에 붙이는 안내 그림 두 장을 만드는 페이지(docs/art-rules.md "의뢰서 양식" 6번). ?part=streamer 또는 ?part=standing.
-  streamer: bg-streamer.webp 위에 지울 것(빨강)과 남길 것(파랑)을 덧그린다. standing: 서 있는 손님 크기 라인업이다.
+  Codex 의뢰에 붙이는 안내 그림을 만드는 페이지(docs/art-rules.md "의뢰서 양식" 6번). ?part=이름으로 고른다.
+  의뢰 10: streamer(bg-streamer.webp 위에 지울 것은 빨강, 남길 것은 파랑), standing(서 있는 손님 크기 라인업).
+  의뢰 11(2026-11-01): caller(화상 회의 손님 후보의 크기와 색 기준 라인업), sleeper(잠든 카공족 게임 그림의 고칠 곳과 칸 경계),
+  story1(프롤로그 1컷의 고칠 곳 덧그림).
 -->
 <style>
   body { margin: 0; background: #fff; font-family: system-ui, sans-serif; color: #1b1b1b; }
@@ -56,6 +58,58 @@
       card('<div class="ghost" style="height:280px">8a 걷기 2<br>오른발 앞</div>', '새 guest-8a-walk2-down') +
       card('<img src="../assets/a/drink-2.png" alt="" style="top:96px; height:192px">', '받아 갈 음료(밀 수 있는 초록)') +
       '</div>';
+  }
+
+  // 색 견본. 빌런 고유색은 바탕 한 가지와 같은 색 계열 그림자 한 단계(바탕의 70% 밝기)만 쓴다(docs/art-rules.md 색).
+  const swatch = (base, shadow, name) => `<div style="display:flex; gap:8px; align-items:center; font-size:15px">`
+    + `<div style="width:64px; height:40px; background:${base}"></div><div style="width:64px; height:40px; background:${shadow}"></div>`
+    + `<span>${name}: 바탕 ${base}, 그림자 ${shadow}, 검정은 외곽선과 머리카락에만</span></div>`;
+
+  if (part === 'caller') {
+    const line = (y, color, text) => `<div class="line" style="top:${y}px; border-color:${color}; color:${color}"><span style="position:absolute; right:2px; top:-15px; background:#fff">${text}</span></div>`;
+    const lines = line(38, '#2f6db3', '앉은 키 250px 시작(위 38px)');
+    const card = (inner, name) => `<div><div class="slot">${inner}${lines}</div><div class="name">${name}</div></div>`;
+    root.innerHTML = '<div class="lineup">' +
+      card('<img src="../assets/a/guest-2a-down.png" alt="">', '손님 2a(명암 결 기준)') +
+      card('<img src="../assets/a/guest-8a-down.png" alt="">', '손님 8a(명암 결 기준)') +
+      card('<img src="../assets/a/streamer-idle.png" alt="" style="opacity:0.45">', '바꿀 지금 촬영자(따라 그리지 말 것)') +
+      card('<div class="ghost" style="height:250px; left:36px; width:120px">화상 회의 손님<br>뒷모습, 의자에 앉음<br>키 250 ±10<br>폭 90~120</div>', '나중에 그릴 게임 그림(192 x 288)') +
+      '</div>' +
+      '<div style="padding:0 20px 20px; display:flex; flex-direction:column; gap:10px">' +
+      swatch('#2f6db3', '#214c7d', '둘째 빌런 파랑') +
+      '<div style="font-size:15px; line-height:1.6; max-width:900px">이번 시험은 후보 셋의 얼굴과 상반신(512 x 512, 노트북 카메라가 보는 정면)만 그린다. 고른 뒤에 위 회색 칸의 게임 그림과 반응 그림을 그린다.<br>' +
+      '헤드셋은 마이크가 달린 화상 회의용이고, 링 조명과 삼각대는 없다. 손님 2a, 8a처럼 큰 덩어리 명암 한 단계로 칠한다.</div>' +
+      '</div>';
+  }
+
+  if (part === 'sleeper') {
+    // 192 x 480 캔버스를 두 배로 키워 그린다. 아래 192px가 탁자 칸이고, 탁자 윗면은 그 칸 위에서 134px(y 288~422)까지다.
+    const scale = 2;
+    const mark = (top, height, color, text) => `<div style="position:absolute; left:0; width:${192 * scale}px; top:${top * scale}px; height:${height * scale}px; border-top:3px dashed ${color}; color:${color}; font-size:14px"><span style="position:absolute; left:${192 * scale + 8}px; top:-10px; white-space:nowrap">${text}</span></div>`;
+    root.innerHTML = '<div style="position:relative; margin:20px; width:900px; height:1000px">' +
+      `<div style="position:absolute; left:0; top:0; width:${192 * scale}px; height:${480 * scale}px; background:#ececec"></div>` +
+      `<img src="../assets/a/villain-sleep.png" alt="" style="position:absolute; left:0; top:0; width:${192 * scale}px; height:${480 * scale}px">` +
+      mark(96, 192, '#555', 'y 96: 빌런 칸 위 끝(머리와 후드는 이 위로 솟아도 됨)') +
+      mark(288, 134, '#2f7a54', 'y 288~422: 탁자 윗면. 멀티탭과 기기는 이 안에') +
+      mark(422, 58, '#d0302a', 'y 422: 탁자 앞 가장자리. 이보다 아래에 물건을 그리지 않음') +
+      `<div style="position:absolute; left:${192 * scale + 8}px; top:250px; width:470px; font-size:15px; line-height:1.6">` +
+      '고칠 곳(2026-11-01 사용자 지적)<br>1. 보라 후드 위의 검은 뾰족한 그림자 조각이 얼룩덜룩하다. 아래 견본 두 색으로만 칠한다.<br>' +
+      '2. 멀티탭에 폰 하나만 꽂혀 있어 멀티탭을 쓸 이유가 없다. 노트북, 폰, 태블릿 셋을 꽂는다.<br>' +
+      '3. 짧은 선이 폰 옆면에 꽂혀 있다. 보통 길이의 선이 늘어져 폰 아래쪽 단자에 꽂힌다.<br>' +
+      '같은 사람(보라 후드, 검은 머리, 엎드려 잠든 자세)이다. 생김새는 바꾸지 않는다.</div>' +
+      `<div style="position:absolute; left:${192 * scale + 8}px; top:660px">${swatch('#7b4fb0', '#56377b', '잠든 카공족 보라')}</div>` +
+      '</div>';
+  }
+
+  if (part === 'story1') {
+    const box = (x, y, w, h, text) => `<div class="mark remove" style="left:${x * 1.5}px; top:${y * 1.5}px; width:${w * 1.5}px; height:${h * 1.5}px"><span>${text}</span></div>`;
+    root.innerHTML = '<div class="wrap"><img src="../assets/a/story-1.webp" alt="">' +
+      box(0, 440, 410, 270, '앞줄 탁자가 비뚤게 놓임') +
+      box(470, 320, 370, 230, '가운데 탁자가 홀로 기울어짐') +
+      box(900, 450, 380, 270, '오른쪽 탁자가 또 다른 각도') +
+      box(395, 195, 330, 140, '콘센트 선이 옆 탁자로 건너감') +
+      '<div class="note">탁자를 창가 벽과 나란히 두 줄로 같은 간격에 놓는다. 뒷줄은 창 아래 벽에 붙은 탁자이고, 탁자마다 바로 옆 벽 아래에 콘센트가 하나씩 있다. ' +
+      '손님 선은 모두 자기 탁자 옆 콘센트로 곧게 간다. 늦은 밤 붐비는 카공 카페라는 분위기, 흑백 그림체, 빛과 창밖 야경은 지금 그림을 따른다.</div></div>';
   }
 </script>
 </body>
