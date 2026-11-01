@@ -1984,6 +1984,31 @@
           }
           return true;
         }
+        if (char === '#') {
+          // 벽(2026-11-01). 위 1, 오른쪽 2, 아래 4, 왼쪽 8로 이웃 벽을 세어 16조각 가운데 하나를 고른다. 판 밖은 배경의 벽과 맞닿아 벽으로 본다.
+          // 그림은 칸 높이 1.5배이고 윗면이 칸 높이 0.5배만큼 위로 올라가 윗칸 아래쪽 절반을 가린다(docs/art-rules.md 벽).
+          const isWall = (cx, cy) => cy < 0 || cy >= map.length || cx < 0 || cx >= map[0].length || map[cy][cx] === '#';
+          const mask = (isWall(x, y - 1) ? 1 : 0) + (isWall(x + 1, y) ? 2 : 0) + (isWall(x, y + 1) ? 4 : 0) + (isWall(x - 1, y) ? 8 : 0);
+          const wall = addSprite(`wall-${mask}`, TILE, TILE_H * 1.5, colors.table);
+          wall.classList.add('kind-decor');
+          placeOnTile(wall, x, y, TILE, TILE_H * 1.5);
+          return true;
+        }
+        if (char === 'q' && game.level.decor) {
+          // 구석 가구(layout.js의 decor). 여러 칸짜리는 첫 칸에서 한 번만 그리고 나머지 칸은 건너뛴다.
+          const decor = game.level.decor.find((item) => x >= item.x && x < item.x + item.w && y === item.y);
+          if (decor) {
+            if (x === decor.x) {
+              const width = TILE * decor.w;
+              const height = TILE_H * decor.h;
+              const piece = addSprite(decor.key, width, height, colors.table);
+              piece.classList.add('kind-decor');
+              placeOnTile(piece, x + (decor.w - 1) / 2, y, width, height);
+              piece.style.zIndex = String(10 + y * 10);
+            }
+            return true;
+          }
+        }
         if (char === 'L' || char === 'q') {
           // 기둥은 칸 높이의 2.5배라 윗칸을 가린다. 로봇이 걷는 바닥을 가리면 안 되므로, 윗칸이 로봇이 갈 수 없는 칸일 때만 세운다.
           let key = char === 'L' ? 'plant-floor' : ['plant-floor', 'pillar', 'decor2'][(x + 2 * y) % 3];

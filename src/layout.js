@@ -23,7 +23,8 @@
 // slide는 젖은 바닥에서 미끄러지기, serve는 음료 건네기).
 // interior가 true인 레벨은 가구 없는 배경(bg-이름-empty) 위에 테이블, 화분, 손님을 모두 소품으로 얹는다(2026-10-31 시험, 지금은 1-4만).
 // interior 레벨에서는 위 규칙과 달리, 판에 필요 없는 칸(닿을 수 없는 바닥, 구석을 메우던 손님과 소품)을 벽(#)으로 채운다(2026-11-01 사용자 결정).
-// 벽 높이와 자리는 회색 상자 목업으로 확인받은 뒤 지도에 넣는다(docs/concept.md "2026-11-01 결정").
+// 벽 높이와 자리는 회색 상자 목업으로 확인받은 뒤 지도에 넣는다(docs/concept.md "2026-11-01 결정"). 판 밖은 배경의 벽과 맞닿아 있어 벽으로 이어 본다.
+// decor는 구석을 꾸미는 카페 가구다. 그 칸들은 지도에서 q로 막고, (x, y)부터 가로 w칸에 높이 h칸(칸 높이 배수)짜리 그림 하나를 놓는다.
 // w는 젖은 바닥, 1 2 3은 음료, A B C는 그 음료를 기다리며 서 있는 손님이다(engine.js 머리말 9~12번 규칙). 1장 레벨 3~5는 젖은 바닥, 2장 레벨 4~5는 음료 배달을 쓴다(2026-10-31 사용자 결정).
 window.VILLAIN_LAYOUT = {
   "art": { "width": 1920, "height": 1080, "tile": 96, "originX": 384, "originY": 240, "columns": 12, "rows": 7, "uiTop": 912, "viewBottom": 880 },
@@ -112,13 +113,18 @@ window.VILLAIN_LAYOUT = {
       "optimal": 24,
       "pushes": 6,
       "map": [
-        ".....NLL.LV.",
-        "....NooNL*TN",
-        ".NNqNooNqwNo",
+        "#####NLq#LV#",
+        "####NooNL*TN",
+        "#NNqNooNqwNo",
         "NTTPbwwwwwwN",
         "NTT.......No",
-        ".NNqNNNLL.qN",
-        "NNNNooooNNNN"
+        "#NNqNNNLL.qN",
+        "qqqNooooNNNq"
+      ],
+      "decor": [
+        { "x": 7, "y": 0, "key": "decor-bookshelf", "w": 1, "h": 2 },
+        { "x": 0, "y": 6, "key": "decor-selfbar", "w": 3, "h": 1.5 },
+        { "x": 11, "y": 6, "key": "decor-return", "w": 1, "h": 1.5 }
       ]
     },
     {

@@ -27970,6 +27970,1277 @@
         "unchangedProtectedCandidateFiles": 18,
         "otherFilesChangedDuringWork": []
       }
+    },
+    {
+      "date": "2026-11-01",
+      "name": "wall-completion11",
+      "scope": "A only. Remaining11 tiles. Approved wall0,2,8,10,15 unchanged. No game code edits or commit.",
+      "tool": "Pillow raster-tile assembly of previously generated and approved wall material. No new image generation call.",
+      "sourceOfTruth": [
+        "AGENTS.md",
+        "docs/art-rules.md: wall dimensions and brightness",
+        "known-issues.md21",
+        "session_logs/2026-11-01-codex.md: dark-wall second trial",
+        "user request: remaining11 wall tiles"
+      ],
+      "request": {
+        "method": "Extend approved generated wall material using the same quarter-tile assembly as dark-wall second trial. No new imagegen request or painted pixels. Existing approved files are references and remain byte-identical.",
+        "references": [
+          "assets/a/wall-0.png",
+          "assets/a/wall-2.png",
+          "assets/a/wall-8.png",
+          "assets/a/wall-10.png",
+          "assets/a/wall-15.png",
+          "docs/layout-guide/mock-walls-1-4.png"
+        ],
+        "source": {
+          "rawFile": "exec-a05b0186-d7ae-4105-8e3f-803895f00470.png",
+          "rawVisibleBounds": [
+            50,
+            89,
+            974,
+            1447
+          ],
+          "uniformResize": [
+            192,
+            282
+          ],
+          "sourceTarget": "source-normalized.png"
+        },
+        "originalGeneration": {
+          "prompt": "Create ONE production texture/sprite source for a LOW INTERIOR PARTITION WALL in a Korean study cafe, in the existing grayscale RPG Maker game art style of the individually supplied references. This wall marks an inaccessible area. It must read as wall masonry/plaster, NOT a cafe table, white box, cabinet or wooden tabletop.\nReferences:1 annotated mockup shows partition placement and elevation only; DO NOT copy its text, labels, colored cells or people. References2 table,3 plant,4 self-service cabinet = neighboring cartoon stroke style and size context only, do not draw them or copy their wood material. Reference5 = the same cafe environment, not a background to include.\nOutput ONE isolated rectangular wall tile on TRUE transparent background, NO surrounding scene, in 2:3 proportion corresponding to native192px wide x288px high. The rectangular wall nearly fills the canvas, with EXACTLY SQUARE ninety-degree corners, no rounding at all.\nGeometry: top192native pixels (upper TWO THIRDS) are the seen-from-above WALL TOP, a single DARK CHARCOAL GRAY plane, almost no pattern. Native y192 to288 (bottom ONE THIRD) is the vertical FRONT WALL FACE. Faces meet at a straight HORIZONTAL line at exactly two-thirds height. Edges perfectly parallel to screen. No perspective trapezoid, no isometric side face, no legs, no gap under the wall.\nCritical tones: top fill approx#4c4c4c, encoded brightness30percent, allowed25to35percent. Front face fill approx#8c8c8c, brightness55percent, allowed50to60percent. Neutral R=G=B, NO hues. Maintain almost uniform fills so pieces can be repeated seamlessly. The top must be substantially DARKER than the front, darker than the nearby wood table45percent and light floor85percent.\nOutline: thin BLACK2to3native pixel perimeter, corresponding to about11to16pixels if generating1024wide. Crisp straight square outer edges. Horizontal face junction is a thin dark line. The bottom of front has ONE simple dark gray baseboard line about8native pixels above bottom. No other panel seams.\nNO rounded corners, wood grain, tabletop patterns, highlights, white strips, glossy reflections, gradients, textures, hatching, extra objects, people, text, logos, sticker border, ground shadow, red, green or yellow.\nThis is a source to cut and assemble neighboring wall tiles. Keep large interior regions of both planes uniform and clean so strips can be copied without visible seams. Draw only the ONE wall sprite.",
+          "refs": [
+            "docs/layout-guide/mock-walls-1-4.png",
+            "assets/a/table-0.png",
+            "assets/a/plant-floor.png",
+            "assets/a/decor-selfbar.png",
+            "assets/a/bg-sleeper-empty.png"
+          ]
+        },
+        "sampling": {
+          "topPatch": [
+            48,
+            48,
+            144,
+            144
+          ],
+          "frontPatch": [
+            48,
+            236,
+            144,
+            268
+          ],
+          "horizontalBorder": [
+            96,
+            0,
+            97,
+            2
+          ],
+          "verticalBorder": [
+            0,
+            96,
+            2,
+            97
+          ],
+          "junction": [
+            96,
+            183,
+            97,
+            184
+          ],
+          "baseboard": [
+            96,
+            272,
+            97,
+            273
+          ],
+          "bottom": [
+            96,
+            280,
+            97,
+            282
+          ]
+        },
+        "perTileInstructions": [
+          {
+            "key": "wall-1",
+            "up": true,
+            "right": false,
+            "down": false,
+            "left": false,
+            "front": true,
+            "boundary": 192
+          },
+          {
+            "key": "wall-3",
+            "up": true,
+            "right": true,
+            "down": false,
+            "left": false,
+            "front": true,
+            "boundary": 192
+          },
+          {
+            "key": "wall-4",
+            "up": false,
+            "right": false,
+            "down": true,
+            "left": false,
+            "front": false,
+            "boundary": null
+          },
+          {
+            "key": "wall-5",
+            "up": true,
+            "right": false,
+            "down": true,
+            "left": false,
+            "front": false,
+            "boundary": null
+          },
+          {
+            "key": "wall-6",
+            "up": false,
+            "right": true,
+            "down": true,
+            "left": false,
+            "front": false,
+            "boundary": null
+          },
+          {
+            "key": "wall-7",
+            "up": true,
+            "right": true,
+            "down": true,
+            "left": false,
+            "front": false,
+            "boundary": null
+          },
+          {
+            "key": "wall-9",
+            "up": true,
+            "right": false,
+            "down": false,
+            "left": true,
+            "front": true,
+            "boundary": 192
+          },
+          {
+            "key": "wall-11",
+            "up": true,
+            "right": true,
+            "down": false,
+            "left": true,
+            "front": true,
+            "boundary": 192
+          },
+          {
+            "key": "wall-12",
+            "up": false,
+            "right": false,
+            "down": true,
+            "left": true,
+            "front": false,
+            "boundary": null
+          },
+          {
+            "key": "wall-13",
+            "up": true,
+            "right": false,
+            "down": true,
+            "left": true,
+            "front": false,
+            "boundary": null
+          },
+          {
+            "key": "wall-14",
+            "up": false,
+            "right": true,
+            "down": true,
+            "left": true,
+            "front": false,
+            "boundary": null
+          }
+        ],
+        "assembly": "Copy mirrored96x96 top patches and96x32 front patches. Copy2px perimeter, junction, baseboard and bottom strips from generated material. Each quarter uses its two incident connection bits. When down connects, continue top into192..287 and extend only exposed vertical side borders. Do not add any border on connected edges. No recolor, new shape painting, or final resizing."
+      },
+      "validation": {
+        "tiles": {
+          "0": {
+            "width": 192,
+            "height": 288,
+            "visibleBBox": [
+              0,
+              0,
+              192,
+              288
+            ],
+            "bottomY": 287,
+            "topMeanPercent": 30.202,
+            "frontMeanPercent": 50.187,
+            "boundaryY": 192,
+            "baseboardY": 279,
+            "outlineWidth": 2,
+            "alphaMinMax": [
+              220,
+              255
+            ]
+          },
+          "1": {
+            "width": 192,
+            "height": 288,
+            "visibleBBox": [
+              0,
+              0,
+              192,
+              288
+            ],
+            "bottomY": 287,
+            "topMeanPercent": 30.467,
+            "frontMeanPercent": 50.187,
+            "boundaryY": 192,
+            "baseboardY": 279,
+            "outlineWidth": 2,
+            "alphaMinMax": [
+              220,
+              255
+            ]
+          },
+          "2": {
+            "width": 192,
+            "height": 288,
+            "visibleBBox": [
+              0,
+              0,
+              192,
+              288
+            ],
+            "bottomY": 287,
+            "topMeanPercent": 30.471,
+            "frontMeanPercent": 50.669,
+            "boundaryY": 192,
+            "baseboardY": 279,
+            "outlineWidth": 2,
+            "alphaMinMax": [
+              220,
+              255
+            ]
+          },
+          "3": {
+            "width": 192,
+            "height": 288,
+            "visibleBBox": [
+              0,
+              0,
+              192,
+              288
+            ],
+            "bottomY": 287,
+            "topMeanPercent": 30.738,
+            "frontMeanPercent": 50.669,
+            "boundaryY": 192,
+            "baseboardY": 279,
+            "outlineWidth": 2,
+            "alphaMinMax": [
+              220,
+              255
+            ]
+          },
+          "4": {
+            "width": 192,
+            "height": 288,
+            "visibleBBox": [
+              0,
+              0,
+              192,
+              288
+            ],
+            "bottomY": 287,
+            "topMeanPercent": 30.597,
+            "frontMeanPercent": null,
+            "boundaryY": null,
+            "baseboardY": null,
+            "outlineWidth": 2,
+            "alphaMinMax": [
+              220,
+              255
+            ]
+          },
+          "5": {
+            "width": 192,
+            "height": 288,
+            "visibleBBox": [
+              0,
+              0,
+              192,
+              288
+            ],
+            "bottomY": 287,
+            "topMeanPercent": 30.773,
+            "frontMeanPercent": null,
+            "boundaryY": null,
+            "baseboardY": null,
+            "outlineWidth": 2,
+            "alphaMinMax": [
+              220,
+              255
+            ]
+          },
+          "6": {
+            "width": 192,
+            "height": 288,
+            "visibleBBox": [
+              0,
+              0,
+              192,
+              288
+            ],
+            "bottomY": 287,
+            "topMeanPercent": 30.87,
+            "frontMeanPercent": null,
+            "boundaryY": null,
+            "baseboardY": null,
+            "outlineWidth": 2,
+            "alphaMinMax": [
+              220,
+              255
+            ]
+          },
+          "7": {
+            "width": 192,
+            "height": 288,
+            "visibleBBox": [
+              0,
+              0,
+              192,
+              288
+            ],
+            "bottomY": 287,
+            "topMeanPercent": 31.048,
+            "frontMeanPercent": null,
+            "boundaryY": null,
+            "baseboardY": null,
+            "outlineWidth": 2,
+            "alphaMinMax": [
+              220,
+              255
+            ]
+          },
+          "8": {
+            "width": 192,
+            "height": 288,
+            "visibleBBox": [
+              0,
+              0,
+              192,
+              288
+            ],
+            "bottomY": 287,
+            "topMeanPercent": 30.471,
+            "frontMeanPercent": 50.669,
+            "boundaryY": 192,
+            "baseboardY": 279,
+            "outlineWidth": 2,
+            "alphaMinMax": [
+              220,
+              255
+            ]
+          },
+          "9": {
+            "width": 192,
+            "height": 288,
+            "visibleBBox": [
+              0,
+              0,
+              192,
+              288
+            ],
+            "bottomY": 287,
+            "topMeanPercent": 30.738,
+            "frontMeanPercent": 50.669,
+            "boundaryY": 192,
+            "baseboardY": 279,
+            "outlineWidth": 2,
+            "alphaMinMax": [
+              220,
+              255
+            ]
+          },
+          "10": {
+            "width": 192,
+            "height": 288,
+            "visibleBBox": [
+              0,
+              0,
+              192,
+              288
+            ],
+            "bottomY": 287,
+            "topMeanPercent": 30.74,
+            "frontMeanPercent": 51.151,
+            "boundaryY": 192,
+            "baseboardY": 279,
+            "outlineWidth": 2,
+            "alphaMinMax": [
+              223,
+              255
+            ]
+          },
+          "11": {
+            "width": 192,
+            "height": 288,
+            "visibleBBox": [
+              0,
+              0,
+              192,
+              288
+            ],
+            "bottomY": 287,
+            "topMeanPercent": 31.01,
+            "frontMeanPercent": 51.151,
+            "boundaryY": 192,
+            "baseboardY": 279,
+            "outlineWidth": 2,
+            "alphaMinMax": [
+              223,
+              255
+            ]
+          },
+          "12": {
+            "width": 192,
+            "height": 288,
+            "visibleBBox": [
+              0,
+              0,
+              192,
+              288
+            ],
+            "bottomY": 287,
+            "topMeanPercent": 30.87,
+            "frontMeanPercent": null,
+            "boundaryY": null,
+            "baseboardY": null,
+            "outlineWidth": 2,
+            "alphaMinMax": [
+              220,
+              255
+            ]
+          },
+          "13": {
+            "width": 192,
+            "height": 288,
+            "visibleBBox": [
+              0,
+              0,
+              192,
+              288
+            ],
+            "bottomY": 287,
+            "topMeanPercent": 31.048,
+            "frontMeanPercent": null,
+            "boundaryY": null,
+            "baseboardY": null,
+            "outlineWidth": 2,
+            "alphaMinMax": [
+              220,
+              255
+            ]
+          },
+          "14": {
+            "width": 192,
+            "height": 288,
+            "visibleBBox": [
+              0,
+              0,
+              192,
+              288
+            ],
+            "bottomY": 287,
+            "topMeanPercent": 31.143,
+            "frontMeanPercent": null,
+            "boundaryY": null,
+            "baseboardY": null,
+            "outlineWidth": 2,
+            "alphaMinMax": [
+              232,
+              255
+            ]
+          },
+          "15": {
+            "width": 192,
+            "height": 288,
+            "visibleBBox": [
+              0,
+              0,
+              192,
+              288
+            ],
+            "bottomY": 287,
+            "topMeanPercent": 31.323,
+            "frontMeanPercent": null,
+            "boundaryY": null,
+            "baseboardY": null,
+            "outlineWidth": 2,
+            "alphaMinMax": [
+              253,
+              254
+            ]
+          }
+        },
+        "shapeSeams": [
+          {
+            "shape": "block3x3",
+            "at": [
+              0,
+              0
+            ],
+            "direction": "horizontal",
+            "maxRGBA": 0
+          },
+          {
+            "shape": "block3x3",
+            "at": [
+              0,
+              0
+            ],
+            "direction": "vertical96pxOverlap",
+            "maxRGBA": 0
+          },
+          {
+            "shape": "block3x3",
+            "at": [
+              1,
+              0
+            ],
+            "direction": "horizontal",
+            "maxRGBA": 0
+          },
+          {
+            "shape": "block3x3",
+            "at": [
+              1,
+              0
+            ],
+            "direction": "vertical96pxOverlap",
+            "maxRGBA": 0
+          },
+          {
+            "shape": "block3x3",
+            "at": [
+              2,
+              0
+            ],
+            "direction": "vertical96pxOverlap",
+            "maxRGBA": 0
+          },
+          {
+            "shape": "block3x3",
+            "at": [
+              0,
+              1
+            ],
+            "direction": "horizontal",
+            "maxRGBA": 0
+          },
+          {
+            "shape": "block3x3",
+            "at": [
+              0,
+              1
+            ],
+            "direction": "vertical96pxOverlap",
+            "maxRGBA": 0
+          },
+          {
+            "shape": "block3x3",
+            "at": [
+              1,
+              1
+            ],
+            "direction": "horizontal",
+            "maxRGBA": 0
+          },
+          {
+            "shape": "block3x3",
+            "at": [
+              1,
+              1
+            ],
+            "direction": "vertical96pxOverlap",
+            "maxRGBA": 0
+          },
+          {
+            "shape": "block3x3",
+            "at": [
+              2,
+              1
+            ],
+            "direction": "vertical96pxOverlap",
+            "maxRGBA": 0
+          },
+          {
+            "shape": "block3x3",
+            "at": [
+              0,
+              2
+            ],
+            "direction": "horizontal",
+            "maxRGBA": 0
+          },
+          {
+            "shape": "block3x3",
+            "at": [
+              1,
+              2
+            ],
+            "direction": "horizontal",
+            "maxRGBA": 0
+          },
+          {
+            "shape": "horizontal3",
+            "at": [
+              0,
+              0
+            ],
+            "direction": "horizontal",
+            "maxRGBA": 0
+          },
+          {
+            "shape": "horizontal3",
+            "at": [
+              1,
+              0
+            ],
+            "direction": "horizontal",
+            "maxRGBA": 0
+          },
+          {
+            "shape": "vertical3",
+            "at": [
+              0,
+              0
+            ],
+            "direction": "vertical96pxOverlap",
+            "maxRGBA": 0
+          },
+          {
+            "shape": "vertical3",
+            "at": [
+              0,
+              1
+            ],
+            "direction": "vertical96pxOverlap",
+            "maxRGBA": 0
+          }
+        ],
+        "exhaustiveSeams": [
+          [
+            2,
+            8,
+            "h",
+            0
+          ],
+          [
+            2,
+            10,
+            "h",
+            0
+          ],
+          [
+            3,
+            9,
+            "h",
+            0
+          ],
+          [
+            3,
+            11,
+            "h",
+            0
+          ],
+          [
+            4,
+            1,
+            "v",
+            0
+          ],
+          [
+            4,
+            5,
+            "v",
+            0
+          ],
+          [
+            5,
+            1,
+            "v",
+            0
+          ],
+          [
+            5,
+            5,
+            "v",
+            0
+          ],
+          [
+            6,
+            3,
+            "v",
+            0
+          ],
+          [
+            6,
+            7,
+            "v",
+            0
+          ],
+          [
+            6,
+            12,
+            "h",
+            0
+          ],
+          [
+            6,
+            14,
+            "h",
+            0
+          ],
+          [
+            7,
+            3,
+            "v",
+            0
+          ],
+          [
+            7,
+            7,
+            "v",
+            0
+          ],
+          [
+            7,
+            13,
+            "h",
+            0
+          ],
+          [
+            7,
+            15,
+            "h",
+            0
+          ],
+          [
+            10,
+            8,
+            "h",
+            0
+          ],
+          [
+            10,
+            10,
+            "h",
+            0
+          ],
+          [
+            11,
+            9,
+            "h",
+            0
+          ],
+          [
+            11,
+            11,
+            "h",
+            0
+          ],
+          [
+            12,
+            9,
+            "v",
+            0
+          ],
+          [
+            12,
+            13,
+            "v",
+            0
+          ],
+          [
+            13,
+            9,
+            "v",
+            0
+          ],
+          [
+            13,
+            13,
+            "v",
+            0
+          ],
+          [
+            14,
+            11,
+            "v",
+            0
+          ],
+          [
+            14,
+            12,
+            "h",
+            0
+          ],
+          [
+            14,
+            14,
+            "h",
+            0
+          ],
+          [
+            14,
+            15,
+            "v",
+            0
+          ],
+          [
+            15,
+            11,
+            "v",
+            0
+          ],
+          [
+            15,
+            13,
+            "h",
+            0
+          ],
+          [
+            15,
+            15,
+            "h",
+            0
+          ],
+          [
+            15,
+            15,
+            "v",
+            0
+          ]
+        ],
+        "coveredMasks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "approvedHashes": {
+          "0": "5eb99c02f1081a8af44c69b1e796012a9e604c002488679880cd5af8db2a192e",
+          "2": "ac637bbc82bdc6efabb473a5ef4379cd10b6585d729f2df58a26586abf3ca8e4",
+          "8": "c19d0b292cd7574f7055be13f5c33dcbd33824046d4e590f689b850af228e7ec",
+          "10": "9af609f5a3d214c564dfa9c4e28efb637842f64366eede41809b8c25d8dd3d11",
+          "15": "03e87b217413f9599c9aaf0208ed5611631e9d97baeb1230b4393778ee9138ca"
+        }
+      },
+      "assets": [
+        {
+          "key": "wall-1",
+          "path": "assets/a/wall-1.png",
+          "instruction": "Use approved grayscale cafe wall material. Mask1: upTrue,rightFalse,downFalse,leftFalse.192x288. Top25to35percent, front50to60percent. Square corners and2px black exposed outlines only. Front begins192 and baseboard279 unless down connects, then top continues through287. No new colors, highlights, text or shadow.",
+          "references": [
+            "assets/a/wall-0.png",
+            "assets/a/wall-2.png",
+            "assets/a/wall-8.png",
+            "assets/a/wall-10.png",
+            "assets/a/wall-15.png",
+            "docs/layout-guide/mock-walls-1-4.png"
+          ],
+          "measurements": {
+            "width": 192,
+            "height": 288,
+            "visibleBBox": [
+              0,
+              0,
+              192,
+              288
+            ],
+            "bottomY": 287,
+            "topMeanPercent": 30.467,
+            "frontMeanPercent": 50.187,
+            "boundaryY": 192,
+            "baseboardY": 279,
+            "outlineWidth": 2,
+            "alphaMinMax": [
+              220,
+              255
+            ]
+          }
+        },
+        {
+          "key": "wall-3",
+          "path": "assets/a/wall-3.png",
+          "instruction": "Use approved grayscale cafe wall material. Mask3: upTrue,rightTrue,downFalse,leftFalse.192x288. Top25to35percent, front50to60percent. Square corners and2px black exposed outlines only. Front begins192 and baseboard279 unless down connects, then top continues through287. No new colors, highlights, text or shadow.",
+          "references": [
+            "assets/a/wall-0.png",
+            "assets/a/wall-2.png",
+            "assets/a/wall-8.png",
+            "assets/a/wall-10.png",
+            "assets/a/wall-15.png",
+            "docs/layout-guide/mock-walls-1-4.png"
+          ],
+          "measurements": {
+            "width": 192,
+            "height": 288,
+            "visibleBBox": [
+              0,
+              0,
+              192,
+              288
+            ],
+            "bottomY": 287,
+            "topMeanPercent": 30.738,
+            "frontMeanPercent": 50.669,
+            "boundaryY": 192,
+            "baseboardY": 279,
+            "outlineWidth": 2,
+            "alphaMinMax": [
+              220,
+              255
+            ]
+          }
+        },
+        {
+          "key": "wall-4",
+          "path": "assets/a/wall-4.png",
+          "instruction": "Use approved grayscale cafe wall material. Mask4: upFalse,rightFalse,downTrue,leftFalse.192x288. Top25to35percent, front50to60percent. Square corners and2px black exposed outlines only. Front begins192 and baseboard279 unless down connects, then top continues through287. No new colors, highlights, text or shadow.",
+          "references": [
+            "assets/a/wall-0.png",
+            "assets/a/wall-2.png",
+            "assets/a/wall-8.png",
+            "assets/a/wall-10.png",
+            "assets/a/wall-15.png",
+            "docs/layout-guide/mock-walls-1-4.png"
+          ],
+          "measurements": {
+            "width": 192,
+            "height": 288,
+            "visibleBBox": [
+              0,
+              0,
+              192,
+              288
+            ],
+            "bottomY": 287,
+            "topMeanPercent": 30.597,
+            "frontMeanPercent": null,
+            "boundaryY": null,
+            "baseboardY": null,
+            "outlineWidth": 2,
+            "alphaMinMax": [
+              220,
+              255
+            ]
+          }
+        },
+        {
+          "key": "wall-5",
+          "path": "assets/a/wall-5.png",
+          "instruction": "Use approved grayscale cafe wall material. Mask5: upTrue,rightFalse,downTrue,leftFalse.192x288. Top25to35percent, front50to60percent. Square corners and2px black exposed outlines only. Front begins192 and baseboard279 unless down connects, then top continues through287. No new colors, highlights, text or shadow.",
+          "references": [
+            "assets/a/wall-0.png",
+            "assets/a/wall-2.png",
+            "assets/a/wall-8.png",
+            "assets/a/wall-10.png",
+            "assets/a/wall-15.png",
+            "docs/layout-guide/mock-walls-1-4.png"
+          ],
+          "measurements": {
+            "width": 192,
+            "height": 288,
+            "visibleBBox": [
+              0,
+              0,
+              192,
+              288
+            ],
+            "bottomY": 287,
+            "topMeanPercent": 30.773,
+            "frontMeanPercent": null,
+            "boundaryY": null,
+            "baseboardY": null,
+            "outlineWidth": 2,
+            "alphaMinMax": [
+              220,
+              255
+            ]
+          }
+        },
+        {
+          "key": "wall-6",
+          "path": "assets/a/wall-6.png",
+          "instruction": "Use approved grayscale cafe wall material. Mask6: upFalse,rightTrue,downTrue,leftFalse.192x288. Top25to35percent, front50to60percent. Square corners and2px black exposed outlines only. Front begins192 and baseboard279 unless down connects, then top continues through287. No new colors, highlights, text or shadow.",
+          "references": [
+            "assets/a/wall-0.png",
+            "assets/a/wall-2.png",
+            "assets/a/wall-8.png",
+            "assets/a/wall-10.png",
+            "assets/a/wall-15.png",
+            "docs/layout-guide/mock-walls-1-4.png"
+          ],
+          "measurements": {
+            "width": 192,
+            "height": 288,
+            "visibleBBox": [
+              0,
+              0,
+              192,
+              288
+            ],
+            "bottomY": 287,
+            "topMeanPercent": 30.87,
+            "frontMeanPercent": null,
+            "boundaryY": null,
+            "baseboardY": null,
+            "outlineWidth": 2,
+            "alphaMinMax": [
+              220,
+              255
+            ]
+          }
+        },
+        {
+          "key": "wall-7",
+          "path": "assets/a/wall-7.png",
+          "instruction": "Use approved grayscale cafe wall material. Mask7: upTrue,rightTrue,downTrue,leftFalse.192x288. Top25to35percent, front50to60percent. Square corners and2px black exposed outlines only. Front begins192 and baseboard279 unless down connects, then top continues through287. No new colors, highlights, text or shadow.",
+          "references": [
+            "assets/a/wall-0.png",
+            "assets/a/wall-2.png",
+            "assets/a/wall-8.png",
+            "assets/a/wall-10.png",
+            "assets/a/wall-15.png",
+            "docs/layout-guide/mock-walls-1-4.png"
+          ],
+          "measurements": {
+            "width": 192,
+            "height": 288,
+            "visibleBBox": [
+              0,
+              0,
+              192,
+              288
+            ],
+            "bottomY": 287,
+            "topMeanPercent": 31.048,
+            "frontMeanPercent": null,
+            "boundaryY": null,
+            "baseboardY": null,
+            "outlineWidth": 2,
+            "alphaMinMax": [
+              220,
+              255
+            ]
+          }
+        },
+        {
+          "key": "wall-9",
+          "path": "assets/a/wall-9.png",
+          "instruction": "Use approved grayscale cafe wall material. Mask9: upTrue,rightFalse,downFalse,leftTrue.192x288. Top25to35percent, front50to60percent. Square corners and2px black exposed outlines only. Front begins192 and baseboard279 unless down connects, then top continues through287. No new colors, highlights, text or shadow.",
+          "references": [
+            "assets/a/wall-0.png",
+            "assets/a/wall-2.png",
+            "assets/a/wall-8.png",
+            "assets/a/wall-10.png",
+            "assets/a/wall-15.png",
+            "docs/layout-guide/mock-walls-1-4.png"
+          ],
+          "measurements": {
+            "width": 192,
+            "height": 288,
+            "visibleBBox": [
+              0,
+              0,
+              192,
+              288
+            ],
+            "bottomY": 287,
+            "topMeanPercent": 30.738,
+            "frontMeanPercent": 50.669,
+            "boundaryY": 192,
+            "baseboardY": 279,
+            "outlineWidth": 2,
+            "alphaMinMax": [
+              220,
+              255
+            ]
+          }
+        },
+        {
+          "key": "wall-11",
+          "path": "assets/a/wall-11.png",
+          "instruction": "Use approved grayscale cafe wall material. Mask11: upTrue,rightTrue,downFalse,leftTrue.192x288. Top25to35percent, front50to60percent. Square corners and2px black exposed outlines only. Front begins192 and baseboard279 unless down connects, then top continues through287. No new colors, highlights, text or shadow.",
+          "references": [
+            "assets/a/wall-0.png",
+            "assets/a/wall-2.png",
+            "assets/a/wall-8.png",
+            "assets/a/wall-10.png",
+            "assets/a/wall-15.png",
+            "docs/layout-guide/mock-walls-1-4.png"
+          ],
+          "measurements": {
+            "width": 192,
+            "height": 288,
+            "visibleBBox": [
+              0,
+              0,
+              192,
+              288
+            ],
+            "bottomY": 287,
+            "topMeanPercent": 31.01,
+            "frontMeanPercent": 51.151,
+            "boundaryY": 192,
+            "baseboardY": 279,
+            "outlineWidth": 2,
+            "alphaMinMax": [
+              223,
+              255
+            ]
+          }
+        },
+        {
+          "key": "wall-12",
+          "path": "assets/a/wall-12.png",
+          "instruction": "Use approved grayscale cafe wall material. Mask12: upFalse,rightFalse,downTrue,leftTrue.192x288. Top25to35percent, front50to60percent. Square corners and2px black exposed outlines only. Front begins192 and baseboard279 unless down connects, then top continues through287. No new colors, highlights, text or shadow.",
+          "references": [
+            "assets/a/wall-0.png",
+            "assets/a/wall-2.png",
+            "assets/a/wall-8.png",
+            "assets/a/wall-10.png",
+            "assets/a/wall-15.png",
+            "docs/layout-guide/mock-walls-1-4.png"
+          ],
+          "measurements": {
+            "width": 192,
+            "height": 288,
+            "visibleBBox": [
+              0,
+              0,
+              192,
+              288
+            ],
+            "bottomY": 287,
+            "topMeanPercent": 30.87,
+            "frontMeanPercent": null,
+            "boundaryY": null,
+            "baseboardY": null,
+            "outlineWidth": 2,
+            "alphaMinMax": [
+              220,
+              255
+            ]
+          }
+        },
+        {
+          "key": "wall-13",
+          "path": "assets/a/wall-13.png",
+          "instruction": "Use approved grayscale cafe wall material. Mask13: upTrue,rightFalse,downTrue,leftTrue.192x288. Top25to35percent, front50to60percent. Square corners and2px black exposed outlines only. Front begins192 and baseboard279 unless down connects, then top continues through287. No new colors, highlights, text or shadow.",
+          "references": [
+            "assets/a/wall-0.png",
+            "assets/a/wall-2.png",
+            "assets/a/wall-8.png",
+            "assets/a/wall-10.png",
+            "assets/a/wall-15.png",
+            "docs/layout-guide/mock-walls-1-4.png"
+          ],
+          "measurements": {
+            "width": 192,
+            "height": 288,
+            "visibleBBox": [
+              0,
+              0,
+              192,
+              288
+            ],
+            "bottomY": 287,
+            "topMeanPercent": 31.048,
+            "frontMeanPercent": null,
+            "boundaryY": null,
+            "baseboardY": null,
+            "outlineWidth": 2,
+            "alphaMinMax": [
+              220,
+              255
+            ]
+          }
+        },
+        {
+          "key": "wall-14",
+          "path": "assets/a/wall-14.png",
+          "instruction": "Use approved grayscale cafe wall material. Mask14: upFalse,rightTrue,downTrue,leftTrue.192x288. Top25to35percent, front50to60percent. Square corners and2px black exposed outlines only. Front begins192 and baseboard279 unless down connects, then top continues through287. No new colors, highlights, text or shadow.",
+          "references": [
+            "assets/a/wall-0.png",
+            "assets/a/wall-2.png",
+            "assets/a/wall-8.png",
+            "assets/a/wall-10.png",
+            "assets/a/wall-15.png",
+            "docs/layout-guide/mock-walls-1-4.png"
+          ],
+          "measurements": {
+            "width": 192,
+            "height": 288,
+            "visibleBBox": [
+              0,
+              0,
+              192,
+              288
+            ],
+            "bottomY": 287,
+            "topMeanPercent": 31.143,
+            "frontMeanPercent": null,
+            "boundaryY": null,
+            "baseboardY": null,
+            "outlineWidth": 2,
+            "alphaMinMax": [
+              232,
+              255
+            ]
+          }
+        }
+      ],
+      "quarterRule": "For each96x96 quadrant inspect its two incident bits; omit borders on joined sides. Explicit square-wall geometry overrides rounded water corners. For down-connected tiles the bottom96px overlap copies the top material and continues only exposed side outlines.",
+      "noRepainting": "Only copy, crop, mirror and assemble existing generated pixels. Do not draw lines, recolor, round corners or change the approved five tiles.",
+      "outsideBoard": "Reference policy treats out-of-board neighbors as walls; masks therefore omit exterior edges there. Tile assets encode connection bits; actual level wiring remains for Claude Code.",
+      "proofStorage": "3x3 block, horizontal3, vertical3, isolated and all16 gallery remain outside repository in working scratch.",
+      "browserVerification": {
+        "proof": "http://127.0.0.1:8143/",
+        "game": "http://127.0.0.1:8132/index.html?art=wall-completion11",
+        "viewports": [
+          [
+            1920,
+            1080
+          ],
+          [
+            375,
+            812
+          ]
+        ],
+        "level": "1-4 selected, class dot current",
+        "phoneScrollWidth": 375,
+        "phoneBrokenImages": 0,
+        "scope": "New wall sprites viewed in external joins. Current game has no wall sprite wiring yet; game check verifies loading after manifest addition. No game code edits. Temporary tabs closed and viewport reset."
+      },
+      "otherFilesChangedDuringTask": []
     }
   ]
 }

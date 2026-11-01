@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>판 찍기</title>
+<!--
+  받은 그림 검사용(docs/art-rules.md). 게임을 1920 x 1080 틀에 열어 원하는 판으로 바로 가고, 원하면 장면 일부를 확대한다. 게임 코드는 건드리지 않는다.
+  주소 예: shot.html?level=3 (1-4), shot.html?level=3&zoom=2.5&x=180&y=110 (장면 좌표 x, y를 왼쪽 위로 2.5배).
+  headless Chrome으로 찍을 때는 --virtual-time-budget을 15000 이상 준다(판 시작 연출이 끝나야 한다).
+-->
+<style>
+  html, body { margin: 0; background: #111; overflow: hidden; }
+  iframe { width: 1920px; height: 1080px; border: 0; display: block; }
+</style>
+</head>
+<body>
+<iframe id="game" title="game"></iframe>
+<script src="../src/layout.js"></script>
+<script>
+  const params = new URLSearchParams(location.search);
+  const level = Number(params.get('level') || 0);
+  const zoom = Number(params.get('zoom') || 0);
+  const STORAGE_KEY = 'villain-settings-2';
+
+  // 진행 저장값을 그 판 앞까지 깬 것으로 맞춰, 메인 화면의 이어하기가 그 판을 연다.
+  const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+  saved.cleared = window.VILLAIN_LAYOUT.levels.slice(0, level).map((item) => item.id);
+  saved.lastLevel = level;
+  saved.prologueSeen = true;
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+
+  const frame = document.getElementById('game');
+  const press = (key) => frame.contentDocument.dispatchEvent(new KeyboardEvent('keydown', { key, bubbles: true }));
+  frame.addEventListener('load', () => {
+    setTimeout(() => press('Enter'), 800);
+    setTimeout(() => press('Enter'), 1600);
+    if (zoom) {
+      setTimeout(() => {
+        const doc = frame.contentDocument;
+        const scene = doc.querySelector('#scene');
+        scene.style.transformOrigin = '0 0';
+        scene.style.transform = `translate(${-zoom * Number(params.get('x') || 0)}px, ${-zoom * Number(params.get('y') || 0)}px) scale(${zoom})`;
+        doc.querySelectorAll('.hud, .keys, .help').forEach((element) => { element.style.visibility = 'hidden'; });
+      }, 9000);
+    }
+  });
+  frame.src = `../index.html?shot=${Date.now()}`;
+</script>
+</body>
+</html>
