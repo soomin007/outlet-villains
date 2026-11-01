@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>메인 화면 바닥 목업</title>
+<!--
+  메인 화면 가운데 층을 바닥으로 읽히게 하는 목업(2026-11-01 사용자 지적: 로봇이 있는 곳이 전혀 바닥으로 느껴지지 않는다). 게임 코드는 건드리지 않고,
+  실제 메인 화면을 틀에 열어 바닥 무늬, 굽도리, 로봇 그림자만 덧입힌다. 주소 끝 #a는 바닥이 흐르는 모습, #b는 멈춘 모습이다. 두 모습 모두 도감 줄은 뺐다.
+  숫자는 1920 x 1080 판 기준이다. 바닥 층 y 380~920(540px, 화면 높이의 50%), 굽도리 18px, 타일 폭 160px에 줄 높이는 벽에서 앞으로 34, 46, 62, 82, 108, 140px로 커진다.
+  세로줄은 소실점 없이 모두 같은 기울기(높이 1에 가로 0.35, 약 19도)로 눕혀, 위 층의 벽과 달리 바닥이 앞뒤로 깊다는 것이 읽히게 한다.
+  흐르는 속도는 위 띠(초속 120px)와 아래 띠(초속 360px) 사이의 초속 240px이다. 로봇 그림자는 300 x 38px 타원이다.
+-->
+<style>
+  html, body { margin: 0; height: 100%; background: #111; overflow: hidden; font: 15px/1.5 system-ui, sans-serif; }
+  iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .legend { position: absolute; left: 12px; top: 12px; z-index: 5; max-width: 420px; padding: 10px 14px; border-radius: 8px; background: rgba(0, 0, 0, 0.78); color: #fff; }
+  .legend button { margin-right: 6px; padding: 4px 12px; border: 2px solid #fff; border-radius: 6px; background: transparent; color: #fff; font: inherit; cursor: pointer; }
+  .legend button.on { background: #c8302a; border-color: #c8302a; }
+  .legend.hide { display: none; }
+</style>
+</head>
+<body>
+<div class="legend" id="legend">
+  <div><button type="button" data-mode="a">A 바닥이 흐름</button><button type="button" data-mode="b">B 바닥 멈춤</button></div>
+  <div id="note"></div>
+</div>
+<iframe id="game" title="game"></iframe>
+<script src="../src/layout.js"></script>
+<script>
+  const STORAGE_KEY = 'villain-settings-2';
+  const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+  saved.cleared = window.VILLAIN_LAYOUT.levels.map((level) => level.id);
+  saved.lastLevel = 0;
+  saved.prologueSeen = true;
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+
+  // 바닥 타일 한 장(폭 160px, 높이 522px). 굽도리 아래부터 가로줄이 벽에서 앞으로 갈수록 넓어지고, 세로줄은 모두 같은 기울기로 눕는다.
+  // 곧은 세로줄만 두니 바닥보다 타일 벽처럼 보였다. 기울어진 줄이 칸 경계를 넘어가므로 앞뒤 칸의 줄도 함께 그려 이어 붙인다.
+  const rows = [34, 46, 62, 82, 108, 140];
+  const SLANT = 0.35;
+  let y = 0;
+  const lines = rows.map((height) => {
+    y += height;
+    return `<rect x="0" y="${y - 2}" width="160" height="2" fill="#c2c2bc"/>`;
+  }).join('');
+  const seams = [-2, -1, 0, 1].map((k) => `<line x1="${k * 160}" y1="522" x2="${k * 160 + SLANT * 522}" y2="0" stroke="#c2c2bc" stroke-width="2"/>`).join('');
+  const tile = `<svg xmlns="http://www.w3.org/2000/svg" width="160" height="522"><rect width="160" height="522" fill="#dcdcd7"/>${lines}${seams}</svg>`;
+  const tileUrl = `url("data:image/svg+xml,${encodeURIComponent(tile)}")`;
+  const mockCss = `
+    #title-dex { display: none !important; }
+    #title-floor { background-color: #dcdcd7 !important; background-image: ${tileUrl}; background-repeat: repeat-x; background-position: 0 18px; }
+    #title-floor::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 18px; background: #3a3a3a; }
+    #title-floor.flow { animation: mock-floor-flow 0.667s linear infinite; }
+    @keyframes mock-floor-flow { to { background-position: -160px 18px; } }
+    #title-robot::before { content: ''; position: absolute; left: -2%; width: 76%; bottom: -4%; height: 8%;
+      background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.28) 0, rgba(0, 0, 0, 0.12) 45%, rgba(0, 0, 0, 0) 70%); }
+  `;
+
+  const frame = document.getElementById('game');
+  const note = document.getElementById('note');
+  const notes = {
+    a: '바닥이 초속 240px로 흐른다(위 띠 120px와 아래 띠 360px 사이). 로봇이 딛는 층이 카메라 속도로 움직여야 달리는 것으로 읽힌다.',
+    b: '바닥 무늬는 있지만 멈춰 있다. 위아래 띠만 흐르고 로봇이 선 층은 멈춰서, 로봇이 제자리에서 바퀴만 돌리는 것처럼 보일 수 있다.',
+  };
+  const params = new URLSearchParams(location.search);
+  if (params.get('legend') === '0') document.getElementById('legend').classList.add('hide');
+  function setMode(mode) {
+    const doc = frame.contentDocument;
+    if (doc && doc.getElementById('title-floor')) doc.getElementById('title-floor').classList.toggle('flow', mode === 'a');
+    note.textContent = notes[mode];
+    document.querySelectorAll('[data-mode]').forEach((button) => button.classList.toggle('on', button.dataset.mode === mode));
+    history.replaceState(null, '', `${location.pathname}${location.search}#${mode}`);
+  }
+  document.querySelectorAll('[data-mode]').forEach((button) => button.addEventListener('click', () => setMode(button.dataset.mode)));
+  frame.addEventListener('load', () => {
+    const doc = frame.contentDocument;
+    const style = doc.createElement('style');
+    style.textContent = mockCss;
+    doc.head.appendChild(style);
+    setTimeout(() => doc.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true })), 800);
+    setTimeout(() => setMode(location.hash === '#b' ? 'b' : 'a'), 900);
+  });
+  frame.src = `../index.html?mock=${Date.now()}`;
+</script>
+</body>
+</html>
