@@ -1029,8 +1029,8 @@
 
     .title-robot .frames img.on { visibility: visible; }
 
-    /* 달려 나가는 느낌(2026-11-01 사용자). 같은 장면을 왼쪽으로 조금 민 옅은 잔상 한 겹과, 로봇 뒤로 흘러가는 속도선 넷을 코드로 그린다. */
-    .title-robot .frames.ghost { transform: translateX(-14%); opacity: 0.22; }
+    /* 달려 나가는 느낌(2026-11-01 사용자). 로봇 뒤로 흘러가는 속도선 넷을 코드로 그린다.
+       옅은 잔상도 한 겹 그렸지만, 잔상이 로봇 등과 바퀴 사이에 겹쳐 몸체 뒤가 두 번 그려진 것처럼 보여서 뺐다(2026-11-01 사용자 지적). */
 
     .speed-line {
       position: absolute;
@@ -1049,7 +1049,6 @@
 
     .calm .title-track,
     .calm .title-logo .bang-fill { animation: none; }
-    .calm .title-robot .frames.ghost,
     .calm .speed-line { display: none; }
 
 
@@ -1105,9 +1104,6 @@
       object-position: top;
     }
 
-    /* 합석 챕터는 두 사람을 반씩 겹쳐 그린다. */
-    .dex-art.pair img { width: 60%; height: 100%; object-fit: cover; }
-    .dex-art.pair img + img { margin-left: -20%; }
 
     .dex-card.locked .dex-art { border-style: dashed; border-color: rgba(27, 27, 27, 0.45); }
     .dex-card.locked .dex-art img { filter: brightness(0); opacity: 0.4; }
@@ -1124,11 +1120,15 @@
       font-weight: 900;
     }
 
+    /* 이름은 카드 폭 안에서 낱말 단위로 줄을 바꾼다. 한 줄로 두면 세로 화면(카드 70px)에서 이웃 이름과 맞닿아 "잠든 카공족공부 영상 촬영자"로 읽혔다(2026-11-01). */
     .dex-name {
+      max-width: 100%;
       color: #1b1b1b;
       font-size: var(--dex-font, 14px);
       font-weight: 800;
-      white-space: nowrap;
+      line-height: 1.25;
+      text-align: center;
+      word-break: keep-all;
     }
 
     .dex-card.locked .dex-name { color: rgba(27, 27, 27, 0.5); }
@@ -1950,6 +1950,20 @@
       // 손님 앞 물건은 그 손님 쪽으로 칸의 22%만큼 당긴다. 칸 가운데에 두면 손에서 멀어 자판을 치거나 쓰는 모습으로 읽히지 않았다(2026-11-01 검사).
       const ITEM_LIFT = 16 / 192;
       const ITEM_TOWARD = 0.22;
+      // 탁자 위 물건 그림(192 x 192)에서 실제로 칠해진 범위 [왼, 위, 오른, 아래](2026-11-01 캔버스로 잼). 그림을 바꾸면 다시 잰다.
+      // 물건을 칸 기준으로 당기기만 하자 넓은 노트북이 탁자 앞 가장자리 밖에 걸쳐 떠 보이고, 공책과 컵이 뒤 가장자리에 붙어 겹쳤다(2026-11-01 사용자 지적).
+      // 그래서 이 범위로 물건을 탁자 윗면 안에 가두고, 음료는 일감 옆에 띄워 놓는다.
+      const ITEM_BOXES = {
+        'table-laptop-up': [33, 39, 157, 151], 'table-laptop-down': [33, 65, 157, 126],
+        'table-laptop-left': [33, 38, 157, 152], 'table-laptop-right': [33, 50, 157, 141],
+        'table-notebook-up': [41, 65, 150, 126], 'table-notebook-down': [41, 64, 150, 127],
+        'table-notebook-left': [44, 61, 147, 130], 'table-notebook-right': [45, 61, 146, 130],
+        'table-tumbler': [69, 45, 122, 140], 'table-tall-glass': [72, 41, 118, 140], 'table-cup-saucer': [59, 85, 132, 140],
+        'table-mug': [64, 77, 127, 140], 'table-iced-glass': [65, 61, 126, 140], 'table-vase': [69, 53, 122, 138], 'table-cake': [48, 51, 143, 140],
+      };
+      // 그림 높이 가운데 탁자에 닿는 아래쪽 비율. 공책은 납작해서 전부, 노트북은 화면을 뺀 자판 쪽, 세워 놓는 물건(음료, 꽃병, 케이크)은 밑바닥만 닿는다.
+      const footprintOf = (key) => (key.includes('notebook') ? 1 : key.includes('laptop') ? 0.55 : 0.25);
+      const ITEM_GAP = 4;
       const OPPOSITE = { up: 'down', down: 'up', left: 'right', right: 'left' };
       // 옆으로 앉은 손님의 정강이와 발은 탁자 밑으로 들어가야 한다. 탁자 쪽으로 당겨 앉히자 발이 상판 위에 그려졌다(2026-11-01 사용자 지적).
       // 그래서 상판과 겹치는 부분 가운데 그림 높이 64%보다 아래(무릎 아래)만 잘라 낸다. 머그와 손은 높이 50~63%라 상판 위에 그대로 보인다.
@@ -2090,26 +2104,80 @@
         if (fronts.length > 0 && sides.length > 0) {
           chosen = sides.some(hasWork) && !fronts.some(hasWork) ? sides : fronts;
         }
+        const surface = tableSurface(x, y);
         for (const [dx, dy, facing] of chosen) {
-          const cx = x + dx;
-          const cy = y + dy;
-          const guest = personAt(cx, cy, facing);
+          const guest = personAt(x + dx, y + dy, facing);
           if (!guest) continue;
-          // 손님 쪽으로 당기고, 일감과 음료는 손님에게서 본 좌우로 벌려 놓는다. 위아래 손님은 x로(음료는 오른쪽),
-          // 옆 손님은 y로 벌리되 음료를 위로 올린다. 아래로 내리면 탁자 아래쪽에 앉은 뒷모습 손님의 머리에 가렸다.
-          const towardX = dx * ITEM_TOWARD;
-          const towardY = dy * ITEM_TOWARD;
+          // 일감은 손님 쪽으로 칸의 22%만큼 당겨 손 앞에 놓고, 음료는 일감 옆에 띄워 놓는다(besideWork).
+          // 일감이 없으면 음료만 손님 쪽으로 당기되, 옆 손님의 음료는 조금 위로 올린다. 아래로 내리면 탁자 아래쪽에 앉은 뒷모습 손님의 머리에 가렸다.
           const side = dy === 0;
-          const spread = (amount) => (side ? { dx: towardX, dy: towardY - amount } : { dx: towardX + amount, dy: towardY });
           const workKey = guest.work === 'laptop' ? `table-laptop-${facing}` : guest.work === 'notebook' ? `table-notebook-${OPPOSITE[facing]}` : null;
-          if (workKey && assetPath(workKey)) items.push({ key: workKey, ...spread(guest.drink ? -0.12 : 0) });
-          if (guest.drink && assetPath(guest.drink)) items.push({ key: guest.drink, ...spread(workKey ? 0.3 : 0.25) });
+          let work = null;
+          if (workKey && assetPath(workKey)) {
+            work = clampOnTable(workKey, dx * ITEM_TOWARD, dy * ITEM_TOWARD, surface);
+            items.push({ key: workKey, ...work });
+          }
+          if (guest.drink && assetPath(guest.drink)) {
+            const placed = work
+              ? besideWork(guest.drink, workKey, work, side, surface)
+              : clampOnTable(guest.drink, side ? dx * ITEM_TOWARD : 0.25, side ? -0.2 : dy * ITEM_TOWARD, surface);
+            items.push({ key: guest.drink, ...placed });
+          }
         }
-        if (faced) return items;
-        const pick = (x * 3 + y * 5) % 5;
-        if (pick === 0 && assetPath('table-vase')) return [{ key: 'table-vase', dx: 0, dy: 0 }];
-        if (pick === 1 && assetPath('table-cake')) return [{ key: 'table-cake', dx: 0, dy: 0 }];
-        return [];
+        if (!faced) {
+          // 손님이 없는 탁자 칸은 다섯에 둘 꼴로 꽃병이나 케이크를 놓는다. 이웃한 칸끼리 같은 것이 놓이지 않게 가로 3, 세로 2씩 다르게 고른다.
+          // 예전 식(x * 3 + y * 5)은 5로 나누면 y가 사라져, 같은 열의 칸에 케이크가 연달아 놓였다(2026-11-01 3-2 확인).
+          const pick = (x * 3 + y * 2) % 5;
+          const key = pick === 0 ? 'table-vase' : pick === 1 ? 'table-cake' : null;
+          if (key && assetPath(key)) items.push({ key, ...clampOnTable(key, 0, 0, surface) });
+        }
+        // 한 칸에 둘이 놓이면 바닥선이 앞(아래)인 물건을 나중에 그려, 앞 물건이 뒤 물건을 가리게 한다.
+        const baseOf = (item) => (ITEM_BOXES[item.key] ? ITEM_BOXES[item.key][3] : 140) + (item.dy - ITEM_LIFT) * 192;
+        return items.sort((a, b) => baseOf(a) - baseOf(b));
+      }
+
+      // 칸 (x, y) 탁자 윗면의 범위(그림 좌표, 칸 하나가 192). 이어진 변은 칸 끝까지 상판이고, 이어지지 않은 변은 8px 안쪽에서 끝나며,
+      // 앞 가장자리는 y 134다. 물건이 가장자리에 딱 붙으면 걸쳐 보여서, 이어지지 않은 변에서는 6px(앞은 4px) 더 안쪽까지만 쓴다.
+      function tableSurface(x, y) {
+        const map = game.level.map;
+        const isTable = (cx, cy) => 'To'.includes((map[cy] || '')[cx] || '#');
+        const inset = 8 + 6;
+        return {
+          left: isTable(x - 1, y) ? 0 : inset,
+          right: isTable(x + 1, y) ? 192 : 192 - inset,
+          top: isTable(x, y - 1) ? 0 : inset,
+          front: isTable(x, y + 1) ? 192 : 134 - 4,
+        };
+      }
+
+      // 물건(key)을 칸 기준 (dx, dy)에 놓되, 칠해진 범위가 탁자 윗면 안에 들도록 옮긴 (dx, dy)를 돌려준다.
+      // 가로는 그림 전체를, 세로는 앞쪽 바닥선과 탁자에 닿는 부분(footprintOf)의 위쪽 끝을 가둔다. 세운 물건의 윗부분은 뒤 가장자리 위로 솟아도 된다.
+      function clampOnTable(key, dx, dy, surface) {
+        if (!ITEM_BOXES[key]) return { dx, dy };
+        const [x0, y0, x1, y1] = ITEM_BOXES[key];
+        const footTop = y1 - (y1 - y0) * footprintOf(key);
+        const px = Math.min(Math.max(dx * 192, surface.left - x0), surface.right - x1);
+        const py = Math.min(Math.max((dy - ITEM_LIFT) * 192, surface.top - footTop), surface.front - y1);
+        return { dx: px / 192, dy: py / 192 + ITEM_LIFT };
+      }
+
+      // 음료를 일감 옆에 ITEM_GAP만큼 띄워 놓는다. 위아래 손님은 일감 오른쪽(자리가 없으면 왼쪽)에 바닥선을 맞추고,
+      // 옆 손님은 일감 뒤쪽(위, 자리가 없으면 앞쪽)에 가로 가운데를 맞춘다. 어느 쪽도 탁자 안에 들지 않으면 첫 자리에 두고 탁자 안으로 가둔다.
+      function besideWork(drinkKey, workKey, work, side, surface) {
+        if (!ITEM_BOXES[workKey] || !ITEM_BOXES[drinkKey]) return clampOnTable(drinkKey, work.dx, work.dy - 0.25, surface);
+        const [wx0, wy0, wx1, wy1] = ITEM_BOXES[workKey];
+        const [dx0, dy0, dx1, dy1] = ITEM_BOXES[drinkKey];
+        const workX = work.dx * 192;
+        const workY = (work.dy - ITEM_LIFT) * 192;
+        const workFoot = wy1 - (wy1 - wy0) * footprintOf(workKey);
+        const drinkFoot = dy1 - (dy1 - dy0) * footprintOf(drinkKey);
+        const centered = workX + (wx0 + wx1) / 2 - (dx0 + dx1) / 2;
+        const spots = side
+          ? [{ px: centered, py: workY + workFoot - ITEM_GAP - dy1 }, { px: centered, py: workY + wy1 + ITEM_GAP - drinkFoot }]
+          : [{ px: workX + wx1 + ITEM_GAP - dx0, py: workY + wy1 - dy1 }, { px: workX + wx0 - ITEM_GAP - dx1, py: workY + wy1 - dy1 }];
+        const fits = ({ px, py }) => px + dx0 >= surface.left && px + dx1 <= surface.right && py + drinkFoot >= surface.top && py + dy1 <= surface.front;
+        const spot = spots.find(fits) || spots[0];
+        return clampOnTable(drinkKey, spot.px / 192, spot.py / 192 + ITEM_LIFT, surface);
       }
 
       // 손님 그림 key. 같은 사람이 줄지어 앉으면 복제 인간처럼 보여서, 그려 둔 손님 종류(customer, customer2, customer3...)를
@@ -2126,7 +2194,8 @@
       }
 
       // 주인공 그림 크기. 앉은 손님과 키가 비슷해 묻혀서 1.2배로 그린다(2026-10-29 사용자 피드백).
-      // 주인공 그림 key. 얼굴 화면 표정(push 힘줌, dizzy 어지러움, happy 웃음, sleepy 졸림)이 있으면 그 그림을 쓴다.
+      // 주인공 그림 key. 얼굴 화면 표정(dizzy 어지러움, happy 웃음, sleepy 졸림)이 있으면 그 그림을 쓴다.
+      // 밀 때의 힘주는 표정(push)도 그려 두었지만, 한 판에 수십 번 바뀌어 표정의 힘이 흐려져 쓰지 않는다(2026-11-01 사용자 지적).
       // 위(뒷모습)는 얼굴이 보이지 않아 표정 그림이 없다(docs/art-rules.md "주인공 로봇").
       // 옆모습(왼쪽, 오른쪽)은 얼굴 화면을 보는 사람 쪽으로 30도 돌린 그림(-t30)이 있으면 그것을 쓴다(2026-11-01 사용자 확정).
       function playerKey(facing = game.state.facing) {
@@ -2273,6 +2342,7 @@
       }
 
       function startLevel(index = game.index) {
+        moveQueue.length = 0;
         game.face = null;
         resetIdle();
         const fresh = index !== game.lastStarted;
@@ -2355,10 +2425,11 @@
 
       async function showEnding() {
         game.busy = true;
+        const villains = distinctVillains();
         await showCard({
           kicker: '도감 완성', title: '모든 콘센트를 되찾았다',
-          lines: [`빌런 ${LAYOUT.chapters.length}명이 모두 스스로 플러그를 뽑고 떠났다.`],
-          art: LAYOUT.chapters.map((chapter) => imageTag(chapter.villain.portrait, 'small')).join(''),
+          lines: [`빌런 ${villains.length}명이 모두 스스로 플러그를 뽑고 떠났다.`],
+          art: villains.map((villain) => imageTag(villain.portrait, 'small')).join(''),
         });
         game.busy = false;
         showTitle();
@@ -2392,7 +2463,7 @@
       const TITLE_STRIP_COPIES = 8;
 
       // 메인 화면의 흐르는 띠와 달리는 로봇(2026-11-01 사용자 확정). 위 띠에는 만난 빌런(도감에서 드러난 빌런)과 충전 독이 이스터에그로
-      // 세 벌마다 한 번씩 지나간다. 로봇은 당황한 눈 그림(-fluster)이 있으면 그것을 쓰고, 뒤에 옅은 잔상과 속도선을 그린다.
+      // 세 벌마다 한 번씩 지나간다. 로봇은 당황한 눈 그림(-fluster)이 있으면 그것을 쓰고, 뒤에 속도선을 그린다.
       function drawTitleWorld() {
         clearInterval(game.runTimer);
         const egg = LAYOUT.title.egg;
@@ -2425,15 +2496,16 @@
         // 속도선 넷. [위치(상자 높이의 비율), 길이(상자 폭의 비율)]이고, 로봇 등 뒤(왼쪽)에서 생겨 뒤로 흘러가며 사라진다.
         const lines = [[0.34, 0.32], [0.47, 0.44], [0.6, 0.28], [0.73, 0.38]].map(([top, length], index) =>
           `<span class="speed-line" style="top:${top * 100}%; left:${12 - length * 100}%; width:${length * 100}%; animation-delay:${index * -0.15}s"></span>`).join('');
-        ui.titleRobot.innerHTML = `${lines}<div class="frames ghost">${frames}</div><div class="frames">${frames}</div>`;
-        const sets = [...ui.titleRobot.querySelectorAll('.frames')].map((set) => [...set.querySelectorAll('img')]);
+        ui.titleRobot.innerHTML = `${lines}<div class="frames">${frames}</div>`;
+        const images = [...ui.titleRobot.querySelectorAll('.frames img')];
         let frame = 0;
+        // 바퀴가 도는 네 장면. 띠가 세 배 빨라져(2026-11-01 사용자) 장면도 0.11초에서 0.07초마다 바꾼다.
         game.runTimer = setInterval(() => {
           if (ui.title.hidden || document.body.classList.contains('calm')) return;
-          sets.forEach((images) => images[frame].classList.remove('on'));
+          images[frame].classList.remove('on');
           frame = (frame + 1) % 4;
-          sets.forEach((images) => images[frame].classList.add('on'));
-        }, 110);
+          images[frame].classList.add('on');
+        }, 70);
       }
 
       // 로고 받침과 느낌표 배터리(2026-11-01). 글자층(title-logo-text)과 느낌표 껍데기(title-bang-shell)가 있으면 그 사이에 차오르는 속을 칠한다.
@@ -2548,20 +2620,27 @@
       }
 
       // 빌런 도감 줄. 챕터의 마지막 레벨을 깨면 빌런의 반응 그림과 이름이 드러나고, 아직이면 검은 실루엣과 물음표다.
-      // 합석 챕터는 잠든 카공족과 촬영자 두 사람을 반씩 겹쳐 보여 준다.
-      function drawDex() {
-        ui.titleDex.innerHTML = LAYOUT.chapters.map((chapter) => {
+      // 서로 다른 빌런 목록. 3장(합석)은 1장과 2장의 빌런이 함께 나오는 챕터라 새 빌런이 아니어서 세지 않는다.
+      // 챕터 수로 세면 엔딩이 "빌런 3명"이라 하고 같은 보라색 빌런이 두 번 나왔다(2026-11-01 사용자 지적).
+      // 빌런은 그 빌런이 처음 나온 챕터의 마지막 레벨을 깨면 만난 것으로 친다.
+      function distinctVillains() {
+        const seen = new Set();
+        return LAYOUT.chapters.filter((chapter) => {
+          if (seen.has(chapter.villain.portrait)) return false;
+          seen.add(chapter.villain.portrait);
+          return true;
+        }).map((chapter) => {
           const levels = LAYOUT.levels.filter((level) => level.chapter === chapter.id);
-          const met = game.cleared.has(levels[levels.length - 1].id);
-          const portraits = [chapter.villain.portrait];
-          if (chapter.filmer) {
-            const filmerChapter = LAYOUT.chapters.find((other) => other.villain.idle === chapter.filmer.idle);
-            if (filmerChapter) portraits.push(filmerChapter.villain.portrait);
-          }
-          const images = portraits.map((key) => imageTag(key)).join('');
+          return { name: chapter.name, portrait: chapter.villain.portrait, lastLevel: levels[levels.length - 1].id };
+        });
+      }
+
+      function drawDex() {
+        ui.titleDex.innerHTML = distinctVillains().map((villain) => {
+          const met = game.cleared.has(villain.lastLevel);
           return `<div class="dex-card${met ? '' : ' locked'}">`
-            + `<div class="dex-art${portraits.length > 1 ? ' pair' : ''}">${images}</div>`
-            + `<span class="dex-name">${met ? chapter.name : '???'}</span></div>`;
+            + `<div class="dex-art">${imageTag(villain.portrait)}</div>`
+            + `<span class="dex-name">${met ? villain.name : '???'}</span></div>`;
         }).join('');
       }
 
@@ -3153,6 +3232,31 @@
         drawView();
       }
 
+      // 걸음 하나의 움직임(0.13초)이 끝나기 전에 들어온 방향키는 줄에 세웠다가 차례로 옮긴다(두 걸음까지).
+      // 두 방향키를 거의 함께 누르면 두 걸음이 한꺼번에 움직여, 로봇이 대각선으로 한 번에 미끄러진 것처럼 보였다(2026-11-01 사용자 지적).
+      const STEP_MS = 130;
+      const moveQueue = [];
+      let movingQueue = false;
+
+      function queueMove(direction) {
+        if (moveQueue.length >= 2) return;
+        moveQueue.push(direction);
+        if (!movingQueue) runMoveQueue();
+      }
+
+      async function runMoveQueue() {
+        movingQueue = true;
+        while (moveQueue.length > 0) {
+          const rest = (game.lastStepAt || 0) + STEP_MS - performance.now();
+          if (rest > 0) await wait(rest);
+          const direction = moveQueue.shift();
+          if (direction === undefined) break;
+          game.lastStepAt = performance.now();
+          await move(direction);
+        }
+        movingQueue = false;
+      }
+
       async function move(direction) {
         Sound.start();
         if (game.busy || game.won) return;
@@ -3191,7 +3295,6 @@
         }
         game.history.push(game.state);
         game.state = result.state;
-        if (result.pushed !== null) setFace('push', 450);
         game.steps += 1;
         updateSteps();
         if (game.steps >= 3) hideKeys();
@@ -3874,7 +3977,7 @@
         }
         if (KEY_DIRECTIONS[key] && !game.won) {
           event.preventDefault();
-          move(KEY_DIRECTIONS[key]);
+          queueMove(KEY_DIRECTIONS[key]);
         } else if (key === 'z' || key === 'backspace') {
           event.preventDefault();
           undo();
@@ -3900,7 +4003,7 @@
             return;
           }
           if (game.won) goNext();
-          else move(button.dataset.dir);
+          else queueMove(button.dataset.dir);
         });
       });
       ui.undo.addEventListener('click', undo);

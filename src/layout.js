@@ -31,7 +31,8 @@
 //
 // title은 메인 화면 배치다(2026-11-01 사용자 확정, docs/concept.md "목업 2차"). desk는 1920 x 1080 판, phone은 세로 화면용 375 x 812 판이고, 숫자는 그 판의 px다.
 // bands의 wallBottom은 위 층(흐르는 카페 벽)이 끝나는 y, cupboardTop은 아래 층(흐르는 찬장)이 시작하는 y이고, 그 사이가 멈춘 바닥이다. 글자와 버튼은 바닥 층에만 둔다.
-// loopSeconds는 띠 한 장이 제 폭만큼 흐르는 시간이다. 예전 카페 띠(초속 80px)의 0.5배와 1.5배로 맞췄다(위 1920px를 48초, 아래 1920px를 16초).
+// loopSeconds는 띠 한 장이 제 폭만큼 흐르는 시간이다. 처음에는 예전 카페 띠(초속 80px)의 0.5배와 1.5배(위 48초, 아래 16초)였고,
+// 사용자가 훨씬 빠르게 해 달라고 해서 세 배로 올렸다(2026-11-01). 위 띠는 초속 120px(1920px에 16초), 아래 띠는 초속 360px(1920px에 5.33초)다.
 // logo의 logoWidth는 받침 안 로고 폭이고, 받침 크기는 badge 비율로 정한다. bang은 로고 그림(1120 x 640) 속 느낌표 배터리의 빈칸이고, cycle초마다 빨강, 노랑, 초록으로 차오른다.
 // egg는 위 띠(1920 x 380) 속 이스터에그 자리다. Codex가 비워 둔 빈 벽면(x 780~1140)의 가운데에 키 320px로 세운다.
 window.VILLAIN_LAYOUT = {
@@ -54,7 +55,7 @@ window.VILLAIN_LAYOUT = {
       "menu": { "x": 38, "y": 406, "w": 300, "h": 52, "gap": 8, "font": 20 },
       "dex": { "x": 28, "y": 648, "w": 320, "h": 96, "card": 70, "font": 12 }
     },
-    "strips": { "wall": { "width": 1920, "height": 380, "loopSeconds": 48 }, "cupboard": { "width": 1920, "height": 160, "loopSeconds": 16 } },
+    "strips": { "wall": { "width": 1920, "height": 380, "loopSeconds": 16 }, "cupboard": { "width": 1920, "height": 160, "loopSeconds": 5.33 } },
     "egg": { "centerX": 960, "height": 320, "floorY": 488, "art": 512 },
     "badge": { "padX": 0.06, "padY": 0.08, "border": 0.04, "radius": 0.12, "nubW": 0.05, "nubH": 0.4 },
     "bang": { "x": 987, "y": 366, "w": 50, "h": 122, "logoW": 1120, "logoH": 640, "cycle": 3 }
@@ -141,9 +142,9 @@ window.VILLAIN_LAYOUT = {
         "#####NLq#DV#",
         "####NooNL*TN",
         "#NNqNooNqwNo",
-        "NTTNNooNNwNo",
-        "NTTqqNNqqwNo",
-        ".NNqNNNLLbqN",
+        "NTTNNooNqwNo",
+        "NTTqqooqqwNo",
+        ".NNqqNNLLbqN",
         "..Pwww......"
       ],
       "decor": [
@@ -187,7 +188,7 @@ window.VILLAIN_LAYOUT = {
         "####NooNL*TN",
         "#NNqNooNqwNo",
         "NTT.bwcwwwwN",
-        "NTT...NN..No",
+        "NTT...qq..No",
         "#NNP..NLLqqN",
         "qqqNooooNqqq"
       ],
