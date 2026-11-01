@@ -2400,7 +2400,10 @@
         return path ? `<img class="${extraClass}" src="${path}" alt="" draggable="false">` : '';
       }
 
-      // 프롤로그. 글 없는 만화 다섯 컷(story-1 ~ story-5, 2026-10-30 사용자 요청)이고, 처음 한 번만 보이며 설정창에서 다시 볼 수 있다.
+      // 프롤로그. 글 없는 만화 컷(2026-10-30 사용자 요청)이고, 처음 한 번만 보이며 설정창에서 다시 볼 수 있다.
+      // 2026-11-01 사용자 결정으로 네 컷으로 줄였다. 예전 4컷(로봇이 손을 뻗다 멈춤)은 읽히지 않아 빼고, 새 4컷(진동벨 생각 풍선)이 오기 전까지는
+      // 예전 5컷(카운터의 진동벨)을 넷째로 보여 준다. 새 그림을 받으면 이 목록을 story-1 ~ story-4로 바꾼다.
+      const PROLOGUE_PANELS = ['story-1', 'story-2', 'story-3', 'story-5'];
       // 컷은 WebP 한 장에 100KB 안팎이라 테마 그림과 함께 미리 받아 둔다(preloadTheme). 그림이 없으면 컷 대신 짧은 글 카드를 보여 준다.
       async function playPrologue() {
         const fallback = [
@@ -2411,9 +2414,9 @@
         if (!assetPath('story-1')) {
           for (const line of fallback) await showCard({ kicker: '프롤로그', lines: [line] });
         } else {
-          for (let panel = 1; panel <= 5; panel += 1) {
-            if (!assetPath(`story-${panel}`)) continue;
-            await showCard({ art: imageTag(`story-${panel}`, 'comic'), comic: true });
+          for (const panel of PROLOGUE_PANELS) {
+            if (!assetPath(panel)) continue;
+            await showCard({ art: imageTag(panel, 'comic'), comic: true });
           }
         }
         settings.prologueSeen = true;
