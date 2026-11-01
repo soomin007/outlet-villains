@@ -47,13 +47,18 @@
     let villain = null;
     let goal = null;
     let filmer = null;
+    let dock = null;
     const items = [];
     const wet = [];
     const waiters = [];
     definition.map.forEach((line, y) => {
       [...line].forEach((char, x) => {
         if (char === '#' || char === 'T' || char === 'L' || char === 'N' || char === 'o' || char === 'q') walls.add(`${x},${y}`);
-        else if (char === 'P') player = { x, y };
+        // 로봇의 충전 독(D). 판을 깨기 전에는 뽑혀 있어 화분처럼 막힌 칸이고, 빌런이 떠나면 로봇이 스스로 굴러가 올라앉는다(docs/concept.md "판 안 충전 독").
+        else if (char === 'D') {
+          walls.add(`${x},${y}`);
+          dock = { x, y };
+        } else if (char === 'P') player = { x, y };
         else if (char === 'V') villain = { x, y };
         else if (char === 'F') filmer = { x, y };
         else if (char === '*') goal = { x, y };
@@ -82,6 +87,7 @@
       villain,
       goal,
       filmer,
+      dock,
       waiters,
       start,
     };

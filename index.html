@@ -2608,15 +2608,17 @@
         game.busy = true;
         game.skip = false;
         const colors = THEMES[settings.theme];
-        // 빌런이 차지한 콘센트와 그 선, 그리고 바닥에 뽑혀 있는 충전 독의 플러그를 함께 짚는다. 설정에서 끌 수 있다.
+        // 빌런이 차지한 콘센트와 그 선, 그리고 바닥에 뽑혀 있는 충전 독의 플러그를 함께 짚는다. 판 안에 독이 있으면 독도 짚는다. 설정에서 끌 수 있다.
         if (settings.startHint) {
           game.sprites.outlet.classList.add('pulse');
           game.sprites.cord.classList.add('pulse');
           if (game.sprites.dockPlug) game.sprites.dockPlug.classList.add('pulse');
+          if (game.dockAt.inBoard) game.sprites.dock.classList.add('pulse');
           await pause(1400);
           game.sprites.outlet.classList.remove('pulse');
           game.sprites.cord.classList.remove('pulse');
           if (game.sprites.dockPlug) game.sprites.dockPlug.classList.remove('pulse');
+          game.sprites.dock.classList.remove('pulse');
         }
         const demo = LAYOUT.levels[index].demo;
         if (demo && !settings.demosSeen.includes(demo.kind) && game.index === index) {
@@ -2726,12 +2728,15 @@
         game.sprites.outlet = addSprite('outlet-theirs', TILE, TILE, colors.outletTheirs, { round: true });
         placeOnTile(game.sprites.outlet, look.outletX !== undefined ? look.outletX : villain.x, -1, TILE, TILE);
 
-        // 로봇 충전 독. 콘센트 오른쪽(판 끝이면 왼쪽) 벽 아래에 놓인다. 손님이 독의 플러그를 뽑아서, 플러그가 바닥에 나와 있다.
+        // 로봇 충전 독. 판에 D가 있으면 빌런 옆 그 칸에 놓이고(2026-10-31 사용자 결정), 없으면 예전처럼 콘센트 오른쪽(판 끝이면 왼쪽) 벽 아래에 놓인다.
+        // 손님이 독의 플러그를 뽑아서, 플러그가 콘센트 아래 바닥에 나와 있다.
         const outletCol = look.outletX !== undefined ? look.outletX : villain.x;
-        game.dockCols = { outlet: outletCol, dock: outletCol + 1 < LAYOUT.art.columns ? outletCol + 1 : outletCol - 1 };
+        const dockCell = level.dock || { x: outletCol + 1 < LAYOUT.art.columns ? outletCol + 1 : outletCol - 1, y: -1 };
+        game.dockAt = { outlet: outletCol, x: dockCell.x, y: dockCell.y, inBoard: Boolean(level.dock) };
         game.sprites.dock = addSprite('dock', TILE, TILE, '#9a9a9a', { round: true });
-        placeOnTile(game.sprites.dock, game.dockCols.dock, -1, TILE, TILE);
-        game.sprites.dock.style.zIndex = '1';
+        // 판 안의 독은 소품처럼 바닥 기준선을 칸 높이의 18%만큼 올려 칸 가운데에 놓는다.
+        placeOnTile(game.sprites.dock, dockCell.x, dockCell.y - (level.dock ? PROP_LIFT : 0), TILE, TILE);
+        game.sprites.dock.style.zIndex = level.dock ? String(10 + dockCell.y * 10) : '1';
         drawDockCord(false);
 
         // 빌런 그림의 크기와 아래쪽이 닿는 칸은 판마다 다르다(잠든 빌런은 테이블 칸까지 엎드려 있다). layout.js가 기준이다.
@@ -2810,17 +2815,24 @@
 
       // 충전 독의 선. 뽑힌 상태(plugged false)에서는 독에서 나온 선 끝의 플러그가 콘센트 아래 바닥에 놓여 있고,
       // 꽂힌 상태에서는 선이 콘센트까지 이어진다. 선 안쪽 색은 주인공 색이다.
+      // 판 안의 독은 선이 뒤판 옆구리(그림의 가로 30%와 70%, 세로 58% 자리)에서 나와 벽을 타고 콘센트로 간다.
       function drawDockCord(plugged) {
         const colors = THEMES[settings.theme];
         if (game.sprites.dockCord) game.sprites.dockCord.remove();
         if (game.sprites.dockPlug) game.sprites.dockPlug.remove();
         game.sprites.dockPlug = null;
-        const { outlet, dock } = game.dockCols;
-        const x1 = tileLeft(dock) + TILE / 2 + (outlet > dock ? TILE * 0.3 : -TILE * 0.3);
-        const y1 = tileTop(-1) + TILE_H * 0.8;
-        const x2 = plugged ? tileLeft(outlet) + TILE / 2 : (tileLeft(dock) + tileLeft(outlet)) / 2 + TILE / 2;
-        const y2 = plugged ? tileTop(-1) + TILE_H * 0.62 : tileTop(-1) + TILE_H * 0.95;
-        const path = `M ${x1} ${y1} Q ${(x1 + x2) / 2} ${Math.max(y1, y2) + TILE_H * 0.25} ${x2} ${y2}`;
+        const { outlet, x: dock, y: dockRow, inBoard } = game.dockAt;
+        const side = outlet > dock ? 1 : (outlet < dock ? -1 : 0);
+        const dockTop = tileTop(dockRow) + TILE_H - TILE - (inBoard ? PROP_LIFT * TILE_H : 0);
+        const x1 = tileLeft(dock) + TILE / 2 + (inBoard ? TILE * 0.2 * side : (outlet > dock ? TILE * 0.3 : -TILE * 0.3));
+        const y1 = inBoard ? dockTop + TILE * 0.58 : tileTop(-1) + TILE_H * 0.8;
+        const floorLine = tileTop(dockRow < 0 ? -1 : 0) + (dockRow < 0 ? TILE_H * 0.95 : TILE_H * 0.12);
+        const looseX = inBoard ? tileLeft(outlet) + TILE / 2 - side * TILE * 0.32 : (tileLeft(dock) + tileLeft(outlet)) / 2 + TILE / 2;
+        const x2 = plugged ? tileLeft(outlet) + TILE / 2 : looseX;
+        const y2 = plugged ? tileTop(-1) + TILE_H * 0.62 : floorLine;
+        // 벽 아래의 독은 선이 바닥으로 늘어지고, 판 안의 독은 선이 옆으로 나가다가 콘센트 쪽으로 꺾인다.
+        const bend = inBoard ? `${x2} ${y1}` : `${(x1 + x2) / 2} ${Math.max(y1, y2) + TILE_H * 0.25}`;
+        const path = `M ${x1} ${y1} Q ${bend} ${x2} ${y2}`;
         const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
         svg.setAttribute('class', 'cord');
         svg.innerHTML = `<path d="${path}" stroke="#111" stroke-width="5"></path>`
@@ -3234,7 +3246,10 @@
         ui.scene.classList.remove('cut-in');
         game.sprites.villain.classList.add('gone');
         game.sprites.cord.classList.add('gone');
+        // 1장과 3장의 빌런은 울린 진동벨을 들고 음료를 받으러 간다. 그래서 진동벨 칸을 지나는 독 길도 열린다.
+        if (game.level.goal) trigger.classList.add('gone');
         await wait(500);
+        await rollToDock();
         setArt(game.sprites.outlet, 'outlet-mine', colors.outletMine, true);
         drawDockCord(true);
         Sound.play('plug');
@@ -3247,6 +3262,104 @@
         drawDots();
         ui.nextCue.hidden = false;
         game.busy = false;
+      }
+
+      // 빌런이 떠나면 로봇이 스스로 독까지 굴러가 올라앉는다(docs/concept.md "판 안 충전 독"). 벽 아래의 독(D가 없는 판)은 하지 않는다.
+      // 걸음은 엔진의 한 걸음으로 옮겨서, 젖은 바닥을 닦는 것 같은 규칙이 판 안과 같다. 빌런은 떠났으므로 화각은 없는 것으로 보고,
+      // 1장과 3장의 빌런이 들고 간 진동벨은 판에서 뺀다. 물건을 밀지 않는 길이 있으면 그 길로 가고, 없으면 막은 물건을 밀어 비키며 간다
+      // (2장은 마지막에 민 쓰레기통이 로봇 앞을 막고 있다). 그래도 길이 없으면 로봇이 잠깐 사라졌다가 독 위에 나타난다.
+      // 독 위에서는 앞(아래)을 보고 한 번 뛴다. 판 기록(되돌리기와 걸음 수)에는 넣지 않는다.
+      const ROLL_STEP_MS = 170;
+      // 독 위의 로봇은 바닥 기준선을 칸 높이의 24%만큼 올린다. 독 원판(소품처럼 18% 올림)의 윗면에 바퀴가 얹혀 보이는 높이다.
+      const DOCK_LIFT = 0.24;
+
+      async function rollToDock() {
+        const { level } = game;
+        const dock = level.dock;
+        if (!dock) return;
+        const robot = game.sprites.player;
+        const unwatched = { ...level, view: null };
+        game.state = { ...game.state, items: game.state.items.map((item) => (level.goal && item.kind === 'buzzer' ? { ...item, gone: true } : item)) };
+        const route = dockRoute(unwatched, game.state);
+        if (!route) {
+          robot.classList.add('gone');
+          await wait(500);
+          placeOnDock();
+          robot.classList.remove('gone');
+          await wait(500);
+          return;
+        }
+        robot.style.transitionDuration = `${ROLL_STEP_MS}ms, 0.5s`;
+        for (const direction of route) {
+          const result = Engine.step(unwatched, game.state, direction);
+          game.state = result.state;
+          refreshPlayer(direction);
+          if (result.pushed !== null) Sound.play('chair', PUSH_SOUNDS[result.state.items[result.pushed].kind] || PUSH_SOUNDS.chair);
+          placeAll(game.state, result.slid, result.pushed);
+          if (result.mopped || result.slid > 0) drawWet(game.state, result.mopped ? game.state.player : null);
+          syncServed();
+          await wait(ROLL_STEP_MS + 30);
+        }
+        // 마지막 한 칸은 독 위로 올라앉는다. 독은 엔진에서 막힌 칸이라 그림만 옮긴다.
+        const last = Object.keys(Engine.DIRECTIONS).find((name) => {
+          const d = Engine.DIRECTIONS[name];
+          return game.state.player.x + d.dx === dock.x && game.state.player.y + d.dy === dock.y;
+        });
+        refreshPlayer(last);
+        placeOnTile(robot, dock.x, dock.y - DOCK_LIFT, playerWidth(), playerHeight());
+        robot.style.zIndex = String(15 + dock.y * 10);
+        await wait(ROLL_STEP_MS + 150);
+        robot.style.transitionDuration = '';
+        game.state = { ...game.state, facing: 'down' };
+        refreshPlayer('down');
+        robot.classList.remove('hop');
+        void robot.offsetWidth;
+        robot.classList.add('hop');
+        await wait(250);
+      }
+
+      // 판을 깬 뒤 로봇이 독 옆 칸까지 갈 걸음(방향 목록). 물건을 밀지 않는 길을 먼저 찾고, 없으면 물건을 미는 길을 찾는다.
+      // 판이 넓어도 멈추지 않게 상태 2만 개까지만 본다. 둘 다 없으면 null이다.
+      function dockRoute(level, start) {
+        const dock = level.dock;
+        const besideDock = (state) => Math.abs(state.player.x - dock.x) + Math.abs(state.player.y - dock.y) === 1;
+        for (const mayPush of [false, true]) {
+          const seen = new Set([Engine.stateKey(start)]);
+          const queue = [{ state: start, route: [] }];
+          for (let head = 0; head < queue.length && seen.size < 20000; head += 1) {
+            const { state, route } = queue[head];
+            if (besideDock(state)) return route;
+            for (const direction of Object.keys(Engine.DIRECTIONS)) {
+              const result = Engine.step(level, state, direction);
+              if (!result.moved || (!mayPush && result.pushed !== null)) continue;
+              const key = Engine.stateKey(result.state);
+              if (seen.has(key)) continue;
+              seen.add(key);
+              queue.push({ state: result.state, route: [...route, direction] });
+            }
+          }
+        }
+        return null;
+      }
+
+      function placeOnDock() {
+        const dock = game.level.dock;
+        game.state = { ...game.state, facing: 'down' };
+        refreshPlayer('down');
+        placeOnTile(game.sprites.player, dock.x, dock.y - DOCK_LIFT, playerWidth(), playerHeight());
+        game.sprites.player.style.zIndex = String(15 + dock.y * 10);
+      }
+
+      // 판을 깬 장면을 연출 없이 바로 보여 준다(판을 깬 뒤 테마를 바꿔 장면을 다시 그렸을 때).
+      function showWonScene() {
+        game.sprites.villain.classList.add('gone');
+        game.sprites.cord.classList.add('gone');
+        if (game.level.goal) game.sprites.items[game.state.items.findIndex((item) => item.kind === 'buzzer')].classList.add('gone');
+        if (game.level.dock) placeOnDock();
+        setArt(game.sprites.outlet, 'outlet-mine', THEMES[settings.theme].outletMine, true);
+        drawDockCord(true);
+        ui.battery.classList.add('full');
+        ui.nextCue.hidden = false;
       }
 
       // 레벨을 깬 뒤에는 아무 키나 누르거나 화면을 누르면 다음 레벨로 간다. 마지막 레벨 다음은 엔딩 카드다.
@@ -3840,14 +3953,7 @@
           return;
         }
         draw();
-        if (game.won) {
-          game.sprites.villain.classList.add('gone');
-          game.sprites.cord.classList.add('gone');
-          setArt(game.sprites.outlet, 'outlet-mine', THEMES[settings.theme].outletMine, true);
-          drawDockCord(true);
-          ui.battery.classList.add('full');
-          ui.nextCue.hidden = false;
-        }
+        if (game.won) showWonScene();
       }));
       [['setBrightness', 'brightness'], ['setMaster', 'master'], ['setMusic', 'music'], ['setSfx', 'sfx']].forEach(([element, name]) => {
         ui[element].addEventListener('input', () => {

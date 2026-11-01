@@ -21,9 +21,11 @@
 // 플레이 영역 둘레만 막고 닿을 수 없는 나머지는 바닥으로 두며, 플레이 영역 안의 외딴 한 칸은 소품으로 막는다. 그림이 오기 전에는 상자로 보인다.
 // demo는 그 레벨에서 처음 나오는 기믹을 반투명한 주인공이 한 번 시연할 자리다(kind: push는 물건 밀기, view는 화각에 들어갔다 되돌아오기,
 // slide는 젖은 바닥에서 미끄러지기, serve는 음료 건네기).
-// interior가 true인 레벨은 가구 없는 배경(bg-이름-empty) 위에 테이블, 화분, 손님을 모두 소품으로 얹는다(2026-10-31 시험, 지금은 1-4만).
+// interior가 true인 레벨은 가구 없는 배경(bg-이름-empty) 위에 테이블, 화분, 손님을 모두 소품으로 얹는다(2026-10-31 시험, 지금은 1장과 3장. 2장은 빈 배경을 받으면 바꾼다).
 // interior 레벨에서는 위 규칙과 달리, 판에 필요 없는 칸(닿을 수 없는 바닥, 구석을 메우던 손님과 소품)을 벽(#)으로 채운다(2026-11-01 사용자 결정).
 // 벽 높이와 자리는 회색 상자 목업으로 확인받은 뒤 지도에 넣는다(docs/concept.md "2026-11-01 결정"). 판 밖은 배경의 벽과 맞닿아 있어 벽으로 이어 본다.
+// D는 로봇의 충전 독이다. 빌런 자리 옆 칸에 두고, 판을 깨기 전에는 화분처럼 막힌 칸이며, 빌런이 떠나면 로봇이 스스로 굴러가 올라앉는다(2026-10-31 사용자 결정).
+// 독은 원래 막힌 칸(화분 L이나 소품 q)이던 자리에 놓아 판의 풀이가 바뀌지 않게 한다. D가 없는 판은 예전처럼 콘센트 옆 벽 아래에 독을 그린다.
 // decor는 구석을 꾸미는 카페 가구다. 그 칸들은 지도에서 q로 막고, (x, y)부터 가로 w칸에 높이 h칸(칸 높이 배수)짜리 그림 하나를 놓는다.
 // w는 젖은 바닥, 1 2 3은 음료, A B C는 그 음료를 기다리며 서 있는 손님이다(engine.js 머리말 9~12번 규칙). 1장 레벨 3~5는 젖은 바닥, 2장 레벨 4~5는 음료 배달을 쓴다(2026-10-31 사용자 결정).
 //
@@ -89,7 +91,7 @@ window.VILLAIN_LAYOUT = {
       "pushes": 5,
       "demo": { "kind": "push", "from": { "x": 4, "y": 2 }, "dir": "right" },
       "map": [
-        "#####NLq#LV#",
+        "#####NLq#DV#",
         "####NooNL*TN",
         "#NNqPb....No",
         "NTTNNNNN..No",
@@ -112,7 +114,7 @@ window.VILLAIN_LAYOUT = {
       "optimal": 7,
       "pushes": 6,
       "map": [
-        "#####NLq#LV#",
+        "#####NLq#DV#",
         "####NooNL*TN",
         "#NNqPb....No",
         "NTTNNNNNc.No",
@@ -136,7 +138,7 @@ window.VILLAIN_LAYOUT = {
       "pushes": 1,
       "demo": { "kind": "slide", "from": { "x": 9, "y": 6 }, "dir": "up" },
       "map": [
-        "#####NLq#LV#",
+        "#####NLq#DV#",
         "####NooNL*TN",
         "#NNqNooNqwNo",
         "NTTNNooNNwNo",
@@ -157,7 +159,7 @@ window.VILLAIN_LAYOUT = {
       "optimal": 24,
       "pushes": 6,
       "map": [
-        "#####NLq#LV#",
+        "#####NLq#DV#",
         "####NooNL*TN",
         "#NNqNooNqwNo",
         "NTTPbwwwwwwN",
@@ -181,7 +183,7 @@ window.VILLAIN_LAYOUT = {
       "pushes": 5,
       "chairNeeded": true,
       "map": [
-        "#####NLq#LV#",
+        "#####NLq#DV#",
         "####NooNL*TN",
         "#NNqNooNqwNo",
         "NTT.bwcwwwwN",
@@ -205,7 +207,7 @@ window.VILLAIN_LAYOUT = {
       "view": { "dir": "down", "width": 3 },
       "map": [
         "....LTL.....",
-        "L...qVq...L.",
+        "L...qVD...L.",
         "..oN...Nooo.",
         "..oN...qNNN.",
         "..oN...t...o",
@@ -224,7 +226,7 @@ window.VILLAIN_LAYOUT = {
       "demo": { "kind": "view", "from": { "x": 3, "y": 2 }, "dir": "right" },
       "map": [
         "....LTLoo...",
-        "L..oNVqNN.L.",
+        "L..oNVDNN.L.",
         "..o......No.",
         ".qN.ccc..No.",
         "o.....t...No",
@@ -242,7 +244,7 @@ window.VILLAIN_LAYOUT = {
       "view": { "dir": "down", "width": 3 },
       "map": [
         "....LTL.oo..",
-        "LoooNVq.NNL.",
+        "LoooNVD.NNL.",
         ".NNNc..q..q.",
         "o....c..q..o",
         "N.toc......N",
@@ -261,7 +263,7 @@ window.VILLAIN_LAYOUT = {
       "demo": { "kind": "serve", "from": { "x": 3, "y": 4 }, "dir": "right" },
       "map": [
         "....LTL.oo..",
-        "L..oNVqNN.L.",
+        "L..oNVDNN.L.",
         "..oN...Nooo.",
         "..oNqAqNNN..",
         "N...1.qNNNNo",
@@ -299,7 +301,7 @@ window.VILLAIN_LAYOUT = {
       "pushes": 10,
       "view": { "dir": "down", "width": 3 },
       "map": [
-        "##ooooLL#LV#",
+        "##ooooLL#DV#",
         "##NNNN.oL*T#",
         "#N....qF..N#",
         "#TT..t.....o",
@@ -319,7 +321,7 @@ window.VILLAIN_LAYOUT = {
       "pushes": 13,
       "view": { "dir": "down", "width": 3 },
       "map": [
-        "##ooooLL#LV#",
+        "##ooooLL#DV#",
         "##NNNN.oL*T#",
         "#N....qF..N#",
         "#TT......t.o",
@@ -339,7 +341,7 @@ window.VILLAIN_LAYOUT = {
       "pushes": 25,
       "view": { "dir": "down", "width": 3 },
       "map": [
-        "##ooooLL#LV#",
+        "##ooooLL#DV#",
         "##NNNN.oL*T#",
         "#N....qF..N#",
         "#TT.....q..o",

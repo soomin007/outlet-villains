@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <title>자동 플레이 검사</title>
 <!--
-  모든 판을 실제 게임 화면에서 해법 탐색기의 최단 풀이대로 눌러 보고, 판을 깬 것으로 저장되는지 확인한다(2026-11-01).
+  모든 판을 실제 게임 화면에서 해법 탐색기의 최단 풀이대로 눌러 보고, 판을 깬 것으로 저장되는지와 로봇이 충전 독에 올라앉는지 확인한다(2026-11-01).
   tools/verify.html은 규칙만 풀어 보므로, 화면 코드(그리기, 연출, 입력)가 판을 깨지 못하게 막는 문제는 이것으로 찾는다.
-  headless Chrome에서 --dump-dom과 --virtual-time-budget=400000으로 돌리면 결과 줄(PASS 또는 FAIL)이 #out에 남는다. ?levels=0,3처럼 몇 판만 고를 수 있다.
+  headless Chrome에서 --dump-dom과 --virtual-time-budget=600000으로 돌리면 결과 줄(PASS 또는 FAIL)이 #out에 남는다. ?levels=0,3처럼 몇 판만 고를 수 있다.
 -->
 <style>
   body { margin: 0; background: #111; color: #eee; font: 14px monospace; }
@@ -53,9 +53,12 @@
     await wait(1000);
     // 연출 중(촬영자가 떠날 때 같은)에 누른 키는 연출 건너뛰기로 쓰이고 걸음이 되지 않는다. 그래서 로봇이 실제로 움직였는지 보고, 안 움직였으면 다시 누른다.
     // 최단 풀이의 걸음은 모두 로봇을 옮기므로(밀기도 로봇이 한 칸 나아간다) 이 확인이 맞다.
+    const spriteOf = (pattern) => {
+      const image = [...frame.contentDocument.querySelectorAll('#scene img')].find((element) => pattern.test(element.getAttribute('src') || ''));
+      return image && image.closest('.sprite');
+    };
     const robotSpot = () => {
-      const image = [...frame.contentDocument.querySelectorAll('#scene img')].find((element) => /player-/.test(element.getAttribute('src') || ''));
-      const sprite = image && image.closest('.sprite');
+      const sprite = spriteOf(/player-/);
       return sprite ? sprite.style.transform : '';
     };
     for (const direction of path) {
@@ -71,7 +74,19 @@
     await wait(9000);
     const after = JSON.parse(frame.contentWindow.localStorage.getItem(STORAGE_KEY) || '{}');
     const cleared = (after.cleared || []).includes(definition.id);
-    return `${cleared ? 'PASS' : 'FAIL'} ${definition.id} (${path.length}걸음)`;
+    // 판 안에 충전 독(D)이 있는 판은 깬 뒤 로봇이 독 위에 올라앉았는지도 본다. 그림의 가로 가운데가 같고, 바닥선 차이가 칸의 20% 안이면 독 위다.
+    const bottomCenter = (sprite) => {
+      const match = /translate\(([-\d.]+)px, ([-\d.]+)px\)/.exec(sprite.style.transform);
+      return { x: Number(match[1]) + sprite.offsetWidth / 2, bottom: Number(match[2]) + sprite.offsetHeight };
+    };
+    let docked = true;
+    if (definition.map.some((line) => line.includes('D'))) {
+      const dock = spriteOf(/\/dock\./);
+      const robot = bottomCenter(spriteOf(/player-/));
+      const seat = bottomCenter(dock);
+      docked = Math.abs(robot.x - seat.x) < 1 && Math.abs(robot.bottom - seat.bottom) < dock.offsetHeight * 0.2;
+    }
+    return `${cleared && docked ? 'PASS' : 'FAIL'} ${definition.id} (${path.length}걸음${docked ? '' : ', 로봇이 독 위에 없음'})`;
   }
 
   (async () => {
