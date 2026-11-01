@@ -121,7 +121,7 @@
 ## 파일 구조
 
 - 게임: `index.html`(화면, 입력, 연출, 소리, 테마), `src/engine.js`(규칙과 해법 탐색), `src/layout.js`(배치 숫자와 판 지도)
-- 그림: `assets/a/`, `assets/b/`(테마별 그림), `assets/manifest.js`(등록), `assets/bg-grid.js`(배경마다 잰 격자), `assets/generation.json`(생성 기록), `assets/style-test/`(그림체 시험)
+- 그림: `assets/a/`(흑백 그림, 카툰 B는 2026-11-02에 지움), `assets/manifest.js`(등록), `assets/bg-grid.js`(배경마다 잰 격자), `assets/generation.json`(생성 기록), `assets/style-test/`(그림체 시험)
 - 소리: `assets/audio/`
 - 도구: `tools/verify.html`(판마다 최소 걸음 수와 시작 상태 검증), `tools/make-guide.py`(배치 안내 그림 만들기)
 - 문서: `docs/art-rules.md`(그림 결정, 손님 구성, 의뢰서 양식, 받은 그림 검사), `docs/concept.md`(콘셉트, 판, 화면 결정, 그림 의뢰 기록, Suno 프롬프트),

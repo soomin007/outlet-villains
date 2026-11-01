@@ -8,7 +8,7 @@ Claude Code용 규칙은 `CLAUDE.md`에 있고, 누가 무엇을 맡는지와 �
 이 프로젝트에서 Codex는 그림을 만들고, 요청을 받으면 저장소를 검토한다. 게임 규칙, 판, 화면 코드, 설계 문서는 Claude Code가 맡는다.
 
 Codex는 Claude Code가 작업 중인지 묻지 않고 바로 일한다. 대신 맡은 파일만 고친다. Codex가 고치는 파일은 다음뿐이다.
-그림 파일(`assets/a/`, `assets/b/`, `assets/style-test/` 아래 PNG), 그림 등록 파일(`assets/manifest.js`), 배경 격자 파일(`assets/bg-grid.js`),
+그림 파일(`assets/a/`, `assets/style-test/` 아래 PNG), 그림 등록 파일(`assets/manifest.js`), 배경 격자 파일(`assets/bg-grid.js`),
 생성 기록(`assets/generation.json`), Codex 세션 로그(`session_logs/YYYY-MM-DD-codex.md`). 그 밖의 파일은 Claude Code가 고치므로 손대지 않고,
 고쳐야 할 것 같으면 세션 로그에 적는다.
 

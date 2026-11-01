@@ -6,14 +6,5 @@
 window.VILLAIN_BG_GRID = {
   a: {
     'bg-sleeper-empty': { left: 371, top: 178.5, right: 1550, bottom: 876 },
-    'bg-sleeper': { left: 371, top: 178.5, right: 1548, bottom: 875 },
-    'bg-streamer': { left: 372, top: 178.5, right: 1547, bottom: 875 },
-    'bg-encore': { left: 372, top: 178, right: 1547, bottom: 877 },
-  },
-  b: {
-    'bg-sleeper-empty': { left: 372, top: 177.5, right: 1547, bottom: 875 },
-    'bg-sleeper': { left: 371, top: 178, right: 1547, bottom: 875 },
-    'bg-streamer': { left: 372, top: 177.5, right: 1547, bottom: 875 },
-    'bg-encore': { left: 372, top: 177.5, right: 1547, bottom: 875 },
   },
 };

@@ -5,7 +5,7 @@
 <title>의뢰 안내 그림</title>
 <!--
   Codex 의뢰에 붙이는 안내 그림을 만드는 페이지(docs/art-rules.md "의뢰서 양식" 6번). ?part=이름으로 고른다.
-  의뢰 10: streamer(bg-streamer.webp 위에 지울 것은 빨강, 남길 것은 파랑), standing(서 있는 손님 크기 라인업).
+  의뢰 10: standing(서 있는 손님 크기 라인업). streamer(2장 빈 배경 안내)는 2장이 같은 빈 배경을 쓰게 되어 bg-streamer와 함께 지웠고, 만든 그림만 docs/layout-guide/request-streamer-empty.png에 남았다.
   의뢰 11(2026-11-01): caller(화상 회의 손님 후보의 크기와 색 기준 라인업), sleeper(잠든 카공족 게임 그림의 고칠 곳과 칸 경계),
   story1(프롤로그 1컷의 고칠 곳 덧그림).
 -->
@@ -37,14 +37,6 @@
   // 칸은 그림 좌표 96px이고 판의 왼쪽 위는 bg-grid.js의 streamer 값(372, 178.5), 칸 크기는 (1547 - 372) / 12 x (875 - 178.5) / 7이다.
   const GRID = { left: 372, top: 178.5, w: (1547 - 372) / 12, h: (875 - 178.5) / 7 };
   const cell = (x, y, w = 1, h = 1) => `left:${GRID.left + x * GRID.w}px; top:${GRID.top + y * GRID.h}px; width:${w * GRID.w}px; height:${h * GRID.h}px`;
-
-  if (part === 'streamer') {
-    const removes = [[4, 0], [6, 0], [0, 1], [10, 1]];
-    root.innerHTML = `<div class="wrap"><img src="../assets/a/bg-streamer.webp" alt="">` +
-      removes.map(([x, y]) => `<div class="mark remove" style="${cell(x, y)}"><span>지우기(화분)</span></div>`).join('') +
-      `<div class="mark keep" style="${cell(5, 0, 1, 2)}"><span>남기기(촬영자 책상, 링 조명, 의자)</span></div>` +
-      `<div class="note">빨간 상자의 화분 네 개만 지우고, 그 자리를 주변과 같은 바닥 타일로 채운다. 파란 상자와 벽, 창, 조명, 타일 줄은 픽셀 하나 움직이지 않는다(격자 값이 bg-streamer와 같아야 한다).</div></div>`;
-  }
 
   if (part === 'standing') {
     const line = (y, color, text) => `<div class="line" style="top:${y}px; border-color:${color}; color:${color}"><span style="position:absolute; right:2px; top:-15px; background:#fff">${text}</span></div>`;

@@ -1636,14 +1636,6 @@
         </div>
       </div>
       <div id="pane-graphics" class="tab-pane" role="tabpanel" data-pane="graphics" hidden>
-        <!-- 그림체는 흑백 한 벌만 쓴다(2026-10-31 사용자 결정). 카툰 그림과 코드를 정리할 때 이 줄도 지운다. -->
-        <div class="row" hidden>
-          <span>그림체</span>
-          <div class="seg">
-            <button type="button" data-theme="a">흑백</button>
-            <button type="button" data-theme="b">카툰</button>
-          </div>
-        </div>
         <label class="row"><span>화면 밝기</span><input id="set-brightness" type="range" min="60" max="140" step="5"></label>
         <div class="row toggle-row"><span>칸 격자 보기</span><button type="button" class="toggle" data-setting="showGrid"></button></div>
         <div class="row toggle-row"><span>화면 흔들림</span><button type="button" class="toggle" data-setting="screenShake"></button></div>
@@ -1718,9 +1710,6 @@
         a: { floor: '#e6e6e2', grid: '#b8b8b4', wall: '#3a3a3a', side: '#5a5a5a', table: '#9a9a9a', plant: '#6f6f6f',
           player: '#c8302a', item: '#2f7a54', villain: '#cfcfcf', outletTheirs: '#9a9a9a', outletMine: '#c8302a', customer: '#b8b8b4',
           wet: 'rgba(70, 70, 70, 0.38)', wetEdge: 'rgba(255, 255, 255, 0.55)' },
-        b: { floor: '#e8d6b4', grid: '#d2bd96', wall: '#c99a6b', side: '#b98f68', table: '#a9805c', plant: '#7f9a72',
-          player: '#7fd3b8', item: '#e8833a', villain: '#2f5e4a', outletTheirs: '#2f5e4a', outletMine: '#7fd3b8', customer: '#c9b79c',
-          wet: 'rgba(120, 185, 225, 0.55)', wetEdge: 'rgba(255, 255, 255, 0.7)' },
       };
 
       const ui = {
@@ -1779,7 +1768,7 @@
       };
 
       const settings = loadSettings();
-      // 그림체는 흑백 한 벌만 쓴다(2026-10-31 사용자 결정). 예전에 카툰을 골라 저장한 사람도 흑백으로 연다.
+      // 그림체는 흑백 한 벌만 쓴다(2026-10-31 사용자 결정). 카툰 그림은 2026-11-02에 지웠고, 예전에 카툰을 골라 저장한 사람도 흑백으로 연다.
       settings.theme = 'a';
       if (settings.music === 80 && settings.sfx === 80) {
         settings.music = 60;
