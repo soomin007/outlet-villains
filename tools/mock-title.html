@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>메인 화면 목업</title>
+<!--
+  메인 화면 세 층의 회색 상자 목업(2026-11-01 결정, docs/concept.md). 게임 코드(index.html)는 건드리지 않는다.
+  화면 폭 600px 이상이면 1920 x 1080 판, 그보다 좁으면 375 x 812 판을 화면에 맞춰 줄여 보여 준다.
+  주소 끝에 #b를 붙이면 로고 끝 느낌표를 흰 느낌표로 바꾼 모습을 보여 준다(#a나 없음은 지금의 빨간 배터리 느낌표).
+  상자 크기는 지금 메인 화면에서 잰 값이다. 로봇 394 x 480px, 로고 그림 1120 x 640px(그려진 곳 56~1063, 53~586), 버튼 묶음 230 x 222px, 빌런 도감 줄 404 x 137px.
+-->
+<style>
+  :root {
+    --wall: #6f6f6f;
+    --floor: #d9d9d9;
+    --cupboard: #4a4a4a;
+    --box: #9a9a9a;
+    --ink: #1b1b1b;
+    --red: #c8302a;
+  }
+  html, body { margin: 0; height: 100%; background: #222; overflow: hidden; font-family: system-ui, sans-serif; }
+  .board { position: absolute; left: 0; top: 0; transform-origin: 0 0; background: var(--floor); overflow: hidden; }
+  .desk { width: 1920px; height: 1080px; }
+  .phone { width: 375px; height: 812px; display: none; }
+  @media (max-width: 599px) {
+    .desk { display: none; }
+    .phone { display: block; }
+  }
+  .band { position: absolute; left: 0; right: 0; }
+  .band.wall {
+    background: repeating-linear-gradient(90deg, var(--wall) 0 120px, #7d7d7d 120px 240px);
+    animation: flow 72s linear infinite;
+  }
+  .band.cupboard {
+    background: repeating-linear-gradient(90deg, var(--cupboard) 0 90px, #5a5a5a 90px 180px);
+    animation: flow 24s linear infinite;
+  }
+  .band.floor { background: var(--floor); }
+  @keyframes flow { from { background-position: 0 0; } to { background-position: -1920px 0; } }
+  .label { position: absolute; font-size: 22px; color: #fff; background: rgba(0, 0, 0, 0.55); padding: 4px 10px; border-radius: 4px; white-space: nowrap; }
+  .floor .label { color: var(--ink); background: rgba(255, 255, 255, 0.7); }
+  .phone .label { font-size: 11px; padding: 2px 6px; }
+  .box { position: absolute; background: var(--box); border: 2px dashed #555; box-sizing: border-box; display: grid; place-items: center; text-align: center; color: var(--ink); font-size: 20px; }
+  .phone .box { font-size: 11px; }
+
+  /* 로고 받침. 안쪽 여백은 로고 높이의 8%(위아래)와 로고 폭의 6%(좌우), 빨간 테두리는 받침 높이의 4%, 모서리는 받침 높이의 12%, 단자는 받침 폭의 5%와 높이의 40%다. */
+  .badge { position: absolute; box-sizing: border-box; background: #111; border: solid var(--red); }
+  .badge::after { content: ''; position: absolute; left: 100%; top: 30%; height: 40%; width: var(--nub); background: var(--red); border-radius: 0 6px 6px 0; }
+  .badge .logo { position: absolute; overflow: hidden; }
+  .badge .logo img { display: block; height: 100%; }
+  .badge .bang { position: absolute; color: #fff; font-weight: 900; display: none; line-height: 1; }
+  .variant-b .badge .bang { display: block; }
+</style>
+</head>
+<body>
+  <div class="board desk" id="desk">
+    <div class="band wall" style="top: 0; height: 380px;"><span class="label" style="left: 24px; top: 20px;">위 층 0~380px (35%) 옆에서 본 카페 벽과 창, 지금 띠 속도의 0.5배(한 바퀴 72초)</span></div>
+    <div class="band floor" style="top: 380px; height: 540px;"><span class="label" style="left: 24px; top: 8px;">가운데 층 380~920px (50%) 멈춘 바닥</span></div>
+    <div class="band cupboard" style="top: 920px; height: 160px;"><span class="label" style="left: 24px; top: 20px;">아래 층 920~1080px (15%) 찬장과 카운터, 지금 띠 속도의 1.5배(한 바퀴 24초)</span></div>
+    <!-- 2차 배치(2026-11-01 사용자). 좌우 여백 약 13%(x 260~1680), 로고는 화면 가운데(960)보다 조금 오른쪽(받침 가운데 1000),
+         버튼 넷은 340 x 80씩(지금 230 x 약 48)으로 크게, 빌런 도감 줄은 1.3배(525 x 178). 세로 가운데 맞춤은 하지 않는다. -->
+    <div class="box" style="left: 260px; top: 420px; width: 394px; height: 480px;">로봇 394 x 480<br>바닥선 y 900<br>처진 눈, 얼굴 30도</div>
+    <div class="badge" data-logo-width="480" style="left: 731px; top: 400px;"></div>
+    <div class="box" style="left: 740px; top: 734px; width: 525px; height: 178px;">빌런 도감 줄 525 x 178 (1.3배)</div>
+    <div class="box" style="left: 1340px; top: 420px; width: 340px; height: 80px;">이어하기 340 x 80, 글자 32px</div>
+    <div class="box" style="left: 1340px; top: 520px; width: 340px; height: 80px;">처음부터</div>
+    <div class="box" style="left: 1340px; top: 620px; width: 340px; height: 80px;">설정</div>
+    <div class="box" style="left: 1340px; top: 720px; width: 340px; height: 80px;">만든 사람들</div>
+    <div class="box" style="left: 1180px; top: 150px; width: 200px; height: 200px; background: rgba(123, 79, 176, 0.5);">이스터에그<br>지나간 빌런, 충전 독<br>위 층과 함께 흐름</div>
+  </div>
+
+  <div class="board phone" id="phone">
+    <div class="band wall" style="top: 0; height: 96px;"><span class="label" style="left: 8px; top: 8px;">위 0~96px (12%) 0.5배</span></div>
+    <div class="band floor" style="top: 96px; height: 660px;"></div>
+    <div class="band cupboard" style="top: 756px; height: 56px;"><span class="label" style="left: 8px; top: 8px;">아래 756~812px (7%) 1.5배</span></div>
+    <div class="box" style="left: 290px; top: 30px; width: 60px; height: 60px; background: rgba(123, 79, 176, 0.5);">이스터에그</div>
+    <div class="box" style="left: 131px; top: 102px; width: 112px; height: 120px;">로봇 112 x 120</div>
+    <div class="badge" data-logo-width="250" style="left: 41px; top: 230px;"></div>
+    <div class="box" style="left: 38px; top: 406px; width: 300px; height: 52px;">이어하기 300 x 52, 글자 20px</div>
+    <div class="box" style="left: 38px; top: 466px; width: 300px; height: 52px;">처음부터</div>
+    <div class="box" style="left: 38px; top: 526px; width: 300px; height: 52px;">설정</div>
+    <div class="box" style="left: 38px; top: 586px; width: 300px; height: 52px;">만든 사람들</div>
+    <div class="box" style="left: 28px; top: 648px; width: 320px; height: 96px;">빌런 도감 줄 320 x 96</div>
+    <span class="label" style="left: 8px; top: 100px; color: #1b1b1b; background: rgba(255,255,255,0.7);">가운데 96~756px</span>
+  </div>
+
+<script>
+  // 로고 그림은 1120 x 640px이고, 빨간 배터리 느낌표는 x 976~1048에 있다(검은 테두리 포함 약 x 950부터).
+  const LOGO = { width: 1120, height: 640, bangLeft: 950 };
+
+  function buildBadge(badge) {
+    const logoWidth = Number(badge.dataset.logoWidth);
+    const logoHeight = logoWidth * LOGO.height / LOGO.width;
+    const padX = logoWidth * 0.06;
+    const padY = logoHeight * 0.08;
+    const badgeHeight = logoHeight + padY * 2;
+    const border = Math.max(3, badgeHeight * 0.04);
+    const badgeWidth = logoWidth + padX * 2;
+    badge.style.width = `${badgeWidth}px`;
+    badge.style.height = `${badgeHeight}px`;
+    badge.style.borderWidth = `${border}px`;
+    badge.style.borderRadius = `${badgeHeight * 0.12}px`;
+    badge.style.setProperty('--nub', `${badgeWidth * 0.05}px`);
+    const variantB = location.hash === '#b';
+    const visibleWidth = variantB ? logoWidth * LOGO.bangLeft / LOGO.width : logoWidth;
+    badge.innerHTML = `<div class="logo" style="left:${padX - border}px; top:${padY - border}px; width:${visibleWidth}px; height:${logoHeight}px;">` +
+      `<img src="../assets/a/title-logo.webp" alt=""></div>` +
+      `<div class="bang" style="left:${padX - border + visibleWidth}px; top:${padY - border + logoHeight * 0.47}px; font-size:${logoHeight * 0.36}px;">!</div>`;
+    const label = document.createElement('span');
+    label.className = 'label';
+    label.style.cssText = `right: 0; bottom: calc(100% + 6px); color: #1b1b1b; background: rgba(255,255,255,0.7);`;
+    label.textContent = `로고 받침 ${Math.round(badgeWidth)} x ${Math.round(badgeHeight)}, 테두리 ${border.toFixed(1)}px, 느낌표 ${variantB ? 'B 흰 느낌표' : 'A 빨간 배터리'}`;
+    if (badge.closest('.desk')) badge.appendChild(label);
+  }
+
+  function fit() {
+    for (const board of document.querySelectorAll('.board')) {
+      const w = board.offsetWidth;
+      const h = board.offsetHeight;
+      if (!w) continue;
+      const scale = Math.min(innerWidth / w, innerHeight / h);
+      board.style.transform = `scale(${scale})`;
+    }
+  }
+
+  function render() {
+    document.body.classList.toggle('variant-b', location.hash === '#b');
+    document.querySelectorAll('.badge').forEach(buildBadge);
+    fit();
+  }
+
+  addEventListener('resize', fit);
+  addEventListener('hashchange', render);
+  render();
+</script>
+</body>
+</html>

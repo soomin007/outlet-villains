@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>실내 벽 목업</title>
+<!--
+  실내 판의 구석을 벽(#)으로 채우는 회색 상자 목업(2026-11-01 결정, docs/concept.md). 게임 코드와 지도는 건드리지 않고 src/layout.js를 읽기만 한다.
+  주소 끝에 ?level=sleeper-4 처럼 레벨 id를 주면 그 판을 그린다(없으면 1-4).
+  칸은 네 가지로 나눈다. 로봇이 닿는 바닥, 반드시 벽(닿을 수 없는 바닥), 벽 후보(닿는 칸과 대각선으로도 붙지 않고 탁자와 빌런에도 붙지 않은 채움 손님과 소품), 그대로 두는 칸.
+  벽은 기둥처럼 윗칸을 가리므로, 벽 높이를 칸 높이의 0.5배와 1배로 나란히 그려 로봇이 걷는 칸을 몇 칸 가리는지 센다.
+-->
+<style>
+  :root { --tile: 56px; }
+  body { margin: 0; padding: 16px; background: #f4f4f4; color: #1b1b1b; font-family: system-ui, sans-serif; }
+  h1 { font-size: 20px; margin: 0 0 8px; }
+  p { margin: 4px 0; font-size: 14px; }
+  .row { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 12px; }
+  .panel h2 { font-size: 16px; margin: 0 0 6px; }
+  /* 맨 윗줄 가구(책장 1.5배)의 윗면이 칸 하나 반만큼 위로 올라가므로 그만큼 띄운다. */
+  .grid { position: relative; background: #bdbdbd; margin-top: calc(var(--tile) * 1.5); }
+  .cell { position: absolute; width: var(--tile); height: var(--tile); box-sizing: border-box; border: 1px solid rgba(0, 0, 0, 0.12);
+    display: grid; place-items: center; font: 600 14px system-ui, sans-serif; }
+  .walk { background: #f7f7f7; }
+  .keep { background: #c9c9c9; color: #444; }
+  .table { background: #9c8f80; color: #fff; }
+  .villain { background: #7b4fb0; color: #fff; }
+  .wall-face { position: absolute; width: var(--tile); background: #555; }
+  .wall-top { position: absolute; width: var(--tile); background: #2b2b2b; }
+  .wall-top.maybe { background: repeating-linear-gradient(45deg, #2b2b2b 0 6px, #4a4a4a 6px 12px); }
+  .covered { position: absolute; width: var(--tile); background: rgba(220, 40, 30, 0.45); outline: 2px solid #c8302a; outline-offset: -2px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 13px; margin-top: 8px; }
+  .legend span::before { content: ''; display: inline-block; width: 14px; height: 14px; margin-right: 4px; vertical-align: -2px; background: var(--c); }
+</style>
+</head>
+<body>
+  <h1 id="title">실내 벽 목업</h1>
+  <p id="counts"></p>
+  <div class="legend">
+    <span style="--c: #f7f7f7">로봇이 닿는 바닥</span>
+    <span style="--c: #2b2b2b">반드시 벽(닿을 수 없는 바닥)</span>
+    <span style="--c: repeating-linear-gradient(45deg, #2b2b2b 0 6px, #4a4a4a 6px 12px)">벽 후보(채움 손님과 소품)</span>
+    <span style="--c: #b3a28c">벽 후보 자리의 카페 가구(윗면)</span>
+    <span style="--c: #555">벽 앞면</span>
+    <span style="--c: rgba(220, 40, 30, 0.45)">벽 윗면이 가리는 걷는 칸</span>
+  </div>
+  <div class="row" id="panels"></div>
+
+<script src="../src/layout.js"></script>
+<script>
+  const LAYOUT = window.VILLAIN_LAYOUT;
+  const TILE = 56;
+  // 벽 후보 자리는 벽 대신 카페 가구로 꾸민다(2026-11-01 사용자: "카페 느낌이기만 하면 돼"). 높이는 칸 높이 배수(1배 약 113cm)다.
+  // 맨 아래 줄 가구는 바로 위 손님을 가리지 않게 낮게(0.5배), 맨 윗줄 책장은 위가 판 밖 벽이라 높게(1.5배) 둔다.
+  const DECOR = {
+    'sleeper-4': {
+      '7,0': { name: '책장', height: 1.5 },
+      '0,6': { name: '셀프바', height: 0.5 },
+      '1,6': { name: '셀프바', height: 0.5 },
+      '2,6': { name: '셀프바', height: 0.5 },
+      '11,6': { name: '반납대', height: 0.5 },
+    },
+  };
+  const WALL_HEIGHT = 0.5;
+  // engine.js에서 막힌 칸으로 보는 기호(# T L N o q)와 빌런 자리 V.
+  const BLOCKED = '#TLNoqV';
+  const level = LAYOUT.levels.find((item) => item.id === (new URLSearchParams(location.search).get('level') || 'sleeper-4'));
+  const map = level.map;
+  const at = (x, y) => (map[y] || '')[x] || '#';
+
+  // 시작 자리(P)에서 걸어서 닿는 칸. 밀 수 있는 물건과 젖은 바닥, 목표 자리는 바닥으로 본다.
+  function walkable() {
+    let start = null;
+    map.forEach((row, y) => [...row].forEach((char, x) => { if (char === 'P') start = { x, y }; }));
+    const cells = new Set([`${start.x},${start.y}`]);
+    const queue = [start];
+    while (queue.length > 0) {
+      const { x, y } = queue.shift();
+      for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
+        const key = `${x + dx},${y + dy}`;
+        if (cells.has(key) || BLOCKED.includes(at(x + dx, y + dy)) || y + dy < 0 || y + dy >= map.length) continue;
+        cells.add(key);
+        queue.push({ x: x + dx, y: y + dy });
+      }
+    }
+    return cells;
+  }
+
+  const walk = walkable();
+  const near = (x, y, test, diagonal) => {
+    for (let dy = -1; dy <= 1; dy++) {
+      for (let dx = -1; dx <= 1; dx++) {
+        if ((dx === 0 && dy === 0) || (!diagonal && dx !== 0 && dy !== 0)) continue;
+        if (test(x + dx, y + dy)) return true;
+      }
+    }
+    return false;
+  };
+
+  // 칸 종류: walk, wall(반드시), maybe(후보), keep.
+  function kind(x, y) {
+    const char = at(x, y);
+    if (walk.has(`${x},${y}`)) return 'walk';
+    if (char === '.') return 'wall';
+    if ('NqL'.includes(char)) {
+      const touchesWalk = near(x, y, (cx, cy) => walk.has(`${cx},${cy}`), true);
+      const touchesTableOrVillain = near(x, y, (cx, cy) => 'ToV'.includes(at(cx, cy)), false);
+      if (!touchesWalk && !touchesTableOrVillain) return 'maybe';
+    }
+    return 'keep';
+  }
+
+  function panel(heightRatio) {
+    const width = map[0].length;
+    const height = map.length;
+    const box = document.createElement('div');
+    box.className = 'panel';
+    const grid = document.createElement('div');
+    grid.className = 'grid';
+    grid.style.width = `${width * TILE}px`;
+    grid.style.height = `${height * TILE}px`;
+    let covered = 0;
+    const walls = [];
+    for (let y = 0; y < height; y++) {
+      for (let x = 0; x < width; x++) {
+        const type = kind(x, y);
+        const char = at(x, y);
+        const cell = document.createElement('div');
+        cell.style.left = `${x * TILE}px`;
+        cell.style.top = `${y * TILE}px`;
+        if (type === 'walk') {
+          cell.className = 'cell walk';
+          cell.textContent = '.PbwB*'.includes(char) && char !== '.' ? char : '';
+        } else if (type === 'keep') {
+          cell.className = `cell ${'To'.includes(char) ? 'table' : char === 'V' ? 'villain' : 'keep'}`;
+          cell.textContent = char;
+        } else {
+          walls.push({ x, y, maybe: type === 'maybe' });
+          continue;
+        }
+        grid.appendChild(cell);
+      }
+    }
+    // 벽은 앞면이 제 칸을 채우고, 윗면은 높이만큼 위로 올라가 윗칸을 가린다. 아래 줄 벽부터 그려 위 줄 벽의 앞면이 가려지지 않게 한다.
+    const decorOfLevel = DECOR[level.id] || {};
+    for (const wall of walls) {
+      const decor = wall.maybe ? decorOfLevel[`${wall.x},${wall.y}`] : null;
+      const lift = (decor ? decor.height : heightRatio) * TILE;
+      const face = document.createElement('div');
+      face.className = 'wall-face';
+      face.style.left = `${wall.x * TILE}px`;
+      face.style.top = `${wall.y * TILE + TILE - lift}px`;
+      face.style.height = `${lift}px`;
+      const top = document.createElement('div');
+      top.className = `wall-top${wall.maybe && !decor ? ' maybe' : ''}`;
+      top.style.left = `${wall.x * TILE}px`;
+      top.style.top = `${wall.y * TILE - lift}px`;
+      top.style.height = `${TILE}px`;
+      if (decor) {
+        face.style.background = '#8a7a66';
+        top.style.background = '#b3a28c';
+        top.style.color = '#1b1b1b';
+        top.style.font = '600 13px system-ui, sans-serif';
+        top.style.display = 'grid';
+        top.style.placeItems = 'center';
+        top.textContent = `${decor.name} ${decor.height}배`;
+      }
+      grid.append(face, top);
+      if (walk.has(`${wall.x},${wall.y - 1}`)) {
+        covered += 1;
+        const mark = document.createElement('div');
+        mark.className = 'covered';
+        mark.style.left = `${wall.x * TILE}px`;
+        mark.style.top = `${(wall.y - 1) * TILE + Math.max(0, TILE - lift)}px`;
+        mark.style.height = `${Math.min(lift, TILE)}px`;
+        grid.appendChild(mark);
+      }
+    }
+    box.innerHTML = `<h2>벽 높이 칸 높이의 ${heightRatio}배 (약 ${Math.round(113 * heightRatio)}cm), 가리는 걷는 칸 ${covered}칸</h2>`;
+    box.appendChild(grid);
+    return box;
+  }
+
+  const counts = { wall: 0, maybe: 0 };
+  map.forEach((row, y) => [...row].forEach((char, x) => {
+    const type = kind(x, y);
+    if (type in counts) counts[type] += 1;
+  }));
+  document.getElementById('title').textContent = `실내 벽 목업 (${level.id}, ${map[0].length} x ${map.length}칸)`;
+  document.getElementById('counts').textContent = `반드시 벽 ${counts.wall}칸, 벽 후보 ${counts.maybe}칸, 로봇이 닿는 칸 ${walk.size}칸.`;
+  const panels = document.getElementById('panels');
+  // 벽 높이는 0.5배로 정했다. 1배는 벽 바로 위 칸을 통째로 덮어 1-4의 (0,4) 손님처럼 탁자에 앉은 손님을 가렸다.
+  panels.append(panel(WALL_HEIGHT));
+</script>
+</body>
+</html>

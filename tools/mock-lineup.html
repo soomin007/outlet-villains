@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>손님 라인업</title>
+<!--
+  손님 시험 의뢰(2026-11-01)에 붙이는 라인업. 기존 손님 다섯을 그림 파일 그대로(192 x 288px) 세우고, 새로 그릴 2번과 8번 자리를 회색 상자로 둔다.
+  선은 docs/art-rules.md "손님 그림의 크기와 겹침"의 숫자다. 키 250px(위에서 38px), 정면 탁자선 228px(79%), 옆모습 무릎선 184px(64%).
+  마지막 줄은 탁자 칸(192 x 192)에 기존 케이크, 꽃병과 새 음료 두 자리를 같은 크기로 놓는다.
+-->
+<style>
+  body { margin: 0; padding: 20px; background: #fff; font-family: system-ui, sans-serif; color: #1b1b1b; width: 1700px; }
+  h2 { font-size: 18px; margin: 18px 0 6px; }
+  .row { display: flex; gap: 16px; align-items: flex-end; }
+  .slot { position: relative; width: 192px; height: 288px; background: #ececec; }
+  .slot.table { height: 192px; }
+  .slot img { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .name { font-size: 13px; text-align: center; margin-top: 4px; width: 192px; }
+  .line { position: absolute; left: 0; right: 0; border-top: 2px dashed; font-size: 11px; }
+  .line span { position: absolute; right: 2px; top: -15px; background: rgba(255, 255, 255, 0.8); padding: 0 2px; }
+  .head { border-color: #2f6db3; color: #2f6db3; }
+  .table-line { border-color: #c8302a; color: #c8302a; }
+  .lap { border-color: #b07a00; color: #b07a00; }
+  .ghost { position: absolute; bottom: 0; left: 46px; width: 100px; height: 250px; border: 2px dashed #555; box-sizing: border-box;
+    background: rgba(120, 120, 120, 0.25); padding-top: 24px; text-align: center; font-size: 11px; line-height: 1.5; word-break: keep-all; }
+  .drink { position: absolute; left: 66px; border: 2px dashed #555; box-sizing: border-box; background: rgba(120, 120, 120, 0.25);
+    display: grid; place-items: center; text-align: center; font-size: 11px; }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+<script>
+  const PEOPLE = ['customer', 'customer2', 'customer3', 'seated-1', 'seated-2'];
+  const NEW_GUESTS = ['2번 여 20대 노트북', '8번 남 60대 컵'];
+
+  function line(className, top, text) {
+    return `<div class="line ${className}" style="top:${top}px"><span>${text}</span></div>`;
+  }
+
+  function personRow(title, facing, lines) {
+    let html = `<h2>${title}</h2><div class="row">`;
+    for (const person of PEOPLE) {
+      html += `<div><div class="slot"><img src="../assets/a/${person}-${facing}.png" alt="">${lines}</div><div class="name">${person}-${facing}</div></div>`;
+    }
+    for (const guest of NEW_GUESTS) {
+      html += `<div><div class="slot"><div class="ghost">${guest}<br>키 250 ±10<br>${facing === 'down' ? '폭 90~110' : ''}</div>${lines}</div><div class="name">새 손님 ${guest.split(' ')[0]}</div></div>`;
+    }
+    return `${html}</div>`;
+  }
+
+  const head = line('head', 38, '키 250px 시작(위 38px)');
+  let html = personRow('정면(아래를 봄, 탁자 뒤에 앉음). 빨간 선 아래는 탁자가 덮는다', 'down', head + line('table-line', 228, '탁자선 228px(79%)'));
+  html += personRow('옆모습(오른쪽을 봄). 주황 선 아래, 탁자와 겹치는 쪽은 게임이 잘라 낸다', 'right', head + line('lap', 184, '무릎선 184px(64%)'));
+  html += '<h2>탁자 칸 192 x 192. 기존 케이크(96 x 90), 꽃병(54 x 86)과 새 음료 자리</h2><div class="row">';
+  for (const item of ['table-cake', 'table-vase']) {
+    html += `<div><div class="slot table"><img src="../assets/a/table-0.png" alt=""><img src="../assets/a/${item}.png" alt=""></div><div class="name">${item}</div></div>`;
+  }
+  const drinks = [['텀블러', 60, 96], ['얼음 든 유리잔', 64, 80]];
+  for (const [name, width, height] of drinks) {
+    html += `<div><div class="slot table"><img src="../assets/a/table-0.png" alt=""><div class="drink" style="left:${96 - width / 2}px; width:${width}px; height:${height}px; top:${140 - height}px">${name}<br>${width} x ${height}</div></div><div class="name">새 ${name}(바닥선 y 140)</div></div>`;
+  }
+  document.getElementById('root').innerHTML = `${html}</div>`;
+</script>
+</body>
+</html>
