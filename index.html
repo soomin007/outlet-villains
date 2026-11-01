@@ -1977,6 +1977,7 @@
             top.classList.add('kind-table');
             placeOnTile(top, x + item.dx, y + item.dy - ITEM_LIFT, TILE, TILE_H);
             top.style.zIndex = String(11 + y * 10);
+            if (item.camera) game.sprites.cameraLaptop = top;
           }
           return true;
         }
@@ -2006,9 +2007,9 @@
           }
         }
         if (char === 'L' || char === 'q') {
-          // 기둥은 칸 높이의 2.5배라 윗칸을 가린다. 로봇이 걷는 바닥을 가리면 안 되므로, 윗칸이 로봇이 갈 수 없는 칸일 때만 세운다.
+          // 기둥은 칸 높이의 2.5배라 윗칸 전체와 그 위 칸 절반을 가린다. 로봇이 걷는 바닥을 가리면 안 되므로, 두 칸 모두 로봇이 갈 수 없는 칸일 때만 세운다.
           let key = char === 'L' ? 'plant-floor' : ['plant-floor', 'pillar', 'decor2'][(x + 2 * y) % 3];
-          if (key === 'pillar' && walkableCells().has(`${x},${y - 1}`)) key = 'plant-floor';
+          if (key === 'pillar' && (walkableCells().has(`${x},${y - 1}`) || walkableCells().has(`${x},${y - 2}`))) key = 'plant-floor';
           const height = key === 'pillar' ? TILE * 2.5 : key === 'decor2' ? TILE * 1.25 : TILE;
           const prop = addSprite(key, TILE, height, colors.table);
           prop.classList.add('kind-decor');
@@ -2081,6 +2082,16 @@
       function tabletopItems(x, y) {
         const map = game.level.map;
         const around = [[0, -1, 'down'], [0, 1, 'up'], [-1, 0, 'right'], [1, 0, 'left']];
+        // 화면을 찍는 사람(2장 빌런, 3장 촬영자)의 탁자에는 그 사람을 보는 노트북 하나만 놓는다. 노트북 카메라가 화각이다
+        // (2026-11-01 사용자 결정, 둘째 빌런은 화상 회의 손님). 그 사람이 떠나면 노트북도 치운다(syncFilmer, win).
+        const camera = game.level.filmer || (game.level.view ? game.level.villain : null);
+        const towardCamera = camera && around.find(([dx, dy]) => x + dx === camera.x && y + dy === camera.y);
+        if (towardCamera) {
+          const [dx, dy, facing] = towardCamera;
+          const key = `table-laptop-${facing}`;
+          if (!assetPath(key)) return [];
+          return [{ key, camera: true, ...clampOnTable(key, dx * ITEM_TOWARD, dy * ITEM_TOWARD, tableSurface(x, y)) }];
+        }
         // 빌런 자리(V)와 촬영자 자리(F)에 붙은 탁자는 그 사람의 탁자라 꾸밈 물건을 놓지 않는다.
         // 둘 다 손님(N)으로 세지 않아서 빈 탁자로 보고 다섯 칸에 한 칸 꼴의 꽃병이나 케이크를 놓았다(2026-11-01 사용자 지적, 3장 촬영자 탁자도 같음).
         if (around.some(([dx, dy]) => 'VF'.includes((map[y + dy] || '')[x + dx] || '.'))) return [];
@@ -2808,6 +2819,7 @@
         applyGrid();
         drawBackdrop();
         ui.actors.innerHTML = '';
+        game.sprites.cameraLaptop = null;
         // 새로 만든 그림이 처음 자리로 갈 때는 움직임 효과를 끈다. 켜 두면 모든 그림이 장면 왼쪽 위에서 미끄러져 들어와 깜빡였다.
         ui.actors.classList.add('instant');
         game.sprites.filmer = null;
@@ -2918,10 +2930,15 @@
         const dockTop = tileTop(dockRow) + TILE_H - TILE - (inBoard ? PROP_LIFT * TILE_H : 0);
         const x1 = tileLeft(dock) + TILE / 2 + (inBoard ? TILE * 0.2 * side : (outlet > dock ? TILE * 0.3 : -TILE * 0.3));
         const y1 = inBoard ? dockTop + TILE * 0.58 : tileTop(-1) + TILE_H * 0.8;
+        // 벽에 붙은 독(판 밖 -1번 줄, 판 맨 윗줄)은 뽑힌 플러그가 콘센트 아래 벽 밑에 떨어져 있다. 판 안쪽 줄의 독(2장)은 그 자리가 탁자와 화분에 가려서,
+        // 플러그가 독 칸 앞 모서리(콘센트 쪽, 같은 열이면 오른쪽) 바닥에 떨어져 있다(2026-11-01).
+        const midFloor = inBoard && dockRow > 0;
         const floorLine = tileTop(dockRow < 0 ? -1 : 0) + (dockRow < 0 ? TILE_H * 0.95 : TILE_H * 0.12);
-        const looseX = inBoard ? tileLeft(outlet) + TILE / 2 - side * TILE * 0.32 : (tileLeft(dock) + tileLeft(outlet)) / 2 + TILE / 2;
+        const looseX = midFloor ? tileLeft(dock) + TILE / 2 + (side === 0 ? 1 : side) * TILE * 0.32
+          : inBoard ? tileLeft(outlet) + TILE / 2 - side * TILE * 0.32 : (tileLeft(dock) + tileLeft(outlet)) / 2 + TILE / 2;
+        const looseY = midFloor ? tileTop(dockRow) + TILE_H * 0.84 : floorLine;
         const x2 = plugged ? tileLeft(outlet) + TILE / 2 : looseX;
-        const y2 = plugged ? tileTop(-1) + TILE_H * 0.62 : floorLine;
+        const y2 = plugged ? tileTop(-1) + TILE_H * 0.62 : looseY;
         // 벽 아래의 독은 선이 바닥으로 늘어지고, 판 안의 독은 선이 옆으로 나가다가 콘센트 쪽으로 꺾인다.
         const bend = inBoard ? `${x2} ${y1}` : `${(x1 + x2) / 2} ${Math.max(y1, y2) + TILE_H * 0.25}`;
         const path = `M ${x1} ${y1} Q ${bend} ${x2} ${y2}`;
@@ -2939,7 +2956,7 @@
         plug.style.width = `${size}px`;
         plug.style.height = `${size}px`;
         plug.style.transform = `translate(${x2 - size / 2}px, ${y2 - size / 2}px)`;
-        plug.style.zIndex = '3';
+        plug.style.zIndex = midFloor ? String(11 + dockRow * 10) : '3';
         plug.innerHTML = art('plug-mine', colors.outletMine, true);
         ui.actors.appendChild(plug);
         game.sprites.dockPlug = plug;
@@ -3012,6 +3029,7 @@
         if (!game.sprites.filmer) return;
         const look = chapterOf().filmer;
         game.sprites.filmer.classList.toggle('gone', Boolean(state.gone));
+        if (game.sprites.cameraLaptop) game.sprites.cameraLaptop.classList.toggle('gone', Boolean(state.gone));
         if (!state.gone) setArt(game.sprites.filmer, look.idle, THEMES[settings.theme].villain, true);
         if (game.sprites.stream) game.sprites.stream.hidden = Boolean(state.gone);
       }
@@ -3362,6 +3380,7 @@
         ui.scene.classList.remove('cut-in');
         game.sprites.villain.classList.add('gone');
         game.sprites.cord.classList.add('gone');
+        if (game.sprites.cameraLaptop) game.sprites.cameraLaptop.classList.add('gone');
         // 1장과 3장의 빌런은 울린 진동벨을 들고 음료를 받으러 간다. 그래서 진동벨 칸을 지나는 독 길도 열린다.
         if (game.level.goal) trigger.classList.add('gone');
         await wait(500);
@@ -3470,6 +3489,7 @@
       function showWonScene() {
         game.sprites.villain.classList.add('gone');
         game.sprites.cord.classList.add('gone');
+        if (game.sprites.cameraLaptop) game.sprites.cameraLaptop.classList.add('gone');
         if (game.level.goal) game.sprites.items[game.state.items.findIndex((item) => item.kind === 'buzzer')].classList.add('gone');
         if (game.level.dock) placeOnDock();
         setArt(game.sprites.outlet, 'outlet-mine', THEMES[settings.theme].outletMine, true);

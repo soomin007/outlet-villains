@@ -11,7 +11,7 @@
 // 게임은 챕터와 레벨로 나눈다(2026-10-29 사용자 결정). 챕터 하나가 빌런 한 명이고, 레벨마다 새 요소를 하나씩만 더한다.
 // chapters의 villain은 빌런 그림 key 세 가지(평소, 반응, 반응 일러스트)와 그림 크기(heightTiles), 그림 아래쪽이 닿는 칸(anchorRow, 빌런 칸 기준)이다.
 // name과 lines는 챕터를 시작할 때 뜨는 빌런 소개 글이다. lines의 첫 줄은 콘센트를 놓지 않는 이유, 둘째 줄은 약점이다(docs/concept.md의 빌런 후보 표).
-// 콘센트는 판 밖 -1번 줄의 벽에 붙는다. 열은 빌런과 같고, villain.outletX가 있으면 그 열이다(유튜버는 테이블 위 폰과 링 조명을 가리지 않게 옆으로 뺐다).
+// 콘센트는 판 밖 -1번 줄의 벽에 붙는다. 열은 빌런과 같고, villain.outletX가 있으면 그 열이다(2장은 판 안 충전 독 바로 위인 6열, 2026-11-01).
 // 레벨의 bg는 배경 그림 이름(bg-이름)이다. 배경에는 테이블과 화분이 그려져 있으므로, 같은 배경을 쓰는 레벨은 T, L, V, * 자리가 같아야 한다(tools/verify.html이 확인한다).
 // view가 있는 레벨은 카메라 화각 규칙을 쓴다(engine.js 머리말). F(촬영자)가 있는 레벨은 화각이 촬영자 뒤로 뻗고, 쓰레기통이 비치면 촬영자가 떠난다(셋째 챕터).
 // 챕터의 filmer는 F에 그릴 촬영자 그림이다. maxWalk는 퍼즐 레벨의 걸을 수 있는 칸 상한(기본 35)을 넓은 레벨에서 바꾼다. chairNeeded가 true인 레벨은 의자를 밀지 않으면 풀리지 않아야 한다(검증한다).
@@ -21,7 +21,7 @@
 // 플레이 영역 둘레만 막고 닿을 수 없는 나머지는 바닥으로 두며, 플레이 영역 안의 외딴 한 칸은 소품으로 막는다. 그림이 오기 전에는 상자로 보인다.
 // demo는 그 레벨에서 처음 나오는 기믹을 반투명한 주인공이 한 번 시연할 자리다(kind: push는 물건 밀기, view는 화각에 들어갔다 되돌아오기,
 // slide는 젖은 바닥에서 미끄러지기, serve는 음료 건네기).
-// interior가 true인 레벨은 가구 없는 배경(bg-이름-empty) 위에 테이블, 화분, 손님을 모두 소품으로 얹는다(2026-10-31 시험, 지금은 1장과 3장. 2장은 빈 배경을 받으면 바꾼다).
+// interior가 true인 레벨은 가구 없는 배경(bg-이름-empty) 위에 테이블, 화분, 손님을 모두 소품으로 얹는다(2026-10-31 시험, 지금은 13판 모두). 2장도 1장, 3장과 같은 카페의 빈 배경을 쓴다(2026-11-01 사용자 결정).
 // interior 레벨에서는 위 규칙과 달리, 판에 필요 없는 칸(닿을 수 없는 바닥, 구석을 메우던 손님과 소품)을 벽(#)으로 채운다(2026-11-01 사용자 결정).
 // 벽 높이와 자리는 회색 상자 목업으로 확인받은 뒤 지도에 넣는다(docs/concept.md "2026-11-01 결정"). 판 밖은 배경의 벽과 맞닿아 있어 벽으로 이어 본다.
 // D는 로봇의 충전 독이다. 빌런 자리 옆 칸에 두고, 판을 깨기 전에는 화분처럼 막힌 칸이며, 빌런이 떠나면 로봇이 스스로 굴러가 올라앉는다(2026-10-31 사용자 결정).
@@ -82,7 +82,7 @@ window.VILLAIN_LAYOUT = {
       "id": "streamer",
       "name": "공부 영상 촬영자",
       "lines": ["폰을 세워 두고 몇 시간째 스터디 윗 미 영상을 찍는 중이다. 폰과 조명은 벽 콘센트에 꽂혀 있다.", "화면에 지저분한 게 잡히면 촬영을 접을 텐데."],
-      "villain": { "idle": "streamer-idle", "react": "streamer-react", "portrait": "streamer-portrait", "heightTiles": 1.5, "anchorRow": 0, "outletX": 7 }
+      "villain": { "idle": "streamer-idle", "react": "streamer-react", "portrait": "streamer-portrait", "heightTiles": 1.5, "anchorRow": 0, "outletX": 6 }
     },
     {
       "id": "together",
@@ -212,94 +212,94 @@ window.VILLAIN_LAYOUT = {
     {
       "id": "streamer-1",
       "chapter": "streamer",
-      "bg": "streamer",
+      "bg": "sleeper-empty", "interior": true,
       "kind": "tutorial",
       "optimal": 5,
       "pushes": 1,
       "view": { "dir": "down", "width": 3 },
       "map": [
-        "....LTL.....",
-        "L...qVD...L.",
-        "..oN...Nooo.",
-        "..oN...qNNN.",
-        "..oN...t...o",
-        "....NNNNNq.N",
-        "....oooooNPq"
+        "####LTL#####",
+        "####qVD#####",
+        "##oN...Nooo#",
+        "##oN...qNNN#",
+        "##oN...t...o",
+        "####NNNNNq.N",
+        "####oooooNPq"
       ]
     },
     {
       "id": "streamer-2",
       "chapter": "streamer",
-      "bg": "streamer",
+      "bg": "sleeper-empty", "interior": true,
       "kind": "tutorial",
       "optimal": 13,
       "pushes": 4,
       "view": { "dir": "down", "width": 3 },
       "demo": { "kind": "view", "from": { "x": 3, "y": 2 }, "dir": "right" },
       "map": [
-        "....LTLoo...",
-        "L..oNVDNN.L.",
-        "..o......No.",
-        ".qN.ccc..No.",
+        "####LTLoo###",
+        "###oNVDNN###",
+        "##o......No#",
+        "#qN.ccc..No#",
         "o.....t...No",
         "NP........No",
-        ".oNoNoNoNq.."
+        "#NooNNooNq##"
       ]
     },
     {
       "id": "streamer-3",
       "chapter": "streamer",
-      "bg": "streamer",
+      "bg": "sleeper-empty", "interior": true,
       "kind": "puzzle",
       "optimal": 22,
       "pushes": 7,
       "view": { "dir": "down", "width": 3 },
       "map": [
-        "....LTL.oo..",
-        "LoooNVD.NNL.",
-        ".NNNc..q..q.",
+        "####LTLooo##",
+        "#oooNVDNNN##",
+        "#NNNc..q..q#",
         "o....c..q..o",
         "N.toc......N",
         "qP.N...o...q",
-        ".oNq...NoNq."
+        "#oNq...NoNq#"
       ]
     },
     {
       "id": "streamer-4",
       "chapter": "streamer",
-      "bg": "streamer",
+      "bg": "sleeper-empty", "interior": true,
       "kind": "tutorial",
       "optimal": 7,
       "pushes": 1,
       "view": { "dir": "down", "width": 3 },
       "demo": { "kind": "serve", "from": { "x": 3, "y": 4 }, "dir": "right" },
       "map": [
-        "....LTL.oo..",
-        "L..oNVDNN.L.",
-        "..oN...Nooo.",
-        "..oNqAqNNN..",
-        "N...1.qNNNNo",
-        "N.NNNtNNNq.N",
-        "N..P.oooooNN"
+        "....LTLooo##",
+        "L..oNVDqNN##",
+        "..oN...Nooo#",
+        "..oNqAqqNN##",
+        "q...1.qNooNo",
+        "q.NoNtNNNqqN",
+        "q..P.oooooNq"
       ]
     },
     {
       "id": "streamer-5",
       "chapter": "streamer",
-      "bg": "encore",
+      "bg": "sleeper-empty", "interior": true,
       "kind": "puzzle",
       "maxWalk": 40,
       "optimal": 30,
       "pushes": 9,
       "view": { "dir": "down", "width": 3 },
       "map": [
-        "....LTL.oo..",
-        "....LVL.NN..",
-        "..qL...L..q.",
+        "####LTL#oo##",
+        "####LVD#NN##",
+        "##qL...L..q#",
         ".q..qB.q...o",
         "o..1..cA2..N",
         "N.qP.t.N.q.o",
-        "q......N...N"
+        "q......o...N"
       ]
     },
     {
