@@ -103,6 +103,51 @@
       '<div class="note">탁자를 창가 벽과 나란히 두 줄로 같은 간격에 놓는다. 뒷줄은 창 아래 벽에 붙은 탁자이고, 탁자마다 바로 옆 벽 아래에 콘센트가 하나씩 있다. ' +
       '손님 선은 모두 자기 탁자 옆 콘센트로 곧게 간다. 늦은 밤 붐비는 카공 카페라는 분위기, 흑백 그림체, 빛과 창밖 야경은 지금 그림을 따른다.</div></div>';
   }
+
+  // 의뢰 12(2026-11-02). sleeperfix: 잠든 카공족 v2에서 보라색이 넘친 곳(빨간 동그라미). 게임 그림은 4배, 반응 그림은 1.4배로 키워 보인다.
+  if (part === 'sleeperfix') {
+    // 글자는 동그라미 오른쪽에 붙이고, 그림 밖으로 나가는 자리(onLeft)는 왼쪽에 붙인다.
+    const ring = (left, top, size, text, onLeft = false) => `<div style="position:absolute; left:${left}px; top:${top}px; width:${size}px; height:${size}px; border:5px solid #d0302a; border-radius:50%; box-sizing:border-box">`
+      + `<span style="position:absolute; ${onLeft ? 'right' : 'left'}:${size}px; top:-8px; white-space:nowrap; background:#d0302a; color:#fff; font:700 16px system-ui; padding:2px 6px">${text}</span></div>`;
+    const panel = (src, w, h, left, top, boxW, boxH, label, rings) => `<div style="position:relative; width:${boxW}px; height:${boxH}px; overflow:hidden; background:#ececec">`
+      + `<img src="${src}" alt="" style="position:absolute; width:${w}px; height:${h}px; left:${left}px; top:${top}px">${rings}`
+      + `<span style="position:absolute; left:6px; bottom:6px; background:#000; color:#fff; font:700 15px system-ui; padding:2px 6px">${label}</span></div>`;
+    root.innerHTML = '<div style="display:flex; gap:16px; padding:16px; align-items:flex-start">'
+      + panel('../assets/style-test/villain-sleep-v2.png', 768, 1920, -160, -520, 560, 640, 'villain-sleep-v2, 4배(왼쪽 위가 x 40, y 130)',
+        ring(120, 240, 110, '귀 자리 보라 조각 x 75~90, y 195~210'))
+      + panel('../assets/style-test/villain-portrait-v2.webp', 1434, 1434, -350, -210, 600, 640, 'villain-portrait-v2, 1.4배(왼쪽 위가 x 250, y 150)',
+        ring(420, 120, 120, '눈 바깥 끝 x 570~590, y 250~290', true) + ring(270, 470, 110, '목 x 460~485, y 495~535'))
+      + '</div><div style="padding:0 16px 16px; font-size:16px; line-height:1.6; max-width:1160px">빨간 동그라미 안의 보라색만 고친다. 귀 자리는 피부(밝은 회색)나 머리카락(검정)으로, 눈 바깥 끝은 흰자와 피부로, 목은 피부의 회색 그림자로 칠한다. 그 밖의 선, 색, 자세는 그대로 둔다(2026-11-02 사용자 확인: 그 밖은 훨씬 나아졌다).</div>';
+  }
+
+  // story34: 프롤로그 새 3컷(예전 3컷을 고침)과 새 4컷(예전 5컷에 생각 풍선)의 고칠 곳. 그림은 1280 x 720을 0.75배로 보인다.
+  if (part === 'story34') {
+    const s = 0.75;
+    const mark = (x, y, w, h, text, color = '#d0302a') => `<div style="position:absolute; left:${x * s}px; top:${y * s}px; width:${w * s}px; height:${h * s}px; border:5px solid ${color}; box-sizing:border-box">`
+      + `<span style="position:absolute; left:-5px; top:-30px; white-space:nowrap; background:${color}; color:#fff; font:700 15px system-ui; padding:2px 6px">${text}</span></div>`;
+    const panel = (src, marks, title) => `<div><div style="font:700 18px system-ui; margin-bottom:6px">${title}</div><div style="position:relative; width:${1280 * s}px; height:${720 * s}px">`
+      + `<img src="${src}" alt="" style="position:absolute; inset:0; width:100%; height:100%">${marks}</div></div>`;
+    root.innerHTML = '<div style="display:flex; flex-direction:column; gap:22px; padding:16px">'
+      + panel('../assets/a/story-3.webp', mark(750, 40, 530, 620, '빌런: 보라 후드 v2 모습, 같은 계열 그림자') + mark(900, 260, 360, 110, '멀티탭에 노트북, 폰, 태블릿. 폰 선은 아래 단자에', '#2f6db3')
+        + mark(430, 430, 330, 200, '뽑힌 로봇 독과 플러그는 그대로', '#2f7a54'), '새 3컷: 지금 3컷을 고친다(구도, 로봇, 벽 콘센트, 뽑힌 독은 그대로)')
+      + panel('../assets/a/story-5.webp', mark(40, 30, 560, 170, '생각 풍선(로봇 머리 위): 잠든 보라 빌런 귀 옆에서 진동벨이 울려 깨는 장면', '#2f6db3')
+        + mark(820, 190, 170, 80, '카운터의 진동벨(초록)은 그대로', '#2f7a54'), '새 4컷: 지금 5컷(카운터의 진동벨을 보는 로봇)에 생각 풍선을 더한다')
+      + '</div>';
+  }
+
+  // standing2: 서 있는 손님 3b, 4b의 크기 라인업. 확정한 서 있는 8a와 앉은 3b, 4b를 나란히 놓는다.
+  if (part === 'standing2') {
+    const line = (y, color, text) => `<div class="line" style="top:${y}px; border-color:${color}; color:${color}"><span style="position:absolute; right:2px; top:-15px; background:#fff">${text}</span></div>`;
+    const lines = line(8, '#3aa35a', '서 있는 키 280px 시작(위 8px)') + line(38, '#2f6db3', '앉은 키 250px 시작(위 38px)');
+    const card = (inner, name) => `<div><div class="slot">${inner}${lines}</div><div class="name">${name}</div></div>`;
+    root.innerHTML = '<div class="lineup">'
+      + card('<img src="../assets/a/guest-8a-stand-down.png" alt="">', '확정한 서 있는 8a(기준)')
+      + card('<img src="../assets/a/guest-3b-down.png" alt="">', '확정한 앉은 3b(생김새)')
+      + card('<div class="ghost" style="height:280px">3b 서 있기<br>키 280 ±6<br>폭 80~110<br>발이 캔버스 바닥</div>', '새 guest-3b-stand-down')
+      + card('<img src="../assets/a/guest-4b-down.png" alt="">', '확정한 앉은 4b(생김새)')
+      + card('<div class="ghost" style="height:280px">4b 서 있기<br>키 280 ±6<br>폭 80~110<br>발이 캔버스 바닥</div>', '새 guest-4b-stand-down')
+      + '</div>';
+  }
 </script>
 </body>
 </html>
