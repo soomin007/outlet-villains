@@ -446,9 +446,6 @@
       border-radius: 50%;
       background: #fff;
       color: #111;
-      font-size: 28px;
-      font-weight: 900;
-      padding-left: 5px;
       animation: cue 0.9s ease-in-out infinite alternate;
       pointer-events: none;
     }
@@ -712,6 +709,19 @@
       height: 56px;
     }
 
+    /* 삼각형 표시(방향 버튼, 다음 판 버튼). 글자 ▲◀▼▶ 대신 무게중심을 상자 가운데에 맞춘 그림을 쓴다(2026-11-01 사용자: 시각 보정 원칙).
+       삼각형은 무게가 밑변 쪽에 쏠려서, 테두리 상자를 가운데에 두면 ▶는 왼쪽으로, ▲는 아래로 처져 보인다. */
+    .tri {
+      display: block;
+      width: 1.1em;
+      height: 1.1em;
+      margin: 0 auto;
+      fill: currentColor;
+    }
+
+    .next-cue .tri { width: 40px; height: 40px; }
+    .pad .tri { width: 30px; height: 30px; }
+
     .pad [data-dir="up"] { grid-column: 2; grid-row: 1; }
     .pad [data-dir="left"] { grid-column: 1; grid-row: 2; }
     .pad [data-dir="down"] { grid-column: 2; grid-row: 2; }
@@ -966,8 +976,9 @@
       .card-art img.small { height: min(16vh, 110px); }
     }
 
-    /* 메인 화면(2026-11-01 사용자 확정, docs/concept.md "2026-11-01 결정"). 위 층은 옆에서 본 카페 벽이 천천히 흐르고, 가운데 층은 멈춘 밝은 바닥,
-       아래 층은 앞쪽 찬장이 빠르게 흐른다. 글자와 버튼은 모두 가운데 층에만 둔다. 흐르는 띠가 제목 뒤를 지나가 제목이 읽히지 않았다(known-issues 25번).
+    /* 메인 화면(2026-11-01 사용자 확정, docs/concept.md "2026-11-01 결정"). 위 층은 옆에서 본 카페 벽이 천천히 흐르고, 가운데 층은 로봇이 딛는 바닥이 중간 속도로,
+       아래 층은 앞쪽 찬장이 빠르게 흐른다. 글자와 버튼은 가운데 층에, 불투명한 받침(로고 받침, 버튼) 위에만 둔다.
+       흐르는 띠가 제목 뒤를 지나가 제목이 읽히지 않았다(known-issues 25번).
        숫자는 layout.js의 title이다. 1920 x 1080 판(세로 화면은 375 x 812 판)으로 짜서 화면에 맞게 줄이고 늘린다(layoutTitle). */
     .title-screen {
       position: fixed;
@@ -988,7 +999,29 @@
 
     .title-band { overflow: hidden; pointer-events: none; }
     .title-band.wall { background: #1b1b1b; }
-    .title-band.floor { background: #d9d9d9; }
+    /* 바닥(2026-11-01 사용자 결정). 회색 면만 두자 로봇이 선 곳이 바닥으로 읽히지 않았다. 굽도리 아래로 기울어진 타일 무늬를 깔고,
+       위아래 띠 속도의 가운데로 흘린다. 로봇이 딛는 층이 카메라 속도로 움직여야 로봇이 실제로 달리는 것으로 읽힌다(시차 스크롤).
+       무늬와 속도는 layoutFloor가 layout.js의 floor로 정한다. */
+    .title-band.floor {
+      background-color: #dcdcd7;
+      background-repeat: repeat-x;
+      animation: title-floor-flow var(--floor-time, 0.667s) linear infinite;
+    }
+
+    .title-band.floor::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: var(--baseboard, 18px);
+      background: #3a3a3a;
+    }
+
+    @keyframes title-floor-flow {
+      from { background-position-x: 0; }
+      to { background-position-x: calc(var(--floor-tile, 160px) * -1); }
+    }
     .title-band.cupboard { background: #1b1b1b; z-index: 3; }
 
     /* 띠 한 장을 여러 벌 이어 붙인 줄. 이스터에그가 세 벌마다 되풀이되므로 세 벌만큼 흐르면 처음 모습으로 돌아간다. */
@@ -1000,7 +1033,21 @@
     }
 
     .title-band.wall .title-track { bottom: 0; }
-    .title-band.cupboard .title-track { top: 0; }
+    .title-band.cupboard .title-track { top: var(--counter, 0px); }
+
+    /* 찬장 윗면(2026-11-01 사용자 지적: 아래 층에 두께가 없어 바닥이 바닥으로 안 보였다). 위에서 비스듬히 본 바닥과 맞게 찬장 윗면을 보여 준다.
+       뒤 끝은 그림의 외곽선처럼 검은 선, 그 아래 밝은 줄은 윗면에 비친 빛이다. */
+    .title-band.cupboard::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: var(--counter, 0px);
+      box-sizing: border-box;
+      border-top: 3px solid #1b1b1b;
+      background: linear-gradient(#a8a8a8 0 3px, #8a8a8a 3px);
+    }
 
     @keyframes title-flow {
       to { transform: translateX(calc(var(--flow-loop) * -1)); }
@@ -1013,6 +1060,17 @@
     /* 달리는 로봇. 네 장면을 겹쳐 두고 한 장씩만 보여서 그림을 바꿀 때 깜빡이지 않는다(known-issues 18번).
        그림은 512 x 512에서 발이 y 487이라, 아래쪽 25/512를 상자 밖으로 내려 발이 상자 바닥(바닥 층의 바닥선)에 닿게 한다. */
     .title-robot { z-index: 2; }
+
+    /* 로봇 그림자. 바퀴가 바닥에 닿아 보이게 한다. 자리와 크기는 layout.js title.shadow(로봇 상자에 대한 비율)이다. */
+    .title-robot::before {
+      content: '';
+      position: absolute;
+      left: var(--shadow-left, -2%);
+      width: var(--shadow-width, 76%);
+      bottom: var(--shadow-bottom, -4%);
+      height: var(--shadow-height, 8%);
+      background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.28) 0, rgba(0, 0, 0, 0.12) 45%, rgba(0, 0, 0, 0) 70%);
+    }
 
     .title-robot .frames { position: absolute; inset: 0; }
 
@@ -1048,6 +1106,7 @@
     }
 
     .calm .title-track,
+    .calm .title-band.floor,
     .calm .title-logo .bang-fill { animation: none; }
     .calm .speed-line { display: none; }
 
@@ -1069,69 +1128,6 @@
 
     /* 빌런 도감 줄. 챕터마다 카드 하나이고, 챕터의 마지막 레벨을 깨면 빌런의 반응 그림이 드러난다. 아직이면 검은 실루엣과 물음표다. */
     /* 메인 화면 바닥이 밝아서(#d9d9d9) 도감 카드는 진한 테두리와 글자를 쓴다. 카드 크기는 layout.js title의 dex.card다. */
-    .title-dex {
-      z-index: 2;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      gap: calc(var(--dex-card, 112px) * 0.12);
-    }
-
-    .dex-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      width: var(--dex-card, 112px);
-    }
-
-    .dex-art {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      width: 100%;
-      height: var(--dex-card, 112px);
-      overflow: hidden;
-      border: 3px solid #1b1b1b;
-      border-radius: 12px;
-      background: rgba(0, 0, 0, 0.05);
-    }
-
-    .dex-art img {
-      height: 100%;
-      width: auto;
-      object-fit: cover;
-      object-position: top;
-    }
-
-
-    .dex-card.locked .dex-art { border-style: dashed; border-color: rgba(27, 27, 27, 0.45); }
-    .dex-card.locked .dex-art img { filter: brightness(0); opacity: 0.4; }
-
-    .dex-card.locked .dex-art::after {
-      content: "?";
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #f6efe2;
-      font-size: calc(var(--dex-card, 112px) * 0.4);
-      font-weight: 900;
-    }
-
-    /* 이름은 카드 폭 안에서 낱말 단위로 줄을 바꾼다. 한 줄로 두면 세로 화면(카드 70px)에서 이웃 이름과 맞닿아 "잠든 카공족공부 영상 촬영자"로 읽혔다(2026-11-01). */
-    .dex-name {
-      max-width: 100%;
-      color: #1b1b1b;
-      font-size: var(--dex-font, 14px);
-      font-weight: 800;
-      line-height: 1.25;
-      text-align: center;
-      word-break: keep-all;
-    }
-
-    .dex-card.locked .dex-name { color: rgba(27, 27, 27, 0.5); }
 
     /* 크레딧. 왼쪽에 맡은 일, 오른쪽에 이름이다. */
     .credit-list {
@@ -1531,7 +1527,6 @@
       .large-text .panel { font-size: calc(var(--panel-font) * 1.125); }
     }
     .large-text .title-btn { font-size: calc(var(--menu-font, 18px) * 1.125); }
-    .large-text .dex-name { font-size: calc(var(--dex-font, 14px) * 1.125); }
     .large-text .steps { font-size: 18px; }
 
     /* 화면 방향 버튼(설정의 조작 탭). 자동은 터치 화면에서만 보이고, 켜기와 끄기는 기기와 상관없이 정한다. */
@@ -1571,16 +1566,16 @@
           <div id="actors" class="layer"></div>
           <div id="flash" class="flash"></div>
           <div id="portrait" class="portrait"></div>
-          <div id="next-cue" class="next-cue" hidden>▶</div>
+          <div id="next-cue" class="next-cue" hidden><svg class="tri" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5L8 19L20 12Z"/></svg></div>
           <div id="side-keys" class="side-keys" aria-hidden="true"></div>
         </div>
       </div>
     </div>
     <div id="pad" class="pad">
-      <button class="btn" type="button" data-dir="up" aria-label="위">▲</button>
-      <button class="btn" type="button" data-dir="left" aria-label="왼쪽">◀</button>
-      <button class="btn" type="button" data-dir="down" aria-label="아래">▼</button>
-      <button class="btn" type="button" data-dir="right" aria-label="오른쪽">▶</button>
+      <button class="btn" type="button" data-dir="up" aria-label="위"><svg class="tri" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 16L19 16L12 4Z"/></svg></button>
+      <button class="btn" type="button" data-dir="left" aria-label="왼쪽"><svg class="tri" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 5L16 19L4 12Z"/></svg></button>
+      <button class="btn" type="button" data-dir="down" aria-label="아래"><svg class="tri" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8L19 8L12 20Z"/></svg></button>
+      <button class="btn" type="button" data-dir="right" aria-label="오른쪽"><svg class="tri" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5L8 19L20 12Z"/></svg></button>
     </div>
   </main>
 
@@ -1599,7 +1594,6 @@
         <button id="title-settings" class="title-btn" type="button">설정</button>
         <button id="title-credits" class="title-btn" type="button">만든 사람</button>
       </div>
-      <div id="title-dex" class="title-dex" aria-label="빌런 도감"></div>
     </div>
   </div>
 
@@ -1777,7 +1771,6 @@
         titleCredits: document.getElementById('title-credits'),
         titlePress: document.getElementById('title-press'),
         titleMenu: document.getElementById('title-menu'),
-        titleDex: document.getElementById('title-dex'),
         credits: document.getElementById('credits'),
         closeCredits: document.getElementById('close-credits'),
         closeSettings: document.getElementById('close-settings'),
@@ -2445,7 +2438,6 @@
         const target = settings.lastLevel || 0;
         ui.titleContinue.textContent = hasProgress ? `이어하기 (${chapterNumber(target)}-${levelNumber(target)})` : '시작하기';
         ui.titleNew.hidden = !hasProgress;
-        drawDex();
         ui.title.hidden = false;
         layoutTitle();
         // 페이지를 처음 열었을 때는 "아무 키나 누르세요"만 보이고, 누르면 메인 화면 음악이 켜지며 버튼이 나온다(2026-10-31 사용자 결정).
@@ -2551,7 +2543,8 @@
         const bandWidth = width + padX * 2;
         box(ui.titleWall, -padX, -padY, bandWidth, wallBottom + padY);
         box(ui.titleFloor, -padX, wallBottom, bandWidth, cupboardTop - wallBottom);
-        box(ui.titleCupboard, -padX, cupboardTop, bandWidth, height - cupboardTop + padY);
+        box(ui.titleCupboard, -padX, cupboardTop - spec.counter, bandWidth, height - cupboardTop + padY + spec.counter);
+        ui.titleCupboard.style.setProperty('--counter', `${spec.counter}px`);
         layoutStrip(ui.titleWall, LAYOUT.title.strips.wall, wallBottom);
         layoutStrip(ui.titleCupboard, LAYOUT.title.strips.cupboard, height - cupboardTop);
 
@@ -2585,9 +2578,38 @@
         ui.title.style.setProperty('--menu-gap', `${spec.menu.gap}px`);
         ui.title.style.setProperty('--menu-font', `${spec.menu.font}px`);
 
-        box(ui.titleDex, spec.dex.x, spec.dex.y, spec.dex.w, spec.dex.h);
-        ui.title.style.setProperty('--dex-card', `${spec.dex.card}px`);
-        ui.title.style.setProperty('--dex-font', `${spec.dex.font}px`);
+        layoutFloor(spec, cupboardTop - wallBottom, wallBottom, height - cupboardTop);
+      }
+
+      // 바닥 무늬와 흐르는 속도(layout.js title.floor). 가로줄은 바닥 높이를 채울 때까지 줄 높이가 rowGrowth배씩 커지고, 세로줄은 같은 기울기로 눕는다.
+      // 기울어진 세로줄이 타일 한 장의 폭을 넘어가므로 왼쪽 타일들의 줄도 함께 그려 이어 붙인다.
+      // 흐르는 속도는 위 띠와 아래 띠가 이 판에서 실제로 흐르는 속도(띠 폭 / 한 장 시간)의 가운데다. 1920 판에서 초속 240px이다.
+      function layoutFloor(spec, floorHeight, wallHeight, cupboardHeight) {
+        const floor = spec.floor;
+        const height = floorHeight - floor.baseboard;
+        const lines = [];
+        for (let y = floor.firstRow, row = floor.firstRow; y < height; row *= floor.rowGrowth, y += row) {
+          lines.push(`<rect x="0" y="${(y - 1).toFixed(1)}" width="${floor.tileWidth}" height="2" fill="#c2c2bc"/>`);
+        }
+        const reach = Math.ceil((floor.slant * height) / floor.tileWidth);
+        for (let k = -reach; k <= 0; k += 1) {
+          const x = k * floor.tileWidth;
+          lines.push(`<line x1="${x}" y1="${height}" x2="${(x + floor.slant * height).toFixed(1)}" y2="0" stroke="#c2c2bc" stroke-width="2"/>`);
+        }
+        const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${floor.tileWidth}" height="${height}">${lines.join('')}</svg>`;
+        const { wall, cupboard } = LAYOUT.title.strips;
+        const speedOf = (strip, stripHeight) => (stripHeight * strip.width / strip.height) / strip.loopSeconds;
+        const speed = (speedOf(wall, wallHeight) + speedOf(cupboard, cupboardHeight)) / 2;
+        ui.titleFloor.style.backgroundImage = `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
+        ui.titleFloor.style.backgroundPositionY = `${floor.baseboard}px`;
+        ui.titleFloor.style.setProperty('--baseboard', `${floor.baseboard}px`);
+        ui.titleFloor.style.setProperty('--floor-tile', `${floor.tileWidth}px`);
+        ui.titleFloor.style.setProperty('--floor-time', `${(floor.tileWidth / speed).toFixed(3)}s`);
+        const shadow = LAYOUT.title.shadow;
+        ui.titleRobot.style.setProperty('--shadow-left', `${shadow.left * 100}%`);
+        ui.titleRobot.style.setProperty('--shadow-width', `${shadow.width * 100}%`);
+        ui.titleRobot.style.setProperty('--shadow-bottom', `${shadow.bottom * 100}%`);
+        ui.titleRobot.style.setProperty('--shadow-height', `${shadow.height * 100}%`);
       }
 
       // 흐르는 띠 한 줄을 그 층의 띠 높이에 맞춘다. 띠 한 장의 폭은 그림 비율을 따르고, 세 장(이스터에그 한 주기)만큼 흐르면 처음으로 돌아간다.
@@ -2633,15 +2655,6 @@
           const levels = LAYOUT.levels.filter((level) => level.chapter === chapter.id);
           return { name: chapter.name, portrait: chapter.villain.portrait, lastLevel: levels[levels.length - 1].id };
         });
-      }
-
-      function drawDex() {
-        ui.titleDex.innerHTML = distinctVillains().map((villain) => {
-          const met = game.cleared.has(villain.lastLevel);
-          return `<div class="dex-card${met ? '' : ' locked'}">`
-            + `<div class="dex-art">${imageTag(villain.portrait)}</div>`
-            + `<span class="dex-name">${met ? villain.name : '???'}</span></div>`;
-        }).join('');
       }
 
       // 메인 화면의 버튼들. 숨긴 버튼(처음 시작이면 '처음부터')은 키보드로 고를 때 건너뛴다.

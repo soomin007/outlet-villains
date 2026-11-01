@@ -33,6 +33,8 @@
   saved.cleared = window.VILLAIN_LAYOUT.levels.slice(0, cleared).map((item) => item.id);
   saved.lastLevel = Math.min(level, window.VILLAIN_LAYOUT.levels.length - 1);
   saved.prologueSeen = true;
+  // pad=1이면 휴대폰 방향 버튼을 켠 화면을 찍는다.
+  if (params.get('pad') === '1') saved.padMode = 'on';
   localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
 
   const frame = document.getElementById('game');
