@@ -2850,6 +2850,9 @@
         // 빌런 그림의 크기와 아래쪽이 닿는 칸은 판마다 다르다(잠든 빌런은 테이블 칸까지 엎드려 있다). layout.js가 기준이다.
         game.sprites.villain = addSprite(look.idle, TILE, TILE * look.heightTiles, colors.villain, { round: true });
         placeOnTile(game.sprites.villain, villain.x, villain.y + look.anchorRow, TILE, TILE * look.heightTiles);
+        // 빌런은 손님처럼 같은 줄 탁자보다 한 단계 앞에 그린다. 실내 판은 탁자를 빌런보다 나중에 같은 겹침 순서로 그려서,
+        // 잠든 빌런의 팔과 멀티탭, 폰이 탁자에 덮여 보이지 않았다(2026-11-02 받은 그림 검사에서 찾음).
+        game.sprites.villain.style.zIndex = String(11 + (villain.y + look.anchorRow) * 10);
         game.sprites.cord = drawCord(look, villain, colors);
         ui.battery.classList.remove('full');
 

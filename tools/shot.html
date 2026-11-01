@@ -8,6 +8,8 @@
   주소 예: shot.html?level=3 (1-4), shot.html?level=3&zoom=2.5&x=180&y=110 (장면 좌표 x, y를 왼쪽 위로 2.5배),
   shot.html?title=1&w=375&h=812 (메인 화면을 375 x 812 틀로), title=1&cleared=13 (모든 판을 깬 메인 화면).
   solve=1을 붙이면 해법 탐색기의 최단 풀이대로 판을 깨고, 깬 뒤 장면(로봇이 충전 독에 올라앉은 모습)을 찍는다. 이때는 --virtual-time-budget을 40000 이상 준다.
+  swap=이름:경로(여럿이면 쉼표)를 붙이면 장면 속 그 그림(파일 이름이 이름.png나 이름.webp)을 경로의 시험 그림으로 바꿔 찍는다. 그림 목록은 건드리지 않는다.
+  예: swap=villain-sleep:../assets/style-test/villain-sleep-v2.png
   headless Chrome으로 찍을 때는 --virtual-time-budget을 15000 이상 준다(판 시작 연출이 끝나야 한다). 창 크기는 w, h와 같게 준다.
 -->
 <style>
@@ -48,6 +50,18 @@
     // 챕터 첫 판의 빌런 소개 카드를 닫는다. 카드가 없으면 판 시작 연출을 건너뛸 뿐이다. card=1이면 카드를 닫지 않고 찍는다(소개 글 줄 끝 확인용).
     if (params.get('card') === '1') return;
     setTimeout(() => press('Enter'), 4500);
+    // 받은 시험 그림을 게임에 얹어 보기(docs/art-rules.md "받은 그림 검사" 2번). 장면이 다시 그려져도 바뀌도록 1초마다 다시 건다.
+    const swaps = (params.get('swap') || '').split(',').filter(Boolean).map((pair) => pair.split(':'));
+    if (swaps.length) {
+      setInterval(() => {
+        frame.contentDocument.querySelectorAll('#scene img').forEach((image) => {
+          const src = image.getAttribute('src') || '';
+          for (const [name, path] of swaps) {
+            if (new RegExp(`/${name}\.(png|webp)$`).test(src)) image.setAttribute('src', path);
+          }
+        });
+      }, 1000);
+    }
     const zoomIn = () => {
       const doc = frame.contentDocument;
       const scene = doc.querySelector('#scene');

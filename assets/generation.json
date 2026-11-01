@@ -29241,6 +29241,1360 @@
         "scope": "New wall sprites viewed in external joins. Current game has no wall sprite wiring yet; game check verifies loading after manifest addition. No game code edits. Temporary tabs closed and viewport reset."
       },
       "otherFilesChangedDuringTask": []
+    },
+    {
+      "date": "2026-11-01",
+      "name": "five-art-jobs-caller-sleeper-story-standing-webp",
+      "tool": "built-in image_gen for12 final illustrations; Pillow for uniform size, transparent-margin and canvas placement, WebP conversion only.",
+      "scope": "Replaces request10. Caller3 and sleeper2 unregistered trials; story1 overwrite; standing8a6 registered; existing sleeper-empty PNG converted then deleted. No second-chapter background or code edits. No commit.",
+      "sourceOfTruth": [
+        "AGENTS.md",
+        "CLAUDE.md",
+        "docs/art-rules.md",
+        "known-issues.md11,23,24",
+        "user five-job pasted request"
+      ],
+      "attempts": [
+        {
+          "key": "caller-a",
+          "kind": "caller",
+          "refs": [
+            "docs/layout-guide/request-caller-lineup.png",
+            "assets/a/guest-2a-down.png",
+            "assets/a/guest-8a-down.png"
+          ],
+          "prompt": "Use case: stylized-concept. Create ONE candidate portrait, caller-a, not a lineup. Clean cartoon illustration for the established Korean cafe puzzle game, thick sparse black outlines, simple large flat shapes, exactly one shadow step. True transparent background, no ground shadow, white sticker halo, text, logo, numbers, extra icons or surrounding scene. Do not imitate the reference guests' faces or identity; their purpose is stroke and cel shading only.\nSubject: a Korean cafe guest in an ordinary video meeting or online class, seen FRONTALLY at laptop-webcam height, chest-up. A normal microphone headset with simple earcups, headband and short boom close to mouth makes the meeting legible. Calm everyday speaking expression, eyes looking into screen, slightly open conversational mouth. No laptop or hands necessary in this close crop.\nCandidate design: Short smooth straight hair with a slightly off-center part, compact rounded silhouette, a blue stand-collar zip jacket. Ambiguous gender; no exaggerated gender markers. This is a new candidate whose appearance is not fixed yet. Do not copy either reference guest or the faded streamer in annotated reference1.\nReferences:1 technical context and palette ONLY, ignore all its text, faded old streamer, empty placeholders;2 and3 stroke weight and clean single-step cel shading ONLY.\nOutput512x512 transparent. Hair/headset highest point about y40, chest cut by bottom y511. Visible SKIN face width155to195px (30to38percent of canvas), moderate head proportions matching the guest style, shoulders about350to400px. The face should be bright grayscale80to95percent.\nColor strictly blue clothing and headset accents: large base fill #2f6db3, one blue shadow #214c7d only. Everything else white/light neutral gray, dark hair and black outlines. Broad smooth shadows following clothing folds. No scattered pointed black/navy shards inside clothes, no gradient, gloss, texture or hatch.\nNO ring light, tripod, camera phone, former streamer's headband accessory or overalls/suspenders. NO red, green, yellow, text or symbols. A real video meeting participant, not a performer.",
+          "raw": "exec-23bfad59-0861-4278-9c59-7f86be4e3f2b.png"
+        },
+        {
+          "key": "caller-b",
+          "kind": "caller",
+          "refs": [
+            "docs/layout-guide/request-caller-lineup.png",
+            "assets/a/guest-2a-down.png",
+            "assets/a/guest-8a-down.png"
+          ],
+          "prompt": "Use case: stylized-concept. Create ONE candidate portrait, caller-b, not a lineup. Clean cartoon illustration for the established Korean cafe puzzle game, thick sparse black outlines, simple large flat shapes, exactly one shadow step. True transparent background, no ground shadow, white sticker halo, text, logo, numbers, extra icons or surrounding scene. Do not imitate the reference guests' faces or identity; their purpose is stroke and cel shading only.\nSubject: a Korean cafe guest in an ordinary video meeting or online class, seen FRONTALLY at laptop-webcam height, chest-up. A normal microphone headset with simple earcups, headband and short boom close to mouth makes the meeting legible. Calm everyday speaking expression, eyes looking into screen, slightly open conversational mouth. No laptop or hands necessary in this close crop.\nCandidate design: Straight jaw-length bob tucked under the headset, wide rounded silhouette, loose blue button-front cardigan over a light gray inner shirt. Ambiguous gender; no exaggerated gender markers. This is a new candidate whose appearance is not fixed yet. Do not copy either reference guest or the faded streamer in annotated reference1.\nReferences:1 technical context and palette ONLY, ignore all its text, faded old streamer, empty placeholders;2 and3 stroke weight and clean single-step cel shading ONLY.\nOutput512x512 transparent. Hair/headset highest point about y40, chest cut by bottom y511. Visible SKIN face width155to195px (30to38percent of canvas), moderate head proportions matching the guest style, shoulders about350to400px. The face should be bright grayscale80to95percent.\nColor strictly blue clothing and headset accents: large base fill #2f6db3, one blue shadow #214c7d only. Everything else white/light neutral gray, dark hair and black outlines. Broad smooth shadows following clothing folds. No scattered pointed black/navy shards inside clothes, no gradient, gloss, texture or hatch.\nNO ring light, tripod, camera phone, former streamer's headband accessory or overalls/suspenders. NO red, green, yellow, text or symbols. A real video meeting participant, not a performer.",
+          "raw": "exec-773453c2-146d-4509-b943-d771df945360.png"
+        },
+        {
+          "key": "caller-c",
+          "kind": "caller",
+          "refs": [
+            "docs/layout-guide/request-caller-lineup.png",
+            "assets/a/guest-2a-down.png",
+            "assets/a/guest-8a-down.png"
+          ],
+          "prompt": "Use case: stylized-concept. Create ONE candidate portrait, caller-c, not a lineup. Clean cartoon illustration for the established Korean cafe puzzle game, thick sparse black outlines, simple large flat shapes, exactly one shadow step. True transparent background, no ground shadow, white sticker halo, text, logo, numbers, extra icons or surrounding scene. Do not imitate the reference guests' faces or identity; their purpose is stroke and cel shading only.\nSubject: a Korean cafe guest in an ordinary video meeting or online class, seen FRONTALLY at laptop-webcam height, chest-up. A normal microphone headset with simple earcups, headband and short boom close to mouth makes the meeting legible. Calm everyday speaking expression, eyes looking into screen, slightly open conversational mouth. No laptop or hands necessary in this close crop.\nCandidate design: Compact voluminous curly hair forming a rounded taller silhouette, blue broad-collared overshirt with simple wide shoulders. Ambiguous gender; no exaggerated gender markers. This is a new candidate whose appearance is not fixed yet. Do not copy either reference guest or the faded streamer in annotated reference1.\nReferences:1 technical context and palette ONLY, ignore all its text, faded old streamer, empty placeholders;2 and3 stroke weight and clean single-step cel shading ONLY.\nOutput512x512 transparent. Hair/headset highest point about y40, chest cut by bottom y511. Visible SKIN face width155to195px (30to38percent of canvas), moderate head proportions matching the guest style, shoulders about350to400px. The face should be bright grayscale80to95percent.\nColor strictly blue clothing and headset accents: large base fill #2f6db3, one blue shadow #214c7d only. Everything else white/light neutral gray, dark hair and black outlines. Broad smooth shadows following clothing folds. No scattered pointed black/navy shards inside clothes, no gradient, gloss, texture or hatch.\nNO ring light, tripod, camera phone, former streamer's headband accessory or overalls/suspenders. NO red, green, yellow, text or symbols. A real video meeting participant, not a performer.",
+          "raw": "exec-0e672b01-6827-4e57-8461-5a2e923014f8.png"
+        },
+        {
+          "key": "villain-sleep-v2",
+          "kind": "sleep",
+          "refs": [
+            "assets/a/villain-sleep.png",
+            "docs/layout-guide/request-sleeper-fix.png",
+            "assets/a/villain-portrait.webp",
+            "assets/a/guest-2a-down.png"
+          ],
+          "prompt": "Use case: precise-object-edit. EDIT reference1, preserving the SAME purple hooded black-haired sleeper, exact recognizable face, open sleeping mouth, head leaning over folded arms, same perspective and compact upper-body posture. Do not invent another person. Reference2 technical limits and color swatches only, NO its text;3 confirms identity only;4 clean shading style only.\nCorrect just clothing shading and objects on the implied table. True transparent background. No actual table, tabletop, legs, chair, background, shadow or sticker edge.\nNative output192x480, lots of transparent margin above and below. Person's hood top aroundy120. Whole visible composition width184px withinx4to187. Person and items aroundy120to370, never below422. The lower192px (y288to479) correspond to the table tile: ALL equipment and loose cables strictly on y288to400, above table front edge422. Put person and folded arms above/behind the equipment, not on another full body.\nClean flat purple base #7b4fb0, ONLY one same-hue shadow #56377b in broad soft-edged cel-shape folds (no blur). Black only outlines and hair, never black pointed shadow shards on purple clothes. Skin grayscale bright.\nCrucial readable objects: ONE WHITE KOREAN THREE-SOCKET power strip, exactly THREE plugs plugged into it, their normal-length gray/white cables lead separately to THREE different devices near the arms: a closed small LAPTOP (broad landscape rectangle), a PHONE (small tall rectangle), a TABLET (medium tall rectangle). Distinguish sizes clearly. Phone cable visibly plugs into its BOTTOM short edge and loops naturally within tabletop area; never side edge and no tiny cable stub. Strip is greedily hugged by sleeper. All three cables traceable, no disconnected floating plugs.\nBold sparse outlines readable when reduced, white/gray electronics30to95percent brightness. NO colored screens, markings, text, red, green, yellow, floating Zs, speech balloons, extra cups, extra symbols. Preserve same sleeper identity and pose while making multi-device outlet monopolization clear.",
+          "raw": "exec-beab47b4-b009-4659-9b09-821087f45a6e.png"
+        },
+        {
+          "key": "villain-portrait-v2",
+          "kind": "portrait",
+          "refs": [
+            "assets/a/villain-portrait.webp",
+            "docs/layout-guide/request-sleeper-fix.png",
+            "assets/a/villain-sleep.png",
+            "assets/a/guest-2a-down.png"
+          ],
+          "prompt": "Use case: precise-object-edit. EDIT reference1 only to clean clothing SHADING. Same character, same entire silhouette, same hood and black hair, same startled wide-eyed open-mouth expression, SAME pose gripping white two-pin power-strip plug with both hands at chest, same cable, same framing and proportions. Do not redesign or change expression/gesture.\nReference2 supplies approved purple swatches, ignore its text and sleeping pose.3 same identity;4 sparse clean cel shading aesthetic. True transparent1024x1024. Visible bounds approximatelyx119to902 andy4to1023, cropped torso at bottom.\nReplace ALL harsh black or gray irregular shadow shards inside purple clothing with smooth LARGE cloth-fold shapes in ONE purple shadow #56377b. Dominant garment base #7b4fb0. Only these TWO purple fills, no third purple shade or gradient. Black reserved for outlines and hair, not filled shadow wedges inside garment. White/light gray face and hands; white/light gray plug and cable. Keep thick black cartoon contour and simple eye features. No halo, ground shadow, background, text, symbols, red, green or yellow. Keep original overall pose and personality.",
+          "raw": "exec-1e70991c-33c2-47bb-93e6-3f23b69dd09f.png"
+        },
+        {
+          "key": "story-1",
+          "kind": "story",
+          "refs": [
+            "assets/a/story-1.webp",
+            "docs/layout-guide/request-story1-fix.png",
+            "assets/a/story-2.webp"
+          ],
+          "prompt": "Use case: precise-object-edit. Recompose reference1 as a cleaner first prologue panel for the SAME game. Reference2 shows problems to remove, never copy its annotation text or red boxes; reference3 matching cartoon line and grayscale nighttime cafe atmosphere ONLY, DO NOT include its robot or red color.\nONE landscape1280x720 OPAQUE grayscale comic establishing panel, slightly elevated oblique view similar to ref1. A busy KOREAN STUDY CAFE late at night, big windows with dark city silhouettes and sparse lit windows, pendant lamps, gray-clothed patrons studying on laptops/books/notebooks.\nImportant planned furniture: EXACTLY TWO PARALLEL ROWS of evenly spaced rectangular individual study desks, every desktop edge aligned to the SAME window-wall direction, no randomly rotated middle table. Four desks in back row directly under the window wall, three desks in front row in matching orientation. Show seven different patrons, one per desk, varied hair/clothes/age silhouettes, no duplicates. Broad readable composition, not clutter.\nBack row: each of its4 desks has its OWN clearly visible wall outlet immediately beside/under that desk, with one short direct cable from its occupant's laptop to that outlet. Front row: each of its3 desks has an individual outlet visible at its own side/back panel under its top, and its own very short direct device cable to that outlet. All cables stay on or directly behind their own desk. No cable crosses to a neighboring desk or crosses floor/walkway. Make ownership of every outlet unambiguous in the drawing itself.\nEvery patron is absorbed in their own work; frontal/side/back views vary naturally but all seated toward their own aligned desks. No specific villain, no sleeping person monopolizing strip, no robot. Simple thick sparse black outlines and flat neutral gray shading, background brightness15to85percent. NO text, letters, book writing, logos, speech balloons, emojis, effect marks, red, green or other hues. Keep cozy dark night room and organized crowded desk rows clearly readable.",
+          "raw": "exec-8a45e22f-9d89-4e28-b830-0558fdfa93d6.png"
+        },
+        {
+          "key": "guest-8a-stand-down",
+          "kind": "standing",
+          "direction": "down",
+          "refs": [
+            "assets/a/guest-8a-down.png",
+            "assets/a/guest-8a-down.png",
+            "docs/layout-guide/request-standing-lineup.png",
+            "assets/a/guest-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. Create ONE standing cafe guest sprite of EXACT SAME existing elderly Korean man guest8a from reference1 and2: swept wavy light gray hair, square glasses, gentle lined face, button-front gray cardigan over collared light shirt, same gray trousers and shoes. Retain this chosen identity, clothing, head shape, age and proportions; DO NOT copy young standing ref4 identity. Reference3 technical size chart ONLY, do not draw its text or cups/placeholders. Ref4 standing posture and game camera only.\nDirection down: front facing viewer toward bottom of screen, both eyes/glasses visible. Entire body upright, both feet on ground, relaxed patient stance waiting for a cafe drink, empty hands naturally down at sides. No mug, phone, book, chair or props.\nTransparent192x288PNG, standing visible height280px (allowed274to286), hair top aroundy8, soles touchy287. Same scale as existing guest-down, taller than seated guest8a250px. Front width80to110px, aim100, natural compact proportions not skinny and not exaggerated superdeformed. RPG Maker style slight elevated camera, feet front faces visible, no isometric diagonal, no ground ellipse.\nClean thick sparse black contours matching guest8a, large neutral gray fills, only one gray shadow step, subject mean brightness30to45percent. Grayscale only, no red green yellow blue. No white sticker halo, cast shadow, letters, logos, text, extra motion marks or backdrop. Draw only one full-body person in this direction.",
+          "raw": "exec-8a1e01d9-a865-49e6-b838-c937b3f8b482.png"
+        },
+        {
+          "key": "guest-8a-stand-up",
+          "kind": "standing",
+          "direction": "up",
+          "refs": [
+            "assets/a/guest-8a-up.png",
+            "assets/a/guest-8a-down.png",
+            "docs/layout-guide/request-standing-lineup.png",
+            "assets/a/guest-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. Create ONE standing cafe guest sprite of EXACT SAME existing elderly Korean man guest8a from reference1 and2: swept wavy light gray hair, square glasses, gentle lined face, button-front gray cardigan over collared light shirt, same gray trousers and shoes. Retain this chosen identity, clothing, head shape, age and proportions; DO NOT copy young standing ref4 identity. Reference3 technical size chart ONLY, do not draw its text or cups/placeholders. Ref4 standing posture and game camera only.\nDirection up: BACK VIEW facing top of screen, back of gray hair/cardigan, no face visible. Entire body upright, both feet on ground, relaxed patient stance waiting for a cafe drink, empty hands naturally down at sides. No mug, phone, book, chair or props.\nTransparent192x288PNG, standing visible height280px (allowed274to286), hair top aroundy8, soles touchy287. Same scale as existing guest-down, taller than seated guest8a250px. Front width80to110px, aim100, natural compact proportions not skinny and not exaggerated superdeformed. RPG Maker style slight elevated camera, feet front faces visible, no isometric diagonal, no ground ellipse.\nClean thick sparse black contours matching guest8a, large neutral gray fills, only one gray shadow step, subject mean brightness30to45percent. Grayscale only, no red green yellow blue. No white sticker halo, cast shadow, letters, logos, text, extra motion marks or backdrop. Draw only one full-body person in this direction.",
+          "raw": "exec-c246f40c-90ce-485c-96bc-172bba8bd079.png"
+        },
+        {
+          "key": "guest-8a-stand-left",
+          "kind": "standing",
+          "direction": "left",
+          "refs": [
+            "assets/a/guest-8a-left.png",
+            "assets/a/guest-8a-down.png",
+            "docs/layout-guide/request-standing-lineup.png",
+            "assets/a/guest-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. Create ONE standing cafe guest sprite of EXACT SAME existing elderly Korean man guest8a from reference1 and2: swept wavy light gray hair, square glasses, gentle lined face, button-front gray cardigan over collared light shirt, same gray trousers and shoes. Retain this chosen identity, clothing, head shape, age and proportions; DO NOT copy young standing ref4 identity. Reference3 technical size chart ONLY, do not draw its text or cups/placeholders. Ref4 standing posture and game camera only.\nDirection left: true LEFT PROFILE looking toward left edge. Entire body upright, both feet on ground, relaxed patient stance waiting for a cafe drink, empty hands naturally down at sides. No mug, phone, book, chair or props.\nTransparent192x288PNG, standing visible height280px (allowed274to286), hair top aroundy8, soles touchy287. Same scale as existing guest-down, taller than seated guest8a250px. Front width80to110px, aim100, natural compact proportions not skinny and not exaggerated superdeformed. RPG Maker style slight elevated camera, feet front faces visible, no isometric diagonal, no ground ellipse.\nClean thick sparse black contours matching guest8a, large neutral gray fills, only one gray shadow step, subject mean brightness30to45percent. Grayscale only, no red green yellow blue. No white sticker halo, cast shadow, letters, logos, text, extra motion marks or backdrop. Draw only one full-body person in this direction.",
+          "raw": "exec-95a7824c-42b2-477d-9b75-fdacbeaae53f.png"
+        },
+        {
+          "key": "guest-8a-stand-right",
+          "kind": "standing",
+          "direction": "right",
+          "refs": [
+            "assets/a/guest-8a-right.png",
+            "assets/a/guest-8a-down.png",
+            "docs/layout-guide/request-standing-lineup.png",
+            "assets/a/guest-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. Create ONE standing cafe guest sprite of EXACT SAME existing elderly Korean man guest8a from reference1 and2: swept wavy light gray hair, square glasses, gentle lined face, button-front gray cardigan over collared light shirt, same gray trousers and shoes. Retain this chosen identity, clothing, head shape, age and proportions; DO NOT copy young standing ref4 identity. Reference3 technical size chart ONLY, do not draw its text or cups/placeholders. Ref4 standing posture and game camera only.\nDirection right: true RIGHT PROFILE looking toward right edge. Entire body upright, both feet on ground, relaxed patient stance waiting for a cafe drink, empty hands naturally down at sides. No mug, phone, book, chair or props.\nTransparent192x288PNG, standing visible height280px (allowed274to286), hair top aroundy8, soles touchy287. Same scale as existing guest-down, taller than seated guest8a250px. Front width80to110px, aim100, natural compact proportions not skinny and not exaggerated superdeformed. RPG Maker style slight elevated camera, feet front faces visible, no isometric diagonal, no ground ellipse.\nClean thick sparse black contours matching guest8a, large neutral gray fills, only one gray shadow step, subject mean brightness30to45percent. Grayscale only, no red green yellow blue. No white sticker halo, cast shadow, letters, logos, text, extra motion marks or backdrop. Draw only one full-body person in this direction.",
+          "raw": "exec-8a2a9d19-fdfd-4702-a401-a6d906132916.png"
+        },
+        {
+          "key": "guest-8a-walk1-down",
+          "kind": "walking",
+          "direction": "down",
+          "refs": [
+            "working:normalized/guest-8a-stand-down.png",
+            "assets/a/guest-8a-down.png",
+            "docs/layout-guide/request-standing-lineup.png",
+            "assets/a/guest-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. EDIT reference1 into exactly ONE walking-animation frame of the SAME elderly gray-haired cafe guest8a. Preserve head size, hair shape, glasses, face, collared shirt, gray button cardigan, trousers and shoes exactly as reference1. Ref2 seated identity;3 native size chart only, no its text/mug;4 pose/style only not that person's identity.\nFront facing bottom of screen. WALKING frame1: person LEFT foot (on viewer RIGHT) steps clearly FORWARD toward bottom, the right foot remains back; right arm swings subtly forward. This must be the opposite leg to the other frame. Gentle ordinary walking, NOT running, straddling, shuffling sideways or sitting. Hands empty and relaxed; no cane, mug, phone or chair.\nNative192x288 transparentPNG. Same standing height280pixels, soles at y287, head highest point abouty8, head position difference from ref1 must be within4px. Head/torso size same as standing, about100px total front width, never thin70px. Keep camera slightly above RPG Maker, no perspective scene. Body centered.\nPure neutral grayscale, mean brightness30to45percent, clean large flat fills and one gray cel-shadow step. Thick sparse outlines identical to chosen guest. No ground shadow, sticker halo, extra duplicate person, diagram, text, logo, red, green, yellow, blur or motion marks. Draw a single walking person only.",
+          "raw": "exec-99fd97dc-dc80-4f6e-ac91-ebf510ba3a09.png"
+        },
+        {
+          "key": "guest-8a-walk2-down",
+          "kind": "walking",
+          "direction": "down",
+          "refs": [
+            "working:normalized/guest-8a-stand-down.png",
+            "assets/a/guest-8a-down.png",
+            "docs/layout-guide/request-standing-lineup.png",
+            "assets/a/guest-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. EDIT reference1 into exactly ONE walking-animation frame of the SAME elderly gray-haired cafe guest8a. Preserve head size, hair shape, glasses, face, collared shirt, gray button cardigan, trousers and shoes exactly as reference1. Ref2 seated identity;3 native size chart only, no its text/mug;4 pose/style only not that person's identity.\nFront facing bottom of screen. WALKING frame2: person RIGHT foot (on viewer LEFT) steps clearly FORWARD toward bottom, the left foot remains back; left arm swings subtly forward. This must be the opposite leg to the other frame. Gentle ordinary walking, NOT running, straddling, shuffling sideways or sitting. Hands empty and relaxed; no cane, mug, phone or chair.\nNative192x288 transparentPNG. Same standing height280pixels, soles at y287, head highest point abouty8, head position difference from ref1 must be within4px. Head/torso size same as standing, about100px total front width, never thin70px. Keep camera slightly above RPG Maker, no perspective scene. Body centered.\nPure neutral grayscale, mean brightness30to45percent, clean large flat fills and one gray cel-shadow step. Thick sparse outlines identical to chosen guest. No ground shadow, sticker halo, extra duplicate person, diagram, text, logo, red, green, yellow, blur or motion marks. Draw a single walking person only.",
+          "raw": "exec-ff844f0b-d3ed-4080-b15b-ad4f2b6ce04b.png"
+        },
+        {
+          "key": "caller-b",
+          "kind": "caller",
+          "refs": [
+            "working:normalized/caller-b.png",
+            "docs/layout-guide/request-caller-lineup.png",
+            "assets/a/guest-2a-down.png",
+            "assets/a/guest-8a-down.png"
+          ],
+          "prompt": "Use case: precise-object-edit. EDIT IMAGE1, the blue-cardigan bob-haired video-call candidate. Keep same bob haircut, face, square-ish soft head shape, headset with boom microphone, blue cardigan and chest crop, ordinary speaking expression. REMOVE the thin WHITE STICKER HALO outlining the hair and shoulders. The outermost contour must be BLACK touching true transparency immediately; no white, cream, gray or pale rim, NO cutout matte fringes. This is the only shape correction. Image2 palette/technical constraints only, never text or old streamer.3,4 clean contour and shading only.\nTransparent512x512. Top of hair abouty40, torso cut atbottom511. Face including dark cheek contour width175px (155to195 allowed). Blue base large flat fill exactly#2f6db3, single same-blue shadow#214c7d. White/lightgray face. Black contours/hair only. No gradients, texture, glossy glints, triangular black filled garment shards, red green yellow, text or scene. One person only. Same candidate, only clean the matte edge and simplify shades.",
+          "raw": "exec-e1a8ef74-28bc-41eb-819a-a345939f5c57.png"
+        },
+        {
+          "key": "villain-sleep-v2",
+          "kind": "sleep",
+          "refs": [
+            "working:normalized/villain-sleep-v2.png",
+            "docs/layout-guide/request-sleeper-fix.png",
+            "assets/a/villain-sleep.png",
+            "assets/a/guest-2a-down.png"
+          ],
+          "prompt": "Use case: precise-object-edit. EDIT image1, preserving the SAME purple-hood sleeper, recognizable black-haired face, open sleeping mouth, folded arms and exact three-device composition. Image2 native position guide/colors ONLY, no text.3 identity,4 shading.\nCorrection: electronics in image1 start ABOVE native y288. Move power strip/adapters and all three devices/cables LOWER so EVERYTHING electrical is within native y288to410, above422 tabletop front. Hood/person highest point staysy120, whole widthx4to187. Compact arms occupyy230to290, with strip tucked just below them at288to330. Laptop, phone and tablet below it at330to395, cables entirelywithin288to410. No actual table or chair.\nLayout on transparent192x480 canvas: y0to119 empty, sleeperhood begins120; ONE white Korean3socket power strip with3PLUGS, connected to closed laptop, small phone and medium tablet. Ordinary curved phone cable enters bottom short edge, never side. All items remain same inventory and recognizable simple big shapes. Body posture and proportions original, no new person. NO electrical object/cable above288 or below422. It is essential that objects lie on actual table tile.\nAlso simplify purple shades: flat base#7b4fb0, ONLY shadow#56377b in broad cloth shapes, no darker third purple, no black filled shards on garment. Skin/electronics grayscale. Black only contours and hair. No gradients, grain, redgreenyellow, text, logos, white halo, floor shadow or background.",
+          "raw": "exec-a9814456-01b0-48f6-9870-ecb98a91fa89.png"
+        },
+        {
+          "key": "guest-8a-walk2-down",
+          "kind": "walking",
+          "direction": "down",
+          "refs": [
+            "working:normalized/guest-8a-walk2-down.png",
+            "working:normalized/guest-8a-walk1-down.png",
+            "working:normalized/guest-8a-stand-down.png",
+            "docs/layout-guide/request-standing-lineup.png"
+          ],
+          "prompt": "Use case: precise-object-edit. Correct ONLY the WALKING LEG PHASE of image1. Same elderly guest8a, same face, gray hair, square glasses, button cardigan, clothes, empty hands, gray colors, stroke, head scale and height. Do not copy another identity. Image2 is the OPPOSITE frame which has its bottommost shoe on VIEWER RIGHT; image3 is neutral standing body identity.4 technical size only.\nCRITICAL: The bottommost ADVANCED shoe in THIS corrected frame must be on VIEWER LEFT (person's RIGHT FOOT). In native192x288 coordinate terms: the ADVANCED shoe centered aroundx78 must reach y287, while the other shoe centered aroundx115 must remain BACK and end aroundy263. The right leg ON VIEWER LEFT comes down forward, left leg ON VIEWER RIGHT is bent/retracted. Show BOTH shoes distinct; do NOT cross legs. Existing image1 incorrectly has the front foot on viewer right, so swap actual gait phase. This is NOT a mirrored whole person: preserve hair part, glasses/head and upper identity, only reverse leg/arm walking phase naturally.\nFront-facing slow ordinary walk, true transparent192x288. Native highest hair aroundy8, totalheight280, head same position±4px as image3. Width80to110px. Both hands empty, no cupsphonechair. Neutralgrayscale only, large flat gray fills and one shadow step, bold sparse contours. No castshadow, stickerhalo, letters, logos, redgreenyellow, motion marks. ONE character only, no diagram. Camera matches existing game slight elevated view.",
+          "raw": "exec-0bae55b2-30e5-4860-a132-cc6ac3eb1b3c.png"
+        },
+        {
+          "key": "guest-8a-walk2-down",
+          "kind": "walking",
+          "direction": "down",
+          "refs": [
+            "working:normalized/guest-8a-walk2-down.png",
+            "working:normalized/guest-8a-stand-down.png",
+            "assets/a/guest-8a-down.png"
+          ],
+          "prompt": "Use case: background-extraction. EDIT IMAGE1 ONLY to remove the gray glow/soft shadow surrounding the figure. Keep the same elderly gray-haired cardigan guest and the corrected walking phase: front shoe on VIEWER LEFT atx78,y287, backshoe on VIEWER RIGHT aroundx115,y263. Do not change leg phase, body proportions, face, gray colors, hair or clothing. Image2 and3 identity/style only.\nOutput TRUE CLEAR TRANSPARENT PNG, opaque drawing with crisp BLACK contours against alpha0. NO pale matte, white rim, gray fringe, blurred glow, aura, any ground or body shadow outside the figure. Remove all surrounding gray haze; just clean dark outline at edge. Preserve original grayscale cel shading INSIDE the person. Native192x288, headhighesty8, height280, bottomsoley287; no text, no logo, no coloredpixels, no chair or mug. One single full-body frontal slow-walking8a, person's right foot ON VIEWER LEFT forward. Clean transparency is essential.",
+          "raw": "exec-7d48135f-8cf3-4ce8-8815-c77b8d37120d.png"
+        }
+      ],
+      "successfulGenerationCalls": 16,
+      "assets": [
+        {
+          "key": "caller-a",
+          "path": "assets/style-test/caller-a.png",
+          "kind": "caller",
+          "measurements": {
+            "key": "caller-a",
+            "kind": "caller",
+            "direction": null,
+            "canvas": [
+              512,
+              512
+            ],
+            "bbox": [
+              28,
+              40,
+              483,
+              512
+            ],
+            "width": 455,
+            "height": 472,
+            "bottomY": 511,
+            "topY": 40,
+            "meanBrightnessPercent": 34.03,
+            "rawBBox": [
+              64,
+              56,
+              1194,
+              1228
+            ],
+            "uniformScale": 0.40273037542662116,
+            "canvasPlacement": [
+              28,
+              40
+            ],
+            "bytes": 220484,
+            "dominantColored8BinRGB": [
+              {
+                "rgb": [
+                  48,
+                  104,
+                  176
+                ],
+                "count": 16072
+              },
+              {
+                "rgb": [
+                  24,
+                  64,
+                  120
+                ],
+                "count": 10381
+              },
+              {
+                "rgb": [
+                  40,
+                  104,
+                  168
+                ],
+                "count": 7836
+              },
+              {
+                "rgb": [
+                  40,
+                  104,
+                  176
+                ],
+                "count": 6663
+              },
+              {
+                "rgb": [
+                  48,
+                  104,
+                  168
+                ],
+                "count": 4270
+              },
+              {
+                "rgb": [
+                  40,
+                  96,
+                  168
+                ],
+                "count": 3632
+              }
+            ]
+          },
+          "details": {
+            "faceWidthAtBrightSkinRow": 155,
+            "faceMeasurementRowY": 263,
+            "faceInclusiveX": [
+              180,
+              334
+            ],
+            "fillSamples": [
+              {
+                "requestedRGB": [
+                  47,
+                  109,
+                  179
+                ],
+                "measuredTargetNearMedianRGB": [
+                  48,
+                  105,
+                  176
+                ],
+                "samplePixelCount": 46259,
+                "maxRadius": 30
+              },
+              {
+                "requestedRGB": [
+                  33,
+                  76,
+                  125
+                ],
+                "measuredTargetNearMedianRGB": [
+                  28,
+                  67,
+                  123
+                ],
+                "samplePixelCount": 14456,
+                "maxRadius": 30
+              }
+            ],
+            "dominantColoredBins": [
+              {
+                "rgb": [
+                  48,
+                  104,
+                  176
+                ],
+                "count": 16072
+              },
+              {
+                "rgb": [
+                  24,
+                  64,
+                  120
+                ],
+                "count": 10381
+              },
+              {
+                "rgb": [
+                  40,
+                  104,
+                  168
+                ],
+                "count": 7836
+              },
+              {
+                "rgb": [
+                  40,
+                  104,
+                  176
+                ],
+                "count": 6663
+              },
+              {
+                "rgb": [
+                  48,
+                  104,
+                  168
+                ],
+                "count": 4270
+              }
+            ]
+          }
+        },
+        {
+          "key": "caller-b",
+          "path": "assets/style-test/caller-b.png",
+          "kind": "caller",
+          "measurements": {
+            "key": "caller-b",
+            "kind": "caller",
+            "direction": null,
+            "canvas": [
+              512,
+              512
+            ],
+            "bbox": [
+              14,
+              40,
+              498,
+              512
+            ],
+            "width": 484,
+            "height": 472,
+            "bottomY": 511,
+            "topY": 40,
+            "meanBrightnessPercent": 37.284,
+            "rawBBox": [
+              20,
+              78,
+              1227,
+              1254
+            ],
+            "uniformScale": 0.4013605442176871,
+            "canvasPlacement": [
+              14,
+              40
+            ],
+            "bytes": 232084,
+            "dominantColored8BinRGB": [
+              {
+                "rgb": [
+                  40,
+                  104,
+                  184
+                ],
+                "count": 39161
+              },
+              {
+                "rgb": [
+                  24,
+                  72,
+                  136
+                ],
+                "count": 6395
+              },
+              {
+                "rgb": [
+                  24,
+                  72,
+                  144
+                ],
+                "count": 3110
+              },
+              {
+                "rgb": [
+                  40,
+                  104,
+                  192
+                ],
+                "count": 1831
+              },
+              {
+                "rgb": [
+                  40,
+                  112,
+                  192
+                ],
+                "count": 1488
+              },
+              {
+                "rgb": [
+                  40,
+                  112,
+                  200
+                ],
+                "count": 684
+              }
+            ]
+          },
+          "details": {
+            "faceWidthAtBrightSkinRow": 181,
+            "faceMeasurementRowY": 215,
+            "faceInclusiveX": [
+              179,
+              359
+            ],
+            "fillSamples": [
+              {
+                "requestedRGB": [
+                  47,
+                  109,
+                  179
+                ],
+                "measuredTargetNearMedianRGB": [
+                  42,
+                  109,
+                  190
+                ],
+                "samplePixelCount": 45157,
+                "maxRadius": 30
+              },
+              {
+                "requestedRGB": [
+                  33,
+                  76,
+                  125
+                ],
+                "measuredTargetNearMedianRGB": [
+                  25,
+                  75,
+                  142
+                ],
+                "samplePixelCount": 11793,
+                "maxRadius": 30
+              }
+            ],
+            "dominantColoredBins": [
+              {
+                "rgb": [
+                  40,
+                  104,
+                  184
+                ],
+                "count": 39161
+              },
+              {
+                "rgb": [
+                  24,
+                  72,
+                  136
+                ],
+                "count": 6395
+              },
+              {
+                "rgb": [
+                  24,
+                  72,
+                  144
+                ],
+                "count": 3110
+              },
+              {
+                "rgb": [
+                  40,
+                  104,
+                  192
+                ],
+                "count": 1831
+              },
+              {
+                "rgb": [
+                  40,
+                  112,
+                  192
+                ],
+                "count": 1488
+              }
+            ]
+          }
+        },
+        {
+          "key": "caller-c",
+          "path": "assets/style-test/caller-c.png",
+          "kind": "caller",
+          "measurements": {
+            "key": "caller-c",
+            "kind": "caller",
+            "direction": null,
+            "canvas": [
+              512,
+              512
+            ],
+            "bbox": [
+              15,
+              40,
+              498,
+              512
+            ],
+            "width": 483,
+            "height": 472,
+            "bottomY": 511,
+            "topY": 40,
+            "meanBrightnessPercent": 36.369,
+            "rawBBox": [
+              58,
+              82,
+              1196,
+              1227
+            ],
+            "uniformScale": 0.4410829694323144,
+            "canvasPlacement": [
+              5,
+              40
+            ],
+            "bytes": 223869,
+            "dominantColored8BinRGB": [
+              {
+                "rgb": [
+                  48,
+                  104,
+                  176
+                ],
+                "count": 25250
+              },
+              {
+                "rgb": [
+                  32,
+                  72,
+                  128
+                ],
+                "count": 1911
+              },
+              {
+                "rgb": [
+                  48,
+                  96,
+                  176
+                ],
+                "count": 1773
+              },
+              {
+                "rgb": [
+                  72,
+                  120,
+                  192
+                ],
+                "count": 1249
+              },
+              {
+                "rgb": [
+                  24,
+                  64,
+                  128
+                ],
+                "count": 856
+              },
+              {
+                "rgb": [
+                  48,
+                  104,
+                  168
+                ],
+                "count": 793
+              }
+            ]
+          },
+          "details": {
+            "faceWidthAtBrightSkinRow": 158,
+            "faceMeasurementRowY": 307,
+            "faceInclusiveX": [
+              179,
+              336
+            ],
+            "fillSamples": [
+              {
+                "requestedRGB": [
+                  47,
+                  109,
+                  179
+                ],
+                "measuredTargetNearMedianRGB": [
+                  50,
+                  106,
+                  177
+                ],
+                "samplePixelCount": 30754,
+                "maxRadius": 30
+              },
+              {
+                "requestedRGB": [
+                  33,
+                  76,
+                  125
+                ],
+                "measuredTargetNearMedianRGB": [
+                  32,
+                  72,
+                  130
+                ],
+                "samplePixelCount": 6430,
+                "maxRadius": 30
+              }
+            ],
+            "dominantColoredBins": [
+              {
+                "rgb": [
+                  48,
+                  104,
+                  176
+                ],
+                "count": 25250
+              },
+              {
+                "rgb": [
+                  32,
+                  72,
+                  128
+                ],
+                "count": 1911
+              },
+              {
+                "rgb": [
+                  48,
+                  96,
+                  176
+                ],
+                "count": 1773
+              },
+              {
+                "rgb": [
+                  72,
+                  120,
+                  192
+                ],
+                "count": 1249
+              },
+              {
+                "rgb": [
+                  24,
+                  64,
+                  128
+                ],
+                "count": 856
+              }
+            ]
+          }
+        },
+        {
+          "key": "villain-sleep-v2",
+          "path": "assets/style-test/villain-sleep-v2.png",
+          "kind": "sleep",
+          "measurements": {
+            "key": "villain-sleep-v2",
+            "kind": "sleep",
+            "direction": null,
+            "canvas": [
+              192,
+              480
+            ],
+            "bbox": [
+              4,
+              137,
+              188,
+              383
+            ],
+            "width": 184,
+            "height": 246,
+            "bottomY": 382,
+            "topY": 137,
+            "meanBrightnessPercent": 35.952,
+            "rawBBox": [
+              16,
+              547,
+              793,
+              1584
+            ],
+            "uniformScale": 0.23680823680823682,
+            "canvasPlacement": [
+              4,
+              137
+            ],
+            "bytes": 73140,
+            "dominantColored8BinRGB": [
+              {
+                "rgb": [
+                  120,
+                  72,
+                  168
+                ],
+                "count": 8070
+              },
+              {
+                "rgb": [
+                  120,
+                  72,
+                  176
+                ],
+                "count": 1290
+              },
+              {
+                "rgb": [
+                  72,
+                  40,
+                  104
+                ],
+                "count": 944
+              },
+              {
+                "rgb": [
+                  128,
+                  80,
+                  184
+                ],
+                "count": 375
+              },
+              {
+                "rgb": [
+                  128,
+                  72,
+                  176
+                ],
+                "count": 368
+              },
+              {
+                "rgb": [
+                  64,
+                  40,
+                  96
+                ],
+                "count": 244
+              }
+            ]
+          },
+          "details": {
+            "fillSamples": [
+              {
+                "requestedRGB": [
+                  123,
+                  79,
+                  176
+                ],
+                "measuredTargetNearMedianRGB": [
+                  125,
+                  76,
+                  174
+                ],
+                "samplePixelCount": 10909,
+                "maxRadius": 30
+              },
+              {
+                "requestedRGB": [
+                  86,
+                  55,
+                  123
+                ],
+                "measuredTargetNearMedianRGB": [
+                  77,
+                  45,
+                  111
+                ],
+                "samplePixelCount": 1943,
+                "maxRadius": 30
+              }
+            ],
+            "dominantColoredBins": [
+              {
+                "rgb": [
+                  120,
+                  72,
+                  168
+                ],
+                "count": 8070
+              },
+              {
+                "rgb": [
+                  120,
+                  72,
+                  176
+                ],
+                "count": 1290
+              },
+              {
+                "rgb": [
+                  72,
+                  40,
+                  104
+                ],
+                "count": 930
+              },
+              {
+                "rgb": [
+                  128,
+                  80,
+                  184
+                ],
+                "count": 375
+              },
+              {
+                "rgb": [
+                  128,
+                  72,
+                  176
+                ],
+                "count": 368
+              }
+            ],
+            "equipmentLowestY": 382,
+            "equipmentTopY": 289
+          }
+        },
+        {
+          "key": "villain-portrait-v2",
+          "path": "assets/style-test/villain-portrait-v2.webp",
+          "kind": "portrait",
+          "measurements": {
+            "key": "villain-portrait-v2",
+            "kind": "portrait",
+            "direction": null,
+            "canvas": [
+              1024,
+              1024
+            ],
+            "bbox": [
+              120,
+              4,
+              903,
+              1024
+            ],
+            "width": 783,
+            "height": 1020,
+            "bottomY": 1023,
+            "topY": 4,
+            "meanBrightnessPercent": 33.658,
+            "rawBBox": [
+              147,
+              6,
+              1105,
+              1254
+            ],
+            "uniformScale": 0.8173076923076923,
+            "canvasPlacement": [
+              120,
+              4
+            ],
+            "bytes": 78884,
+            "dominantColored8BinRGB": [
+              {
+                "rgb": [
+                  120,
+                  72,
+                  176
+                ],
+                "count": 213694
+              },
+              {
+                "rgb": [
+                  72,
+                  40,
+                  112
+                ],
+                "count": 54473
+              },
+              {
+                "rgb": [
+                  120,
+                  80,
+                  176
+                ],
+                "count": 25774
+              },
+              {
+                "rgb": [
+                  80,
+                  40,
+                  112
+                ],
+                "count": 8228
+              },
+              {
+                "rgb": [
+                  120,
+                  72,
+                  168
+                ],
+                "count": 5100
+              },
+              {
+                "rgb": [
+                  80,
+                  40,
+                  120
+                ],
+                "count": 3817
+              }
+            ]
+          },
+          "details": {
+            "fillSamples": [
+              {
+                "requestedRGB": [
+                  123,
+                  79,
+                  176
+                ],
+                "measuredTargetNearMedianRGB": [
+                  123,
+                  78,
+                  178
+                ],
+                "samplePixelCount": 268940,
+                "maxRadius": 30
+              },
+              {
+                "requestedRGB": [
+                  86,
+                  55,
+                  123
+                ],
+                "measuredTargetNearMedianRGB": [
+                  78,
+                  45,
+                  117
+                ],
+                "samplePixelCount": 83014,
+                "maxRadius": 30
+              }
+            ],
+            "dominantColoredBins": [
+              {
+                "rgb": [
+                  120,
+                  72,
+                  176
+                ],
+                "count": 213694
+              },
+              {
+                "rgb": [
+                  72,
+                  40,
+                  112
+                ],
+                "count": 54473
+              },
+              {
+                "rgb": [
+                  120,
+                  80,
+                  176
+                ],
+                "count": 25774
+              },
+              {
+                "rgb": [
+                  80,
+                  40,
+                  112
+                ],
+                "count": 8200
+              },
+              {
+                "rgb": [
+                  120,
+                  72,
+                  168
+                ],
+                "count": 5100
+              }
+            ]
+          }
+        },
+        {
+          "key": "story-1",
+          "path": "assets/a/story-1.webp",
+          "kind": "story",
+          "measurements": {
+            "key": "story-1",
+            "kind": "story",
+            "canvas": [
+              1280,
+              720
+            ],
+            "webpQuality": 85,
+            "fileBytes": 97680
+          },
+          "details": {
+            "tableRows": 2,
+            "desksPerRow": [
+              4,
+              3
+            ],
+            "visibleIndividualOutlets": 7,
+            "people": 7,
+            "frontOutletPlacement": "Individual table side/back panels, rather than crossing floor to rear wall",
+            "cablesCrossNeighbors": false
+          }
+        },
+        {
+          "key": "guest-8a-stand-down",
+          "path": "assets/a/guest-8a-stand-down.png",
+          "kind": "standing",
+          "measurements": {
+            "key": "guest-8a-stand-down",
+            "kind": "standing",
+            "direction": "down",
+            "canvas": [
+              192,
+              288
+            ],
+            "bbox": [
+              46,
+              8,
+              146,
+              288
+            ],
+            "width": 100,
+            "height": 280,
+            "bottomY": 287,
+            "topY": 8,
+            "meanBrightnessPercent": 37.079,
+            "rawBBox": [
+              280,
+              176,
+              745,
+              1484
+            ],
+            "uniformScale": 0.21406727828746178,
+            "canvasPlacement": [
+              46,
+              8
+            ],
+            "bytes": 43934
+          },
+          "details": null
+        },
+        {
+          "key": "guest-8a-stand-up",
+          "path": "assets/a/guest-8a-stand-up.png",
+          "kind": "standing",
+          "measurements": {
+            "key": "guest-8a-stand-up",
+            "kind": "standing",
+            "direction": "up",
+            "canvas": [
+              192,
+              288
+            ],
+            "bbox": [
+              45,
+              8,
+              146,
+              288
+            ],
+            "width": 101,
+            "height": 280,
+            "bottomY": 287,
+            "topY": 8,
+            "meanBrightnessPercent": 37.215,
+            "rawBBox": [
+              284,
+              228,
+              741,
+              1491
+            ],
+            "uniformScale": 0.22169437846397466,
+            "canvasPlacement": [
+              45,
+              8
+            ],
+            "bytes": 41610
+          },
+          "details": null
+        },
+        {
+          "key": "guest-8a-stand-left",
+          "path": "assets/a/guest-8a-stand-left.png",
+          "kind": "standing",
+          "measurements": {
+            "key": "guest-8a-stand-left",
+            "kind": "standing",
+            "direction": "left",
+            "canvas": [
+              192,
+              288
+            ],
+            "bbox": [
+              57,
+              8,
+              134,
+              288
+            ],
+            "width": 77,
+            "height": 280,
+            "bottomY": 287,
+            "topY": 8,
+            "meanBrightnessPercent": 39.125,
+            "rawBBox": [
+              332,
+              211,
+              682,
+              1476
+            ],
+            "uniformScale": 0.22134387351778656,
+            "canvasPlacement": [
+              57,
+              8
+            ],
+            "bytes": 34158
+          },
+          "details": null
+        },
+        {
+          "key": "guest-8a-stand-right",
+          "path": "assets/a/guest-8a-stand-right.png",
+          "kind": "standing",
+          "measurements": {
+            "key": "guest-8a-stand-right",
+            "kind": "standing",
+            "direction": "right",
+            "canvas": [
+              192,
+              288
+            ],
+            "bbox": [
+              59,
+              8,
+              133,
+              288
+            ],
+            "width": 74,
+            "height": 280,
+            "bottomY": 287,
+            "topY": 8,
+            "meanBrightnessPercent": 40.88,
+            "rawBBox": [
+              339,
+              150,
+              694,
+              1489
+            ],
+            "uniformScale": 0.20911127707244212,
+            "canvasPlacement": [
+              59,
+              8
+            ],
+            "bytes": 34624
+          },
+          "details": null
+        },
+        {
+          "key": "guest-8a-walk1-down",
+          "path": "assets/a/guest-8a-walk1-down.png",
+          "kind": "walking",
+          "measurements": {
+            "key": "guest-8a-walk1-down",
+            "kind": "walking",
+            "direction": "down",
+            "canvas": [
+              192,
+              288
+            ],
+            "bbox": [
+              46,
+              8,
+              145,
+              288
+            ],
+            "width": 99,
+            "height": 280,
+            "bottomY": 287,
+            "topY": 8,
+            "meanBrightnessPercent": 37.565,
+            "rawBBox": [
+              260,
+              78,
+              769,
+              1513
+            ],
+            "uniformScale": 0.1951219512195122,
+            "canvasPlacement": [
+              46,
+              8
+            ],
+            "bytes": 41531
+          },
+          "details": null
+        },
+        {
+          "key": "guest-8a-walk2-down",
+          "path": "assets/a/guest-8a-walk2-down.png",
+          "kind": "walking",
+          "measurements": {
+            "key": "guest-8a-walk2-down",
+            "kind": "walking",
+            "direction": "down",
+            "canvas": [
+              192,
+              288
+            ],
+            "bbox": [
+              43,
+              8,
+              148,
+              288
+            ],
+            "width": 105,
+            "height": 280,
+            "bottomY": 287,
+            "topY": 8,
+            "meanBrightnessPercent": 42.043,
+            "rawBBox": [
+              237,
+              46,
+              785,
+              1508
+            ],
+            "uniformScale": 0.19151846785225718,
+            "canvasPlacement": [
+              43,
+              8
+            ],
+            "bytes": 43968
+          },
+          "details": null
+        }
+      ],
+      "backgroundConversion": {
+        "canvas": [
+          1920,
+          1080
+        ],
+        "originalBytes": 1155568,
+        "webpBytes": 24194,
+        "quality": 85,
+        "meanAbsoluteChannelDifference": 0.6639996463477367,
+        "maxAbsoluteChannelDifference": 19.0,
+        "meanRGBEuclideanDifference": 1.354522317008383,
+        "sizeBelow150KiB": true,
+        "geometryUnchanged": true
+      },
+      "normalization": "Generated alpha margins cropped with threshold24; uniform resizes only. Standing and walking visible height280 and bottom287. Caller portraits hairtop40 and lower chest cropped by canvas; C uniformly framed7percent larger to meet face width. Sleeper whole group placed at137 instead of120 to keep cords in table288..422. No anatomy/line/color painting or final hand/leg compositing.",
+      "residuals": [
+        "Generated fill RGB values differ from requested exact swatches and contain slight within-fill variation; recorded actual target-near medians, did not recolor by code.",
+        "Sleeper visible bounds4,137..187,382 differ from approximate4,120..187,350; table-safe electronics y289..382 prioritized by whole-group canvas translation. Its laptop edge extends a few pixels past table side margin in actual table0 composite; trial unregistered pending review.",
+        "Caller gender ambiguity is a visual design goal rather than objectively measurable; three chosen candidates await user selection.",
+        "Front-row story outlets are built into each desk side/back panel; rear-row outlets are on window wall. No cross-floor cable routing."
+      ],
+      "reviewStorage": "Native galleries, table and scale composites, and walk GIF are external working files only.",
+      "browserVerification": {
+        "review": "http://127.0.0.1:8144/",
+        "game": "http://127.0.0.1:8132/index.html?art=five-jobs-final",
+        "viewports": [
+          [
+            1920,
+            1080
+          ],
+          [
+            375,
+            812
+          ]
+        ],
+        "reviewAll9ImagesLoaded": true,
+        "phoneReviewScrollWidth": 360,
+        "gameBackground": {
+          "src": "assets/a/bg-sleeper-empty.webp",
+          "naturalWidth": 1920,
+          "naturalHeight": 1080,
+          "complete": true
+        },
+        "prologueReplay": {
+          "src": "assets/a/story-1.webp",
+          "naturalWidth": 1280,
+          "naturalHeight": 720,
+          "complete": true
+        },
+        "brokenImages": 0,
+        "caveat": "After phone-to-desktop viewport transition, prologue screenshot showed an oversized clipped card; phone image and external static desktop proof show full panel. Game layout was not edited.",
+        "cleanup": "Temporary tabs closed and viewport reset."
+      },
+      "otherFilesChangedDuringTask": [
+        "index.html",
+        "docs/concept.md",
+        "session_logs/2026-11-01.md",
+        "src/layout.js",
+        "tools/shot.html",
+        "docs/layout-guide/encore.png",
+        "docs/layout-guide/streamer.png"
+      ]
     }
   ]
 }
