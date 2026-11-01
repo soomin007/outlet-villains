@@ -1694,7 +1694,7 @@
           <tr><th>되돌리기</th><td><span class="nw"><kbd>Z</kbd> 또는 <kbd>Backspace</kbd>,</span> <span class="nw">위쪽 <kbd>↶</kbd> 버튼</span></td></tr>
           <tr><th>처음부터</th><td><kbd>R</kbd>, <span class="nw">위쪽 <kbd>↻</kbd> 버튼</span></td></tr>
           <tr><th>넘기기</th><td><span class="nw">아무 키나</span> <span class="nw">화면 누르기</span></td></tr>
-          <tr><th>레벨 고르기</th><td><span class="nw"><kbd>Tab</kbd>으로 위쪽 점</span> <span class="nw">고르고 <kbd>Enter</kbd></span></td></tr>
+          <tr><th>레벨 고르기</th><td><span class="nw"><kbd>Tab</kbd>으로 위쪽 점에 들어가</span> <span class="nw"><kbd>←</kbd><kbd>→</kbd>로 고르고 <kbd>Enter</kbd></span></td></tr>
           <tr><th>로봇 누르기</th><td><kbd>Space</kbd>, <span class="nw">로봇 누르기</span></td></tr>
           <tr><th>설정</th><td><kbd>Esc</kbd>, <span class="nw">위쪽 <kbd>⚙</kbd> 버튼</span></td></tr>
           <tr><th>설정창</th><td><span class="nw"><kbd>↑</kbd> <kbd>↓</kbd> 고르기,</span> <span class="nw"><kbd>←</kbd> <kbd>→</kbd> 바꾸기</span></td></tr>
@@ -1945,6 +1945,14 @@
         amount: 0.35,
         up: { dx: 0, dy: -1 }, down: { dx: 0, dy: 1 }, left: { dx: -1, dy: 0 }, right: { dx: 1, dy: 0 },
       };
+      // 새 손님 둘은 그림 속 사람 키가 캔버스 높이의 74%(212px)라, 87%(250px)인 기존 손님 셋보다 15% 작고 훨씬 가늘어 보였다(2026-11-01 사용자 지적).
+      // 다시 그린 손님이 오기 전까지는 게임이 키를 기존 손님에 맞춰 250 / 212배로 키운다. 아래 가운데를 기준으로 키워서 의자 다리는 바닥에 그대로 닿는다.
+      const GUEST_SCALE = { 'seated-1': 250 / 212, 'seated-2': 250 / 212 };
+      // 옆으로 앉은 손님의 정강이와 발은 탁자 밑으로 들어가야 한다. 탁자 쪽으로 당겨 앉히자 발이 상판 위에 그려졌다(2026-11-01 사용자 지적).
+      // 그래서 상판과 겹치는 부분 가운데 그림 높이 64%보다 아래(무릎 아래)만 잘라 낸다. 머그와 손은 높이 50~63%라 상판 위에 그대로 보인다.
+      // 테이블 조각은 이어지지 않는 변에서 192px 가운데 8px 안쪽부터 상판이 시작한다.
+      const LAP_LINE = 0.64;
+      const TABLE_MARGIN = 8 / 192;
 
       function drawInterior(char, x, y, colors) {
         const map = game.level.map;
@@ -1979,18 +1987,33 @@
           const facing = customerFacing(map, x, y);
           const person = personAt(x, y, facing);
           const key = person ? `${person}-${facing}` : customerKey(facing, x, y);
-          const customer = addSprite(key, TILE, TILE * 1.5, colors.customer);
+          const scale = GUEST_SCALE[person] || 1;
+          const width = TILE * scale;
+          const height = TILE * 1.5 * scale;
+          const customer = addSprite(key, width, height, colors.customer);
           customer.classList.add('kind-customer');
           customer.dataset.facing = facing;
           // 테이블을 보고 앉은 손님은 테이블 쪽으로 칸의 35%만큼 당겨 앉힌다. 칸 가운데 앉히면 의자가 테이블에서 멀찍이 떨어져 보였다.
           const pull = SEAT_PULL[facing];
           const facesTable = isTable(x + pull.dx, y + pull.dy);
-          placeOnTile(customer, x + (facesTable ? pull.dx * SEAT_PULL.amount : 0), y + (facesTable ? pull.dy * SEAT_PULL.amount : 0), TILE, TILE * 1.5);
+          placeOnTile(customer, x + (facesTable ? pull.dx * SEAT_PULL.amount : 0), y + (facesTable ? pull.dy * SEAT_PULL.amount : 0), width, height);
+          if (facesTable && pull.dx !== 0) tuckLegs(customer, pull.dx, scale);
           // 테이블 아래쪽에 앉은 뒷모습 손님은 테이블 앞에 그리고, 위쪽에 앉은 손님은 테이블 뒤에 그린다.
           customer.style.zIndex = String(10 + y * 10 + 1);
           return true;
         }
         return false;
+      }
+
+      // 옆으로 앉은 손님(side는 탁자가 있는 쪽, 오른쪽 1, 왼쪽 -1)에서 상판과 겹치는 무릎 아래를 잘라 낸다.
+      // 손님 그림의 왼쪽 끝은 손님 칸 왼쪽에서 SEAT_PULL.amount + (1 - scale) / 2칸에 있고, 상판은 이웃 칸 경계에서 TABLE_MARGIN칸 안쪽부터 시작한다.
+      function tuckLegs(element, side, scale) {
+        const edge = (1 + TABLE_MARGIN - SEAT_PULL.amount - (1 - scale) / 2) / scale;
+        const lap = `${LAP_LINE * 100}%`;
+        const x = `${((side > 0 ? edge : 1 - edge) * 100).toFixed(1)}%`;
+        element.style.clipPath = side > 0
+          ? `polygon(0 0, 100% 0, 100% ${lap}, ${x} ${lap}, ${x} 100%, 0 100%)`
+          : `polygon(0 0, 100% 0, 100% 100%, ${x} 100%, ${x} ${lap}, 0 ${lap})`;
       }
 
       // 시작 자리에서 걸어서 닿을 수 있는 칸(물건은 바닥으로 본다). 판마다 한 번만 센다.
@@ -2025,13 +2048,18 @@
       function tabletopItem(x, y) {
         const map = game.level.map;
         const around = [[0, -1, 'down'], [0, 1, 'up'], [-1, 0, 'right'], [1, 0, 'left']];
+        // 빌런 자리(V)에 붙은 탁자는 빌런이 엎드린 탁자라 꾸밈 물건을 놓지 않는다.
+        // 빌런은 손님(N)으로 세지 않아서 빈 탁자로 보고 다섯 칸에 한 칸 꼴의 꽃병을 놓았다(2026-11-01 사용자 지적).
+        if (around.some(([dx, dy]) => (map[y + dy] || '')[x + dx] === 'V')) return null;
         for (const [dx, dy, facing] of around) {
           const cx = x + dx;
           const cy = y + dy;
           if ((map[cy] || '')[cx] === 'N' && customerFacing(map, cx, cy) === facing) {
-            // 노트북 치는 손님(seated-1) 앞에는 그 손님 쪽을 향한 노트북, 다른 손님 앞에는 컵을 놓는다.
+            // 노트북 치는 손님(seated-1) 앞에는 그 손님 쪽을 향한 노트북을 놓는다.
             if (personAt(cx, cy, facing) === 'seated-1' && assetPath(`table-laptop-${facing}`)) return `table-laptop-${facing}`;
-            return assetPath('table-cups') ? 'table-cups' : 'tabletop-1';
+            // 기존 손님 셋은 어느 방향에서나 손에 머그를 들고 있어서, 앞에 두 잔짜리 그림(table-cups)을 놓으면 한 사람 앞에 세 잔이 됐다(2026-11-01 사용자 지적).
+            // 폰 보는 손님(seated-2)에게 줄 한 잔짜리 음료 그림은 아직 없어서, 손님 앞은 노트북 말고는 비워 둔다.
+            return null;
           }
         }
         const pick = (x * 3 + y * 5) % 5;
@@ -2777,8 +2805,11 @@
       }
 
       // 위쪽 막대의 레벨 점. 챕터마다 번호 하나와 레벨 점들을 묶어 보여 준다.
+      // 점 13개가 모두 Tab을 받으면 원하는 레벨까지 Tab을 레벨 수만큼 눌러야 했다(2026-11-01 사용자 지적).
+      // 그래서 WAI-ARIA 도구 막대처럼 지금 레벨의 점 하나만 Tab을 받고, 점 사이는 ←→(A D)로 옮긴다(moveDotFocus).
       function drawDots() {
         ui.dots.innerHTML = '';
+        ui.dots.tabIndex = -1;
         LAYOUT.chapters.forEach((chapter, chapterIndex) => {
           const group = document.createElement('div');
           group.className = 'dot-group';
@@ -2791,6 +2822,7 @@
             dot.setAttribute('aria-label', `${chapterIndex + 1}-${levelNumber(index)}`);
             dot.classList.toggle('current', index === game.index);
             dot.classList.toggle('cleared', game.cleared.has(level.id));
+            dot.tabIndex = index === game.index ? 0 : -1;
             dot.addEventListener('click', () => {
               if (!game.busy && !overlayOpen()) startLevel(index);
             });
@@ -2798,6 +2830,16 @@
           });
           ui.dots.appendChild(group);
         });
+      }
+
+      // 레벨 점 사이로 초점을 옮긴다(step은 -1 또는 1). 초점을 받은 점만 Tab을 받게 해서, 막대를 나갔다 돌아와도 그 점으로 온다.
+      function moveDotFocus(current, step) {
+        const dots = [...ui.dots.querySelectorAll('.dot')];
+        const next = dots[Math.min(Math.max(dots.indexOf(current) + step, 0), dots.length - 1)];
+        dots.forEach((dot) => {
+          dot.tabIndex = dot === next ? 0 : -1;
+        });
+        next.focus();
       }
 
       // slid는 이번 걸음에 젖은 바닥에서 미끄러진 칸 수다. 미끄러진 물건은 칸 수만큼 오래 움직이게 한다.
@@ -3461,6 +3503,8 @@
       const KEY_DIRECTIONS = {
         arrowup: 'up', w: 'up', arrowdown: 'down', s: 'down', arrowleft: 'left', a: 'left', arrowright: 'right', d: 'right',
       };
+      // 레벨 점에 초점이 있을 때 점 사이를 옮기는 키.
+      const DOT_STEPS = { arrowleft: -1, a: -1, arrowright: 1, d: 1 };
 
       // 키를 누르고 있을 때 이동과 되돌리기가 반복되는 간격(ms). 브라우저 그대로면 1초에 30번쯤 반복되어 로봇이 미끄러지듯 지나갔다.
       const REPEAT_GAP = 150;
@@ -3530,6 +3574,22 @@
             game.closeCard();
           }
           return;
+        }
+        // 레벨 점에 초점이 있으면 ←→(A D)는 점 사이를 옮기고, Enter와 Space는 그 레벨을 연다(버튼 기본 동작).
+        // ↑↓(W S)를 누르면 초점을 판으로 돌려주고 로봇을 그대로 움직인다.
+        const focusedDot = document.activeElement && document.activeElement.classList.contains('dot') ? document.activeElement : null;
+        if (focusedDot && DOT_STEPS[key]) {
+          event.preventDefault();
+          moveDotFocus(focusedDot, DOT_STEPS[key]);
+          return;
+        }
+        // 판을 깬 뒤에도 점 위의 Enter와 Space는 다음 레벨(goNext)이 아니라 고른 점의 레벨을 연다.
+        if (focusedDot && (key === 'enter' || key === ' ')) return;
+        if (focusedDot && KEY_DIRECTIONS[key]) {
+          // 점에서 그냥 초점을 풀면 브라우저가 다음 Tab을 점 뒤의 버튼으로 보냈다.
+          // 점 막대(tabindex -1)에 초점을 옮겼다 풀어서, 다음 Tab이 다시 지금 레벨 점으로 들어가게 한다.
+          ui.dots.focus({ preventScroll: true });
+          ui.dots.blur();
         }
         if (game.busy && !game.won) {
           // 시작 연출이나 시연 중에는 아무 키나 누르면 건너뛴다.
