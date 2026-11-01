@@ -2063,8 +2063,10 @@
 
       // 여덟 명을 칸마다 번갈아 앉힌다. (x + 2y) % 8로 고르면 가로 이웃은 1, 세로 이웃은 2만큼 달라 같은 사람이 붙지 않는다.
       // 그 방향 그림이 없는 손님은 건너뛴다.
+      // 음료를 기다리며 서 있는 손님이 나오는 판에서는 그 사람을 앉은 손님에서 뺀다. 같은 사람이 앉아 있으면서 서 있기도 하면 안 된다.
       function personAt(x, y, facing) {
-        const people = GUESTS.filter((guest) => assetPath(`${guest.key}-${facing}`));
+        const standing = new Set(game.level.waiters.map((waiter) => standingGuest(waiter.order)).filter(Boolean));
+        const people = GUESTS.filter((guest) => assetPath(`${guest.key}-${facing}`) && !standing.has(guest.key));
         return people.length > 0 ? people[(x + 2 * y) % people.length] : null;
       }
 
@@ -2295,9 +2297,22 @@
         return `drink-${'ABC'.indexOf(order) + 1}`;
       }
 
-      // 음료를 기다리는 손님 그림 key. A, B, C가 각각 손님 guest, guest2, guest3이다(앉은 손님 customer, customer2, customer3과 같은 사람).
+      // 음료를 기다리는 손님. A, B, C는 새 손님 8a, 3b, 4b가 서 있는 모습이다(2026-11-01 사용자 결정, docs/art-rules.md "손님 구성").
+      // 세 사람의 서 있는 그림이 모두 있어야 새 그림을 쓰고, 하나라도 없으면 예전 손님(guest, guest2, guest3)을 쓴다. 한 판에서 그림체가 섞이지 않게 한다.
+      const STANDING_CAST = ['8a', '3b', '4b'];
+
+      function standingCastReady() {
+        return STANDING_CAST.every((who) => ['down', 'up', 'left', 'right'].every((facing) => assetPath(`guest-${who}-stand-${facing}`)));
+      }
+
+      // 서 있는 손님의 GUESTS key(guest-8a 등). 예전 손님을 쓰는 동안은 null이다.
+      function standingGuest(order) {
+        return standingCastReady() ? `guest-${STANDING_CAST['ABC'.indexOf(order)]}` : null;
+      }
+
       function guestKey(order, facing) {
-        return `guest${['', '2', '3']['ABC'.indexOf(order)]}-${facing}`;
+        const guest = standingGuest(order);
+        return guest ? `${guest}-stand-${facing}` : `guest${['', '2', '3']['ABC'.indexOf(order)]}-${facing}`;
       }
 
       // 이미 그림이 있으면 src만 바꾼다. <img>를 새로 만들면 디코딩되는 동안 한 프레임 비어 보여 걸을 때 깜빡였다.
@@ -2883,6 +2898,7 @@
           bubble.innerHTML = art(drinkKey(waiter.order), colors.item);
           element.appendChild(bubble);
           placeOnTile(element, waiter.x, waiter.y, TILE, TILE * 1.5);
+          element.style.zIndex = String(11 + waiter.y * 10);
           game.sprites.waiters[waiter.order] = element;
         });
         game.sprites.items = state.items.map((item) => {
