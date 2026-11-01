@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>시험 그림 검사</title>
+<!--
+  받은 시험 그림을 게임과 같은 규칙으로 겹쳐 보는 검사 페이지(docs/art-rules.md "받은 그림 검사"). 게임 코드는 건드리지 않는다.
+  손님은 탁자 쪽으로 칸의 35%만큼 당기고, 옆모습은 상판과 겹치는 쪽의 그림 높이 64% 아래를 자른다(index.html의 SEAT_PULL, tuckLegs와 같은 숫자).
+  그리는 순서도 게임과 같다. 줄(y)이 클수록 앞에 그리고, 손님은 같은 줄 탁자보다 1 앞이다.
+-->
+<style>
+  body { margin: 0; padding: 20px; background: #fff; color: #1b1b1b; font-family: system-ui, sans-serif; width: 1880px; }
+  h2 { font-size: 18px; margin: 20px 0 8px; }
+  .scene { position: relative; background: #e6e3de; }
+  .scene .floor { position: absolute; box-sizing: border-box; border: 1px solid rgba(0, 0, 0, 0.08); }
+  .scene img { position: absolute; display: block; }
+  .row { display: flex; gap: 12px; align-items: flex-end; flex-wrap: wrap; }
+  .card { text-align: center; font-size: 12px; }
+  .card .box { position: relative; width: 192px; height: 288px; background: #ececec; }
+  .card .box img { position: absolute; inset: 0; }
+  .line { position: absolute; left: 0; right: 0; border-top: 2px dashed; }
+  .strips img { display: block; width: 960px; }
+  .strips .mid { width: 960px; height: 270px; background: #d9d9d9; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  const T = 144;
+  const PULL = 0.35;
+  const LAP = 0.64;
+  const EDGE = 1 + 8 / 192 - PULL;
+  const root = document.getElementById('root');
+  const src = (key) => `../assets/a/${key}.png`;
+
+  function scene(cols, rows) {
+    const element = document.createElement('div');
+    element.className = 'scene';
+    element.style.width = `${cols * T}px`;
+    element.style.height = `${(rows + 1) * T}px`;
+    element.style.paddingTop = '0';
+    for (let y = 0; y < rows; y++) {
+      for (let x = 0; x < cols; x++) {
+        const floor = document.createElement('div');
+        floor.className = 'floor';
+        Object.assign(floor.style, { left: `${x * T}px`, top: `${(y + 1) * T}px`, width: `${T}px`, height: `${T}px` });
+        element.appendChild(floor);
+      }
+    }
+    return element;
+  }
+
+  // 그림 아래 끝을 칸 (x, y)의 아래 끝에 맞춘다. 장면 맨 위에 한 칸 여백을 두어 위로 솟는 그림이 잘리지 않게 한다.
+  function put(parent, key, x, y, widthTiles, heightTiles, z, extra = {}) {
+    const img = document.createElement('img');
+    img.src = src(key);
+    const left = (x + (1 - widthTiles) / 2) * T;
+    const top = (y + 2) * T - heightTiles * T;
+    Object.assign(img.style, { left: `${left}px`, top: `${top}px`, width: `${widthTiles * T}px`, height: `${heightTiles * T}px`, zIndex: z }, extra);
+    parent.appendChild(img);
+    return img;
+  }
+
+  function guest(parent, key, x, y, facing) {
+    const pull = { down: [0, PULL], up: [0, -PULL], right: [PULL, 0], left: [-PULL, 0] }[facing];
+    const img = put(parent, `${key}-${facing}`, x + pull[0], y + pull[1], 1, 1.5, 10 + y * 10 + 1);
+    if (facing === 'right') img.style.clipPath = `polygon(0 0, 100% 0, 100% ${LAP * 100}%, ${EDGE * 100}% ${LAP * 100}%, ${EDGE * 100}% 100%, 0 100%)`;
+    if (facing === 'left') img.style.clipPath = `polygon(0 0, 100% 0, 100% 100%, ${(1 - EDGE) * 100}% 100%, ${(1 - EDGE) * 100}% ${LAP * 100}%, 0 ${LAP * 100}%)`;
+  }
+
+  function table(parent, x, y, mask, items = []) {
+    put(parent, `table-${mask}`, x, y, 1, 1, 10 + y * 10);
+    items.forEach(([key, dx]) => put(parent, key, x + (dx || 0), y, 1, 1, 10 + y * 10 + 1));
+  }
+
+  function lineup(title, facing, people, lines) {
+    root.insertAdjacentHTML('beforeend', `<h2>${title}</h2>`);
+    const row = document.createElement('div');
+    row.className = 'row';
+    for (const person of people) {
+      const lineHtml = lines.map(([y, color]) => `<div class="line" style="top:${y}px; border-color:${color}"></div>`).join('');
+      row.insertAdjacentHTML('beforeend', `<div class="card"><div class="box"><img src="${src(`${person}-${facing}`)}">${lineHtml}</div>${person}</div>`);
+    }
+    root.appendChild(row);
+  }
+
+  const PEOPLE = ['customer', 'customer2', 'guest-2a', 'guest-2b', 'guest-8a', 'guest-8b'];
+  lineup('라인업 정면. 파랑 키 시작(38px), 빨강 탁자선(228px)', 'down', PEOPLE, [[38, '#2f6db3'], [228, '#c8302a']]);
+  lineup('라인업 옆모습. 주황 무릎선(184px)', 'right', PEOPLE, [[38, '#2f6db3'], [184, '#b07a00']]);
+
+  root.insertAdjacentHTML('beforeend', '<h2>탁자 장면(게임과 같은 당김, 자르기, 그리는 순서). 2번은 노트북과 음료, 8번은 손에 머그라 탁자 비움</h2>');
+  const a = scene(7, 4);
+  guest(a, 'guest-2a', 0, 0, 'down');
+  guest(a, 'guest-8a', 1, 0, 'down');
+  table(a, 0, 1, 6, [['table-laptop-down'], ['table-tumbler', 0.32]]);
+  table(a, 1, 1, 12);
+  table(a, 0, 2, 3, [['table-laptop-up'], ['table-iced-glass', 0.32]]);
+  table(a, 1, 2, 9);
+  guest(a, 'guest-2b', 0, 3, 'up');
+  guest(a, 'guest-8b', 1, 3, 'up');
+  guest(a, 'guest-2a', 3, 1, 'right');
+  table(a, 4, 1, 0, [['table-laptop-right'], ['table-tumbler', 0.3]]);
+  guest(a, 'guest-8b', 5, 1, 'left');
+  guest(a, 'guest-2b', 3, 3, 'right');
+  table(a, 4, 3, 0, [['table-laptop-right'], ['table-iced-glass', 0.3]]);
+  guest(a, 'guest-8a', 5, 3, 'left');
+  root.appendChild(a);
+
+  root.insertAdjacentHTML('beforeend', '<h2>벽 조각 이어 붙이기(2, 10, 8 / 0 / 15)와 구석 가구(책장, 셀프바, 반납대), 옆에 기존 손님과 기둥</h2>');
+  const b = scene(14, 2);
+  put(b, 'wall-2', 0, 1, 1, 1.5, 20);
+  put(b, 'wall-10', 1, 1, 1, 1.5, 20);
+  put(b, 'wall-8', 2, 1, 1, 1.5, 20);
+  put(b, 'wall-0', 4, 1, 1, 1.5, 20);
+  put(b, 'wall-15', 6, 1, 1, 1.5, 20);
+  put(b, 'customer-down', 7, 1, 1, 1.5, 20);
+  put(b, 'decor-selfbar', 9, 1, 3, 1.5, 20);
+  put(b, 'decor-bookshelf', 11, 1, 1, 2, 20);
+  put(b, 'decor-return', 12, 1, 1, 1.5, 20);
+  put(b, 'pillar', 13, 1, 1, 2.5, 20);
+  put(b, 'table-0', 4, 0, 1, 1, 10);
+  root.appendChild(b);
+
+  root.insertAdjacentHTML('beforeend', '<h2>메인 화면 띠(절반 크기). 위 층, 멈춘 바닥, 아래 층</h2><div class="strips"><img src="../assets/a/title-wall-strip.webp"><div class="mid"></div><img src="../assets/a/title-cupboard-strip.webp"></div>');
+
+  // 로봇 옆얼굴: 원본과 고친 그림을 그림 크기(192 x 288)와 게임 크기(높이 100px로 줄인 것)로 나란히 둔다.
+  root.insertAdjacentHTML('beforeend', '<h2>로봇 옆얼굴 30도(원본, 고친 그림)와 게임 크기, 메인 화면 달리기(원본, 당황한 눈)</h2>');
+  const robots = document.createElement('div');
+  robots.className = 'row';
+  const robotKeys = ['player-right', 'player-right-t30', 'player-right-push', 'player-right-push-t30'];
+  for (const key of robotKeys) robots.insertAdjacentHTML('beforeend', `<div class="card"><img src="${src(key)}" width="192" height="288"><br>${key}</div>`);
+  for (const key of robotKeys) robots.insertAdjacentHTML('beforeend', `<div class="card"><img src="${src(key)}" width="67" height="100"><br>게임 크기</div>`);
+  for (const key of ['title-run-1', 'title-run-1-fluster']) robots.insertAdjacentHTML('beforeend', `<div class="card"><img src="${src(key)}" width="256" height="256"><br>${key}</div>`);
+  root.appendChild(robots);
+
+  // 로고 느낌표: 글자층 위에 Codex가 잰 빈칸(x 987~1036, y 366~487)을 색으로 칠하고 껍데기를 얹는다. 차오름은 1/3, 2/3, 가득.
+  root.insertAdjacentHTML('beforeend', '<h2>로고 느낌표 차오름(빨강 1/3, 노랑 2/3, 초록 가득), 검은 받침 위, 로고 폭 560</h2>');
+  const logos = document.createElement('div');
+  logos.className = 'row';
+  const scale = 0.5;
+  const hole = { left: 987, top: 366, width: 50, height: 122 };
+  for (const [color, level] of [['#c8302a', 1 / 3], ['#e0b020', 2 / 3], ['#3aa35a', 1]]) {
+    const fillHeight = hole.height * level;
+    logos.insertAdjacentHTML('beforeend', `<div style="position:relative; width:${1120 * scale}px; height:${640 * scale}px; background:#111; border-radius:12px;">` +
+      `<img src="../assets/a/title-logo-text.webp" style="position:absolute; inset:0; width:100%; height:100%">` +
+      `<div style="position:absolute; left:${hole.left * scale}px; top:${(hole.top + hole.height - fillHeight) * scale}px; width:${hole.width * scale}px; height:${fillHeight * scale}px; background:${color}"></div>` +
+      `<img src="../assets/a/title-bang-shell.png" style="position:absolute; inset:0; width:100%; height:100%"></div>`);
+  }
+  root.appendChild(logos);
+
+  // ?part=2: 의뢰 5(손님 여섯 명 정면 후보, 음료 셋, 공책)와 의뢰 6(벽 2차)만 본다.
+  if (new URLSearchParams(location.search).get('part') === '2') {
+    root.innerHTML = '';
+    const IDS = ['1', '3', '4', '5', '6', '7'];
+    lineup('정면 라인업. 파랑 키 시작(38px), 초록 탁자 그림 시작(221px), 빨강 탁자선(228px)', 'down',
+      ['guest-2a', 'guest-8a', ...IDS.flatMap((id) => [`guest-${id}a`, `guest-${id}b`])], [[38, '#2f6db3'], [221, '#3aa35a'], [228, '#c8302a']]);
+
+    // 손님 여섯이 긴 탁자(가로 6칸, 세로 2칸) 위쪽에 앉는다. 필기는 공책(위쪽 손님이라 table-notebook-up)과 음료, 노트북은 노트북과 음료, 폰은 음료, 컵(4번)은 탁자를 비운다.
+    const ITEMS = {
+      1: [['table-notebook-up'], ['table-tall-glass', 0.3]],
+      3: [['table-cup-saucer']],
+      4: [],
+      5: [['table-notebook-up'], ['table-mug', 0.3]],
+      6: [['table-iced-glass']],
+      7: [['table-laptop-down'], ['table-tumbler', 0.32]],
+    };
+    for (const variant of ['a', 'b']) {
+      root.insertAdjacentHTML('beforeend', `<h2>후보 ${variant}: 1, 3, 4, 5, 6, 7번이 긴 탁자 위쪽에 앉은 모습(게임과 같은 당김과 순서), 아래쪽은 확정한 2a와 8a</h2>`);
+      const s = scene(6, 4);
+      IDS.forEach((id, x) => guest(s, `guest-${id}${variant}`, x, 0, 'down'));
+      IDS.forEach((id, x) => table(s, x, 1, x === 0 ? 6 : x === 5 ? 12 : 14, ITEMS[id]));
+      IDS.forEach((id, x) => table(s, x, 2, x === 0 ? 3 : x === 5 ? 9 : 11));
+      ['guest-2a', 'guest-8a', 'guest-2a', 'guest-8a', 'guest-2a', 'guest-8a'].forEach((key, x) => guest(s, key, x, 3, 'up'));
+      root.appendChild(s);
+    }
+
+    root.insertAdjacentHTML('beforeend', '<h2>벽 2차(2, 10, 8 / 0 / 15)와 바닥, 탁자, 손님, 화분 비교</h2>');
+    const w = scene(12, 2);
+    put(w, 'wall-2', 0, 1, 1, 1.5, 20);
+    put(w, 'wall-10', 1, 1, 1, 1.5, 20);
+    put(w, 'wall-8', 2, 1, 1, 1.5, 20);
+    put(w, 'wall-0', 4, 1, 1, 1.5, 20);
+    put(w, 'wall-15', 6, 1, 1, 1.5, 20);
+    put(w, 'wall-15', 6, 0, 1, 1.5, 10);
+    table(w, 8, 1, 0, [['table-mug']]);
+    put(w, 'customer-down', 9, 1, 1, 1.5, 20);
+    put(w, 'plant-floor', 10, 1, 1, 1, 20);
+    put(w, 'decor-selfbar', 11, 1, 1, 0.5, 20);
+    root.appendChild(w);
+  }
+
+  // ?part=3: 의뢰 8(손님 여덟 명 네 방향, 손 자세)과 의뢰 7(로봇 옆얼굴 본 묶음).
+  // 탁자 위 물건을 칸 가운데에 두는 지금 방식과, 손님 쪽으로 칸의 22%만큼 당겨 두는 방식을 나란히 본다.
+  if (new URLSearchParams(location.search).get('part') === '3') {
+    root.innerHTML = '';
+    const EIGHT = ['guest-2a', 'guest-8a', 'guest-1a', 'guest-3b', 'guest-4b', 'guest-5a', 'guest-6a', 'guest-7b'];
+    for (const facing of ['down', 'up', 'right', 'left']) {
+      const lines = facing === 'down' ? [[205, '#3aa35a'], [228, '#c8302a']] : facing === 'up' ? [] : [[184, '#b07a00']];
+      lineup(`여덟 명 ${facing}`, facing, EIGHT, [[38, '#2f6db3'], ...lines]);
+    }
+    const item = (parent, key, x, y, dx, dy) => put(parent, key, x + dx, y + dy - 16 / 192, 1, 1, 10 + y * 10 + 1);
+    for (const toward of [0, 0.22]) {
+      root.insertAdjacentHTML('beforeend', `<h2>탁자 장면, 탁자 물건을 손님 쪽으로 ${toward ? '칸의 22% 당김' : '당기지 않음(지금 게임)'}, 모든 물건 16px 올림</h2>`);
+      const s = scene(9, 4);
+      const top = [['guest-2a', 'table-laptop-down', 'table-tumbler'], ['guest-1a', 'table-notebook-up', 'table-tall-glass'], ['guest-5a', 'table-notebook-up', 'table-mug'], ['guest-7b', 'table-laptop-down', 'table-tumbler']];
+      top.forEach(([who, work, drink], x) => {
+        guest(s, who, x, 0, 'down');
+        table(s, x, 1, x === 0 ? 6 : x === 3 ? 12 : 14);
+        item(s, work, x, 1, -0.12, -toward);
+        item(s, drink, x, 1, 0.3, -toward);
+      });
+      const bottom = [['guest-8a', null], ['guest-3b', 'table-cup-saucer'], ['guest-4b', null], ['guest-6a', 'table-iced-glass']];
+      bottom.forEach(([who, drink], x) => {
+        table(s, x, 2, x === 0 ? 3 : x === 3 ? 9 : 11);
+        if (drink) item(s, drink, x, 2, 0, toward);
+        guest(s, who, x, 3, 'up');
+      });
+      guest(s, 'guest-1a', 5, 1, 'right');
+      table(s, 6, 1, 0);
+      item(s, 'table-notebook-left', 6, 1, -toward, -0.15);
+      guest(s, 'guest-5a', 7, 1, 'left');
+      item(s, 'table-notebook-right', 6, 1, toward, 0.15);
+      guest(s, 'guest-7b', 5, 3, 'right');
+      table(s, 6, 3, 0);
+      item(s, 'table-laptop-right', 6, 3, -toward, 0);
+      guest(s, 'guest-2a', 7, 3, 'left');
+      root.appendChild(s);
+    }
+
+    root.insertAdjacentHTML('beforeend', '<h2>로봇 옆얼굴 30도 본 묶음(그림 크기와 게임 크기), 메인 화면 달리기 네 장면</h2>');
+    const robotRow = document.createElement('div');
+    robotRow.className = 'row';
+    const FACES = ['', '-push', '-dizzy', '-happy', '-sleepy'];
+    for (const side of ['right', 'left']) {
+      for (const face of FACES) robotRow.insertAdjacentHTML('beforeend', `<div class="card"><img src="${src(`player-${side}${face}-t30`)}" width="144" height="216"><br>${side}${face}</div>`);
+    }
+    root.appendChild(robotRow);
+    const small = document.createElement('div');
+    small.className = 'row';
+    for (const side of ['right', 'left']) {
+      for (const face of FACES) small.insertAdjacentHTML('beforeend', `<img src="${src(`player-${side}${face}-t30`)}" width="77" height="115">`);
+    }
+    for (const n of [1, 2, 3, 4]) small.insertAdjacentHTML('beforeend', `<img src="${src(`title-run-${n}-fluster`)}" width="200" height="200">`);
+    root.appendChild(small);
+  }
+</script>
+</body>
+</html>

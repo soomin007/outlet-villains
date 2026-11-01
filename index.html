@@ -1945,9 +1945,23 @@
         amount: 0.35,
         up: { dx: 0, dy: -1 }, down: { dx: 0, dy: 1 }, left: { dx: -1, dy: 0 }, right: { dx: 1, dy: 0 },
       };
-      // 새 손님 둘은 그림 속 사람 키가 캔버스 높이의 74%(212px)라, 87%(250px)인 기존 손님 셋보다 15% 작고 훨씬 가늘어 보였다(2026-11-01 사용자 지적).
-      // 다시 그린 손님이 오기 전까지는 게임이 키를 기존 손님에 맞춰 250 / 212배로 키운다. 아래 가운데를 기준으로 키워서 의자 다리는 바닥에 그대로 닿는다.
-      const GUEST_SCALE = { 'seated-1': 250 / 212, 'seated-2': 250 / 212 };
+      // 실내 판의 손님 여덟 명(docs/art-rules.md "손님 구성", 2026-11-01 사용자 확정). 기존 손님 다섯은 실내 판에서 빼고 이 여덟 명만 쓴다.
+      // work는 탁자에 따로 놓는 일감(laptop은 손님이 보는 방향 key, notebook은 글 쓰는 사람 쪽 key), drink는 탁자 음료다. 손에 음료를 든 손님은 drink가 없다.
+      const GUESTS = [
+        { key: 'guest-2a', work: 'laptop', drink: 'table-tumbler' },
+        { key: 'guest-8a', work: null, drink: null },
+        { key: 'guest-1a', work: 'notebook', drink: 'table-tall-glass' },
+        { key: 'guest-3b', work: null, drink: 'table-cup-saucer' },
+        { key: 'guest-4b', work: null, drink: null },
+        { key: 'guest-5a', work: 'notebook', drink: 'table-mug' },
+        { key: 'guest-6a', work: null, drink: 'table-iced-glass' },
+        { key: 'guest-7b', work: 'laptop', drink: 'table-tumbler' },
+      ];
+      // 탁자 위 물건은 바닥선 y 140으로 그려져 상판 끝(y 134)에 걸쳐서, 칸 높이의 16/192만큼 올려 놓는다.
+      // 손님 앞 물건은 그 손님 쪽으로 칸의 22%만큼 당긴다. 칸 가운데에 두면 손에서 멀어 자판을 치거나 쓰는 모습으로 읽히지 않았다(2026-11-01 검사).
+      const ITEM_LIFT = 16 / 192;
+      const ITEM_TOWARD = 0.22;
+      const OPPOSITE = { up: 'down', down: 'up', left: 'right', right: 'left' };
       // 옆으로 앉은 손님의 정강이와 발은 탁자 밑으로 들어가야 한다. 탁자 쪽으로 당겨 앉히자 발이 상판 위에 그려졌다(2026-11-01 사용자 지적).
       // 그래서 상판과 겹치는 부분 가운데 그림 높이 64%보다 아래(무릎 아래)만 잘라 낸다. 머그와 손은 높이 50~63%라 상판 위에 그대로 보인다.
       // 테이블 조각은 이어지지 않는 변에서 192px 가운데 8px 안쪽부터 상판이 시작한다.
@@ -1962,11 +1976,10 @@
           const table = addSprite(`table-${mask}`, TILE, TILE_H, colors.table);
           table.classList.add('kind-table');
           placeOnTile(table, x, y, TILE, TILE_H);
-          const item = tabletopItem(x, y);
-          if (item) {
-            const top = addSprite(item, TILE, TILE_H, 'transparent');
+          for (const item of tabletopItems(x, y)) {
+            const top = addSprite(item.key, TILE, TILE_H, 'transparent');
             top.classList.add('kind-table');
-            placeOnTile(top, x, y, TILE, TILE_H);
+            placeOnTile(top, x + item.dx, y + item.dy - ITEM_LIFT, TILE, TILE_H);
             top.style.zIndex = String(11 + y * 10);
           }
           return true;
@@ -1986,10 +1999,9 @@
         if (char === 'N') {
           const facing = customerFacing(map, x, y);
           const person = personAt(x, y, facing);
-          const key = person ? `${person}-${facing}` : customerKey(facing, x, y);
-          const scale = GUEST_SCALE[person] || 1;
-          const width = TILE * scale;
-          const height = TILE * 1.5 * scale;
+          const key = person ? `${person.key}-${facing}` : customerKey(facing, x, y);
+          const width = TILE;
+          const height = TILE * 1.5;
           const customer = addSprite(key, width, height, colors.customer);
           customer.classList.add('kind-customer');
           customer.dataset.facing = facing;
@@ -1997,7 +2009,7 @@
           const pull = SEAT_PULL[facing];
           const facesTable = isTable(x + pull.dx, y + pull.dy);
           placeOnTile(customer, x + (facesTable ? pull.dx * SEAT_PULL.amount : 0), y + (facesTable ? pull.dy * SEAT_PULL.amount : 0), width, height);
-          if (facesTable && pull.dx !== 0) tuckLegs(customer, pull.dx, scale);
+          if (facesTable && pull.dx !== 0) tuckLegs(customer, pull.dx, 1);
           // 테이블 아래쪽에 앉은 뒷모습 손님은 테이블 앞에 그리고, 위쪽에 앉은 손님은 테이블 뒤에 그린다.
           customer.style.zIndex = String(10 + y * 10 + 1);
           return true;
@@ -2036,36 +2048,54 @@
         return cells;
       }
 
-      // 기존 손님 셋(customer, customer2, customer3)과 새 손님 둘(seated-1, seated-2)을 칸마다 번갈아 앉힌다.
-      // 새 손님만 쓰면 판의 손님이 모두 두 사람으로 바뀐다(2026-10-31 사용자 지적, known-issues 23번).
+      // 여덟 명을 칸마다 번갈아 앉힌다. (x + 2y) % 8로 고르면 가로 이웃은 1, 세로 이웃은 2만큼 달라 같은 사람이 붙지 않는다.
+      // 그 방향 그림이 없는 손님은 건너뛴다.
       function personAt(x, y, facing) {
-        const people = ['customer', 'customer2', 'customer3', 'seated-1', 'seated-2'].filter((name) => assetPath(`${name}-${facing}`));
+        const people = GUESTS.filter((guest) => assetPath(`${guest.key}-${facing}`));
         return people.length > 0 ? people[(x + 2 * y) % people.length] : null;
       }
 
-      // 테이블 위 물건(2026-11-01 큼직한 그림). 손님이 보고 앉은 칸에는 그 손님의 물건을, 나머지 칸에는 다섯 칸에 한 칸 꼴로 꽃병이나 케이크를 놓는다.
-      // 노트북은 네 방향 그림이 있어서, 그 노트북을 쓰는 손님이 바라보는 방향(table-laptop-방향)을 쓴다(docs/art-rules.md).
-      function tabletopItem(x, y) {
+      // 탁자 칸 (x, y)에 놓을 물건 목록. 항목은 { key, dx, dy }이고 dx, dy는 칸 단위 어긋남이다.
+      // 그 칸을 보고 앉은 손님마다 일감(노트북, 공책)과 음료를 그 손님 쪽으로 당겨 놓는다. 손님이 없는 칸은 다섯 칸에 한 칸 꼴로 꽃병이나 케이크를 가운데에 둔다.
+      function tabletopItems(x, y) {
         const map = game.level.map;
         const around = [[0, -1, 'down'], [0, 1, 'up'], [-1, 0, 'right'], [1, 0, 'left']];
         // 빌런 자리(V)에 붙은 탁자는 빌런이 엎드린 탁자라 꾸밈 물건을 놓지 않는다.
         // 빌런은 손님(N)으로 세지 않아서 빈 탁자로 보고 다섯 칸에 한 칸 꼴의 꽃병을 놓았다(2026-11-01 사용자 지적).
-        if (around.some(([dx, dy]) => (map[y + dy] || '')[x + dx] === 'V')) return null;
-        for (const [dx, dy, facing] of around) {
+        if (around.some(([dx, dy]) => (map[y + dy] || '')[x + dx] === 'V')) return [];
+        const items = [];
+        const facedBy = around.filter(([dx, dy, facing]) => (map[y + dy] || '')[x + dx] === 'N' && customerFacing(map, x + dx, y + dy) === facing);
+        const faced = facedBy.length > 0;
+        // 위나 아래 손님과 옆 손님이 한 칸(탁자 모서리)을 함께 보면, 그 칸에는 한쪽 손님의 물건만 놓는다.
+        // 둘 다 놓으면 서로 겹치거나 뒷모습 손님 머리에 가렸다(2026-11-01 1-4 확인).
+        // 일감(노트북, 공책)이 있는 손님을 먼저 고른다. 음료만 있는 손님에게 칸을 주면 자판을 치는 손님 앞이 비었다. 둘 다 같으면 위아래 손님이다.
+        const hasWork = ([dx, dy, facing]) => Boolean((personAt(x + dx, y + dy, facing) || {}).work);
+        const fronts = facedBy.filter(([, dy]) => dy !== 0);
+        const sides = facedBy.filter(([, dy]) => dy === 0);
+        let chosen = facedBy;
+        if (fronts.length > 0 && sides.length > 0) {
+          chosen = sides.some(hasWork) && !fronts.some(hasWork) ? sides : fronts;
+        }
+        for (const [dx, dy, facing] of chosen) {
           const cx = x + dx;
           const cy = y + dy;
-          if ((map[cy] || '')[cx] === 'N' && customerFacing(map, cx, cy) === facing) {
-            // 노트북 치는 손님(seated-1) 앞에는 그 손님 쪽을 향한 노트북을 놓는다.
-            if (personAt(cx, cy, facing) === 'seated-1' && assetPath(`table-laptop-${facing}`)) return `table-laptop-${facing}`;
-            // 기존 손님 셋은 어느 방향에서나 손에 머그를 들고 있어서, 앞에 두 잔짜리 그림(table-cups)을 놓으면 한 사람 앞에 세 잔이 됐다(2026-11-01 사용자 지적).
-            // 폰 보는 손님(seated-2)에게 줄 한 잔짜리 음료 그림은 아직 없어서, 손님 앞은 노트북 말고는 비워 둔다.
-            return null;
-          }
+          const guest = personAt(cx, cy, facing);
+          if (!guest) continue;
+          // 손님 쪽으로 당기고, 일감과 음료는 손님에게서 본 좌우로 벌려 놓는다. 위아래 손님은 x로(음료는 오른쪽),
+          // 옆 손님은 y로 벌리되 음료를 위로 올린다. 아래로 내리면 탁자 아래쪽에 앉은 뒷모습 손님의 머리에 가렸다.
+          const towardX = dx * ITEM_TOWARD;
+          const towardY = dy * ITEM_TOWARD;
+          const side = dy === 0;
+          const spread = (amount) => (side ? { dx: towardX, dy: towardY - amount } : { dx: towardX + amount, dy: towardY });
+          const workKey = guest.work === 'laptop' ? `table-laptop-${facing}` : guest.work === 'notebook' ? `table-notebook-${OPPOSITE[facing]}` : null;
+          if (workKey && assetPath(workKey)) items.push({ key: workKey, ...spread(guest.drink ? -0.12 : 0) });
+          if (guest.drink && assetPath(guest.drink)) items.push({ key: guest.drink, ...spread(workKey ? 0.3 : 0.25) });
         }
+        if (faced) return items;
         const pick = (x * 3 + y * 5) % 5;
-        if (pick === 0) return assetPath('table-vase') ? 'table-vase' : 'tabletop-4';
-        if (pick === 1 && assetPath('table-cake')) return 'table-cake';
-        return null;
+        if (pick === 0 && assetPath('table-vase')) return [{ key: 'table-vase', dx: 0, dy: 0 }];
+        if (pick === 1 && assetPath('table-cake')) return [{ key: 'table-cake', dx: 0, dy: 0 }];
+        return [];
       }
 
       // 손님 그림 key. 같은 사람이 줄지어 앉으면 복제 인간처럼 보여서, 그려 둔 손님 종류(customer, customer2, customer3...)를
@@ -2084,9 +2114,10 @@
       // 주인공 그림 크기. 앉은 손님과 키가 비슷해 묻혀서 1.2배로 그린다(2026-10-29 사용자 피드백).
       // 주인공 그림 key. 얼굴 화면 표정(push 힘줌, dizzy 어지러움, happy 웃음, sleepy 졸림)이 있으면 그 그림을 쓴다.
       // 위(뒷모습)는 얼굴이 보이지 않아 표정 그림이 없다(docs/art-rules.md "주인공 로봇").
+      // 옆모습(왼쪽, 오른쪽)은 얼굴 화면을 보는 사람 쪽으로 30도 돌린 그림(-t30)이 있으면 그것을 쓴다(2026-11-01 사용자 확정).
       function playerKey(facing = game.state.facing) {
-        if (game.face && facing !== 'up' && assetPath(`player-${facing}-${game.face}`)) return `player-${facing}-${game.face}`;
-        return `player-${facing}`;
+        const base = game.face && facing !== 'up' && assetPath(`player-${facing}-${game.face}`) ? `player-${facing}-${game.face}` : `player-${facing}`;
+        return (facing === 'left' || facing === 'right') && assetPath(`${base}-t30`) ? `${base}-t30` : base;
       }
 
       function refreshPlayer(facing) {
