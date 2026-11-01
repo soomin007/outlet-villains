@@ -889,8 +889,10 @@
 
     .card-art img.small { height: min(24vh, 160px); }
 
-    /* 만화 프롤로그 컷: 글 없이 그림만 크게 보인다. */
+    /* 만화 프롤로그 컷: 글 없이 그림만 크게 보인다. 컷 폭(최대 1120px)이 본문 최대 폭(880px)보다 넓어 컷이 본문 왼쪽 끝에서 시작해
+       오른쪽으로 넘쳤다(1920 폭에서 144px 치우치고, 1280~1366 폭에서는 오른쪽이 잘림, 2026-11-02 Codex 검수에서 찾음). 만화 카드는 본문을 컷 폭에 맞춘다. */
     .card.comic .card-text { display: none; }
+    .card.comic .card-body { max-width: none; justify-content: center; }
 
     .card-art img.comic {
       width: min(90vw, 1120px);
