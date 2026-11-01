@@ -45,7 +45,8 @@
     setTimeout(() => press('Enter'), 800);
     if (title) return;
     setTimeout(() => press('Enter'), 1600);
-    // 챕터 첫 판의 빌런 소개 카드를 닫는다. 카드가 없으면 판 시작 연출을 건너뛸 뿐이다.
+    // 챕터 첫 판의 빌런 소개 카드를 닫는다. 카드가 없으면 판 시작 연출을 건너뛸 뿐이다. card=1이면 카드를 닫지 않고 찍는다(소개 글 줄 끝 확인용).
+    if (params.get('card') === '1') return;
     setTimeout(() => press('Enter'), 4500);
     const zoomIn = () => {
       const doc = frame.contentDocument;

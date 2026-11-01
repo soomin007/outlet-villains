@@ -11,6 +11,7 @@
 // 게임은 챕터와 레벨로 나눈다(2026-10-29 사용자 결정). 챕터 하나가 빌런 한 명이고, 레벨마다 새 요소를 하나씩만 더한다.
 // chapters의 villain은 빌런 그림 key 세 가지(평소, 반응, 반응 일러스트)와 그림 크기(heightTiles), 그림 아래쪽이 닿는 칸(anchorRow, 빌런 칸 기준)이다.
 // name과 lines는 챕터를 시작할 때 뜨는 빌런 소개 글이다. lines의 첫 줄은 콘센트를 놓지 않는 이유, 둘째 줄은 약점이다(docs/concept.md의 빌런 후보 표).
+// lines의 {중괄호} 안은 줄을 바꾸지 않는 묶음이다. 화면 폭에 따라 "화상 / 회의", "꽂혀 / 있다"처럼 구절 중간에서 꺾여서, 320px 폭에서도 한 줄에 드는 짧은 구절만 묶는다(2026-11-02).
 // 콘센트는 판 밖 -1번 줄의 벽에 붙는다. 열은 빌런과 같고, villain.outletX가 있으면 그 열이다(2장은 판 안 충전 독 바로 위인 6열, 2026-11-01).
 // 레벨의 bg는 배경 그림 이름(bg-이름)이다. 배경에는 테이블과 화분이 그려져 있으므로, 같은 배경을 쓰는 레벨은 T, L, V, * 자리가 같아야 한다(tools/verify.html이 확인한다).
 // view가 있는 레벨은 카메라 화각 규칙을 쓴다(engine.js 머리말). F(촬영자)가 있는 레벨은 화각이 촬영자 뒤로 뻗고, 쓰레기통이 비치면 촬영자가 떠난다(셋째 챕터).
@@ -75,19 +76,19 @@ window.VILLAIN_LAYOUT = {
     {
       "id": "sleeper",
       "name": "잠든 카공족",
-      "lines": ["멀티탭을 끌어안고 엎드려 잠들었다. 콘센트는 저 멀티탭 차지다.", "주문한 음료 진동벨이 귀 옆에서 울리면 깰 텐데."],
+      "lines": ["{멀티탭을 끌어안고} {엎드려 잠들었다.} {콘센트는} {저 멀티탭 차지다.}", "{주문한 음료 진동벨이} {귀 옆에서} {울리면 깰 텐데.}"],
       "villain": { "idle": "villain-sleep", "react": "villain-wake", "portrait": "villain-portrait", "heightTiles": 2.5, "anchorRow": 1 }
     },
     {
       "id": "streamer",
-      "name": "공부 영상 촬영자",
-      "lines": ["폰을 세워 두고 몇 시간째 스터디 윗 미 영상을 찍는 중이다. 폰과 조명은 벽 콘센트에 꽂혀 있다.", "화면에 지저분한 게 잡히면 촬영을 접을 텐데."],
+      "name": "화상 회의 손님",
+      "lines": ["{노트북 카메라를 켜고} {몇 시간째} {화상 회의 중이다.} {노트북과} {폰 충전기가} {벽 콘센트에} {꽂혀 있다.}", "{카메라 뒤에} {지저분한 게} {비치면} {자리를 옮길 텐데.}"],
       "villain": { "idle": "streamer-idle", "react": "streamer-react", "portrait": "streamer-portrait", "heightTiles": 1.5, "anchorRow": 0, "outletX": 6 }
     },
     {
       "id": "together",
       "name": "합석",
-      "lines": ["잠든 카공족 옆 테이블에 공부 영상 촬영자가 앉았다. 촬영 화면에 잡히면 안 된다.", "촬영자를 먼저 보내야 진동벨을 가져다줄 수 있을 텐데."],
+      "lines": ["{잠든 카공족} {옆 테이블에} {화상 회의 손님이} {앉았다.} {회의 화면에} {잡히면 안 된다.}", "{화상 회의 손님을} {먼저 보내야} {진동벨을} {가져다줄 수 있을 텐데.}"],
       "villain": { "idle": "villain-sleep", "react": "villain-wake", "portrait": "villain-portrait", "heightTiles": 2.5, "anchorRow": 1 },
       "filmer": { "idle": "streamer-idle", "react": "streamer-react", "face": "streamer-face", "heightTiles": 1.5 }
     }
