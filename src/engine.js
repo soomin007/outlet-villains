@@ -162,7 +162,7 @@
     return walkerCells(level, state).some((cell) => cell.x === x && cell.y === y);
   }
 
-  // 손님이 다음 턴에 밟으려는 칸과 그쪽 방향. 길 끝이면 돌아선 쪽이다. 화면은 이 칸에 발자국을 그린다.
+  // 손님이 다음 턴에 밟으려는 칸과 그쪽 방향. 길 끝이면 돌아선 쪽이다. 화면은 손님이 이쪽을 보고 서 있게 그린다.
   // 길 끝에서 머무는 중이면(16번) 다음 턴에도 그 자리에 있으므로 null이다.
   function walkerNext(level, state, index) {
     const walker = state.walkers[index];
