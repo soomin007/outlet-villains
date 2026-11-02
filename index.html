@@ -1621,6 +1621,79 @@
     .large-text .card-title { font-size: clamp(28px, 4.8vw, 48px); }
     .large-text .card-lines p { font-size: clamp(19px, 2.2vw, 25px); }
     .large-text .panel { font-size: calc(var(--panel-font) * 1.25); }
+    /* 휴대폰 안내(2026-11-02 사용자 결정). 메인 화면 위를 덮고, 메인 화면의 로고 받침과 당황한 로봇을 다시 쓴다.
+       세로로 들면 로고, 로봇, 글을 위아래로 쌓고, 가로로 들면 로봇을 왼쪽에, 로고와 글을 오른쪽에 둔다.
+       로고 받침의 비율(가로 1.69 : 세로 1), 테두리(높이의 4%), 모서리(높이의 12%), 단자(폭의 5%)는 메인 화면 받침(layout.js title.badge)과 같다. */
+    .phone-notice {
+      position: fixed;
+      inset: 0;
+      z-index: 400;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: #1b1b1b;
+      color: #f6efe2;
+    }
+
+    .phone-notice-body {
+      --badge-w: min(78vw, 340px);
+      display: grid;
+      grid-template-areas: "logo" "robot" "text";
+      justify-items: center;
+      align-items: center;
+      row-gap: 22px;
+      text-align: center;
+    }
+
+    .phone-logo { grid-area: logo; }
+    .phone-robot { grid-area: robot; }
+    .phone-text { grid-area: text; }
+
+    .phone-notice .logo-badge {
+      width: var(--badge-w);
+      aspect-ratio: 1.69;
+      border-width: max(3px, calc(var(--badge-w) / 1.69 * 0.04));
+      border-radius: calc(var(--badge-w) / 1.69 * 0.12);
+      --nub: calc(var(--badge-w) * 0.05);
+    }
+
+    .phone-notice .logo-layers {
+      left: 50%;
+      top: 50%;
+      width: 89.3%;
+      aspect-ratio: 1120 / 640;
+      transform: translate(-50%, -50%);
+    }
+
+    .phone-robot img {
+      display: block;
+      width: min(40vw, 170px);
+      height: auto;
+    }
+
+    .phone-text p {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .phone-text p + p { margin-top: 6px; opacity: 0.85; }
+
+    @media (orientation: landscape) {
+      .phone-notice-body {
+        --badge-w: min(44vw, 340px);
+        grid-template-areas: "robot logo" "robot text";
+        column-gap: 28px;
+        row-gap: 14px;
+        justify-items: start;
+        text-align: left;
+      }
+
+      .phone-robot img { width: min(40vh, 170px); }
+    }
+
     /* 수업 모드(?class)가 켜졌는지 진행하는 사람이 설정창에서 확인하는 줄. */
     .class-note {
       margin: 14px 0 0;
@@ -1711,6 +1784,18 @@
         <button id="title-new" class="title-btn" type="button">처음부터</button>
         <button id="title-settings" class="title-btn" type="button">설정</button>
         <button id="title-credits" class="title-btn" type="button">만든 사람</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 휴대폰 안내. 휴대폰에서는 메인 화면 위를 덮는다(updatePhoneNotice). 문구는 사용자가 골랐다(2026-11-02). -->
+  <div id="phone-notice" class="phone-notice" role="alert" hidden>
+    <div class="phone-notice-body">
+      <div id="phone-logo" class="phone-logo"></div>
+      <div id="phone-robot" class="phone-robot"></div>
+      <div class="phone-text">
+        <p><span class="nw">이 게임은</span> <span class="nw">키보드로 하는</span> <span class="nw">PC 게임이에요.</span></p>
+        <p><span class="nw">PC나 노트북에서</span> <span class="nw">열어 주세요.</span></p>
       </div>
     </div>
   </div>
@@ -1868,6 +1953,9 @@
         replayPrologue: document.getElementById('replay-prologue'),
         resetProgress: document.getElementById('reset-progress'),
         classNote: document.getElementById('class-note'),
+        phoneNotice: document.getElementById('phone-notice'),
+        phoneLogo: document.getElementById('phone-logo'),
+        phoneRobot: document.getElementById('phone-robot'),
         title: document.getElementById('title-screen'),
         titleStage: document.getElementById('title-stage'),
         titleWall: document.getElementById('title-wall'),
@@ -2656,6 +2744,12 @@
       // 로고 받침과 느낌표 배터리(2026-11-01). 글자층(title-logo-text)과 느낌표 껍데기(title-bang-shell)가 있으면 그 사이에 차오르는 속을 칠한다.
       // 둘이 없으면 원래 로고 한 장을, 로고 그림도 없으면 글자 로고를 받침 위에 얹는다. 크기와 자리는 layoutTitle이 정한다.
       function drawTitleLogo() {
+        ui.titleLogo.innerHTML = logoBadge();
+        ui.titleLogo.style.setProperty('--bang-cycle', `${LAYOUT.title.bang.cycle}s`);
+      }
+
+      // 로고 받침 한 벌(메인 화면과 휴대폰 안내가 함께 쓴다).
+      function logoBadge() {
         const bang = LAYOUT.title.bang;
         let layers;
         if (assetPath('title-logo-text') && assetPath('title-bang-shell')) {
@@ -2666,8 +2760,23 @@
         } else {
           layers = '<span class="text-logo"><span>충전이</span><span class="line2">필요해<span class="bang">!</span></span></span>';
         }
-        ui.titleLogo.innerHTML = `<div class="logo-badge" role="img" aria-label="충전이 필요해!"><div class="logo-layers">${layers}</div></div>`;
-        ui.titleLogo.style.setProperty('--bang-cycle', `${bang.cycle}s`);
+        return `<div class="logo-badge" role="img" aria-label="충전이 필요해!"><div class="logo-layers">${layers}</div></div>`;
+      }
+
+      // 휴대폰 안내(2026-11-02 사용자 결정). 판이 12 x 7 가로형이라 세로 휴대폰에서는 칸이 17px(PC는 94px)까지 작아져 읽히지 않는다.
+      // 손가락이 주 입력인 기기 가운데 화면의 짧은 변이 layout.js phoneNotice.maxShortSide보다 작은 기기(휴대폰)에서는
+      // 메인 화면 위를 PC에서 열어 달라는 안내로 덮는다. 태블릿(짧은 변 744px 이상)과 PC, 수업 노트북은 그대로다. ?phone을 붙이면 PC에서도 띄운다(검사용).
+      const PHONE_QUERY = window.matchMedia('(hover: none) and (pointer: coarse)');
+      const FORCE_PHONE = new URLSearchParams(location.search).has('phone');
+
+      function updatePhoneNotice() {
+        const phone = FORCE_PHONE || (PHONE_QUERY.matches && Math.min(window.innerWidth, window.innerHeight) < LAYOUT.phoneNotice.maxShortSide);
+        if (phone && !ui.phoneLogo.firstChild) {
+          ui.phoneLogo.innerHTML = logoBadge();
+          ui.phoneLogo.style.setProperty('--bang-cycle', `${LAYOUT.title.bang.cycle}s`);
+          ui.phoneRobot.innerHTML = imageTag(assetPath('title-run-1-fluster') ? 'title-run-1-fluster' : 'player-down');
+        }
+        ui.phoneNotice.hidden = !phone;
       }
 
       // 메인 화면 판을 화면에 맞춘다(layout.js title). 1920 x 1080 판은 버튼 글자가 deskMinFont(16px) 이상 나오면 언제나 쓰고,
@@ -4195,6 +4304,8 @@
 
       document.addEventListener('pointerdown', resetIdle);
       document.addEventListener('keydown', (event) => {
+        // 휴대폰 안내가 덮고 있으면 블루투스 키보드 입력도 뒤의 메인 화면을 열지 않는다.
+        if (!ui.phoneNotice.hidden) return;
         const key = event.key.toLowerCase();
         resetIdle();
         // M은 소리 끄기, F는 전체 화면이다. 어느 화면에서나 듣는다. 첫 화면이면 그 입력으로 메인 화면도 연다.
@@ -4481,6 +4592,10 @@
       buildSideKeys();
       showTitle();
       fitScene();
+      // 휴대폰을 돌리거나 창 크기가 바뀌면 안내를 띄울지 다시 본다.
+      updatePhoneNotice();
+      window.addEventListener('resize', updatePhoneNotice);
+      PHONE_QUERY.addEventListener('change', updatePhoneNotice);
     })();
   </script>
 </body>

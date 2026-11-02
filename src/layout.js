@@ -53,10 +53,13 @@
 //
 // stepRating은 판을 깬 걸음 수 평가다(2026-11-02 사용자 결정). 레벨의 optimal(최소 걸음 수)로 깨면 배터리 세 칸,
 // optimal의 twoCells배 이내(내림)면 두 칸, 그보다 많으면 한 칸이다. 걸음 수는 되돌리기를 하면 줄어든다.
+// phoneNotice는 휴대폰 안내다(2026-11-02 사용자 결정). 손가락이 주 입력인 기기 가운데 화면의 짧은 변이 maxShortSide(px)보다 작으면 휴대폰으로 보고,
+// 메인 화면 대신 PC에서 열어 달라는 안내를 띄운다. 휴대폰은 짧은 변이 320~430px, 태블릿은 744px 이상이다.
 window.VILLAIN_LAYOUT = {
   "art": { "width": 1920, "height": 1080, "tile": 96, "originX": 384, "originY": 240, "columns": 12, "rows": 7, "uiTop": 912, "viewBottom": 880 },
   "sprite": { "personWidthTiles": 1, "personHeightTiles": 1.5 },
   "stepRating": { "twoCells": 1.25 },
+  "phoneNotice": { "maxShortSide": 500 },
   "title": {
     "deskMinFont": 16,
     "desk": {
