@@ -392,6 +392,33 @@ window.VILLAIN_LAYOUT = {
         { "x": 0, "y": 3, "key": "decor-selfbar", "w": 3, "h": 1.5 },
         { "x": 11, "y": 3, "key": "decor-return", "w": 1, "h": 1.5 }
       ]
+    },
+    {
+      "id": "together-5",
+      "chapter": "together",
+      "bg": "sleeper-empty",
+      "interior": true,
+      "kind": "puzzle",
+      "maxWalk": 45,
+      "optimal": 24,
+      "pushes": 12,
+      "view": { "dir": "down", "width": 3 },
+      "walkers": [
+        { "who": "8a", "route": [[3, 3], [10, 3]], "at": 7, "dir": -1, "rest": [1, 0] }
+      ],
+      "map": [
+        "##ooooLL#DV#",
+        "##NNNN.oL*T#",
+        "##....qF..N#",
+        "qqq........q",
+        "#.....L.....",
+        "o..b...c....",
+        "NP........oN"
+      ],
+      "decor": [
+        { "x": 0, "y": 3, "key": "decor-selfbar", "w": 3, "h": 1.5 },
+        { "x": 11, "y": 3, "key": "decor-return", "w": 1, "h": 1.5 }
+      ]
     }
   ]
 };

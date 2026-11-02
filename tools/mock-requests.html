@@ -277,6 +277,40 @@
     root.innerHTML = `<div style="display:flex; gap:12px; padding:16px">${[1, 2, 3, 4].map(panel).join('')}</div>${note}`;
   }
 
+  // 의뢰 15 고친 판(2026-11-02). runframes: 머리 이음매에 더해 몸통 아래 두 겹 외곽선, 왼쪽 아래 조각, 장면마다 다른 바퀴살까지 1번 장면 위에 표시하고,
+  // 네 장면의 몸통 아래를 나란히 보인다. 네 장면을 기준 그림 한 장에서 다시 만들게 하는 의뢰의 안내 그림이다. 좌표는 그림 파일(512 x 512)의 px다.
+  if (part === 'runframes') {
+    const RED = '#d0302a';
+    const BLUE = '#2f6db3';
+    const s = 1.25;
+    const marks = [
+      { x1: 280, y1: 84, x2: 348, y2: 140, text: '머리 윗선 끊김, 흰 조각', lx: 352, ly: 100 },
+      { x1: 272, y1: 220, x2: 316, y2: 242, text: '베젤 아래 흰 조각', lx: 320, ly: 238 },
+      { x1: 118, y1: 352, x2: 300, y2: 396, text: '몸통 아래 두 겹 외곽선과 지저분한 띠, 왼쪽 아래 조각', lx: 118, ly: 412 },
+      { x1: 60, y1: 450, x2: 345, y2: 492, text: '바퀴살이 장면마다 제각각', lx: 60, ly: 508 },
+    ];
+    let svg = '';
+    marks.forEach((mark) => {
+      svg += `<rect x="${mark.x1 * s}" y="${mark.y1 * s}" width="${(mark.x2 - mark.x1) * s}" height="${(mark.y2 - mark.y1) * s}" fill="none" stroke="${RED}" stroke-width="4" stroke-dasharray="9 6"/>`;
+      svg += `<text x="${mark.lx * s}" y="${mark.ly * s}" font-size="18" font-weight="700" fill="#fff" stroke="${RED}" stroke-width="5" paint-order="stroke">${mark.text}</text>`;
+    });
+    const base = `<div style="position:relative; width:${512 * s}px; height:${512 * s + 20}px; background:#dcdcd7; flex:none">`
+      + `<img src="../assets/a/title-run-1-fluster.png" alt="" style="position:absolute; left:0; top:0; width:${512 * s}px; height:${512 * s}px">`
+      + `<svg width="${512 * s}" height="${512 * s + 20}" style="position:absolute; left:0; top:0">${svg}</svg>`
+      + '<span style="position:absolute; left:6px; top:6px; background:#000; color:#fff; font:700 15px system-ui; padding:2px 6px">title-run-1-fluster 1.25배: 고칠 곳</span></div>';
+    const torso = (frame) => `<div style="position:relative; width:420px; height:150px; overflow:hidden; background:#dcdcd7">`
+      + `<img src="../assets/a/title-run-${frame}-fluster.png" alt="" style="position:absolute; left:${-105 * 2.2}px; top:${-330 * 2.2}px; width:${512 * 2.2}px; height:${512 * 2.2}px; image-rendering:pixelated">`
+      + `<span style="position:absolute; left:4px; top:4px; background:#000; color:#fff; font:700 13px system-ui; padding:1px 5px">${frame} 몸통 아래 2.2배 (x 105~296, y 330~398)</span></div>`;
+    const plan = '<div style="font-size:17px; line-height:1.65; background:#fff; padding:12px 14px; border:3px solid ' + BLUE + '">'
+      + '<b style="color:' + BLUE + '">다시 만드는 방법</b><br>'
+      + '1번 장면을 기준 그림으로 고친다(머리와 베젤이 이어지고, 몸통 아래 외곽선은 한 줄, 왼쪽 아래 조각 없음, 바퀴 넷 온전).<br>'
+      + '2~4번은 기준 그림을 복사해 두 가지만 바꾼다. 받침 원반 위(몸통, 목, 머리, 팔)를 장면마다 0, 2, 4, 2px 위로 올리고,'
+      + ' 바퀴는 크기와 자리를 그대로 두고 바퀴살만 장면마다 0, 30, 60, 90도 돌린다. 그 밖의 픽셀은 네 장면이 같다.</div>';
+    root.innerHTML = '<div style="display:flex; gap:16px; padding:16px; align-items:flex-start">' + base
+      + `<div style="display:flex; flex-direction:column; gap:10px">${[1, 2, 3, 4].map(torso).join('')}</div>`
+      + `<div style="width:560px">${plan}</div></div>`;
+  }
+
   // standing2: 서 있는 손님 3b, 4b의 크기 라인업. 확정한 서 있는 8a와 앉은 3b, 4b를 나란히 놓는다.
   if (part === 'standing2') {
     const line = (y, color, text) => `<div class="line" style="top:${y}px; border-color:${color}; color:${color}"><span style="position:absolute; right:2px; top:-15px; background:#fff">${text}</span></div>`;
