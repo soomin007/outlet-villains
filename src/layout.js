@@ -34,6 +34,8 @@
 // w는 젖은 바닥, 1 2 3은 음료, A B C는 그 음료를 기다리며 서 있는 손님이다(engine.js 머리말 9~12번 규칙). 1장 레벨 3~5는 젖은 바닥, 2장 레벨 4~5는 음료 배달을 쓴다(2026-10-31 사용자 결정).
 //
 // title은 메인 화면 배치다(2026-11-01 사용자 확정, docs/concept.md "목업 2차"). desk는 1920 x 1080 판, phone은 세로 화면용 375 x 812 판이고, 숫자는 그 판의 px다.
+// 판은 비율을 지킨 채 화면에 맞추고, 남는 자리는 위 띠를 위로, 아래 띠를 아래로 늘려 채운다. desk 판은 버튼 글자가 deskMinFont(px) 이상 나오면 언제나 쓰고,
+// 그보다 좁은 창(대략 폭 960px 미만)에서만 버튼 글자가 더 크게 보이는 판을 고른다(2026-11-02 사용자 결정, known-issues 32번).
 // bands의 wallBottom은 위 층(흐르는 카페 벽)이 끝나는 y, cupboardTop은 아래 층(흐르는 찬장)이 시작하는 y이고, 그 사이가 로봇이 딛는 바닥이다. 글자와 버튼은 바닥 층에만 둔다.
 // floor는 바닥 무늬다(2026-11-01 사용자 결정, 목업 tools/mock-floor.html). 굽도리(baseboard) 아래로 첫 줄 높이 firstRow에서 줄마다 rowGrowth배로 커지는 가로줄과,
 // 타일 폭 tileWidth마다 높이 1에 가로 slant만큼 눕힌 세로줄을 그린다. 바닥은 위 띠와 아래 띠 속도의 가운데로 흐른다(1920 판에서 초속 240px).
@@ -51,6 +53,7 @@ window.VILLAIN_LAYOUT = {
   "art": { "width": 1920, "height": 1080, "tile": 96, "originX": 384, "originY": 240, "columns": 12, "rows": 7, "uiTop": 912, "viewBottom": 880 },
   "sprite": { "personWidthTiles": 1, "personHeightTiles": 1.5 },
   "title": {
+    "deskMinFont": 16,
     "desk": {
       "size": [1920, 1080],
       "bands": { "wallBottom": 380, "cupboardTop": 920 },

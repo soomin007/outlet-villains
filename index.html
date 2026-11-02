@@ -2540,14 +2540,18 @@
         ui.titleLogo.style.setProperty('--bang-cycle', `${bang.cycle}s`);
       }
 
-      // 메인 화면 판을 화면에 맞춘다(layout.js title). 1920 x 1080 판과 375 x 812 판 가운데, 화면에 맞췄을 때 버튼 글자가 더 크게 보이는 판을 고른다.
-      // 가로세로 비율로만 고르면 587 x 614 같은 창에서 1920 판이 31%로 줄어 버튼 글자가 10px이 됐다(2026-11-01 확인).
-      // 판은 가로와 세로 가운데 좁은 쪽에 맞춰 키우고 가운데에 둔다. 세 층의 띠와 바닥은 판 밖 화면 끝까지 늘려 빈 자리가 생기지 않게 한다.
+      // 메인 화면 판을 화면에 맞춘다(layout.js title). 1920 x 1080 판은 버튼 글자가 deskMinFont(16px) 이상 나오면 언제나 쓰고,
+      // 그보다 작아지는 좁은 창(대략 폭 960px 미만)에서만 버튼 글자가 더 크게 보이는 판(대개 375 x 812 판)을 고른다.
+      // 예전에는 늘 글자가 더 큰 판을 골라, 3:2보다 좁은 창(4:3, 5:4, 화면 반쪽 창)이 모두 휴대폰 판이 되어 바닥이 화면 높이의 81%를 차지했다(known-issues 32번).
+      // 가로세로 비율로만 고르면 587 x 614 같은 창에서 1920 판이 31%로 줄어 버튼 글자가 10px이 된다(2026-11-01 확인).
+      // 판은 비율을 지킨 채 가로와 세로 가운데 좁은 쪽에 맞춰 키우고 가운데에 둔다. 남는 자리는 위 띠를 위로, 아래 띠를 아래로, 세 층을 옆으로 늘려 채운다.
       function layoutTitle() {
         if (ui.title.hidden) return;
         const fitScale = (candidate) => Math.min(window.innerWidth / candidate.size[0], window.innerHeight / candidate.size[1]);
-        const { desk, phone } = LAYOUT.title;
-        const spec = desk.menu.font * fitScale(desk) >= phone.menu.font * fitScale(phone) ? desk : phone;
+        const { desk, phone, deskMinFont } = LAYOUT.title;
+        const deskFont = desk.menu.font * fitScale(desk);
+        const phoneFont = phone.menu.font * fitScale(phone);
+        const spec = deskFont >= Math.min(deskMinFont, phoneFont) ? desk : phone;
         const [width, height] = spec.size;
         const scale = fitScale(spec);
         const padX = (window.innerWidth / scale - width) / 2;
