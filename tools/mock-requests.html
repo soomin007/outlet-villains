@@ -157,6 +157,95 @@
       + `<div style="padding:0 16px 16px">${note}</div>`;
   }
 
+  // 의뢰 14(2026-11-02). cables2: 잠든 카공족 충전선 다시 고치기. 의뢰 13 결과를 흐리게 깔고, 지울 것(빨간 점선), 새 선(초록), 단자 자리(파란 점)를 덧그린다.
+  // 좌표는 모두 그림 파일의 px이고, 상자마다 (x0, y0)를 왼쪽 위로 s배 크게 보인다. 새 선의 모양은 대략이고, 끝점(단자 자리)이 기준이다.
+  if (part === 'cables2') {
+    const GREEN = '#1d9b4a';
+    const RED = '#d0302a';
+    const BLUE = '#2f6db3';
+    const label = (x, y, text, color, anchor = 'start') => `<text x="${x}" y="${y}" text-anchor="${anchor}" font-size="17" font-weight="700" fill="#fff" stroke="${color}" stroke-width="5" paint-order="stroke">${text}</text>`;
+    const panel = ({ src, imgW, imgH, x0, y0, s, w, h, title, greens, dashed = [], ports, removes }) => {
+      const X = (x) => (x - x0) * s;
+      const Y = (y) => (y - y0) * s;
+      const scalePath = (d) => d.replace(/(-?\d+(?:\.\d+)?) (-?\d+(?:\.\d+)?)/g, (match, x, y) => `${X(Number(x)).toFixed(1)} ${Y(Number(y)).toFixed(1)}`);
+      let svg = '';
+      removes.forEach((mark) => {
+        if (mark.r) svg += `<circle cx="${X(mark.x)}" cy="${Y(mark.y)}" r="${mark.r * s}" fill="none" stroke="${RED}" stroke-width="4" stroke-dasharray="9 6"/>`;
+        else svg += `<rect x="${X(mark.x1)}" y="${Y(mark.y1)}" width="${(mark.x2 - mark.x1) * s}" height="${(mark.y2 - mark.y1) * s}" fill="none" stroke="${RED}" stroke-width="4" stroke-dasharray="9 6"/>`;
+        svg += label(X(mark.lx), Y(mark.ly), mark.text, RED, mark.anchor);
+      });
+      dashed.forEach((line) => {
+        svg += `<path d="${scalePath(line.d)}" stroke="${GREEN}" stroke-width="5" stroke-dasharray="4 8" fill="none" stroke-linecap="round"/>`;
+        svg += label(X(line.lx), Y(line.ly), line.text, GREEN, line.anchor);
+      });
+      greens.forEach((d) => {
+        svg += `<path d="${scalePath(d)}" stroke="${GREEN}" stroke-width="7" fill="none" stroke-linecap="round"/>`;
+      });
+      ports.forEach((port) => {
+        svg += `<circle cx="${X(port.x)}" cy="${Y(port.y)}" r="7" fill="${BLUE}" stroke="#fff" stroke-width="2"/>`;
+        svg += label(X(port.lx), Y(port.ly), port.text, BLUE, port.anchor);
+      });
+      return `<div style="position:relative; width:${w}px; height:${h}px; overflow:hidden; background:#ececec">`
+        + `<img src="${src}" alt="" style="position:absolute; left:${-x0 * s}px; top:${-y0 * s}px; width:${imgW * s}px; height:${imgH * s}px; opacity:0.5">`
+        + `<svg width="${w}" height="${h}" style="position:absolute; left:0; top:0">${svg}</svg>`
+        + `<span style="position:absolute; left:6px; top:6px; background:#000; color:#fff; font:700 15px system-ui; padding:2px 6px">${title}</span></div>`;
+    };
+    const sprite = panel({
+      src: '../assets/a/villain-sleep.png', imgW: 192, imgH: 480, x0: 20, y0: 288, s: 5.5, w: 946, h: 572,
+      title: 'villain-sleep, villain-wake 5.5배 (x 20~192, y 288~392)',
+      greens: ['M 78 297 C 76 314, 86 334, 91 351', 'M 98 305 C 98 320, 110 332, 113 348', 'M 119 307 C 121 296, 147 297, 151 325'],
+      ports: [
+        { x: 91, y: 351, text: '노트북 옆면, 경첩 가까이', lx: 88, ly: 365, anchor: 'end' },
+        { x: 113, y: 348.5, text: '폰 짧은 변 가운데', lx: 113, ly: 389, anchor: 'middle' },
+        { x: 151, y: 326, text: '태블릿 짧은 변 가운데', lx: 156, ly: 322 },
+      ],
+      removes: [
+        { x1: 30, y1: 302, x2: 58, y2: 330, text: '허공에서 끝나는 토막', lx: 22, ly: 340 },
+        { x1: 80, y1: 352, x2: 130, y2: 388, text: '폰 밑으로 돌아가는 두 가닥과 고리', lx: 132, ly: 385 },
+        { x1: 131, y1: 300, x2: 149, y2: 357, text: '긴 변에 꽂힌 선', lx: 186, ly: 300, anchor: 'end' },
+        { x: 169, y: 358, r: 5, text: '홈 버튼 지우기', lx: 186, ly: 374, anchor: 'end' },
+      ],
+    });
+    const egg = panel({
+      src: '../assets/a/title-egg-sleeper.png', imgW: 512, imgH: 512, x0: 255, y0: 215, s: 3.6, w: 882, h: 342,
+      title: 'title-egg-sleeper 3.6배 (x 255~500, y 215~310)',
+      greens: ['M 315 240 C 311 229, 291 238, 285 268', 'M 342 244 C 344 256, 340 266, 339 277', 'M 367 242 C 378 232, 396 256, 411 273'],
+      ports: [
+        { x: 285, y: 269, text: '노트북 옆면', lx: 283, ly: 258, anchor: 'end' },
+        { x: 339, y: 277, text: '폰 짧은 변 가운데', lx: 339, ly: 290, anchor: 'middle' },
+        { x: 413, y: 272, text: '태블릿 짧은 변 가운데', lx: 420, ly: 300 },
+      ],
+      removes: [
+        { x1: 258, y1: 262, x2: 300, y2: 290, text: '노트북 앞면에 꽂힌 선', lx: 258, ly: 300 },
+        { x1: 302, y1: 280, x2: 372, y2: 306, text: '폰을 돌아가는 고리', lx: 373, ly: 305 },
+        { x1: 284, y1: 240, x2: 300, y2: 258, text: '토막', lx: 283, ly: 238, anchor: 'end' },
+      ],
+    });
+    const story = panel({
+      src: '../assets/a/story-3.webp', imgW: 1280, imgH: 720, x0: 760, y0: 215, s: 2.2, w: 913, h: 396,
+      title: 'story-3 2.2배 (x 760~1175, y 215~395)',
+      greens: ['M 996 260 C 994 248, 979 262, 985 302', 'M 1036 262 C 1036 290, 1062 300, 1074 316', 'M 1070 257 C 1082 243, 1132 262, 1143 292'],
+      dashed: [{ d: 'M 770 301 C 860 303, 935 298, 966 292', text: '벽에서 온 멀티탭 전원선: 노트북 뒤를 지나 멀티탭 왼쪽 끝으로(나오는 곳이 보이게)', lx: 765, ly: 240 }],
+      ports: [
+        { x: 985, y: 303, text: '노트북 옆면', lx: 975, ly: 333, anchor: 'end' },
+        { x: 1076, y: 318, text: '폰 짧은 변 가운데', lx: 1076, ly: 347, anchor: 'middle' },
+        { x: 1145, y: 294, text: '태블릿 짧은 변', lx: 1172, ly: 276, anchor: 'end' },
+      ],
+      removes: [
+        { x1: 942, y1: 252, x2: 998, y2: 322, text: '노트북 앞쪽으로 간 선', lx: 940, ly: 290, anchor: 'end' },
+        { x1: 995, y1: 330, x2: 1112, y2: 384, text: '탁자 밖으로 늘어진 긴 고리', lx: 1112, ly: 392, anchor: 'end' },
+        { x: 1037, y: 302, r: 8, text: '얼룩', lx: 1028, ly: 296, anchor: 'end' },
+        { x: 1147, y: 338, r: 10, text: '얼룩', lx: 1170, ly: 362, anchor: 'end' },
+      ],
+    });
+    const note = '<div style="font-size:17px; line-height:1.6; padding:0 16px 16px; max-width:1880px">'
+      + '초록 선 셋만 남긴다. 선의 모양은 대략이고, 파란 점(단자 자리)과 아래 원칙이 기준이다. 선마다 충전기 윗면 단자에서 나와 자기 기기의 가장 가까운 단자로 짧게 내려가고,'
+      + ' 서로 엇갈리지 않고, 팔이나 기기 뒤로 사라지지 않는다. 폰과 태블릿의 단자는 짧은 변 가운데, 노트북은 옆면의 경첩 가까이다.'
+      + ' 빨간 점선 안의 지금 선, 토막, 얼룩은 모두 지운다. 단자가 있는 짧은 변이 멀티탭을 보도록 폰과 태블릿을 돌리거나 조금 옮겨도 된다.</div>';
+    root.innerHTML = '<div style="display:flex; gap:16px; padding:16px; align-items:flex-start">' + sprite
+      + `<div style="display:flex; flex-direction:column; gap:16px">${egg}${story}</div></div>` + note;
+  }
+
   // standing2: 서 있는 손님 3b, 4b의 크기 라인업. 확정한 서 있는 8a와 앉은 3b, 4b를 나란히 놓는다.
   if (part === 'standing2') {
     const line = (y, color, text) => `<div class="line" style="top:${y}px; border-color:${color}; color:${color}"><span style="position:absolute; right:2px; top:-15px; background:#fff">${text}</span></div>`;
