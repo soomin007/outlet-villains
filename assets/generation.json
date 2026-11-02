@@ -35074,6 +35074,488 @@
           }
         }
       ]
+    },
+    {
+      "date": "2026-11-02",
+      "name": "request-16-title-run-anchored-base-and-clean-contours",
+      "tool": "Python Pillow, deterministic source-image repair and assembly, explicitly authorized",
+      "scope": "Overwrite only four existing A-theme title-run fluster PNGs; manifest and game code unchanged; no commit.",
+      "instructions": "Preserve the original frame-1 head, worried eyes, neck, arm pose, red colors and wheels. Keep the upper torso leaning forward, but anchor its flattened lower ellipse to the platform. Draw one smooth 4px rear body contour, reconnect the curved rear platform rim, remove all detached scraps. Use the corrected reference only for four frames, bob upper assembly 0/2/4/2px, keep the base fixed, rotate existing wheel spokes 0/30/60/90 degrees. Validate alpha>24 eight-connected components, gap scans, fixed contact pixels, bounds and 70ms animation.",
+      "references": [
+        "docs/layout-guide/request-title-run-base.png",
+        "assets/a/player-right-t30.png",
+        "assets/a/title-run-1-fluster.png",
+        "assets/a/title-run-2-fluster.png",
+        "assets/a/title-run-3-fluster.png",
+        "assets/a/title-run-4-fluster.png"
+      ],
+      "processing": {
+        "repairRange": [
+          125,
+          318,
+          357,
+          423
+        ],
+        "actualChangedBounds": [
+          128,
+          326,
+          357,
+          423
+        ],
+        "changedPixels": 12676,
+        "basePath": [
+          [
+            139,
+            380
+          ],
+          [
+            139,
+            399.5
+          ],
+          [
+            272,
+            399.5
+          ],
+          [
+            272,
+            380
+          ]
+        ],
+        "mountEllipse": [
+          132,
+          376,
+          280,
+          415
+        ],
+        "shadowColor": [
+          165,
+          25,
+          16
+        ],
+        "shadowWidthPx": 5,
+        "upperBobPx": [
+          0,
+          2,
+          4,
+          2
+        ],
+        "spokeDegrees": [
+          0,
+          30,
+          60,
+          90
+        ],
+        "fixedContactRectangle": [
+          125,
+          374,
+          283,
+          423
+        ],
+        "rearBody": "Cubic side contours join original inclined upper cylinder to a level base. Only the upper control points follow bobbing; the entire contact band is copied exactly from corrected frame 1.",
+        "rearRim": "Red platform and black arcs rebuilt under original foreground arms; no rectangular clipping at x300. The extraction excludes the former edge stubs at x273..334. Original pixels at vacated arm locations are erased before pasting the translated layer.",
+        "scraps": "Connected-component check performed before and after final export; final extraction produces one component without deleting a robot part.",
+        "gif": "One shared 256-color palette, no dither, four 70ms frames, looped.",
+        "proofsOutsideRepository": [
+          "run-contact-70ms.gif",
+          "base-contact-four-4x.png",
+          "all-joints-four-4x.png",
+          "frames-native.png"
+        ]
+      },
+      "verification": {
+        "baseEnds": {
+          "left": [
+            139,
+            380
+          ],
+          "right": [
+            272,
+            380
+          ],
+          "differencePx": 0
+        },
+        "baseEllipseFullHeightToWidth": 0.2199248120300752,
+        "contactShadow": {
+          "color": [
+            165,
+            25,
+            16
+          ],
+          "widthPx": 5
+        },
+        "gapSamples": [
+          {
+            "x": 180,
+            "bodyLowerArcY": 393.62,
+            "redGapPixels": 0,
+            "redYs": []
+          },
+          {
+            "x": 200,
+            "bodyLowerArcY": 394.58,
+            "redGapPixels": 0,
+            "redYs": []
+          },
+          {
+            "x": 230,
+            "bodyLowerArcY": 393.7,
+            "redGapPixels": 0,
+            "redYs": []
+          },
+          {
+            "x": 260,
+            "bodyLowerArcY": 388.83,
+            "redGapPixels": 0,
+            "redYs": []
+          }
+        ],
+        "cleanup": [
+          {
+            "before": 1,
+            "smallSizes": []
+          },
+          {
+            "before": 1,
+            "smallSizes": []
+          },
+          {
+            "before": 1,
+            "smallSizes": []
+          },
+          {
+            "before": 1,
+            "smallSizes": []
+          }
+        ],
+        "frames": [
+          {
+            "frame": 1,
+            "bobUpPx": 0,
+            "spokeDegrees": 0,
+            "bbox": [
+              46,
+              87,
+              490,
+              488
+            ],
+            "bboxAnyAlpha": [
+              46,
+              87,
+              490,
+              488
+            ],
+            "floorY": 487,
+            "opaque8ConnectedComponents": 1,
+            "changedFromReference": 0,
+            "changedOutsideMotionAndSpokes": 0,
+            "headSourcePixelsUnchanged": true,
+            "bodyEndsY": [
+              380,
+              380
+            ],
+            "redGapAtX180200230260": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "frame": 2,
+            "bobUpPx": 2,
+            "spokeDegrees": 30,
+            "bbox": [
+              46,
+              85,
+              490,
+              488
+            ],
+            "bboxAnyAlpha": [
+              46,
+              85,
+              490,
+              488
+            ],
+            "floorY": 487,
+            "opaque8ConnectedComponents": 1,
+            "changedFromReference": 52988,
+            "changedOutsideMotionAndSpokes": 0,
+            "headSourcePixelsUnchanged": true,
+            "bodyEndsY": [
+              380,
+              380
+            ],
+            "redGapAtX180200230260": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "frame": 3,
+            "bobUpPx": 4,
+            "spokeDegrees": 60,
+            "bbox": [
+              46,
+              83,
+              490,
+              488
+            ],
+            "bboxAnyAlpha": [
+              46,
+              83,
+              490,
+              488
+            ],
+            "floorY": 487,
+            "opaque8ConnectedComponents": 1,
+            "changedFromReference": 55743,
+            "changedOutsideMotionAndSpokes": 0,
+            "headSourcePixelsUnchanged": true,
+            "bodyEndsY": [
+              380,
+              380
+            ],
+            "redGapAtX180200230260": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "frame": 4,
+            "bobUpPx": 2,
+            "spokeDegrees": 90,
+            "bbox": [
+              46,
+              85,
+              490,
+              488
+            ],
+            "bboxAnyAlpha": [
+              46,
+              85,
+              490,
+              488
+            ],
+            "floorY": 487,
+            "opaque8ConnectedComponents": 1,
+            "changedFromReference": 53005,
+            "changedOutsideMotionAndSpokes": 0,
+            "headSourcePixelsUnchanged": true,
+            "bodyEndsY": [
+              380,
+              380
+            ],
+            "redGapAtX180200230260": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "fixedContactBandChangedPixels": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "referenceChangedPixels": 12676,
+        "referenceChangedBounds": [
+          128,
+          326,
+          357,
+          423
+        ],
+        "sourceBBox": [
+          46,
+          87,
+          490,
+          488
+        ],
+        "repairRange": [
+          125,
+          318,
+          357,
+          423
+        ],
+        "gifDurationsMs": [
+          70,
+          70,
+          70,
+          70
+        ],
+        "bodyBottomOutlineLowestAlpha24Y": 396,
+        "platformFrontAndBumpersChangedPixels": 0,
+        "browserReview": {
+          "desktopViewport": [
+            1920,
+            1080
+          ],
+          "phoneViewport": [
+            375,
+            812
+          ],
+          "robotBoxDesktop": [
+            480,
+            480
+          ],
+          "phoneHorizontalOverflow": false,
+          "gifViewed": true,
+          "jointsInspectedAt4x": [
+            "head-neck",
+            "neck-body",
+            "arms-body",
+            "body-platform",
+            "platform-wheels"
+          ]
+        }
+      },
+      "assets": [
+        {
+          "file": "assets/a/title-run-1-fluster.png",
+          "measurement": {
+            "frame": 1,
+            "bobUpPx": 0,
+            "spokeDegrees": 0,
+            "bbox": [
+              46,
+              87,
+              490,
+              488
+            ],
+            "bboxAnyAlpha": [
+              46,
+              87,
+              490,
+              488
+            ],
+            "floorY": 487,
+            "opaque8ConnectedComponents": 1,
+            "changedFromReference": 0,
+            "changedOutsideMotionAndSpokes": 0,
+            "headSourcePixelsUnchanged": true,
+            "bodyEndsY": [
+              380,
+              380
+            ],
+            "redGapAtX180200230260": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "file": "assets/a/title-run-2-fluster.png",
+          "measurement": {
+            "frame": 2,
+            "bobUpPx": 2,
+            "spokeDegrees": 30,
+            "bbox": [
+              46,
+              85,
+              490,
+              488
+            ],
+            "bboxAnyAlpha": [
+              46,
+              85,
+              490,
+              488
+            ],
+            "floorY": 487,
+            "opaque8ConnectedComponents": 1,
+            "changedFromReference": 52988,
+            "changedOutsideMotionAndSpokes": 0,
+            "headSourcePixelsUnchanged": true,
+            "bodyEndsY": [
+              380,
+              380
+            ],
+            "redGapAtX180200230260": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "file": "assets/a/title-run-3-fluster.png",
+          "measurement": {
+            "frame": 3,
+            "bobUpPx": 4,
+            "spokeDegrees": 60,
+            "bbox": [
+              46,
+              83,
+              490,
+              488
+            ],
+            "bboxAnyAlpha": [
+              46,
+              83,
+              490,
+              488
+            ],
+            "floorY": 487,
+            "opaque8ConnectedComponents": 1,
+            "changedFromReference": 55743,
+            "changedOutsideMotionAndSpokes": 0,
+            "headSourcePixelsUnchanged": true,
+            "bodyEndsY": [
+              380,
+              380
+            ],
+            "redGapAtX180200230260": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "file": "assets/a/title-run-4-fluster.png",
+          "measurement": {
+            "frame": 4,
+            "bobUpPx": 2,
+            "spokeDegrees": 90,
+            "bbox": [
+              46,
+              85,
+              490,
+              488
+            ],
+            "bboxAnyAlpha": [
+              46,
+              85,
+              490,
+              488
+            ],
+            "floorY": 487,
+            "opaque8ConnectedComponents": 1,
+            "changedFromReference": 53005,
+            "changedOutsideMotionAndSpokes": 0,
+            "headSourcePixelsUnchanged": true,
+            "bodyEndsY": [
+              380,
+              380
+            ],
+            "redGapAtX180200230260": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
     }
   ]
 }
