@@ -7,6 +7,8 @@
   모든 판을 실제 게임 화면에서 해법 탐색기의 최단 풀이대로 눌러 보고, 판을 깬 것으로 저장되는지와 로봇이 충전 독에 올라앉는지 확인한다(2026-11-01).
   tools/verify.html은 규칙만 풀어 보므로, 화면 코드(그리기, 연출, 입력)가 판을 깨지 못하게 막는 문제는 이것으로 찾는다.
   headless Chrome에서 --dump-dom과 --virtual-time-budget=600000으로 돌리면 결과 줄(PASS 또는 FAIL)이 #out에 남는다. ?levels=0,3처럼 몇 판만 고를 수 있다.
+  걸음 수 평가(2026-11-02)도 본다. 깬 뒤 저장된 가장 적은 걸음 수와 화면의 배터리 칸 수가 규칙(layout.js stepRating)과 맞아야 한다.
+  ?wiggle=2처럼 짝수를 주면 풀이 앞에 물건을 밀지 않는 왕복 걸음을 그만큼 더해, 두 칸과 한 칸이 맞게 나오는지도 볼 수 있다.
 -->
 <style>
   body { margin: 0; background: #111; color: #eee; font: 14px monospace; }
@@ -25,16 +27,48 @@
   const frame = document.getElementById('game');
   const out = document.getElementById('out');
   const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-  const picked = new URLSearchParams(location.search).get('levels');
+  const params = new URLSearchParams(location.search);
+  const picked = params.get('levels');
   const indices = picked ? picked.split(',').map(Number) : levels.map((_, index) => index);
+  const wiggle = Number(params.get('wiggle') || 0);
+  // ?size=375x812처럼 주면 게임 창 크기를 바꿔, 휴대폰 화면에서 판을 깬 모습도 찍어 볼 수 있다.
+  const [frameWidth, frameHeight] = (params.get('size') || '1920x1080').split('x').map(Number);
+  const OPPOSITE = { up: 'down', down: 'up', left: 'right', right: 'left' };
+
+  // 시작 자리에서 물건을 밀지 않고 갔다가 돌아올 수 있는 방향 하나를 찾아, 그 왕복을 count걸음만큼 만든다.
+  function wiggleMoves(level, count) {
+    if (count <= 0) return [];
+    for (const direction of Object.keys(OPPOSITE)) {
+      const there = VillainEngine.step(level, level.start, direction);
+      if (!there.moved || there.pushed !== null || there.seen || there.won) continue;
+      const back = VillainEngine.step(level, there.state, OPPOSITE[direction]);
+      if (!back.moved || back.pushed !== null || back.seen) continue;
+      if (VillainEngine.stateKey(back.state) !== VillainEngine.stateKey(level.start)) continue;
+      return Array.from({ length: count }, (_, step) => (step % 2 === 0 ? direction : OPPOSITE[direction]));
+    }
+    return null;
+  }
+
+  // 걸음 수 평가 규칙(index.html cellsFor와 같다).
+  function expectedCells(definition, steps) {
+    if (steps <= definition.optimal) return 3;
+    if (steps <= Math.floor(definition.optimal * window.VILLAIN_LAYOUT.stepRating.twoCells)) return 2;
+    return 1;
+  }
 
   async function playLevel(index) {
+    frame.style.width = `${frameWidth}px`;
+    frame.style.height = `${frameHeight}px`;
     const definition = levels[index];
-    const path = VillainEngine.solve(VillainEngine.parseLevel(definition)).path || [];
+    const parsed = VillainEngine.parseLevel(definition);
+    const extra = wiggleMoves(parsed, wiggle);
+    if (extra === null) return `SKIP ${definition.id} (왕복할 자리가 없음)`;
+    const path = [...extra, ...(VillainEngine.solve(parsed).path || [])];
     const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
     saved.cleared = levels.slice(0, index).map((level) => level.id);
     saved.lastLevel = index;
     saved.prologueSeen = true;
+    saved.best = {};
     localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
     const loaded = new Promise((resolve) => { frame.onload = resolve; });
     frame.src = `../index.html?play=${index}-${Date.now()}`;
@@ -86,7 +120,14 @@
       const seat = bottomCenter(dock);
       docked = Math.abs(robot.x - seat.x) < 1 && Math.abs(robot.bottom - seat.bottom) < dock.offsetHeight * 0.2;
     }
-    return `${cleared && docked ? 'PASS' : 'FAIL'} ${definition.id} (${path.length}걸음${docked ? '' : ', 로봇이 독 위에 없음'})`;
+    // 걸음 수 평가: 저장된 가장 적은 걸음 수가 누른 걸음 수와 같고, 화면의 배터리 칸 수가 규칙과 같아야 한다.
+    const best = (after.best || {})[definition.id];
+    const battery = frame.contentDocument.querySelector('#result .result-battery');
+    const cells = battery && !frame.contentDocument.getElementById('result').hidden ? Number(battery.dataset.cells) : 0;
+    const expected = expectedCells(definition, path.length);
+    const rated = best === path.length && cells === expected;
+    const notes = [docked ? '' : '로봇이 독 위에 없음', rated ? '' : `평가 어긋남: 기록 ${best}, 칸 ${cells}, 기대 ${expected}`].filter(Boolean).join(', ');
+    return `${cleared && docked && rated ? 'PASS' : 'FAIL'} ${definition.id} (${path.length}걸음, 배터리 ${cells}칸${notes ? `, ${notes}` : ''})`;
   }
 
   (async () => {

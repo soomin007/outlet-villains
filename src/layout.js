@@ -49,9 +49,13 @@
 // 사용자가 훨씬 빠르게 해 달라고 해서 세 배로 올렸다(2026-11-01). 위 띠는 초속 120px(1920px에 16초), 아래 띠는 초속 360px(1920px에 5.33초)다.
 // logo의 logoWidth는 받침 안 로고 폭이고, 받침 크기는 badge 비율로 정한다. bang은 로고 그림(1120 x 640) 속 느낌표 배터리의 빈칸이고, cycle초마다 빨강, 노랑, 초록으로 차오른다.
 // egg는 위 띠(1920 x 380) 속 이스터에그 자리다. Codex가 비워 둔 빈 벽면(x 780~1140)의 가운데에 키 320px로 세운다.
+//
+// stepRating은 판을 깬 걸음 수 평가다(2026-11-02 사용자 결정). 레벨의 optimal(최소 걸음 수)로 깨면 배터리 세 칸,
+// optimal의 twoCells배 이내(내림)면 두 칸, 그보다 많으면 한 칸이다. 걸음 수는 되돌리기를 하면 줄어든다.
 window.VILLAIN_LAYOUT = {
   "art": { "width": 1920, "height": 1080, "tile": 96, "originX": 384, "originY": 240, "columns": 12, "rows": 7, "uiTop": 912, "viewBottom": 880 },
   "sprite": { "personWidthTiles": 1, "personHeightTiles": 1.5 },
+  "stepRating": { "twoCells": 1.25 },
   "title": {
     "deskMinFont": 16,
     "desk": {

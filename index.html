@@ -371,9 +371,12 @@
       background: transparent;
     }
 
-    .dot.current { background: #eee; }
-    .dot.cleared { border-color: #7fd3b8; }
-    .dot.cleared:not(.current) { background: #2f5e4a; }
+    /* 깬 레벨은 가장 좋은 걸음 수 평가만큼 배터리처럼 아래에서부터 찬다(2026-11-02 사용자 결정).
+       한 칸은 빨강으로 34%, 두 칸은 노랑으로 67%, 세 칸은 초록으로 가득이다. 지금 레벨은 빈 부분이 흰색이고 조금 크다. */
+    .dot.current { background-color: #eee; transform: scale(1.15); }
+    .dot.r1 { background-image: linear-gradient(to top, #c8302a 0 34%, transparent 34%); }
+    .dot.r2 { background-image: linear-gradient(to top, #e0b020 0 67%, transparent 67%); }
+    .dot.r3 { background-image: linear-gradient(#3aa35a, #3aa35a); }
 
     .scene.bump { animation: bump 0.12s ease; }
 
@@ -453,6 +456,83 @@
     @keyframes cue {
       from { transform: translateX(0); }
       to { transform: translateX(8px); }
+    }
+
+    /* 걸음 수 평가(2026-11-02 사용자 결정). 판을 깨면 장면 아래 가운데에 배터리 세 칸이 차례로 찬다.
+       깨면 한 칸(빨강), 최소 걸음의 1.25배 이내면 두 칸(노랑), 최소 걸음이면 세 칸(초록 가득)이다. 로고 느낌표 배터리와 같은 색 순서다.
+       장면(줄어드는 층) 밖의 viewport에 두어 휴대폰에서도 글자가 읽힌다. */
+    .result {
+      position: absolute;
+      left: 50%;
+      bottom: 12px;
+      z-index: 270;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 10px 18px 10px 14px;
+      border-radius: 12px;
+      background: rgba(20, 18, 16, 0.88);
+      color: #f6efe2;
+      transform: translateX(-50%);
+      pointer-events: none;
+      animation: card-in 0.3s ease;
+    }
+
+    .result-battery {
+      position: relative;
+      flex: none;
+      display: flex;
+      gap: 3px;
+      width: 84px;
+      height: 36px;
+      padding: 3px;
+      box-sizing: border-box;
+      border: 3px solid #eee;
+      border-radius: 7px;
+    }
+
+    .result-battery::after {
+      content: '';
+      position: absolute;
+      right: -9px;
+      top: 9px;
+      width: 5px;
+      height: 12px;
+      border-radius: 0 3px 3px 0;
+      background: #eee;
+    }
+
+    .result-battery span {
+      flex: 1;
+      border-radius: 3px;
+    }
+
+    .result-battery[data-cells="1"] span:nth-child(1) { background: #c8302a; }
+    .result-battery[data-cells="2"] span:nth-child(-n+2) { background: #e0b020; }
+    .result-battery[data-cells="3"] span { background: #3aa35a; }
+
+    .result-steps {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.3;
+      white-space: nowrap;
+    }
+
+    .result-steps small {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      opacity: 0.8;
+    }
+
+    /* 휴대폰에서는 장면이 폭 335px 안팎이라, 평가 상자가 판의 절반을 덮지 않게 작게 그린다. */
+    @media (max-width: 640px) {
+      .result { bottom: 6px; gap: 12px; padding: 6px 12px 6px 9px; border-radius: 9px; }
+      .result-battery { width: 58px; height: 26px; padding: 2px; gap: 2px; border-width: 2px; border-radius: 5px; }
+      .result-battery::after { right: -7px; top: 6px; width: 4px; height: 10px; }
+      .result-steps { font-size: 14px; }
+      .result-steps small { font-size: 12px; }
     }
 
     /* 판을 시작할 때 목표를 짚는다: 빌런 자리 콘센트에 고리가 퍼지고, 주인공 머리 위에 뽑힌 내 충전기가 잠깐 뜬다. */
@@ -1521,6 +1601,8 @@
     .large-text .card-title { font-size: clamp(28px, 4.8vw, 48px); }
     .large-text .card-lines p { font-size: clamp(19px, 2.2vw, 25px); }
     .large-text .panel { font-size: calc(var(--panel-font) * 1.25); }
+    .large-text .result-steps { font-size: 22px; }
+    .large-text .result-steps small { font-size: 17px; }
 
     /* 좁은 휴대폰(400px 이하)은 설정창 안쪽 폭이 220px 안팎이라, 안쪽 여백을 줄이고 글자 크게도 1.125배까지만 키운다.
        1.25배로 키우면 320px 폭에서 켜고 끄는 버튼이 창 밖으로 넘쳤다. */
@@ -1570,6 +1652,10 @@
           <div id="portrait" class="portrait"></div>
           <div id="next-cue" class="next-cue" hidden><svg class="tri" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5L8 19L20 12Z"/></svg></div>
           <div id="side-keys" class="side-keys" aria-hidden="true"></div>
+        </div>
+        <div id="result" class="result" role="status" hidden>
+          <div class="result-battery" data-cells="0"><span></span><span></span><span></span></div>
+          <p class="result-steps"></p>
         </div>
       </div>
     </div>
@@ -1716,6 +1802,7 @@
         stage: document.getElementById('stage'),
         viewport: document.getElementById('viewport'),
         nextCue: document.getElementById('next-cue'),
+        result: document.getElementById('result'),
         scene: document.getElementById('scene'),
         backdrop: document.getElementById('backdrop'),
         actors: document.getElementById('actors'),
@@ -1776,7 +1863,7 @@
       }
       const game = {
         index: 0, level: null, state: null, history: [], busy: false, won: false, sprites: {}, cleared: new Set(),
-        skip: false, steps: 0, lastStarted: -1, closeCard: null, titleOpened: false,
+        skip: false, steps: 0, lastStarted: -1, closeCard: null, titleOpened: false, result: null,
       };
 
       // 밝기는 %, 음악과 효과음은 0~100이다.
@@ -1787,6 +1874,8 @@
           // 2026-10-31에 더한 설정. reduceMotion이 null이면 기기의 "동작 줄이기" 설정을 따른다.
           master: 100, muted: false, muteHidden: true, showGrid: false, screenShake: true, reduceMotion: null, largeText: false,
           showSteps: false, startHint: true, keyRepeat: true, padMode: 'auto',
+          // 2026-11-02에 더한 기록. 레벨 id마다 깬 걸음 수 가운데 가장 적은 것이다(걸음 수 평가와 레벨 점).
+          best: {},
         };
         try {
           return { ...defaults, ...JSON.parse(localStorage.getItem(STORAGE_KEY)) };
@@ -2366,6 +2455,7 @@
         game.won = false;
         game.busy = false;
         game.steps = 0;
+        game.result = null;
         draw();
         opening(index, fresh);
       }
@@ -2958,6 +3048,7 @@
         updateSteps();
         ui.undo.disabled = game.history.length === 0;
         ui.nextCue.hidden = true;
+        ui.result.hidden = true;
       }
 
       // 충전 독의 선. 뽑힌 상태(plugged false)에서는 독에서 나온 선 끝의 플러그가 콘센트 아래 바닥에 놓여 있고,
@@ -3134,6 +3225,38 @@
         }
       }
 
+      // 걸음 수 평가(2026-11-02 사용자 결정, docs/concept.md "배터리 세 칸"). 최소 걸음이면 세 칸, 최소 걸음의 stepRating.twoCells배 이내면 두 칸,
+      // 그보다 많으면 한 칸이다. 걸음 수는 되돌리기를 하면 줄어드는 기록의 길이라서, 시행착오는 평가에 남지 않는다.
+      function cellsFor(level, steps) {
+        if (steps <= level.optimal) return 3;
+        if (steps <= Math.floor(level.optimal * LAYOUT.stepRating.twoCells)) return 2;
+        return 1;
+      }
+
+      // 레벨 점에 보일 가장 좋은 평가. 깨지 않았으면 0이고, 이 기록을 남기기 전에 깬 레벨은 한 칸으로 본다.
+      function cellsOf(level) {
+        if (!game.cleared.has(level.id)) return 0;
+        const best = settings.best[level.id];
+        return best ? cellsFor(level, best) : 1;
+      }
+
+      // 판을 깬 뒤 장면 아래 가운데에 걸음 수와 배터리 세 칸을 보인다. 칸은 하나씩 차고, 찰 때마다 한 음씩 높아진다.
+      // 칸이 늘면 색도 빨강, 노랑, 초록으로 바뀐다(로고 느낌표와 같다). 움직임 줄이기를 켜면 바로 마지막 모습을 보인다.
+      async function showResult(result, animate) {
+        const battery = ui.result.querySelector('.result-battery');
+        ui.result.querySelector('.result-steps').innerHTML = `${result.steps}걸음<small>최소 ${result.optimal}걸음</small>`;
+        ui.result.setAttribute('aria-label', `배터리 ${result.cells}칸, ${result.steps}걸음, 최소 ${result.optimal}걸음`);
+        battery.dataset.cells = animate ? '0' : String(result.cells);
+        ui.result.hidden = false;
+        if (!animate) return;
+        for (let cell = 1; cell <= result.cells; cell += 1) {
+          await wait(cell === 1 ? 250 : 320);
+          if (ui.result.hidden) return;
+          battery.dataset.cells = String(cell);
+          Sound.cell(cell);
+        }
+      }
+
       // 위쪽 막대의 레벨 점. 챕터마다 번호 하나와 레벨 점들을 묶어 보여 준다.
       // 점 13개가 모두 Tab을 받으면 원하는 레벨까지 Tab을 레벨 수만큼 눌러야 했다(2026-11-01 사용자 지적).
       // 그래서 WAI-ARIA 도구 막대처럼 지금 레벨의 점 하나만 Tab을 받고, 점 사이는 ←→(A D)로 옮긴다(moveDotFocus).
@@ -3149,9 +3272,11 @@
             const dot = document.createElement('button');
             dot.type = 'button';
             dot.className = 'dot';
-            dot.setAttribute('aria-label', `${chapterIndex + 1}-${levelNumber(index)}`);
+            const cells = cellsOf(level);
+            dot.setAttribute('aria-label', `${chapterIndex + 1}-${levelNumber(index)}${cells ? `, 배터리 ${cells}칸` : ''}`);
             dot.classList.toggle('current', index === game.index);
-            dot.classList.toggle('cleared', game.cleared.has(level.id));
+            dot.classList.toggle('cleared', cells > 0);
+            if (cells) dot.classList.add(`r${cells}`);
             dot.tabIndex = index === game.index ? 0 : -1;
             dot.addEventListener('click', () => {
               if (!game.busy && !overlayOpen()) startLevel(index);
@@ -3442,6 +3567,10 @@
       async function win() {
         game.won = true;
         game.busy = true;
+        // 걸음 수는 독까지 굴러가기 전에 센다. 독까지 가는 길은 되돌리기 기록에 넣지 않는다.
+        const steps = game.history.length;
+        const optimal = levelDef().optimal;
+        game.result = { steps, optimal, cells: cellsFor(levelDef(), steps) };
         setFace('happy');
         const colors = THEMES[settings.theme];
         const look = chapterOf().villain;
@@ -3484,13 +3613,16 @@
         Sound.play('plug');
         ui.battery.classList.add('full');
         game.cleared.add(game.level.id);
-        // 깬 레벨과 다음에 이어 할 레벨을 저장해, 메인 화면의 이어하기로 돌아올 수 있게 한다.
+        // 깬 레벨과 다음에 이어 할 레벨, 가장 적은 걸음 수를 저장해, 메인 화면의 이어하기와 레벨 점에 남긴다.
         settings.cleared = [...game.cleared];
         settings.lastLevel = Math.min(game.index + 1, LAYOUT.levels.length - 1);
+        const best = settings.best[game.level.id];
+        settings.best = { ...settings.best, [game.level.id]: best ? Math.min(best, steps) : steps };
         saveSettings();
         drawDots();
         ui.nextCue.hidden = false;
         game.busy = false;
+        showResult(game.result, !document.body.classList.contains('calm'));
       }
 
       // 빌런이 떠나면 로봇이 스스로 독까지 굴러가 올라앉는다(docs/concept.md "판 안 충전 독"). 벽 아래의 독(D가 없는 판)은 하지 않는다.
@@ -3591,11 +3723,13 @@
         drawDockCord(true);
         ui.battery.classList.add('full');
         ui.nextCue.hidden = false;
+        if (game.result) showResult(game.result, false);
       }
 
       // 레벨을 깬 뒤에는 아무 키나 누르거나 화면을 누르면 다음 레벨로 간다. 마지막 레벨 다음은 엔딩 카드다.
       function goNext() {
         if (game.busy || !game.won) return;
+        ui.result.hidden = true;
         if (game.index === LAYOUT.levels.length - 1) showEnding();
         else startLevel(game.index + 1);
       }
@@ -3757,6 +3891,13 @@
           rhodes(783.99, now + 0.09, 0.7, 0.1);
         }
 
+        // 걸음 수 평가의 배터리 칸이 찰 때 한 음. 칸마다 클리어 화음(F장조)의 음을 따라 C, E, A로 높아진다.
+        function cell(count) {
+          if (!context) return;
+          const notes = [523.25, 659.26, 880];
+          rhodes(notes[Math.min(count, notes.length) - 1], context.currentTime + 0.02, 0.45, 0.1);
+        }
+
         // 로봇을 눌렀을 때의 짧은 삐빅. 높은 두 음을 아주 짧게 낸다.
         function beep() {
           if (!context) return;
@@ -3802,7 +3943,7 @@
           else context.resume().catch(() => {});
         }
 
-        return { start, play, chime, serve, beep, music, setVolumes, setPaused };
+        return { start, play, chime, serve, cell, beep, music, setVolumes, setPaused };
       })();
 
       function applySettings() {
@@ -4217,7 +4358,7 @@
         clearTimeout(resetArmed);
         resetArmed = null;
         ui.resetProgress.textContent = '진행 초기화';
-        Object.assign(settings, { cleared: [], lastLevel: 0, prologueSeen: false, demosSeen: [], keysSeen: false });
+        Object.assign(settings, { cleared: [], lastLevel: 0, prologueSeen: false, demosSeen: [], keysSeen: false, best: {} });
         saveSettings();
         game.cleared = new Set();
         closeSettings();
