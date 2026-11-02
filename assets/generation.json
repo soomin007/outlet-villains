@@ -30595,6 +30595,2999 @@
         "docs/layout-guide/encore.png",
         "docs/layout-guide/streamer.png"
       ]
+    },
+    {
+      "date": "2026-11-02",
+      "name": "caller-c-sleeper-prologue-standing41",
+      "tool": "built-in image_gen. Original-preserving placement of generated skin/face patches and uniform canvas normalization using Pillow.",
+      "scope": "A only. Caller5 new, sleeper4 replaced, story3/4 replaced, standing/walking30 new.35 manifest registrations, story5 registration removed. Only3 explicitly named files deleted. Old streamer images retained. No game code edits or commit.",
+      "sourceOfTruth": [
+        "AGENTS.md",
+        "CLAUDE.md",
+        "docs/art-rules.md",
+        "known-issues.md11,23,24",
+        "user four-job pasted request of2026-11-02"
+      ],
+      "attempts": [
+        {
+          "key": "guest-8a-walk1-up",
+          "kind": "guest-walk",
+          "who": "8a",
+          "direction": "up",
+          "phase": 1,
+          "refs": [
+            "assets/a/guest-8a-stand-up.png",
+            "assets/a/guest-8a-walk1-down.png",
+            "assets/a/guest-8a-walk2-down.png",
+            "docs/layout-guide/request-standing-3b4b.png",
+            "assets/a/guest-8a-up.png"
+          ],
+          "prompt": "Use case: identity-preserve. Create ONE walking sprite of EXACT approved elderly guest8a in reference1: same swept wavy LIGHT GRAY hair, square glasses if face visible, buttoned gray cardigan over white collared shirt, trousers/shoes, same head size and body scale. Ref2/3 approved opposite leg phases in FRONT, use pose rhythm only, NOT their front camera. Ref4 size chart only ignore text,5 identity in chosen viewing direction.\nBACK VIEW facing UP. Person LEFT leg is on VIEWER LEFT and advances toward TOP of image: left shoe ends abouty261, right backward shoe endsy287.\nWalk1 ALWAYS anatomical LEFT foot forward, Walk2 ALWAYS anatomical RIGHT foot forward. This is phase1. Ordinary gentle walking in directionup, not standing/running. Arms swing slightly oppositelegs with EMPTY hands. Keep same face/hair/cardigan in all views, up has NO FACE. Show bothshoes distinct, not a duplicate identical phase and not both feet side-by-side. Side profiles keep near/far leg overlap correct.\nNative192x288 TRUE transparent PNG, visibleheight280 (allowed274to286), headhighesty8 and within4px of ref1, bottommost shoe sole y287. Front view width80to110, profile natural stride width around100to135. Same RPG Maker slight elevatedcamera, pure GRAYSCALE only,30to45percent subject brightness. Thick sparse contours, simple grayfills with ONEshadow. No mugphonecanechair, groundshadow, grayglow, white stickeredge, coloredpixel, diagram, text, effectmark or scene. One single sprite only.",
+          "raw": "exec-623c46a1-ade6-4caa-83ef-afe0a1acac11.png"
+        },
+        {
+          "key": "guest-8a-walk2-up",
+          "kind": "guest-walk",
+          "who": "8a",
+          "direction": "up",
+          "phase": 2,
+          "refs": [
+            "assets/a/guest-8a-stand-up.png",
+            "assets/a/guest-8a-walk1-down.png",
+            "assets/a/guest-8a-walk2-down.png",
+            "docs/layout-guide/request-standing-3b4b.png",
+            "assets/a/guest-8a-up.png"
+          ],
+          "prompt": "Use case: identity-preserve. Create ONE walking sprite of EXACT approved elderly guest8a in reference1: same swept wavy LIGHT GRAY hair, square glasses if face visible, buttoned gray cardigan over white collared shirt, trousers/shoes, same head size and body scale. Ref2/3 approved opposite leg phases in FRONT, use pose rhythm only, NOT their front camera. Ref4 size chart only ignore text,5 identity in chosen viewing direction.\nBACK VIEW facing UP. Person RIGHT leg is on VIEWER RIGHT and advances toward TOP of image: right shoe ends abouty261, left backward shoe endsy287.\nWalk1 ALWAYS anatomical LEFT foot forward, Walk2 ALWAYS anatomical RIGHT foot forward. This is phase2. Ordinary gentle walking in directionup, not standing/running. Arms swing slightly oppositelegs with EMPTY hands. Keep same face/hair/cardigan in all views, up has NO FACE. Show bothshoes distinct, not a duplicate identical phase and not both feet side-by-side. Side profiles keep near/far leg overlap correct.\nNative192x288 TRUE transparent PNG, visibleheight280 (allowed274to286), headhighesty8 and within4px of ref1, bottommost shoe sole y287. Front view width80to110, profile natural stride width around100to135. Same RPG Maker slight elevatedcamera, pure GRAYSCALE only,30to45percent subject brightness. Thick sparse contours, simple grayfills with ONEshadow. No mugphonecanechair, groundshadow, grayglow, white stickeredge, coloredpixel, diagram, text, effectmark or scene. One single sprite only.",
+          "raw": "exec-27b21f2c-0ff4-4089-ae86-ea99d541c899.png"
+        },
+        {
+          "key": "guest-8a-walk1-left",
+          "kind": "guest-walk",
+          "who": "8a",
+          "direction": "left",
+          "phase": 1,
+          "refs": [
+            "assets/a/guest-8a-stand-left.png",
+            "assets/a/guest-8a-walk1-down.png",
+            "assets/a/guest-8a-walk2-down.png",
+            "docs/layout-guide/request-standing-3b4b.png",
+            "assets/a/guest-8a-left.png"
+          ],
+          "prompt": "Use case: identity-preserve. Create ONE walking sprite of EXACT approved elderly guest8a in reference1: same swept wavy LIGHT GRAY hair, square glasses if face visible, buttoned gray cardigan over white collared shirt, trousers/shoes, same head size and body scale. Ref2/3 approved opposite leg phases in FRONT, use pose rhythm only, NOT their front camera. Ref4 size chart only ignore text,5 identity in chosen viewing direction.\nLEFT PROFILE. Person LEFT (far-side) leg steps toward LEFT, forward shoe nearx58, rear RIGHT near-side foot nearx125. The forward leg passes BEHIND the near leg at hip.\nWalk1 ALWAYS anatomical LEFT foot forward, Walk2 ALWAYS anatomical RIGHT foot forward. This is phase1. Ordinary gentle walking in directionleft, not standing/running. Arms swing slightly oppositelegs with EMPTY hands. Keep same face/hair/cardigan in all views, up has NO FACE. Show bothshoes distinct, not a duplicate identical phase and not both feet side-by-side. Side profiles keep near/far leg overlap correct.\nNative192x288 TRUE transparent PNG, visibleheight280 (allowed274to286), headhighesty8 and within4px of ref1, bottommost shoe sole y287. Front view width80to110, profile natural stride width around100to135. Same RPG Maker slight elevatedcamera, pure GRAYSCALE only,30to45percent subject brightness. Thick sparse contours, simple grayfills with ONEshadow. No mugphonecanechair, groundshadow, grayglow, white stickeredge, coloredpixel, diagram, text, effectmark or scene. One single sprite only.",
+          "raw": "exec-c3afcd33-dfbd-423e-a135-2e72799f206a.png"
+        },
+        {
+          "key": "guest-8a-walk2-left",
+          "kind": "guest-walk",
+          "who": "8a",
+          "direction": "left",
+          "phase": 2,
+          "refs": [
+            "assets/a/guest-8a-stand-left.png",
+            "assets/a/guest-8a-walk1-down.png",
+            "assets/a/guest-8a-walk2-down.png",
+            "docs/layout-guide/request-standing-3b4b.png",
+            "assets/a/guest-8a-left.png"
+          ],
+          "prompt": "Use case: identity-preserve. Create ONE walking sprite of EXACT approved elderly guest8a in reference1: same swept wavy LIGHT GRAY hair, square glasses if face visible, buttoned gray cardigan over white collared shirt, trousers/shoes, same head size and body scale. Ref2/3 approved opposite leg phases in FRONT, use pose rhythm only, NOT their front camera. Ref4 size chart only ignore text,5 identity in chosen viewing direction.\nLEFT PROFILE. Person RIGHT (near-side) leg steps toward LEFT, forward shoe nearx58, rear LEFT far-side foot nearx125. The forward leg passes IN FRONT of the far leg at hip.\nWalk1 ALWAYS anatomical LEFT foot forward, Walk2 ALWAYS anatomical RIGHT foot forward. This is phase2. Ordinary gentle walking in directionleft, not standing/running. Arms swing slightly oppositelegs with EMPTY hands. Keep same face/hair/cardigan in all views, up has NO FACE. Show bothshoes distinct, not a duplicate identical phase and not both feet side-by-side. Side profiles keep near/far leg overlap correct.\nNative192x288 TRUE transparent PNG, visibleheight280 (allowed274to286), headhighesty8 and within4px of ref1, bottommost shoe sole y287. Front view width80to110, profile natural stride width around100to135. Same RPG Maker slight elevatedcamera, pure GRAYSCALE only,30to45percent subject brightness. Thick sparse contours, simple grayfills with ONEshadow. No mugphonecanechair, groundshadow, grayglow, white stickeredge, coloredpixel, diagram, text, effectmark or scene. One single sprite only.",
+          "raw": "exec-8768bb2e-4d24-42f1-bf2a-3bd1af188182.png"
+        },
+        {
+          "key": "guest-8a-walk1-right",
+          "kind": "guest-walk",
+          "who": "8a",
+          "direction": "right",
+          "phase": 1,
+          "refs": [
+            "assets/a/guest-8a-stand-right.png",
+            "assets/a/guest-8a-walk1-down.png",
+            "assets/a/guest-8a-walk2-down.png",
+            "docs/layout-guide/request-standing-3b4b.png",
+            "assets/a/guest-8a-right.png"
+          ],
+          "prompt": "Use case: identity-preserve. Create ONE walking sprite of EXACT approved elderly guest8a in reference1: same swept wavy LIGHT GRAY hair, square glasses if face visible, buttoned gray cardigan over white collared shirt, trousers/shoes, same head size and body scale. Ref2/3 approved opposite leg phases in FRONT, use pose rhythm only, NOT their front camera. Ref4 size chart only ignore text,5 identity in chosen viewing direction.\nRIGHT PROFILE. Person LEFT (near-side) leg steps toward RIGHT, forward shoe nearx134, rear RIGHT far-side foot nearx70. The forward leg passes IN FRONT of far leg at hip.\nWalk1 ALWAYS anatomical LEFT foot forward, Walk2 ALWAYS anatomical RIGHT foot forward. This is phase1. Ordinary gentle walking in directionright, not standing/running. Arms swing slightly oppositelegs with EMPTY hands. Keep same face/hair/cardigan in all views, up has NO FACE. Show bothshoes distinct, not a duplicate identical phase and not both feet side-by-side. Side profiles keep near/far leg overlap correct.\nNative192x288 TRUE transparent PNG, visibleheight280 (allowed274to286), headhighesty8 and within4px of ref1, bottommost shoe sole y287. Front view width80to110, profile natural stride width around100to135. Same RPG Maker slight elevatedcamera, pure GRAYSCALE only,30to45percent subject brightness. Thick sparse contours, simple grayfills with ONEshadow. No mugphonecanechair, groundshadow, grayglow, white stickeredge, coloredpixel, diagram, text, effectmark or scene. One single sprite only.",
+          "raw": "exec-64da252b-e789-498f-9813-5e0eee5e1f04.png"
+        },
+        {
+          "key": "guest-8a-walk2-right",
+          "kind": "guest-walk",
+          "who": "8a",
+          "direction": "right",
+          "phase": 2,
+          "refs": [
+            "assets/a/guest-8a-stand-right.png",
+            "assets/a/guest-8a-walk1-down.png",
+            "assets/a/guest-8a-walk2-down.png",
+            "docs/layout-guide/request-standing-3b4b.png",
+            "assets/a/guest-8a-right.png"
+          ],
+          "prompt": "Use case: identity-preserve. Create ONE walking sprite of EXACT approved elderly guest8a in reference1: same swept wavy LIGHT GRAY hair, square glasses if face visible, buttoned gray cardigan over white collared shirt, trousers/shoes, same head size and body scale. Ref2/3 approved opposite leg phases in FRONT, use pose rhythm only, NOT their front camera. Ref4 size chart only ignore text,5 identity in chosen viewing direction.\nRIGHT PROFILE. Person RIGHT (far-side) leg steps toward RIGHT, forward shoe nearx134, rear LEFT near-side foot nearx70. The forward leg passes BEHIND near leg at hip.\nWalk1 ALWAYS anatomical LEFT foot forward, Walk2 ALWAYS anatomical RIGHT foot forward. This is phase2. Ordinary gentle walking in directionright, not standing/running. Arms swing slightly oppositelegs with EMPTY hands. Keep same face/hair/cardigan in all views, up has NO FACE. Show bothshoes distinct, not a duplicate identical phase and not both feet side-by-side. Side profiles keep near/far leg overlap correct.\nNative192x288 TRUE transparent PNG, visibleheight280 (allowed274to286), headhighesty8 and within4px of ref1, bottommost shoe sole y287. Front view width80to110, profile natural stride width around100to135. Same RPG Maker slight elevatedcamera, pure GRAYSCALE only,30to45percent subject brightness. Thick sparse contours, simple grayfills with ONEshadow. No mugphonecanechair, groundshadow, grayglow, white stickeredge, coloredpixel, diagram, text, effectmark or scene. One single sprite only.",
+          "raw": "exec-b6aa8968-40e5-4d55-904d-8fb2d694b44d.png"
+        },
+        {
+          "key": "story-3",
+          "kind": "story",
+          "refs": [
+            "assets/a/story-3.webp",
+            "docs/layout-guide/request-story34.png",
+            "assets/style-test/villain-sleep-v2.png"
+          ],
+          "prompt": "Use case: precise-object-edit. EDIT image1, same composition, same red cafe cleaning robot at LEFT, central wall outlet, UNPLUGGED gray robot chargingDOCK on floor with its loose white TWO-PIN PLUG lying on floor in CENTER, hooded sleepingguest at table on RIGHT. Preserve environment, robotshape, scale, camera and nighttime atmosphere. Image2 technical changes only, never redboxes/greenlabels/text. Image3 exact approved sleeper identity and clean purple shading.\nOnly revise sleeper and equipment: Same black-haired sleepingface/openmouth/purplehood asv2, seated onchair bentoverarms. HoodiePURPLE base#7b4fb0, one purple shadow#56377b, NO purple on skin/eye/neck. On right tabletop ONE WHITE KOREAN THREE-SOCKET powerstrip with3adapters feeding THREE different devices near arms: closed/halfopen LAPTOP, small PHONE, medium TABLET. All3chargingcables individually lead to those devices. PHONE cable natural slack enters BOTTOM short edge, never side. Powerstrip's MAIN cable runs to central WALL OUTLET, visibly monopolizing it while robotDOCK plug remains loose onfloor. This ownership conflict must read without text.\n1280x720 opaqueWebP-ready comic. Pure grayscale cafe and otherpatrons15to85percent brightness, ROBOT only RED, sleepingvillain only PURPLE, equipmentwhitegray. No otherhues, grayscalevillain, extra cables crossing scene, onephone-only setup, speechbubble,text,logo,numbersor comicglyphs. Keep leftrobot, centerwall/loose dock, righttable arrangement and existing relative sizes. Do not add purple to skin. No redesign.",
+          "raw": "exec-977d6ba2-7d49-4c00-bccd-917db061ddef.png"
+        },
+        {
+          "key": "story-4",
+          "kind": "story",
+          "refs": [
+            "assets/a/story-5.webp",
+            "docs/layout-guide/request-story34.png",
+            "assets/style-test/villain-sleep-v2.png",
+            "assets/a/buzzer.png",
+            "assets/style-test/villain-portrait-v2.webp"
+          ],
+          "prompt": "Use case: precise-object-edit. EDIT image1 (old prologue5): same RED cleaningrobot in LEFT/CENTER foreground gazing toward GREEN cafe PAGER on counter at RIGHT. Keep robotbody, friendly eyes, round wheeledbase, thick grayarms and camera/scale, grayscale nighttimecafe. Do NOT use oldstory4 robotstoppinghand composition. Image2 bubbleplacement guide only, ignore its annotations.3 sleeperidentity,4 pageridentity,5 startledsleepersfaceonly.\nADD ONE clear WHITE THOUGHT CLOUD ABOVE robot's HEAD, with2smallround thought-bubbles linking to head. Cloudwidth35to45percent of panel, aim520px in1280wide: roughlyx35to555 near topy10to220, do not cover face or realpager. INSIDE cloud show a mini imagined comic scene: same PURPLE hooded sleeper atsmalltable WAKES UP startled because a GREEN cafe PAGER right beside theirEAR is vibrating. Use two or three small curved vibration strokes BESIDE pager only, no words or soundletters. Mini awakenedface looks towardpager, makes causalidea obvious. Cloud only this single idea, no unrelated icons/lightbulb/exclamationmarks.\n1280x720 opaque. Redrobot, GREEN flatpager on rightcounter and tinygreenpager insidecloud, PURPLE villain insidecloud, allothercolors neutralgray. Purplebase#7b4fb0 plus singlepurpleshadow, not blackshards and NO purple skin/eye/neck. Thick clean sparsecartoon contours, simpleflatfills. No text, letters, logos or caption. User explicitly requested thoughtbubble and vibrationlines in THISpanel, preserve those visual narrative cues without writtenwords. Keep original main scenecomposition.",
+          "raw": "exec-46944913-497a-4b2d-a9e4-b5e2f535867c.png"
+        },
+        {
+          "key": "guest-3b-walk1-down",
+          "kind": "guest-walk",
+          "who": "3b",
+          "direction": "down",
+          "phase": 1,
+          "refs": [
+            "working:normalized/guest-3b-stand-down.png",
+            "assets/a/guest-3b-down.png",
+            "docs/layout-guide/request-standing-3b4b.png",
+            "assets/a/guest-8a-walk1-down.png",
+            "assets/a/guest-8a-walk2-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. Edit reference1 into ONE walking frame of EXACTsame approved guest3b. SAME hair, face, outfit, headsize, physique and canvasheight as reference1. Short asymmetrical DARK bob, dark grayVEST over LIGHTGRAY collaredshirt, graywide trousers, NO glasses. Reference2 selected seatedidentity only,3 technicalsizelineup(no text),4/5 frontwalkingrhythmONLY, do NOT copy elderly8a identity or front camera.\nFacingdown. FRONT: anatomical LEFT foot, on VIEWER RIGHT, advances and endsy287 aroundx116; right rearfootendsy262aroundx78.\nThis is WALK1, so LEFT anatomical foot is forward. Clearly the opposite PHASE to otherframe. Ordinaryslowwalking, not running/standing/straddling; bothfeet identifiable, emptyhands swing modestly oppositelegs. Up is truebackview with NO face. Profiles truedown, don't rotate head towardcamera. Preserve same upperbody; just natural alternatinglegsandarms. No heldphone,glass,cup,chair.\n192x288 trueTRANSPARENT PNG. Native visibleheight280±6, hairhighesty8 and within4pixels of matchingstanding. Bottommostshoeend y287. Front width80to110px; profile naturalstridewidth100to140px. Clothingbrightness neutralGRAYSCALE, broad fills under softambientlight, subjectmean32to40percent (must30to45), NEVER under30. Keep sweater/shirt midgray, trousers darkgray but not blackfilled. Thick sparsecartoon contours, ONEshadowstep, matching guest artwork.\nNo white matte/halo, grayglow, groundshadow, coloredpixels, gradienttexture, text,logo,diagram, duplicate figure, motionlines orscene. Draw ONEfigure in this walkingphase.",
+          "raw": "exec-1d9f9478-e3c6-44b9-8e78-a5730a4dacd8.png"
+        },
+        {
+          "key": "guest-3b-walk2-down",
+          "kind": "guest-walk",
+          "who": "3b",
+          "direction": "down",
+          "phase": 2,
+          "refs": [
+            "working:normalized/guest-3b-stand-down.png",
+            "assets/a/guest-3b-down.png",
+            "docs/layout-guide/request-standing-3b4b.png",
+            "assets/a/guest-8a-walk1-down.png",
+            "assets/a/guest-8a-walk2-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. Edit reference1 into ONE walking frame of EXACTsame approved guest3b. SAME hair, face, outfit, headsize, physique and canvasheight as reference1. Short asymmetrical DARK bob, dark grayVEST over LIGHTGRAY collaredshirt, graywide trousers, NO glasses. Reference2 selected seatedidentity only,3 technicalsizelineup(no text),4/5 frontwalkingrhythmONLY, do NOT copy elderly8a identity or front camera.\nFacingdown. FRONT: anatomical RIGHT foot, on VIEWER LEFT, advances and endsy287aroundx78; leftrearfootendsy262aroundx116.\nThis is WALK2, so RIGHT anatomical foot is forward. Clearly the opposite PHASE to otherframe. Ordinaryslowwalking, not running/standing/straddling; bothfeet identifiable, emptyhands swing modestly oppositelegs. Up is truebackview with NO face. Profiles truedown, don't rotate head towardcamera. Preserve same upperbody; just natural alternatinglegsandarms. No heldphone,glass,cup,chair.\n192x288 trueTRANSPARENT PNG. Native visibleheight280±6, hairhighesty8 and within4pixels of matchingstanding. Bottommostshoeend y287. Front width80to110px; profile naturalstridewidth100to140px. Clothingbrightness neutralGRAYSCALE, broad fills under softambientlight, subjectmean32to40percent (must30to45), NEVER under30. Keep sweater/shirt midgray, trousers darkgray but not blackfilled. Thick sparsecartoon contours, ONEshadowstep, matching guest artwork.\nNo white matte/halo, grayglow, groundshadow, coloredpixels, gradienttexture, text,logo,diagram, duplicate figure, motionlines orscene. Draw ONEfigure in this walkingphase.",
+          "raw": "exec-00952975-2311-42f8-a23f-539adcf06e77.png"
+        },
+        {
+          "key": "guest-3b-walk1-up",
+          "kind": "guest-walk",
+          "who": "3b",
+          "direction": "up",
+          "phase": 1,
+          "refs": [
+            "working:normalized/guest-3b-stand-up.png",
+            "assets/a/guest-3b-down.png",
+            "docs/layout-guide/request-standing-3b4b.png",
+            "assets/a/guest-8a-walk1-down.png",
+            "assets/a/guest-8a-walk2-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. Edit reference1 into ONE walking frame of EXACTsame approved guest3b. SAME hair, face, outfit, headsize, physique and canvasheight as reference1. Short asymmetrical DARK bob, dark grayVEST over LIGHTGRAY collaredshirt, graywide trousers, NO glasses. Reference2 selected seatedidentity only,3 technicalsizelineup(no text),4/5 frontwalkingrhythmONLY, do NOT copy elderly8a identity or front camera.\nFacingup. BACK: anatomicalLEFT foot on VIEWERLEFT advances towardTOP and endsy261nearx78; rightrearshoeendsy287nearx116.\nThis is WALK1, so LEFT anatomical foot is forward. Clearly the opposite PHASE to otherframe. Ordinaryslowwalking, not running/standing/straddling; bothfeet identifiable, emptyhands swing modestly oppositelegs. Up is truebackview with NO face. Profiles trueup, don't rotate head towardcamera. Preserve same upperbody; just natural alternatinglegsandarms. No heldphone,glass,cup,chair.\n192x288 trueTRANSPARENT PNG. Native visibleheight280±6, hairhighesty8 and within4pixels of matchingstanding. Bottommostshoeend y287. Front width80to110px; profile naturalstridewidth100to140px. Clothingbrightness neutralGRAYSCALE, broad fills under softambientlight, subjectmean32to40percent (must30to45), NEVER under30. Keep sweater/shirt midgray, trousers darkgray but not blackfilled. Thick sparsecartoon contours, ONEshadowstep, matching guest artwork.\nNo white matte/halo, grayglow, groundshadow, coloredpixels, gradienttexture, text,logo,diagram, duplicate figure, motionlines orscene. Draw ONEfigure in this walkingphase.",
+          "raw": "exec-eda7022c-8e47-4cc7-af53-a9d381cc869f.png"
+        },
+        {
+          "key": "guest-3b-walk2-up",
+          "kind": "guest-walk",
+          "who": "3b",
+          "direction": "up",
+          "phase": 2,
+          "refs": [
+            "working:normalized/guest-3b-stand-up.png",
+            "assets/a/guest-3b-down.png",
+            "docs/layout-guide/request-standing-3b4b.png",
+            "assets/a/guest-8a-walk1-down.png",
+            "assets/a/guest-8a-walk2-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. Edit reference1 into ONE walking frame of EXACTsame approved guest3b. SAME hair, face, outfit, headsize, physique and canvasheight as reference1. Short asymmetrical DARK bob, dark grayVEST over LIGHTGRAY collaredshirt, graywide trousers, NO glasses. Reference2 selected seatedidentity only,3 technicalsizelineup(no text),4/5 frontwalkingrhythmONLY, do NOT copy elderly8a identity or front camera.\nFacingup. BACK: anatomicalRIGHT foot on VIEWERRIGHT advances towardTOP and endsy261nearx116; leftrearshoeendsy287nearx78.\nThis is WALK2, so RIGHT anatomical foot is forward. Clearly the opposite PHASE to otherframe. Ordinaryslowwalking, not running/standing/straddling; bothfeet identifiable, emptyhands swing modestly oppositelegs. Up is truebackview with NO face. Profiles trueup, don't rotate head towardcamera. Preserve same upperbody; just natural alternatinglegsandarms. No heldphone,glass,cup,chair.\n192x288 trueTRANSPARENT PNG. Native visibleheight280±6, hairhighesty8 and within4pixels of matchingstanding. Bottommostshoeend y287. Front width80to110px; profile naturalstridewidth100to140px. Clothingbrightness neutralGRAYSCALE, broad fills under softambientlight, subjectmean32to40percent (must30to45), NEVER under30. Keep sweater/shirt midgray, trousers darkgray but not blackfilled. Thick sparsecartoon contours, ONEshadowstep, matching guest artwork.\nNo white matte/halo, grayglow, groundshadow, coloredpixels, gradienttexture, text,logo,diagram, duplicate figure, motionlines orscene. Draw ONEfigure in this walkingphase.",
+          "raw": "exec-efe96412-747c-4d88-b9ae-9874d5b357ce.png"
+        },
+        {
+          "key": "guest-3b-walk1-left",
+          "kind": "guest-walk",
+          "who": "3b",
+          "direction": "left",
+          "phase": 1,
+          "refs": [
+            "working:normalized/guest-3b-stand-left.png",
+            "assets/a/guest-3b-down.png",
+            "docs/layout-guide/request-standing-3b4b.png",
+            "assets/a/guest-8a-walk1-down.png",
+            "assets/a/guest-8a-walk2-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. Edit reference1 into ONE walking frame of EXACTsame approved guest3b. SAME hair, face, outfit, headsize, physique and canvasheight as reference1. Short asymmetrical DARK bob, dark grayVEST over LIGHTGRAY collaredshirt, graywide trousers, NO glasses. Reference2 selected seatedidentity only,3 technicalsizelineup(no text),4/5 frontwalkingrhythmONLY, do NOT copy elderly8a identity or front camera.\nFacingleft. LEFT PROFILE: anatomicalLEFT FAR leg advances LEFT toshoeatx55; RIGHT NEAR leg trailsrightnearx125. ForwardlegpassesBEHINDnearleg at hip.\nThis is WALK1, so LEFT anatomical foot is forward. Clearly the opposite PHASE to otherframe. Ordinaryslowwalking, not running/standing/straddling; bothfeet identifiable, emptyhands swing modestly oppositelegs. Up is truebackview with NO face. Profiles trueleft, don't rotate head towardcamera. Preserve same upperbody; just natural alternatinglegsandarms. No heldphone,glass,cup,chair.\n192x288 trueTRANSPARENT PNG. Native visibleheight280±6, hairhighesty8 and within4pixels of matchingstanding. Bottommostshoeend y287. Front width80to110px; profile naturalstridewidth100to140px. Clothingbrightness neutralGRAYSCALE, broad fills under softambientlight, subjectmean32to40percent (must30to45), NEVER under30. Keep sweater/shirt midgray, trousers darkgray but not blackfilled. Thick sparsecartoon contours, ONEshadowstep, matching guest artwork.\nNo white matte/halo, grayglow, groundshadow, coloredpixels, gradienttexture, text,logo,diagram, duplicate figure, motionlines orscene. Draw ONEfigure in this walkingphase.",
+          "raw": "exec-cef87308-ef13-41b7-a0dc-e6e40b7b2a11.png"
+        },
+        {
+          "key": "guest-3b-walk2-left",
+          "kind": "guest-walk",
+          "who": "3b",
+          "direction": "left",
+          "phase": 2,
+          "refs": [
+            "working:normalized/guest-3b-stand-left.png",
+            "assets/a/guest-3b-down.png",
+            "docs/layout-guide/request-standing-3b4b.png",
+            "assets/a/guest-8a-walk1-down.png",
+            "assets/a/guest-8a-walk2-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. Edit reference1 into ONE walking frame of EXACTsame approved guest3b. SAME hair, face, outfit, headsize, physique and canvasheight as reference1. Short asymmetrical DARK bob, dark grayVEST over LIGHTGRAY collaredshirt, graywide trousers, NO glasses. Reference2 selected seatedidentity only,3 technicalsizelineup(no text),4/5 frontwalkingrhythmONLY, do NOT copy elderly8a identity or front camera.\nFacingleft. LEFT PROFILE: anatomicalRIGHT NEAR leg advances LEFT toshoeatx55; LEFT FAR leg trailsrightnearx125. ForwardlegpassesINFRONToffarleg at hip.\nThis is WALK2, so RIGHT anatomical foot is forward. Clearly the opposite PHASE to otherframe. Ordinaryslowwalking, not running/standing/straddling; bothfeet identifiable, emptyhands swing modestly oppositelegs. Up is truebackview with NO face. Profiles trueleft, don't rotate head towardcamera. Preserve same upperbody; just natural alternatinglegsandarms. No heldphone,glass,cup,chair.\n192x288 trueTRANSPARENT PNG. Native visibleheight280±6, hairhighesty8 and within4pixels of matchingstanding. Bottommostshoeend y287. Front width80to110px; profile naturalstridewidth100to140px. Clothingbrightness neutralGRAYSCALE, broad fills under softambientlight, subjectmean32to40percent (must30to45), NEVER under30. Keep sweater/shirt midgray, trousers darkgray but not blackfilled. Thick sparsecartoon contours, ONEshadowstep, matching guest artwork.\nNo white matte/halo, grayglow, groundshadow, coloredpixels, gradienttexture, text,logo,diagram, duplicate figure, motionlines orscene. Draw ONEfigure in this walkingphase.",
+          "raw": "exec-b56ebc90-478f-48ff-bd63-49c9e9de9f1a.png"
+        },
+        {
+          "key": "guest-3b-walk1-right",
+          "kind": "guest-walk",
+          "who": "3b",
+          "direction": "right",
+          "phase": 1,
+          "refs": [
+            "working:normalized/guest-3b-stand-right.png",
+            "assets/a/guest-3b-down.png",
+            "docs/layout-guide/request-standing-3b4b.png",
+            "assets/a/guest-8a-walk1-down.png",
+            "assets/a/guest-8a-walk2-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. Edit reference1 into ONE walking frame of EXACTsame approved guest3b. SAME hair, face, outfit, headsize, physique and canvasheight as reference1. Short asymmetrical DARK bob, dark grayVEST over LIGHTGRAY collaredshirt, graywide trousers, NO glasses. Reference2 selected seatedidentity only,3 technicalsizelineup(no text),4/5 frontwalkingrhythmONLY, do NOT copy elderly8a identity or front camera.\nFacingright. RIGHT PROFILE: anatomicalLEFT NEAR leg advancesRIGHT toshoeatx137; RIGHT FAR leg trailsleftnearx68. ForwardlegpassesINFRONToffarleg.\nThis is WALK1, so LEFT anatomical foot is forward. Clearly the opposite PHASE to otherframe. Ordinaryslowwalking, not running/standing/straddling; bothfeet identifiable, emptyhands swing modestly oppositelegs. Up is truebackview with NO face. Profiles trueright, don't rotate head towardcamera. Preserve same upperbody; just natural alternatinglegsandarms. No heldphone,glass,cup,chair.\n192x288 trueTRANSPARENT PNG. Native visibleheight280±6, hairhighesty8 and within4pixels of matchingstanding. Bottommostshoeend y287. Front width80to110px; profile naturalstridewidth100to140px. Clothingbrightness neutralGRAYSCALE, broad fills under softambientlight, subjectmean32to40percent (must30to45), NEVER under30. Keep sweater/shirt midgray, trousers darkgray but not blackfilled. Thick sparsecartoon contours, ONEshadowstep, matching guest artwork.\nNo white matte/halo, grayglow, groundshadow, coloredpixels, gradienttexture, text,logo,diagram, duplicate figure, motionlines orscene. Draw ONEfigure in this walkingphase.",
+          "raw": "exec-57a11dc5-8407-41e3-82d0-4e1329f976f9.png"
+        },
+        {
+          "key": "guest-3b-walk2-right",
+          "kind": "guest-walk",
+          "who": "3b",
+          "direction": "right",
+          "phase": 2,
+          "refs": [
+            "working:normalized/guest-3b-stand-right.png",
+            "assets/a/guest-3b-down.png",
+            "docs/layout-guide/request-standing-3b4b.png",
+            "assets/a/guest-8a-walk1-down.png",
+            "assets/a/guest-8a-walk2-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. Edit reference1 into ONE walking frame of EXACTsame approved guest3b. SAME hair, face, outfit, headsize, physique and canvasheight as reference1. Short asymmetrical DARK bob, dark grayVEST over LIGHTGRAY collaredshirt, graywide trousers, NO glasses. Reference2 selected seatedidentity only,3 technicalsizelineup(no text),4/5 frontwalkingrhythmONLY, do NOT copy elderly8a identity or front camera.\nFacingright. RIGHT PROFILE: anatomicalRIGHT FAR leg advancesRIGHT toshoeatx137; LEFT NEAR leg trailsleftnearx68. ForwardlegpassesBEHINDnearleg.\nThis is WALK2, so RIGHT anatomical foot is forward. Clearly the opposite PHASE to otherframe. Ordinaryslowwalking, not running/standing/straddling; bothfeet identifiable, emptyhands swing modestly oppositelegs. Up is truebackview with NO face. Profiles trueright, don't rotate head towardcamera. Preserve same upperbody; just natural alternatinglegsandarms. No heldphone,glass,cup,chair.\n192x288 trueTRANSPARENT PNG. Native visibleheight280±6, hairhighesty8 and within4pixels of matchingstanding. Bottommostshoeend y287. Front width80to110px; profile naturalstridewidth100to140px. Clothingbrightness neutralGRAYSCALE, broad fills under softambientlight, subjectmean32to40percent (must30to45), NEVER under30. Keep sweater/shirt midgray, trousers darkgray but not blackfilled. Thick sparsecartoon contours, ONEshadowstep, matching guest artwork.\nNo white matte/halo, grayglow, groundshadow, coloredpixels, gradienttexture, text,logo,diagram, duplicate figure, motionlines orscene. Draw ONEfigure in this walkingphase.",
+          "raw": "exec-e4ab04eb-450f-4b29-8694-6557de7c73d4.png"
+        },
+        {
+          "key": "guest-4b-walk1-down",
+          "kind": "guest-walk",
+          "who": "4b",
+          "direction": "down",
+          "phase": 1,
+          "refs": [
+            "working:normalized/guest-4b-stand-down.png",
+            "assets/a/guest-4b-down.png",
+            "docs/layout-guide/request-standing-3b4b.png",
+            "assets/a/guest-8a-walk1-down.png",
+            "assets/a/guest-8a-walk2-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. Edit reference1 into ONE walking frame of EXACTsame approved guest4b. SAME hair, face, outfit, headsize, physique and canvasheight as reference1. Short CURLY dark hair, rectangular darkGLASSES, graycrewneckSWEATER withribbedcollar/cuffs, dark wide trousers. Reference2 selected seatedidentity only,3 technicalsizelineup(no text),4/5 frontwalkingrhythmONLY, do NOT copy elderly8a identity or front camera.\nFacingdown. FRONT: anatomical LEFT foot, on VIEWER RIGHT, advances and endsy287 aroundx116; right rearfootendsy262aroundx78.\nThis is WALK1, so LEFT anatomical foot is forward. Clearly the opposite PHASE to otherframe. Ordinaryslowwalking, not running/standing/straddling; bothfeet identifiable, emptyhands swing modestly oppositelegs. Up is truebackview with NO face. Profiles truedown, don't rotate head towardcamera. Preserve same upperbody; just natural alternatinglegsandarms. No heldphone,glass,cup,chair.\n192x288 trueTRANSPARENT PNG. Native visibleheight280±6, hairhighesty8 and within4pixels of matchingstanding. Bottommostshoeend y287. Front width80to110px; profile naturalstridewidth100to140px. Clothingbrightness neutralGRAYSCALE, broad fills under softambientlight, subjectmean32to40percent (must30to45), NEVER under30. Keep sweater/shirt midgray, trousers darkgray but not blackfilled. Thick sparsecartoon contours, ONEshadowstep, matching guest artwork.\nNo white matte/halo, grayglow, groundshadow, coloredpixels, gradienttexture, text,logo,diagram, duplicate figure, motionlines orscene. Draw ONEfigure in this walkingphase.",
+          "raw": "exec-e5ef9de8-311e-466d-bf71-ddbd367c8633.png"
+        },
+        {
+          "key": "guest-4b-walk2-down",
+          "kind": "guest-walk",
+          "who": "4b",
+          "direction": "down",
+          "phase": 2,
+          "refs": [
+            "working:normalized/guest-4b-stand-down.png",
+            "assets/a/guest-4b-down.png",
+            "docs/layout-guide/request-standing-3b4b.png",
+            "assets/a/guest-8a-walk1-down.png",
+            "assets/a/guest-8a-walk2-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. Edit reference1 into ONE walking frame of EXACTsame approved guest4b. SAME hair, face, outfit, headsize, physique and canvasheight as reference1. Short CURLY dark hair, rectangular darkGLASSES, graycrewneckSWEATER withribbedcollar/cuffs, dark wide trousers. Reference2 selected seatedidentity only,3 technicalsizelineup(no text),4/5 frontwalkingrhythmONLY, do NOT copy elderly8a identity or front camera.\nFacingdown. FRONT: anatomical RIGHT foot, on VIEWER LEFT, advances and endsy287aroundx78; leftrearfootendsy262aroundx116.\nThis is WALK2, so RIGHT anatomical foot is forward. Clearly the opposite PHASE to otherframe. Ordinaryslowwalking, not running/standing/straddling; bothfeet identifiable, emptyhands swing modestly oppositelegs. Up is truebackview with NO face. Profiles truedown, don't rotate head towardcamera. Preserve same upperbody; just natural alternatinglegsandarms. No heldphone,glass,cup,chair.\n192x288 trueTRANSPARENT PNG. Native visibleheight280±6, hairhighesty8 and within4pixels of matchingstanding. Bottommostshoeend y287. Front width80to110px; profile naturalstridewidth100to140px. Clothingbrightness neutralGRAYSCALE, broad fills under softambientlight, subjectmean32to40percent (must30to45), NEVER under30. Keep sweater/shirt midgray, trousers darkgray but not blackfilled. Thick sparsecartoon contours, ONEshadowstep, matching guest artwork.\nNo white matte/halo, grayglow, groundshadow, coloredpixels, gradienttexture, text,logo,diagram, duplicate figure, motionlines orscene. Draw ONEfigure in this walkingphase.",
+          "raw": "exec-a74057fb-f22d-4937-8444-6643d6db17db.png"
+        },
+        {
+          "key": "guest-4b-walk1-up",
+          "kind": "guest-walk",
+          "who": "4b",
+          "direction": "up",
+          "phase": 1,
+          "refs": [
+            "working:normalized/guest-4b-stand-up.png",
+            "assets/a/guest-4b-down.png",
+            "docs/layout-guide/request-standing-3b4b.png",
+            "assets/a/guest-8a-walk1-down.png",
+            "assets/a/guest-8a-walk2-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. Edit reference1 into ONE walking frame of EXACTsame approved guest4b. SAME hair, face, outfit, headsize, physique and canvasheight as reference1. Short CURLY dark hair, rectangular darkGLASSES, graycrewneckSWEATER withribbedcollar/cuffs, dark wide trousers. Reference2 selected seatedidentity only,3 technicalsizelineup(no text),4/5 frontwalkingrhythmONLY, do NOT copy elderly8a identity or front camera.\nFacingup. BACK: anatomicalLEFT foot on VIEWERLEFT advances towardTOP and endsy261nearx78; rightrearshoeendsy287nearx116.\nThis is WALK1, so LEFT anatomical foot is forward. Clearly the opposite PHASE to otherframe. Ordinaryslowwalking, not running/standing/straddling; bothfeet identifiable, emptyhands swing modestly oppositelegs. Up is truebackview with NO face. Profiles trueup, don't rotate head towardcamera. Preserve same upperbody; just natural alternatinglegsandarms. No heldphone,glass,cup,chair.\n192x288 trueTRANSPARENT PNG. Native visibleheight280±6, hairhighesty8 and within4pixels of matchingstanding. Bottommostshoeend y287. Front width80to110px; profile naturalstridewidth100to140px. Clothingbrightness neutralGRAYSCALE, broad fills under softambientlight, subjectmean32to40percent (must30to45), NEVER under30. Keep sweater/shirt midgray, trousers darkgray but not blackfilled. Thick sparsecartoon contours, ONEshadowstep, matching guest artwork.\nNo white matte/halo, grayglow, groundshadow, coloredpixels, gradienttexture, text,logo,diagram, duplicate figure, motionlines orscene. Draw ONEfigure in this walkingphase.",
+          "raw": "exec-b012ee7f-69a3-4faa-8896-cc83970876c4.png"
+        },
+        {
+          "key": "guest-4b-walk2-up",
+          "kind": "guest-walk",
+          "who": "4b",
+          "direction": "up",
+          "phase": 2,
+          "refs": [
+            "working:normalized/guest-4b-stand-up.png",
+            "assets/a/guest-4b-down.png",
+            "docs/layout-guide/request-standing-3b4b.png",
+            "assets/a/guest-8a-walk1-down.png",
+            "assets/a/guest-8a-walk2-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. Edit reference1 into ONE walking frame of EXACTsame approved guest4b. SAME hair, face, outfit, headsize, physique and canvasheight as reference1. Short CURLY dark hair, rectangular darkGLASSES, graycrewneckSWEATER withribbedcollar/cuffs, dark wide trousers. Reference2 selected seatedidentity only,3 technicalsizelineup(no text),4/5 frontwalkingrhythmONLY, do NOT copy elderly8a identity or front camera.\nFacingup. BACK: anatomicalRIGHT foot on VIEWERRIGHT advances towardTOP and endsy261nearx116; leftrearshoeendsy287nearx78.\nThis is WALK2, so RIGHT anatomical foot is forward. Clearly the opposite PHASE to otherframe. Ordinaryslowwalking, not running/standing/straddling; bothfeet identifiable, emptyhands swing modestly oppositelegs. Up is truebackview with NO face. Profiles trueup, don't rotate head towardcamera. Preserve same upperbody; just natural alternatinglegsandarms. No heldphone,glass,cup,chair.\n192x288 trueTRANSPARENT PNG. Native visibleheight280±6, hairhighesty8 and within4pixels of matchingstanding. Bottommostshoeend y287. Front width80to110px; profile naturalstridewidth100to140px. Clothingbrightness neutralGRAYSCALE, broad fills under softambientlight, subjectmean32to40percent (must30to45), NEVER under30. Keep sweater/shirt midgray, trousers darkgray but not blackfilled. Thick sparsecartoon contours, ONEshadowstep, matching guest artwork.\nNo white matte/halo, grayglow, groundshadow, coloredpixels, gradienttexture, text,logo,diagram, duplicate figure, motionlines orscene. Draw ONEfigure in this walkingphase.",
+          "raw": "exec-1b9e5141-987d-4f0b-a3ea-07c57724a80a.png"
+        },
+        {
+          "key": "guest-4b-walk1-left",
+          "kind": "guest-walk",
+          "who": "4b",
+          "direction": "left",
+          "phase": 1,
+          "refs": [
+            "working:normalized/guest-4b-stand-left.png",
+            "assets/a/guest-4b-down.png",
+            "docs/layout-guide/request-standing-3b4b.png",
+            "assets/a/guest-8a-walk1-down.png",
+            "assets/a/guest-8a-walk2-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. Edit reference1 into ONE walking frame of EXACTsame approved guest4b. SAME hair, face, outfit, headsize, physique and canvasheight as reference1. Short CURLY dark hair, rectangular darkGLASSES, graycrewneckSWEATER withribbedcollar/cuffs, dark wide trousers. Reference2 selected seatedidentity only,3 technicalsizelineup(no text),4/5 frontwalkingrhythmONLY, do NOT copy elderly8a identity or front camera.\nFacingleft. LEFT PROFILE: anatomicalLEFT FAR leg advances LEFT toshoeatx55; RIGHT NEAR leg trailsrightnearx125. ForwardlegpassesBEHINDnearleg at hip.\nThis is WALK1, so LEFT anatomical foot is forward. Clearly the opposite PHASE to otherframe. Ordinaryslowwalking, not running/standing/straddling; bothfeet identifiable, emptyhands swing modestly oppositelegs. Up is truebackview with NO face. Profiles trueleft, don't rotate head towardcamera. Preserve same upperbody; just natural alternatinglegsandarms. No heldphone,glass,cup,chair.\n192x288 trueTRANSPARENT PNG. Native visibleheight280±6, hairhighesty8 and within4pixels of matchingstanding. Bottommostshoeend y287. Front width80to110px; profile naturalstridewidth100to140px. Clothingbrightness neutralGRAYSCALE, broad fills under softambientlight, subjectmean32to40percent (must30to45), NEVER under30. Keep sweater/shirt midgray, trousers darkgray but not blackfilled. Thick sparsecartoon contours, ONEshadowstep, matching guest artwork.\nNo white matte/halo, grayglow, groundshadow, coloredpixels, gradienttexture, text,logo,diagram, duplicate figure, motionlines orscene. Draw ONEfigure in this walkingphase.",
+          "raw": "exec-554aa827-2e2a-4d21-9420-2746836ce46f.png"
+        },
+        {
+          "key": "guest-4b-walk2-left",
+          "kind": "guest-walk",
+          "who": "4b",
+          "direction": "left",
+          "phase": 2,
+          "refs": [
+            "working:normalized/guest-4b-stand-left.png",
+            "assets/a/guest-4b-down.png",
+            "docs/layout-guide/request-standing-3b4b.png",
+            "assets/a/guest-8a-walk1-down.png",
+            "assets/a/guest-8a-walk2-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. Edit reference1 into ONE walking frame of EXACTsame approved guest4b. SAME hair, face, outfit, headsize, physique and canvasheight as reference1. Short CURLY dark hair, rectangular darkGLASSES, graycrewneckSWEATER withribbedcollar/cuffs, dark wide trousers. Reference2 selected seatedidentity only,3 technicalsizelineup(no text),4/5 frontwalkingrhythmONLY, do NOT copy elderly8a identity or front camera.\nFacingleft. LEFT PROFILE: anatomicalRIGHT NEAR leg advances LEFT toshoeatx55; LEFT FAR leg trailsrightnearx125. ForwardlegpassesINFRONToffarleg at hip.\nThis is WALK2, so RIGHT anatomical foot is forward. Clearly the opposite PHASE to otherframe. Ordinaryslowwalking, not running/standing/straddling; bothfeet identifiable, emptyhands swing modestly oppositelegs. Up is truebackview with NO face. Profiles trueleft, don't rotate head towardcamera. Preserve same upperbody; just natural alternatinglegsandarms. No heldphone,glass,cup,chair.\n192x288 trueTRANSPARENT PNG. Native visibleheight280±6, hairhighesty8 and within4pixels of matchingstanding. Bottommostshoeend y287. Front width80to110px; profile naturalstridewidth100to140px. Clothingbrightness neutralGRAYSCALE, broad fills under softambientlight, subjectmean32to40percent (must30to45), NEVER under30. Keep sweater/shirt midgray, trousers darkgray but not blackfilled. Thick sparsecartoon contours, ONEshadowstep, matching guest artwork.\nNo white matte/halo, grayglow, groundshadow, coloredpixels, gradienttexture, text,logo,diagram, duplicate figure, motionlines orscene. Draw ONEfigure in this walkingphase.",
+          "raw": "exec-b654da0a-8416-4bdf-8a8c-e0a80c9f7e5c.png"
+        },
+        {
+          "key": "guest-4b-walk1-right",
+          "kind": "guest-walk",
+          "who": "4b",
+          "direction": "right",
+          "phase": 1,
+          "refs": [
+            "working:normalized/guest-4b-stand-right.png",
+            "assets/a/guest-4b-down.png",
+            "docs/layout-guide/request-standing-3b4b.png",
+            "assets/a/guest-8a-walk1-down.png",
+            "assets/a/guest-8a-walk2-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. Edit reference1 into ONE walking frame of EXACTsame approved guest4b. SAME hair, face, outfit, headsize, physique and canvasheight as reference1. Short CURLY dark hair, rectangular darkGLASSES, graycrewneckSWEATER withribbedcollar/cuffs, dark wide trousers. Reference2 selected seatedidentity only,3 technicalsizelineup(no text),4/5 frontwalkingrhythmONLY, do NOT copy elderly8a identity or front camera.\nFacingright. RIGHT PROFILE: anatomicalLEFT NEAR leg advancesRIGHT toshoeatx137; RIGHT FAR leg trailsleftnearx68. ForwardlegpassesINFRONToffarleg.\nThis is WALK1, so LEFT anatomical foot is forward. Clearly the opposite PHASE to otherframe. Ordinaryslowwalking, not running/standing/straddling; bothfeet identifiable, emptyhands swing modestly oppositelegs. Up is truebackview with NO face. Profiles trueright, don't rotate head towardcamera. Preserve same upperbody; just natural alternatinglegsandarms. No heldphone,glass,cup,chair.\n192x288 trueTRANSPARENT PNG. Native visibleheight280±6, hairhighesty8 and within4pixels of matchingstanding. Bottommostshoeend y287. Front width80to110px; profile naturalstridewidth100to140px. Clothingbrightness neutralGRAYSCALE, broad fills under softambientlight, subjectmean32to40percent (must30to45), NEVER under30. Keep sweater/shirt midgray, trousers darkgray but not blackfilled. Thick sparsecartoon contours, ONEshadowstep, matching guest artwork.\nNo white matte/halo, grayglow, groundshadow, coloredpixels, gradienttexture, text,logo,diagram, duplicate figure, motionlines orscene. Draw ONEfigure in this walkingphase.",
+          "raw": "exec-5de91685-fb76-4552-b5a4-63c866a5e2a1.png"
+        },
+        {
+          "key": "guest-4b-walk2-right",
+          "kind": "guest-walk",
+          "who": "4b",
+          "direction": "right",
+          "phase": 2,
+          "refs": [
+            "working:normalized/guest-4b-stand-right.png",
+            "assets/a/guest-4b-down.png",
+            "docs/layout-guide/request-standing-3b4b.png",
+            "assets/a/guest-8a-walk1-down.png",
+            "assets/a/guest-8a-walk2-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. Edit reference1 into ONE walking frame of EXACTsame approved guest4b. SAME hair, face, outfit, headsize, physique and canvasheight as reference1. Short CURLY dark hair, rectangular darkGLASSES, graycrewneckSWEATER withribbedcollar/cuffs, dark wide trousers. Reference2 selected seatedidentity only,3 technicalsizelineup(no text),4/5 frontwalkingrhythmONLY, do NOT copy elderly8a identity or front camera.\nFacingright. RIGHT PROFILE: anatomicalRIGHT FAR leg advancesRIGHT toshoeatx137; LEFT NEAR leg trailsleftnearx68. ForwardlegpassesBEHINDnearleg.\nThis is WALK2, so RIGHT anatomical foot is forward. Clearly the opposite PHASE to otherframe. Ordinaryslowwalking, not running/standing/straddling; bothfeet identifiable, emptyhands swing modestly oppositelegs. Up is truebackview with NO face. Profiles trueright, don't rotate head towardcamera. Preserve same upperbody; just natural alternatinglegsandarms. No heldphone,glass,cup,chair.\n192x288 trueTRANSPARENT PNG. Native visibleheight280±6, hairhighesty8 and within4pixels of matchingstanding. Bottommostshoeend y287. Front width80to110px; profile naturalstridewidth100to140px. Clothingbrightness neutralGRAYSCALE, broad fills under softambientlight, subjectmean32to40percent (must30to45), NEVER under30. Keep sweater/shirt midgray, trousers darkgray but not blackfilled. Thick sparsecartoon contours, ONEshadowstep, matching guest artwork.\nNo white matte/halo, grayglow, groundshadow, coloredpixels, gradienttexture, text,logo,diagram, duplicate figure, motionlines orscene. Draw ONEfigure in this walkingphase.",
+          "raw": "exec-d4aef5e4-3f79-4f9b-ace3-7f3074ef1626.png"
+        },
+        {
+          "key": "caller-idle",
+          "kind": "caller-game",
+          "refs": [
+            "assets/style-test/caller-c.png",
+            "docs/layout-guide/request-caller-set.png",
+            "assets/a/title-egg-sleeper.png"
+          ],
+          "prompt": "Use case: identity-preserve. EXACT approved candidateC in image1: fluffy CURLY BLACK hair with a few rounded tufts, blue microphone headset, wide collared blue overshirt worn open over WHITE T-shirt. Same youthful face, eyes, curly silhouette and headset in all images. Do not imitate the purple hood sleeper used as pose reference. Established Korean cafe puzzle game cartoon: thick sparse black contours, large clean flat fills, one same-hue cel shadow, NO textured grain, gradients, white sticker rim, cast shadow, letters, numbers, logos or stray marks. Blue base#2f6db3, single shadow#214c7d. Skin white/lightneutralgray80to95percent. Black reserved for hair and outlines, no pointed black/navy garment shards. True transparent background.\nDraw this person seated in a simple GRAY CAFE CHAIR, BACK VIEW facing upward toward an unseen laptop/table. Back of curly black hair and headset visible; one hand slightly raised at shoulder height in a casual speaking gesture, other arm forward to unseen table. Hips rest on seat, knees point away and barely visible from behind, chair back covers lower back, four chair legs visible and support body. No crouching.\nOutput192x288PNG. Visible seated figure plus chair about250px high, fromy38 to287. Width90to130px, aim115. Chair leg tips touchy287. Raised hand can exceed hair height a little but do not raise high. Do NOT draw table, laptop, phone, ring light or tripod. Image2 technical placement only, ignore text/old streamer. Image3 chair support and line only, do not copy sleeper identity/colors. One sprite only.",
+          "raw": "exec-c7b205c7-1d8b-4572-a411-f44780ec49a7.png"
+        },
+        {
+          "key": "caller-face",
+          "kind": "caller-face",
+          "refs": [
+            "assets/style-test/caller-c.png",
+            "docs/layout-guide/request-caller-set.png"
+          ],
+          "prompt": "Use case: identity-preserve. EXACT approved candidateC in image1: fluffy CURLY BLACK hair with a few rounded tufts, blue microphone headset, wide collared blue overshirt worn open over WHITE T-shirt. Same youthful face, eyes, curly silhouette and headset in all images. Do not imitate the purple hood sleeper used as pose reference. Established Korean cafe puzzle game cartoon: thick sparse black contours, large clean flat fills, one same-hue cel shadow, NO textured grain, gradients, white sticker rim, cast shadow, letters, numbers, logos or stray marks. Blue base#2f6db3, single shadow#214c7d. Skin white/lightneutralgray80to95percent. Black reserved for hair and outlines, no pointed black/navy garment shards. True transparent background.\nCreate a square FRONT webcam portrait, face and upper shoulders, looking toward viewer while saying something with a small open mouth, normal calm expression. This is SAME approved face not a redesign. Hair/headset nearly touch upper sides, shoulders cropped atbottom. Native128x128 transparentPNG for an in-game video meeting window, readable enlarged simple face. No table or laptop. Image2 context only, never its text, layout boxes or other figures. Only this ONE portrait. Blue shirt visible at shoulder corners and white T-shirt center.",
+          "raw": "exec-73ff5528-b6e8-426f-af1b-526ce6f1ea1b.png"
+        },
+        {
+          "key": "caller-portrait",
+          "kind": "caller-portrait",
+          "refs": [
+            "assets/style-test/caller-c.png",
+            "docs/layout-guide/request-caller-set.png",
+            "assets/a/villain-portrait.webp",
+            "assets/a/title-egg-sleeper.png"
+          ],
+          "prompt": "Use case: identity-preserve. EXACT approved candidateC in image1: fluffy CURLY BLACK hair with a few rounded tufts, blue microphone headset, wide collared blue overshirt worn open over WHITE T-shirt. Same youthful face, eyes, curly silhouette and headset in all images. Do not imitate the purple hood sleeper used as pose reference. Established Korean cafe puzzle game cartoon: thick sparse black contours, large clean flat fills, one same-hue cel shadow, NO textured grain, gradients, white sticker rim, cast shadow, letters, numbers, logos or stray marks. Blue base#2f6db3, single shadow#214c7d. Skin white/lightneutralgray80to95percent. Black reserved for hair and outlines, no pointed black/navy garment shards. True transparent background.\nCreate a LARGE FRONT reaction illustration: startled because trash bin was seen behind them in a video meeting. Eyes wide, mouth open, shoulders tense. They just unplugged the laptop charger: hold a white Korean two-round-pin power plug with both hands at chest, cable curves down and exits bottom. Pose can pair with image3, but keep candidateC CURLY HAIR/BLUE HEADSET/BLUE OPEN COLLAR/WHITE T-SHIRT, NEVER purple hood or sleeper face. Do not add laptop, strip, table, ring light, bubbles, sweat marks or text.\n1024x1024 transparent. Visiblebounds approximatelyx110to910 andy4to1023, torso croppedbottom. Head and hands clear big shapes. Broad blue cloth shadows only ONEstep #214c7d, NO black filled shards in blue clothes. Image2 technical only, ignore text and old streamer;4 scale family only. One single character.",
+          "raw": "exec-7423674e-f2e1-45a5-8133-d69042554cf5.png"
+        },
+        {
+          "key": "title-egg-caller",
+          "kind": "caller-egg",
+          "refs": [
+            "assets/style-test/caller-c.png",
+            "docs/layout-guide/request-caller-set.png",
+            "assets/a/title-egg-sleeper.png",
+            "assets/a/villain-portrait.webp"
+          ],
+          "prompt": "Use case: identity-preserve. EXACT approved candidateC in image1: fluffy CURLY BLACK hair with a few rounded tufts, blue microphone headset, wide collared blue overshirt worn open over WHITE T-shirt. Same youthful face, eyes, curly silhouette and headset in all images. Do not imitate the purple hood sleeper used as pose reference. Established Korean cafe puzzle game cartoon: thick sparse black contours, large clean flat fills, one same-hue cel shadow, NO textured grain, gradients, white sticker rim, cast shadow, letters, numbers, logos or stray marks. Blue base#2f6db3, single shadow#214c7d. Skin white/lightneutralgray80to95percent. Black reserved for hair and outlines, no pointed black/navy garment shards. True transparent background.\nSIDE VIEW facing RIGHT. Person sits normally on a GRAY cafe chair at a SMALL ROUND GRAY CAFE TABLE, an open neutralgray LAPTOP on top facing them. Speaking to laptop camera, one hand lightly gesturing, blue mic headset, other hand near laptop. Empty scene, no streamer gear. Include complete chair/table legs and feet. This is main-menu easter egg, pure SIDE camera (no RPG top view), matching image3 size/composition but AWAKE laptop caller not sleeping. Do NOT copy sleeper purple hood or face from3/4. Image2 scale only no text.\n512x512 transparent, whole person+chair+round table visibleheight405px (allowed380to430), bottom chair/table legs aroundy487,24px margin below. Blue shirt and headset, whiteTshirt, neutralgray furniture and laptop. No ground shadow or white outline, no extra cups/cordsout ofbounds, no ring light/tripod, no text.",
+          "raw": "exec-094848a2-72bb-499f-a45c-0fd1117f556a.png"
+        },
+        {
+          "key": "skin-ear",
+          "kind": "patch",
+          "part": "ear",
+          "refs": [
+            "working:skin-ear-input.png",
+            "assets/style-test/villain-sleep-v2.png",
+            "docs/layout-guide/request-sleeper-v2-fix.png"
+          ],
+          "prompt": "Use case: precise-object-edit. Image1 is an enlarged UNMODIFIED CROP of image2. Return ONLY that exact crop, same boundaries, same black hair shapes and grayscale face contours, not the full person or layout. Opaque patch image. Image3 marks the defect; ignore red circles and all words.\nRemove the erroneous PURPLE PIXELS at the small skin/hair junction near the sleeper ear; replace this small purple bit with adjacent bright gray skin or black hair while preserving existing hair stroke.\nEverything else stays IDENTICAL in position and contour. Do not add detail, new lines, shading, nose, ear anatomy or text. No purple in corrected skin junction. Preserve any real purple CLOTHING outside that little wrong patch and the rest of black hair. Output cropped rectangular image only, exactly image1 composition/aspect. No surrounding scene, checkerboard, annotation or white border.",
+          "raw": "exec-12a2b5a1-aecd-4765-b621-aabc2e5ff0c4.png"
+        },
+        {
+          "key": "skin-eye",
+          "kind": "patch",
+          "part": "eye",
+          "refs": [
+            "working:skin-eye-input.png",
+            "assets/style-test/villain-portrait-v2.webp",
+            "docs/layout-guide/request-sleeper-v2-fix.png"
+          ],
+          "prompt": "Use case: precise-object-edit. Image1 is an enlarged UNMODIFIED CROP of image2. Return ONLY that exact crop, same boundaries, same black hair shapes and grayscale face contours, not the full person or layout. Opaque patch image. Image3 marks the defect; ignore red circles and all words.\nRemove the erroneous PURPLE PIXELS in the outer corner of the wide-open eye between white sclera and black hair; replace the purple wedge with WHITE/LIGHT GRAY SCLERA and skin matching nearby eye white.\nEverything else stays IDENTICAL in position and contour. Do not add detail, new lines, shading, nose, ear anatomy or text. No purple in corrected eye-white wedge. Preserve any real purple CLOTHING outside that little wrong patch and the rest of black hair. Output cropped rectangular image only, exactly image1 composition/aspect. No surrounding scene, checkerboard, annotation or white border.",
+          "raw": "exec-a807d1e1-5a84-4444-95ae-87e734b7d46b.png"
+        },
+        {
+          "key": "skin-neck",
+          "kind": "patch",
+          "part": "neck",
+          "refs": [
+            "working:skin-neck-input.png",
+            "assets/style-test/villain-portrait-v2.webp",
+            "docs/layout-guide/request-sleeper-v2-fix.png"
+          ],
+          "prompt": "Use case: precise-object-edit. Image1 is an enlarged UNMODIFIED CROP of image2. Return ONLY that exact crop, same boundaries, same black hair shapes and grayscale face contours, not the full person or layout. Opaque patch image. Image3 marks the defect; ignore red circles and all words.\nRemove the erroneous PURPLE PIXELS in the small exposed NECK triangle between hood and hands; replace that purple skin triangle with LIGHT NEUTRAL GRAY NECK SHADOW matching facial skin shadow.\nEverything else stays IDENTICAL in position and contour. Do not add detail, new lines, shading, nose, ear anatomy or text. No purple in corrected neck triangle. Preserve any real purple CLOTHING outside that little wrong patch and the rest of black hair. Output cropped rectangular image only, exactly image1 composition/aspect. No surrounding scene, checkerboard, annotation or white border.",
+          "raw": "exec-08e50d99-b71b-4875-9afd-53cdb753242e.png"
+        },
+        {
+          "key": "title-egg-sleeper",
+          "kind": "sleeper-egg",
+          "refs": [
+            "assets/style-test/villain-sleep-v2.png",
+            "assets/style-test/villain-portrait-v2.webp",
+            "assets/a/title-egg-sleeper.png",
+            "assets/a/villain-wake.png",
+            "docs/layout-guide/request-sleeper-v2-fix.png"
+          ],
+          "prompt": "Use case: precise-object-edit. Update image3, same SIDE VIEW RIGHT-facing purple hooded sleeper at a small round gray cafe table on a gray chair. Use SAME black-haired face, purple hoodie and clean same-purple shadows of v2 references1/2. Asleep with open mouth, forehead resting sideways on crossed arms, feet and chair legs natural. Never old black shadow shards.\nOn the small round tabletop ONE white KOREAN THREE-SOCKET power strip with3plugs leading to THREE distinguishable neutralgray devices: closed small laptop, phone and tablet near arms. Normal-length grayphone cable curves into PHONE BOTTOM short edge, never side; cables stay on tabletop. No coloreddevice screens.\n512x512 transparent. Match original image3 generalheight about430px, bottom chair/table feet at y487 (24px transparent below). Include full supporting furniture, don't draw cafe background. Purple base#7b4fb0 plus only same-hue shadow#56377b, grayscale skin and electronics. Fix any purple on visible skin/eye/neck. No white sticker border, cast ground shadow, text, logos, motion marks, red greenyellow. Image4 pose family only;5 defect context never its redcircles/text. One complete isolated easteregg.",
+          "raw": "exec-16ee686e-983b-4e24-b59f-0d729b67d66d.png"
+        },
+        {
+          "key": "caller-react",
+          "kind": "caller-game",
+          "refs": [
+            "working:normalized/caller-idle.png",
+            "assets/style-test/caller-c.png",
+            "docs/layout-guide/request-caller-set.png",
+            "assets/a/villain-portrait.webp"
+          ],
+          "prompt": "Use case: precise-object-edit. Edit image1 into the REACTION frame of SAME blue curly-haired caller sitting on SAME graychair. Keep chair leg positions, seated body size and scale, blue broadcollarovershirt and whiteTshirt, curlyblackhair, blue microphoneheadset. Image2 approved front identity.3 placementonly,4 reactionenergyonly NOT purplehood/person.\nThe person remains sitting facing unseen laptop at TOP, but turns HEAD and UPPER TORSO BACK over shoulder toward viewer with startled wideeyes and openmouth because something embarrassing appeared behind them. One hand half raised, still seated, hips onseat, lowerbody and graychair unchanged. NO standingup, no front-facing whole chair rotation, no new chair.\nTransparent192x288, nativeheight250±10, width90to130, hairtoparound38, SAME graychair leg tips at y287. Preserve same visible size as image1. Broad flatBLUE base#2f6db3, single blueshadow#214c7d; white/lightgrayskin, neutralgraychair/trousers, blackhairandoutlines only. No blacknavy shards or color spill onskin.\nNO laptop, table, ringlight, phone, tripod, speechballoon, effectmark, text,logo,groundshadow,grayglow or whitestickeredge. ONE sprite only.",
+          "raw": "exec-d1064f70-9fa5-4939-aaa7-96beb52a5a10.png"
+        },
+        {
+          "key": "villain-wake",
+          "kind": "sleeper-wake",
+          "refs": [
+            "working:normalized/villain-sleep.png",
+            "assets/a/villain-wake.png",
+            "assets/style-test/villain-portrait-v2.webp",
+            "docs/layout-guide/request-sleeper-v2-fix.png"
+          ],
+          "prompt": "Use case: precise-object-edit. EDIT IMAGE1 corrected v2sleep into wakeframe. SAME blackhairedpurplehoodguest, samebody/foldedarms and EXACTsame equipment positions. Change only HEAD/FACE: lifts chin and opens eyes wide/startled mouth in response to pager. Keep hands resting with foldedarms, DO NOT lift hands/gripplug as image2 does;2 only awake expression and costumeidentity.3 frontidentityexpressiononly,4 correctedskincontext no redcircle/text.\nALL equipment must remain identical relativepositions to image1: THREE-socket white Koreanstrip with3adapters feeding closedlaptop,phone,tablet, cableswithin nativey288to422, phoneconnectoronbottom shortedge. Do NOT draw table,chair or fullbody. Same opaque personanddevice shapes on TRUEtransparent192x480PNG, visiblewidthx4to187, hoodtoparound137, devicebottomaround382. Keep white empty above/below.\nPurple base#7b4fb0 one purpleshadow#56377b, white/lightgrayskin and gray/whiteelectronics. NO purple spill onear,eyewhite orneck. NO black pointedgarmentshards, redgreenyellow,text,shadow,whitehalo,extraobjects. Keep all body and device arrangements as firstimage while headis awake, one single sprite.",
+          "raw": "exec-c0785bb7-f434-41ec-883e-8da55de13a28.png"
+        },
+        {
+          "key": "guest-3b-stand-down",
+          "who": "3b",
+          "direction": "down",
+          "kind": "guest-stand",
+          "refs": [
+            "assets/a/guest-3b-down.png",
+            "assets/a/guest-3b-down.png",
+            "docs/layout-guide/request-standing-3b4b.png",
+            "assets/a/guest-8a-stand-down.png",
+            "assets/a/guest-8a-stand-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. Make EXACT same selected20s woman guest3b, short dark asymmetric bob with swept bangs, a DARK VEST over a LIGHT GRAY collared shirt, wide gray trousers and same shoes from reference1/2 now STANDING UPRIGHT patiently waiting for a drink. Preserve established hair silhouette, face, outfit, garment brightness and body build. Not a new candidate/person. References4/5 are standing pose/camera/height only, DO NOT copy elderly guest's hair, face, glasses or cardigan. Reference3 only technical lineup, ignore all text/placeholders and held objects.\nFacing down: FRONT toward bottom of screen, both eyes visible. Empty hands loosely at sides, both legs planted, ordinary relaxed patient stance. Remove the seated chair and all held PHONE/MUG/GLASS from identity reference; no handbag, cane or cup.\nTransparent192x288PNG, visibleheight280px (allowed274to286), hairhighest aroundy8, shoe soles at y287. Front width80to110px aim100, same size scale as approved standing8a, taller than seated250px. Side/back naturalwidth but NEVER very tiny thin person. Slight elevated RPG Maker camera with front faces of people, no isometric scene.\nPure GRAYSCALE only,30to45percent average subject brightness. Bold sparse black contours, clean flatgray fills and one gray shadowstep like selectedguest. NO white sticker halo, gray aura, blur fringe, castshadow, coloredpixels, text, numbers, logos, duplicateperson, motion lines or scenery. Draw ONE isolated fullbody person.",
+          "raw": "exec-b62a1e19-0663-4dbd-b733-5e60aa26892e.png"
+        },
+        {
+          "key": "guest-3b-stand-up",
+          "who": "3b",
+          "direction": "up",
+          "kind": "guest-stand",
+          "refs": [
+            "assets/a/guest-3b-up.png",
+            "assets/a/guest-3b-down.png",
+            "docs/layout-guide/request-standing-3b4b.png",
+            "assets/a/guest-8a-stand-up.png",
+            "assets/a/guest-8a-stand-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. Make EXACT same selected20s woman guest3b, short dark asymmetric bob with swept bangs, a DARK VEST over a LIGHT GRAY collared shirt, wide gray trousers and same shoes from reference1/2 now STANDING UPRIGHT patiently waiting for a drink. Preserve established hair silhouette, face, outfit, garment brightness and body build. Not a new candidate/person. References4/5 are standing pose/camera/height only, DO NOT copy elderly guest's hair, face, glasses or cardigan. Reference3 only technical lineup, ignore all text/placeholders and held objects.\nFacing up: BACK facing top of screen, back of hair and clothes, no face showing. Empty hands loosely at sides, both legs planted, ordinary relaxed patient stance. Remove the seated chair and all held PHONE/MUG/GLASS from identity reference; no handbag, cane or cup.\nTransparent192x288PNG, visibleheight280px (allowed274to286), hairhighest aroundy8, shoe soles at y287. Front width80to110px aim100, same size scale as approved standing8a, taller than seated250px. Side/back naturalwidth but NEVER very tiny thin person. Slight elevated RPG Maker camera with front faces of people, no isometric scene.\nPure GRAYSCALE only,30to45percent average subject brightness. Bold sparse black contours, clean flatgray fills and one gray shadowstep like selectedguest. NO white sticker halo, gray aura, blur fringe, castshadow, coloredpixels, text, numbers, logos, duplicateperson, motion lines or scenery. Draw ONE isolated fullbody person.",
+          "raw": "exec-74269500-98c4-47ec-951e-8035d70a1247.png"
+        },
+        {
+          "key": "guest-3b-stand-left",
+          "who": "3b",
+          "direction": "left",
+          "kind": "guest-stand",
+          "refs": [
+            "assets/a/guest-3b-left.png",
+            "assets/a/guest-3b-down.png",
+            "docs/layout-guide/request-standing-3b4b.png",
+            "assets/a/guest-8a-stand-left.png",
+            "assets/a/guest-8a-stand-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. Make EXACT same selected20s woman guest3b, short dark asymmetric bob with swept bangs, a DARK VEST over a LIGHT GRAY collared shirt, wide gray trousers and same shoes from reference1/2 now STANDING UPRIGHT patiently waiting for a drink. Preserve established hair silhouette, face, outfit, garment brightness and body build. Not a new candidate/person. References4/5 are standing pose/camera/height only, DO NOT copy elderly guest's hair, face, glasses or cardigan. Reference3 only technical lineup, ignore all text/placeholders and held objects.\nFacing left: TRUE LEFT PROFILE toward left edge. Empty hands loosely at sides, both legs planted, ordinary relaxed patient stance. Remove the seated chair and all held PHONE/MUG/GLASS from identity reference; no handbag, cane or cup.\nTransparent192x288PNG, visibleheight280px (allowed274to286), hairhighest aroundy8, shoe soles at y287. Front width80to110px aim100, same size scale as approved standing8a, taller than seated250px. Side/back naturalwidth but NEVER very tiny thin person. Slight elevated RPG Maker camera with front faces of people, no isometric scene.\nPure GRAYSCALE only,30to45percent average subject brightness. Bold sparse black contours, clean flatgray fills and one gray shadowstep like selectedguest. NO white sticker halo, gray aura, blur fringe, castshadow, coloredpixels, text, numbers, logos, duplicateperson, motion lines or scenery. Draw ONE isolated fullbody person.",
+          "raw": "exec-af44fec2-a2bc-4d0a-a19a-3bf58d38a4b2.png"
+        },
+        {
+          "key": "guest-3b-stand-right",
+          "who": "3b",
+          "direction": "right",
+          "kind": "guest-stand",
+          "refs": [
+            "assets/a/guest-3b-right.png",
+            "assets/a/guest-3b-down.png",
+            "docs/layout-guide/request-standing-3b4b.png",
+            "assets/a/guest-8a-stand-right.png",
+            "assets/a/guest-8a-stand-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. Make EXACT same selected20s woman guest3b, short dark asymmetric bob with swept bangs, a DARK VEST over a LIGHT GRAY collared shirt, wide gray trousers and same shoes from reference1/2 now STANDING UPRIGHT patiently waiting for a drink. Preserve established hair silhouette, face, outfit, garment brightness and body build. Not a new candidate/person. References4/5 are standing pose/camera/height only, DO NOT copy elderly guest's hair, face, glasses or cardigan. Reference3 only technical lineup, ignore all text/placeholders and held objects.\nFacing right: TRUE RIGHT PROFILE toward right edge. Empty hands loosely at sides, both legs planted, ordinary relaxed patient stance. Remove the seated chair and all held PHONE/MUG/GLASS from identity reference; no handbag, cane or cup.\nTransparent192x288PNG, visibleheight280px (allowed274to286), hairhighest aroundy8, shoe soles at y287. Front width80to110px aim100, same size scale as approved standing8a, taller than seated250px. Side/back naturalwidth but NEVER very tiny thin person. Slight elevated RPG Maker camera with front faces of people, no isometric scene.\nPure GRAYSCALE only,30to45percent average subject brightness. Bold sparse black contours, clean flatgray fills and one gray shadowstep like selectedguest. NO white sticker halo, gray aura, blur fringe, castshadow, coloredpixels, text, numbers, logos, duplicateperson, motion lines or scenery. Draw ONE isolated fullbody person.",
+          "raw": "exec-849d94c1-02b5-4d36-956a-6e46a79a3a3c.png"
+        },
+        {
+          "key": "guest-4b-stand-down",
+          "who": "4b",
+          "direction": "down",
+          "kind": "guest-stand",
+          "refs": [
+            "assets/a/guest-4b-down.png",
+            "assets/a/guest-4b-down.png",
+            "docs/layout-guide/request-standing-3b4b.png",
+            "assets/a/guest-8a-stand-down.png",
+            "assets/a/guest-8a-stand-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. Make EXACT same selected30to40s woman guest4b, short CURLY dark bob, rectangular dark glasses, GRAY CREWNECK SWEATER with ribbed neck and cuffs, dark wide trousers and same shoes from reference1/2 now STANDING UPRIGHT patiently waiting for a drink. Preserve established hair silhouette, face, outfit, garment brightness and body build. Not a new candidate/person. References4/5 are standing pose/camera/height only, DO NOT copy elderly guest's hair, face, glasses or cardigan. Reference3 only technical lineup, ignore all text/placeholders and held objects.\nFacing down: FRONT toward bottom of screen, both eyes visible. Empty hands loosely at sides, both legs planted, ordinary relaxed patient stance. Remove the seated chair and all held PHONE/MUG/GLASS from identity reference; no handbag, cane or cup.\nTransparent192x288PNG, visibleheight280px (allowed274to286), hairhighest aroundy8, shoe soles at y287. Front width80to110px aim100, same size scale as approved standing8a, taller than seated250px. Side/back naturalwidth but NEVER very tiny thin person. Slight elevated RPG Maker camera with front faces of people, no isometric scene.\nPure GRAYSCALE only,30to45percent average subject brightness. Bold sparse black contours, clean flatgray fills and one gray shadowstep like selectedguest. NO white sticker halo, gray aura, blur fringe, castshadow, coloredpixels, text, numbers, logos, duplicateperson, motion lines or scenery. Draw ONE isolated fullbody person.",
+          "raw": "exec-9d0a643a-cf53-49db-9bcb-ddd3dfdf4cb6.png"
+        },
+        {
+          "key": "guest-4b-stand-up",
+          "who": "4b",
+          "direction": "up",
+          "kind": "guest-stand",
+          "refs": [
+            "assets/a/guest-4b-up.png",
+            "assets/a/guest-4b-down.png",
+            "docs/layout-guide/request-standing-3b4b.png",
+            "assets/a/guest-8a-stand-up.png",
+            "assets/a/guest-8a-stand-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. Make EXACT same selected30to40s woman guest4b, short CURLY dark bob, rectangular dark glasses, GRAY CREWNECK SWEATER with ribbed neck and cuffs, dark wide trousers and same shoes from reference1/2 now STANDING UPRIGHT patiently waiting for a drink. Preserve established hair silhouette, face, outfit, garment brightness and body build. Not a new candidate/person. References4/5 are standing pose/camera/height only, DO NOT copy elderly guest's hair, face, glasses or cardigan. Reference3 only technical lineup, ignore all text/placeholders and held objects.\nFacing up: BACK facing top of screen, back of hair and clothes, no face showing. Empty hands loosely at sides, both legs planted, ordinary relaxed patient stance. Remove the seated chair and all held PHONE/MUG/GLASS from identity reference; no handbag, cane or cup.\nTransparent192x288PNG, visibleheight280px (allowed274to286), hairhighest aroundy8, shoe soles at y287. Front width80to110px aim100, same size scale as approved standing8a, taller than seated250px. Side/back naturalwidth but NEVER very tiny thin person. Slight elevated RPG Maker camera with front faces of people, no isometric scene.\nPure GRAYSCALE only,30to45percent average subject brightness. Bold sparse black contours, clean flatgray fills and one gray shadowstep like selectedguest. NO white sticker halo, gray aura, blur fringe, castshadow, coloredpixels, text, numbers, logos, duplicateperson, motion lines or scenery. Draw ONE isolated fullbody person.",
+          "raw": "exec-dbc8dc6e-7cfe-4429-af1d-1de77cc31eff.png"
+        },
+        {
+          "key": "guest-4b-stand-left",
+          "who": "4b",
+          "direction": "left",
+          "kind": "guest-stand",
+          "refs": [
+            "assets/a/guest-4b-left.png",
+            "assets/a/guest-4b-down.png",
+            "docs/layout-guide/request-standing-3b4b.png",
+            "assets/a/guest-8a-stand-left.png",
+            "assets/a/guest-8a-stand-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. Make EXACT same selected30to40s woman guest4b, short CURLY dark bob, rectangular dark glasses, GRAY CREWNECK SWEATER with ribbed neck and cuffs, dark wide trousers and same shoes from reference1/2 now STANDING UPRIGHT patiently waiting for a drink. Preserve established hair silhouette, face, outfit, garment brightness and body build. Not a new candidate/person. References4/5 are standing pose/camera/height only, DO NOT copy elderly guest's hair, face, glasses or cardigan. Reference3 only technical lineup, ignore all text/placeholders and held objects.\nFacing left: TRUE LEFT PROFILE toward left edge. Empty hands loosely at sides, both legs planted, ordinary relaxed patient stance. Remove the seated chair and all held PHONE/MUG/GLASS from identity reference; no handbag, cane or cup.\nTransparent192x288PNG, visibleheight280px (allowed274to286), hairhighest aroundy8, shoe soles at y287. Front width80to110px aim100, same size scale as approved standing8a, taller than seated250px. Side/back naturalwidth but NEVER very tiny thin person. Slight elevated RPG Maker camera with front faces of people, no isometric scene.\nPure GRAYSCALE only,30to45percent average subject brightness. Bold sparse black contours, clean flatgray fills and one gray shadowstep like selectedguest. NO white sticker halo, gray aura, blur fringe, castshadow, coloredpixels, text, numbers, logos, duplicateperson, motion lines or scenery. Draw ONE isolated fullbody person.",
+          "raw": "exec-59e34940-9590-4285-a501-1aaf8d958d81.png"
+        },
+        {
+          "key": "guest-4b-stand-right",
+          "who": "4b",
+          "direction": "right",
+          "kind": "guest-stand",
+          "refs": [
+            "assets/a/guest-4b-right.png",
+            "assets/a/guest-4b-down.png",
+            "docs/layout-guide/request-standing-3b4b.png",
+            "assets/a/guest-8a-stand-right.png",
+            "assets/a/guest-8a-stand-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. Make EXACT same selected30to40s woman guest4b, short CURLY dark bob, rectangular dark glasses, GRAY CREWNECK SWEATER with ribbed neck and cuffs, dark wide trousers and same shoes from reference1/2 now STANDING UPRIGHT patiently waiting for a drink. Preserve established hair silhouette, face, outfit, garment brightness and body build. Not a new candidate/person. References4/5 are standing pose/camera/height only, DO NOT copy elderly guest's hair, face, glasses or cardigan. Reference3 only technical lineup, ignore all text/placeholders and held objects.\nFacing right: TRUE RIGHT PROFILE toward right edge. Empty hands loosely at sides, both legs planted, ordinary relaxed patient stance. Remove the seated chair and all held PHONE/MUG/GLASS from identity reference; no handbag, cane or cup.\nTransparent192x288PNG, visibleheight280px (allowed274to286), hairhighest aroundy8, shoe soles at y287. Front width80to110px aim100, same size scale as approved standing8a, taller than seated250px. Side/back naturalwidth but NEVER very tiny thin person. Slight elevated RPG Maker camera with front faces of people, no isometric scene.\nPure GRAYSCALE only,30to45percent average subject brightness. Bold sparse black contours, clean flatgray fills and one gray shadowstep like selectedguest. NO white sticker halo, gray aura, blur fringe, castshadow, coloredpixels, text, numbers, logos, duplicateperson, motion lines or scenery. Draw ONE isolated fullbody person.",
+          "raw": "exec-1a57bc5e-775b-47db-86d1-bea2e2983146.png"
+        },
+        {
+          "key": "guest-4b-stand-up",
+          "who": "4b",
+          "direction": "up",
+          "kind": "guest-stand",
+          "refs": [
+            "working:normalized/guest-4b-stand-up.png",
+            "working:normalized/guest-4b-stand-down.png",
+            "assets/a/guest-4b-up.png",
+            "docs/layout-guide/request-standing-3b4b.png"
+          ],
+          "prompt": "Use case: lighting-weather. EDIT image1 SAME standing guest4b in directionup, samecurlydarkhair, glasses(iffacevisible), crewneckgray sweater, widepants, emptyhands, exactpostureandheight. Only raise garment ambient light slightly so the whole visiblefigure has meanGRAYSCALEbrightness33to36percent, NOT28percent. Match front standing reference2 brightness while keeping sweater light-midgray and trousers darkergray. Ref3 identity,4 technicalsizeonly.\nDo not redesign person, alter headsize, pose, silhouette, direction or clothing. Preserve clean flatgrayfillsandonegray shadow. No blackfilledpants, no glossyhighlights.192x288transparent, visibleheight280, hairtop8, soles287, sameRPGslightelevatedcamera. No text,colors,whitehalo,grayglow,castshadow,props orscene. One samefigure, only slightlybrighter grayscale garmentfill.",
+          "raw": "exec-23f72f75-7288-4151-837c-debcba96a95e.png"
+        },
+        {
+          "key": "guest-4b-stand-left",
+          "who": "4b",
+          "direction": "left",
+          "kind": "guest-stand",
+          "refs": [
+            "working:normalized/guest-4b-stand-left.png",
+            "working:normalized/guest-4b-stand-down.png",
+            "assets/a/guest-4b-left.png",
+            "docs/layout-guide/request-standing-3b4b.png"
+          ],
+          "prompt": "Use case: lighting-weather. EDIT image1 SAME standing guest4b in directionleft, samecurlydarkhair, glasses(iffacevisible), crewneckgray sweater, widepants, emptyhands, exactpostureandheight. Only raise garment ambient light slightly so the whole visiblefigure has meanGRAYSCALEbrightness33to36percent, NOT28percent. Match front standing reference2 brightness while keeping sweater light-midgray and trousers darkergray. Ref3 identity,4 technicalsizeonly.\nDo not redesign person, alter headsize, pose, silhouette, direction or clothing. Preserve clean flatgrayfillsandonegray shadow. No blackfilledpants, no glossyhighlights.192x288transparent, visibleheight280, hairtop8, soles287, sameRPGslightelevatedcamera. No text,colors,whitehalo,grayglow,castshadow,props orscene. One samefigure, only slightlybrighter grayscale garmentfill.",
+          "raw": "exec-504251e7-2c5f-4cf8-8e92-3b9f64290455.png"
+        },
+        {
+          "key": "guest-4b-stand-right",
+          "who": "4b",
+          "direction": "right",
+          "kind": "guest-stand",
+          "refs": [
+            "working:normalized/guest-4b-stand-right.png",
+            "working:normalized/guest-4b-stand-down.png",
+            "assets/a/guest-4b-right.png",
+            "docs/layout-guide/request-standing-3b4b.png"
+          ],
+          "prompt": "Use case: lighting-weather. EDIT image1 SAME standing guest4b in directionright, samecurlydarkhair, glasses(iffacevisible), crewneckgray sweater, widepants, emptyhands, exactpostureandheight. Only raise garment ambient light slightly so the whole visiblefigure has meanGRAYSCALEbrightness33to36percent, NOT28percent. Match front standing reference2 brightness while keeping sweater light-midgray and trousers darkergray. Ref3 identity,4 technicalsizeonly.\nDo not redesign person, alter headsize, pose, silhouette, direction or clothing. Preserve clean flatgrayfillsandonegray shadow. No blackfilledpants, no glossyhighlights.192x288transparent, visibleheight280, hairtop8, soles287, sameRPGslightelevatedcamera. No text,colors,whitehalo,grayglow,castshadow,props orscene. One samefigure, only slightlybrighter grayscale garmentfill.",
+          "raw": "exec-a3ac5ffc-4479-4c7c-aa1c-6b13b346d787.png"
+        },
+        {
+          "key": "caller-react",
+          "kind": "caller-game",
+          "refs": [
+            "working:normalized/caller-react.png",
+            "working:normalized/caller-idle.png",
+            "assets/style-test/caller-c.png"
+          ],
+          "prompt": "Use case: background-extraction. EDIT image1 to REMOVE ALL surrounding gray/blue GLOW and haze. Keep same startled curly-haired blue-headset caller, SAME graychair and backward seated reaction pose, blueovershirt/whiteTshirt, exact hairfaceandhandgesture. Image2 neutralbackviewmatchingchair,3 approvedfaceidentity.\nTrue TRANSPARENT sprite with opaque clean black outline immediately touching alpha0. Absolutely NO gray or blue aura, matte, pale rim, white sticker outline, floor/castshadow or softblur outside figure. Remove the artificial surroundingglow ONLY. Do not add text or surpriseicons. Keep native192x288 framing, sitting visibleheight250, width90to130, chairlegtipsy287, hairtop38. Blackhair, blueshirt base#2f6db3 and one shadow#214c7d, white/grayskin, graychair. No laptop/table/phone/ringlight.",
+          "raw": "exec-cc78c804-e9e5-4faa-8993-28abc5660376.png"
+        },
+        {
+          "key": "story-4",
+          "kind": "story",
+          "refs": [
+            "working:normalized/story-4.webp",
+            "assets/a/story-5.webp",
+            "docs/layout-guide/request-story34.png"
+          ],
+          "prompt": "Use case: precise-object-edit. Edit image1 while keeping the entire samecomposition, same redrobot lookingatgreenpager, same white thoughtbubble and awakepurplehoodsleeper insidebubble. ONLY remove the little JAGGED SURPRISE GLYPH floating above sleeper's head and remove the tiny sweatdrop shapes on sleeper'sface. Fill those deletedmarkspots naturally with plain white thoughtbubble or plain grayscale face skin respectively. Keep the curved vibrationstrokes immediately beside the greenpager insidebubble: those are intentionally requested. Keep thoughtcloud andtwo linkingdots.\nNo newglyphs, texts, emojis, numbers, effectletters, lightbulb or newprops. Everything else sameframe and sizes1280x720OPAQUE. Preserveredrobot, greenrealpager/imaginedpager, purplevillain, neutralgraycafe. Image2 oldsceneidentityonly,3 technicalguideonlyignoreannotations. Do not change cloudsize, robotface/arms, palette, tablearrangement or shot.",
+          "raw": "exec-4fc88434-d531-4467-a1e0-cd690c8e0e9f.png"
+        },
+        {
+          "key": "guest-3b-walk1-down",
+          "kind": "guest-walk",
+          "who": "3b",
+          "direction": "down",
+          "phase": 1,
+          "refs": [
+            "working:normalized/guest-3b-stand-down.png",
+            "assets/a/guest-3b-down.png",
+            "docs/layout-guide/request-standing-3b4b.png",
+            "assets/a/guest-8a-walk1-down.png",
+            "assets/a/guest-8a-walk2-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. Edit reference1 into ONE walking frame of EXACTsame approved guest3b. SAME hair, face, outfit, headsize, physique and canvasheight as reference1. Short asymmetrical DARK bob, dark grayVEST over LIGHTGRAY collaredshirt, graywide trousers, NO glasses. Reference2 selected seatedidentity only,3 technicalsizelineup(no text),4/5 frontwalkingrhythmONLY, do NOT copy elderly8a identity or front camera.\nFacingdown. FRONT: anatomical RIGHT foot, on VIEWER LEFT, advances and endsy287aroundx78; leftrearfootendsy262aroundx116.\nThis is WALK2, so RIGHT anatomical foot is forward. Clearly the opposite PHASE to otherframe. Ordinaryslowwalking, not running/standing/straddling; bothfeet identifiable, emptyhands swing modestly oppositelegs. Up is truebackview with NO face. Profiles truedown, don't rotate head towardcamera. Preserve same upperbody; just natural alternatinglegsandarms. No heldphone,glass,cup,chair.\n192x288 trueTRANSPARENT PNG. Native visibleheight280±6, hairhighesty8 and within4pixels of matchingstanding. Bottommostshoeend y287. Front width80to110px; profile naturalstridewidth100to140px. Clothingbrightness neutralGRAYSCALE, broad fills under softambientlight, subjectmean32to40percent (must30to45), NEVER under30. Keep sweater/shirt midgray, trousers darkgray but not blackfilled. Thick sparsecartoon contours, ONEshadowstep, matching guest artwork.\nNo white matte/halo, grayglow, groundshadow, coloredpixels, gradienttexture, text,logo,diagram, duplicate figure, motionlines orscene. Draw ONEfigure in this walkingphase.",
+          "raw": "exec-00952975-2311-42f8-a23f-539adcf06e77.png",
+          "originalGeneratedKey": "guest-3b-walk2-down",
+          "filenameAssignmentReason": "Visible forward shoe corresponds to anatomical left foot in front view; assign walk1 without mirroring or altering art."
+        },
+        {
+          "key": "guest-3b-walk2-down",
+          "kind": "guest-walk",
+          "who": "3b",
+          "direction": "down",
+          "phase": 2,
+          "refs": [
+            "working:normalized/guest-3b-stand-down.png",
+            "assets/a/guest-3b-down.png",
+            "docs/layout-guide/request-standing-3b4b.png",
+            "assets/a/guest-8a-walk1-down.png",
+            "assets/a/guest-8a-walk2-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. Edit reference1 into ONE walking frame of EXACTsame approved guest3b. SAME hair, face, outfit, headsize, physique and canvasheight as reference1. Short asymmetrical DARK bob, dark grayVEST over LIGHTGRAY collaredshirt, graywide trousers, NO glasses. Reference2 selected seatedidentity only,3 technicalsizelineup(no text),4/5 frontwalkingrhythmONLY, do NOT copy elderly8a identity or front camera.\nFacingdown. FRONT: anatomical LEFT foot, on VIEWER RIGHT, advances and endsy287 aroundx116; right rearfootendsy262aroundx78.\nThis is WALK1, so LEFT anatomical foot is forward. Clearly the opposite PHASE to otherframe. Ordinaryslowwalking, not running/standing/straddling; bothfeet identifiable, emptyhands swing modestly oppositelegs. Up is truebackview with NO face. Profiles truedown, don't rotate head towardcamera. Preserve same upperbody; just natural alternatinglegsandarms. No heldphone,glass,cup,chair.\n192x288 trueTRANSPARENT PNG. Native visibleheight280±6, hairhighesty8 and within4pixels of matchingstanding. Bottommostshoeend y287. Front width80to110px; profile naturalstridewidth100to140px. Clothingbrightness neutralGRAYSCALE, broad fills under softambientlight, subjectmean32to40percent (must30to45), NEVER under30. Keep sweater/shirt midgray, trousers darkgray but not blackfilled. Thick sparsecartoon contours, ONEshadowstep, matching guest artwork.\nNo white matte/halo, grayglow, groundshadow, coloredpixels, gradienttexture, text,logo,diagram, duplicate figure, motionlines orscene. Draw ONEfigure in this walkingphase.",
+          "raw": "exec-1d9f9478-e3c6-44b9-8e78-a5730a4dacd8.png",
+          "originalGeneratedKey": "guest-3b-walk1-down",
+          "filenameAssignmentReason": "Visible forward shoe corresponds to anatomical right foot in front view; assign walk2 without mirroring or altering art."
+        },
+        {
+          "key": "guest-8a-walk2-up",
+          "kind": "guest-walk",
+          "who": "8a",
+          "direction": "up",
+          "phase": 2,
+          "refs": [
+            "working:normalized/guest-8a-walk1-up.png",
+            "assets/a/guest-8a-stand-up.png",
+            "assets/a/guest-8a-up.png"
+          ],
+          "prompt": "Use case: precise-object-edit. Image1 is BACK WALK1, make the opposite BACK WALK2 of SAME person, SAMEback-ofhead/outfit, no face. Ref2 neutralBACK standing and3 seatedBACK identity. Never rotate tofront. Gray-haired elderlycardiganguest8a.\nCRITICAL nativepositions: the BOTTOMMOST shoe must be on VIEWER LEFT, centerx76 and sole y287. VIEWER RIGHT shoe must be LIFTED toward TOP, centerx116, ending aroundy258. The currentimage has the bottomshoe onVIEWERRIGHT; change its legPHASE, don't repeat it. Backview anatomicalRIGHT foot is VIEWERRIGHT and movesFORWARDupscreen, so its shoe endsHIGHER. Left leg trails behind and endsLOWER. Two separate legs/shoes, not crossed or onefootinmiddle.\nArms swingopposite legs modestly, emptyhands. Keep head/bodyheight280, topy8, widtharound100, transparent192x288. AverageGRAYSCALEbrightness33to38percent, sweater/shirtmidgray, pantsdarkgrayNOTblack, onegrayshadow, thickcontours. NO facialfeatures inBACK, cup/phone/chair, whiteedge,grayglow,groundshadow,colors,text,diagram. Onefigure only.",
+          "raw": "exec-61fea945-2d73-4b3f-a98f-e5815090e598.png"
+        },
+        {
+          "key": "guest-8a-walk1-left",
+          "kind": "guest-walk",
+          "who": "8a",
+          "direction": "left",
+          "phase": 1,
+          "refs": [
+            "working:normalized/guest-8a-walk2-left.png",
+            "assets/a/guest-8a-stand-left.png",
+            "assets/a/guest-8a-left.png"
+          ],
+          "prompt": "Use case: precise-object-edit. SAME person and sameLEFTPROFILE as image1, but make OPPOSITE LEG/ARM phase. Ref2 standingbody,3 chosenidentity. Grayhair,squareglasses,graycardigan. Exactheadsize, hair, clothes and camera unchanged.\nCurrentimage1 has the NEAR leg advancing infront. This requested frame has FAR LEG advancing and NEAR LEG trailing. Facingleft: FAR forward shoe nearx56; NEAR backward shoe nearx128. The FAR FORWARD leg must be visibly DARKERGRAY as a single celshadow, and its upperthigh passes BEHIND the LIGHTERGRAY near-side thigh at the crotch. The NEAR TRAILING leg passes IN FRONT at hip, trails behindbody with knee BENT and heel slightly lifted. This different overlap and bent-backknee should clearly distinguish this frame from image1 atsmallsize. Do not merely redraw same nearlegfront stride.\nLEFT PROFILE shows personRIGHT near-side. FAR LEFT leg is forward: this is WALK1. Neararm swings FORWARD with nearhand aroundchest/waist height, fararmback, opposite to legs. BothhandsEMPTY. Keepbothshoespointingleft, not backward toes. Ordinarywalk notrunning, nohugekick.\nTransparent192x288, hairtopy8, visibleheight280, bottomshoe287, stridewidth110to145. WholefiguremeanGRAYSCALEbrightness33to38percent (30to45required), keep largeflatfills ONEshadowstep and blackcontours, notblackfilledpants. NO facecamera rotation, coloredpixels,props,whitehalo,grayglow,groundshadow,text,diagram,motionmarks.",
+          "raw": "exec-bd154f14-14c3-4f2c-86e8-3bfe81b04b87.png"
+        },
+        {
+          "key": "guest-8a-walk2-right",
+          "kind": "guest-walk",
+          "who": "8a",
+          "direction": "right",
+          "phase": 2,
+          "refs": [
+            "working:normalized/guest-8a-walk1-right.png",
+            "assets/a/guest-8a-stand-right.png",
+            "assets/a/guest-8a-right.png"
+          ],
+          "prompt": "Use case: precise-object-edit. SAME person and sameRIGHTPROFILE as image1, but make OPPOSITE LEG/ARM phase. Ref2 standingbody,3 chosenidentity. Grayhair,squareglasses,graycardigan. Exactheadsize, hair, clothes and camera unchanged.\nCurrentimage1 has the NEAR leg advancing infront. This requested frame has FAR LEG advancing and NEAR LEG trailing. Facingright: FAR forward shoe nearx136; NEAR backward shoe nearx64. The FAR FORWARD leg must be visibly DARKERGRAY as a single celshadow, and its upperthigh passes BEHIND the LIGHTERGRAY near-side thigh at the crotch. The NEAR TRAILING leg passes IN FRONT at hip, trails behindbody with knee BENT and heel slightly lifted. This different overlap and bent-backknee should clearly distinguish this frame from image1 atsmallsize. Do not merely redraw same nearlegfront stride.\nRIGHT PROFILE shows personLEFT near-side. FAR RIGHT leg is forward: this is WALK2. Neararm swings FORWARD with nearhand aroundchest/waist height, fararmback, opposite to legs. BothhandsEMPTY. Keepbothshoespointingright, not backward toes. Ordinarywalk notrunning, nohugekick.\nTransparent192x288, hairtopy8, visibleheight280, bottomshoe287, stridewidth110to145. WholefiguremeanGRAYSCALEbrightness33to38percent (30to45required), keep largeflatfills ONEshadowstep and blackcontours, notblackfilledpants. NO facecamera rotation, coloredpixels,props,whitehalo,grayglow,groundshadow,text,diagram,motionmarks.",
+          "raw": "exec-b3bfa440-954e-401b-a38e-4a4982a43012.png"
+        },
+        {
+          "key": "guest-3b-walk2-up",
+          "kind": "guest-walk",
+          "who": "3b",
+          "direction": "up",
+          "phase": 2,
+          "refs": [
+            "working:normalized/guest-3b-walk1-up.png",
+            "working:normalized/guest-3b-stand-up.png",
+            "assets/a/guest-3b-up.png"
+          ],
+          "prompt": "Use case: precise-object-edit. Image1 is BACK WALK1, make the opposite BACK WALK2 of SAME person, SAMEback-ofhead/outfit, no face. Ref2 neutralBACK standing and3 seatedBACK identity. Never rotate tofront. Dark shortbobguest3b with darkvest overlightgray collaredshirt.\nCRITICAL nativepositions: the BOTTOMMOST shoe must be on VIEWER LEFT, centerx76 and sole y287. VIEWER RIGHT shoe must be LIFTED toward TOP, centerx116, ending aroundy258. The currentimage has the bottomshoe onVIEWERRIGHT; change its legPHASE, don't repeat it. Backview anatomicalRIGHT foot is VIEWERRIGHT and movesFORWARDupscreen, so its shoe endsHIGHER. Left leg trails behind and endsLOWER. Two separate legs/shoes, not crossed or onefootinmiddle.\nArms swingopposite legs modestly, emptyhands. Keep head/bodyheight280, topy8, widtharound100, transparent192x288. AverageGRAYSCALEbrightness33to38percent, sweater/shirtmidgray, pantsdarkgrayNOTblack, onegrayshadow, thickcontours. NO facialfeatures inBACK, cup/phone/chair, whiteedge,grayglow,groundshadow,colors,text,diagram. Onefigure only.",
+          "raw": "exec-993a1eb3-49fd-4424-a5a8-a47a005aa4f7.png"
+        },
+        {
+          "key": "guest-3b-walk1-left",
+          "kind": "guest-walk",
+          "who": "3b",
+          "direction": "left",
+          "phase": 1,
+          "refs": [
+            "working:normalized/guest-3b-walk2-left.png",
+            "working:normalized/guest-3b-stand-left.png",
+            "assets/a/guest-3b-left.png"
+          ],
+          "prompt": "Use case: precise-object-edit. SAME person and sameLEFTPROFILE as image1, but make OPPOSITE LEG/ARM phase. Ref2 standingbody,3 chosenidentity. Shortdarkbob,darkvest/lightgraycollaredshirt. Exactheadsize, hair, clothes and camera unchanged.\nCurrentimage1 has the NEAR leg advancing infront. This requested frame has FAR LEG advancing and NEAR LEG trailing. Facingleft: FAR forward shoe nearx56; NEAR backward shoe nearx128. The FAR FORWARD leg must be visibly DARKERGRAY as a single celshadow, and its upperthigh passes BEHIND the LIGHTERGRAY near-side thigh at the crotch. The NEAR TRAILING leg passes IN FRONT at hip, trails behindbody with knee BENT and heel slightly lifted. This different overlap and bent-backknee should clearly distinguish this frame from image1 atsmallsize. Do not merely redraw same nearlegfront stride.\nLEFT PROFILE shows personRIGHT near-side. FAR LEFT leg is forward: this is WALK1. Neararm swings FORWARD with nearhand aroundchest/waist height, fararmback, opposite to legs. BothhandsEMPTY. Keepbothshoespointingleft, not backward toes. Ordinarywalk notrunning, nohugekick.\nTransparent192x288, hairtopy8, visibleheight280, bottomshoe287, stridewidth110to145. WholefiguremeanGRAYSCALEbrightness33to38percent (30to45required), keep largeflatfills ONEshadowstep and blackcontours, notblackfilledpants. NO facecamera rotation, coloredpixels,props,whitehalo,grayglow,groundshadow,text,diagram,motionmarks.",
+          "raw": "exec-202b529d-7b9f-49a8-813c-9bc05c5ac308.png"
+        },
+        {
+          "key": "guest-3b-walk2-right",
+          "kind": "guest-walk",
+          "who": "3b",
+          "direction": "right",
+          "phase": 2,
+          "refs": [
+            "working:normalized/guest-3b-walk1-right.png",
+            "working:normalized/guest-3b-stand-right.png",
+            "assets/a/guest-3b-right.png"
+          ],
+          "prompt": "Use case: precise-object-edit. SAME person and sameRIGHTPROFILE as image1, but make OPPOSITE LEG/ARM phase. Ref2 standingbody,3 chosenidentity. Shortdarkbob,darkvest/lightgraycollaredshirt. Exactheadsize, hair, clothes and camera unchanged.\nCurrentimage1 has the NEAR leg advancing infront. This requested frame has FAR LEG advancing and NEAR LEG trailing. Facingright: FAR forward shoe nearx136; NEAR backward shoe nearx64. The FAR FORWARD leg must be visibly DARKERGRAY as a single celshadow, and its upperthigh passes BEHIND the LIGHTERGRAY near-side thigh at the crotch. The NEAR TRAILING leg passes IN FRONT at hip, trails behindbody with knee BENT and heel slightly lifted. This different overlap and bent-backknee should clearly distinguish this frame from image1 atsmallsize. Do not merely redraw same nearlegfront stride.\nRIGHT PROFILE shows personLEFT near-side. FAR RIGHT leg is forward: this is WALK2. Neararm swings FORWARD with nearhand aroundchest/waist height, fararmback, opposite to legs. BothhandsEMPTY. Keepbothshoespointingright, not backward toes. Ordinarywalk notrunning, nohugekick.\nTransparent192x288, hairtopy8, visibleheight280, bottomshoe287, stridewidth110to145. WholefiguremeanGRAYSCALEbrightness33to38percent (30to45required), keep largeflatfills ONEshadowstep and blackcontours, notblackfilledpants. NO facecamera rotation, coloredpixels,props,whitehalo,grayglow,groundshadow,text,diagram,motionmarks.",
+          "raw": "exec-d0c9b4b3-283c-470a-a5af-aa93001a96f7.png"
+        },
+        {
+          "key": "guest-4b-walk2-up",
+          "kind": "guest-walk",
+          "who": "4b",
+          "direction": "up",
+          "phase": 2,
+          "refs": [
+            "working:normalized/guest-4b-walk1-up.png",
+            "working:4b-back-standing-original.png",
+            "assets/a/guest-4b-up.png"
+          ],
+          "prompt": "Use case: precise-object-edit. Image1 is BACK WALK1, make the opposite BACK WALK2 of SAME person, SAMEback-ofhead/outfit, no face. Ref2 neutralBACK standing and3 seatedBACK identity. Never rotate tofront. Curlydarkhairguest4b withgraycrewneck sweater.\nCRITICAL nativepositions: the BOTTOMMOST shoe must be on VIEWER LEFT, centerx76 and sole y287. VIEWER RIGHT shoe must be LIFTED toward TOP, centerx116, ending aroundy258. The currentimage has the bottomshoe onVIEWERRIGHT; change its legPHASE, don't repeat it. Backview anatomicalRIGHT foot is VIEWERRIGHT and movesFORWARDupscreen, so its shoe endsHIGHER. Left leg trails behind and endsLOWER. Two separate legs/shoes, not crossed or onefootinmiddle.\nArms swingopposite legs modestly, emptyhands. Keep head/bodyheight280, topy8, widtharound100, transparent192x288. AverageGRAYSCALEbrightness33to38percent, sweater/shirtmidgray, pantsdarkgrayNOTblack, onegrayshadow, thickcontours. NO facialfeatures inBACK, cup/phone/chair, whiteedge,grayglow,groundshadow,colors,text,diagram. Onefigure only.",
+          "raw": "exec-f400cd6d-9fc3-42d1-8e2f-fdd00fa178ac.png"
+        },
+        {
+          "key": "guest-4b-walk1-left",
+          "kind": "guest-walk",
+          "who": "4b",
+          "direction": "left",
+          "phase": 1,
+          "refs": [
+            "working:normalized/guest-4b-walk2-left.png",
+            "working:normalized/guest-4b-stand-left.png",
+            "assets/a/guest-4b-left.png"
+          ],
+          "prompt": "Use case: precise-object-edit. SAME person and sameLEFTPROFILE as image1, but make OPPOSITE LEG/ARM phase. Ref2 standingbody,3 chosenidentity. Shortcurlydarkhair,rectangularglasses,graycrewneck sweater. Exactheadsize, hair, clothes and camera unchanged.\nCurrentimage1 has the NEAR leg advancing infront. This requested frame has FAR LEG advancing and NEAR LEG trailing. Facingleft: FAR forward shoe nearx56; NEAR backward shoe nearx128. The FAR FORWARD leg must be visibly DARKERGRAY as a single celshadow, and its upperthigh passes BEHIND the LIGHTERGRAY near-side thigh at the crotch. The NEAR TRAILING leg passes IN FRONT at hip, trails behindbody with knee BENT and heel slightly lifted. This different overlap and bent-backknee should clearly distinguish this frame from image1 atsmallsize. Do not merely redraw same nearlegfront stride.\nLEFT PROFILE shows personRIGHT near-side. FAR LEFT leg is forward: this is WALK1. Neararm swings FORWARD with nearhand aroundchest/waist height, fararmback, opposite to legs. BothhandsEMPTY. Keepbothshoespointingleft, not backward toes. Ordinarywalk notrunning, nohugekick.\nTransparent192x288, hairtopy8, visibleheight280, bottomshoe287, stridewidth110to145. WholefiguremeanGRAYSCALEbrightness33to38percent (30to45required), keep largeflatfills ONEshadowstep and blackcontours, notblackfilledpants. NO facecamera rotation, coloredpixels,props,whitehalo,grayglow,groundshadow,text,diagram,motionmarks.",
+          "raw": "exec-e9f2fef2-8454-46e9-97d4-acb3acde1887.png"
+        },
+        {
+          "key": "guest-4b-walk2-right",
+          "kind": "guest-walk",
+          "who": "4b",
+          "direction": "right",
+          "phase": 2,
+          "refs": [
+            "working:normalized/guest-4b-walk1-right.png",
+            "working:normalized/guest-4b-stand-right.png",
+            "assets/a/guest-4b-right.png"
+          ],
+          "prompt": "Use case: precise-object-edit. SAME person and sameRIGHTPROFILE as image1, but make OPPOSITE LEG/ARM phase. Ref2 standingbody,3 chosenidentity. Shortcurlydarkhair,rectangularglasses,graycrewneck sweater. Exactheadsize, hair, clothes and camera unchanged.\nCurrentimage1 has the NEAR leg advancing infront. This requested frame has FAR LEG advancing and NEAR LEG trailing. Facingright: FAR forward shoe nearx136; NEAR backward shoe nearx64. The FAR FORWARD leg must be visibly DARKERGRAY as a single celshadow, and its upperthigh passes BEHIND the LIGHTERGRAY near-side thigh at the crotch. The NEAR TRAILING leg passes IN FRONT at hip, trails behindbody with knee BENT and heel slightly lifted. This different overlap and bent-backknee should clearly distinguish this frame from image1 atsmallsize. Do not merely redraw same nearlegfront stride.\nRIGHT PROFILE shows personLEFT near-side. FAR RIGHT leg is forward: this is WALK2. Neararm swings FORWARD with nearhand aroundchest/waist height, fararmback, opposite to legs. BothhandsEMPTY. Keepbothshoespointingright, not backward toes. Ordinarywalk notrunning, nohugekick.\nTransparent192x288, hairtopy8, visibleheight280, bottomshoe287, stridewidth110to145. WholefiguremeanGRAYSCALEbrightness33to38percent (30to45required), keep largeflatfills ONEshadowstep and blackcontours, notblackfilledpants. NO facecamera rotation, coloredpixels,props,whitehalo,grayglow,groundshadow,text,diagram,motionmarks.",
+          "raw": "exec-615328a1-c352-4cd6-9ca4-06fffeb4c987.png"
+        },
+        {
+          "key": "guest-4b-stand-up",
+          "who": "4b",
+          "direction": "up",
+          "kind": "guest-stand",
+          "refs": [
+            "working:4b-back-standing-original.png",
+            "assets/a/guest-4b-up.png",
+            "assets/a/guest-8a-stand-up.png"
+          ],
+          "prompt": "Use case: lighting-weather. SAME BACK VIEW person as IMAGE1, looking UP awayfromviewer. Backof CURLYBLACKHAIR and backofGRAYCREWNECKSWEATER only, NO face, NOeyes, NOfrontglasses, NO frontshirt. Ref2 seatedBACKidentity,3 standingBACKscale. Must remain EXACTBACKview.\nOnly brighten neutralgrayscaleclothingfrom28percentoverall to33to36percent. Graymidtoneshirt and darkgraytrousers, onegraycelshadow, notblackfilledpants. Same posture emptyhands bysides, sameheadsizebodybuild,192x288transparent, visibleheight280, top8, bottomsoles287. No chaircup, whiteedge,glow,groundshadow,colors,textorfrontview. One back-facingfigure only.",
+          "raw": "exec-6a1cf5cf-c4f7-4a1c-9013-e169858ff558.png"
+        },
+        {
+          "key": "guest-4b-walk1-up",
+          "kind": "guest-walk",
+          "who": "4b",
+          "direction": "up",
+          "phase": 1,
+          "refs": [
+            "working:normalized/guest-4b-walk1-up.png",
+            "working:4b-back-standing-original.png",
+            "assets/a/guest-4b-up.png"
+          ],
+          "prompt": "Use case: lighting-weather. EDIT IMAGE1 SAME BACKVIEW walkingguest4b, samecurlyhair, grayscalecrewneck sweater, NO facevisible. Keep exactlegphase: viewerLEFT shoe advancedUP at y260, viewerRIGHT rearshoeend287, sameposture/arms. Ref2/3 are backidentity only. Only lighten sweater/trousers slightly to averagebrightness33to36percent, not29.35. Preserve graywardrobe and onegraycelshadow.192x288transparent, headtop8,height280,bottom287,samecurlybackhair. NO frontface/eyes/glasses, halo,glow,shadow,props,colortext. Onebackwalkingfigure only.",
+          "raw": "exec-802fad85-4612-4071-b741-b9934cea76cc.png"
+        },
+        {
+          "key": "guest-4b-walk2-down",
+          "kind": "guest-walk",
+          "who": "4b",
+          "direction": "down",
+          "phase": 2,
+          "refs": [
+            "working:normalized/guest-4b-walk1-down.png",
+            "working:normalized/guest-4b-stand-down.png",
+            "assets/a/guest-4b-down.png"
+          ],
+          "prompt": "Use case: precise-object-edit. Create OPPOSITE FRONT WALK2 fromimage1, exactsamecurlyhair/glasses/graycrewneck guest4b. SAMEFACE, headsize and body/grayclothes;2 neutralstanding,3 seatedidentity. CurrentframehaslowestfootonVIEWERRIGHT. This frame must put LOWEST shoe at VIEWER LEFT, centerx78,y287; VIEWER RIGHT otherfootendsy260nearx115. This is anatomicalRIGHT footforward, leftfootback, two distinctshoes, no legcrossing. Oppositearmswing. Preserveperson andemptyhands.\n192x288 true transparent, headtopy8, height280, frontwidth80to110, bottom287. Averagegrayscalebrightness33to38percent, onegraycelshadow, thickline. No props,chair,cup,phone,whitehalo,grayglow,groundshadow,colors,text or diagram. ONE ordinary frontwalkingguest only.",
+          "raw": "exec-08ada1ce-a27b-4f6a-81d7-716721bfbb63.png"
+        },
+        {
+          "key": "guest-4b-walk2-down",
+          "kind": "guest-walk",
+          "who": "4b",
+          "direction": "down",
+          "phase": 2,
+          "refs": [
+            "working:normalized/guest-4b-stand-down.png",
+            "working:approved-walk2-front-legs.png",
+            "assets/a/guest-4b-down.png"
+          ],
+          "prompt": "Use case: identity-preserve. Create ONE FRONT WALK2 of EXACT guest4b from image1/3: curlyBLACKbob, rectangularGLASSES, graycrewneckSWEATER, sameface/body. Image2 is ONLY a cropped legPOSE reference from another guest. Copy that LEGPOSE EXACTLY, NOTthatperson's identity.\nThe shoe that reachesBOTTOMy287 is on VIEWER LEFT, clearly centerx75native. This is the person's anatomicalRIGHT shoe. The other shoe on VIEWER RIGHT staysBACK at y260centerx116. Lowestshoe must NOT be onviewerRIGHT and must NOT straddle center. Look at image2, it shows the desired frontal legs. Leftside trouserleg extends straight downandforward towardviewer; rightside trouserleg bendsback. Small oppositearmswing, emptyhands.\nTransparent192x288, visibleheight280,hairtopy8, frontwidth80to110, solesy287. Same headsizeandgraywardrobe asimage1, subjectbrightness33to38percent, oneflatgray shadowstep, thicksparseblackline. No chair/cup/phone,grayglow,whitehalo,shadow,colortext,diagram, labelor extrafigure. Onefrontwalkingfigure with requested left-in-picture lowestshoe.",
+          "raw": "exec-fa845909-ebaf-4ae2-bb77-035a0de92005.png"
+        },
+        {
+          "key": "guest-4b-walk2-up",
+          "kind": "guest-walk",
+          "who": "4b",
+          "direction": "up",
+          "phase": 2,
+          "refs": [
+            "working:normalized/guest-4b-walk2-up.png",
+            "working:normalized/guest-4b-stand-up.png",
+            "working:normalized/guest-4b-walk1-up.png"
+          ],
+          "prompt": "Use case: lighting-weather. Edit IMAGE1 in EXACTsame BACK WALK2 pose, samebackofcurlyBLACKhair, graycrewneckSWEATER, trousers, emptyhands. DO NOT changeview or legphase. It must stay backview with NOfaceeyes/glasses. Bottommostshoe atVIEWER LEFTy287, othershoeonVIEWERRIGHTy260. Ref2/3 only MATCH THEIR LIGHTER GRAY CLOTHING FILL, do not copy their stance/phase.\nCurrentimage1 overallbrightness27percent is TOO DARK. Raise LIGHTING of clothes substantially: sweater base lightgray near#9a9a9a, shadow#737373; trousers base#737373, shadow#555555. Overallopaque-personmean target38to42percent, allowed30to45. Keep blackhair/outlines and samegraywardrobe. This is still grayscale notnewhue. Largeflatfills,ONEshadowstep, no gradients.\nSame192x288true transparent, hairtop8,height280,bottom287, sameheadsizeandbody. No halo/aura/shadow/props/text/colors/frontview. Onefigure only, brighter neutralgray garment fills.",
+          "raw": "exec-2329f1cc-549b-47f8-b31b-1972dafa1f0d.png"
+        }
+      ],
+      "successfulGenerationCalls": 61,
+      "assets": [
+        {
+          "key": "caller-idle",
+          "kind": "caller-game",
+          "who": null,
+          "direction": null,
+          "phase": null,
+          "canvas": [
+            192,
+            288
+          ],
+          "bbox": [
+            36,
+            38,
+            156,
+            288
+          ],
+          "width": 120,
+          "height": 250,
+          "topY": 38,
+          "bottomY": 287,
+          "meanBrightness": 32.4,
+          "rawBBox": [
+            23,
+            459,
+            730,
+            1937
+          ],
+          "uniformScale": 0.16914749661705006,
+          "canvasPlacement": [
+            36,
+            38
+          ],
+          "bytes": 41953,
+          "sourceRawFile": "exec-c7b205c7-1d8b-4572-a411-f44780ec49a7.png",
+          "path": "assets/a/caller-idle.png",
+          "fillSamples": [
+            {
+              "requested": [
+                47,
+                109,
+                179
+              ],
+              "measuredMedian": [
+                44,
+                106,
+                188
+              ],
+              "sampleCount": 3550
+            },
+            {
+              "requested": [
+                33,
+                76,
+                125
+              ],
+              "measuredMedian": [
+                29,
+                73,
+                135
+              ],
+              "sampleCount": 1155
+            }
+          ]
+        },
+        {
+          "key": "caller-react",
+          "kind": "caller-game",
+          "who": null,
+          "direction": null,
+          "phase": null,
+          "canvas": [
+            192,
+            288
+          ],
+          "bbox": [
+            38,
+            38,
+            154,
+            288
+          ],
+          "width": 116,
+          "height": 250,
+          "topY": 38,
+          "bottomY": 287,
+          "meanBrightness": 34.699,
+          "rawBBox": [
+            222,
+            194,
+            828,
+            1495
+          ],
+          "uniformScale": 0.1921598770176787,
+          "canvasPlacement": [
+            38,
+            38
+          ],
+          "bytes": 43779,
+          "sourceRawFile": "exec-cc78c804-e9e5-4faa-8993-28abc5660376.png",
+          "path": "assets/a/caller-react.png",
+          "fillSamples": [
+            {
+              "requested": [
+                47,
+                109,
+                179
+              ],
+              "measuredMedian": [
+                42,
+                104,
+                190
+              ],
+              "sampleCount": 3337
+            },
+            {
+              "requested": [
+                33,
+                76,
+                125
+              ],
+              "measuredMedian": [
+                28,
+                72,
+                140
+              ],
+              "sampleCount": 1068
+            }
+          ]
+        },
+        {
+          "key": "caller-face",
+          "kind": "caller-face",
+          "who": null,
+          "direction": null,
+          "phase": null,
+          "canvas": [
+            128,
+            128
+          ],
+          "bbox": [
+            4,
+            4,
+            123,
+            128
+          ],
+          "width": 119,
+          "height": 124,
+          "topY": 4,
+          "bottomY": 127,
+          "meanBrightness": 34.455,
+          "rawBBox": [
+            41,
+            38,
+            1208,
+            1254
+          ],
+          "uniformScale": 0.10197368421052631,
+          "canvasPlacement": [
+            4,
+            4
+          ],
+          "bytes": 25257,
+          "sourceRawFile": "exec-73ff5528-b6e8-426f-af1b-526ce6f1ea1b.png",
+          "path": "assets/a/caller-face.png",
+          "fillSamples": [
+            {
+              "requested": [
+                47,
+                109,
+                179
+              ],
+              "measuredMedian": [
+                44,
+                106,
+                186
+              ],
+              "sampleCount": 1108
+            },
+            {
+              "requested": [
+                33,
+                76,
+                125
+              ],
+              "measuredMedian": [
+                27,
+                72,
+                138
+              ],
+              "sampleCount": 289
+            }
+          ]
+        },
+        {
+          "key": "caller-portrait",
+          "kind": "caller-portrait",
+          "who": null,
+          "direction": null,
+          "phase": null,
+          "canvas": [
+            1024,
+            1024
+          ],
+          "bbox": [
+            84,
+            4,
+            940,
+            1024
+          ],
+          "width": 856,
+          "height": 1020,
+          "topY": 4,
+          "bottomY": 1023,
+          "meanBrightness": 37.405,
+          "rawBBox": [
+            130,
+            13,
+            1172,
+            1254
+          ],
+          "uniformScale": 0.821917808219178,
+          "canvasPlacement": [
+            84,
+            4
+          ],
+          "bytes": 107864,
+          "sourceRawFile": "exec-7423674e-f2e1-45a5-8133-d69042554cf5.png",
+          "path": "assets/a/caller-portrait.webp",
+          "fillSamples": [
+            {
+              "requested": [
+                47,
+                109,
+                179
+              ],
+              "measuredMedian": [
+                52,
+                110,
+                186
+              ],
+              "sampleCount": 167805
+            },
+            {
+              "requested": [
+                33,
+                76,
+                125
+              ],
+              "measuredMedian": [
+                32,
+                71,
+                128
+              ],
+              "sampleCount": 66070
+            }
+          ]
+        },
+        {
+          "key": "title-egg-caller",
+          "kind": "caller-egg",
+          "who": null,
+          "direction": null,
+          "phase": null,
+          "canvas": [
+            512,
+            512
+          ],
+          "bbox": [
+            83,
+            83,
+            429,
+            488
+          ],
+          "width": 346,
+          "height": 405,
+          "topY": 83,
+          "bottomY": 487,
+          "meanBrightness": 33.752,
+          "rawBBox": [
+            164,
+            68,
+            1134,
+            1205
+          ],
+          "uniformScale": 0.3562005277044855,
+          "canvasPlacement": [
+            83,
+            83
+          ],
+          "bytes": 141463,
+          "sourceRawFile": "exec-094848a2-72bb-499f-a45c-0fd1117f556a.png",
+          "path": "assets/a/title-egg-caller.png",
+          "fillSamples": [
+            {
+              "requested": [
+                47,
+                109,
+                179
+              ],
+              "measuredMedian": [
+                49,
+                112,
+                191
+              ],
+              "sampleCount": 8841
+            },
+            {
+              "requested": [
+                33,
+                76,
+                125
+              ],
+              "measuredMedian": [
+                31,
+                71,
+                130
+              ],
+              "sampleCount": 3383
+            }
+          ]
+        },
+        {
+          "key": "villain-sleep",
+          "kind": "sleeper-fixed",
+          "path": "assets/a/villain-sleep.png",
+          "bytes": 73131,
+          "canvas": [
+            192,
+            480
+          ],
+          "bbox": [
+            4,
+            137,
+            188,
+            383
+          ],
+          "width": 184,
+          "height": 246,
+          "topY": 137,
+          "bottomY": 382,
+          "meanBrightness": 35.956,
+          "equipmentTopY": 289,
+          "equipmentBottomY": 382,
+          "fillSamples": [
+            {
+              "requested": [
+                123,
+                79,
+                176
+              ],
+              "measuredMedian": [
+                125,
+                76,
+                174
+              ],
+              "sampleCount": 10905
+            },
+            {
+              "requested": [
+                86,
+                55,
+                123
+              ],
+              "measuredMedian": [
+                77,
+                45,
+                111
+              ],
+              "sampleCount": 1941
+            }
+          ]
+        },
+        {
+          "key": "villain-wake",
+          "kind": "sleeper-wake",
+          "who": null,
+          "direction": null,
+          "phase": null,
+          "canvas": [
+            192,
+            480
+          ],
+          "bbox": [
+            4,
+            137,
+            188,
+            383
+          ],
+          "width": 184,
+          "height": 246,
+          "topY": 137,
+          "bottomY": 382,
+          "meanBrightness": 37.437,
+          "rawBBox": [
+            16,
+            543,
+            776,
+            1550
+          ],
+          "uniformScale": 0.24210526315789474,
+          "canvasPlacement": [
+            4,
+            137
+          ],
+          "bytes": 73947,
+          "sourceRawFile": "exec-c0785bb7-f434-41ec-883e-8da55de13a28.png",
+          "path": "assets/a/villain-wake.png",
+          "equipmentTopY": 289,
+          "equipmentBottomY": 382,
+          "fillSamples": [
+            {
+              "requested": [
+                123,
+                79,
+                176
+              ],
+              "measuredMedian": [
+                125,
+                76,
+                174
+              ],
+              "sampleCount": 10905
+            },
+            {
+              "requested": [
+                86,
+                55,
+                123
+              ],
+              "measuredMedian": [
+                77,
+                45,
+                111
+              ],
+              "sampleCount": 1941
+            }
+          ]
+        },
+        {
+          "key": "villain-portrait",
+          "kind": "sleeper-fixed",
+          "path": "assets/a/villain-portrait.webp",
+          "bytes": 334798,
+          "canvas": [
+            1024,
+            1024
+          ],
+          "bbox": [
+            120,
+            4,
+            903,
+            1024
+          ],
+          "width": 783,
+          "height": 1020,
+          "topY": 4,
+          "bottomY": 1023,
+          "meanBrightness": 33.696,
+          "fillSamples": [
+            {
+              "requested": [
+                123,
+                79,
+                176
+              ],
+              "measuredMedian": [
+                123,
+                78,
+                178
+              ],
+              "sampleCount": 268903
+            },
+            {
+              "requested": [
+                86,
+                55,
+                123
+              ],
+              "measuredMedian": [
+                78,
+                45,
+                117
+              ],
+              "sampleCount": 82989
+            }
+          ]
+        },
+        {
+          "key": "title-egg-sleeper",
+          "kind": "sleeper-egg",
+          "who": null,
+          "direction": null,
+          "phase": null,
+          "canvas": [
+            512,
+            512
+          ],
+          "bbox": [
+            16,
+            58,
+            495,
+            488
+          ],
+          "width": 479,
+          "height": 430,
+          "topY": 58,
+          "bottomY": 487,
+          "meanBrightness": 32.178,
+          "rawBBox": [
+            47,
+            144,
+            1219,
+            1196
+          ],
+          "uniformScale": 0.40874524714828897,
+          "canvasPlacement": [
+            16,
+            58
+          ],
+          "bytes": 193375,
+          "sourceRawFile": "exec-16ee686e-983b-4e24-b59f-0d729b67d66d.png",
+          "path": "assets/a/title-egg-sleeper.png",
+          "fillSamples": [
+            {
+              "requested": [
+                123,
+                79,
+                176
+              ],
+              "measuredMedian": [
+                124,
+                73,
+                182
+              ],
+              "sampleCount": 21643
+            },
+            {
+              "requested": [
+                86,
+                55,
+                123
+              ],
+              "measuredMedian": [
+                80,
+                45,
+                123
+              ],
+              "sampleCount": 7293
+            }
+          ]
+        },
+        {
+          "key": "story-3",
+          "kind": "story",
+          "canvas": [
+            1280,
+            720
+          ],
+          "bytes": 65270,
+          "quality": 85,
+          "sourceRawFile": "exec-977d6ba2-7d49-4c00-bccd-917db061ddef.png",
+          "path": "assets/a/story-3.webp",
+          "bbox": [
+            0,
+            0,
+            1280,
+            720
+          ],
+          "width": 1280,
+          "height": 720,
+          "topY": 0,
+          "bottomY": 719,
+          "meanBrightness": 37.768
+        },
+        {
+          "key": "story-4",
+          "kind": "story",
+          "canvas": [
+            1280,
+            720
+          ],
+          "bytes": 62636,
+          "quality": 85,
+          "sourceRawFile": "exec-4fc88434-d531-4467-a1e0-cd690c8e0e9f.png",
+          "path": "assets/a/story-4.webp",
+          "bbox": [
+            0,
+            0,
+            1280,
+            720
+          ],
+          "width": 1280,
+          "height": 720,
+          "topY": 0,
+          "bottomY": 719,
+          "meanBrightness": 35.787
+        },
+        {
+          "key": "guest-3b-stand-down",
+          "kind": "guest-stand",
+          "who": "3b",
+          "direction": "down",
+          "phase": null,
+          "canvas": [
+            192,
+            288
+          ],
+          "bbox": [
+            53,
+            8,
+            138,
+            288
+          ],
+          "width": 85,
+          "height": 280,
+          "topY": 8,
+          "bottomY": 287,
+          "meanBrightness": 30.727,
+          "rawBBox": [
+            313,
+            136,
+            732,
+            1515
+          ],
+          "uniformScale": 0.20304568527918782,
+          "canvasPlacement": [
+            53,
+            8
+          ],
+          "bytes": 38265,
+          "sourceRawFile": "exec-b62a1e19-0663-4dbd-b733-5e60aa26892e.png",
+          "path": "assets/a/guest-3b-stand-down.png",
+          "heightPass": true,
+          "floorPass": true,
+          "frontWidthPass": true,
+          "brightnessPass": true,
+          "headTopDeltaFromStanding": 0,
+          "headTopPass": true
+        },
+        {
+          "key": "guest-3b-stand-up",
+          "kind": "guest-stand",
+          "who": "3b",
+          "direction": "up",
+          "phase": null,
+          "canvas": [
+            192,
+            288
+          ],
+          "bbox": [
+            50,
+            8,
+            141,
+            288
+          ],
+          "width": 91,
+          "height": 280,
+          "topY": 8,
+          "bottomY": 287,
+          "meanBrightness": 32.076,
+          "rawBBox": [
+            290,
+            108,
+            740,
+            1492
+          ],
+          "uniformScale": 0.2023121387283237,
+          "canvasPlacement": [
+            50,
+            8
+          ],
+          "bytes": 37509,
+          "sourceRawFile": "exec-74269500-98c4-47ec-951e-8035d70a1247.png",
+          "path": "assets/a/guest-3b-stand-up.png",
+          "heightPass": true,
+          "floorPass": true,
+          "frontWidthPass": null,
+          "brightnessPass": true,
+          "headTopDeltaFromStanding": 0,
+          "headTopPass": true
+        },
+        {
+          "key": "guest-3b-stand-left",
+          "kind": "guest-stand",
+          "who": "3b",
+          "direction": "left",
+          "phase": null,
+          "canvas": [
+            192,
+            288
+          ],
+          "bbox": [
+            61,
+            8,
+            130,
+            288
+          ],
+          "width": 69,
+          "height": 280,
+          "topY": 8,
+          "bottomY": 287,
+          "meanBrightness": 30.153,
+          "rawBBox": [
+            338,
+            75,
+            692,
+            1511
+          ],
+          "uniformScale": 0.19498607242339833,
+          "canvasPlacement": [
+            61,
+            8
+          ],
+          "bytes": 29712,
+          "sourceRawFile": "exec-af44fec2-a2bc-4d0a-a19a-3bf58d38a4b2.png",
+          "path": "assets/a/guest-3b-stand-left.png",
+          "heightPass": true,
+          "floorPass": true,
+          "frontWidthPass": null,
+          "brightnessPass": true,
+          "headTopDeltaFromStanding": 0,
+          "headTopPass": true
+        },
+        {
+          "key": "guest-3b-stand-right",
+          "kind": "guest-stand",
+          "who": "3b",
+          "direction": "right",
+          "phase": null,
+          "canvas": [
+            192,
+            288
+          ],
+          "bbox": [
+            61,
+            8,
+            130,
+            288
+          ],
+          "width": 69,
+          "height": 280,
+          "topY": 8,
+          "bottomY": 287,
+          "meanBrightness": 32.333,
+          "rawBBox": [
+            349,
+            68,
+            704,
+            1507
+          ],
+          "uniformScale": 0.19457956914523974,
+          "canvasPlacement": [
+            61,
+            8
+          ],
+          "bytes": 29884,
+          "sourceRawFile": "exec-849d94c1-02b5-4d36-956a-6e46a79a3a3c.png",
+          "path": "assets/a/guest-3b-stand-right.png",
+          "heightPass": true,
+          "floorPass": true,
+          "frontWidthPass": null,
+          "brightnessPass": true,
+          "headTopDeltaFromStanding": 0,
+          "headTopPass": true
+        },
+        {
+          "key": "guest-3b-walk1-down",
+          "kind": "guest-walk",
+          "who": "3b",
+          "direction": "down",
+          "phase": 1,
+          "canvas": [
+            192,
+            288
+          ],
+          "bbox": [
+            49,
+            8,
+            143,
+            288
+          ],
+          "width": 94,
+          "height": 280,
+          "topY": 8,
+          "bottomY": 287,
+          "meanBrightness": 33.721,
+          "rawBBox": [
+            279,
+            109,
+            749,
+            1510
+          ],
+          "uniformScale": 0.1998572448251249,
+          "canvasPlacement": [
+            49,
+            8
+          ],
+          "bytes": 39866,
+          "sourceRawFile": "exec-00952975-2311-42f8-a23f-539adcf06e77.png",
+          "path": "assets/a/guest-3b-walk1-down.png",
+          "heightPass": true,
+          "floorPass": true,
+          "frontWidthPass": true,
+          "brightnessPass": true,
+          "headTopDeltaFromStanding": 0,
+          "headTopPass": true
+        },
+        {
+          "key": "guest-3b-walk2-down",
+          "kind": "guest-walk",
+          "who": "3b",
+          "direction": "down",
+          "phase": 2,
+          "canvas": [
+            192,
+            288
+          ],
+          "bbox": [
+            50,
+            8,
+            142,
+            288
+          ],
+          "width": 92,
+          "height": 280,
+          "topY": 8,
+          "bottomY": 287,
+          "meanBrightness": 32.603,
+          "rawBBox": [
+            304,
+            146,
+            749,
+            1497
+          ],
+          "uniformScale": 0.20725388601036268,
+          "canvasPlacement": [
+            50,
+            8
+          ],
+          "bytes": 38946,
+          "sourceRawFile": "exec-1d9f9478-e3c6-44b9-8e78-a5730a4dacd8.png",
+          "path": "assets/a/guest-3b-walk2-down.png",
+          "heightPass": true,
+          "floorPass": true,
+          "frontWidthPass": true,
+          "brightnessPass": true,
+          "headTopDeltaFromStanding": 0,
+          "headTopPass": true
+        },
+        {
+          "key": "guest-3b-walk1-up",
+          "kind": "guest-walk",
+          "who": "3b",
+          "direction": "up",
+          "phase": 1,
+          "canvas": [
+            192,
+            288
+          ],
+          "bbox": [
+            49,
+            8,
+            142,
+            288
+          ],
+          "width": 93,
+          "height": 280,
+          "topY": 8,
+          "bottomY": 287,
+          "meanBrightness": 33.908,
+          "rawBBox": [
+            265,
+            62,
+            739,
+            1487
+          ],
+          "uniformScale": 0.19649122807017544,
+          "canvasPlacement": [
+            49,
+            8
+          ],
+          "bytes": 35977,
+          "sourceRawFile": "exec-eda7022c-8e47-4cc7-af53-a9d381cc869f.png",
+          "path": "assets/a/guest-3b-walk1-up.png",
+          "heightPass": true,
+          "floorPass": true,
+          "frontWidthPass": null,
+          "brightnessPass": true,
+          "headTopDeltaFromStanding": 0,
+          "headTopPass": true
+        },
+        {
+          "key": "guest-3b-walk2-up",
+          "kind": "guest-walk",
+          "who": "3b",
+          "direction": "up",
+          "phase": 2,
+          "canvas": [
+            192,
+            288
+          ],
+          "bbox": [
+            48,
+            8,
+            144,
+            288
+          ],
+          "width": 96,
+          "height": 280,
+          "topY": 8,
+          "bottomY": 287,
+          "meanBrightness": 31.21,
+          "rawBBox": [
+            256,
+            48,
+            748,
+            1489
+          ],
+          "uniformScale": 0.19430950728660654,
+          "canvasPlacement": [
+            48,
+            8
+          ],
+          "bytes": 36838,
+          "sourceRawFile": "exec-993a1eb3-49fd-4424-a5a8-a47a005aa4f7.png",
+          "path": "assets/a/guest-3b-walk2-up.png",
+          "heightPass": true,
+          "floorPass": true,
+          "frontWidthPass": null,
+          "brightnessPass": true,
+          "headTopDeltaFromStanding": 0,
+          "headTopPass": true
+        },
+        {
+          "key": "guest-3b-walk1-left",
+          "kind": "guest-walk",
+          "who": "3b",
+          "direction": "left",
+          "phase": 1,
+          "canvas": [
+            192,
+            288
+          ],
+          "bbox": [
+            24,
+            8,
+            168,
+            288
+          ],
+          "width": 144,
+          "height": 280,
+          "topY": 8,
+          "bottomY": 287,
+          "meanBrightness": 31.084,
+          "rawBBox": [
+            176,
+            60,
+            911,
+            1487
+          ],
+          "uniformScale": 0.19621583742116327,
+          "canvasPlacement": [
+            24,
+            8
+          ],
+          "bytes": 39980,
+          "sourceRawFile": "exec-202b529d-7b9f-49a8-813c-9bc05c5ac308.png",
+          "path": "assets/a/guest-3b-walk1-left.png",
+          "heightPass": true,
+          "floorPass": true,
+          "frontWidthPass": null,
+          "brightnessPass": true,
+          "headTopDeltaFromStanding": 0,
+          "headTopPass": true
+        },
+        {
+          "key": "guest-3b-walk2-left",
+          "kind": "guest-walk",
+          "who": "3b",
+          "direction": "left",
+          "phase": 2,
+          "canvas": [
+            192,
+            288
+          ],
+          "bbox": [
+            29,
+            8,
+            162,
+            288
+          ],
+          "width": 133,
+          "height": 280,
+          "topY": 8,
+          "bottomY": 287,
+          "meanBrightness": 30.696,
+          "rawBBox": [
+            203,
+            143,
+            844,
+            1496
+          ],
+          "uniformScale": 0.20694752402069475,
+          "canvasPlacement": [
+            29,
+            8
+          ],
+          "bytes": 41512,
+          "sourceRawFile": "exec-b56ebc90-478f-48ff-bd63-49c9e9de9f1a.png",
+          "path": "assets/a/guest-3b-walk2-left.png",
+          "heightPass": true,
+          "floorPass": true,
+          "frontWidthPass": null,
+          "brightnessPass": true,
+          "headTopDeltaFromStanding": 0,
+          "headTopPass": true
+        },
+        {
+          "key": "guest-3b-walk1-right",
+          "kind": "guest-walk",
+          "who": "3b",
+          "direction": "right",
+          "phase": 1,
+          "canvas": [
+            192,
+            288
+          ],
+          "bbox": [
+            28,
+            8,
+            164,
+            288
+          ],
+          "width": 136,
+          "height": 280,
+          "topY": 8,
+          "bottomY": 287,
+          "meanBrightness": 34.076,
+          "rawBBox": [
+            231,
+            165,
+            867,
+            1473
+          ],
+          "uniformScale": 0.21406727828746178,
+          "canvasPlacement": [
+            28,
+            8
+          ],
+          "bytes": 41028,
+          "sourceRawFile": "exec-57a11dc5-8407-41e3-82d0-4e1329f976f9.png",
+          "path": "assets/a/guest-3b-walk1-right.png",
+          "heightPass": true,
+          "floorPass": true,
+          "frontWidthPass": null,
+          "brightnessPass": true,
+          "headTopDeltaFromStanding": 0,
+          "headTopPass": true
+        },
+        {
+          "key": "guest-3b-walk2-right",
+          "kind": "guest-walk",
+          "who": "3b",
+          "direction": "right",
+          "phase": 2,
+          "canvas": [
+            192,
+            288
+          ],
+          "bbox": [
+            22,
+            8,
+            170,
+            288
+          ],
+          "width": 148,
+          "height": 280,
+          "topY": 8,
+          "bottomY": 287,
+          "meanBrightness": 36.266,
+          "rawBBox": [
+            162,
+            50,
+            929,
+            1505
+          ],
+          "uniformScale": 0.19243986254295534,
+          "canvasPlacement": [
+            22,
+            8
+          ],
+          "bytes": 43398,
+          "sourceRawFile": "exec-d0c9b4b3-283c-470a-a5af-aa93001a96f7.png",
+          "path": "assets/a/guest-3b-walk2-right.png",
+          "heightPass": true,
+          "floorPass": true,
+          "frontWidthPass": null,
+          "brightnessPass": true,
+          "headTopDeltaFromStanding": 0,
+          "headTopPass": true
+        },
+        {
+          "key": "guest-4b-stand-down",
+          "kind": "guest-stand",
+          "who": "4b",
+          "direction": "down",
+          "phase": null,
+          "canvas": [
+            192,
+            288
+          ],
+          "bbox": [
+            50,
+            8,
+            141,
+            288
+          ],
+          "width": 91,
+          "height": 280,
+          "topY": 8,
+          "bottomY": 287,
+          "meanBrightness": 30.689,
+          "rawBBox": [
+            281,
+            61,
+            740,
+            1470
+          ],
+          "uniformScale": 0.198722498225692,
+          "canvasPlacement": [
+            50,
+            8
+          ],
+          "bytes": 39285,
+          "sourceRawFile": "exec-9d0a643a-cf53-49db-9bcb-ddd3dfdf4cb6.png",
+          "path": "assets/a/guest-4b-stand-down.png",
+          "heightPass": true,
+          "floorPass": true,
+          "frontWidthPass": true,
+          "brightnessPass": true,
+          "headTopDeltaFromStanding": 0,
+          "headTopPass": true
+        },
+        {
+          "key": "guest-4b-stand-up",
+          "kind": "guest-stand",
+          "who": "4b",
+          "direction": "up",
+          "phase": null,
+          "canvas": [
+            192,
+            288
+          ],
+          "bbox": [
+            49,
+            8,
+            143,
+            288
+          ],
+          "width": 94,
+          "height": 280,
+          "topY": 8,
+          "bottomY": 287,
+          "meanBrightness": 35.312,
+          "rawBBox": [
+            275,
+            84,
+            751,
+            1496
+          ],
+          "uniformScale": 0.19830028328611898,
+          "canvasPlacement": [
+            49,
+            8
+          ],
+          "bytes": 38702,
+          "sourceRawFile": "exec-6a1cf5cf-c4f7-4a1c-9013-e169858ff558.png",
+          "path": "assets/a/guest-4b-stand-up.png",
+          "heightPass": true,
+          "floorPass": true,
+          "frontWidthPass": null,
+          "brightnessPass": true,
+          "headTopDeltaFromStanding": 0,
+          "headTopPass": true
+        },
+        {
+          "key": "guest-4b-stand-left",
+          "kind": "guest-stand",
+          "who": "4b",
+          "direction": "left",
+          "phase": null,
+          "canvas": [
+            192,
+            288
+          ],
+          "bbox": [
+            58,
+            8,
+            134,
+            288
+          ],
+          "width": 76,
+          "height": 280,
+          "topY": 8,
+          "bottomY": 287,
+          "meanBrightness": 36.396,
+          "rawBBox": [
+            310,
+            38,
+            711,
+            1513
+          ],
+          "uniformScale": 0.18983050847457628,
+          "canvasPlacement": [
+            58,
+            8
+          ],
+          "bytes": 32298,
+          "sourceRawFile": "exec-504251e7-2c5f-4cf8-8e92-3b9f64290455.png",
+          "path": "assets/a/guest-4b-stand-left.png",
+          "heightPass": true,
+          "floorPass": true,
+          "frontWidthPass": null,
+          "brightnessPass": true,
+          "headTopDeltaFromStanding": 0,
+          "headTopPass": true
+        },
+        {
+          "key": "guest-4b-stand-right",
+          "kind": "guest-stand",
+          "who": "4b",
+          "direction": "right",
+          "phase": null,
+          "canvas": [
+            192,
+            288
+          ],
+          "bbox": [
+            59,
+            8,
+            133,
+            288
+          ],
+          "width": 74,
+          "height": 280,
+          "topY": 8,
+          "bottomY": 287,
+          "meanBrightness": 35.327,
+          "rawBBox": [
+            322,
+            53,
+            707,
+            1514
+          ],
+          "uniformScale": 0.19164955509924708,
+          "canvasPlacement": [
+            59,
+            8
+          ],
+          "bytes": 31896,
+          "sourceRawFile": "exec-a3ac5ffc-4479-4c7c-aa1c-6b13b346d787.png",
+          "path": "assets/a/guest-4b-stand-right.png",
+          "heightPass": true,
+          "floorPass": true,
+          "frontWidthPass": null,
+          "brightnessPass": true,
+          "headTopDeltaFromStanding": 0,
+          "headTopPass": true
+        },
+        {
+          "key": "guest-4b-walk1-down",
+          "kind": "guest-walk",
+          "who": "4b",
+          "direction": "down",
+          "phase": 1,
+          "canvas": [
+            192,
+            288
+          ],
+          "bbox": [
+            48,
+            8,
+            144,
+            288
+          ],
+          "width": 96,
+          "height": 280,
+          "topY": 8,
+          "bottomY": 287,
+          "meanBrightness": 32.314,
+          "rawBBox": [
+            290,
+            109,
+            751,
+            1459
+          ],
+          "uniformScale": 0.2074074074074074,
+          "canvasPlacement": [
+            48,
+            8
+          ],
+          "bytes": 39998,
+          "sourceRawFile": "exec-e5ef9de8-311e-466d-bf71-ddbd367c8633.png",
+          "path": "assets/a/guest-4b-walk1-down.png",
+          "heightPass": true,
+          "floorPass": true,
+          "frontWidthPass": true,
+          "brightnessPass": true,
+          "headTopDeltaFromStanding": 0,
+          "headTopPass": true
+        },
+        {
+          "key": "guest-4b-walk2-down",
+          "kind": "guest-walk",
+          "who": "4b",
+          "direction": "down",
+          "phase": 2,
+          "canvas": [
+            192,
+            288
+          ],
+          "bbox": [
+            49,
+            8,
+            143,
+            288
+          ],
+          "width": 94,
+          "height": 280,
+          "topY": 8,
+          "bottomY": 287,
+          "meanBrightness": 31.676,
+          "rawBBox": [
+            269,
+            82,
+            735,
+            1475
+          ],
+          "uniformScale": 0.20100502512562815,
+          "canvasPlacement": [
+            49,
+            8
+          ],
+          "bytes": 39437,
+          "sourceRawFile": "exec-fa845909-ebaf-4ae2-bb77-035a0de92005.png",
+          "path": "assets/a/guest-4b-walk2-down.png",
+          "heightPass": true,
+          "floorPass": true,
+          "frontWidthPass": true,
+          "brightnessPass": true,
+          "headTopDeltaFromStanding": 0,
+          "headTopPass": true
+        },
+        {
+          "key": "guest-4b-walk1-up",
+          "kind": "guest-walk",
+          "who": "4b",
+          "direction": "up",
+          "phase": 1,
+          "canvas": [
+            192,
+            288
+          ],
+          "bbox": [
+            47,
+            8,
+            145,
+            288
+          ],
+          "width": 98,
+          "height": 280,
+          "topY": 8,
+          "bottomY": 287,
+          "meanBrightness": 40.87,
+          "rawBBox": [
+            248,
+            42,
+            770,
+            1531
+          ],
+          "uniformScale": 0.1880456682337139,
+          "canvasPlacement": [
+            47,
+            8
+          ],
+          "bytes": 38277,
+          "sourceRawFile": "exec-802fad85-4612-4071-b741-b9934cea76cc.png",
+          "path": "assets/a/guest-4b-walk1-up.png",
+          "heightPass": true,
+          "floorPass": true,
+          "frontWidthPass": null,
+          "brightnessPass": true,
+          "headTopDeltaFromStanding": 0,
+          "headTopPass": true
+        },
+        {
+          "key": "guest-4b-walk2-up",
+          "kind": "guest-walk",
+          "who": "4b",
+          "direction": "up",
+          "phase": 2,
+          "canvas": [
+            192,
+            288
+          ],
+          "bbox": [
+            46,
+            8,
+            145,
+            288
+          ],
+          "width": 99,
+          "height": 280,
+          "topY": 8,
+          "bottomY": 287,
+          "meanBrightness": 40.614,
+          "rawBBox": [
+            251,
+            43,
+            773,
+            1521
+          ],
+          "uniformScale": 0.18944519621109607,
+          "canvasPlacement": [
+            46,
+            8
+          ],
+          "bytes": 38985,
+          "sourceRawFile": "exec-2329f1cc-549b-47f8-b31b-1972dafa1f0d.png",
+          "path": "assets/a/guest-4b-walk2-up.png",
+          "heightPass": true,
+          "floorPass": true,
+          "frontWidthPass": null,
+          "brightnessPass": true,
+          "headTopDeltaFromStanding": 0,
+          "headTopPass": true
+        },
+        {
+          "key": "guest-4b-walk1-left",
+          "kind": "guest-walk",
+          "who": "4b",
+          "direction": "left",
+          "phase": 1,
+          "canvas": [
+            192,
+            288
+          ],
+          "bbox": [
+            19,
+            8,
+            172,
+            288
+          ],
+          "width": 153,
+          "height": 280,
+          "topY": 8,
+          "bottomY": 287,
+          "meanBrightness": 33.341,
+          "rawBBox": [
+            120,
+            44,
+            918,
+            1501
+          ],
+          "uniformScale": 0.19217570350034316,
+          "canvasPlacement": [
+            19,
+            8
+          ],
+          "bytes": 44499,
+          "sourceRawFile": "exec-e9f2fef2-8454-46e9-97d4-acb3acde1887.png",
+          "path": "assets/a/guest-4b-walk1-left.png",
+          "heightPass": true,
+          "floorPass": true,
+          "frontWidthPass": null,
+          "brightnessPass": true,
+          "headTopDeltaFromStanding": 0,
+          "headTopPass": true
+        },
+        {
+          "key": "guest-4b-walk2-left",
+          "kind": "guest-walk",
+          "who": "4b",
+          "direction": "left",
+          "phase": 2,
+          "canvas": [
+            192,
+            288
+          ],
+          "bbox": [
+            25,
+            8,
+            167,
+            288
+          ],
+          "width": 142,
+          "height": 280,
+          "topY": 8,
+          "bottomY": 287,
+          "meanBrightness": 32.978,
+          "rawBBox": [
+            175,
+            74,
+            889,
+            1484
+          ],
+          "uniformScale": 0.19858156028368795,
+          "canvasPlacement": [
+            25,
+            8
+          ],
+          "bytes": 43027,
+          "sourceRawFile": "exec-b654da0a-8416-4bdf-8a8c-e0a80c9f7e5c.png",
+          "path": "assets/a/guest-4b-walk2-left.png",
+          "heightPass": true,
+          "floorPass": true,
+          "frontWidthPass": null,
+          "brightnessPass": true,
+          "headTopDeltaFromStanding": 0,
+          "headTopPass": true
+        },
+        {
+          "key": "guest-4b-walk1-right",
+          "kind": "guest-walk",
+          "who": "4b",
+          "direction": "right",
+          "phase": 1,
+          "canvas": [
+            192,
+            288
+          ],
+          "bbox": [
+            28,
+            8,
+            163,
+            288
+          ],
+          "width": 135,
+          "height": 280,
+          "topY": 8,
+          "bottomY": 287,
+          "meanBrightness": 33.706,
+          "rawBBox": [
+            229,
+            73,
+            905,
+            1472
+          ],
+          "uniformScale": 0.20014295925661185,
+          "canvasPlacement": [
+            28,
+            8
+          ],
+          "bytes": 42589,
+          "sourceRawFile": "exec-5de91685-fb76-4552-b5a4-63c866a5e2a1.png",
+          "path": "assets/a/guest-4b-walk1-right.png",
+          "heightPass": true,
+          "floorPass": true,
+          "frontWidthPass": null,
+          "brightnessPass": true,
+          "headTopDeltaFromStanding": 0,
+          "headTopPass": true
+        },
+        {
+          "key": "guest-4b-walk2-right",
+          "kind": "guest-walk",
+          "who": "4b",
+          "direction": "right",
+          "phase": 2,
+          "canvas": [
+            192,
+            288
+          ],
+          "bbox": [
+            20,
+            8,
+            171,
+            288
+          ],
+          "width": 151,
+          "height": 280,
+          "topY": 8,
+          "bottomY": 287,
+          "meanBrightness": 39.035,
+          "rawBBox": [
+            154,
+            48,
+            932,
+            1495
+          ],
+          "uniformScale": 0.193503800967519,
+          "canvasPlacement": [
+            20,
+            8
+          ],
+          "bytes": 44848,
+          "sourceRawFile": "exec-615328a1-c352-4cd6-9ca4-06fffeb4c987.png",
+          "path": "assets/a/guest-4b-walk2-right.png",
+          "heightPass": true,
+          "floorPass": true,
+          "frontWidthPass": null,
+          "brightnessPass": true,
+          "headTopDeltaFromStanding": 0,
+          "headTopPass": true
+        },
+        {
+          "key": "guest-8a-walk1-up",
+          "kind": "guest-walk",
+          "who": "8a",
+          "direction": "up",
+          "phase": 1,
+          "canvas": [
+            192,
+            288
+          ],
+          "bbox": [
+            45,
+            8,
+            146,
+            288
+          ],
+          "width": 101,
+          "height": 280,
+          "topY": 8,
+          "bottomY": 287,
+          "meanBrightness": 36.794,
+          "rawBBox": [
+            61,
+            194,
+            713,
+            2004
+          ],
+          "uniformScale": 0.15469613259668508,
+          "canvasPlacement": [
+            45,
+            8
+          ],
+          "bytes": 38458,
+          "sourceRawFile": "exec-623c46a1-ade6-4caa-83ef-afe0a1acac11.png",
+          "path": "assets/a/guest-8a-walk1-up.png",
+          "heightPass": true,
+          "floorPass": true,
+          "frontWidthPass": null,
+          "brightnessPass": true,
+          "headTopDeltaFromStanding": 0,
+          "headTopPass": true
+        },
+        {
+          "key": "guest-8a-walk2-up",
+          "kind": "guest-walk",
+          "who": "8a",
+          "direction": "up",
+          "phase": 2,
+          "canvas": [
+            192,
+            288
+          ],
+          "bbox": [
+            45,
+            8,
+            146,
+            288
+          ],
+          "width": 101,
+          "height": 280,
+          "topY": 8,
+          "bottomY": 287,
+          "meanBrightness": 38.0,
+          "rawBBox": [
+            237,
+            37,
+            766,
+            1505
+          ],
+          "uniformScale": 0.1907356948228883,
+          "canvasPlacement": [
+            45,
+            8
+          ],
+          "bytes": 38692,
+          "sourceRawFile": "exec-61fea945-2d73-4b3f-a98f-e5815090e598.png",
+          "path": "assets/a/guest-8a-walk2-up.png",
+          "heightPass": true,
+          "floorPass": true,
+          "frontWidthPass": null,
+          "brightnessPass": true,
+          "headTopDeltaFromStanding": 0,
+          "headTopPass": true
+        },
+        {
+          "key": "guest-8a-walk1-left",
+          "kind": "guest-walk",
+          "who": "8a",
+          "direction": "left",
+          "phase": 1,
+          "canvas": [
+            192,
+            288
+          ],
+          "bbox": [
+            22,
+            8,
+            170,
+            288
+          ],
+          "width": 148,
+          "height": 280,
+          "topY": 8,
+          "bottomY": 287,
+          "meanBrightness": 38.848,
+          "rawBBox": [
+            142,
+            45,
+            909,
+            1495
+          ],
+          "uniformScale": 0.19310344827586207,
+          "canvasPlacement": [
+            22,
+            8
+          ],
+          "bytes": 45749,
+          "sourceRawFile": "exec-bd154f14-14c3-4f2c-86e8-3bfe81b04b87.png",
+          "path": "assets/a/guest-8a-walk1-left.png",
+          "heightPass": true,
+          "floorPass": true,
+          "frontWidthPass": null,
+          "brightnessPass": true,
+          "headTopDeltaFromStanding": 0,
+          "headTopPass": true
+        },
+        {
+          "key": "guest-8a-walk2-left",
+          "kind": "guest-walk",
+          "who": "8a",
+          "direction": "left",
+          "phase": 2,
+          "canvas": [
+            192,
+            288
+          ],
+          "bbox": [
+            28,
+            8,
+            163,
+            288
+          ],
+          "width": 135,
+          "height": 280,
+          "topY": 8,
+          "bottomY": 287,
+          "meanBrightness": 39.522,
+          "rawBBox": [
+            195,
+            116,
+            838,
+            1452
+          ],
+          "uniformScale": 0.20958083832335328,
+          "canvasPlacement": [
+            28,
+            8
+          ],
+          "bytes": 46735,
+          "sourceRawFile": "exec-8768bb2e-4d24-42f1-bf2a-3bd1af188182.png",
+          "path": "assets/a/guest-8a-walk2-left.png",
+          "heightPass": true,
+          "floorPass": true,
+          "frontWidthPass": null,
+          "brightnessPass": true,
+          "headTopDeltaFromStanding": 0,
+          "headTopPass": true
+        },
+        {
+          "key": "guest-8a-walk1-right",
+          "kind": "guest-walk",
+          "who": "8a",
+          "direction": "right",
+          "phase": 1,
+          "canvas": [
+            192,
+            288
+          ],
+          "bbox": [
+            25,
+            8,
+            166,
+            288
+          ],
+          "width": 141,
+          "height": 280,
+          "topY": 8,
+          "bottomY": 287,
+          "meanBrightness": 40.454,
+          "rawBBox": [
+            235,
+            161,
+            877,
+            1436
+          ],
+          "uniformScale": 0.2196078431372549,
+          "canvasPlacement": [
+            25,
+            8
+          ],
+          "bytes": 47701,
+          "sourceRawFile": "exec-64da252b-e789-498f-9813-5e0eee5e1f04.png",
+          "path": "assets/a/guest-8a-walk1-right.png",
+          "heightPass": true,
+          "floorPass": true,
+          "frontWidthPass": null,
+          "brightnessPass": true,
+          "headTopDeltaFromStanding": 0,
+          "headTopPass": true
+        },
+        {
+          "key": "guest-8a-walk2-right",
+          "kind": "guest-walk",
+          "who": "8a",
+          "direction": "right",
+          "phase": 2,
+          "canvas": [
+            192,
+            288
+          ],
+          "bbox": [
+            21,
+            8,
+            171,
+            288
+          ],
+          "width": 150,
+          "height": 280,
+          "topY": 8,
+          "bottomY": 287,
+          "meanBrightness": 39.48,
+          "rawBBox": [
+            128,
+            74,
+            896,
+            1504
+          ],
+          "uniformScale": 0.1958041958041958,
+          "canvasPlacement": [
+            21,
+            8
+          ],
+          "bytes": 47510,
+          "sourceRawFile": "exec-b3bfa440-954e-401b-a38e-4a4982a43012.png",
+          "path": "assets/a/guest-8a-walk2-right.png",
+          "heightPass": true,
+          "floorPass": true,
+          "frontWidthPass": null,
+          "brightnessPass": true,
+          "headTopDeltaFromStanding": 0,
+          "headTopPass": true
+        }
+      ],
+      "details": {
+        "story3Devices": 3,
+        "story4ThoughtCloudWhiteBBox": [
+          252,
+          6,
+          726,
+          258
+        ],
+        "story4ThoughtCloudOuterApproxBBox": [
+          247,
+          0,
+          731,
+          263
+        ],
+        "story4CloudWidthPercent": 37.812,
+        "walkConvention": "walk1 anatomical left, walk2 anatomical right; profiles use near/far overlap.3b front frames assigned opposite original generator filenames based on actual front shoe.",
+        "callerPortraitApproxRangeNote": "Height1020 and bottom1023 prioritized using uniform scale; visible width is somewhat greater than requested800px. No nonuniform body distortion."
+      },
+      "deleted": [
+        "assets/style-test/villain-sleep-v2.png",
+        "assets/style-test/villain-portrait-v2.webp",
+        "assets/a/story-5.webp"
+      ],
+      "skinCorrection": [
+        {
+          "patch": "skin-ear",
+          "sourceCrop": [
+            65,
+            183,
+            100,
+            220
+          ],
+          "copiedPixels": 11,
+          "actualAffectedBBox": [
+            76,
+            197,
+            79,
+            203
+          ],
+          "purplePixelsRemainingInMask": 0
+        },
+        {
+          "patch": "skin-eye",
+          "sourceCrop": [
+            558,
+            240,
+            605,
+            302
+          ],
+          "copiedPixels": 230,
+          "actualAffectedBBox": [
+            576,
+            254,
+            597,
+            280
+          ],
+          "purplePixelsRemainingInMask": 0
+        },
+        {
+          "patch": "skin-neck",
+          "sourceCrop": [
+            450,
+            485,
+            500,
+            545
+          ],
+          "copiedPixels": 667,
+          "actualAffectedBBox": [
+            462,
+            500,
+            493,
+            537
+          ],
+          "purplePixelsRemainingInMask": 0
+        },
+        {
+          "key": "villain-sleep",
+          "bbox": [
+            4,
+            137,
+            188,
+            383
+          ],
+          "changedPixels": 11,
+          "outsideCorrectionChangedPixels": 0,
+          "alphaChangedPixels": 0,
+          "bytes": 73131,
+          "format": "PNG",
+          "bodyAndDevicePixelsPreserved": true
+        },
+        {
+          "key": "villain-portrait",
+          "bbox": [
+            120,
+            4,
+            903,
+            1024
+          ],
+          "changedPixels": 897,
+          "outsideCorrectionChangedPixels": 0,
+          "alphaChangedPixels": 0,
+          "bytes": 334798,
+          "format": "losslessWebP",
+          "bodyAndDevicePixelsPreserved": true
+        }
+      ],
+      "wakeHeadComposition": {
+        "method": "Copy only generated awake face and black hair inside a head polygon, preserve approved purple hood, arms and full equipment. No newly painted pixels or recoloring.",
+        "headPolygon": [
+          [
+            43,
+            190
+          ],
+          [
+            74,
+            175
+          ],
+          [
+            135,
+            187
+          ],
+          [
+            157,
+            206
+          ],
+          [
+            154,
+            231
+          ],
+          [
+            136,
+            253
+          ],
+          [
+            104,
+            269
+          ],
+          [
+            92,
+            262
+          ],
+          [
+            62,
+            259
+          ],
+          [
+            39,
+            242
+          ],
+          [
+            34,
+            214
+          ]
+        ],
+        "changedPixels": 5482,
+        "outsideHeadMaskChangedPixels": 0,
+        "rows270PlusChangedPixels": 0,
+        "equipment288PlusChangedPixels": 0,
+        "bbox": [
+          4,
+          137,
+          188,
+          383
+        ]
+      },
+      "preservationMethod": "As in earlier authorized original-preserving image composition, generated crop pixels were copied only inside the specified purple skin defects. Original alpha and all pixels outside correction masks remain identical. Lossless exact WebP preserves outside-mask RGB too. Awake head copied from generated wake; approved body/equipment preserved. No computed recoloring or painted anatomy.",
+      "normalization": "Crop alpha margins at24, uniform resizing, bottom and top canvas placement. Guest visibleheight280, bottom287, headtop8. Caller game250 and chairbottom287. Caller portrait framed by1020px height; a little wider than requested800. Eggs visibleheight405/430 with feet487. No stretched body widths or whole-character mirroring.",
+      "gaitAssignment": "walk1 anatomical left foot forward, walk2 anatomical right. Up reverses screenleft/right interpretation; profiles distinguish near/far leg overlap and opposite arm.3b front file assignment swapped based on actual source pose, without repainting/mirroring.",
+      "knownDifferences": [
+        "Caller portrait width is somewhat greater than approximate800px request when matched to reaction-set height1020. Actual bounds recorded.",
+        "Generated base/shadow RGB medians differ slightly from nominal swatches and have small within-fill variation; no code palette forcing."
+      ],
+      "pendingIntegration": "Caller key wiring, standing/walking use and PROLOGUE_PANELS story4 selection belong to Claude Code. Check latest code at handoff. No alias retained for removedstory5.",
+      "reviewStorage": "All comparison galleries and12 walking GIFs remain outside repository in work scratch.",
+      "browserVerification": {
+        "reviewPage": "http://127.0.0.1:8145/",
+        "game": "http://127.0.0.1:8132/index.html?art=four-jobs-41",
+        "viewports": [
+          [
+            1920,
+            1080
+          ],
+          [
+            375,
+            812
+          ]
+        ],
+        "reviewImagesIncludingGIFs": 21,
+        "allLoaded": true,
+        "reviewPhoneScrollWidth": 360,
+        "gamePhoneScrollWidth": 375,
+        "gameBrokenImages": 0,
+        "sleeperLoaded": [
+          192,
+          480
+        ],
+        "reviewNotes": "Native galleries,12 walk GIFs, separate table and skin comparisons inspected. Game shows new same-name sleeper. New caller/guest wiring remains pending.",
+        "currentProloguePanels": "['story-1', 'story-2', 'story-3', 'story-5']",
+        "cleanup": "Temporary tabs closed; viewport reset."
+      },
+      "handoff": {
+        "newCallerKeysPendingCodeUse": true,
+        "newGuestKeysPendingCodeUse": true,
+        "prologueMustReplaceStory5With4": true,
+        "oldStreamerFilesRetained": true,
+        "otherFilesChangedDuringTask": [
+          "index.html",
+          "session_logs/2026-11-02.md"
+        ]
+      }
     }
   ]
 }

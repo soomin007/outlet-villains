@@ -83,14 +83,14 @@ window.VILLAIN_LAYOUT = {
       "id": "streamer",
       "name": "화상 회의 손님",
       "lines": ["{노트북 카메라를 켜고} {몇 시간째} {화상 회의 중이다.} {노트북과} {폰 충전기가} {벽 콘센트에} {꽂혀 있다.}", "{카메라 뒤에} {지저분한 게} {비치면} {자리를 옮길 텐데.}"],
-      "villain": { "idle": "streamer-idle", "react": "streamer-react", "portrait": "streamer-portrait", "heightTiles": 1.5, "anchorRow": 0, "outletX": 6 }
+      "villain": { "idle": "caller-idle", "react": "caller-react", "portrait": "caller-portrait", "heightTiles": 1.5, "anchorRow": 0, "outletX": 6 }
     },
     {
       "id": "together",
       "name": "합석",
       "lines": ["{잠든 카공족} {옆 테이블에} {화상 회의 손님이} {앉았다.} {회의 화면에} {잡히면 안 된다.}", "{화상 회의 손님을} {먼저 보내야} {진동벨을} {가져다줄 수 있을 텐데.}"],
       "villain": { "idle": "villain-sleep", "react": "villain-wake", "portrait": "villain-portrait", "heightTiles": 2.5, "anchorRow": 1 },
-      "filmer": { "idle": "streamer-idle", "react": "streamer-react", "face": "streamer-face", "heightTiles": 1.5 }
+      "filmer": { "idle": "caller-idle", "react": "caller-react", "face": "caller-face", "heightTiles": 1.5 }
     }
   ],
   "levels": [

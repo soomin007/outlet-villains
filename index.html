@@ -2298,7 +2298,7 @@
       }
 
       // 음료를 기다리는 손님. A, B, C는 새 손님 8a, 3b, 4b가 서 있는 모습이다(2026-11-01 사용자 결정, docs/art-rules.md "손님 구성").
-      // 세 사람의 서 있는 그림이 모두 있어야 새 그림을 쓰고, 하나라도 없으면 예전 손님(guest, guest2, guest3)을 쓴다. 한 판에서 그림체가 섞이지 않게 한다.
+      // 세 사람의 서 있는 그림이 모두 있어야 새 그림을 쓴다. 예전 서 있는 손님(guest, guest2, guest3) 그림은 새 그림을 받은 2026-11-02에 지웠다.
       const STANDING_CAST = ['8a', '3b', '4b'];
 
       function standingCastReady() {
@@ -2408,9 +2408,9 @@
       }
 
       // 프롤로그. 글 없는 만화 컷(2026-10-30 사용자 요청)이고, 처음 한 번만 보이며 설정창에서 다시 볼 수 있다.
-      // 2026-11-01 사용자 결정으로 네 컷으로 줄였다. 예전 4컷(로봇이 손을 뻗다 멈춤)은 읽히지 않아 빼고, 새 4컷(진동벨 생각 풍선)이 오기 전까지는
-      // 예전 5컷(카운터의 진동벨)을 넷째로 보여 준다. 새 그림을 받으면 이 목록을 story-1 ~ story-4로 바꾼다.
-      const PROLOGUE_PANELS = ['story-1', 'story-2', 'story-3', 'story-5'];
+      // 2026-11-01 사용자 결정으로 네 컷으로 줄였다(1컷 붐비는 카공 카페, 2컷 배터리가 떨어져 가는 로봇, 3컷 콘센트를 독차지한 빌런, 4컷 진동벨 생각 풍선).
+      // 예전 4컷(로봇이 손을 뻗다 멈춤)은 읽히지 않아 뺐고, 2026-11-02 새 3컷과 4컷을 받았다.
+      const PROLOGUE_PANELS = ['story-1', 'story-2', 'story-3', 'story-4'];
       // 컷은 WebP 한 장에 100KB 안팎이라 테마 그림과 함께 미리 받아 둔다(preloadTheme). 그림이 없으면 컷 대신 짧은 글 카드를 보여 준다.
       async function playPrologue() {
         const fallback = [
@@ -2483,7 +2483,7 @@
         const wallStrip = LAYOUT.title.strips.wall;
         const eggs = [];
         if (game.cleared.has(lastLevelOf('sleeper')) && assetPath('title-egg-sleeper')) eggs.push('title-egg-sleeper');
-        if (game.cleared.has(lastLevelOf('streamer')) && assetPath('title-egg-streamer')) eggs.push('title-egg-streamer');
+        if (game.cleared.has(lastLevelOf('streamer')) && assetPath('title-egg-caller')) eggs.push('title-egg-caller');
         if (assetPath('title-egg-dock')) eggs.push('title-egg-dock');
         // 이스터에그 그림(512 x 512)은 발이 y 488이라, 그 아래 빈 자리만큼 띠 바닥선 밑으로 내린다.
         const eggHeight = egg.height / wallStrip.height * 100;
