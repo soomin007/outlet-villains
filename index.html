@@ -458,82 +458,102 @@
       to { transform: translateX(8px); }
     }
 
-    /* 걸음 수 평가(2026-11-02 사용자 결정). 판을 깨면 장면 아래 가운데에 배터리 세 칸이 차례로 찬다.
-       깨면 한 칸(빨강), 최소 걸음의 1.25배 이내면 두 칸(노랑), 최소 걸음이면 세 칸(초록 가득)이다. 로고 느낌표 배터리와 같은 색 순서다.
-       장면(줄어드는 층) 밖의 viewport에 두어 휴대폰에서도 글자가 읽힌다. */
+    /* 걸음 수 평가(2026-11-02 사용자 결정). 판을 깨고 로봇이 독에 올라앉으면, 장면을 조금 어둡게 하고 가운데에 결과 카드를 띄운다.
+       카드의 배터리 세 칸은 하나씩 튀어 오르며 찬다. 깨면 한 칸(빨강), 최소 걸음의 1.25배 이내면 두 칸(노랑), 최소 걸음이면 세 칸(초록 가득)이다.
+       로고 느낌표 배터리와 같은 색 순서다. 장면 아래 작은 상자로 두었더니 눈이 가지 않았다(2026-11-02 사용자 지적).
+       Angry Birds, Cut the Rope처럼 판이 끝나는 순간의 보상은 화면 가운데에 크게, 하나씩 차례로 보여야 눈이 간다.
+       크기는 장면 상자(viewport)에 대한 비율(cqw)로 정하고, 휴대폰에서도 글자가 읽히게 최소 크기를 둔다. 장면(줄어드는 층) 밖에 두어 글자가 흐려지지 않는다. */
+    .viewport { container-type: size; }
+
     .result {
       position: absolute;
-      left: 50%;
-      bottom: 12px;
+      inset: 0;
       z-index: 270;
       display: flex;
       align-items: center;
-      gap: 18px;
-      padding: 10px 18px 10px 14px;
-      border-radius: 12px;
-      background: rgba(20, 18, 16, 0.88);
-      color: #f6efe2;
-      transform: translateX(-50%);
+      justify-content: center;
+      background: rgba(15, 14, 13, 0.4);
       pointer-events: none;
       animation: card-in 0.3s ease;
     }
 
+    .result-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: max(6px, 2.4cqw);
+      padding: max(10px, 3cqw) max(22px, 5.5cqw);
+      border-radius: max(12px, 2cqw);
+      background: rgba(20, 18, 16, 0.95);
+      box-shadow: 0 0.8cqw 3cqw rgba(0, 0, 0, 0.5);
+      color: #f6efe2;
+      animation: result-pop 0.4s cubic-bezier(0.2, 1.4, 0.4, 1);
+    }
+
+    @keyframes result-pop {
+      from { transform: scale(0.75); opacity: 0; }
+    }
+
     .result-battery {
       position: relative;
-      flex: none;
       display: flex;
-      gap: 3px;
-      width: 84px;
-      height: 36px;
-      padding: 3px;
+      gap: max(3px, 0.6cqw);
+      width: max(110px, 17cqw);
+      aspect-ratio: 2.4;
+      padding: max(3px, 0.6cqw);
       box-sizing: border-box;
-      border: 3px solid #eee;
-      border-radius: 7px;
+      border: max(3px, 0.7cqw) solid #eee;
+      border-radius: max(7px, 1.4cqw);
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
     }
 
     .result-battery::after {
       content: '';
       position: absolute;
-      right: -9px;
-      top: 9px;
-      width: 5px;
-      height: 12px;
-      border-radius: 0 3px 3px 0;
+      right: calc(-1 * max(9px, 1.7cqw));
+      top: 32%;
+      width: max(5px, 1cqw);
+      height: 36%;
+      border-radius: 0 max(3px, 0.5cqw) max(3px, 0.5cqw) 0;
       background: #eee;
     }
 
     .result-battery span {
       flex: 1;
-      border-radius: 3px;
+      border-radius: max(3px, 0.6cqw);
     }
 
     .result-battery[data-cells="1"] span:nth-child(1) { background: #c8302a; }
     .result-battery[data-cells="2"] span:nth-child(-n+2) { background: #e0b020; }
     .result-battery[data-cells="3"] span { background: #3aa35a; }
+    .result-battery[data-cells="3"] { border-color: #c9f2d6; box-shadow: 0 0 max(10px, 2.2cqw) rgba(58, 163, 90, 0.85); }
+
+    /* 칸이 찰 때 그 칸이 한 번 튀어 오른다. */
+    .result-battery span.pop { animation: cell-pop 0.3s ease; }
+
+    @keyframes cell-pop {
+      40% { transform: scaleY(1.25) scaleX(1.12); }
+    }
 
     .result-steps {
       margin: 0;
-      font-size: 18px;
+      font-size: clamp(16px, 3.4cqw, 46px);
       font-weight: 800;
-      line-height: 1.3;
+      line-height: 1.25;
+      text-align: center;
       white-space: nowrap;
     }
 
     .result-steps small {
       display: block;
-      font-size: 14px;
+      font-size: clamp(12px, 1.9cqw, 26px);
       font-weight: 700;
       opacity: 0.8;
     }
 
-    /* 휴대폰에서는 장면이 폭 335px 안팎이라, 평가 상자가 판의 절반을 덮지 않게 작게 그린다. */
-    @media (max-width: 640px) {
-      .result { bottom: 6px; gap: 12px; padding: 6px 12px 6px 9px; border-radius: 9px; }
-      .result-battery { width: 58px; height: 26px; padding: 2px; gap: 2px; border-width: 2px; border-radius: 5px; }
-      .result-battery::after { right: -7px; top: 6px; width: 4px; height: 10px; }
-      .result-steps { font-size: 14px; }
-      .result-steps small { font-size: 12px; }
-    }
+    .calm .result,
+    .calm .result-card,
+    .calm .result-battery span.pop { animation: none; }
 
     /* 판을 시작할 때 목표를 짚는다: 빌런 자리 콘센트에 고리가 퍼지고, 주인공 머리 위에 뽑힌 내 충전기가 잠깐 뜬다. */
     .sprite.pulse::before {
@@ -1601,8 +1621,8 @@
     .large-text .card-title { font-size: clamp(28px, 4.8vw, 48px); }
     .large-text .card-lines p { font-size: clamp(19px, 2.2vw, 25px); }
     .large-text .panel { font-size: calc(var(--panel-font) * 1.25); }
-    .large-text .result-steps { font-size: 22px; }
-    .large-text .result-steps small { font-size: 17px; }
+    .large-text .result-steps { font-size: clamp(19px, 3.8cqw, 50px); }
+    .large-text .result-steps small { font-size: clamp(15px, 2.2cqw, 30px); }
 
     /* 좁은 휴대폰(400px 이하)은 설정창 안쪽 폭이 220px 안팎이라, 안쪽 여백을 줄이고 글자 크게도 1.125배까지만 키운다.
        1.25배로 키우면 320px 폭에서 켜고 끄는 버튼이 창 밖으로 넘쳤다. */
@@ -1654,8 +1674,10 @@
           <div id="side-keys" class="side-keys" aria-hidden="true"></div>
         </div>
         <div id="result" class="result" role="status" hidden>
-          <div class="result-battery" data-cells="0"><span></span><span></span><span></span></div>
-          <p class="result-steps"></p>
+          <div class="result-card">
+            <div class="result-battery" data-cells="0"><span></span><span></span><span></span></div>
+            <p class="result-steps"></p>
+          </div>
         </div>
       </div>
     </div>
@@ -3243,20 +3265,24 @@
         return best ? cellsFor(level, best) : 1;
       }
 
-      // 판을 깬 뒤 장면 아래 가운데에 걸음 수와 배터리 세 칸을 보인다. 칸은 하나씩 차고, 찰 때마다 한 음씩 높아진다.
+      // 판을 깬 뒤 장면 가운데에 결과 카드(걸음 수와 배터리 세 칸)를 띄운다. 칸은 하나씩 튀어 오르며 차고, 찰 때마다 한 음씩 높아진다.
       // 칸이 늘면 색도 빨강, 노랑, 초록으로 바뀐다(로고 느낌표와 같다). 움직임 줄이기를 켜면 바로 마지막 모습을 보인다.
       async function showResult(result, animate) {
         const battery = ui.result.querySelector('.result-battery');
+        const cells = [...battery.children];
         ui.result.querySelector('.result-steps').innerHTML = `${result.steps}걸음<small>최소 ${result.optimal}걸음</small>`;
         ui.result.setAttribute('aria-label', `배터리 ${result.cells}칸, ${result.steps}걸음, 최소 ${result.optimal}걸음`);
+        cells.forEach((element) => element.classList.remove('pop'));
         battery.dataset.cells = animate ? '0' : String(result.cells);
         ui.result.hidden = false;
         if (!animate) return;
+        await wait(350);
         for (let cell = 1; cell <= result.cells; cell += 1) {
-          await wait(cell === 1 ? 250 : 320);
           if (ui.result.hidden) return;
           battery.dataset.cells = String(cell);
+          cells[cell - 1].classList.add('pop');
           Sound.cell(cell);
+          await wait(380);
         }
       }
 
