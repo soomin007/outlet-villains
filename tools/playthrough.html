@@ -9,6 +9,8 @@
   headless Chrome에서 --dump-dom과 --virtual-time-budget=600000으로 돌리면 결과 줄(PASS 또는 FAIL)이 #out에 남는다. ?levels=0,3처럼 몇 판만 고를 수 있다.
   걸음 수 평가(2026-11-02)도 본다. 깬 뒤 저장된 가장 적은 걸음 수와 화면의 배터리 칸 수가 규칙(layout.js stepRating)과 맞아야 한다.
   ?wiggle=2처럼 짝수를 주면 풀이 앞에 물건을 밀지 않는 왕복 걸음을 그만큼 더해, 두 칸과 한 칸이 맞게 나오는지도 볼 수 있다.
+  수업 모드(2026-11-02)도 본다. ?levels=14&class=1이면 마지막 판을 깬 뒤 엔딩을 넘기고, 진행이 첫 실행처럼 되돌아갔는지 본다.
+  &idle=12처럼 초를 주면 판을 깬 뒤 그만큼 입력 없이 기다려, 입력이 없을 때의 되돌리기도 본다. 판을 깬 뒤 9초를 기다리므로 10초보다 길게 준다.
 -->
 <style>
   body { margin: 0; background: #111; color: #eee; font: 14px monospace; }
@@ -34,6 +36,19 @@
   // ?size=375x812처럼 주면 게임 창 크기를 바꿔, 휴대폰 화면에서 판을 깬 모습도 찍어 볼 수 있다.
   const [frameWidth, frameHeight] = (params.get('size') || '1920x1080').split('x').map(Number);
   const OPPOSITE = { up: 'down', down: 'up', left: 'right', right: 'left' };
+  const classMode = params.get('class') === '1';
+  const idleSeconds = Number(params.get('idle') || 0);
+  const classQuery = classMode ? `&class${idleSeconds ? `&idle=${idleSeconds}` : ''}` : '';
+
+  // 수업 모드의 되돌리기 확인. 진행 기록이 첫 실행 값이고, 메인 화면의 "아무 키나 누르세요"가 보여야 한다.
+  function classResetLine(label) {
+    const doc = frame.contentDocument;
+    const saved = JSON.parse(frame.contentWindow.localStorage.getItem(STORAGE_KEY) || '{}');
+    const fresh = (saved.cleared || []).length === 0 && !saved.prologueSeen && !saved.keysSeen
+      && (saved.demosSeen || []).length === 0 && Object.keys(saved.best || {}).length === 0;
+    const pressShown = !doc.getElementById('title-screen').hidden && !doc.getElementById('title-press').hidden;
+    return `${fresh && pressShown ? 'PASS' : 'FAIL'} 수업 모드 ${label} (기록 ${fresh ? '첫 실행 값' : '남음'}, 첫 화면 ${pressShown ? '보임' : '안 보임'})`;
+  }
 
   // 시작 자리에서 물건을 밀지 않고 갔다가 돌아올 수 있는 방향 하나를 찾아, 그 왕복을 count걸음만큼 만든다.
   function wiggleMoves(level, count) {
@@ -71,7 +86,7 @@
     saved.best = {};
     localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
     const loaded = new Promise((resolve) => { frame.onload = resolve; });
-    frame.src = `../index.html?play=${index}-${Date.now()}`;
+    frame.src = `../index.html?play=${index}-${Date.now()}${classQuery}`;
     await loaded;
     const press = (key) => frame.contentDocument.dispatchEvent(new KeyboardEvent('keydown', { key, bubbles: true }));
     await wait(800);
@@ -135,6 +150,18 @@
     for (const index of indices) {
       lines.push(await playLevel(index));
       out.textContent = lines.join('\n');
+    }
+    // 수업 모드: 입력 없이 기다리면 되돌아가는지 보거나, 마지막 판이면 엔딩을 넘긴 뒤 되돌아가는지 본다.
+    if (classMode && idleSeconds) {
+      await wait((idleSeconds + 2) * 1000);
+      lines.push(classResetLine(`${idleSeconds}초 동안 입력 없음`));
+    } else if (classMode && indices[indices.length - 1] === levels.length - 1) {
+      const press = (key) => frame.contentDocument.dispatchEvent(new KeyboardEvent('keydown', { key, bubbles: true }));
+      press('Enter'); // 다음으로: 마지막 판 다음은 엔딩 카드
+      await wait(2000);
+      press('Enter'); // 엔딩 카드 닫기
+      await wait(2000);
+      lines.push(classResetLine('엔딩 뒤'));
     }
     out.textContent = `${lines.every((line) => line.startsWith('PASS')) ? '모든 판 통과' : '실패한 판 있음'}\n${lines.join('\n')}`;
   })();

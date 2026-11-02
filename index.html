@@ -1621,6 +1621,14 @@
     .large-text .card-title { font-size: clamp(28px, 4.8vw, 48px); }
     .large-text .card-lines p { font-size: clamp(19px, 2.2vw, 25px); }
     .large-text .panel { font-size: calc(var(--panel-font) * 1.25); }
+    /* 수업 모드(?class)가 켜졌는지 진행하는 사람이 설정창에서 확인하는 줄. */
+    .class-note {
+      margin: 14px 0 0;
+      font-size: 0.85em;
+      line-height: 1.5;
+      opacity: 0.75;
+    }
+
     .large-text .result-steps { font-size: clamp(19px, 3.8cqw, 50px); }
     .large-text .result-steps small { font-size: clamp(15px, 2.2cqw, 30px); }
 
@@ -1742,6 +1750,7 @@
           <button id="replay-prologue" type="button">프롤로그 다시 보기</button>
           <button id="reset-progress" type="button">진행 초기화</button>
         </div>
+        <p id="class-note" class="class-note" hidden>수업 모드: <span class="nw">엔딩을 보거나</span> <span class="nw">3분 동안 입력이 없으면</span> <span class="nw">처음으로 돌아갑니다.</span></p>
       </div>
       <div id="pane-graphics" class="tab-pane" role="tabpanel" data-pane="graphics" hidden>
         <label class="row"><span>화면 밝기</span><input id="set-brightness" type="range" min="60" max="140" step="5"></label>
@@ -1858,6 +1867,7 @@
         setSfx: document.getElementById('set-sfx'),
         replayPrologue: document.getElementById('replay-prologue'),
         resetProgress: document.getElementById('reset-progress'),
+        classNote: document.getElementById('class-note'),
         title: document.getElementById('title-screen'),
         titleStage: document.getElementById('title-stage'),
         titleWall: document.getElementById('title-wall'),
@@ -2563,6 +2573,11 @@
           art: villains.map((villain) => imageTag(villain.portrait, 'small')).join(''),
         });
         game.busy = false;
+        // 수업 모드에서는 엔딩을 본 다음 사람이 처음부터 하도록 첫 실행처럼 되돌린다.
+        if (CLASS_MODE) {
+          restartForNextPlayer();
+          return;
+        }
         showTitle();
       }
 
@@ -4373,6 +4388,51 @@
       });
       // 진행 초기화. 깬 레벨, 이어 할 레벨, 프롤로그와 시연과 조작 안내를 본 기록을 지워 처음 하는 사람의 화면으로 돌아간다.
       // 그림체와 밝기, 소리 크기는 남긴다. 실수로 누르지 않도록 3초 안에 한 번 더 눌러야 지운다.
+      // 진행을 첫 실행처럼 되돌린다(깬 판, 이어 할 판, 프롤로그, 키 안내, 시연, 걸음 수 기록). 소리와 글자 크기 같은 설정은 남긴다.
+      function forgetProgress() {
+        Object.assign(settings, { cleared: [], lastLevel: 0, prologueSeen: false, demosSeen: [], keysSeen: false, best: {} });
+        saveSettings();
+        game.cleared = new Set();
+      }
+
+      // 수업 모드(주소 끝에 ?class, 2026-11-02 사용자 결정). 수업에서는 노트북 한 대를 여러 사람이 돌아가며 하므로,
+      // 엔딩을 본 뒤와 3분 동안 입력이 없을 때 첫 실행처럼 되돌려, 다음 사람이 프롤로그와 키 안내, 시연부터 보게 한다.
+      // 게임 행사의 시연판과 전시용 키오스크가 끝까지 갔을 때와 한동안 입력이 없을 때 처음으로 돌아가는 방식이다. 보통 주소에서는 켜지지 않는다.
+      // ?class&idle=5처럼 idle(초)을 주면 기다리는 시간을 바꿀 수 있다(검사용).
+      const pageParams = new URLSearchParams(location.search);
+      const CLASS_MODE = pageParams.has('class');
+      const CLASS_IDLE_MS = Number(pageParams.get('idle') || 180) * 1000;
+
+      // 다음 사람을 위해 메인 화면의 "아무 키나 누르세요"로 돌아간다. 열린 창과 기다리던 카드는 닫기만 하고 다음 장면으로 넘기지 않는다.
+      function restartForNextPlayer() {
+        ui.settings.hidden = true;
+        ui.credits.hidden = true;
+        ui.card.hidden = true;
+        game.closeCard = null;
+        game.busy = false;
+        ui.result.hidden = true;
+        forgetProgress();
+        game.titleOpened = false;
+        showTitle();
+        Sound.music('title');
+      }
+
+      // 입력이 들어올 때마다 3분을 다시 센다. 이미 아무도 손대지 않은 첫 화면이면 되돌릴 것이 없다.
+      function armClassIdle() {
+        if (!CLASS_MODE) return;
+        clearTimeout(game.classIdleTimer);
+        game.classIdleTimer = setTimeout(() => {
+          const untouched = !ui.title.hidden && !game.titleOpened && settings.cleared.length === 0 && !settings.prologueSeen && !settings.keysSeen;
+          if (!untouched) restartForNextPlayer();
+          armClassIdle();
+        }, CLASS_IDLE_MS);
+      }
+
+      ui.classNote.hidden = !CLASS_MODE;
+      document.addEventListener('keydown', armClassIdle, true);
+      document.addEventListener('pointerdown', armClassIdle, true);
+      armClassIdle();
+
       let resetArmed = null;
       ui.resetProgress.addEventListener('click', () => {
         if (game.busy) return;
@@ -4387,9 +4447,7 @@
         clearTimeout(resetArmed);
         resetArmed = null;
         ui.resetProgress.textContent = '진행 초기화';
-        Object.assign(settings, { cleared: [], lastLevel: 0, prologueSeen: false, demosSeen: [], keysSeen: false, best: {} });
-        saveSettings();
-        game.cleared = new Set();
+        forgetProgress();
         closeSettings();
         showTitle();
       });
@@ -4397,6 +4455,8 @@
 
       ui.titleContinue.addEventListener('click', () => leaveTitle(settings.cleared.length > 0 ? settings.lastLevel || 0 : 0));
       ui.titleNew.addEventListener('click', () => {
+        // 수업 모드에서 "처음부터"는 다음 사람이 처음 하는 것이라, 키 안내와 시연, 걸음 수 기록까지 되돌린다.
+        if (CLASS_MODE) forgetProgress();
         settings.prologueSeen = false;
         leaveTitle(0);
       });
