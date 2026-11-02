@@ -3007,11 +3007,21 @@
         const x1 = tileLeft(outletX) + TILE / 2;
         const y1 = tileTop(-1) + TILE_H * 0.7;
         const side = outletX > villain.x ? 0.3 : (outletX < villain.x ? -0.3 : 0.2);
-        const x2 = tileLeft(villain.x) + TILE / 2 + TILE * side;
-        const y2 = tileTop(villain.y + look.anchorRow) + TILE_H * 0.4;
+        let x2 = tileLeft(villain.x) + TILE / 2 + TILE * side;
+        let y2 = tileTop(villain.y + look.anchorRow) + TILE_H * 0.4;
         const bend = outletX === villain.x ? TILE * 0.7 : 0;
-        const cx = (x1 + x2) / 2 + bend;
-        const cy = Math.max(y1, y2) + TILE_H * 0.3;
+        let cx = (x1 + x2) / 2 + bend;
+        let cy = Math.max(y1, y2) + TILE_H * 0.3;
+        // cordEnd(빌런 그림 상자 안의 가로, 세로 비율)가 있으면 선을 그 자리에서 끝낸다. 선은 빌런 그림 뒤에 그려져 그림에 닿는 곳부터 가려진다.
+        // 잠든 카공족은 멀티탭 전원선을 팔 밑으로 숨긴 그림이라(2026-11-02 의뢰 14), 벽 콘센트 선도 오른쪽 어깨 뒤로 들어가 팔 밑 멀티탭으로 가게 한다.
+        // 예전 끝점은 탁자 오른쪽 아래라서 선이 태블릿 뒤로 들어가 태블릿에 꽂힌 것처럼 보였다. 선은 어깨 바깥으로 돌아 위에서 들어간다.
+        if (look.cordEnd) {
+          const spriteTop = tileTop(villain.y + look.anchorRow) + TILE_H - TILE * look.heightTiles;
+          x2 = tileLeft(villain.x) + TILE * look.cordEnd[0];
+          y2 = spriteTop + TILE * look.heightTiles * look.cordEnd[1];
+          cx = x2 + TILE * 0.6;
+          cy = (y1 + y2) / 2;
+        }
         const path = `M ${x1} ${y1} Q ${cx} ${cy} ${x2} ${y2}`;
         const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
         svg.setAttribute('class', 'cord');
