@@ -34719,6 +34719,361 @@
         "manifestChanged": false,
         "commitMade": false
       }
+    },
+    {
+      "date": "2026-11-02",
+      "name": "request-15-title-run-single-reference-rebuild",
+      "tool": "Python/Pillow deterministic raster retouch and animation assembly; one rejected built-in image_gen repair attempt",
+      "scope": "A only. Overwrite four title-run-N-fluster.png files. Manifest and game code unchanged. No commit.",
+      "sourceOfTruth": [
+        "AGENTS.md",
+        "docs/art-rules.md: protagonist robot and received-art inspection 7-8",
+        "known-issues.md:18,24,30",
+        "docs/layout-guide/request-title-run-frames.png",
+        "docs/layout-guide/request-title-run-seams.png"
+      ],
+      "generatorAttempt": {
+        "prompt": "Precise-object-edit of IMAGE 1 ONLY, maintaining same transparent 512x512 canvas, identical character/pose/expression/color/size/placement. Images 2 and 3 mark defects to repair, not style to copy. Image 4 shows a clean matching robot head construction. Repair ONLY: (1) head top outline must be a single smooth continuous 4px black contour meeting face bezel, remove white scraps/stair steps at top and below bezel; (2) lower torso base joins round platform cleanly, ONE black contour, no doubled bottom edges, dirty gray band or extra red torso corner at lower left; (3) wheels intact circular tires with simple consistent spokes, no cut shapes. Keep robot face screen angle 30 degrees, same drooping flustered eyes, same arm/hand pose and all original body proportions, same red and dark-gray panels. No new items or clothes, no motion blur/ghost/white sticker edge/shadow/text. Do not redesign the robot. Floor contact y487 and drawn bounding box x46..489 y87..487. Only one clean reference frame, no animation sheet. Transparent background. Preserve every unaffected part.",
+        "references": [
+          "assets/a/title-run-1-fluster.png",
+          "docs/layout-guide/request-title-run-frames.png",
+          "docs/layout-guide/request-title-run-seams.png",
+          "assets/a/player-right-t30.png"
+        ],
+        "outputBasename": "exec-aa72d0a8-9c1e-413e-82c3-2b33250fbca7.png",
+        "status": "not used: generator changed the bounding box and robot proportions"
+      },
+      "referenceFrame": "assets/a/title-run-1-fluster.png",
+      "userClarification": "Keep existing viewpoint: three visible wheels, fourth hidden behind platform.",
+      "repairs": {
+        "roof": "Clip x241..344,y91..154 to smooth silhouette; continuous approximately 4px black contour from (238,91) through (313,101) to (339,139) and (338,153).",
+        "lowerBezel": "Remove pale scraps x269..321,y228..238 below continuous 4px curve (267,229),(285,232),(306,226),(319,212).",
+        "torsoPlatform": "Reconstruct torso foot and nearby platform top in x45..354,y349..440; preserve original front casing and bumper panels. One torso lower outline through (145,353),(150,373),(222,391),(265,381),(271,380),(273,365),(275,350). Remove the extra left corner and dirty gray duplicate band. Use approved original red panel samples; retain a single smooth gray mount.",
+        "eyesAndArms": "Original flustered eye and arm pixels retained; no generated-face replacement.",
+        "wheels": "All four tires are whole ellipses drawn behind the platform; visible centers/radii (100,450,29,28),(205,461,31,26),(305,449,28,27); fourth (205,408,24,23) fully hidden. Rim size/position and gray hub background stay fixed. Three simple spoke bars rotate 0,30,60,90 degrees.",
+        "bobbing": "Cut one upper-body layer from corrected reference; translate vertically by 0,-2,-4,-2 px. Keep a narrow continuous torso-foot shell and red fill behind it to prevent 1px alpha holes when moving up. All other base/casing pixels are shared.",
+        "palette": "GIF uses one shared 256-color palette, no per-frame adaptive palettes or dithering. PNGs remain full RGBA."
+      },
+      "measurements": {
+        "referenceRepair": {
+          "changedPixels": 19550,
+          "outsideCorrectionPixels": 0,
+          "bboxBefore": [
+            46,
+            87,
+            490,
+            488
+          ],
+          "bboxAfter": [
+            46,
+            87,
+            490,
+            488
+          ],
+          "ranges": [
+            [
+              237,
+              87,
+              346,
+              156
+            ],
+            [
+              264,
+              210,
+              324,
+              240
+            ],
+            [
+              45,
+              349,
+              355,
+              441
+            ]
+          ],
+          "changedPixelsIncludingWheels": 27809,
+          "finalReferenceBBox": [
+            46,
+            87,
+            490,
+            488
+          ],
+          "fourthWheel": "Intact wheel at (205,408), fully occluded by platform; original three visible wheel positions retained per user reply."
+        },
+        "frames": {
+          "frames": [
+            {
+              "frame": 1,
+              "bobUpPx": 0,
+              "spokeDegrees": 0,
+              "bbox": [
+                46,
+                87,
+                490,
+                488
+              ],
+              "bboxAlpha24": [
+                46,
+                87,
+                490,
+                488
+              ],
+              "floorY": 487,
+              "changedFromFrame1": 0,
+              "changedOutsideAllowed": 0,
+              "savedBytes": 142428
+            },
+            {
+              "frame": 2,
+              "bobUpPx": 2,
+              "spokeDegrees": 30,
+              "bbox": [
+                46,
+                85,
+                490,
+                488
+              ],
+              "bboxAlpha24": [
+                46,
+                85,
+                490,
+                488
+              ],
+              "floorY": 487,
+              "changedFromFrame1": 54167,
+              "changedOutsideAllowed": 0,
+              "savedBytes": 142587
+            },
+            {
+              "frame": 3,
+              "bobUpPx": 4,
+              "spokeDegrees": 60,
+              "bbox": [
+                46,
+                83,
+                490,
+                488
+              ],
+              "bboxAlpha24": [
+                46,
+                83,
+                490,
+                488
+              ],
+              "floorY": 487,
+              "changedFromFrame1": 56945,
+              "changedOutsideAllowed": 0,
+              "savedBytes": 142810
+            },
+            {
+              "frame": 4,
+              "bobUpPx": 2,
+              "spokeDegrees": 90,
+              "bbox": [
+                46,
+                85,
+                490,
+                488
+              ],
+              "bboxAlpha24": [
+                46,
+                85,
+                490,
+                488
+              ],
+              "floorY": 487,
+              "changedFromFrame1": 54184,
+              "changedOutsideAllowed": 0,
+              "savedBytes": 142714
+            }
+          ],
+          "wheelGeometry": [
+            [
+              100,
+              450,
+              29,
+              28
+            ],
+            [
+              205,
+              461,
+              31,
+              26
+            ],
+            [
+              305,
+              449,
+              28,
+              27
+            ],
+            [
+              205,
+              408,
+              24,
+              23
+            ]
+          ],
+          "hiddenFourthWheel": true,
+          "frameDelayMs": 70,
+          "upperMaskBounds": [
+            138,
+            87,
+            490,
+            393
+          ],
+          "joinFillBounds": [
+            141,
+            343,
+            280,
+            387
+          ],
+          "stationaryWheelCasingChangedPixels": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "gifFrameDurationsMs": [
+            70,
+            70,
+            70,
+            70
+          ]
+        }
+      },
+      "proofsOutsideRepository": [
+        "run-70ms.gif",
+        "frames-4x.png (8192x2048)",
+        "frames-native.png",
+        "head-four-4x.png",
+        "join-four-4x.png",
+        "wheels-four-4x.png"
+      ],
+      "assets": [
+        {
+          "file": "assets/a/title-run-1-fluster.png",
+          "references": [
+            "assets/a/title-run-1-fluster.png",
+            "docs/layout-guide/request-title-run-frames.png",
+            "docs/layout-guide/request-title-run-seams.png",
+            "assets/a/player-right-t30.png"
+          ],
+          "instructions": "Use the corrected reference frame as the sole source. Bob upper body by [0,2,4,2] px and rotate only wheel spokes by [0,30,60,90] degrees. Keep full tires and platform fixed, fill the torso foot without gaps.",
+          "measurement": {
+            "frame": 1,
+            "bobUpPx": 0,
+            "spokeDegrees": 0,
+            "bbox": [
+              46,
+              87,
+              490,
+              488
+            ],
+            "bboxAlpha24": [
+              46,
+              87,
+              490,
+              488
+            ],
+            "floorY": 487,
+            "changedFromFrame1": 0,
+            "changedOutsideAllowed": 0,
+            "savedBytes": 142428
+          }
+        },
+        {
+          "file": "assets/a/title-run-2-fluster.png",
+          "references": [
+            "assets/a/title-run-1-fluster.png",
+            "docs/layout-guide/request-title-run-frames.png",
+            "docs/layout-guide/request-title-run-seams.png",
+            "assets/a/player-right-t30.png"
+          ],
+          "instructions": "Use the corrected reference frame as the sole source. Bob upper body by [0,2,4,2] px and rotate only wheel spokes by [0,30,60,90] degrees. Keep full tires and platform fixed, fill the torso foot without gaps.",
+          "measurement": {
+            "frame": 2,
+            "bobUpPx": 2,
+            "spokeDegrees": 30,
+            "bbox": [
+              46,
+              85,
+              490,
+              488
+            ],
+            "bboxAlpha24": [
+              46,
+              85,
+              490,
+              488
+            ],
+            "floorY": 487,
+            "changedFromFrame1": 54167,
+            "changedOutsideAllowed": 0,
+            "savedBytes": 142587
+          }
+        },
+        {
+          "file": "assets/a/title-run-3-fluster.png",
+          "references": [
+            "assets/a/title-run-1-fluster.png",
+            "docs/layout-guide/request-title-run-frames.png",
+            "docs/layout-guide/request-title-run-seams.png",
+            "assets/a/player-right-t30.png"
+          ],
+          "instructions": "Use the corrected reference frame as the sole source. Bob upper body by [0,2,4,2] px and rotate only wheel spokes by [0,30,60,90] degrees. Keep full tires and platform fixed, fill the torso foot without gaps.",
+          "measurement": {
+            "frame": 3,
+            "bobUpPx": 4,
+            "spokeDegrees": 60,
+            "bbox": [
+              46,
+              83,
+              490,
+              488
+            ],
+            "bboxAlpha24": [
+              46,
+              83,
+              490,
+              488
+            ],
+            "floorY": 487,
+            "changedFromFrame1": 56945,
+            "changedOutsideAllowed": 0,
+            "savedBytes": 142810
+          }
+        },
+        {
+          "file": "assets/a/title-run-4-fluster.png",
+          "references": [
+            "assets/a/title-run-1-fluster.png",
+            "docs/layout-guide/request-title-run-frames.png",
+            "docs/layout-guide/request-title-run-seams.png",
+            "assets/a/player-right-t30.png"
+          ],
+          "instructions": "Use the corrected reference frame as the sole source. Bob upper body by [0,2,4,2] px and rotate only wheel spokes by [0,30,60,90] degrees. Keep full tires and platform fixed, fill the torso foot without gaps.",
+          "measurement": {
+            "frame": 4,
+            "bobUpPx": 2,
+            "spokeDegrees": 90,
+            "bbox": [
+              46,
+              85,
+              490,
+              488
+            ],
+            "bboxAlpha24": [
+              46,
+              85,
+              490,
+              488
+            ],
+            "floorY": 487,
+            "changedFromFrame1": 54184,
+            "changedOutsideAllowed": 0,
+            "savedBytes": 142714
+          }
+        }
+      ]
     }
   ]
 }
