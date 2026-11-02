@@ -33588,6 +33588,1137 @@
           "session_logs/2026-11-02.md"
         ]
       }
+    },
+    {
+      "date": "2026-11-02",
+      "name": "sleeper-three-independent-charging-cables",
+      "tool": "built-in image_gen plus user-authorized Python cable retouch",
+      "scope": "Overwrite only villain-sleep.png, villain-wake.png, title-egg-sleeper.png and story-3.webp. Manifest and game code unchanged. No commit.",
+      "authorization": "User explicitly allowed Python erasure and redrawing of charging cables for these four files.",
+      "references": [
+        "docs/layout-guide/request-sleeper-cables.png",
+        "assets/a/villain-sleep.png",
+        "assets/a/villain-wake.png",
+        "assets/a/title-egg-sleeper.png",
+        "assets/a/story-3.webp"
+      ],
+      "topology": {
+        "left": "Left charger -> laptop side port facing strip",
+        "middle": "Middle charger -> phone bottom short edge port",
+        "right": "Right charger -> tablet side port facing strip",
+        "deviceToDeviceCables": 0,
+        "cablesPerAdapter": 1,
+        "cablesPerDevice": 1,
+        "mains": "Toward table back/top in three transparent PNGs; existing central wall outlet connection retained in story-3."
+      },
+      "processing": "Initial generator rewiring attempts were rejected for changing device geometry and misrouting cables. Generated cord-free versions supply only narrow old-cord background patches. All original pixels outside union of erasure masks and new cable strokes remain byte-identical for PNGs. Python draws antialiased white cubic curves with black contours, plus short adapter connectors. Sleep cable patch is copied identically onto wake original; head, face and equipment outside cable vicinity remain original. A tiny residual old-cord outline in story-3 is reconstructed locally. Story-3 is flattened and encoded WebP quality 85, method 6. Generator outputs and masks remain outside repository.",
+      "generations": [
+        {
+          "stage": "initial-topology-edit-rejected",
+          "key": "sleep",
+          "prompt": "Use case: precise-object-edit. Edit ONLY white charging cords with black outlines. Keep EVERYTHING ELSE absolutely identical: exact framing/crop/canvas, person/arms/clothes, adapter blocks, strip, device silhouettes, sizes and coordinates, black/gray values and transparency. The second reference shows correct topology as GREEN annotated guide only; final cables must be WHITE with BLACK contours, NEVER GREEN. Remove every old incorrect cord completely, including disconnected loops, device-to-device cables and cords vanishing into arms. Three chargers arranged left to right: LEFT charger exactly ONE continuous visible cord to LAPTOP side port facing strip; MIDDLE charger exactly ONE continuous visible cord to PHONE bottom short edge port; RIGHT charger exactly ONE continuous visible cord to TABLET side port facing strip. NO device-to-device connections, NO branching, NO disappearing behind anything, NO cords crossing arms or screen faces. Route each separately over visible tabletop/transparent ground, connector ends clearly touching respective ports. One additional strip mains cable exits straight toward BACK/TOP of table. No lettering or new objects. Preserve original artwork exactly outside cable vicinity.\nLaptop is closed silver slab at LEFT, phone bottom CENTER, tablet RIGHT. Restore three fully separate cords. Phone cord must descend from middle charger on phone's left side then curve under phone into its bottom short edge, NOT through laptop or tablet. Keep alpha transparent outside original figures.",
+          "references": [
+            "villain-sleep-crop.png",
+            "docs/layout-guide/request-sleeper-cables.png",
+            "assets/a/villain-sleep.png"
+          ],
+          "output": "exec-e4a2b9d7-29da-4f7c-9342-0d2bea602d4f.png"
+        },
+        {
+          "stage": "initial-topology-edit-rejected",
+          "key": "egg",
+          "prompt": "Use case: precise-object-edit. Edit ONLY white charging cords with black outlines. Keep EVERYTHING ELSE absolutely identical: exact framing/crop/canvas, person/arms/clothes, adapter blocks, strip, device silhouettes, sizes and coordinates, black/gray values and transparency. The second reference shows correct topology as GREEN annotated guide only; final cables must be WHITE with BLACK contours, NEVER GREEN. Remove every old incorrect cord completely, including disconnected loops, device-to-device cables and cords vanishing into arms. Three chargers arranged left to right: LEFT charger exactly ONE continuous visible cord to LAPTOP side port facing strip; MIDDLE charger exactly ONE continuous visible cord to PHONE bottom short edge port; RIGHT charger exactly ONE continuous visible cord to TABLET side port facing strip. NO device-to-device connections, NO branching, NO disappearing behind anything, NO cords crossing arms or screen faces. Route each separately over visible tabletop/transparent ground, connector ends clearly touching respective ports. One additional strip mains cable exits straight toward BACK/TOP of table. No lettering or new objects. Preserve original artwork exactly outside cable vicinity.\nLaptop LEFT silver closed slab, phone CENTER-front, tablet RIGHT. Remove giant phone-to-tablet loop at very front of table; draw middle adapter -> phone bottom edge independent short U-shaped cord over clear tabletop. Left charger should route down-left into laptop RIGHT side. Right charger route right into tablet LEFT side. Preserve full table edge exactly.",
+          "references": [
+            "title-egg-sleeper-crop.png",
+            "docs/layout-guide/request-sleeper-cables.png",
+            "assets/a/title-egg-sleeper.png"
+          ],
+          "output": "exec-300f147b-3f06-44fb-a0a6-46cb09a7f11a.png"
+        },
+        {
+          "stage": "initial-topology-edit-rejected",
+          "key": "story",
+          "prompt": "Use case: precise-object-edit. Edit ONLY white charging cords with black outlines. Keep EVERYTHING ELSE absolutely identical: exact framing/crop/canvas, person/arms/clothes, adapter blocks, strip, device silhouettes, sizes and coordinates, black/gray values and transparency. The second reference shows correct topology as GREEN annotated guide only; final cables must be WHITE with BLACK contours, NEVER GREEN. Remove every old incorrect cord completely, including disconnected loops, device-to-device cables and cords vanishing into arms. Three chargers arranged left to right: LEFT charger exactly ONE continuous visible cord to LAPTOP side port facing strip; MIDDLE charger exactly ONE continuous visible cord to PHONE bottom short edge port; RIGHT charger exactly ONE continuous visible cord to TABLET side port facing strip. NO device-to-device connections, NO branching, NO disappearing behind anything, NO cords crossing arms or screen faces. Route each separately over visible tabletop/transparent ground, connector ends clearly touching respective ports. One additional strip mains cable exits straight toward BACK/TOP of table. No lettering or new objects. Preserve original artwork exactly outside cable vicinity.\nOpen laptop LEFT, phone CENTER foreground, propped tablet RIGHT. Remove dangling FRONT phone-to-tablet loop and stray phone LEFT-side cord; give middle charger a continuous cable which descends through clear tabletop to PHONE BOTTOM edge. Left charger cable must be visible across tabletop and enter laptop RIGHT side near keyboard. Right charger goes to tablet LEFT side, continuous. Preserve existing mains cord which runs LEFT to central wall outlet (outside crop). No new wire exiting crop top.",
+          "references": [
+            "story-3-crop.png",
+            "docs/layout-guide/request-sleeper-cables.png",
+            "assets/a/story-3.webp"
+          ],
+          "output": "exec-c6cea761-7ad3-412a-b59d-3727c16e82c5.png"
+        },
+        {
+          "stage": "accepted-background-reconstruction-only",
+          "key": "sleep",
+          "prompt": "Precise inpainting edit of this EXACT image. REMOVE ALL WHITE CHARGING CABLES and tiny cord connectors ONLY, including all arching cords above charger blocks, all dangling loops between devices, all wires between devices. Reconstruct original clean purple fabric/gray tabletop/black transparent background underneath removed cords. Keep EXACTLY the same three white adapter BLOCKS, white power strip BLOCK, laptop, phone, tablet, person, arms, table edge, pixels and positioning. Remove wires, NOT devices. NO NEW CABLES. NO other modifications, no reframing or redesign. Same original canvas aspect and transparency. Preserve wall outlet mains wire and robot dock cable for the wide story scene, only remove tiny cables on tabletop near sleeping person. This clean version is background reconstruction for a separate strictly aligned cable overlay.",
+          "references": [
+            "assets/a/villain-sleep.png"
+          ],
+          "output": "exec-a9cc0da0-ef01-43d0-b0be-72758a83969d.png"
+        },
+        {
+          "stage": "accepted-background-reconstruction-only",
+          "key": "egg",
+          "prompt": "Precise inpainting edit of this EXACT image. REMOVE ALL WHITE CHARGING CABLES and tiny cord connectors ONLY, including all arching cords above charger blocks, all dangling loops between devices, all wires between devices. Reconstruct original clean purple fabric/gray tabletop/black transparent background underneath removed cords. Keep EXACTLY the same three white adapter BLOCKS, white power strip BLOCK, laptop, phone, tablet, person, arms, table edge, pixels and positioning. Remove wires, NOT devices. NO NEW CABLES. NO other modifications, no reframing or redesign. Same original canvas aspect and transparency. Preserve wall outlet mains wire and robot dock cable for the wide story scene, only remove tiny cables on tabletop near sleeping person. This clean version is background reconstruction for a separate strictly aligned cable overlay.",
+          "references": [
+            "assets/a/title-egg-sleeper.png"
+          ],
+          "output": "exec-32be50fc-269e-435b-8ac2-62f6903668ab.png"
+        },
+        {
+          "stage": "accepted-background-reconstruction-only",
+          "key": "story",
+          "prompt": "Precise inpainting edit of this EXACT image. REMOVE ALL WHITE CHARGING CABLES and tiny cord connectors ONLY, including all arching cords above charger blocks, all dangling loops between devices, all wires between devices. Reconstruct original clean purple fabric/gray tabletop/black transparent background underneath removed cords. Keep EXACTLY the same three white adapter BLOCKS, white power strip BLOCK, laptop, phone, tablet, person, arms, table edge, pixels and positioning. Remove wires, NOT devices. NO NEW CABLES. NO other modifications, no reframing or redesign. Same original canvas aspect and transparency. Preserve wall outlet mains wire and robot dock cable for the wide story scene, only remove tiny cables on tabletop near sleeping person. This clean version is background reconstruction for a separate strictly aligned cable overlay.",
+          "references": [
+            "assets/a/story-3.webp"
+          ],
+          "output": "exec-c2db9d7b-10aa-43bc-beb5-9c9c410de873.png"
+        }
+      ],
+      "assets": [
+        {
+          "file": "assets/a/villain-sleep.png",
+          "instructions": "Keep people, devices, colors, placements and canvas unchanged. Replace only charging cords using the explicit one-to-one topology and keep every cable continuously visible. Use same corrected cable pixels for sleep and wake.",
+          "references": [
+            "docs/layout-guide/request-sleeper-cables.png",
+            "assets/a/villain-sleep.png"
+          ],
+          "measurements": {
+            "bbox_before": [
+              4,
+              137,
+              188,
+              383
+            ],
+            "bbox_after": [
+              4,
+              137,
+              188,
+              383
+            ],
+            "outside_changed_pixels": 0,
+            "changed_pixels": 4504,
+            "sources": [
+              [
+                79,
+                300
+              ],
+              [
+                99,
+                309
+              ],
+              [
+                120,
+                308
+              ]
+            ],
+            "ports": [
+              [
+                96,
+                349
+              ],
+              [
+                123,
+                374
+              ],
+              [
+                145,
+                347
+              ]
+            ],
+            "saved_size": [
+              192,
+              480
+            ],
+            "saved_bytes": 71938,
+            "bbox_saved": [
+              4,
+              137,
+              188,
+              383
+            ]
+          }
+        },
+        {
+          "file": "assets/a/title-egg-sleeper.png",
+          "instructions": "Keep people, devices, colors, placements and canvas unchanged. Replace only charging cords using the explicit one-to-one topology and keep every cable continuously visible. Use same corrected cable pixels for sleep and wake.",
+          "references": [
+            "docs/layout-guide/request-sleeper-cables.png",
+            "assets/a/title-egg-sleeper.png"
+          ],
+          "measurements": {
+            "bbox_before": [
+              16,
+              58,
+              495,
+              488
+            ],
+            "bbox_after": [
+              16,
+              58,
+              495,
+              488
+            ],
+            "outside_changed_pixels": 0,
+            "changed_pixels": 9215,
+            "sources": [
+              [
+                315,
+                242
+              ],
+              [
+                343,
+                243
+              ],
+              [
+                367,
+                243
+              ]
+            ],
+            "ports": [
+              [
+                268,
+                283
+              ],
+              [
+                368,
+                296
+              ],
+              [
+                417,
+                276
+              ]
+            ],
+            "saved_size": [
+              512,
+              512
+            ],
+            "saved_bytes": 192116,
+            "bbox_saved": [
+              16,
+              58,
+              495,
+              488
+            ]
+          }
+        },
+        {
+          "file": "assets/a/story-3.webp",
+          "instructions": "Keep people, devices, colors, placements and canvas unchanged. Replace only charging cords using the explicit one-to-one topology and keep every cable continuously visible. Use same corrected cable pixels for sleep and wake.",
+          "references": [
+            "docs/layout-guide/request-sleeper-cables.png",
+            "assets/a/story-3.webp"
+          ],
+          "measurements": {
+            "bbox_before": [
+              0,
+              0,
+              1280,
+              720
+            ],
+            "bbox_after": [
+              0,
+              0,
+              1280,
+              720
+            ],
+            "outside_changed_pixels": 0,
+            "changed_pixels": 11649,
+            "sources": [
+              [
+                993,
+                255
+              ],
+              [
+                1039,
+                257
+              ],
+              [
+                1070,
+                257
+              ]
+            ],
+            "ports": [
+              [
+                951,
+                315
+              ],
+              [
+                1110,
+                353
+              ],
+              [
+                1143,
+                297
+              ]
+            ],
+            "saved_size": [
+              1280,
+              720
+            ],
+            "saved_bytes": 63958,
+            "bbox_saved": [
+              0,
+              0,
+              1280,
+              720
+            ],
+            "webp_mean_absolute_channel_difference": 0.6277647569444444
+          }
+        },
+        {
+          "file": "assets/a/villain-wake.png",
+          "instructions": "Keep people, devices, colors, placements and canvas unchanged. Replace only charging cords using the explicit one-to-one topology and keep every cable continuously visible. Use same corrected cable pixels for sleep and wake.",
+          "references": [
+            "docs/layout-guide/request-sleeper-cables.png",
+            "assets/a/villain-wake.png",
+            "assets/a/villain-sleep.png"
+          ],
+          "measurements": {
+            "bbox_before": [
+              4,
+              137,
+              188,
+              383
+            ],
+            "bbox_after": [
+              4,
+              137,
+              188,
+              383
+            ],
+            "outside_changed_pixels": 0,
+            "changed_pixels": 4504,
+            "same_cables_as_sleep": true,
+            "saved_size": [
+              192,
+              480
+            ],
+            "saved_bytes": 72779,
+            "bbox_saved": [
+              4,
+              137,
+              188,
+              383
+            ]
+          }
+        }
+      ],
+      "checks": {
+        "manifestChanged": false,
+        "desktop": [
+          1920,
+          1080
+        ],
+        "phone": [
+          375,
+          812
+        ],
+        "phoneLimitation": "At the existing whole-board phone scale, individual charging wires are too small to follow. No size or layout changes were requested or made."
+      }
+    },
+    {
+      "date": "2026-11-02",
+      "name": "request-14-sleeper-cables-real-ports-resumed",
+      "tool": "built-in image_gen for restoration plates; Python/Pillow for deterministic connections and retouch",
+      "scope": "Four existing A-theme assets only. Resume uncommitted request-13 files; manifest, bg-grid and game code unchanged; no commit.",
+      "supersedes": "Request-13 visual validation: the earlier claim that every cable was correct was invalid; leftovers, long loops and physically incorrect tablet ports remained.",
+      "userClarifications": [
+        "Prologue laptop stays OPEN. Closed laptop applies only to transparent game and easter-egg sprites.",
+        "Prologue laptop USB cord ends at right side of KEYBOARD BASE near HINGE, not at front corner or lid.",
+        "Mains emerges again between laptop lid right edge and power strip left end.",
+        "AGENTS.md allows all Python art retouch without additional permission, with coordinates and method recorded."
+      ],
+      "reference": "docs/layout-guide/request-sleeper-cables2.png",
+      "generations": [
+        {
+          "asset": "villain-sleep.png",
+          "prompt": "Use case precise-object-edit. Image 1 is the EXACT edit target and Image 2 is the annotated removal/connection guide (red/green/blue annotations must NEVER appear in output). Produce a CLEAN BACKGROUND PLATE ONLY, so I can draw new precisely connected cords myself. REMOVE ALL three USB charging cords, all remaining cable fragments and little curved stubs, all loose loops and wire shadows on tabletop and sleeves. Remove the mains cord fragment on tabletop in transparent sprites, leave no unattached stubs. Keep the THREE WHITE CHARGER BLOCKS and white three-socket power strip, laptop, phone, tablet at EXACT SAME SIZE, POSITION AND PERSPECTIVE. Remove tablet's oval HOME BUTTON. Do NOT change the purple person, face, arms, color, table, devices, framing, scale or canvas. Keep phone and tablet blank black screens and their light gray borders. Reconstruct clean smooth purple cloth or gray tabletop/transparent background wherever cords were. NO blur, paint marks, ghost lines or residues. No new cords or text at all. Preserve transparency of transparent targets. For wide story scene ONLY, preserve wall-outlet mains cable in left half and all robot/dock art; remove only USB cords at right table. Preserve laptop lid's present state exactly. This is a restoration plate, NOT a redesign.",
+          "references": [
+            "assets/a/villain-sleep.png",
+            "docs/layout-guide/request-sleeper-cables2.png"
+          ],
+          "outputBasename": "exec-96e15219-a6cf-46ca-9675-c5803b5d8251.png",
+          "reuseForOriginalSleeveRestoration": "exec-a9cc0da0-ef01-43d0-b0be-72758a83969d.png"
+        },
+        {
+          "asset": "title-egg-sleeper.png",
+          "prompt": "Use case precise-object-edit. Image 1 is the EXACT edit target and Image 2 is the annotated removal/connection guide (red/green/blue annotations must NEVER appear in output). Produce a CLEAN BACKGROUND PLATE ONLY, so I can draw new precisely connected cords myself. REMOVE ALL three USB charging cords, all remaining cable fragments and little curved stubs, all loose loops and wire shadows on tabletop and sleeves. Remove the mains cord fragment on tabletop in transparent sprites, leave no unattached stubs. Keep the THREE WHITE CHARGER BLOCKS and white three-socket power strip, laptop, phone, tablet at EXACT SAME SIZE, POSITION AND PERSPECTIVE. Remove tablet's oval HOME BUTTON. Do NOT change the purple person, face, arms, color, table, devices, framing, scale or canvas. Keep phone and tablet blank black screens and their light gray borders. Reconstruct clean smooth purple cloth or gray tabletop/transparent background wherever cords were. NO blur, paint marks, ghost lines or residues. No new cords or text at all. Preserve transparency of transparent targets. For wide story scene ONLY, preserve wall-outlet mains cable in left half and all robot/dock art; remove only USB cords at right table. Preserve laptop lid's present state exactly. This is a restoration plate, NOT a redesign.",
+          "references": [
+            "assets/a/title-egg-sleeper.png",
+            "docs/layout-guide/request-sleeper-cables2.png"
+          ],
+          "outputBasename": "exec-1eee074f-869e-4a2c-a8b1-12406dbc7537.png",
+          "reuseForOriginalSleeveRestoration": "exec-32be50fc-269e-435b-8ac2-62f6903668ab.png"
+        },
+        {
+          "asset": "story-3.webp",
+          "prompt": "Use case precise-object-edit. Image 1 is the EXACT edit target and Image 2 is the annotated removal/connection guide (red/green/blue annotations must NEVER appear in output). Produce a CLEAN BACKGROUND PLATE ONLY, so I can draw new precisely connected cords myself. REMOVE ALL three USB charging cords, all remaining cable fragments and little curved stubs, all loose loops and wire shadows on tabletop and sleeves. Remove the mains cord fragment on tabletop in transparent sprites, leave no unattached stubs. Keep the THREE WHITE CHARGER BLOCKS and white three-socket power strip, laptop, phone, tablet at EXACT SAME SIZE, POSITION AND PERSPECTIVE. Remove tablet's oval HOME BUTTON. Do NOT change the purple person, face, arms, color, table, devices, framing, scale or canvas. Keep phone and tablet blank black screens and their light gray borders. Reconstruct clean smooth purple cloth or gray tabletop/transparent background wherever cords were. NO blur, paint marks, ghost lines or residues. No new cords or text at all. Preserve transparency of transparent targets. For wide story scene ONLY, preserve wall-outlet mains cable in left half and all robot/dock art; remove only USB cords at right table. Preserve laptop lid's present state exactly. This is a restoration plate, NOT a redesign.",
+          "references": [
+            "assets/a/story-3.webp",
+            "docs/layout-guide/request-sleeper-cables2.png"
+          ],
+          "outputBasename": "exec-29acf109-dee5-4eef-b1e1-73ddfa805db4.png",
+          "reuseForOriginalSleeveRestoration": "exec-c2db9d7b-10aa-43bc-beb5-9c9c410de873.png"
+        }
+      ],
+      "processing": {
+        "restorationRectangles": {
+          "sleep": [
+            0,
+            288,
+            192,
+            390
+          ],
+          "egg": [
+            250,
+            229,
+            500,
+            317
+          ],
+          "story": [
+            791,
+            230,
+            1280,
+            379
+          ]
+        },
+        "method": "Use surviving cord-free restoration plates. Restore the approved sleeve folds from earlier generator plates, restricted to cloth pixels in the edit rectangle. Rebuild complete tablet/phone bezel strips rather than circular patches; remove tablet home buttons. Keep phone footprint fixed, put the earpiece at far short end and charging end nearest strip; no whole-image rotation or scaling of a device. Reconstruct front plastic plane of story power strip at polygon (977,288),(1065,300),(1065,310),(977,300), without old gray erasure marks. Preserve incoming mains rectangle (775,285)-(820,308). Draw each USB curve and connector independently with white cores and black contours. Share exact corrected equipment/cable pixels between sleep and wake.",
+        "bezelBands": {
+          "sleep": [
+            [
+              [
+                151,
+                360
+              ],
+              [
+                185,
+                353
+              ],
+              [
+                184,
+                360
+              ],
+              [
+                157,
+                366
+              ]
+            ],
+            [
+              [
+                111,
+                372
+              ],
+              [
+                131,
+                366
+              ],
+              [
+                134,
+                372
+              ],
+              [
+                114,
+                378
+              ]
+            ]
+          ],
+          "egg": [
+            [
+              [
+                428,
+                280
+              ],
+              [
+                485,
+                267
+              ],
+              [
+                490,
+                271
+              ],
+              [
+                430,
+                286
+              ]
+            ],
+            [
+              [
+                355,
+                292
+              ],
+              [
+                375,
+                284
+              ],
+              [
+                382,
+                291
+              ],
+              [
+                361,
+                300
+              ]
+            ]
+          ],
+          "story": [
+            [
+              [
+                1090,
+                349
+              ],
+              [
+                1122,
+                341
+              ],
+              [
+                1128,
+                348
+              ],
+              [
+                1096,
+                356
+              ]
+            ]
+          ]
+        },
+        "mains": "Hidden behind arm/strip in transparent sprites: no visible mains stub. In story retain incoming wall-cord, draw reappearance from (919,283) to (974,288); USB/mains intersections 0.",
+        "prologueExport": "1280x720 opaque WebP, quality 85, method 6",
+        "diagnostics": "Outside repository, four full-canvas colored copies, exact-color connected-component check [1,1,1] per image, pairwise cable silhouette overlaps [0,0,0], before/after restoration crops at exact nearest-neighbor 8x."
+      },
+      "assets": [
+        {
+          "file": "assets/a/villain-sleep.png",
+          "references": [
+            "assets/a/villain-sleep.png",
+            "docs/layout-guide/request-sleeper-cables2.png"
+          ],
+          "prompt": "Use case precise-object-edit. Image 1 is the EXACT edit target and Image 2 is the annotated removal/connection guide (red/green/blue annotations must NEVER appear in output). Produce a CLEAN BACKGROUND PLATE ONLY, so I can draw new precisely connected cords myself. REMOVE ALL three USB charging cords, all remaining cable fragments and little curved stubs, all loose loops and wire shadows on tabletop and sleeves. Remove the mains cord fragment on tabletop in transparent sprites, leave no unattached stubs. Keep the THREE WHITE CHARGER BLOCKS and white three-socket power strip, laptop, phone, tablet at EXACT SAME SIZE, POSITION AND PERSPECTIVE. Remove tablet's oval HOME BUTTON. Do NOT change the purple person, face, arms, color, table, devices, framing, scale or canvas. Keep phone and tablet blank black screens and their light gray borders. Reconstruct clean smooth purple cloth or gray tabletop/transparent background wherever cords were. NO blur, paint marks, ghost lines or residues. No new cords or text at all. Preserve transparency of transparent targets. For wide story scene ONLY, preserve wall-outlet mains cable in left half and all robot/dock art; remove only USB cords at right table. Preserve laptop lid's present state exactly. This is a restoration plate, NOT a redesign.",
+          "measurements": {
+            "file": "villain-sleep.png",
+            "canvas": [
+              192,
+              480
+            ],
+            "bbox_before": [
+              4,
+              137,
+              188,
+              383
+            ],
+            "bbox_after": [
+              4,
+              137,
+              188,
+              382
+            ],
+            "sources": [
+              [
+                79,
+                296
+              ],
+              [
+                99,
+                302
+              ],
+              [
+                120,
+                303
+              ]
+            ],
+            "ends": [
+              [
+                93,
+                352
+              ],
+              [
+                113,
+                349
+              ],
+              [
+                153,
+                328
+              ]
+            ],
+            "ports": [
+              "laptop side near rear hinge",
+              "phone nearest short-edge center",
+              "tablet nearest short-edge center"
+            ],
+            "moves": {
+              "laptop": {
+                "translation": [
+                  0,
+                  0
+                ],
+                "rotation_degrees": 0
+              },
+              "phone": {
+                "translation": [
+                  0,
+                  0
+                ],
+                "rotation_degrees": 0,
+                "footprintRotationDegrees": 0,
+                "faceDirectionChangeDegrees": 180,
+                "note": "Footprint and projected size stay fixed. Reorient front-face hardware cues, placing speaker at far short end and port at nearest short end; no bitmap flip."
+              },
+              "tablet": {
+                "translation": [
+                  0,
+                  0
+                ],
+                "rotation_degrees": 0
+              }
+            },
+            "wire_components": [
+              [
+                284
+              ],
+              [
+                254
+              ],
+              [
+                244
+              ]
+            ],
+            "overlap_pixels": [
+              0,
+              0,
+              0
+            ],
+            "body_purple_changed_pixels": 2413,
+            "diagnosticColorComponents": [
+              1,
+              1,
+              1
+            ],
+            "adapterTopPorts": [
+              [
+                79,
+                305
+              ],
+              [
+                99,
+                312
+              ],
+              [
+                120,
+                314
+              ]
+            ],
+            "wireStartsAtPlugTips": [
+              [
+                79,
+                296
+              ],
+              [
+                99,
+                302
+              ],
+              [
+                120,
+                303
+              ]
+            ],
+            "crossings": 0,
+            "deviceToDeviceCables": 0,
+            "bezelRepair": "Continuous flat bezel band, no tablet home button; phone speaker at far short end, charging end nearest strip.",
+            "savedCanvas": [
+              192,
+              480
+            ],
+            "savedBytes": 69961,
+            "savedBBox": [
+              4,
+              137,
+              188,
+              382
+            ]
+          }
+        },
+        {
+          "file": "assets/a/title-egg-sleeper.png",
+          "references": [
+            "assets/a/title-egg-sleeper.png",
+            "docs/layout-guide/request-sleeper-cables2.png"
+          ],
+          "prompt": "Use case precise-object-edit. Image 1 is the EXACT edit target and Image 2 is the annotated removal/connection guide (red/green/blue annotations must NEVER appear in output). Produce a CLEAN BACKGROUND PLATE ONLY, so I can draw new precisely connected cords myself. REMOVE ALL three USB charging cords, all remaining cable fragments and little curved stubs, all loose loops and wire shadows on tabletop and sleeves. Remove the mains cord fragment on tabletop in transparent sprites, leave no unattached stubs. Keep the THREE WHITE CHARGER BLOCKS and white three-socket power strip, laptop, phone, tablet at EXACT SAME SIZE, POSITION AND PERSPECTIVE. Remove tablet's oval HOME BUTTON. Do NOT change the purple person, face, arms, color, table, devices, framing, scale or canvas. Keep phone and tablet blank black screens and their light gray borders. Reconstruct clean smooth purple cloth or gray tabletop/transparent background wherever cords were. NO blur, paint marks, ghost lines or residues. No new cords or text at all. Preserve transparency of transparent targets. For wide story scene ONLY, preserve wall-outlet mains cable in left half and all robot/dock art; remove only USB cords at right table. Preserve laptop lid's present state exactly. This is a restoration plate, NOT a redesign.",
+          "measurements": {
+            "file": "title-egg-sleeper.png",
+            "canvas": [
+              512,
+              512
+            ],
+            "bbox_before": [
+              16,
+              58,
+              495,
+              488
+            ],
+            "bbox_after": [
+              16,
+              58,
+              495,
+              488
+            ],
+            "sources": [
+              [
+                315,
+                236
+              ],
+              [
+                343,
+                239
+              ],
+              [
+                367,
+                240
+              ]
+            ],
+            "ends": [
+              [
+                282,
+                270
+              ],
+              [
+                336,
+                272
+              ],
+              [
+                413,
+                272
+              ]
+            ],
+            "ports": [
+              "laptop side near rear hinge",
+              "phone nearest short-edge center",
+              "tablet nearest short-edge center"
+            ],
+            "moves": {
+              "laptop": {
+                "translation": [
+                  0,
+                  0
+                ],
+                "rotation_degrees": 0
+              },
+              "phone": {
+                "translation": [
+                  0,
+                  0
+                ],
+                "rotation_degrees": 0,
+                "footprintRotationDegrees": 0,
+                "faceDirectionChangeDegrees": 180,
+                "note": "Footprint and projected size stay fixed. Reorient front-face hardware cues, placing speaker at far short end and port at nearest short end; no bitmap flip."
+              },
+              "tablet": {
+                "translation": [
+                  0,
+                  0
+                ],
+                "rotation_degrees": 0
+              }
+            },
+            "wire_components": [
+              [
+                406
+              ],
+              [
+                285
+              ],
+              [
+                509
+              ]
+            ],
+            "overlap_pixels": [
+              0,
+              0,
+              0
+            ],
+            "body_purple_changed_pixels": 1468,
+            "diagnosticColorComponents": [
+              1,
+              1,
+              1
+            ],
+            "adapterTopPorts": [
+              [
+                315,
+                249
+              ],
+              [
+                343,
+                252
+              ],
+              [
+                367,
+                254
+              ]
+            ],
+            "wireStartsAtPlugTips": [
+              [
+                315,
+                236
+              ],
+              [
+                343,
+                239
+              ],
+              [
+                367,
+                240
+              ]
+            ],
+            "crossings": 0,
+            "deviceToDeviceCables": 0,
+            "bezelRepair": "Continuous flat bezel band, no tablet home button; phone speaker at far short end, charging end nearest strip.",
+            "savedCanvas": [
+              512,
+              512
+            ],
+            "savedBytes": 189488,
+            "savedBBox": [
+              16,
+              58,
+              495,
+              488
+            ]
+          }
+        },
+        {
+          "file": "assets/a/story-3.webp",
+          "references": [
+            "assets/a/story-3.webp",
+            "docs/layout-guide/request-sleeper-cables2.png"
+          ],
+          "prompt": "Use case precise-object-edit. Image 1 is the EXACT edit target and Image 2 is the annotated removal/connection guide (red/green/blue annotations must NEVER appear in output). Produce a CLEAN BACKGROUND PLATE ONLY, so I can draw new precisely connected cords myself. REMOVE ALL three USB charging cords, all remaining cable fragments and little curved stubs, all loose loops and wire shadows on tabletop and sleeves. Remove the mains cord fragment on tabletop in transparent sprites, leave no unattached stubs. Keep the THREE WHITE CHARGER BLOCKS and white three-socket power strip, laptop, phone, tablet at EXACT SAME SIZE, POSITION AND PERSPECTIVE. Remove tablet's oval HOME BUTTON. Do NOT change the purple person, face, arms, color, table, devices, framing, scale or canvas. Keep phone and tablet blank black screens and their light gray borders. Reconstruct clean smooth purple cloth or gray tabletop/transparent background wherever cords were. NO blur, paint marks, ghost lines or residues. No new cords or text at all. Preserve transparency of transparent targets. For wide story scene ONLY, preserve wall-outlet mains cable in left half and all robot/dock art; remove only USB cords at right table. Preserve laptop lid's present state exactly. This is a restoration plate, NOT a redesign.",
+          "measurements": {
+            "file": "story-3.webp",
+            "canvas": [
+              1280,
+              720
+            ],
+            "bbox_before": [
+              0,
+              0,
+              1280,
+              720
+            ],
+            "bbox_after": [
+              0,
+              0,
+              1280,
+              720
+            ],
+            "sources": [
+              [
+                993,
+                249
+              ],
+              [
+                1039,
+                247
+              ],
+              [
+                1070,
+                251
+              ]
+            ],
+            "ends": [
+              [
+                940,
+                315
+              ],
+              [
+                1074,
+                321
+              ],
+              [
+                1145,
+                294
+              ]
+            ],
+            "ports": [
+              "laptop side near rear hinge",
+              "phone nearest short-edge center",
+              "tablet nearest short-edge center"
+            ],
+            "moves": {
+              "laptop": {
+                "translation": [
+                  0,
+                  0
+                ],
+                "rotation_degrees": 0,
+                "lid": "open, per user clarification"
+              },
+              "phone": {
+                "translation": [
+                  0,
+                  0
+                ],
+                "rotation_degrees": 0,
+                "footprintRotationDegrees": 0,
+                "faceDirectionChangeDegrees": 180,
+                "note": "Footprint and projected size stay fixed. Reorient front-face hardware cues, placing speaker at far short end and port at nearest short end; no bitmap flip."
+              },
+              "tablet": {
+                "translation": [
+                  0,
+                  0
+                ],
+                "rotation_degrees": 0
+              }
+            },
+            "wire_components": [
+              [
+                1179
+              ],
+              [
+                921
+              ],
+              [
+                1096
+              ]
+            ],
+            "overlap_pixels": [
+              0,
+              0,
+              0
+            ],
+            "body_purple_changed_pixels": 11096,
+            "diagnosticColorComponents": [
+              1,
+              1,
+              1
+            ],
+            "adapterTopPorts": [
+              [
+                993,
+                267
+              ],
+              [
+                1039,
+                266
+              ],
+              [
+                1070,
+                270
+              ]
+            ],
+            "wireStartsAtPlugTips": [
+              [
+                993,
+                249
+              ],
+              [
+                1039,
+                247
+              ],
+              [
+                1070,
+                251
+              ]
+            ],
+            "crossings": 0,
+            "deviceToDeviceCables": 0,
+            "bezelRepair": "Continuous flat bezel band, no tablet home button; phone speaker at far short end, charging end nearest strip.",
+            "mainsVsUsbOverlapPixels": [
+              0,
+              0,
+              0
+            ],
+            "mainsEntryBehindLid": [
+              811,
+              296
+            ],
+            "mainsExitAtLidRightEdge": [
+              919,
+              283
+            ],
+            "mainsEntersStrip": [
+              974,
+              288
+            ],
+            "savedCanvas": [
+              1280,
+              720
+            ],
+            "savedBytes": 62752,
+            "savedBBox": [
+              0,
+              0,
+              1280,
+              720
+            ]
+          }
+        },
+        {
+          "file": "assets/a/villain-wake.png",
+          "references": [
+            "assets/a/villain-wake.png",
+            "docs/layout-guide/request-sleeper-cables2.png",
+            "assets/a/villain-sleep.png"
+          ],
+          "prompt": "Use the corrected sleep equipment and charging cables byte-for-byte on the original wake pose. Keep the original wake head and face.",
+          "measurements": {
+            "file": "villain-wake.png",
+            "canvas": [
+              192,
+              480
+            ],
+            "bbox_before": [
+              4,
+              137,
+              188,
+              383
+            ],
+            "bbox_after": [
+              4,
+              137,
+              188,
+              382
+            ],
+            "sources": [
+              [
+                79,
+                296
+              ],
+              [
+                99,
+                302
+              ],
+              [
+                120,
+                303
+              ]
+            ],
+            "ends": [
+              [
+                93,
+                352
+              ],
+              [
+                113,
+                349
+              ],
+              [
+                153,
+                328
+              ]
+            ],
+            "ports": [
+              "laptop side near rear hinge",
+              "phone nearest short-edge center",
+              "tablet nearest short-edge center"
+            ],
+            "moves": {
+              "laptop": {
+                "translation": [
+                  0,
+                  0
+                ],
+                "rotation_degrees": 0
+              },
+              "phone": {
+                "translation": [
+                  0,
+                  0
+                ],
+                "rotation_degrees": 0,
+                "footprintRotationDegrees": 0,
+                "faceDirectionChangeDegrees": 180,
+                "note": "Footprint and projected size stay fixed. Reorient front-face hardware cues, placing speaker at far short end and port at nearest short end; no bitmap flip."
+              },
+              "tablet": {
+                "translation": [
+                  0,
+                  0
+                ],
+                "rotation_degrees": 0
+              }
+            },
+            "wire_components": [
+              [
+                284
+              ],
+              [
+                254
+              ],
+              [
+                244
+              ]
+            ],
+            "overlap_pixels": [
+              0,
+              0,
+              0
+            ],
+            "body_purple_changed_pixels": 2413,
+            "cablesAndDevicesIdenticalToSleep": true,
+            "diagnosticColorComponents": [
+              1,
+              1,
+              1
+            ],
+            "adapterTopPorts": [
+              [
+                79,
+                305
+              ],
+              [
+                99,
+                312
+              ],
+              [
+                120,
+                314
+              ]
+            ],
+            "wireStartsAtPlugTips": [
+              [
+                79,
+                296
+              ],
+              [
+                99,
+                302
+              ],
+              [
+                120,
+                303
+              ]
+            ],
+            "crossings": 0,
+            "deviceToDeviceCables": 0,
+            "bezelRepair": "Continuous flat bezel band, no tablet home button; phone speaker at far short end, charging end nearest strip.",
+            "savedCanvas": [
+              192,
+              480
+            ],
+            "savedBytes": 70787,
+            "savedBBox": [
+              4,
+              137,
+              188,
+              382
+            ]
+          }
+        }
+      ],
+      "verification": {
+        "actualGameDesktop": [
+          1920,
+          1080
+        ],
+        "actualGamePhone": [
+          375,
+          812
+        ],
+        "manifestChanged": false,
+        "commitMade": false
+      }
     }
   ]
 }
