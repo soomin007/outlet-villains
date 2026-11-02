@@ -135,6 +135,28 @@
       + '</div>';
   }
 
+  // 의뢰 13(2026-11-02). cables: 잠든 카공족 충전선의 바른 연결. 지금 게임 그림(4배)과 이스터에그(2배) 위에 충전기마다 갈 기기를 초록 선으로 덧그린다.
+  if (part === 'cables') {
+    const svgLine = (d, label, lx, ly) => `<path d="${d}" stroke="#1d9b4a" stroke-width="7" fill="none" stroke-linecap="round"/>`
+      + `<text x="${lx}" y="${ly}" font-size="20" font-weight="700" fill="#fff" stroke="#1d9b4a" stroke-width="5" paint-order="stroke">${label}</text>`;
+    // 게임 그림은 192 x 480 가운데 y 280~390 탁자 윗면 쪽을 4배로 보인다(왼쪽 위가 x 0, y 280).
+    const sprite = '<div style="position:relative; width:768px; height:440px; overflow:hidden; background:#ececec">'
+      + '<img src="../assets/a/villain-sleep.png" alt="" style="position:absolute; left:0; top:-1120px; width:768px; height:1920px; opacity:0.55">'
+      + '<svg width="768" height="440" style="position:absolute; left:0; top:0">'
+      + svgLine('M 320 120 C 300 170, 380 230, 392 260', '왼쪽 충전기 → 노트북 옆 단자', 20, 60)
+      + svgLine('M 404 120 C 420 200, 470 260, 486 380', '가운데 충전기 → 폰 아래 단자', 470, 410)
+      + svgLine('M 488 120 C 540 120, 560 220, 566 260', '오른쪽 충전기 → 태블릿 옆 단자', 470, 60)
+      + '</svg><span style="position:absolute; left:6px; top:6px; background:#000; color:#fff; font:700 15px system-ui; padding:2px 6px">villain-sleep 4배(흐리게 깐 지금 그림), y 280~390</span></div>';
+    const note = '<div style="font-size:16px; line-height:1.6; max-width:1500px; padding-top:10px">'
+      + '멀티탭 세 구에 꽂힌 충전기마다 선이 하나씩이고, 그 선은 기기 하나의 단자까지 끊기지 않고 보인다. 기기끼리 잇는 선(태블릿에서 폰, 폰에서 노트북)과 팔이나 기기 뒤로 사라지는 선은 모두 지운다.<br>'
+      + '멀티탭 자체의 전원선은 탁자 뒤쪽(위)으로 빠진다. 사람, 채색, 기기의 자리와 크기는 지금 그대로 두고 선만 다시 그린다.</div>';
+    root.innerHTML = '<div style="display:flex; gap:16px; padding:16px; align-items:flex-start">' + sprite
+      + '<div style="position:relative; width:720px; height:440px; overflow:hidden; background:#ececec">'
+      + '<img src="../assets/a/title-egg-sleeper.png" alt="" style="position:absolute; left:-260px; top:-360px; width:1024px; height:1024px; opacity:0.55">'
+      + '<span style="position:absolute; left:6px; bottom:6px; background:#000; color:#fff; font:700 15px system-ui; padding:2px 6px">title-egg-sleeper 2배: 같은 규칙(충전기 하나에 기기 하나)</span></div></div>'
+      + `<div style="padding:0 16px 16px">${note}</div>`;
+  }
+
   // standing2: 서 있는 손님 3b, 4b의 크기 라인업. 확정한 서 있는 8a와 앉은 3b, 4b를 나란히 놓는다.
   if (part === 'standing2') {
     const line = (y, color, text) => `<div class="line" style="top:${y}px; border-color:${color}; color:${color}"><span style="position:absolute; right:2px; top:-15px; background:#fff">${text}</span></div>`;
