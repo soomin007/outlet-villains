@@ -2130,11 +2130,14 @@
           : `polygon(0 0, 100% 0, 100% 100%, ${x} 100%, ${x} ${lap}, 0 ${lap})`;
       }
 
-      // 시작 자리에서 걸어서 닿을 수 있는 칸(물건은 바닥으로 본다). 판마다 한 번만 센다. 걸어 다니는 손님이 선 칸도 바닥으로 본다.
+      // 판 중에 로봇이 언젠가 걸을 수 있는 칸(물건은 밀어 치울 수 있으니 바닥으로 본다). 판마다 한 번만 센다.
+      // 걸어 다니는 손님, 음료를 받으면 자리로 돌아가는 손님, 쓰레기통을 보고 떠나는 촬영자가 선 칸도 바닥으로 본다.
+      // 음료 손님을 벽으로 셌더니 2-5에서 그 손님 너머 (9, 4)와 (9, 3)을 못 가는 칸으로 보고, 풀이에 쓰이는 그 칸들 앞에 기둥을 세웠다(known-issues 33번).
       function walkableCells() {
         if (game.walkable && game.walkable.level === game.level) return game.walkable.cells;
         const level = game.level;
-        const open = { ...level.start, walkers: undefined };
+        const served = level.start.items.map((item) => (item.kind === 'drink' ? { ...item, gone: true } : item));
+        const open = { ...level.start, walkers: undefined, gone: true, items: served };
         const start = `${level.start.player.x},${level.start.player.y}`;
         const cells = new Set([start]);
         const queue = [level.start.player];
