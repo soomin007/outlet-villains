@@ -8,6 +8,7 @@
   주소 예: shot.html?level=3 (1-4), shot.html?level=3&zoom=2.5&x=180&y=110 (장면 좌표 x, y를 왼쪽 위로 2.5배),
   shot.html?title=1&w=375&h=812 (메인 화면을 375 x 812 틀로), title=1&cleared=13 (모든 판을 깬 메인 화면).
   solve=1을 붙이면 해법 탐색기의 최단 풀이대로 판을 깨고, 깬 뒤 장면(로봇이 충전 독에 올라앉은 모습)을 찍는다. 이때는 --virtual-time-budget을 40000 이상 준다.
+  steps=N을 붙이면 최단 풀이의 앞 N걸음만 누른 장면을 찍는다(걸어 다니는 손님과 로봇이 함께 움직이는 중간 모습 확인용, 2026-11-02).
   swap=이름:경로(여럿이면 쉼표)를 붙이면 장면 속 그 그림(파일 이름이 이름.png나 이름.webp)을 경로의 시험 그림으로 바꿔 찍는다. 그림 목록은 건드리지 않는다.
   예: swap=villain-sleep:../assets/style-test/villain-sleep-v2.png
   headless Chrome으로 찍을 때는 --virtual-time-budget을 15000 이상 준다(판 시작 연출이 끝나야 한다). 창 크기는 w, h와 같게 준다.
@@ -27,7 +28,8 @@
   const level = Number(params.get('level') || 0);
   const cleared = Number(params.get('cleared') || level);
   const zoom = Number(params.get('zoom') || 0);
-  const solve = params.get('solve') === '1';
+  const steps = params.has('steps') ? Number(params.get('steps')) : null;
+  const solve = params.get('solve') === '1' || steps !== null;
   const STORAGE_KEY = 'villain-settings-2';
 
   // 진행 저장값을 그 판 앞까지 깬 것으로 맞춰, 메인 화면의 이어하기가 그 판을 연다.
@@ -78,7 +80,7 @@
     // 최단 풀이를 누른다. 연출 중에 누른 키는 건너뛰기로 쓰이므로, 로봇이 움직였는지 보고 안 움직였으면 다시 누른다(tools/playthrough.html과 같다).
     async function playSolution() {
       const definition = window.VILLAIN_LAYOUT.levels[level];
-      const path = VillainEngine.solve(VillainEngine.parseLevel(definition)).path || [];
+      const path = (VillainEngine.solve(VillainEngine.parseLevel(definition)).path || []).slice(0, steps === null ? undefined : steps);
       const keys = { up: 'ArrowUp', down: 'ArrowDown', left: 'ArrowLeft', right: 'ArrowRight' };
       const pause = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
       const robotSpot = () => {
@@ -94,7 +96,7 @@
           await pause(600);
         }
       }
-      await pause(9000);
+      await pause(steps === null ? 9000 : 1500);
       // headless Chrome의 가상 시간에서는 CSS 전환(빌런이 사라지기, 배터리 차기)이 끝나지 않아, 찍기 전에 전환을 꺼서 끝 모습으로 보낸다.
       const still = frame.contentDocument.createElement('style');
       still.textContent = '*, *::before, *::after { transition: none !important; }';

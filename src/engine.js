@@ -27,6 +27,16 @@
 //  11. 음료(1, 2, 3)는 의자처럼 민다. 픽업을 기다리며 서 있는 손님(A, B, C)은 길을 막는다. 숫자와 글자가 짝이다(1은 A의 음료).
 //  12. 음료가 제 손님의 옆 칸(위아래 좌우)에 놓이면 손님이 음료를 받아 들고 자리로 돌아간다. 음료와 손님이 함께 사라져(gone) 그 칸이 열린다.
 //
+// 걸어 다니는 손님의 규칙(2026-11-02 사용자 결정. Hitman GO의 순찰 경비처럼 정해진 길을 왕복한다).
+//  13. 판 정의의 walkers에 적은 손님은 길(route)을 오간다. 로봇이 한 칸 움직이면(밀기 포함) 손님도 한 칸 걷고, 길 끝에서는 돌아선다.
+//      로봇이 부딪혀 제자리인 걸음에는 손님도 움직이지 않는다. 제자리에서 한 턴을 보내는 기다리기 키는 없다.
+//  14. 손님이 다음에 밟을 칸에 로봇이나 물건, 다른 손님이 있으면 손님은 그 턴에 서서 기다린다. 손님은 길을 막고 밀리지 않는다.
+//  15. 화각은 손님에서 멈춘다(4번). 손님까지 걸은 뒤에 로봇이 화각에 드러나면 그 걸음은 없던 일이 된다(5번).
+//      그래서 로봇은 화각을 가로지르는 손님 뒤에 붙어 함께 걸으면 화각을 건널 수 있다.
+//  16. 길 끝에서 손님이 머무는 턴 수를 rest에 적을 수 있다(예: 셀프 바에서 물을 받는 한 턴).
+//      격자에서는 로봇이 몇 걸음을 돌아와도 걸음 수의 짝홀이 같아서, 손님과 짝홀이 어긋나면 한 바퀴를 더 기다려도 다시 어긋난다.
+//      한쪽 끝에서만 한 턴 머물면 한 바퀴의 턴 수가 홀수가 되어, 다음 바퀴에는 박자가 맞는다.
+//
 // 지도 글자: 배경(움직이지 않음)은 T 테이블, L 화분, # 그 밖의 벽. N 앉은 손님, o 카페 테이블, q 소품(모두 움직이지 않고, 배경이 아니라 따로 그린 그림을 게임이 얹는다).
 // . 바닥, P 나, V 빌런, F 촬영자(셋째 판, 움직이지 않음), b 진동벨, c 의자, t 쓰레기통, * 진동벨을 놓을 칸,
 // w 젖은 바닥, 1 2 3 음료, A B C 음료를 기다리는 손님
@@ -76,9 +86,42 @@
     items.filter((item) => item.kind === 'drink').forEach((drink) => {
       if (!waiters.some((waiter) => waiter.order === drink.order)) throw new Error(`${definition.id}: 음료 ${drink.order}를 받을 손님이 없습니다`);
     });
+    // 걸어 다니는 손님(13번). route는 길이 꺾이는 점들이고, 그 사이의 칸을 모두 이어 길(cells)을 만든다.
+    // at은 처음 서 있는 칸의 번호, dir은 처음 걷는 쪽이다(1이면 길의 끝 쪽, -1이면 처음 쪽). rest는 [처음 끝, 마지막 끝]에서 머무는 턴 수다(16번).
+    const walkers = (definition.walkers || []).map((walker) => {
+      const cells = [];
+      walker.route.forEach(([x, y]) => {
+        const last = cells[cells.length - 1];
+        if (!last) {
+          cells.push({ x, y });
+          return;
+        }
+        if ((last.x !== x && last.y !== y) || (last.x === x && last.y === y)) {
+          throw new Error(`${definition.id}: 손님 ${walker.who}의 길은 가로나 세로로 한 칸 이상씩 이어져야 합니다`);
+        }
+        const sx = Math.sign(x - last.x);
+        const sy = Math.sign(y - last.y);
+        for (let cx = last.x + sx, cy = last.y + sy; ; cx += sx, cy += sy) {
+          cells.push({ x: cx, y: cy });
+          if (cx === x && cy === y) break;
+        }
+      });
+      cells.forEach(({ x, y }) => {
+        const outside = x < 0 || y < 0 || y >= definition.map.length || x >= definition.map[0].length;
+        if (outside || walls.has(`${x},${y}`) || (villain && villain.x === x && villain.y === y) || (filmer && filmer.x === x && filmer.y === y)) {
+          throw new Error(`${definition.id}: 손님 ${walker.who}의 길 (${x}, ${y})이 바닥이 아닙니다`);
+        }
+      });
+      const first = cells[walker.at || 0];
+      if (!first || (player && player.x === first.x && player.y === first.y) || items.some((item) => item.x === first.x && item.y === first.y)) {
+        throw new Error(`${definition.id}: 손님 ${walker.who}의 첫 칸이 길 밖이거나 로봇, 물건과 겹칩니다`);
+      }
+      return { who: walker.who, cells, at: walker.at || 0, dir: walker.dir || 1, rest: walker.rest || [0, 0] };
+    });
     const start = { player, items, facing: 'down' };
     if (filmer) start.gone = false;
     if (wet.length > 0) start.wet = wet.sort();
+    if (walkers.length > 0) start.walkers = walkers.map((walker) => ({ at: walker.at, dir: walker.dir, rest: 0 }));
     return {
       ...definition,
       width: definition.map[0].length,
@@ -89,6 +132,7 @@
       filmer,
       dock,
       waiters,
+      walkers,
       start,
     };
   }
@@ -109,11 +153,69 @@
       && !state.items.some((item) => item.kind === 'drink' && item.order === waiter.order && item.gone));
   }
 
-  // 벽과 빌런에 더해, 지금 상태에서 길을 막는 손님과 아직 떠나지 않은 촬영자까지 본다.
+  // 걸어 다니는 손님이 지금 서 있는 칸들(13번). 판에 걸어 다니는 손님이 없으면 빈 목록이다.
+  function walkerCells(level, state) {
+    return (state.walkers || []).map((walker, index) => level.walkers[index].cells[walker.at]);
+  }
+
+  function walkerAt(level, state, x, y) {
+    return walkerCells(level, state).some((cell) => cell.x === x && cell.y === y);
+  }
+
+  // 손님이 다음 턴에 밟으려는 칸과 그쪽 방향. 길 끝이면 돌아선 쪽이다. 화면은 이 칸에 발자국을 그린다.
+  // 길 끝에서 머무는 중이면(16번) 다음 턴에도 그 자리에 있으므로 null이다.
+  function walkerNext(level, state, index) {
+    const walker = state.walkers[index];
+    const cells = level.walkers[index].cells;
+    if (cells.length < 2 || walker.rest > 0) return null;
+    const dir = walker.at + walker.dir < 0 || walker.at + walker.dir >= cells.length ? -walker.dir : walker.dir;
+    const from = cells[walker.at];
+    const to = cells[walker.at + dir];
+    const facing = Object.keys(DIRECTIONS).find((name) => DIRECTIONS[name].dx === to.x - from.x && DIRECTIONS[name].dy === to.y - from.y);
+    return { x: to.x, y: to.y, dir, facing };
+  }
+
+  // 손님이 지금 바라보는 쪽. 다음에 밟을 칸 쪽이고, 길 끝에서 머무는 중이면 걸어온 방향 그대로 길 바깥쪽을 본다.
+  function walkerFacing(level, state, index) {
+    const next = walkerNext(level, state, index);
+    if (next) return next.facing;
+    const walker = state.walkers[index];
+    const cells = level.walkers[index].cells;
+    const here = cells[walker.at];
+    const behind = cells[walker.at - walker.dir];
+    if (!behind) return 'down';
+    return Object.keys(DIRECTIONS).find((name) => DIRECTIONS[name].dx === here.x - behind.x && DIRECTIONS[name].dy === here.y - behind.y);
+  }
+
+  // 로봇이 움직인 뒤 손님들이 한 칸씩 걷는다(13, 14번). 다음 칸에 로봇이나 물건, 다른 손님이 있으면 돌아서기만 하고 그 자리에 선다.
+  // 길 끝에 닿으면 rest만큼 머문 뒤에 돌아선다(16번). 앞 손님이 이번 턴에 비운 칸에는 뒤 손님이 들어갈 수 있다(손님 차례는 walkers 순서다).
+  function walkOn(level, state) {
+    const walkers = state.walkers.map((walker) => ({ ...walker }));
+    walkers.forEach((walker, index) => {
+      if (walker.rest > 0) {
+        walker.rest -= 1;
+        return;
+      }
+      const next = walkerNext(level, { walkers }, index);
+      if (!next) return;
+      walker.dir = next.dir;
+      const taken = (state.player.x === next.x && state.player.y === next.y)
+        || itemIndexAt(state.items, next.x, next.y) >= 0
+        || walkerCells(level, { walkers }).some((cell) => cell.x === next.x && cell.y === next.y);
+      if (taken) return;
+      walker.at += walker.dir;
+      const route = level.walkers[index];
+      if (walker.at === 0) walker.rest = route.rest[0];
+      else if (walker.at === route.cells.length - 1) walker.rest = route.rest[1];
+    });
+    return walkers;
+  }
+
+  // 벽과 빌런에 더해, 지금 상태에서 길을 막는 손님(음료를 기다리는 손님, 걸어 다니는 손님)과 아직 떠나지 않은 촬영자까지 본다.
   // 촬영자가 떠난 자리는 열린다. 예전에는 촬영자 그림만 사라지고 칸은 계속 막혀 보이지 않는 벽이 됐다(known-issues 22번).
   function blockedNow(level, state, x, y) {
     const filmerHere = level.filmer && !state.gone && level.filmer.x === x && level.filmer.y === y;
-    return blocked(level, x, y) || waiterAt(level, state, x, y) || Boolean(filmerHere);
+    return blocked(level, x, y) || waiterAt(level, state, x, y) || walkerAt(level, state, x, y) || Boolean(filmerHere);
   }
 
   function isWet(state, x, y) {
@@ -195,6 +297,8 @@
       mopped = isWet(state, tx, ty);
       next.wet = mopped ? state.wet.filter((cell) => cell !== `${tx},${ty}`) : state.wet;
     }
+    // 걸어 다니는 손님은 로봇이 움직인 다음에 걷고, 화각은 손님까지 걸은 뒤에 본다(15번).
+    if (state.walkers) next.walkers = walkOn(level, { ...next, walkers: state.walkers });
     const view = viewOf(level, next);
     if (view.hits.includes('player')) return { moved: false, seen: true, state: turned, attempted: next, won: false };
     // 셋째 판: 쓰레기통이 촬영자의 화각에 비치면 촬영자가 떠난다. 판은 계속된다.
@@ -214,7 +318,8 @@
 
   function stateKey(state) {
     const items = state.items.map((item) => (item.gone ? `${item.kind}${item.order}-` : `${item.kind}${item.order || ''}${item.x},${item.y}`)).sort().join(';');
-    return `${state.player.x},${state.player.y}|${items}|${state.gone ? 1 : 0}|${state.wet ? state.wet.join(';') : ''}`;
+    const walkers = state.walkers ? state.walkers.map((walker) => `${walker.at}${walker.dir > 0 ? '+' : '-'}${walker.rest}`).join(';') : '';
+    return `${state.player.x},${state.player.y}|${items}|${state.gone ? 1 : 0}|${state.wet ? state.wet.join(';') : ''}|${walkers}`;
   }
 
   // 너비 우선 탐색으로 최소 걸음 수를 찾는다. pushes는 그 해법에서 민 횟수다. 해법이 없으면 moves가 null이다.
@@ -251,7 +356,7 @@
     return { moves: null, pushes: null, path: null };
   }
 
-  const api = { DIRECTIONS, parseLevel, viewOf, step, won, solve, stateKey, isWet, waiterAt, blockedAt: blockedNow };
+  const api = { DIRECTIONS, parseLevel, viewOf, step, won, solve, stateKey, isWet, waiterAt, walkerCells, walkerNext, walkerFacing, blockedAt: blockedNow };
   if (typeof module === 'object' && module.exports) module.exports = api;
   else root.VillainEngine = api;
 })(typeof window !== 'undefined' ? window : globalThis);

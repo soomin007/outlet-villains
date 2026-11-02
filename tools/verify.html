@@ -111,6 +111,11 @@
         });
         expect(changed, `${definition.id}: (${x}, ${y}) 의자가 풀이에 쓰임`);
       });
+      // 걸어 다니는 손님도 풀이에 쓰여야 한다(known-issues 17번). 손님을 빼면 풀리지 않거나 최소 걸음이 달라야 한다.
+      if (level.walkers.length > 0) {
+        const alone = VillainEngine.solve(VillainEngine.parseLevel({ ...definition, walkers: [] }));
+        expect(alone.moves !== result.moves, `${definition.id}: 걸어 다니는 손님이 풀이에 쓰임 (손님을 빼면 ${alone.moves === null ? '풀리지 않음' : `${alone.moves}걸음`})`);
+      }
       // 튜토리얼은 망치는 첫 수가 없어야 하고, 퍼즐은 있어야 한다. 퍼즐은 걸을 수 있는 칸이 35칸 이하다(docs/level-design.md).
       if (definition.kind) {
         const firsts = firstPushOutcomes(level);
